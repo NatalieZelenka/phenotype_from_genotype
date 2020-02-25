@@ -4,8 +4,11 @@
 */
 .DS_Store
 Gemfile.lock
+Gemfile
+Guardfile
+Makefile
 
 # Whitelist the content directory, and the table of contents file
 !_data/toc.yml
 !content/*
-
+!_bibliography
