@@ -1,0 +1,11 @@
+# Only really want to keep track of the content directory and some other bits and pieces.
+
+# Blacklist everything
+*/
+.DS_Store
+Gemfile.lock
+
+# Whitelist the content directory, and the table of contents file
+!_data/toc.yml
+!content/*
+
