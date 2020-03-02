@@ -4,7 +4,7 @@
 #
 # - title: mytitle   # Title of chapter or section
 #   url: /myurl  # URL of section relative to the /content/ folder.
-#   sections:  # Contains a list of more entries that make up the chapter's sections
+#   sections:  # Contains a lisft of more entries that make up the chapter's sections
 #   not_numbered: true  # if the section shouldn't have a number in the sidebar
 #     (e.g. Introduction or appendices)
 #   expand_sections: true  # if you'd like the sections of this chapter to always
@@ -30,11 +30,11 @@
 - header: Thesis
 
 - title: Acknowledgements
-  url: front-matter/acknowledgements
+  url: /front-matter/acknowledgements
   not_numbered: true
 
 - title: abstract
-  url: front-matter/abstract
+  url: /front-matter/abstract
   not_numbered: true
 
 - divider: true
@@ -44,12 +44,12 @@
 
 - title: Background - biology
   url: /02/bg-biology
-  sections:
-  - title: Introduction
-    url: /01/1/intro
-    subsections:
-    - title: Subsection Demo 1
-      url: /01/3/subsection/subsections
+  # sections:
+  # - title: Introduction
+  #   url: /01/1/intro
+  #   subsections:
+  #   - title: Subsection Demo 1
+  #     url: /01/3/subsection/subsections
 
 # - title: Background - computational biology
 #   url: /02/bg-computational-biology

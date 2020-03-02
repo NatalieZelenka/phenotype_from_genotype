@@ -11,4 +11,5 @@ Makefile
 # Whitelist the content directory, and the table of contents file
 !_data/toc.yml
 !content/*
+!content
 !_bibliography
