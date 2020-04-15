@@ -17,39 +17,87 @@
 # - header: My Header  # Will insert a header with no link in the sidebar
 
 
+# ==========
+# EXTRAS
+# ==========
 - header: Extras
 - title: Start here
   url: /start-here
-  not_pdf: true
+  not_in_book: true 
+  not_numbered: true
 - title: GitHub repository
   url: https://github.com/nataliethurlby/thesis
   external: true
+  not_in_book: true 
   not_numbered: true
 
 - divider: true
+
+# ==========
+# THESIS 
+# ==========
 - header: Thesis
 
-- title: Acknowledgements
-  url: /front-matter/acknowledgements
-  not_numbered: true
+# FRONT MATTER:
+- title: Front Matter
+  url: /front-matter/title-page #TODO: test if can go straight to title page and if so get rid of front-matter.md
+  not_in_book: true 
+  expand_sections: false
+  not_numbered: true #TODO: test if this is automatically inherited? And make the same decision when I create my bigger table of contents.
 
-- title: abstract
-  url: /front-matter/abstract
-  not_numbered: true
+  sections:
+  - title: Title page
+    url: /front-matter/title-page
+    page-break-after: true
 
-- divider: true
+  - title: Declaration
+    url: /front-matter/declaration
+    page-break-after: true
+
+  - title: Acknowledgements
+    url: /front-matter/acknowledgements
+    page-break-after: true
+
+  - title: Abstract
+    url: /front-matter/abstract
+    page-break-after: true
+
+  - title: Table of contents
+    url: /front-matter/full-table-of-contents
+    page-break-after: true
+
+  - title: List of figures
+    url: /front-matter/list-of-figures
+    page-break-after: true
+
+  - title: List of tables
+    url: /front-matter/list-of-tables
+    page-break-after: true
+
+# =============
+# INTRODUCTION
+# ==============
 
 - title: Introduction
   url: /01/intro
+  page-break-after: true
 
 - title: Background - biology
   url: /02/bg-biology
-  # sections:
-  # - title: Introduction
-  #   url: /01/1/intro
-  #   subsections:
-  #   - title: Subsection Demo 1
-  #     url: /01/3/subsection/subsections
+  sections:
+  - title: Big Questions
+    url: /02/1/big-questions
+    subsections:
+     - title: DNA
+       url: /02/1/1/dna
+     - title: The central dogma of molecular biology
+       url: /02/1/1/central-dogma
+     - title: Genes, genomes, and genetic variation
+       url: /02/1/1/genes-and-genomes
+     - title: Protein Structure
+       url: /02/1/1/proteins
+     - title: Reading DNA and RNA
+       url: /02/1/1/reading-dna-rna
 
 # - title: Background - computational biology
 #   url: /02/bg-computational-biology
