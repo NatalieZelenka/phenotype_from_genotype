@@ -9,6 +9,7 @@
 !_data/toc.yml
 !content/**
 !_bibliography/**
+!.gitignore
 
 # Now blacklist again some things that I don't wanna track
 .DS_Store
