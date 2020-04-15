@@ -88,16 +88,16 @@
   - title: Big Questions
     url: /02/1/big-questions
     subsections:
-     - title: DNA
-       url: /02/1/1/dna
-     - title: The central dogma of molecular biology
-       url: /02/1/1/central-dogma
-     - title: Genes, genomes, and genetic variation
-       url: /02/1/1/genes-and-genomes
-     - title: Protein Structure
-       url: /02/1/1/proteins
-     - title: Reading DNA and RNA
-       url: /02/1/1/reading-dna-rna
+      - title: DNA
+        url: /02/1/1/dna
+      - title: The central dogma of molecular biology
+        url: /02/1/1/central-dogma
+      - title: Genes, genomes, and genetic variation
+        url: /02/1/1/genes-and-genomes
+      - title: Protein Structure
+        url: /02/1/1/proteins
+      - title: Reading DNA and RNA
+        url: /02/1/1/reading-dna-rna
 
 # - title: Background - computational biology
 #   url: /02/bg-computational-biology
