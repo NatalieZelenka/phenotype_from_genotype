@@ -1,13 +1,13 @@
 # Only really want to keep track of the content directory and some other bits and pieces.
 
-# Blacklist everything
+# Blacklist everything (but whitelist directories)
 */
+!*/
 
 # Whitelist the content directory, and the table of contents file
 !_data/toc.yml
-!content/*
-!content
-!_bibliography
+!content/**
+!_bibliography/**
 
 # Now blacklist again some things that I don't wanna track
 .DS_Store
