@@ -2,16 +2,14 @@
 
 # Blacklist everything in the root
 /*
-# Whitelist directories
-!*/
 
 # Whitelist the content directory, and the table of contents file
 !_data/toc.yml
-!content/**
-!_bibliography/**
+!content/
+!_bibliography/
 !.gitignore
 
-# Now blacklist again some things that I don't wanna track
+# Now blacklist again some file types that I don't wanna track
 .DS_Store
 Gemfile.lock
 Gemfile
