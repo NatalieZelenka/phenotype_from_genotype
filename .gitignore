@@ -1,7 +1,8 @@
 # Only really want to keep track of the content directory and some other bits and pieces.
 
-# Blacklist everything (but whitelist directories)
-*
+# Blacklist everything in the root
+/*
+# Whitelist directories
 !*/
 
 # Whitelist the content directory, and the table of contents file
