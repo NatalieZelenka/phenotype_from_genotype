@@ -12,6 +12,8 @@
 # Now blacklist again some things that I don't wanna track
 .DS_Store
 Gemfile.lock
+Gemfile
 Guardfile
 Makefile
 *.png
+*.jpg
