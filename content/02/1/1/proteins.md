@@ -13,7 +13,7 @@ At the next level, the tertiary structure describes folds: combinations of secon
 
 ##### Quaternary structures: protein domains
 
-[Figure X_lego: An illustration of the lego analogy for protein domains. Coloured bricks represent protein domains - colour represents a specific protein domain type, while thin grey bricks represent polypeptide linkers which link domains. Image created using mecabricks[16].](/content/images/lego.png)
+![Figure X_lego: An illustration of the lego analogy for protein domains. Coloured bricks represent protein domains - colour represents a specific protein domain type, while thin grey bricks represent polypeptide linkers which link domains. Image created using mecabricks[16].](/content/images/lego.png)
 
 The quaternary structures of proteins - protein domains - have proved particularly interesting for research. A simple and oft-used metaphor is to think of protein domains as lego building blocks (Figure X_lego) which can be linked by polypeptide chains to make up a protein. These polypeptide chains (known as linkers) are often inflexible, in order to allow only one conformation of the protein. Small and simple proteins often consist of just one domain, while bigger proteins can contain many domains. An individual domain can be found in many different proteins, and multiple times in the same protein. 
 
