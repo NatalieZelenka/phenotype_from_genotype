@@ -6,7 +6,7 @@ As mentioned, genes are usually defined as stretches of DNA which encode for RNA
 [//]: # (TODO: link for regulating transcription) 
 The functionality of non-coding DNA is not fully understood. Some of it is used to regulate expression of other parts of the DNA. 
 
-Genes are also not a straightforward unit. Just because a gene is read to create RNA, does not mean that RNA always makes proteins. Furthermore, there is not a 1:1 mapping of genes:proteins for those that do (one gene could be read to create multiple different proteins). There can be disagreements about the locations of genes on the genome, and popular databases of genes fundamentally disagree on this and on the number of genes[12]. Gene names and symbols change over time, and can be difficult to map between for this reason. 
+Genes are also not a straightforward unit. Just because a gene is read to create RNA, does not mean that RNA always makes proteins. Furthermore, there is not a 1:1 mapping of genes:proteins for those that do (one gene could be read to create multiple different proteins). There can be disagreements about the locations of genes on the genome, and popular databases of genes fundamentally disagree on this and on the number of genes{% cite Salzberg2018-yc %}. Gene names and symbols change over time, and can be difficult to map between for this reason. 
 
 Genes are also not necessarily a “unit of heritability” - we inherit regions around genes together with them and do not necessarily inherit whole copies of each gene from each parent (although this is rare). 
 
@@ -36,9 +36,13 @@ If a SNP alters the amino acid makeup of a protein, it is known as non-synonymou
 
 Nonsense mutations occur where the SNP substitution results in a stop codon (e.g. TAG) in an unusual position, which signals for a ribosome to stop translating RNA into a protein. This results in an incomplete and usually nonfunctional protein. The effect of a nonsense mutation would be more or less severe depending on the location of the new stop codon. For example, if it was close to the end of the protein, the protein may still be functional. Sufficiently incomplete proteins are usually destroyed by the cell. 
 
-[//]: # (Is this true? About location of stop codon. If so, I want the link!)
+[//]: # (TODO: Is this true? About location of stop codon. If so, I want the link!)
 
 On the other hand, missense mutations occur where the SNP substitution results in an amino acid substitution in the protein. Some amino acids can be substituted without causing any difference to the function of the protein, while others can severely impede the protein.
 
 ###### Synonymous SNVs
 Synonymous SNVs occur where substituting the usual nucleotide with another results in the same amino acid. The resulting protein will have the exact same functionality. However, synonymous SNVs could still have an effect on high-level traits, since different nucleotides are translated at different speeds. 
+
+---
+
+{% bibliography --cited %} 

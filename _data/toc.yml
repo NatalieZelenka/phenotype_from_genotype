@@ -42,7 +42,7 @@
 - title: Front Matter
   url: /front-matter/title-page #TODO: test if can go straight to title page and if so get rid of front-matter.md
   not_in_book: true 
-  expand_sections: false
+  expand_sections: true
   not_numbered: true #TODO: test if this is automatically inherited? And make the same decision when I create my bigger table of contents.
 
   sections:
@@ -84,6 +84,7 @@
 
 - title: Background - biology
   url: /02/bg-biology
+  expand_sections: true
   sections:
   - title: Big Questions
     url: /02/1/big-questions
@@ -122,4 +123,14 @@
 #   sections:
 #   - title: Numbers
 #     url: /05/1/Numbers
+
+
+
+# =============
+# BIBLIOGRAPHY
+# ==============
+- title: References
+  url: /bibliography
+  not_in_book: true
+  not_numbered: true
 

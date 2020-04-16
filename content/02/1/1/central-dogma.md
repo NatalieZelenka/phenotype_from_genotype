@@ -1,4 +1,6 @@
 ### The central dogma of molecular biology
+[//]: # (TODO: Cite DNA makes RNA makes proteins.)
+
 The central dogma of molecular biology can be paraphrased as “DNA makes RNA makes proteins”. The idea is that as the “code of life”, DNA contains the instructions for making RNA, which contains the instructions for making proteins, and proteins are the molecules which constitute and do everything in our bodies. Like almost everything in biology, this is, of course, a simplification, for example, there are many functional RNA molecules which also do things in the body.
 
 The central dogma describes the process of gene expression. Gene expression has two parts: transcription (“DNA makes RNA”) and translation (“RNA makes proteins”).
@@ -16,7 +18,7 @@ The process of what is transcribed and how quickly is affected by many different
 
 #### "RNA makes proteins" - translation 
 
-![Figure X_aminoacid: Amino acid wheel chart (from sigmaaldrich.com[11]) showing the relationships between codons and amino acid. The chart is read from the inside out.](/content/images/amino_acid_chart.png)
+![Figure X_aminoacid: Amino acid wheel chart (image source: sigmaaldrich.com{% cite noauthor_undated-ic %}) showing the relationships between codons and amino acid. The chart is read from the inside out.](/content/images/amino_acid_chart.png)
 
 The process by which RNA is made into a protein is known as translation. First the RNA is converted into a string of amino acids, and then the string of amino acids automatically folds into its’ usual three dimensional structure. The protein folding aspect is not part of translation.
 
@@ -32,4 +34,8 @@ After translation, many proteins can be modified by the addition of various func
 #### "...and proteins do everything."
 The unwritten addendum implied by “DNA makes RNA makes proteins” is “...and proteins do everything”. If DNA encodes for life, then proteins are what make up life. They are the material building blocks of our bodies, and they also have a vast number of other functions: catalysing reactions (enzymes), transporting other proteins, signalling, controlling the expression of genes, etc. 
 
-[//]: # (TODO: Add a short example of how this relates to phenotype here)
+[//]: # (TODO: Add very brief one line example of how this relates to phenotype here)
+
+---
+
+{% bibliography --cited %} 
