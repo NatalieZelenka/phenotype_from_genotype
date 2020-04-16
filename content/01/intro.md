@@ -15,7 +15,7 @@ Notes on chapters:
 
 The central theme of this thesis is the relationship between protein function - at either a molecular or phenotypic level - and the sequence of its associated DNA and RNA. <!--A recurring motif is impact of the provenance of related data and what that means for attempts to make genome-wide predictions about these relationships.-->
 
-Chapter 1 contains the biological background information. As part of this chapter, I introduce the SUPERFAMILY resource and describe my contribution to the collaborative 2014 SUPERFAMILY update paper[1]. 
+Chapter 1 contains the biological background information. As part of this chapter, I introduce the SUPERFAMILY resource and describe my contribution to the collaborative 2014 SUPERFAMILY update paper{% cite bibtex_shortname %}. 
 
 Chapter 2 is a second background chapter. It follows on from the first by discussing popular resources in computational biology, their provenance, and the impact of this on the field. This includes mathematical modelling of publications of named genes and sensitivity analysis of gene enrichment analyses. I also present here my contributions to reproducibility-related collaborative projects that I have and continue to be involved with: the Proteome Quality Index paper[2], and the (ongoing) MAPS project. 
 
