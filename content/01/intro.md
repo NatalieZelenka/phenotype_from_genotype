@@ -27,5 +27,7 @@ In Chapter 5, I discuss a filter-based gene function predictor that I entered in
 
 I discuss my conclusions in Chapter 6.
 
+---
 
+{% bibliography --cited %} 
 
