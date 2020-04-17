@@ -22,7 +22,7 @@ Arrays were extremely popular for measuring gene expression, but this technology
 
 #### Assembly and alignment
 
-![Figure X_alignment: Image showing how RNA-Seq reads are mapped to the genome (image from Advancing RNA-Seq Analysis {% cite Haas2010-lm%}). A similar process is followed for DNA.](/content/images/alignment.png)
+![Figure X_alignment: Image showing how RNA-Seq reads are mapped to the genome (image from Advancing RNA-Seq Analysis {% cite Haas2010-lm %}). A similar process is followed for DNA.](/content/images/alignment.png)
 
 [//]: # (TODO: Have I said the word exome before this point? What about de novo?)
 The short reads that are the output of initial sequencing must be assembled to create longer sequences of DNA, whether that’s sequencing of individual genes, whole exome sequencing (WES) or whole genome sequencing (WGS). This is done by aligning reads to one another and (if available) to an existing reference sequence. This of course requires the reads to overlap, so longer and more numerous reads make this task easier. The process and underlying algorithms differ considerably whether the sequence being assembled can be mapped to an existing sequence or is being created de novo.
