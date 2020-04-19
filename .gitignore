@@ -9,8 +9,11 @@
 !_bibliography/
 !.gitignore
 
+#Whitelist the Gem and Guardfile
+Gemfile
+Guardfile
+
 # Now blacklist again some file types that I don't wanna track
 .DS_Store
-Gemfile.lock
 *.png
 *.jpg
