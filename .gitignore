@@ -12,8 +12,5 @@
 # Now blacklist again some file types that I don't wanna track
 .DS_Store
 Gemfile.lock
-Gemfile
-Guardfile
-Makefile
 *.png
 *.jpg
