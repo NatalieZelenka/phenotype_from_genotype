@@ -1,5 +1,5 @@
 venv/*
 .DS_Store
-.jekyll_cache/
-.sass_cache/
+.jekyll-cache/
+.sass-cache/
 .idea/

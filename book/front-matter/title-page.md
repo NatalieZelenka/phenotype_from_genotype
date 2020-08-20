@@ -1,7 +1,5 @@
 
-
-Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
-==============================================================================================
+### Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
 
 <!--Note 1: In Jupyter book, markdown doesn't work inside html (e.g. for centering), so doing some formatting html just for this page-->
 <!--Note 2: <center> tags and floating doesn't work as expecting when converting to PDF, so using text-align as a workaround-->
