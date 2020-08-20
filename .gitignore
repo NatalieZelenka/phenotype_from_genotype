@@ -1,19 +1,5 @@
-# Only really want to keep track of the content directory and some other bits and pieces.
-
-# Blacklist everything in the root
-/*
-
-# Whitelist the content directory, and the table of contents file
-!_data/toc.yml
-!content/
-!_bibliography/
-!.gitignore
-
-#Whitelist the Gem and Guardfile
-Gemfile
-Guardfile
-
-# Now blacklist again some file types that I don't wanna track
+venv/*
 .DS_Store
-*.png
-*.jpg
+.jekyll_cache/
+.sass_cache/
+.idea/
