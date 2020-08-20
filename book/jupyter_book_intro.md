@@ -1,5 +1,5 @@
-This Jupyter Book Thesis
-=========================
+Start Here
+==========
 
 [//]: # (TODO: Check Thesis title)
 [//]: # (TODO: Check links)

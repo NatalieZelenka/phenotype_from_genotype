@@ -1,22 +1,22 @@
-- file: jupyter-book-intro
-
+- file: jupyter_book_intro
 - part: Front Matter
+  numbered: false
   chapters:
   - file: front-matter/title-page
+    title: Title Page
   - file: front-matter/list-of-figures
   - file: front-matter/list-of-tables
   - file: front-matter/full-table-of-contents
   - file: front-matter/acknowledgements
   - file: front-matter/abstract
   - file: front-matter/declaration
-
-- part: Introduction
+- part: Main book
+  numbered: true
   chapters:
   - file: c01-introduction/intro
-
-- part: Background
-  chapters:
-  - file: c02-biology-background/0-bg-biology
+    title: 'Introduction'
+  - file:  c02-biology-background/0-bg-biology
+    title: 'Biology Background'
     sections:
       - file: c02-biology-background/1-big-questions
       - file: c02-biology-background/2-building-blocks
@@ -26,14 +26,13 @@
           - file: c02-biology-background/2-building-blocks/3-genes-and-genomes
           - file: c02-biology-background/2-building-blocks/4-proteins
       - file: c02-biology-background/3-reading-dna-rna
-C
-#  chapter c03-bg-computational-biology
-#  part: combining data
-#  chapter c04-combined-dataset
-#  chapter c05-filter
-#  part: conclusions
-#  chapter c06-conclusion
-
-- part: End Matter
-  chapters:
-  - file: end_matter/reference
+##  chapter c03-bg-computational-biology
+##  part: combining data
+##  chapter c04-combined-dataset
+##  chapter c05-filter
+##  part: conclusions
+##  chapter c06-conclusion
+#
+#- part: End Matter
+#  chapters:
+#  - file: end_matter/reference

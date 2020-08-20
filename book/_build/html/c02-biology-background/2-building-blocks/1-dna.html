@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>DNA &#8212; Phenotype from Genotype</title>
+    <title>2.2.1. DNA &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
@@ -28,10 +29,17 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.14.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="The central dogma of molecular biology" href="2-central-dogma.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../2-building-blocks.html" />
+    <link rel="next" title="2.2.2. The central dogma of molecular biology" href="2-central-dogma.html" />
+    <link rel="prev" title="2.2. Building Blocks" href="../2-building-blocks.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -62,44 +70,112 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
   <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="../../jupyter-book-intro.html">This Jupyter Book Thesis</a>
-  </li>
-  <li class="">
-    <a href="../../c01-introduction/intro.html">Introduction</a>
-  </li>
-  <li class="">
-    <a href="../../front-matter/title-page.html">Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions</a>
-  </li>
-  <li class="active">
-    <a href="../0-bg-biology.html">Chapter 1: Biology Background</a>
-  <ul class="nav sidenav_l2">
-    <li class="">
-      <a href="../1-big-questions.html">Big questions: What is genetically determined?</a>
-    </li>
-    <li class="active">
-      <a href="">DNA</a>
-    </li>
-    <li class="">
-      <a href="2-central-dogma.html">The central dogma of molecular biology</a>
-    </li>
-    <li class="">
-      <a href="3-genes-and-genomes.html">Genes, Genomes, and Genetic Variation</a>
-    </li>
-    <li class="">
-      <a href="4-proteins.html">Protein structure</a>
-    </li>
-    <li class="">
-      <a href="../3-reading-dna-rna.html">Reading DNA and RNA</a>
-    </li>
-  </ul>
-  </li>
-  <li class="">
-    <a href="../../end_matter/reference.html">References</a>
-  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../jupyter_book_intro.html">
+   Start Here
+  </a>
+ </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../front-matter/title-page.html">
+   Title Page
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../front-matter/list-of-figures.html">
+   List of Figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../front-matter/list-of-tables.html">
+   List of Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../front-matter/full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../front-matter/acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../front-matter/abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../front-matter/declaration.html">
+   Declaration
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Main book
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../c01-introduction/intro.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../0-bg-biology.html">
+   2. Biology Background
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-big-questions.html">
+     2.1. Big questions: What is genetically determined?
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="reference internal" href="../2-building-blocks.html">
+     2.2. Building Blocks
+    </a>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       2.2.1. DNA
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="2-central-dogma.html">
+       2.2.2. The central dogma of molecular biology
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="3-genes-and-genomes.html">
+       2.2.3. Genes, Genomes, and Genetic Variation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="4-proteins.html">
+       2.2.4. Protein structure
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3-reading-dna-rna.html">
+     2.3. Reading DNA and RNA
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
 </nav>
 
  <!-- To handle the deprecated key -->
@@ -122,45 +198,53 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
         <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/c02-biology-background/2-building-blocks/1-dna.md"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
-
-        <!-- Source interaction buttons -->
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/c02-biology-background/2-building-blocks/1-dna.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
-        
+
     </div>
+
+    <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-    </ul>
-</nav>
-
-
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -169,13 +253,32 @@
               <div>
                 
   <div class="section" id="dna">
-<h1>DNA<a class="headerlink" href="#dna" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2.2.1. </span>DNA<a class="headerlink" href="#dna" title="Permalink to this headline">¶</a></h1>
 <p><img alt="Figure_dna_metalmodel: A photo of the original six-foot tall metal model of DNA made by Watson and Crick in 1953. Image source: {% cite noauthor_undated-ih %}." src="content/images/dna_metalmodel.jpg" /></p>
 <p>Most people recognise the double helix of deoxyribonucleic acid (DNA) shown in Figure_dna_metalmodel, it’s a twisted ladder consisting of four nucleotides; adenine, cytosine, thymine, and guanine (A, C, T, G). It the “code of life” that contains the instructions for making all of the things which make up our bodies and the obvious starting point for understanding how they work. A given nucleotide on one strand is always linked to its partner on the other strand - A with T, and G with C - which creates redundancy and a convenient copying mechanism. Lengths of DNA are measured in these base pairs (bp).</p>
 <hr class="docutils" />
 <p>{% bibliography –cited %}</p>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c02-biology-background/2-building-blocks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
@@ -185,8 +288,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../2-building-blocks.html" title="previous page">&lt;no title&gt;</a>
-    <a class='right-next' id="next-link" href="2-central-dogma.html" title="next page">The central dogma of molecular biology</a>
+    <a class='left-prev' id="prev-link" href="../2-building-blocks.html" title="previous page"><span class="section-number">2.2. </span>Building Blocks</a>
+    <a class='right-next' id="next-link" href="2-central-dogma.html" title="next page"><span class="section-number">2.2.2. </span>The central dogma of molecular biology</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
