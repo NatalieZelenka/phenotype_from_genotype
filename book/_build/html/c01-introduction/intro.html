@@ -38,7 +38,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Chapter 1: Biology Background" href="../c02-biology-background/0-bg-biology.html" />
+    <link rel="next" title="2. Biology Background" href="../c02-biology-background/0-bg-biology.html" />
     <link rel="prev" title="Declaration" href="../front-matter/declaration.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -135,6 +135,48 @@
    2. Biology Background
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c03-compbio-background/0-compbio-bg.html">
+   3. Computational Biology Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c04-snowflake/0-snowflake.html">
+   4. Phenotype prediction with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Snowflake
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c05-combining/0-combining.html">
+   5. Combining RNA-seq datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c06-filter/0-filter.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
+   7. Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -227,14 +269,29 @@ Short, so can probably be a bit more fussy about style, e.g.:
 Notes on chapters:
 -->
 <p>The central theme of this thesis is the relationship between protein function - at either a molecular or phenotypic level - and the sequence of its associated DNA and RNA. <!--A recurring motif is impact of the provenance of related data and what that means for attempts to make genome-wide predictions about these relationships.--></p>
-<p>Chapter 1 contains the biological background information. As part of this chapter, I introduce the SUPERFAMILY resource and describe my contribution to the collaborative 2014 SUPERFAMILY update paper{% cite Oates2015-li %}.</p>
-<p>Chapter 2 is a second background chapter. It follows on from the first by discussing popular resources in computational biology, their provenance, and the impact of this on the field. This includes mathematical modelling of publications of named genes and sensitivity analysis of gene enrichment analyses. I also present here my contributions to reproducibility-related collaborative projects that I have and continue to be involved with: the Proteome Quality Index paper{% cite Zaucha2015-ez %}, and the (ongoing) MAPS project.</p>
-<p>In Chapter 3, I describe my preliminary efforts to integrate the data sources described in the background chapters into Snowflake, a phenotype predictor{% cite Gough2017-ik %}. I discuss potential reasons for the poor performance of the predictor.</p>
-<p>Chapter 4 discusses a combined tissue-specific RNA-Seq data sets from four experiments. I present this alongside two resources that I created in order to create this: a Python package for mapping samples to tissues, and a set of simulated tissue-specific data-sets.</p>
-<p>In Chapter 5, I discuss a filter-based gene function predictor that I entered in the CAFA3 competition{% cite Zhou2019-jk %}.</p>
-<p>I discuss my conclusions in Chapter 6.</p>
+<p><a class="reference internal" href="../c02-biology-background/0-bg-biology.html#c02-biology-bg"><span class="std std-ref">Chapter 2</span></a> contains the biological background information. As part of this chapter, I introduce the SUPERFAMILY resource and describe my contribution to the collaborative 2014 SUPERFAMILY update paper<a class="bibtex reference internal" href="../end-matter/reference.html#oates2015-li" id="id1">[1]</a>.</p>
+<p><a class="reference internal" href="../c03-compbio-background/0-compbio-bg.html#c03-compbio-bg"><span class="std std-ref">Chapter 3</span></a> is a second background chapter. It follows on from the first by discussing popular resources in computational biology, their provenance, and the impact of this on the field. This includes mathematical modelling of publications of named genes and sensitivity analysis of gene enrichment analyses. I also present here my contributions to reproducibility-related collaborative projects that I have and continue to be involved with: the Proteome Quality Index paper<a class="bibtex reference internal" href="../end-matter/reference.html#zaucha2015-ez" id="id2">[2]</a>, and the (ongoing) MAPS project.</p>
+<p>In <a class="reference internal" href="../c04-snowflake/0-snowflake.html#c04-snowflake"><span class="std std-ref">Chapter 4</span></a>, I describe my preliminary efforts to integrate the data sources described in the background chapters into Snowflake, a phenotype predictor<a class="bibtex reference internal" href="../end-matter/reference.html#gough2017-ik" id="id3">[3]</a>. I discuss potential reasons for the poor performance of the predictor.</p>
+<p><a class="reference internal" href="../c05-combining/0-combining.html#c05-combining"><span class="std std-ref">Chapter 5</span></a> discusses a combined tissue-specific RNA-Seq data sets from four experiments. I present this alongside two resources that I created in order to create this: a Python package for mapping samples to tissues, and a set of simulated tissue-specific data-sets.</p>
+<p>In <a class="reference internal" href="../c06-filter/0-filter.html#c06-filter"><span class="std std-ref">Chapter 6</span></a>, I discuss a filter-based gene function predictor that I entered in the CAFA3 competition<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id4">[4]</a>.</p>
+<p>Finally, I discuss my conclusions in <a class="reference internal" href="../c07-conclusion/0-conclusion.html#c07-conclusion"><span class="std std-ref">Chapter 7</span></a>.</p>
 <hr class="docutils" />
-<p>{% bibliography –cited %}</p>
+<p><strong>References</strong></p>
+<p id="bibtex-bibliography-c01-introduction/intro-0"><dl class="citation">
+<dt class="bibtex label" id="oates2015-li"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Matt E Oates, Jonathan Stahlhacke, Dimitrios V Vavoulis, Ben Smithers, Owen J L Rackham, Adam J Sardar, Jan Zaucha, Natalie Thurlby, Hai Fang, and Julian Gough. The SUPERFAMILY 1.75 database in 2014: a doubling of data. <em>Nucleic Acids Res.</em>, 43(Database issue):D227–33, January 2015.</p>
+</dd>
+<dt class="bibtex label" id="zaucha2015-ez"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Jan Zaucha, Jonathan Stahlhacke, Matt E Oates, Natalie Thurlby, Owen J L Rackham, Hai Fang, Ben Smithers, and Julian Gough. A proteome quality index. <em>Environ. Microbiol.</em>, 17(1):4–9, 2015.</p>
+</dd>
+<dt class="bibtex label" id="gough2017-ik"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Julian Gough, Jan Zaucha, and Natalie Thurlby. Determining phenotype from genotype. July 2017.</p>
+</dd>
+<dt class="bibtex label" id="zhou2019-jk"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>Naihui Zhou, Yuxiang Jiang, Timothy R Bergquist, Alexandra J Lee, Balint Z Kacsoh, Alex W Crocker, Kimberley A Lewis, George Georghiou, Huy N Nguyen, Md Nafiz Hamid, Larry Davis, Tunca Dogan, Volkan Atalay, Ahmet S Rifaioglu, Alperen Dalkiran, Rengul Cetin-Atalay, Chengxin Zhang, Rebecca L Hurto, Peter L Freddolino, Yang Zhang, Prajwal Bhat, Fran Supek, José M Fernández, Branislava Gemovic, Vladimir R Perovic, Radoslav S Davidović, Neven Sumonja, Nevena Veljkovic, Ehsaneddin Asgari, Mohammad R K Mofrad, Giuseppe Profiti, Castrense Savojardo, Pier Luigi Martelli, Rita Casadio, Florian Boecker, Indika Kahanda, Natalie Thurlby, Alice C McHardy, Alexandre Renaux, Rabie Saidi, Julian Gough, Alex A Freitas, Magdalena Antczak, Fabio Fabris, Mark N Wass, Jie Hou, Jianlin Cheng, Zheng Wang, Alfonso E Romero, Alberto Paccanaro, Haixuan Yang, Tatyana Goldberg, Chenguang Zhao, Liisa Holm, Petri Törönen, Alan J Medlar, Elaine Zosa, Itamar Borukhov, Ilya Novikov, Angela Wilkins, Olivier Lichtarge, Po-Han Chi, Wei-Cheng Tseng, Michal Linial, Peter W Rose, Christophe Dessimoz, Vedrana Vidulin, Saso Dzeroski, Ian Sillitoe, Sayoni Das, Jonathan Gill Lees, David T Jones, Cen Wan, Domenico Cozzetto, Rui Fa, Mateo Torres, Alex Wiarwick Vesztrocy, Jose Manuel Rodriguez, Michael L Tress, Marco Frasca, Marco Notaro, Giuliano Grossi, Alessandro Petrini, Matteo Re, Giorgio Valentini, Marco Mesiti, Daniel B Roche, Jonas Reeb, David W Ritchie, Sabeur Aridhi, Seyed Ziaeddin Alborzi, Marie-Dominique Devignes, Koo Da Chen Emily, Richard Bonneau, Vladimir Gligorijević, Meet Barot, Hai Fang, Stefano Toppo, Enrico Lavezzo, Marco Falda, Michele Berselli, Silvio C E Tosatto, Marco Carraro, Damiano Piovesan, Hafeez Ur Rehman, Qizhong Mao, Shanshan Zhang, Slobodan Vucetic, Gage S Black, Dane Jo, Dallas J Larsen, Ashton R Omdahl, Luke W Sagers, Erica Suh, Jonathan B Dayton, Liam J McGuffin, Danielle A Brackenridge, Patricia C Babbitt, Jeffrey M Yunes, Paolo Fontana, Feng Zhang, Shanfeng Zhu, Ronghui You, Zihan Zhang, Suyang Dai, Shuwei Yao, Weidong Tian, Renzhi Cao, Caleb Chandler, Miguel Amezola, Devon Johnson, Jia-Ming Chang, Wen-Hung Liao, Yi-Wei Liu, Stefano Pascarelli, Yotam Frank, Robert Hoehndorf, Maxat Kulmanov, Imane Boudellioua, Gianfranco Politano, Stefano Di Carlo, Alfredo Benso, Kai Hakala, Filip Ginter, Farrokh Mehryary, Suwisa Kaewphan, Jari Björne, Hans Moen, Martti E E Tolvanen, Tapio Salakoski, Daisuke Kihara, Aashish Jain, Tomislav Šmuc, Adrian Altenhoff, Asa Ben-Hur, Burkhard Rost, Steven E Brenner, Christine A Orengo, Constance J Jeffery, Giovanni Bosco, Deborah A Hogan, Maria J Martin, Claire O’Donovan, Sean D Mooney, Casey S Greene, Predrag Radivojac, and Iddo Friedberg. The CAFA challenge reports improved protein function prediction and new functional annotations for hundreds of genes through experimental screens. <em>bioRxiv</em>, pages 653105, May 2019.</p>
+</dd>
+</dl>
+</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -266,7 +323,7 @@ Notes on chapters:
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../front-matter/declaration.html" title="previous page">Declaration</a>
-    <a class='right-next' id="next-link" href="../c02-biology-background/0-bg-biology.html" title="next page"><span class="section-number">2. </span>Chapter 1: Biology Background</a>
+    <a class='right-next' id="next-link" href="../c02-biology-background/0-bg-biology.html" title="next page"><span class="section-number">2. </span>Biology Background</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

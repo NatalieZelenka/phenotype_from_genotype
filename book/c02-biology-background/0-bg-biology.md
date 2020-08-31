@@ -1,4 +1,5 @@
-# Chapter 1: Biology Background
+(c02-biology-bg)=
+# Biology Background
 
 <!--Note: This section just explains what is in this chapter and why, and outlines any of my contribuitions which are in here-->
 The biological background presented in this section begins at the very basics of molecular biology, and goes on to discuss the "big questions" that computational biology is looking to answer. This includes details of what biological molecules (e.g. DNA, RNA and proteins) are, what they are made of, how current research suggests that they effect the body, and how researchers measure them and their properties. These details reveal the complexity of the data that computational biologists work with. The additional complexities that arise from how we store the data and use it in downstream analyses, is discussed in Chapter 2<!--TODO: Link to Chapter 2-->. 

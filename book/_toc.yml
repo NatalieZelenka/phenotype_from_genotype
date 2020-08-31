@@ -14,9 +14,7 @@
   numbered: true
   chapters:
   - file: c01-introduction/intro
-    title: 'Introduction'
   - file:  c02-biology-background/0-bg-biology
-    title: 'Biology Background'
     sections:
       - file: c02-biology-background/1-big-questions
       - file: c02-biology-background/2-building-blocks
@@ -26,12 +24,13 @@
           - file: c02-biology-background/2-building-blocks/3-genes-and-genomes
           - file: c02-biology-background/2-building-blocks/4-proteins
       - file: c02-biology-background/3-reading-dna-rna
-##  chapter c03-bg-computational-biology
-##  chapter c04-combined-dataset
-##  chapter c05-filter
-##  part: conclusions
-##  chapter c06-conclusion
+  - file: c03-compbio-background/0-compbio-bg
+  - file: c04-snowflake/0-snowflake
+  - file: c05-combining/0-combining
+  - file: c06-filter/0-filter.md
+  - file: c07-conclusion/0-conclusion
 
-#- part: End Matter
-#  chapters:
-#  - file: end_matter/reference
+- part: End Matter
+  chapters:
+  - file: end-matter/reference
+    title: Bibliography
