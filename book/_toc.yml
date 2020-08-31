@@ -27,12 +27,11 @@
           - file: c02-biology-background/2-building-blocks/4-proteins
       - file: c02-biology-background/3-reading-dna-rna
 ##  chapter c03-bg-computational-biology
-##  part: combining data
 ##  chapter c04-combined-dataset
 ##  chapter c05-filter
 ##  part: conclusions
 ##  chapter c06-conclusion
-#
+
 #- part: End Matter
 #  chapters:
 #  - file: end_matter/reference
