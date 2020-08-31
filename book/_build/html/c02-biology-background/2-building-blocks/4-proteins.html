@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>2.2.4. Protein structure &#8212; Phenotype from Genotype</title>
+    <title>2.2.4. Primary, Secondary, Tertiary, and Quaternary &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -28,7 +28,7 @@
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.14.0/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -162,7 +162,7 @@
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       2.2.4. Protein structure
+       2.2.4. Primary, Secondary, Tertiary, and Quaternary
       </a>
      </li>
     </ul>
@@ -245,21 +245,14 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#primary-secondary-tertiary-and-quaternary">
-   2.2.4.1. Primary, Secondary, Tertiary, and Quaternary
+  <a class="reference internal nav-link" href="#quaternary-structures-protein-domains">
+   2.2.4.1. Quaternary structures: protein domains
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quaternary-structures-protein-domains">
-     2.2.4.1.1. Quaternary structures: protein domains
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#disorder">
-     2.2.4.1.2. Disorder
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#disorder">
+   2.2.4.2. Disorder
+  </a>
  </li>
 </ul>
 
@@ -271,28 +264,26 @@
         
               <div>
                 
-  <div class="section" id="protein-structure">
-<h1><span class="section-number">2.2.4. </span>Protein structure<a class="headerlink" href="#protein-structure" title="Permalink to this headline">¶</a></h1>
-<p>For a long time, the study of the structure of proteins and how these relate to phenotypes has taken place alongside genetics research. Study of proteins predates even Mendel’s famous pea experiments. Dutch chemist Gerardus Mulder named proteins in his 1839 paper{% cite Mulder1839-rf %}, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>. This intriguing result bolstered research in this area, eventually resulting in our current understanding of proteins as biological macromolecules composed of amino acids.</p>
+  <p>ls### Protein structure
+For a long time, the study of the structure of proteins and how these relate to phenotypes has taken place alongside genetics research. Study of proteins predates even Mendel’s famous pea experiments. Dutch chemist Gerardus Mulder named proteins in his 1839 paper{% cite Mulder1839-rf %}, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>. This intriguing result bolstered research in this area, eventually resulting in our current understanding of proteins as biological macromolecules composed of amino acids.</p>
 <p>And it was the simultaneous advent of X-ray crystallography and computational advances enabling people to view the resulting protein structures that kicked started bioinformatics. In 1969, Margaret Dayhoff created the first bioinformatics database to store these protein structures, related to her publication of Atlas of Protein Sequence and Structure{% cite Hersh1967-ox %}. Soon after, in 1972, the Protein DataBank (PDB){% cite noauthor_undated-ow %} was established. It continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.</p>
 <div class="section" id="primary-secondary-tertiary-and-quaternary">
-<h2><span class="section-number">2.2.4.1. </span>Primary, Secondary, Tertiary, and Quaternary<a class="headerlink" href="#primary-secondary-tertiary-and-quaternary" title="Permalink to this headline">¶</a></h2>
+<h1><span class="section-number">2.2.4. </span>Primary, Secondary, Tertiary, and Quaternary<a class="headerlink" href="#primary-secondary-tertiary-and-quaternary" title="Permalink to this headline">¶</a></h1>
 <p>Proteins are described and classified in terms of the their primary, secondary, tertiary, and quaternary structure.</p>
 <p>The primary structure is simply the amino acid makeup of the protein, which describes the protein’s chemical makeup, but not it’s three-dimensional structure. These amino acid strings tend to form into a small number of familiar (secondary) three-dimensional structures, for example beta strands, beta sheets, and alpha helices.</p>
 <p>At the next level, the tertiary structure describes folds: combinations of secondary structures, for example a TIM barrels (a torroidal structure made up of alpha helices and beta strands). At this level, similar structures do not imply an evolutionary or functional similarity.</p>
 <div class="section" id="quaternary-structures-protein-domains">
-<h3><span class="section-number">2.2.4.1.1. </span>Quaternary structures: protein domains<a class="headerlink" href="#quaternary-structures-protein-domains" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">2.2.4.1. </span>Quaternary structures: protein domains<a class="headerlink" href="#quaternary-structures-protein-domains" title="Permalink to this headline">¶</a></h2>
 <p><img alt="Figure X_lego: An illustration of the lego analogy for protein domains. Coloured bricks represent protein domains - colour represents a specific protein domain type, while thin grey bricks represent polypeptide linkers which link domains. Image created using mecabricks{% cite Jarraud2019-jj %}}." src="content/images/lego.png" /></p>
 <p>The quaternary structures of proteins - protein domains - have proved particularly interesting for research. A simple and oft-used metaphor is to think of protein domains as lego building blocks (Figure X_lego) which can be linked by polypeptide chains to make up a protein. These polypeptide chains (known as linkers) are often inflexible, in order to allow only one conformation of the protein. Small and simple proteins often consist of just one domain, while bigger proteins can contain many domains. An individual domain can be found in many different proteins, and multiple times in the same protein.</p>
 <p>Protein domains are interesting because they are highly conserved in evolution, and are thought of as units of function, evolution, and/or structure. The functions of proteins, at both low-level (e.g. “calcium signalling protein”) and high-level (e.g. annotated to “liver disease”), are costly and difficult to discern, so there are many proteins about which little is known. For this reason, often proteins are classified according to their similarity to proteins about which functions are known, for example those containing the same protein domains.</p>
 </div>
 <div class="section" id="disorder">
-<h3><span class="section-number">2.2.4.1.2. </span>Disorder<a class="headerlink" href="#disorder" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">2.2.4.2. </span>Disorder<a class="headerlink" href="#disorder" title="Permalink to this headline">¶</a></h2>
 <p>While protein domains exist in one confirmation, not all linkers are rigid. Flexible regions of proteins which allow for various conformations are referred to as disordered. Disordered regions are not only relegated to linkers between domains. Proteins can be constituted entirely of disordered regions, or may have large disordered regions.</p>
 <p>Intrinsically disordered proteins can exist in a number of conformations, rather than one fixed structure. On some occasions, the disordered regions are known to be functional, while on others, proteins may be non-functional until they bind with another macromolecule which forces them into a fixed conformation.</p>
 <hr class="docutils" />
 <p>{% bibliography –cited %} __</p>
-</div>
 </div>
 </div>
 

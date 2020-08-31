@@ -12,10 +12,18 @@
 Department of Computer Science<br>
 University of Bristol<br>
 <br><br>
+</div>
 
-<img src="/content/images/bristol-crest.png">
+```{figure} ../images/bristol-crest.png
+---
+height: 150px
+name: my-figure
+---
+```
+---
 
-<br><br>
+<div style ="text-align: center:>
+
 A dissertation submitted to the University of Bristol in accordance with the requirements of the degree of Doctor of Philosophy (PhD) in the Faculty of Engineering.
 <br>
 </div>
