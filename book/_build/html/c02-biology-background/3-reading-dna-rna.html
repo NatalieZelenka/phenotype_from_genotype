@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>2.3. Reading DNA and RNA &#8212; Phenotype from Genotype</title>
+    <title>2.2.4.2.1. Reading DNA and RNA &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -39,7 +39,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3. Computational Biology Background" href="../c03-compbio-background/0-compbio-bg.html" />
-    <link rel="prev" title="2.2.4. Primary, Secondary, Tertiary, and Quaternary" href="2-building-blocks/4-proteins.html" />
+    <link rel="prev" title="2. Biology Background" href="0-bg-biology.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -135,41 +135,9 @@
    2. Biology Background
   </a>
   <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="1-big-questions.html">
-     2.1. Big questions: What is genetically determined?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2-building-blocks.html">
-     2.2. Building Blocks
-    </a>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="2-building-blocks/1-dna.html">
-       2.2.1. DNA
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="2-building-blocks/2-central-dogma.html">
-       2.2.2. The central dogma of molecular biology
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="2-building-blocks/3-genes-and-genomes.html">
-       2.2.3. Genes, Genomes, and Genetic Variation
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="2-building-blocks/4-proteins.html">
-       2.2.4. Primary, Secondary, Tertiary, and Quaternary
-      </a>
-     </li>
-    </ul>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     2.3. Reading DNA and RNA
+     2.2.4.2.1. Reading DNA and RNA
     </a>
    </li>
   </ul>
@@ -288,24 +256,24 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sequencing-technology">
-   2.3.1. Sequencing technology
+   2.2.4.2.1.1. Sequencing technology
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#rna-seq">
-     2.3.1.1. RNA-seq
+     2.2.4.2.1.1.1. RNA-seq
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#microarrays">
-     2.3.1.2. Microarrays
+     2.2.4.2.1.1.2. Microarrays
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#assembly-and-alignment">
-   2.3.2. Assembly and alignment
+   2.2.4.2.1.2. Assembly and alignment
   </a>
  </li>
 </ul>
@@ -319,26 +287,26 @@
               <div>
                 
   <div class="section" id="reading-dna-and-rna">
-<h1><span class="section-number">2.3. </span>Reading DNA and RNA<a class="headerlink" href="#reading-dna-and-rna" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2.2.4.2.1. </span>Reading DNA and RNA<a class="headerlink" href="#reading-dna-and-rna" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="sequencing-technology">
-<h2><span class="section-number">2.3.1. </span>Sequencing technology<a class="headerlink" href="#sequencing-technology" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.4.2.1.1. </span>Sequencing technology<a class="headerlink" href="#sequencing-technology" title="Permalink to this headline">¶</a></h2>
 <p>The process of reading DNA and RNA is called sequencing. From the late 1970’s until the mid 2000s, Sanger sequencing was the most popular sequencing technology, although it underwent various improvements over this timescale. In Sanger sequencing (and other first-generation methods), reads of around 800bp are sequenced, one at a time. The human genome project sequenced the first human genome using this method{% cite Venter2001-wn %}, and it’s still used in some circumstances, for example validating next generation sequencing. It was much more popular to sequence DNA than RNA with this type of technology.</p>
 <p>Second, or next generation sequencing (NGS), also referred to as high-throughput sequencing, is a catch-all term for the faster and cheaper sequencing technologies which replaced the previously used Sanger sequencing. A feature that is common to NGS methods is that many shorter reads (around 100bp, exact numbers depending on the specific technology) are sequenced in parallel. The process is massively parallel: millions to billions of short sequences can be read at a time. This is a huge factor in making NGS much faster (and therefore cheaper) than Sanger sequencing. In turn, this speed and cheapness means that more repeats can be sequenced, increasing the overall accuracy of NGS over Sanger (despite the accuracy of each individual read being generally lower). NGS can be used for sequencing either DNA or RNA (known as RNA-seq when applied to the whole transcriptome).</p>
 <p>There are now also third generation sequencing technologies that allow much longer reads to be sequenced.</p>
 <div class="section" id="rna-seq">
-<h3><span class="section-number">2.3.1.1. </span>RNA-seq<a class="headerlink" href="#rna-seq" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.4.2.1.1.1. </span>RNA-seq<a class="headerlink" href="#rna-seq" title="Permalink to this headline">¶</a></h3>
 <p>While (NGS) DNA-sequencing and RNA-seq can use the same underlying NGS technologies, there exist some notable differences. For example, RNA is reverse-transcribed into strands of complementary DNA, before being sequenced, since sequencing DNA is currently easier than sequencing RNA. RNA-seq is used much less often for de novo sequencing, and is generally mapped to a reference sequence.</p>
 <p>Since transcription is dependent on time, tissue, location, cell, etc, RNA-seq experiments are also dependent on all of these conditions. Furthermore, they are sensitive to differences in laboratory conditions and experimental design, creating artefacts in the resulting data known as batch effects.</p>
 </div>
 <div class="section" id="microarrays">
-<h3><span class="section-number">2.3.1.2. </span>Microarrays<a class="headerlink" href="#microarrays" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.4.2.1.1.2. </span>Microarrays<a class="headerlink" href="#microarrays" title="Permalink to this headline">¶</a></h3>
 <p>Through the 1970s into the early 2000s, DNA arrays/microarrays developed alongside sequencing as a way of measuring the presence of previously sequenced DNA in new samples. These arrays contain pre-chosen fragments of DNA (probes) arranged in spots, with each spot containing many copies of the probe, on a solid surface, e.g. glass, silicon or plastic. The probes consist of single strands of DNA, and arrays operate on the principle that the complementary DNA from the sample will bind tightly to it.</p>
 <p>These arrays were originally macro-sized, one of the first being 26 × 38 cm and containing 144 probes{% cite Bumgarner2013-hg %}, but are now on small chips, which can contain up to millions of probes.</p>
 <p>Arrays were extremely popular for measuring gene expression, but this technology has largely been superseded by the more accurate and comprehensive RNA-seq. However, microarrays are still commonly used by companies like 23andMe for genotyping an individual (measuring specific alleles).</p>
 </div>
 </div>
 <div class="section" id="assembly-and-alignment">
-<h2><span class="section-number">2.3.2. </span>Assembly and alignment<a class="headerlink" href="#assembly-and-alignment" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.4.2.1.2. </span>Assembly and alignment<a class="headerlink" href="#assembly-and-alignment" title="Permalink to this headline">¶</a></h2>
 <p><img alt="Figure X_alignment: Image showing how RNA-Seq reads are mapped to the genome (image from Advancing RNA-Seq Analysis {% cite Haas2010-lm %}). A similar process is followed for DNA." src="content/images/alignment.png" /></p>
 <p>The short reads that are the output of initial sequencing must be assembled to create longer sequences of DNA, whether that’s sequencing of individual genes, whole exome sequencing (WES) or whole genome sequencing (WGS). This is done by aligning reads to one another and (if available) to an existing reference sequence. This of course requires the reads to overlap, so longer and more numerous reads make this task easier. The process and underlying algorithms differ considerably whether the sequence being assembled can be mapped to an existing sequence or is being created de novo.</p>
 <p>The current estimate for raw sequencing accuracy of an individual NGS read is around 0.24%{% cite Pfeiffer2018-kt %}, meaning that on average one base pair will be incorrect for a 500pb read. Multiple repeats are therefore required to obtain a more accurate measurement of the assembled sequence, which is further necessary since there are many repeated sequences (perhaps over two thirds of the human genome{% cite De_Koning2011-ac %}). The depth (or coverage) for a nucleotide is the number of reads that overlap that nucleotide. Similarly, the average depth of a sequence can be calculated.</p>
@@ -375,7 +343,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="2-building-blocks/4-proteins.html" title="previous page"><span class="section-number">2.2.4. </span>Primary, Secondary, Tertiary, and Quaternary</a>
+    <a class='left-prev' id="prev-link" href="0-bg-biology.html" title="previous page"><span class="section-number">2. </span>Biology Background</a>
     <a class='right-next' id="next-link" href="../c03-compbio-background/0-compbio-bg.html" title="next page"><span class="section-number">3. </span>Computational Biology Background</a>
 
     </div>

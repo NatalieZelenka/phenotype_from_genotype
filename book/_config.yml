@@ -40,6 +40,9 @@ number_toc_chapters       : true  # Whether to add numbers to chapterse in your 
 # Search settings
 search_max_words_in_content : 30  # In the search function, use at most this many words (too many words will make search slow)
 
+parse:
+  myst_extended_syntax: true
+
 #######################################################################################
 # Interact link settings
 

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions &#8212; Phenotype from Genotype</title>
+    <title>5. Combining RNA-seq datasets &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -29,7 +29,6 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -39,8 +38,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="List of Figures" href="list-of-figures.html" />
-    <link rel="prev" title="Start Here" href="../jupyter_book_intro.html" />
+    <link rel="next" title="6. Filtering computational predictions with tissue-specific expression information" href="../c06-filter/0-filter.html" />
+    <link rel="prev" title="4. Phenotype prediction with Snowflake" href="../c04-snowflake/0-snowflake.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -83,39 +82,39 @@
   Front Matter
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/title-page.html">
    Title Page
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="list-of-figures.html">
+  <a class="reference internal" href="../front-matter/list-of-figures.html">
    List of Figures
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="list-of-tables.html">
+  <a class="reference internal" href="../front-matter/list-of-tables.html">
    List of Tables
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="full-table-of-contents.html">
+  <a class="reference internal" href="../front-matter/full-table-of-contents.html">
    Table of Contents
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="acknowledgements.html">
+  <a class="reference internal" href="../front-matter/acknowledgements.html">
    Acknowledgements
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="abstract.html">
+  <a class="reference internal" href="../front-matter/abstract.html">
    Abstract
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="declaration.html">
+  <a class="reference internal" href="../front-matter/declaration.html">
    Declaration
   </a>
  </li>
@@ -125,7 +124,7 @@
   Main book
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../c01-introduction/intro.html">
    1. Introduction
@@ -151,8 +150,8 @@
    </code>
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c05-combining/0-combining.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    5. Combining RNA-seq datasets
   </a>
  </li>
@@ -220,7 +219,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/front-matter/title-page.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/c05-combining/0-combining.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -256,27 +255,8 @@
         
               <div>
                 
-  <div class="section" id="phenotype-and-function-from-genotype-combining-data-sources-to-create-explanatory-predictions">
-<h1>Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions<a class="headerlink" href="#phenotype-and-function-from-genotype-combining-data-sources-to-create-explanatory-predictions" title="Permalink to this headline">¶</a></h1>
-<br>
-<div  style="text-align: center">
-<b>Natalie Thurlby</b><br>
-Department of Computer Science<br>
-University of Bristol<br>
-<br><br>
-</div>
-<div class="figure align-default" id="my-figure">
-<a class="reference internal image-reference" href="../_images/bristol-crest.png"><img alt="../_images/bristol-crest.png" src="../_images/bristol-crest.png" style="height: 150px;" /></a>
-</div>
-<hr class="docutils" />
-<div style ="text-align: center:>
-<p>A dissertation submitted to the University of Bristol in accordance with the requirements of the degree of Doctor of Philosophy (PhD) in the Faculty of Engineering.
-<br></p>
-</div>
-<div class = "bottom_first_page">
-March 02, 2020 - Version 0.0.3
-<span style="float: right;">Word count: 33550</span>
-</div>
+  <div class="section" id="combining-rna-seq-datasets">
+<span id="c05-combining"></span><h1><span class="section-number">5. </span>Combining RNA-seq datasets<a class="headerlink" href="#combining-rna-seq-datasets" title="Permalink to this headline">¶</a></h1>
 </div>
 
     <script type="text/x-thebe-config">
@@ -292,7 +272,7 @@ March 02, 2020 - Version 0.0.3
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./front-matter"
+            path: "./c05-combining"
         },
         predefinedOutput: true
     }
@@ -307,8 +287,8 @@ March 02, 2020 - Version 0.0.3
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../jupyter_book_intro.html" title="previous page">Start Here</a>
-    <a class='right-next' id="next-link" href="list-of-figures.html" title="next page">List of Figures</a>
+    <a class='left-prev' id="prev-link" href="../c04-snowflake/0-snowflake.html" title="previous page"><span class="section-number">4. </span>Phenotype prediction with <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code></a>
+    <a class='right-next' id="next-link" href="../c06-filter/0-filter.html" title="next page"><span class="section-number">6. </span>Filtering computational predictions with tissue-specific expression information</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
