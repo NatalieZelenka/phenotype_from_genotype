@@ -1,10 +1,6 @@
 
 ### Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
 
-<!--Note 1: In Jupyter book, markdown doesn't work inside html (e.g. for centering), so doing some formatting html just for this page-->
-<!--Note 2: <center> tags and floating doesn't work as expecting when converting to PDF, so using text-align as a workaround-->
-<!-- Note 3: indenting stuff runs the risk of coming out as an indented code bloock-->
-
 <br>
 
 <div  style="text-align: center">
@@ -28,7 +24,9 @@ A dissertation submitted to the University of Bristol in accordance with the req
 <br>
 </div>
 
-<!--TODO: check word count-->
+[//]: # (TODO: See if less gross html way of doing things)
+[//]: # (TODO: Check word count)
+
 <div class = "bottom_first_page">
 March 02, 2020 - Version 0.0.3
 <span style="float: right;">Word count: 33550</span>
