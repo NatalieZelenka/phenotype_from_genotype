@@ -15,15 +15,6 @@
   chapters:
   - file: c01-introduction/intro
   - file:  c02-biology-background/0-bg-biology
-    sections:
-      - file: c02-biology-background/1-big-questions
-      - file: c02-biology-background/2-building-blocks
-        sections:
-          - file: c02-biology-background/2-building-blocks/1-dna
-          - file: c02-biology-background/2-building-blocks/2-central-dogma
-          - file: c02-biology-background/2-building-blocks/3-genes-and-genomes
-          - file: c02-biology-background/2-building-blocks/4-proteins
-      - file: c02-biology-background/3-reading-dna-rna
   - file: c03-compbio-background/0-compbio-bg
   - file: c04-snowflake/0-snowflake
   - file: c05-combining/0-combining
