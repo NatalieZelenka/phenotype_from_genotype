@@ -16,7 +16,7 @@ Notes on chapters:
 
 The central theme of this thesis is the relationship between protein function - at either a molecular or phenotypic level - and the sequence of its associated DNA and RNA. <!--A recurring motif is impact of the provenance of related data and what that means for attempts to make genome-wide predictions about these relationships.-->
 
-{ref}`Chapter 2<c02-biology-bg>` contains the biological background information. 
+{ref}`Chapter 2<c02-biology-bg>` contains the biological background information on which the rest of the thesis is based. It tells the story of how phenotype arises from genotype, and introduces the different biological molecules that are involved. It begins at the very basics: what are DNA, RNA, proteins, and phenotypes? How do we measure them? And how do we measure the connections between them? This background is intended to make this thesis readable to someone without a background in biology. This chapter does not contain any of my own research. 
 
 {ref}`Chapter 3<c03-compbio-bg>` is a second background chapter, which contains some of my own work. It follows on from the first by discussing popular resources in computational biology, their provenance, and the impact of this on the field. This includes mathematical modelling of publications of named genes and sensitivity analysis of gene enrichment analyses. I also present here my contributions to reproducibility-related collaborative projects that I have and continue to be involved with: the Proteome Quality Index paper{cite}`Zaucha2015-ez`, my contribution to the collaborative 2014 SUPERFAMILY update paper{cite}`Oates2015-li`, and the (ongoing) MAPS project. 
 
