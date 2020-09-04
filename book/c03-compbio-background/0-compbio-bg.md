@@ -27,6 +27,8 @@ name: linneaus_ehret
 Carl Linneaus developed a system of classifying plants, animals and minerals, including plant classification based on their number of stamens[25]. The left image is a key to this classification system taken from his book, while the right image is a depiction of how the system works, drawn by botanist George Ehret[26]. 
 ``` ``
 
+[//]: # (TODO: Cite if database was first... If NOT, then just rephrase for "she was doing this shit in the 1960s" vibes)
+
 Biology today continues in this tradition, classifying and cataloguing biology in ever more (molecular) detail. Computational biology is fueled by big community efforts to develop these databases, vocabularies, and annotations. While in other fields, data inaccessibility is a major barrier to reproducible research in other fields, this is the field that created the first online database system that remote computers could access{cite}`` - it was done in the 1960s! These efforts remain central to computational biology and have enabled investigations into whole genomes, transcriptomes, organisms, or the entire phylogenetic tree. This openness, and the focus on well-organised and archived data is not something that we should take for granted.
 
 There are large datasets on everything from gene functions to cells, and diseases to anatomical entities. These datasets create a shared vocabulary that we can all use to discuss these entities, as well as capturing knowledge about them so that it can elucidate other research these entities, or be used in larger-scale analysis. We will now delve into the details of these datasets.
