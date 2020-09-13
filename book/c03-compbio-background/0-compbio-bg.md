@@ -328,9 +328,15 @@ The same approach can be used to calculate the limit for $p_{true}$ for which we
 
 [//]: # (TODO: Instert image and fix reference and citations/links)
 
-Figure 24: Images that are illustrative of researchers approaches to p-values and p-hacking. Left image a popular tweet (taken from twitter.com), right image from xkcd.com.
+```{figure} ../images/p_hacking.png
+---
+height: 220px
+name: p_hacking
+---
+Images that are illustrative of researchers approaches to p-values and p-hacking. Left image is [a popular tweet](https://twitter.com/FaustoBustos/status/1103435523777978368), while the right image is [an xkcd comic](https://xkcd.com/1478/)).
+```
 
-In addition to poor reporting and underpowered tests, the pressure on scientists to publish means that researchers may be tempted to (or may accidentally, due to statistical ignorance) employ data-mining tactics in order to harvest significant p-values. This practice is known as “p-hacking”, and evidence for its existence can be found in distributions of p-values in scientific literature{cite}`Head2015-ns`, as well as popular culture (see Figure 24). This can include rerunning analysis with different models/covariates, collecting data until a significant p-value is reached, or performing 20 experiments and only publishing the results of one. 
+In addition to poor reporting and underpowered tests, the pressure on scientists to publish means that researchers may be tempted to (or may accidentally, due to statistical ignorance) employ data-mining tactics in order to harvest significant p-values. This practice is known as “p-hacking”, and evidence for its existence can be found in distributions of p-values in scientific literature{cite}`Head2015-ns`, as well as popular culture ({numref}`p_hacking`). This can include rerunning analysis with different models/covariates, collecting data until a significant p-value is reached, or performing 20 experiments and only publishing the results of one. 
 
 ```{epigraph}
 The first principle is that you must not fool yourself – and you are the easiest person to fool. 
