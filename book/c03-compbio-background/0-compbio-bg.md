@@ -8,6 +8,7 @@ This chapter is a second background chapter. While {ref}`the previous chapter<c0
 [//]: # (TODO: Perhaps put the third part in a different chapter after snowflake, but no use doing that while I'm just trying to migrate things. In which case delete "in the first part...")
 [//]: # (TODO: Explain very briefly what the different papers/contributions are and cite them.)
 [//]: # (TODO: Cite SUPERFAMILY and the update paper below)
+[//]: # (TODO: Sihnpost ontologies part here)
 
 In the first section of this chapter, we will retrace our steps from the last chapter, walking again from DNA to RNA to proteins to phenotypes, but this time we will consider the data gathered about each of these stages, and the data gathered about the connections between them. When I reach certain data (particularly RNA-Seq data), it will be also necessary to talk about some of the data processing pipeline. As we look at these different data types, I will describe some specific examples of resources and tools used in bioinformatics and computational biology, particularly those which are important in later chapters. This includes biological ontologies, tools for variant prioritisation, and databases of protein structure, sequence and domain assignments. In this part of the chapter, I will explain {ref}`my contribution to the update to the SUPERFAMILY resource<my-supfam-contribution>`.
 
@@ -30,9 +31,24 @@ Carl Linneaus developed a system of classifying plants, animals and minerals, in
 
 [//]: # (TODO: Cite PDB online database, Margaret Dayhoff)
 
-
-
 There are large datasets on everything from gene functions to cells, and diseases to anatomical entities. These datasets create a shared vocabulary that we can all use to discuss these entities, as well as capturing knowledge about them so that it can elucidate other research these entities, or be used in larger-scale analysis. We will now delve into the details of these datasets.
+
+#### A word on ontologies
+For many of different biological molecules, ontologies a a popular way of storing information about anatomical entities. 
+All ontologies contain entities names and descriptions (e.g. diseases, gene functions), different classifications of those entities (e.g. immune system disorders) and relate these classifications to one another hierarchically, sometimes with multiple types of relationships (e.g “is a”, “part of”). Hierarchical ontologies can be thought of as having a tree-like structure with one, or just a few root terms which are very general terms that all other terms in the ontology are related to, for example “biological process”, and leaf terms, which are the most specific terms in the ontology (e.g “positive regulation of cardiac muscle tissue regeneration”). 
+
+Relations between terms are directional, for example “positive regulation of cardiac muscle tissue regeneration” is a “regulation of cardiac muscle tissue regeneration”, but not vice versa. In such relationships the parent term is the more general term closer to the root (“positive regulation of…”) and the child term is the more specific term (“regulation of..”). It is not permitted for there to be cycles in ontologies, for example “term A” is a “term B” is a “term C” is a “term A”. 
+
+Terms in ontologies are given identifiers, usually of the form: XXX:#######, where XXX is an upper-case identifier for the whole ontology, e.g. “GO” for Gene Ontology, “CL” for Cell Ontology, etc. For example, GO:0008150 is the GO term for “biological process”.
+
+Ontologies are generally created through some combination of manual curation by highly skilled biocurators and logic-testing (checking for illogical relationships, for example using ROBOT{cite}`Overton2015-vo`). Creating an ontology is generally a long-term project, with new suggestions and updates to the ontologies being made as new knowledge accumulates, or just as more people have time to add to them. As well as being the work of dedicated curators, contributions to ontologies can usually be crowdsourced from the scientific community using GitHub issues, mailing list discussions, web forms, and dedicated workshops. In this way, they are similar to other bioinformatics community-driven efforts like structural and sequence databases. 
+
+There are also cross-ontology mappings and annotations, where terms from one ontology are linked to those in another (e.g. relating gene functions and tissues) or to entities in a database (e.g. gene functions to genes). These also require the work of dedicated curators, who search through literature, assessing various criteria for the inclusion of an annotation (such criteria vary by ontology). Since this is a laborious process, there are also many computational methods to annotate ontology terms automatically. 
+ 
+There are two major file formats in which ontologies are currently stored. The OBO format is a human-readable format, while the OWL format is more complex, but has more functionality. The OWL format can be queried using querying languages, for example SPARQL (an SQL-like querying language).  
+
+Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities. Ontologies and particularly their annotations are varying degrees of incomplete, and this will have an impact on the results of any downstream use of them. 
+
 
 ### DNA
 
@@ -146,9 +162,29 @@ The development of additional measures is required to deal with other potential 
 
 #### Genes
 
-##### Functional annotation databases
+##### Gene Ontology
+[//]: # (TODO: Citations in GO section)
+```{figure} ../images/go_rilla.png
+---
+height: 220px
+name: go_rilla
+---
+A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla[29])
+```
 
+The Gene Ontology (GO)[30] is one of the first biomedical ontologies, and continues to be one of the most popular. It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems[31]. It includes:
+1. The standard gene ontology, which is a hierarchical set of terms describing functions.
+2. The gene ontology annotations (GOA) database, which contains manual and computationally derived mappings from gene products to gene ontology terms.
+3. Tools for using and updating these resources.
+
+The Gene Ontology defines the “universe” of possible functions a gene might have, while the functions of particular genes are captured as GO annotations[31].
+
+The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies[30]. Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process)[31].
+
+
+##### Functional annotation databases
 [//]: # (TODO: Is this section at the level of genes only?)
+
 Databases like Uniprot KnowledgeBase (UniprotKB) and Gene Ontology Annotation (GOA) connect proteins to functions by annotating them to ontology terms (e.g. from GO), and giving information about why and how this annotation was done (e.g. giving DOI of a paper containing the evidence for the annotation). This is done by a combination of manual and electronic annotation. 
 
 Annotations can also include more information, for example modifiers specifying the type of interaction between the gene and the ontology term, the binding partners of the protein, etc. Further extensions to annotations such as these are currently being developed, but are in their infancy. It is particularly sad that negative annotations between genes and diseases/functions are lacking. Although there is a ‘NOT’ modifier (i.e. gene A does not affect function B), it is generally only used in cases where there is a known disagreement between the electronic and manual annotations, rather than for any highly powered negative result. This is a shame as it makes the benchmarking of any protein function predictor extremely difficult. The GO handbook does mention than an increase in ‘NOT’ modifiers would be useful in achieving a gold standard set of annotations for benchmarking{cite}`Thomas2017-vm`. It may be that publication bias in experimental work prevents annotators from finding supporting evidence to support such annotations. 
@@ -333,7 +369,7 @@ The same approach can be used to calculate the limit for $p_{true}$ for which we
 height: 220px
 name: p_hacking
 ---
-Images that are illustrative of researchers approaches to p-values and p-hacking. Left image is [a popular tweet](https://twitter.com/FaustoBustos/status/1103435523777978368), while the right image is [an xkcd comic](https://xkcd.com/1478/)).
+Images that are illustrative of researchers approaches to p-values and p-hacking. The left image is [a popular tweet](https://twitter.com/FaustoBustos/status/1103435523777978368), while the right image is [an xkcd comic](https://xkcd.com/1478/)).
 ```
 
 In addition to poor reporting and underpowered tests, the pressure on scientists to publish means that researchers may be tempted to (or may accidentally, due to statistical ignorance) employ data-mining tactics in order to harvest significant p-values. This practice is known as “p-hacking”, and evidence for its existence can be found in distributions of p-values in scientific literature{cite}`Head2015-ns`, as well as popular culture ({numref}`p_hacking`). This can include rerunning analysis with different models/covariates, collecting data until a significant p-value is reached, or performing 20 experiments and only publishing the results of one. 
