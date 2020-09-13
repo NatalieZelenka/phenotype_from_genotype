@@ -17,19 +17,19 @@ Finally, in the third section of this chapter, I will consider what potential so
 
 ## From genotype to phenotype: what is measured
 
-Cataloguing and classifying has been a successful scientific endeavour in other disciplines (e.g. the periodic table) but it’s particularly a cornerstone of biology. Biological ontologies date back to the Linnaean taxonomy from the mid 1700s {numref}`linneaus_ehret`, which describes species and their features and the relationships between them[27]. 
+Cataloguing and classifying has been a successful scientific endeavour in other disciplines (e.g. the periodic table) but it’s particularly a cornerstone of biology. Biological ontologies date back to the Linnaean taxonomy from the mid 1700s {numref}`linneaus_ehret`, which describes species and their features and the relationships between them{cite}`Jensen2010-fk`. 
 
 ```{figure} ../images/linneaus_ehret.jpg
 ---
 height: 220px
 name: linneaus_ehret
 ---
-Carl Linneaus developed a system of classifying plants, animals and minerals, including plant classification based on their number of stamens[25]. The left image is a key to this classification system taken from his book, while the right image is a depiction of how the system works, drawn by botanist George Ehret[26]. 
+Carl Linneaus developed a system of classifying plants, animals and minerals, including plant classification based on their number of stamens{cite}`Blunt2001-wr`. The left image is a key to this classification system taken from his book, while the right image is a depiction of how the system works, drawn by botanist George Ehret{cite}`Ehret1748-bx`. 
 ``` ``
 
-[//]: # (TODO: Cite if database was first... If NOT, then just rephrase for "she was doing this shit in the 1960s" vibes)
+[//]: # (TODO: Cite PDB online database, Margaret Dayhoff)
 
-Biology today continues in this tradition, classifying and cataloguing biology in ever more (molecular) detail. Computational biology is fueled by big community efforts to develop these databases, vocabularies, and annotations. While in other fields, data inaccessibility is a major barrier to reproducible research in other fields, this is the field that created the first online database system that remote computers could access{cite}`` - it was done in the 1960s! These efforts remain central to computational biology and have enabled investigations into whole genomes, transcriptomes, organisms, or the entire phylogenetic tree. This openness, and the focus on well-organised and archived data is not something that we should take for granted.
+Biology today continues in this tradition, classifying and cataloguing biology in ever more (molecular) detail. Computational biology is fueled by big community efforts to develop these databases, vocabularies, and annotations. While in other fields, data inaccessibility is a major barrier to reproducible research in other fields, this is the field that had an online database system that remote computers could access in the 1960s! These efforts remain central to computational biology and have enabled investigations into whole genomes, transcriptomes, organisms, or the entire phylogenetic tree. This openness, and the focus on well-organised and archived data is not something that we should take for granted.
 
 There are large datasets on everything from gene functions to cells, and diseases to anatomical entities. These datasets create a shared vocabulary that we can all use to discuss these entities, as well as capturing knowledge about them so that it can elucidate other research these entities, or be used in larger-scale analysis. We will now delve into the details of these datasets.
 
@@ -45,54 +45,23 @@ There are large datasets on everything from gene functions to cells, and disease
 (pqi)=
 ##### PQI
 
-5.4.1 Introduction
-The Proteome Quality Index (PQI) is an attempt to provide quality metrics about completed genome sequences. It was a group effort, which resulted in a paper[5], of which I am an author, as well as an associated website (http://pqi-list.org/). I contributed to discussions about metrics and paper editing.
+The Proteome Quality Index (PQI) is an attempt to provide quality metrics about completed genome sequences. It was a group effort, which resulted in a paper{cite}`Zaucha2015-ez`, of which I am an author, as well as [an associated website (http://pqi-list.org/)](http://pqi-list.org/). I contributed to discussions about metrics, and paper editing.
 
-The motivation for creating the index came from problems of reproducibility in the field of genomics. In creating a daily updated tree of life (sTOL, sequenced Tree Of Life), it was found that many sequenced genomes were missing vital proteins due to poor sequencing[137]. Such genomes are reused by many researchers, for example in comparative genomics, and omissions of whole proteins and poor accuracy of others are likely to affect research results. 
+The motivation for creating the index came from problems of reproducibility in the field of genomics. In creating a daily-updated tree of life (sTOL, sequenced Tree Of Life), it was found that many sequenced genomes were missing vital proteins due to poor sequencing{cite}`Fang2013-et`. Such genomes are reused by many researchers, for example in comparative genomics, and omissions of whole proteins and poor accuracy of others are likely to affect research results. 
 
 The PQI website was intended to be both a way for users of past genomes to look up the quality of a genome in advance of some research and, more importantly as a talking point for quality guidelines for genomes/proteomes. While quality control and data submission guidelines were more developed in other areas of computational biology, similar guidelines for genome quality were lacking.
-5.4.2 PQI features and metrics
-5.4.2.1 PQI features
+
+##### PQI features 
+
 The PQI website provides a scoring system for proteomes, bringing together numerous different metrics which are normalised before being averaged into an intuitive star-rating (1-5 stars) with equal weight given to each metric. Proteomes can be searched for, filtered by the various ratings, downloaded, user-rated and commented on. Additional proteomes and metrics can be added/suggested by users via the website and documentation describing this is provided.
-5.4.2.2 The original PQI metrics
-PQI originally provided 11 measures of proteome quality, that are either local i.e. “clade-based” (in which proteomes are compared to similar organisms) or global (in which case it is compared to all other proteomes). A clade is a group of organisms that consists of a common ancestor and all its descendants, i.e. is a branch on the tree of life[138], so an appropriate ancestor must be chosen to define the clade. For PQI, since the purpose of these clades was to compare its’ constituent proteomes, we wanted clades that had similar variability. This was achieved by choosing parent nodes that are at least 0.01 in branch length away from the proteome (leaf node), and such that the clade contains at least 10 species. Trees and branch lengths to carry out these calculations were taken from sToL[137]. For clade-based metrics, proteomes score well if they have similar scores to the rest of the clade, 
 
+##### The original PQI metrics
 
-7. 
-Percentage of sequence covered
-Clade - based
-Percentage of amino acid residues in proteome sequence that are covered by SCOP domain superfamily assignments, compared to the average for the clade.
-This metric measures the portion of structured protein sequences found in the proteome as opposed to disordered regions and gaps. This measure assumes related species have a similar breakdown of these types of proteins. A mismatch could indicate that the parts of the genome that are supposed to be protein-coding are an incorrect length, that it is missing proteins, or contains proteins that it shouldn’t.
-8. Percentage of sequences with assignment
-Clade - based
-Percentage of amino acid residues in proteome that have SCOP superfamily assignment according to SUPERFAMILY, compared to the average for the clade.
-Related species are assumed to have a similar percentage of domains with SUPERFAMILY assignments to SCOP superfamilies
-9. 
-Mean sequence length
-Clade - based
-The average length of proteins in the proteome (in amino acids), compared to the average for the clade.
-This measure assumes that mean sequence length of proteins should be comparable with those of related species. 
-10. 
-Mean hit length
-Clade - based
-Average number of amino acids in superfamily assignments, compared to the average for the clade.
-Longer hits represent better matches to SCOP domains. These are assumed to be similar for similar species.
-11.
-Number of domain families
-Clade - based
-Number of distinct SCOP protein domain families that are annotated to the proteome, compared to the average for the clade.
-The SCOP protein domain families are annotated to the proteome using a hybrid HMM/pairwise similarity method from the SUPERFAMILY resource. Similarly to the number of domain superfamilies, the number of families gives an indication of the diversity of the proteome at the SCOP family level. Domain families were included in addition to domain superfamilies, since they are more specific and may reveal differences that are not apparent at the superfamily level. 
-12. 
-Number of domain architectures
+[//]: # (TODO: Check how this paragraph ended in Google Doc. Had weird punctuation.)
 
-
-
-Clade - based
-Number of unique domain architectures (combinations of SCOP domain superfamilies and gaps) in the proteome, according to SUPERFAMILY, compared to the average for the clade.
-Similarly to the number of domain families superfamilies, the number of domain architectures gives an indication of the diversity of the proteome at the SCOP family level.
+PQI originally provided 11 measures of proteome quality, that are either local i.e. “clade-based” (in which proteomes are compared to similar organisms) or global (in which case it is compared to all other proteomes). A clade is a group of organisms that consists of a common ancestor and all its descendants, i.e. is a branch on the tree of life{cite}`Cracraft2004-ud`, so an appropriate ancestor must be chosen to define the clade. For PQI, since the purpose of these clades was to compare its’ constituent proteomes, we wanted clades that had similar variability. This was achieved by choosing parent nodes that are at least 0.01 in branch length away from the proteome (leaf node), and such that the clade contains at least 10 species. Trees and branch lengths to carry out these calculations were taken from sToL{cite}`Fang2013-et`. For clade-based metrics, proteomes score well if they have similar scores to the rest of the clade.
 
 [//]: # (TODO: Check combination homology 3 and 4 from table below)
-[//]: # (TODO: Finish putting this table in a table)
 
  ```{list-table}
 :header-rows: 1
@@ -126,11 +95,34 @@ Similarly to the number of domain families superfamilies, the number of domain a
   - Clade-based
   - Number of proteins assigned to domain superfamilies by SUPERFAMILY compared to average for clade.
   - Assignment to domain superfamilies was obtained using the SUPERFAMILY HMM Library. The number of superfamilies gives an indication of the diversity of the proteome, so a low number compared to the clade may indicate an incomplete proteome, while a high number could indicate that the proteome contains domain superfamiles that it shouldn’t. 
-* - 7. 
-
-
+* - 7. Percentage of sequence covered
+  - Clade-based
+  - Percentage of amino acid residues in proteome sequence that are covered by SCOP domain superfamily assignments, compared to the average for the clade. 
+  - This metric measures the portion of structured protein sequences found in the proteome as opposed to disordered regions and gaps. This measure assumes related species have a similar breakdown of these types of proteins. A mismatch could indicate that the parts of the genome that are supposed to be protein-coding are an incorrect length, that it is missing proteins, or contains proteins that it shouldn’t.
+* - 8. Percentage of sequences with assignment
+  - Clade-based
+  - Percentage of amino acid residues in proteome that have SCOP superfamily assignment according to SUPERFAMILY, compared to the average for the clade.
+  - Related species are assumed to have a similar percentage of domains with SUPERFAMILY assignments to SCOP superfamilies
+* - 9. Mean sequence length
+  - Clade-based
+  - The average length of proteins in the proteome (in amino acids), compared to the average for the clade.
+  - This measure assumes that mean sequence length of proteins should be comparable with those of related species. 
+* - 10. Mean hit length
+  - Clade-based
+  - Average number of amino acids in superfamily assignments, compared to the average for the clade.
+  - Longer hits represent better matches to SCOP domains. These are assumed to be similar for similar species.
+* - 11. Number of domain families
+  - Clade-based
+  - Number of distinct SCOP protein domain families that are annotated to the proteome, compared to the average for the clade.
+  - The SCOP protein domain families are annotated to the proteome using a hybrid HMM/pairwise similarity method from the SUPERFAMILY resource. Similarly to the number of domain superfamilies, the number of families gives an indication of the diversity of the proteome at the SCOP family level. Domain families were included in addition to domain superfamilies, since they are more specific and may reveal differences that are not apparent at the superfamily level. 
+* - 12. Number of domain architectures
+  - Clade-based
+  - Number of unique domain architectures (combinations of SCOP domain superfamilies and gaps) in the proteome, according to SUPERFAMILY, compared to the average for the clade.
+  - Similarly to the number of domain families superfamilies, the number of domain architectures gives an indication of the diversity of the proteome at the SCOP family level.
 
 ```
+
+[//]: # (TODO: Format table caption better:)
 
 {numref}`pqi-table` shows the original PQI metrics. 
 
