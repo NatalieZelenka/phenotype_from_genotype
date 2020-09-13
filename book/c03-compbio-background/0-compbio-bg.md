@@ -7,6 +7,7 @@ This chapter is a second background chapter. While {ref}`the previous chapter<c0
 [//]: # (TODO: Fix all the [] citations)
 [//]: # (TODO: Perhaps put the third part in a different chapter after snowflake, but no use doing that while I'm just trying to migrate things. In which case delete "in the first part...")
 [//]: # (TODO: Explain very briefly what the different papers/contributions are and cite them.)
+[//]: # (TODO: Cite SUPERFAMILY and the update paper below)
 
 In the first section of this chapter, we will retrace our steps from the last chapter, walking again from DNA to RNA to proteins to phenotypes, but this time we will consider the data gathered about each of these stages, and the data gathered about the connections between them. When I reach certain data (particularly RNA-Seq data), it will be also necessary to talk about some of the data processing pipeline. As we look at these different data types, I will describe some specific examples of resources and tools used in bioinformatics and computational biology, particularly those which are important in later chapters. This includes biological ontologies, tools for variant prioritisation, and databases of protein structure, sequence and domain assignments. In this part of the chapter, I will explain {ref}`my contribution to the update to the SUPERFAMILY resource<my-supfam-contribution>`.
 
@@ -214,15 +215,15 @@ Scientists are often interested in a "favourite" gene or protein, or have obtain
 
 [//]: # (TODO: Check BLAST is in the right place. Probably makes more sense in another section: DNA?)
 ##### BLAST
-BLAST, or the The Basic Local Alignment Search Tool[32], is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.
+BLAST, or the The Basic Local Alignment Search Tool{cite}`Altschul1990-zf`, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.
 
 ##### SCOP
-The Structural Classification of Proteins (SCOP) database[33] classifies all proteins with known structure based on their structural similarities, based on the consideration of the protein’s constituent domains. The classification is mostly done at the level of families, superfamilies, and folds arranged in a tree structure. Families represent the most similar proteins, which share a “clear evolutionary relationship”, while superfamilies represent less close evolutionary relationships, and folds represent the same secondary structure. This protein classification task, while aided by automation, was carried out largely by manual visual inspection.
+The Structural Classification of Proteins (SCOP) database{cite}`Murzin1995-se` classifies all proteins with known structure based on their structural similarities, based on the consideration of the protein’s constituent domains. The classification is mostly done at the level of families, superfamilies, and folds arranged in a tree structure. Families represent the most similar proteins, which share a “clear evolutionary relationship”, while superfamilies represent less close evolutionary relationships, and folds represent the same secondary structure. This protein classification task, while aided by automation, was carried out largely by manual visual inspection.
 
-SCOP was updated until 2009, but has been succeeded by SCOP2[34]. However, SCOP2 has a different underlying classification system, based on a complex graph, rather than a hierarchy. The CATH[35] (Class, Architecture, Topology, Homologous superfamily) database provides another classification system, (also operating hierarchically), but created mostly via automation, which leads to major differences between the classifications[36].
+SCOP was updated until 2009, but has been succeeded by SCOP2{cite}`Andreeva2014-om`. However, SCOP2 has a different underlying classification system, based on a complex graph, rather than a hierarchy. The CATH (Class, Architecture, Topology, Homologous superfamily){cite}`Orengo1997-vf` database provides another classification system, (also operating hierarchically), but created mostly via automation, which leads to major differences between the classifications{cite}`Csaba2009-of`.
 
 ##### SUPERFAMILY 
-SUPERFAMILY[37] uses HMMs to assign sequences to SCOP domains, primarily at the superfamily level. This allows the functions of poorly understood proteins to be inferred based on how closely they match known superfamilies. HMMs are very successful at such assignments since pairwise correlations between proteins (or their domains) and other proteins in the family may be weak, but consistently for many proteins; this can be picked up by an HMM. The superfamily level is chosen since it is the broadest level which suggests evolutionary relationships, but SUPERFAMILY also generates assignments at the (stricter) family level.
+SUPERFAMILY{cite}`Gough2001-ct` uses HMMs to assign sequences to SCOP domains, primarily at the superfamily level. This allows the functions of poorly understood proteins to be inferred based on how closely they match known superfamilies. HMMs are very successful at such assignments since pairwise correlations between proteins (or their domains) and other proteins in the family may be weak, but consistently for many proteins; this can be picked up by an HMM. The superfamily level is chosen since it is the broadest level which suggests evolutionary relationships, but SUPERFAMILY also generates assignments at the (stricter) family level.
 
 HMMs are created by first finding closely relating protein homologs for a given protein superfamily using BLAST, and then extending it by comparing the HMM to more distantly related homologs. The resulting HMM library is fine-tuned by some manual curation. 
 
@@ -230,7 +231,7 @@ The SUPERFAMILY website also contains other tools, including a database of all s
 
 (my-supfam-contribution=)
 **SUPERFAMILY update**
-I contributed to SUPERFAMILY’s 2014 update[1] by editing the paper, uploading a small number of proteomes. The SUPERFAMILY database of proteomes doubled from 1400 to over 3200 from 2010 to 2014. The update paper described this development, as well as highlighting SUPERFAMILY as a resource for unique proteomes that are not found elsewhere (e.g. Uniprot). Although SUPERFAMILY’s primary resource is it’s HMM library, it also integrates a range of other tools for sequence analysis, for example protein disorder prediction (D2P2) and GO annotation (dcGO), as well as a domain-based phylogenetic tree. 
+I contributed to SUPERFAMILY’s 2014 update{cite}`Oates2015-li` by editing the paper, uploading a small number of proteomes. The SUPERFAMILY database of proteomes doubled from 1400 to over 3200 from 2010 to 2014. The update paper described this development, as well as highlighting SUPERFAMILY as a resource for unique proteomes that are not found elsewhere (e.g. Uniprot). Although SUPERFAMILY’s primary resource is it’s HMM library, it also integrates a range of other tools for sequence analysis, for example protein disorder prediction (D2P2) and GO annotation (dcGO), as well as a domain-based phylogenetic tree. 
 
 ### Phenotypes
 
