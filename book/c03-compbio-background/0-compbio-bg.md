@@ -350,6 +350,7 @@ Null Hypothesis Significance Testing (NHST) is the most popular method by which 
 Two other useful quantities of NHST are effect size and statistical power. Effect size is the magnitude of the effect found by the statistical test. A very small effect can only be detected with a large enough sample size. Statistical power is a measure related to the type 2 error (false negatives), it is $1-\beta$ where $\beta$ is the false positive rate. A statistical power of 80% is customary, where it is calculated, in which case there is a 20% chance that a result is a false negative if the null hypothesis is accepted. A very highly powered test with a high (non-significant) p-value represents strong evidence that the null hypothesis is true, although it may often be reported as “failing to reach significance”. Low-powered tests, coinciding with low sample sizes, mean that both the acceptance or rejection of the null hypothesis is likely to be unreliable. 
 
 [//]: # (TODO: Check math below and formatting.)
+[//]: # (TODO: Add link to dance of the p-values)
 P-values do not have a high prediction value for reproducibility, since they have a high spread, even when a test is reasonably highly powered. Statistician Geoff Cumming refers to this as the “dance of the p-values”. Instead, a measure of the expected truth of a finding can be estimated from the proportion of hypotheses that are true in a given field, the statistical power, the p-value threshold as:
 
 $$
@@ -407,6 +408,17 @@ All models are wrong, but some are useful
 ```
 
 Models are most useful to us when they generate testable hypotheses about the underlying mechanisms of a process. In this way, they can help to advance science. They can also be useful to us if they generate predictions for forecasts. These predictions can be tested, which helps us to improve the model, and if they are accurate, they can also help us to generate hypotheses, or they may be useful in and of themselves. 
+
+## Summary
+[//]: # (TODO: Rewrite this section so that it is just a summary of the different sources of error AND a summary of the different excitingt types of data. BUT NOT downbeat/dramatic e.g. no wonder it doesn't work.)
+[//]: # (TODO: Citations in summary section)
+
+The purpose of this introductory chapter was to provide an overview of how we think phenotype arises from genotype. It’s also to explain why it’s a hard problem! 
+
+To summarise, there are multiple kinds of genetic variation, and even the simplest (the SNP) can exist on multiple parts of the genome, and may or may not affect structure or function of transcribed proteins. Even if the SNP is in a coding region, and is non-synonymous (affects protein structure), it may fall in a disordered region of a protein (leaving us without structural information), we may not know where that protein is transcribed, or it may affect the transcription of multiple different proteins. Furthermore, the SNP may affect phenotype differently with homozygous or heterozygous calls, and the protein may affect phenotype by influencing a network of other proteins, or the protein may exist as a redundant part of a pathway which will only affect phenotype if three other SNPs have specific calls. Even after all this, the presentation of many phenotype depends heavily on the environment.
+
+Given all this complexity, it may seem no wonder that phenotype prediction is currently inaccurate[3]. However, diverse information about biological entities exists, for example gene and protein sequence, protein structure, variant frequencies and functions, and gene expression. Multi-omics approaches that combine these data types have been successful at elucidating mechanisms behind certain phenotypes[52–54]. There is now the opportunity for genome-wide phenotype predictions to do the same. Obtaining an accurate prediction of phenotype and protein function, even for a subclass of variants/proteins, has the potential to greatly impact people. A method which predicts phenotype directly from the molecular biology would be desirable as it would create a model for how phenotype emerges from genotype, in addition to predictions for important genes.
+
 
 ---
 **Chapter References**
