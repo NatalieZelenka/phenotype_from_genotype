@@ -5,6 +5,8 @@ The biological background presented in this section begins at the very basics of
 
 [//]: # (TODO: Update info on later Chapters below)
 [//]: # (TODO: Move to visualcode, remove spare backticks)
+[//]: # (TODO: Check order and relevance of each part of this to later sections)
+[//]: # (TODO: Consider limiting the number of subsections and just using bolded headings or perhaps dictionary/glossary style entries for more fine-grained bits)
 
 My aim in this Chapter is threefold: 
 1. to anchor the work that I've done within the context of the big questions for computational biology.
@@ -147,7 +149,11 @@ On the other hand, missense mutations occur where the SNP substitution results i
 
 ###### Synonymous SNVs
 Synonymous SNVs occur where substituting the usual nucleotide with another results in the same amino acid. The resulting protein will have the exact same functionality. However, synonymous SNVs could still have an effect on high-level traits, since different nucleotides are translated at different speeds. 
-ls### Protein structure
+
+[//]: # (TODO: Add a section about linkage disequalibrium/a mention of it ONLY if I have included it in Snowflake/Filter: From original:  Two alleles at given locations on the genome are in linkage disequilibrium when the association between them is more than would be expected at random. Linkage disequilibrium may occur between alleles even when there is no genetic linkage present, for example as a result of the presence of both alleles being selected for in a population.)
+
+
+### Protein structure
 For a long time, the study of the structure of proteins and how these relate to phenotypes has taken place alongside genetics research. Study of proteins predates even Mendel's famous pea experiments. Dutch chemist Gerardus Mulder named proteins in his 1839 paper{cite}`Mulder1839-rf`, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>. This intriguing result bolstered research in this area, eventually resulting in our current understanding of proteins as biological macromolecules composed of amino acids.
 
 And it was the simultaneous advent of X-ray crystallography and computational advances enabling people to view the resulting protein structures that kicked started bioinformatics. In 1969, Margaret Dayhoff created the first bioinformatics database to store these protein structures, related to her publication of Atlas of Protein Sequence and Structure{cite}`Hersh1967-ox`. Soon after, in 1972, the Protein DataBank (PDB){cite}`noauthor_undated-ow` was established. It continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules. 
@@ -222,8 +228,27 @@ The short reads that are the output of initial sequencing must be assembled to c
 
 The current estimate for raw sequencing accuracy of an individual NGS read is around 0.24%{cite}`Pfeiffer2018-kt`, meaning that on average one base pair will be incorrect for a 500pb read. Multiple repeats are therefore required to obtain a more accurate measurement of the assembled sequence, which is further necessary since there are many repeated sequences (perhaps over two thirds of the human genome{cite}`De_Koning2011-ac`). The depth (or coverage) for a nucleotide is the number of reads that overlap that nucleotide. Similarly, the average depth of a sequence can be calculated. 
 
+[//]: # (TODO: Rename this section to be about phenotype)
+
+### Associations between regions of DNA and traits
+#### Is there a gene for that?
+Since “DNA makes RNA makes proteins” and proteins have functions, it might seem sensible to say that there is a gene “for” a given function. While this is sometimes true (single gene diseases do exist), most of the time the same gene can make multiple different proteins, the same protein can be involved in multiple different pathways and have multiple functions, and multiple proteins can contribute to one function. 
+
+The interaction between DNA, RNA and proteins, and the environment is also important to consider. Although DNA makes RNA makes proteins and proteins do pretty much everything in our bodies, which proteins are made and how they behave is highly dependent on the environment. The function of a gene might not be evident in some environments since the protein is never transcribed, or it may behave differently. Furthermore, there are many traits may be entirely environmental.
+
+#### Genome Wide Association Studies
+Genome Wide Association Studies (GWAS) are large observational studies where the genotypes of a cohort with a specific phenotype (e.g. diabetes) are compared to the genotypes of a cohort lacking in that phenotype (i.e. a control group) in order to find genomic loci that are statistically associated with the phenotype. This has been a popular type of scientific enquiry since the first GWAS study in 2005. GWAS generally results in lists of SNPs, often in the hundreds, ordered by p-value. Disentangling which of these SNPs (if any) cause the trait is a tricky, particularly since GWAS specifically interrogates common variants. The process of identifying causal variants generally involving identifying regions in linkage disequilibrium, and re-sequencing regions of interest in further detail.
+
+The GWAS catalog database{cite}`Buniello2019-cv,L_Emery2017-rd` was founded in 2008, to provide a consistent and accessible location for published SNP-trait associations, which extracts information about experiments from the literature (currently over 70000 associations from over 3000 publications).
+
+[//]: # (TODO: Sections on Phenome Wide Association Studies and Polygenic risk scores ONLY IF they are relevant to later)
+[//]: # (TODO: Explain CRISPR in an aside to below if haven't mentioned already)
+
+#### Knockouts
+Insight into gene function can also be gained by “knocking out” a gene, preventing it from being translated into a working protein, for example using CRISPR. Combinations of up to four genes can be knocked out in a single experiment. Knocking out a gene can lead to a difference in phenotype, and differences in gene expression, which can be used to help determine gene regulatory networks. There is a lot of existing data on the phenotypic results of mouse knockouts, since they are often used to create mouse models for diseases. Unfortunately, it is not always well-recorded when knockouts lead to no detectable phenotypic change{cite}`Barbaric2007-zm`.
+
 ---
-**References**
+**Chapter References**
 
 ```{bibliography} /_bibliography/references.bib
 :filter: docname in docnames

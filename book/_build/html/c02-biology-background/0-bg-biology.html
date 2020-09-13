@@ -14,9 +14,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -24,12 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -336,19 +333,26 @@
        </li>
       </ul>
      </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#protein-structure">
+     2.2.4. Protein structure
+    </a>
+    <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#primary-secondary-tertiary-and-quaternary">
-       2.2.3.4. Primary, Secondary, Tertiary, and Quaternary
+       2.2.4.1. Primary, Secondary, Tertiary, and Quaternary
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#quaternary-structures-protein-domains">
-         2.2.3.4.1. Quaternary structures: protein domains
+         2.2.4.1.1. Quaternary structures: protein domains
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#disorder">
-         2.2.3.4.2. Disorder
+         2.2.4.1.2. Disorder
         </a>
        </li>
       </ul>
@@ -357,29 +361,51 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#reading-dna-and-rna">
-     2.2.4. Reading DNA and RNA
+     2.2.5. Reading DNA and RNA
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#sequencing-technology">
-       2.2.4.1. Sequencing technology
+       2.2.5.1. Sequencing technology
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#rna-seq">
-         2.2.4.1.1. RNA-seq
+         2.2.5.1.1. RNA-seq
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#microarrays">
-         2.2.4.1.2. Microarrays
+         2.2.5.1.2. Microarrays
         </a>
        </li>
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#assembly-and-alignment">
-       2.2.4.2. Assembly and alignment
+       2.2.5.2. Assembly and alignment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#associations-between-regions-of-dna-and-traits">
+     2.2.6. Associations between regions of DNA and traits
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#is-there-a-gene-for-that">
+       2.2.6.1. Is there a gene for that?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#genome-wide-association-studies">
+       2.2.6.2. Genome Wide Association Studies
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#knockouts">
+       2.2.6.3. Knockouts
       </a>
      </li>
     </ul>
@@ -501,61 +527,80 @@
 </div>
 <div class="section" id="synonymous-snvs">
 <h6><span class="section-number">2.2.3.3.1.2. </span>Synonymous SNVs<a class="headerlink" href="#synonymous-snvs" title="Permalink to this headline">¶</a></h6>
-<p>Synonymous SNVs occur where substituting the usual nucleotide with another results in the same amino acid. The resulting protein will have the exact same functionality. However, synonymous SNVs could still have an effect on high-level traits, since different nucleotides are translated at different speeds.
-ls### Protein structure
-For a long time, the study of the structure of proteins and how these relate to phenotypes has taken place alongside genetics research. Study of proteins predates even Mendel’s famous pea experiments. Dutch chemist Gerardus Mulder named proteins in his 1839 paper<a class="bibtex reference internal" href="../end-matter/reference.html#mulder1839-rf" id="id6">[6]</a>, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>. This intriguing result bolstered research in this area, eventually resulting in our current understanding of proteins as biological macromolecules composed of amino acids.</p>
+<p>Synonymous SNVs occur where substituting the usual nucleotide with another results in the same amino acid. The resulting protein will have the exact same functionality. However, synonymous SNVs could still have an effect on high-level traits, since different nucleotides are translated at different speeds.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="protein-structure">
+<h3><span class="section-number">2.2.4. </span>Protein structure<a class="headerlink" href="#protein-structure" title="Permalink to this headline">¶</a></h3>
+<p>For a long time, the study of the structure of proteins and how these relate to phenotypes has taken place alongside genetics research. Study of proteins predates even Mendel’s famous pea experiments. Dutch chemist Gerardus Mulder named proteins in his 1839 paper<a class="bibtex reference internal" href="../end-matter/reference.html#mulder1839-rf" id="id6">[6]</a>, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>. This intriguing result bolstered research in this area, eventually resulting in our current understanding of proteins as biological macromolecules composed of amino acids.</p>
 <p>And it was the simultaneous advent of X-ray crystallography and computational advances enabling people to view the resulting protein structures that kicked started bioinformatics. In 1969, Margaret Dayhoff created the first bioinformatics database to store these protein structures, related to her publication of Atlas of Protein Sequence and Structure<a class="bibtex reference internal" href="../end-matter/reference.html#hersh1967-ox" id="id7">[7]</a>. Soon after, in 1972, the Protein DataBank (PDB)<a class="bibtex reference internal" href="../end-matter/reference.html#noauthor-undated-ow" id="id8">[8]</a> was established. It continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.</p>
-</div>
-</div>
-</div>
 <div class="section" id="primary-secondary-tertiary-and-quaternary">
-<h4><span class="section-number">2.2.3.4. </span>Primary, Secondary, Tertiary, and Quaternary<a class="headerlink" href="#primary-secondary-tertiary-and-quaternary" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.2.4.1. </span>Primary, Secondary, Tertiary, and Quaternary<a class="headerlink" href="#primary-secondary-tertiary-and-quaternary" title="Permalink to this headline">¶</a></h4>
 <p>Proteins are described and classified in terms of the their primary, secondary, tertiary, and quaternary structure.</p>
 <p>The primary structure is simply the amino acid makeup of the protein, which describes the protein’s chemical makeup, but not it’s three-dimensional structure. These amino acid strings tend to form into a small number of familiar (secondary) three-dimensional structures, for example beta strands, beta sheets, and alpha helices.</p>
 <p>At the next level, the tertiary structure describes folds: combinations of secondary structures, for example a TIM barrels (a torroidal structure made up of alpha helices and beta strands). At this level, similar structures do not imply an evolutionary or functional similarity.</p>
 <div class="section" id="quaternary-structures-protein-domains">
-<h5><span class="section-number">2.2.3.4.1. </span>Quaternary structures: protein domains<a class="headerlink" href="#quaternary-structures-protein-domains" title="Permalink to this headline">¶</a></h5>
+<h5><span class="section-number">2.2.4.1.1. </span>Quaternary structures: protein domains<a class="headerlink" href="#quaternary-structures-protein-domains" title="Permalink to this headline">¶</a></h5>
 <div class="figure align-default" id="lego">
 <a class="reference internal image-reference" href="../_images/lego.png"><img alt="The figure shows a red lego block linked to a yellow lego block, which is then linked to another yellow lego block. The links are thin grey lego blocks." src="../_images/lego.png" style="height: 100px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.3 </span><span class="caption-text">An illustration of the lego analogy for protein domains. Coloured bricks represent protein domains - colour represents a specific protein domain type, while thin grey bricks represent polypeptide linkers which link domains. Image created using mecabricks<a class="bibtex reference internal" href="../end-matter/reference.html#jarraud2019-jj" id="id9">[9]</a></span><a class="headerlink" href="#lego" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="disorder">
-<h5><span class="section-number">2.2.3.4.2. </span>Disorder<a class="headerlink" href="#disorder" title="Permalink to this headline">¶</a></h5>
+<h5><span class="section-number">2.2.4.1.2. </span>Disorder<a class="headerlink" href="#disorder" title="Permalink to this headline">¶</a></h5>
 <p>While protein domains exist in one confirmation, not all linkers are rigid. Flexible regions of proteins which allow for various conformations are referred to as disordered. Disordered regions are not only relegated to linkers between domains. Proteins can be constituted entirely of disordered regions, or may have large disordered regions.</p>
 <p>Intrinsically disordered proteins can exist in a number of conformations, rather than one fixed structure. On some occasions, the disordered regions are known to be functional, while on others, proteins may be non-functional until they bind with another macromolecule which forces them into a fixed conformation.</p>
 </div>
 </div>
 </div>
 <div class="section" id="reading-dna-and-rna">
-<h3><span class="section-number">2.2.4. </span>Reading DNA and RNA<a class="headerlink" href="#reading-dna-and-rna" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.5. </span>Reading DNA and RNA<a class="headerlink" href="#reading-dna-and-rna" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="sequencing-technology">
-<h4><span class="section-number">2.2.4.1. </span>Sequencing technology<a class="headerlink" href="#sequencing-technology" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.2.5.1. </span>Sequencing technology<a class="headerlink" href="#sequencing-technology" title="Permalink to this headline">¶</a></h4>
 <p>The process of reading DNA and RNA is called sequencing. From the late 1970’s until the mid 2000s, Sanger sequencing was the most popular sequencing technology, although it underwent various improvements over this timescale. In Sanger sequencing (and other first-generation methods), reads of around 800bp are sequenced, one at a time. The human genome project sequenced the first human genome using this method<a class="bibtex reference internal" href="../end-matter/reference.html#venter2001-wn" id="id10">[10]</a>, and it’s still used in some circumstances, for example validating next generation sequencing. It was much more popular to sequence DNA than RNA with this type of technology.</p>
 <p>Second, or next generation sequencing (NGS), also referred to as high-throughput sequencing, is a catch-all term for the faster and cheaper sequencing technologies which replaced the previously used Sanger sequencing. A feature that is common to NGS methods is that many shorter reads (around 100bp, exact numbers depending on the specific technology) are sequenced in parallel. The process is massively parallel: millions to billions of short sequences can be read at a time. This is a huge factor in making NGS much faster (and therefore cheaper) than Sanger sequencing. In turn, this speed and cheapness means that more repeats can be sequenced, increasing the overall accuracy of NGS over Sanger (despite the accuracy of each individual read being generally lower). NGS can be used for sequencing either DNA or RNA (known as RNA-seq when applied to the whole transcriptome).</p>
 <p>There are now also third generation sequencing technologies that allow much longer reads to be sequenced.</p>
 <div class="section" id="rna-seq">
-<h5><span class="section-number">2.2.4.1.1. </span>RNA-seq<a class="headerlink" href="#rna-seq" title="Permalink to this headline">¶</a></h5>
+<h5><span class="section-number">2.2.5.1.1. </span>RNA-seq<a class="headerlink" href="#rna-seq" title="Permalink to this headline">¶</a></h5>
 <p>While (NGS) DNA-sequencing and RNA-seq can use the same underlying NGS technologies, there exist some notable differences. For example, RNA is reverse-transcribed into strands of complementary DNA, before being sequenced, since sequencing DNA is currently easier than sequencing RNA. RNA-seq is used much less often for de novo sequencing, and is generally mapped to a reference sequence.</p>
 <p>Since transcription is dependent on time, tissue, location, cell, etc, RNA-seq experiments are also dependent on all of these conditions. Furthermore, they are sensitive to differences in laboratory conditions and experimental design, creating artefacts in the resulting data known as batch effects.</p>
 </div>
 <div class="section" id="microarrays">
-<h5><span class="section-number">2.2.4.1.2. </span>Microarrays<a class="headerlink" href="#microarrays" title="Permalink to this headline">¶</a></h5>
+<h5><span class="section-number">2.2.5.1.2. </span>Microarrays<a class="headerlink" href="#microarrays" title="Permalink to this headline">¶</a></h5>
 <p>Through the 1970s into the early 2000s, DNA arrays/microarrays developed alongside sequencing as a way of measuring the presence of previously sequenced DNA in new samples. These arrays contain pre-chosen fragments of DNA (probes) arranged in spots, with each spot containing many copies of the probe, on a solid surface, e.g. glass, silicon or plastic. The probes consist of single strands of DNA, and arrays operate on the principle that the complementary DNA from the sample will bind tightly to it.</p>
 <p>These arrays were originally macro-sized, one of the first being 26 × 38 cm and containing 144 probes<a class="bibtex reference internal" href="../end-matter/reference.html#bumgarner2013-hg" id="id11">[11]</a>, but are now on small chips, which can contain up to millions of probes.</p>
 <p>Arrays were extremely popular for measuring gene expression, but this technology has largely been superseded by the more accurate and comprehensive RNA-seq. However, microarrays are still commonly used by companies like 23andMe for genotyping an individual (measuring specific alleles).</p>
 </div>
 </div>
 <div class="section" id="assembly-and-alignment">
-<h4><span class="section-number">2.2.4.2. </span>Assembly and alignment<a class="headerlink" href="#assembly-and-alignment" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.2.5.2. </span>Assembly and alignment<a class="headerlink" href="#assembly-and-alignment" title="Permalink to this headline">¶</a></h4>
 <div class="figure align-default" id="alignment">
 <a class="reference internal image-reference" href="../_images/alignment.png"><img alt="../_images/alignment.png" src="../_images/alignment.png" style="height: 240px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Image showing how RNA-Seq reads are mapped to the genome (image from Advancing RNA-Seq Analysis <a class="bibtex reference internal" href="../end-matter/reference.html#haas2010-lm" id="id12">[12]</a>). A similar process is followed for DNA.</span><a class="headerlink" href="#alignment" title="Permalink to this image">¶</a></p>
 </div>
 <p>The short reads that are the output of initial sequencing must be assembled to create longer sequences of DNA, whether that’s sequencing of individual genes, whole exome sequencing (WES) or whole genome sequencing (WGS). This is done by aligning reads to one another and (if available) to an existing reference sequence. This of course requires the reads to overlap, so longer and more numerous reads make this task easier. The process and underlying algorithms differ considerably whether the sequence being assembled can be mapped to an existing sequence or is being created de novo.</p>
 <p>The current estimate for raw sequencing accuracy of an individual NGS read is around 0.24%<a class="bibtex reference internal" href="../end-matter/reference.html#pfeiffer2018-kt" id="id13">[13]</a>, meaning that on average one base pair will be incorrect for a 500pb read. Multiple repeats are therefore required to obtain a more accurate measurement of the assembled sequence, which is further necessary since there are many repeated sequences (perhaps over two thirds of the human genome<a class="bibtex reference internal" href="../end-matter/reference.html#de-koning2011-ac" id="id14">[14]</a>). The depth (or coverage) for a nucleotide is the number of reads that overlap that nucleotide. Similarly, the average depth of a sequence can be calculated.</p>
+</div>
+</div>
+<div class="section" id="associations-between-regions-of-dna-and-traits">
+<h3><span class="section-number">2.2.6. </span>Associations between regions of DNA and traits<a class="headerlink" href="#associations-between-regions-of-dna-and-traits" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="is-there-a-gene-for-that">
+<h4><span class="section-number">2.2.6.1. </span>Is there a gene for that?<a class="headerlink" href="#is-there-a-gene-for-that" title="Permalink to this headline">¶</a></h4>
+<p>Since “DNA makes RNA makes proteins” and proteins have functions, it might seem sensible to say that there is a gene “for” a given function. While this is sometimes true (single gene diseases do exist), most of the time the same gene can make multiple different proteins, the same protein can be involved in multiple different pathways and have multiple functions, and multiple proteins can contribute to one function.</p>
+<p>The interaction between DNA, RNA and proteins, and the environment is also important to consider. Although DNA makes RNA makes proteins and proteins do pretty much everything in our bodies, which proteins are made and how they behave is highly dependent on the environment. The function of a gene might not be evident in some environments since the protein is never transcribed, or it may behave differently. Furthermore, there are many traits may be entirely environmental.</p>
+</div>
+<div class="section" id="genome-wide-association-studies">
+<h4><span class="section-number">2.2.6.2. </span>Genome Wide Association Studies<a class="headerlink" href="#genome-wide-association-studies" title="Permalink to this headline">¶</a></h4>
+<p>Genome Wide Association Studies (GWAS) are large observational studies where the genotypes of a cohort with a specific phenotype (e.g. diabetes) are compared to the genotypes of a cohort lacking in that phenotype (i.e. a control group) in order to find genomic loci that are statistically associated with the phenotype. This has been a popular type of scientific enquiry since the first GWAS study in 2005. GWAS generally results in lists of SNPs, often in the hundreds, ordered by p-value. Disentangling which of these SNPs (if any) cause the trait is a tricky, particularly since GWAS specifically interrogates common variants. The process of identifying causal variants generally involving identifying regions in linkage disequilibrium, and re-sequencing regions of interest in further detail.</p>
+<p>The GWAS catalog database<a class="bibtex reference internal" href="../end-matter/reference.html#buniello2019-cv" id="id15">[15]</a><a class="bibtex reference internal" href="../end-matter/reference.html#l-emery2017-rd" id="id16">[16]</a> was founded in 2008, to provide a consistent and accessible location for published SNP-trait associations, which extracts information about experiments from the literature (currently over 70000 associations from over 3000 publications).</p>
+</div>
+<div class="section" id="knockouts">
+<h4><span class="section-number">2.2.6.3. </span>Knockouts<a class="headerlink" href="#knockouts" title="Permalink to this headline">¶</a></h4>
+<p>Insight into gene function can also be gained by “knocking out” a gene, preventing it from being translated into a working protein, for example using CRISPR. Combinations of up to four genes can be knocked out in a single experiment. Knocking out a gene can lead to a difference in phenotype, and differences in gene expression, which can be used to help determine gene regulatory networks. There is a lot of existing data on the phenotypic results of mouse knockouts, since they are often used to create mouse models for diseases. Unfortunately, it is not always well-recorded when knockouts lead to no detectable phenotypic change<a class="bibtex reference internal" href="../end-matter/reference.html#barbaric2007-zm" id="id17">[17]</a>.</p>
 <hr class="docutils" />
-<p><strong>References</strong></p>
+<p><strong>Chapter References</strong></p>
 <p id="bibtex-bibliography-c02-biology-background/0-bg-biology-0"><dl class="citation">
 <dt class="bibtex label" id="zirkle1935-sb"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>Conway Zirkle. The inheritance of acquired characters and the provisional hypothesis of pangenesis. <em>Am. Nat.</em>, 69(724):417–445, September 1935.</p>
@@ -598,6 +643,15 @@ For a long time, the study of the structure of proteins and how these relate to 
 </dd>
 <dt class="bibtex label" id="de-koning2011-ac"><span class="brackets"><a class="fn-backref" href="#id14">14</a></span></dt>
 <dd><p>A P Jason de Koning, Wanjun Gu, Todd A Castoe, Mark A Batzer, and David D Pollock. Repetitive elements may comprise over two-thirds of the human genome. <em>PLoS Genet.</em>, 7(12):e1002384, December 2011.</p>
+</dd>
+<dt class="bibtex label" id="buniello2019-cv"><span class="brackets"><a class="fn-backref" href="#id15">15</a></span></dt>
+<dd><p>Annalisa Buniello, Jacqueline A L MacArthur, Maria Cerezo, Laura W Harris, James Hayhurst, Cinzia Malangone, Aoife McMahon, Joannella Morales, Edward Mountjoy, Elliot Sollis, Daniel Suveges, Olga Vrousgou, Patricia L Whetzel, Ridwan Amode, Jose A Guillen, Harpreet S Riat, Stephen J Trevanion, Peggy Hall, Heather Junkins, Paul Flicek, Tony Burdett, Lucia A Hindorff, Fiona Cunningham, and Helen Parkinson. The NHGRI-EBI GWAS catalog of published genome-wide association studies, targeted arrays and summary statistics 2019. <em>Nucleic Acids Res.</em>, 47(D1):D1005–D1012, January 2019. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gky1120">http://dx.doi.org/10.1093/nar/gky1120</a>.</p>
+</dd>
+<dt class="bibtex label" id="l-emery2017-rd"><span class="brackets"><a class="fn-backref" href="#id16">16</a></span></dt>
+<dd><p>J Macarthur L. Emery. GWAS catalog: exploring SNP-trait associations. <span><a class="reference external" href="#"></a></span>http://europepmc.org/article/CTX/C7914, December 2017. Accessed: 2020-9-3. URL: <a class="reference external" href="http://europepmc.org/article/CTX/C7914">http://europepmc.org/article/CTX/C7914</a>.</p>
+</dd>
+<dt class="bibtex label" id="barbaric2007-zm"><span class="brackets"><a class="fn-backref" href="#id17">17</a></span></dt>
+<dd><p>Ivana Barbaric, Gaynor Miller, and T Neil Dear. Appearances can be deceiving: phenotypes of knockout mice. <em>Brief. Funct. Genomic. Proteomic.</em>, 6(2):91–103, June 2007.</p>
 </dd>
 </dl>
 </p>
