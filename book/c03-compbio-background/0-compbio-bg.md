@@ -294,9 +294,9 @@ In science consensus is irrelevant. What is relevant is reproducible results.
 -- Michael Crichton
 ```
 
-The reproducibility crisis is the realisation that worryingly large proportions of research results do not reproduce. Replication studies have found that only 11% of cancer research findings[113], 20-25% of drug-target findings[113,114], and 39% of psychology findings[115] reproduced. Surveys of researchers across disciplines reveal that more than 70% of scientists say they have failed to reproduce another paper’s result, and over 50% say they have failed to reproduce their own results[116]. It seems that science’s self-correcting mechanism is not working as intended.
+The reproducibility crisis is the realisation that worryingly large proportions of research results do not reproduce. Replication studies have found that only 11% of cancer research findings{cite}`Begley2012-oc`, 20-25% of drug-target findings{cite}`Begley2012-oc,Prinz2011-rh`, and 39% of psychology findings{cite}`Open_Science_Collaboration2015-vi` reproduced. Surveys of researchers across disciplines reveal that more than 70% of scientists say they have failed to reproduce another paper’s result, and over 50% say they have failed to reproduce their own results{cite}`Baker2016-tb`. It seems that science’s self-correcting mechanism is not working as intended.
 
-This shocking irreproducibility is thought to be due to a multitude of factors, including poor data management, lack of available materials/details of experiments, publication bias, poor statistical knowledge, and questionable research practices[117]. 
+This shocking irreproducibility is thought to be due to a multitude of factors, including poor data management, lack of available materials/details of experiments, publication bias, poor statistical knowledge, and questionable research practices{cite}`Bishop2019-hg`. 
 
 [//]: # (TODO: Any time I explain any of this, I better be able to say WHY it's there: Go through and check that I can)
 
