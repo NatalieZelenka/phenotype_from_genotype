@@ -169,21 +169,22 @@ The development of additional measures is required to deal with other potential 
 height: 220px
 name: go_rilla
 ---
-A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla[29])
+A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla{cite}`Eden2009-ic`)
 ```
 
-The Gene Ontology (GO)[30] is one of the first biomedical ontologies, and continues to be one of the most popular. It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems[31]. It includes:
+The Gene Ontology (GO){cite}`Ashburner2000-cr` is one of the first biomedical ontologies, and continues to be one of the most popular. It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems{cite}`Thomas2017-vm`. It includes:
 1. The standard gene ontology, which is a hierarchical set of terms describing functions.
 2. The gene ontology annotations (GOA) database, which contains manual and computationally derived mappings from gene products to gene ontology terms.
 3. Tools for using and updating these resources.
 
-The Gene Ontology defines the “universe” of possible functions a gene might have, while the functions of particular genes are captured as GO annotations[31].
+The Gene Ontology defines the “universe” of possible functions a gene might have, while the functions of particular genes are captured as GO annotations{cite}`Thomas2017-vm`.
 
-The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies[30]. Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process)[31].
+The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies{cite}`Ashburner2000-cr`. Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process){cite}`Thomas2017-vm`.
 
 
 ##### Functional annotation databases
 [//]: # (TODO: Is this section at the level of genes only?)
+[//]: # (TODO: cite UniprotKB and GOA?)
 
 Databases like Uniprot KnowledgeBase (UniprotKB) and Gene Ontology Annotation (GOA) connect proteins to functions by annotating them to ontology terms (e.g. from GO), and giving information about why and how this annotation was done (e.g. giving DOI of a paper containing the evidence for the annotation). This is done by a combination of manual and electronic annotation. 
 
@@ -412,13 +413,13 @@ Models are most useful to us when they generate testable hypotheses about the un
 ## Summary
 [//]: # (TODO: Rewrite this section so that it is just a summary of the different sources of error AND a summary of the different excitingt types of data. BUT NOT downbeat/dramatic e.g. no wonder it doesn't work.)
 [//]: # (TODO: Citations in summary section)
+[//]: # (TODO: Decide how to spell multiomics)
 
 The purpose of this introductory chapter was to provide an overview of how we think phenotype arises from genotype. It’s also to explain why it’s a hard problem! 
 
 To summarise, there are multiple kinds of genetic variation, and even the simplest (the SNP) can exist on multiple parts of the genome, and may or may not affect structure or function of transcribed proteins. Even if the SNP is in a coding region, and is non-synonymous (affects protein structure), it may fall in a disordered region of a protein (leaving us without structural information), we may not know where that protein is transcribed, or it may affect the transcription of multiple different proteins. Furthermore, the SNP may affect phenotype differently with homozygous or heterozygous calls, and the protein may affect phenotype by influencing a network of other proteins, or the protein may exist as a redundant part of a pathway which will only affect phenotype if three other SNPs have specific calls. Even after all this, the presentation of many phenotype depends heavily on the environment.
 
-Given all this complexity, it may seem no wonder that phenotype prediction is currently inaccurate[3]. However, diverse information about biological entities exists, for example gene and protein sequence, protein structure, variant frequencies and functions, and gene expression. Multi-omics approaches that combine these data types have been successful at elucidating mechanisms behind certain phenotypes[52–54]. There is now the opportunity for genome-wide phenotype predictions to do the same. Obtaining an accurate prediction of phenotype and protein function, even for a subclass of variants/proteins, has the potential to greatly impact people. A method which predicts phenotype directly from the molecular biology would be desirable as it would create a model for how phenotype emerges from genotype, in addition to predictions for important genes.
-
+Given all this complexity, it may seem no wonder that phenotype prediction is currently inaccurate{cite}`Zhou2019-jk`. However, diverse information about biological entities exists, for example gene and protein sequence, protein structure, variant frequencies and functions, and gene expression. Multi-omics approaches that combine these data types have been successful at elucidating mechanisms behind certain phenotypes{cite}`Hasin2017-tk,Ritchie2015-ds,Kristensen2014-iw`. There is now the opportunity for genome-wide phenotype predictions to do the same. Obtaining an accurate prediction of phenotype and protein function, even for a subclass of variants/proteins, has the potential to greatly impact people. A method which predicts phenotype directly from the molecular biology would be desirable as it would create a model for how phenotype emerges from genotype, in addition to predictions for important genes.
 
 ---
 **Chapter References**
