@@ -14,9 +14,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -24,12 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -247,7 +244,243 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#from-genotype-to-phenotype-what-is-measured">
+   3.1. From genotype to phenotype: what is measured
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-word-on-ontologies">
+     3.1.1. A word on ontologies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dna">
+     3.1.2. DNA
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#complete-genome-sequences">
+       3.1.2.1. Complete genome sequences
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pqi">
+         3.1.2.1.1. PQI
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h6 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#pqi-features">
+           3.1.2.1.1.1. PQI features
+          </a>
+         </li>
+         <li class="toc-h6 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#the-original-pqi-metrics">
+           3.1.2.1.1.2. The original PQI metrics
+          </a>
+         </li>
+         <li class="toc-h6 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#potential-improvements">
+           3.1.2.1.1.3. Potential improvements
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#genes">
+       3.1.2.2. Genes
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#gene-ontology">
+         3.1.2.2.1. Gene Ontology
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#functional-annotation-databases">
+         3.1.2.2.2. Functional annotation databases
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variants">
+       3.1.2.3. Variants
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#dbsnp">
+         3.1.2.3.1. dbSNP
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rna">
+     3.1.3. RNA
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-gene-expression-atlas">
+       3.1.3.1. The Gene Expression Atlas
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gene-expression-data-pipeline">
+       3.1.3.2. Gene expression data pipeline
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quality-control">
+         3.1.3.2.1. Quality Control
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#normalisation-within-sample-normalisation">
+         3.1.3.2.2. Normalisation - within-sample normalisation
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#normalisation-between-sample">
+         3.1.3.2.3. Normalisation - between-sample
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#batch-correction">
+         3.1.3.2.4. Batch correction
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proteins">
+     3.1.4. Proteins
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#protein-classification">
+       3.1.4.1. Protein classification
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#blast">
+         3.1.4.1.1. BLAST
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#scop">
+         3.1.4.1.2. SCOP
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#superfamily">
+         3.1.4.1.3. SUPERFAMILY
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phenotypes">
+     3.1.5. Phenotypes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-large-computational-biology-datasets-are-used">
+   3.2. How large computational biology datasets are used
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-sense-of-lists">
+     3.2.1. Making sense of lists
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#term-enrichment">
+       3.2.1.1. Term enrichment
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#dcgo">
+         3.2.1.1.1. DcGO
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variant-prioritisation">
+       3.2.1.2. Variant prioritisation
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#fathmm">
+         3.2.1.2.1. FATHMM
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sources-of-bias-in-computational-biology-datasets">
+   3.3. Sources of bias in computational biology datasets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-we-care">
+     3.3.1. Why we care
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-want-to-trust-science">
+       3.3.1.1. We want to trust science
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-reproducibility-crisis">
+       3.3.1.2. The reproducibility crisis
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#null-hypothesis-significance-testing">
+         3.3.1.2.1. Null Hypothesis Significance Testing
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#publication-bias">
+         3.3.1.2.2. Publication bias
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reproducibility-in-bioinformatics">
+       3.3.1.3. Reproducibility in bioinformatics
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-is-a-model-useful">
+       3.3.1.4. When is a model useful?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -258,6 +491,479 @@
                 
   <div class="section" id="computational-biology-background">
 <span id="c03-compbio-bg"></span><h1><span class="section-number">3. </span>Computational Biology Background<a class="headerlink" href="#computational-biology-background" title="Permalink to this headline">¶</a></h1>
+<p>This chapter is a second background chapter. While <a class="reference internal" href="../c02-biology-background/0-bg-biology.html#c02-biology-bg"><span class="std std-ref">the previous chapter</span></a> gave an introduction to the biology of the molecules involved in genotype, and it’s connection to phenotype, this chapter is about the details of how information about these connections is created, used, stored, and re-used.</p>
+<p>In the first section of this chapter, we will retrace our steps from the last chapter, walking again from DNA to RNA to proteins to phenotypes, but this time we will consider the data gathered about each of these stages, and the data gathered about the connections between them. When I reach certain data (particularly RNA-Seq data), it will be also necessary to talk about some of the data processing pipeline. As we look at these different data types, I will describe some specific examples of resources and tools used in bioinformatics and computational biology, particularly those which are important in later chapters. This includes biological ontologies, tools for variant prioritisation, and databases of protein structure, sequence and domain assignments. In this part of the chapter, I will explain <span class="xref std std-ref">my contribution to the update to the SUPERFAMILY resource</span>.</p>
+<p>The second section will then touch upon how some of these datasets are used.</p>
+<p>Finally, in the third section of this chapter, I will consider what potential sources of bias this data contains. Here I mention my contributions to two collaborative projects: PQI and MAPS (ongoing).</p>
+<div class="section" id="from-genotype-to-phenotype-what-is-measured">
+<h2><span class="section-number">3.1. </span>From genotype to phenotype: what is measured<a class="headerlink" href="#from-genotype-to-phenotype-what-is-measured" title="Permalink to this headline">¶</a></h2>
+<p>Cataloguing and classifying has been a successful scientific endeavour in other disciplines (e.g. the periodic table) but it’s particularly a cornerstone of biology. Biological classification dates back to the Linnaean taxonomy from the mid 1700s (see <a class="reference internal" href="#linneaus-ehret"><span class="std std-numref">Fig. 3.1</span></a>), which described species and their features and the relationships between them<a class="bibtex reference internal" href="#jensen2010-fk" id="id1">[22]</a>. Biology today continues in this same tradition, classifying and cataloguing biology in ever more (molecular) detail. Computational biology is fueled by big community efforts to develop these databases, vocabularies, and annotations. While in other fields, data inaccessibility is a major barrier to reproducible research in other fields, this is the field that had an online database system that remote computers could access in the 1960s! These efforts remain central to computational biology and have enabled investigations into whole genomes, transcriptomes, organisms, or the entire phylogenetic tree. This openness, and the focus on well-organised and archived data is not something that we should take for granted.</p>
+<div class="figure align-default" id="linneaus-ehret">
+<a class="reference internal image-reference" href="../_images/linneaus_ehret.jpg"><img alt="../_images/linneaus_ehret.jpg" src="../_images/linneaus_ehret.jpg" style="height: 220px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Carl Linneaus developed a system of classifying plants, animals and minerals, including plant classification based on their number of stamens<a class="bibtex reference internal" href="#blunt2001-wr" id="id2">[23]</a>. The left image is a key to this classification system taken from his book, while the right image is a depiction of how the system works, drawn by botanist George Ehret<a class="bibtex reference internal" href="#ehret1748-bx" id="id3">[24]</a>.</span><a class="headerlink" href="#linneaus-ehret" title="Permalink to this image">¶</a></p>
+</div>
+<p>There are large datasets on everything from gene functions to cells, and diseases to anatomical entities. These datasets create a shared vocabulary that we can all use to discuss these entities, as well as capturing knowledge about them so that it can elucidate other research these entities, or be used in larger-scale analysis. We will now delve into the details of these datasets.</p>
+<div class="section" id="a-word-on-ontologies">
+<h3><span class="section-number">3.1.1. </span>A word on ontologies<a class="headerlink" href="#a-word-on-ontologies" title="Permalink to this headline">¶</a></h3>
+<p>For many of different biological molecules, ontologies a a popular way of storing information about anatomical entities.
+All ontologies contain entities names and descriptions (e.g. diseases, gene functions), different classifications of those entities (e.g. immune system disorders) and relate these classifications to one another hierarchically, sometimes with multiple types of relationships (e.g “is a”, “part of”). Hierarchical ontologies can be thought of as having a tree-like structure with one, or just a few root terms which are very general terms that all other terms in the ontology are related to, for example “biological process”, and leaf terms, which are the most specific terms in the ontology (e.g “positive regulation of cardiac muscle tissue regeneration”).</p>
+<p>Relations between terms are directional, for example “positive regulation of cardiac muscle tissue regeneration” is a “regulation of cardiac muscle tissue regeneration”, but not vice versa. In such relationships the parent term is the more general term closer to the root (“positive regulation of…”) and the child term is the more specific term (“regulation of..”). It is not permitted for there to be cycles in ontologies, for example “term A” is a “term B” is a “term C” is a “term A”.</p>
+<p>Terms in ontologies are given identifiers, usually of the form: XXX:#######, where XXX is an upper-case identifier for the whole ontology, e.g. “GO” for Gene Ontology, “CL” for Cell Ontology, etc. For example, GO:0008150 is the GO term for “biological process”.</p>
+<p>Ontologies are generally created through some combination of manual curation by highly skilled biocurators and logic-testing (checking for illogical relationships, for example using ROBOT<a class="bibtex reference internal" href="#overton2015-vo" id="id4">[25]</a>). Creating an ontology is generally a long-term project, with new suggestions and updates to the ontologies being made as new knowledge accumulates, or just as more people have time to add to them. As well as being the work of dedicated curators, contributions to ontologies can usually be crowdsourced from the scientific community using GitHub issues, mailing list discussions, web forms, and dedicated workshops. In this way, they are similar to other bioinformatics community-driven efforts like structural and sequence databases.</p>
+<p>There are also cross-ontology mappings and annotations, where terms from one ontology are linked to those in another (e.g. relating gene functions and tissues) or to entities in a database (e.g. gene functions to genes). These also require the work of dedicated curators, who search through literature, assessing various criteria for the inclusion of an annotation (such criteria vary by ontology). Since this is a laborious process, there are also many computational methods to annotate ontology terms automatically.</p>
+<p>There are two major file formats in which ontologies are currently stored. The OBO format is a human-readable format, while the OWL format is more complex, but has more functionality. The OWL format can be queried using querying languages, for example SPARQL (an SQL-like querying language).</p>
+<p>Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities. Ontologies and particularly their annotations are varying degrees of incomplete, and this will have an impact on the results of any downstream use of them.</p>
+</div>
+<div class="section" id="dna">
+<h3><span class="section-number">3.1.2. </span>DNA<a class="headerlink" href="#dna" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="complete-genome-sequences">
+<h4><span class="section-number">3.1.2.1. </span>Complete genome sequences<a class="headerlink" href="#complete-genome-sequences" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="pqi">
+<span id="id5"></span><h5><span class="section-number">3.1.2.1.1. </span>PQI<a class="headerlink" href="#pqi" title="Permalink to this headline">¶</a></h5>
+<p>The Proteome Quality Index (PQI) is an attempt to provide quality metrics about completed genome sequences. It was a group effort, which resulted in a paper<a class="bibtex reference internal" href="#zaucha2015-ez" id="id6">[1]</a>, of which I am an author, as well as <a class="reference external" href="http://pqi-list.org/">an associated website (http://pqi-list.org/)</a>. I contributed to discussions about metrics, and paper editing.</p>
+<p>The motivation for creating the index came from problems of reproducibility in the field of genomics. In creating a daily-updated tree of life (sTOL, sequenced Tree Of Life), it was found that many sequenced genomes were missing vital proteins due to poor sequencing<a class="bibtex reference internal" href="#fang2013-et" id="id7">[26]</a>. Such genomes are reused by many researchers, for example in comparative genomics, and omissions of whole proteins and poor accuracy of others are likely to affect research results.</p>
+<p>The PQI website was intended to be both a way for users of past genomes to look up the quality of a genome in advance of some research and, more importantly as a talking point for quality guidelines for genomes/proteomes. While quality control and data submission guidelines were more developed in other areas of computational biology, similar guidelines for genome quality were lacking.</p>
+<div class="section" id="pqi-features">
+<h6><span class="section-number">3.1.2.1.1.1. </span>PQI features<a class="headerlink" href="#pqi-features" title="Permalink to this headline">¶</a></h6>
+<p>The PQI website provides a scoring system for proteomes, bringing together numerous different metrics which are normalised before being averaged into an intuitive star-rating (1-5 stars) with equal weight given to each metric. Proteomes can be searched for, filtered by the various ratings, downloaded, user-rated and commented on. Additional proteomes and metrics can be added/suggested by users via the website and documentation describing this is provided.</p>
+</div>
+<div class="section" id="the-original-pqi-metrics">
+<h6><span class="section-number">3.1.2.1.1.2. </span>The original PQI metrics<a class="headerlink" href="#the-original-pqi-metrics" title="Permalink to this headline">¶</a></h6>
+<p>PQI originally provided 11 measures of proteome quality, that are either local i.e. “clade-based” (in which proteomes are compared to similar organisms) or global (in which case it is compared to all other proteomes). A clade is a group of organisms that consists of a common ancestor and all its descendants, i.e. is a branch on the tree of life<a class="bibtex reference internal" href="#cracraft2004-ud" id="id8">[27]</a>, so an appropriate ancestor must be chosen to define the clade. For PQI, since the purpose of these clades was to compare its’ constituent proteomes, we wanted clades that had similar variability. This was achieved by choosing parent nodes that are at least 0.01 in branch length away from the proteome (leaf node), and such that the clade contains at least 10 species. Trees and branch lengths to carry out these calculations were taken from sToL<a class="bibtex reference internal" href="#fang2013-et" id="id9">[26]</a>. For clade-based metrics, proteomes score well if they have similar scores to the rest of the clade.</p>
+<table class="table" id="pqi-table">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1. Percentage X-content</p></td>
+<td><p>Global</p></td>
+<td><p>Percentage of proteome with amino acids denoted by ‘X’, excluding the first residue of each protein.</p></td>
+<td><p>Amino acids that cannot be identified, or can have more than one value are represented by an ‘X’ in the amino acid sequence[139]. This occurs when coverage of the sequencing is low. Uncertainty in translation start sites mean the first residue of a protein is often uncertain (‘X’) even in the highest quality proteomes, so these are excluded from this measurement.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2. PubMed Publication Count</p></td>
+<td><p>Global</p></td>
+<td><p>The total number of publications related to the genome as listed for that entry in the PubMed database[140].</p></td>
+<td><p>This is a measure of how well-studied a proteome is, assuming that proteomes that have been studied more will be of higher quality.</p></td>
+</tr>
+<tr class="row-even"><td><p>3. CEG Domain</p></td>
+<td><p>Global</p></td>
+<td><p>Proportion of CEG set which contains homologous domains in the proteome, according to SUPERFAMILY</p></td>
+<td><p>This method assumes that all eukaryotic genomes should contain a core set of well-conserved of eukaryotic genes. This score is not calculated for non-eukaryotes. This was done using the Core Eukaryotic Gene (CEG) library used by the CEGMA tool[141], which comes from the Eukaryotic Orthologous Group (KOG) sequence orthology database[142]. Domain-architecture similarity is calculated using the SUPERFAMILY HMM library.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4. Combination Homology</p></td>
+<td><p>???</p></td>
+<td><p>???</p></td>
+<td><p>???</p></td>
+</tr>
+<tr class="row-even"><td><p>5. Percentage of sequences in Uniprot</p></td>
+<td><p>Global</p></td>
+<td><p>Percentage of proteome sequences that appear in Uniprot with 100% sequence identity</p></td>
+<td><p>This metric assumes that the majority of discrepancies between Uniprot protein sequences and the proteome protein sequences are due to proteome inaccuracies.</p></td>
+</tr>
+<tr class="row-odd"><td><p>6. Number of domain superfamilies</p></td>
+<td><p>Clade-based</p></td>
+<td><p>Number of proteins assigned to domain superfamilies by SUPERFAMILY compared to average for clade.</p></td>
+<td><p>Assignment to domain superfamilies was obtained using the SUPERFAMILY HMM Library. The number of superfamilies gives an indication of the diversity of the proteome, so a low number compared to the clade may indicate an incomplete proteome, while a high number could indicate that the proteome contains domain superfamiles that it shouldn’t.</p></td>
+</tr>
+<tr class="row-even"><td><p>7. Percentage of sequence covered</p></td>
+<td><p>Clade-based</p></td>
+<td><p>Percentage of amino acid residues in proteome sequence that are covered by SCOP domain superfamily assignments, compared to the average for the clade.</p></td>
+<td><p>This metric measures the portion of structured protein sequences found in the proteome as opposed to disordered regions and gaps. This measure assumes related species have a similar breakdown of these types of proteins. A mismatch could indicate that the parts of the genome that are supposed to be protein-coding are an incorrect length, that it is missing proteins, or contains proteins that it shouldn’t.</p></td>
+</tr>
+<tr class="row-odd"><td><p>8. Percentage of sequences with assignment</p></td>
+<td><p>Clade-based</p></td>
+<td><p>Percentage of amino acid residues in proteome that have SCOP superfamily assignment according to SUPERFAMILY, compared to the average for the clade.</p></td>
+<td><p>Related species are assumed to have a similar percentage of domains with SUPERFAMILY assignments to SCOP superfamilies</p></td>
+</tr>
+<tr class="row-even"><td><p>9. Mean sequence length</p></td>
+<td><p>Clade-based</p></td>
+<td><p>The average length of proteins in the proteome (in amino acids), compared to the average for the clade.</p></td>
+<td><p>This measure assumes that mean sequence length of proteins should be comparable with those of related species.</p></td>
+</tr>
+<tr class="row-odd"><td><p>10. Mean hit length</p></td>
+<td><p>Clade-based</p></td>
+<td><p>Average number of amino acids in superfamily assignments, compared to the average for the clade.</p></td>
+<td><p>Longer hits represent better matches to SCOP domains. These are assumed to be similar for similar species.</p></td>
+</tr>
+<tr class="row-even"><td><p>11. Number of domain families</p></td>
+<td><p>Clade-based</p></td>
+<td><p>Number of distinct SCOP protein domain families that are annotated to the proteome, compared to the average for the clade.</p></td>
+<td><p>The SCOP protein domain families are annotated to the proteome using a hybrid HMM/pairwise similarity method from the SUPERFAMILY resource. Similarly to the number of domain superfamilies, the number of families gives an indication of the diversity of the proteome at the SCOP family level. Domain families were included in addition to domain superfamilies, since they are more specific and may reveal differences that are not apparent at the superfamily level.</p></td>
+</tr>
+<tr class="row-odd"><td><p>12. Number of domain architectures</p></td>
+<td><p>Clade-based</p></td>
+<td><p>Number of unique domain architectures (combinations of SCOP domain superfamilies and gaps) in the proteome, according to SUPERFAMILY, compared to the average for the clade.</p></td>
+<td><p>Similarly to the number of domain families superfamilies, the number of domain architectures gives an indication of the diversity of the proteome at the SCOP family level.</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="#pqi-table"><span class="std std-numref">Table 3.1</span></a> shows the original PQI metrics.</p>
+<p>As a proteome will get low scores in clade-based metrics when they are unusual compared to the rest of its clade, model organisms (e.g. Homo Sapiens) can get a low score in clade-based metrics since for the wrong reasons - since they are of such higher quality compared to those in it’s clade. The PQI website’s comment and user-rating features can be used to alert its users to these cases.</p>
+<p>Since the publication of the PQI paper, the DOGMA metric<a class="bibtex reference internal" href="#dohmen2016-iv" id="id10">[28]</a>, which scores proteomes based on conserved arrangements of protein domains, has been added to the PQI website.</p>
+</div>
+<div class="section" id="potential-improvements">
+<h6><span class="section-number">3.1.2.1.1.3. </span>Potential improvements<a class="headerlink" href="#potential-improvements" title="Permalink to this headline">¶</a></h6>
+<p>The mapping from raw score to star rating for some metrics could be improved. For example, homo sapiens has ‘0’ X-content (the lowest/best possible value), but 4.1 stars.</p>
+<p>PQI was created with the potential to add further quality metrics by other researchers. Although the DOGMA metric was added and it is based on BUSCO<a class="bibtex reference internal" href="#simao2015-gc" id="id11">[29]</a>, it might be sensible to add BUSCO, since it has become very popular, and any proteome/genome quality index would probably be seen as incomplete without it. The continued inclusion of the CEG Domain Combination Homology metric may be questioned since CEGMA is no longer being updated (nor is the KEG database upon which it is based), but BUSCO and CEGMA may be complementary since BUSCO has a weaker requirement for inclusion in the set of proteins, which means that it has more proteins, and vice versa.</p>
+<p>To impact on the problem for model organisms for clade-based metrics, one solution would be to treat model-organisms differently in these circumstances, for example score clades containing model organisms against the model organism. An more subtle alternative to this would be using the NCBI’s Assembly database<a class="bibtex reference internal" href="#kitts2016-eo" id="id12">[30]</a>, which has been released since PQI was published. The database tracks how many assemblies there are for each species as well as how many versions of each assembly there has been. This information could be used to weight the importance of proteomes in clade-based metrics. The number of assemblies and versions could also form a separate score.</p>
+<p>Sequencing depth (coverage) and read length are also known markers of genome quality<a class="bibtex reference internal" href="#sims2014-df" id="id13">[31]</a>. Average coverage for an assembly (except reference genomes) is also available in the NCBI Assembly database<a class="bibtex reference internal" href="#kitts2016-eo" id="id14">[30]</a>.</p>
+<p>Some “third-generation” sequencing technologies create much longer read lengths, but potentially lower accuracies. A third category of metrics “technology-based” metrics could exist for proteomes where the metric is only really comparable within similar types of technologies. If technology-based metrics were implemented, it may also be sensible to have some metrics which only exist for specific technologies. For example, for nanopore sequencing, we could implement an indel-based quality metric<a class="bibtex reference internal" href="#watson2019-pz" id="id15">[32]</a>. Including sequencing-technology-specific metrics may encourage contributions from other researchers who specialise in particular technologies. Sequencing technology is also available in the NCBI Assembly database<a class="bibtex reference internal" href="#kitts2016-eo" id="id16">[30]</a>.</p>
+<p>The development of additional measures is required to deal with other potential problems in genome sequencing, for example GC content, amino acid bias, or contamination from other genomes.</p>
+</div>
+</div>
+</div>
+<div class="section" id="genes">
+<h4><span class="section-number">3.1.2.2. </span>Genes<a class="headerlink" href="#genes" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="gene-ontology">
+<h5><span class="section-number">3.1.2.2.1. </span>Gene Ontology<a class="headerlink" href="#gene-ontology" title="Permalink to this headline">¶</a></h5>
+<div class="figure align-default" id="go-rilla">
+<a class="reference internal image-reference" href="../_images/go_rilla.png"><img alt="../_images/go_rilla.png" src="../_images/go_rilla.png" style="height: 220px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla[29])</span><a class="headerlink" href="#go-rilla" title="Permalink to this image">¶</a></p>
+</div>
+<p>The Gene Ontology (GO)[30] is one of the first biomedical ontologies, and continues to be one of the most popular. It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems[31]. It includes:</p>
+<ol class="simple">
+<li><p>The standard gene ontology, which is a hierarchical set of terms describing functions.</p></li>
+<li><p>The gene ontology annotations (GOA) database, which contains manual and computationally derived mappings from gene products to gene ontology terms.</p></li>
+<li><p>Tools for using and updating these resources.</p></li>
+</ol>
+<p>The Gene Ontology defines the “universe” of possible functions a gene might have, while the functions of particular genes are captured as GO annotations[31].</p>
+<p>The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies[30]. Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process)[31].</p>
+</div>
+<div class="section" id="functional-annotation-databases">
+<h5><span class="section-number">3.1.2.2.2. </span>Functional annotation databases<a class="headerlink" href="#functional-annotation-databases" title="Permalink to this headline">¶</a></h5>
+<p>Databases like Uniprot KnowledgeBase (UniprotKB) and Gene Ontology Annotation (GOA) connect proteins to functions by annotating them to ontology terms (e.g. from GO), and giving information about why and how this annotation was done (e.g. giving DOI of a paper containing the evidence for the annotation). This is done by a combination of manual and electronic annotation.</p>
+<p>Annotations can also include more information, for example modifiers specifying the type of interaction between the gene and the ontology term, the binding partners of the protein, etc. Further extensions to annotations such as these are currently being developed, but are in their infancy. It is particularly sad that negative annotations between genes and diseases/functions are lacking. Although there is a ‘NOT’ modifier (i.e. gene A does not affect function B), it is generally only used in cases where there is a known disagreement between the electronic and manual annotations, rather than for any highly powered negative result. This is a shame as it makes the benchmarking of any protein function predictor extremely difficult. The GO handbook does mention than an increase in ‘NOT’ modifiers would be useful in achieving a gold standard set of annotations for benchmarking<a class="bibtex reference internal" href="#thomas2017-vm" id="id17">[33]</a>. It may be that publication bias in experimental work prevents annotators from finding supporting evidence to support such annotations.</p>
+</div>
+</div>
+<div class="section" id="variants">
+<h4><span class="section-number">3.1.2.3. </span>Variants<a class="headerlink" href="#variants" title="Permalink to this headline">¶</a></h4>
+<p>Databases like dbSNP, clinVar, and SNPedia contain information about the location of SNVs, their possible alleles, and their association to diseases. These are often used as part of a variant prioritisation pipeline, as well as by individuals who are investigating their own SNVs.</p>
+<div class="section" id="dbsnp">
+<h5><span class="section-number">3.1.2.3.1. </span>dbSNP<a class="headerlink" href="#dbsnp" title="Permalink to this headline">¶</a></h5>
+<p>The NCBI’s dbSNP<a class="bibtex reference internal" href="#sherry2001-nm" id="id18">[34]</a> is the world’s largest database of nucleotide variations, including their locations, possible alleles, and associations to diseases. It contains information from ten organisms (including human) and has information on indels and short tandem repeats in addition to SNVs. It was designed to store the annotations that are outputted from GWAS studies. Anyone can submit their findings about variants, and they must indicate what sort of evidence they have for the association. The database gives SNVs unique identifiers (Reference SNP cluster IDs, a.k.a. RSIDs) of the form rs###, which are used by many other resources.</p>
+</div>
+</div>
+</div>
+<div class="section" id="rna">
+<h3><span class="section-number">3.1.3. </span>RNA<a class="headerlink" href="#rna" title="Permalink to this headline">¶</a></h3>
+<p>DNA can’t tell us the whole story. On it’s own it can’t tell us what we’d like to know about a gene’s function or a person’s traits. Nonetheless, I’d like to spell out why that is for those who do not have that background. The central dogma of molecular biology can be paraphrased as “DNA makes RNA makes proteins”. So, if we know what a person’s DNA is, then why would we also want to know about their RNA?</p>
+<p>The answer boils down to the effect of the environment. “DNA makes RNA makes proteins” is shorthand for “DNA interacts with the environment to make RNA, and RNA interacts with the environment to make proteins”. The environment, of the cell, and of the individual, and even of modifications to the DNA molecules, is the reason why DNA alone is not enough to explain how we function. DNA is the collection of blueprints for what can be made, but the environment decides what goes into production; which RNA and proteins are made and how much.</p>
+<p>In any given individual, the same DNA is present in their liver cells, skin cells, and neurons. The difference in how these cells/tissues look and function is due to differences in which proteins are actually being made at any given time. Gene expression is a way of measuring how the environment of the cell is affecting the process of making proteins from DNA.</p>
+<p>Gene expression data is used to understand the function of genes, to identify housekeeping genes, to re-engineer gene regulatory networks, and more. This kind of insight can not be gained from looking at DNA alone.</p>
+<p>One of the most popular measures of gene expression, is the measure of how much RNA is in a cell at a given time.</p>
+<div class="section" id="the-gene-expression-atlas">
+<h4><span class="section-number">3.1.3.1. </span>The Gene Expression Atlas<a class="headerlink" href="#the-gene-expression-atlas" title="Permalink to this headline">¶</a></h4>
+<p>The Gene Expression Atlas<a class="bibtex reference internal" href="#petryszak2016-je" id="id19">[35]</a> (GxA) is the European Bioinformatics Institutes’ open source gene and protein expression database, and the largest of its type. At the time of writing, it contains over 3,000 gene expression and protein abundance experiments across many organisms, organism parts (tissues), diseases, and sequencing technologies. There is a separate atlas for scRNA-seq experiments.</p>
+</div>
+<div class="section" id="gene-expression-data-pipeline">
+<h4><span class="section-number">3.1.3.2. </span>Gene expression data pipeline<a class="headerlink" href="#gene-expression-data-pipeline" title="Permalink to this headline">¶</a></h4>
+<p>Whether gene expression data gathered is gathered using microarrays or RNA-Seq, it goes through a substantial pipeline before it is used in a statistical analysis, or made available as a resource.</p>
+<div class="section" id="quality-control">
+<h5><span class="section-number">3.1.3.2.1. </span>Quality Control<a class="headerlink" href="#quality-control" title="Permalink to this headline">¶</a></h5>
+<p>Before RNA-Seq data undergoes alignment, it undergoes quality control. This involves comparing sequencing parameters to a data set of known accuracy<a class="bibtex reference internal" href="#illumina2014-nd" id="id20">[36]</a> and is usually done as part of the sequencing.</p>
+</div>
+<div class="section" id="normalisation-within-sample-normalisation">
+<h5><span class="section-number">3.1.3.2.2. </span>Normalisation - within-sample normalisation<a class="headerlink" href="#normalisation-within-sample-normalisation" title="Permalink to this headline">¶</a></h5>
+<p>Within-sample normalisation methods are designed to account for sequencing depth and gene length so that gene expression values from the same sample (e.g. different replicates) can be more easily compared. Longer genes will have more reads mapped to them for an equal level of expression, so RNA-seq will report more counts. Similarly, without normalising, samples with greater sequencing depth will have higher counts for an equal level of expression.</p>
+<p>RPKM/FPKM (Reads/Fragments Per Kilobase Million) and TPM (Tags Per Million) are the three major normalisation techniques used for this purpose. In RPKM and FPKM, counts are first normalised for sequencing depth, and then for gene length. This means that they are suitable for comparing within a sample (e.g. between replicates. TPM, however performs the same steps in the opposite order, which has the desirable effect of ensuring that columns corresponding to TPM normalised samples sum to the same number. This means that TPM gives us a measure of relative abundance; we can compare across samples which proportion of counts are from each gene. For this reason, TPM is now generally preferred over RPKM/FPKM<a class="bibtex reference internal" href="#wagner2012-ac" id="id21">[37]</a><a class="bibtex reference internal" href="#pimentel2014-xm" id="id22">[38]</a>.</p>
+</div>
+<div class="section" id="normalisation-between-sample">
+<h5><span class="section-number">3.1.3.2.3. </span>Normalisation - between-sample<a class="headerlink" href="#normalisation-between-sample" title="Permalink to this headline">¶</a></h5>
+<p>While TPM gives us a measure of relative abundance, it does not give us a measure of absolute abundance. One outlying gene which is highly expressed will have the effect of making all other genes look relatively less expressed. We might expect this to occur, particularly when samples are under different conditions (e.g. disease/treatment). Between-sample normalisation methods are designed to counter this issue, and enable researchers to compare different samples.</p>
+<p>These methods adjust counts to reduce the impact of outlying expression values. Examples include scale normalisation methods like TMM (used in edgeR<a class="bibtex reference internal" href="#robinson2010-kl" id="id23">[39]</a>), the Log Geometric Mean (used in DESeq2<a class="bibtex reference internal" href="#robinson2010-kl" id="id24">[39]</a><a class="bibtex reference internal" href="#love2014-vx" id="id25">[40]</a>), and quantile normalisation (giving samples the same distribution of counts).</p>
+</div>
+<div class="section" id="batch-correction">
+<h5><span class="section-number">3.1.3.2.4. </span>Batch correction<a class="headerlink" href="#batch-correction" title="Permalink to this headline">¶</a></h5>
+<p>Even after all this normalising, systematic effects can be present in gene expression data, due to sequencing batch, or some correlated condition. All types of gene expression data are known to suffer from these batch effects<a class="bibtex reference internal" href="#leek2010-yw" id="id26">[41]</a>; unwanted variation associated with the batch it was sequenced in, resulting from unknown variation during the process of sequencing for example the date, time, or location of sequencing<a class="bibtex reference internal" href="#irizarry2005-ie" id="id27">[42]</a>, or the technician doing the work. Some of these effects may be due to factors that might be expected to genuinely influence expression of genes, such as temperature, time of year, humidity, diet, individual, age, etc. Covariates such as these are often unrecorded and/or not reported, so it is not easy to distinguish these from those due to protocol differences, such as reagents, personnel doing the sequencing, hardware, processing pipeline, etc.</p>
+<p>Batch effects can often confound and obscure the biological differences of interest between samples (e.g. tumour versus healthy tissue). At best, batch effects add random variation to expression measurements, which obscure signals. Often they can also add systematic differences that can lead to incorrect biological conclusions<a class="bibtex reference internal" href="#leek2010-yw" id="id28">[41]</a>. They are a problem for analysing the output of an individual experiment where there are multiple sequencing batches, but pose a particular problem in combining data from different experiments, as there is almost certainly more variations between analysis pipelines.</p>
+<p>When it is known, date of sequence processing is often used as a surrogate for batch, enabling researchers to check for, and then remove, batch effects if necessary. Principal components analysis is often used to visually inspect experimental results for batch effects; when biologically alike samples cluster together rather than those from like-batches, batch effects are often ignored. Batch effects may affect only specific subsets of genes, and may affect different genes in different ways<a class="bibtex reference internal" href="#leek2010-yw" id="id29">[41]</a>. This means that normalisation (e.g. TPM, FKPM) will not account for batch.</p>
+</div>
+</div>
+</div>
+<div class="section" id="proteins">
+<h3><span class="section-number">3.1.4. </span>Proteins<a class="headerlink" href="#proteins" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="protein-classification">
+<h4><span class="section-number">3.1.4.1. </span>Protein classification<a class="headerlink" href="#protein-classification" title="Permalink to this headline">¶</a></h4>
+<p>Scientists are often interested in a “favourite” gene or protein, or have obtained a list of genes or proteins that they are interested in through a recent experiment. If an experiment about the specific protein has been carried out (e.g. to determine its function or structure), then a database like Uniprot (containing function and sequence information) or PDB (structure information) can be queried. However, this kind of information is not available for all proteins, so this is often necessary to make inferences about protein structure or function based on for example sequence similarity or protein classification.</p>
+<div class="section" id="blast">
+<h5><span class="section-number">3.1.4.1.1. </span>BLAST<a class="headerlink" href="#blast" title="Permalink to this headline">¶</a></h5>
+<p>BLAST, or the The Basic Local Alignment Search Tool<a class="bibtex reference internal" href="#altschul1990-zf" id="id30">[43]</a>, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.</p>
+</div>
+<div class="section" id="scop">
+<h5><span class="section-number">3.1.4.1.2. </span>SCOP<a class="headerlink" href="#scop" title="Permalink to this headline">¶</a></h5>
+<p>The Structural Classification of Proteins (SCOP) database<a class="bibtex reference internal" href="#murzin1995-se" id="id31">[44]</a> classifies all proteins with known structure based on their structural similarities, based on the consideration of the protein’s constituent domains. The classification is mostly done at the level of families, superfamilies, and folds arranged in a tree structure. Families represent the most similar proteins, which share a “clear evolutionary relationship”, while superfamilies represent less close evolutionary relationships, and folds represent the same secondary structure. This protein classification task, while aided by automation, was carried out largely by manual visual inspection.</p>
+<p>SCOP was updated until 2009, but has been succeeded by SCOP2<a class="bibtex reference internal" href="#andreeva2014-om" id="id32">[45]</a>. However, SCOP2 has a different underlying classification system, based on a complex graph, rather than a hierarchy. The CATH (Class, Architecture, Topology, Homologous superfamily)<a class="bibtex reference internal" href="#orengo1997-vf" id="id33">[46]</a> database provides another classification system, (also operating hierarchically), but created mostly via automation, which leads to major differences between the classifications<a class="bibtex reference internal" href="#csaba2009-of" id="id34">[47]</a>.</p>
+</div>
+<div class="section" id="superfamily">
+<h5><span class="section-number">3.1.4.1.3. </span>SUPERFAMILY<a class="headerlink" href="#superfamily" title="Permalink to this headline">¶</a></h5>
+<p>SUPERFAMILY<a class="bibtex reference internal" href="#gough2001-ct" id="id35">[48]</a> uses HMMs to assign sequences to SCOP domains, primarily at the superfamily level. This allows the functions of poorly understood proteins to be inferred based on how closely they match known superfamilies. HMMs are very successful at such assignments since pairwise correlations between proteins (or their domains) and other proteins in the family may be weak, but consistently for many proteins; this can be picked up by an HMM. The superfamily level is chosen since it is the broadest level which suggests evolutionary relationships, but SUPERFAMILY also generates assignments at the (stricter) family level.</p>
+<p>HMMs are created by first finding closely relating protein homologs for a given protein superfamily using BLAST, and then extending it by comparing the HMM to more distantly related homologs. The resulting HMM library is fine-tuned by some manual curation.</p>
+<p>The SUPERFAMILY website also contains other tools, including a database of all sequences (genomes) which are used to generate the HMM library.</p>
+<p>(my-supfam-contribution=)
+<strong>SUPERFAMILY update</strong>
+I contributed to SUPERFAMILY’s 2014 update<a class="bibtex reference internal" href="#oates2015-li" id="id36">[2]</a> by editing the paper, uploading a small number of proteomes. The SUPERFAMILY database of proteomes doubled from 1400 to over 3200 from 2010 to 2014. The update paper described this development, as well as highlighting SUPERFAMILY as a resource for unique proteomes that are not found elsewhere (e.g. Uniprot). Although SUPERFAMILY’s primary resource is it’s HMM library, it also integrates a range of other tools for sequence analysis, for example protein disorder prediction (D2P2) and GO annotation (dcGO), as well as a domain-based phylogenetic tree.</p>
+</div>
+</div>
+</div>
+<div class="section" id="phenotypes">
+<h3><span class="section-number">3.1.5. </span>Phenotypes<a class="headerlink" href="#phenotypes" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="how-large-computational-biology-datasets-are-used">
+<h2><span class="section-number">3.2. </span>How large computational biology datasets are used<a class="headerlink" href="#how-large-computational-biology-datasets-are-used" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="making-sense-of-lists">
+<h3><span class="section-number">3.2.1. </span>Making sense of lists<a class="headerlink" href="#making-sense-of-lists" title="Permalink to this headline">¶</a></h3>
+<p>The output of high throughput sequencing experiments can often be a long list of variants or genes (e.g. the outputs of GWAS studies or differential expression).</p>
+<div class="section" id="term-enrichment">
+<h4><span class="section-number">3.2.1.1. </span>Term enrichment<a class="headerlink" href="#term-enrichment" title="Permalink to this headline">¶</a></h4>
+<p>Ontologies are often used to try to make sense of a list of genes that are found to be differentially expressed across different experimental conditions. In the context of GO, a term enrichment analysis can be carried out to see which GO terms are overrepresented (aka enriched) for a given group of genes, thus saying something about the function of the list of genes.</p>
+<div class="section" id="dcgo">
+<h5><span class="section-number">3.2.1.1.1. </span>DcGO<a class="headerlink" href="#dcgo" title="Permalink to this headline">¶</a></h5>
+<p>The aim of the Domain-centric Gene Ontology (DcGO)<a class="bibtex reference internal" href="#fang2013-ms" id="id37">[49]</a><a class="bibtex reference internal" href="#fang2013-ix" id="id38">[50]</a> tool is to give insight into uncharacterised or poorly characterised proteins by leveraging information about the content of their constituent protein domains. It annotates domains and combinations of domains (supradomains) to phenotype terms from a variety of ontologies, including the Gene Ontology (GO), Mammalian Phenotype ontology (MP), Disease Ontology (DOID), Zebrafish ontology (ZFA). Domain information comes from SUPERFAMILY, and annotations between (supra)domains and phenotype terms are made below a cut-off of FDR-adjusted statistical associations between the entities. Using phenotypes from a range of species serves to make use of greater numbers of experiments, and therefore increases the number of little-known proteins across species that DcGO can make predictions about.</p>
+</div>
+</div>
+<div class="section" id="variant-prioritisation">
+<h4><span class="section-number">3.2.1.2. </span>Variant prioritisation<a class="headerlink" href="#variant-prioritisation" title="Permalink to this headline">¶</a></h4>
+<p>To narrow down a long list of genes or variants to a shorter list of variants or genes which is more likely to be causal, variant prioritisation is used.</p>
+<div class="section" id="fathmm">
+<h5><span class="section-number">3.2.1.2.1. </span>FATHMM<a class="headerlink" href="#fathmm" title="Permalink to this headline">¶</a></h5>
+<p>Functional Analysis through Hidden Markov Models (FATHMM)<a class="bibtex reference internal" href="#shihab2013-pk" id="id39">[51]</a> is a tool for predicting the functional effects of protein missense mutations using sequence conservation information (via HMMs), which can be (optionally) weighted by how likely a mutation in a protein/domain would be to lead to disease. Weightings are calculated from the frequency of disease-associated and functionally neutral amino acid substitutions in protein domains from human variation databases (the Human Gene Mutation Database<a class="bibtex reference internal" href="#stenson2009-jc" id="id40">[52]</a> and Uniprot-KB/Swiss-prot<a class="bibtex reference internal" href="#pundir2016-ya" id="id41">[53]</a>).</p>
+<p>Consequence files describing whether an amino acid results in a missense, nonsense or synonymous SNP must first be obtained by using Ensembl’s Variant Effect Predictor<a class="bibtex reference internal" href="#mclaren2016-di" id="id42">[54]</a> in order to create input to FATHMM. FATHMM then calculates conservation scores which are a measure of the difference in amino acid probabilities for a SNP according to the HMM, i.e. between a wild type amino acid and it’s substitution. A reduction in amino acid probabilities is interpreted as a prediction of deleteriousness, and the larger the reduction the greater the predicted harm.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sources-of-bias-in-computational-biology-datasets">
+<h2><span class="section-number">3.3. </span>Sources of bias in computational biology datasets<a class="headerlink" href="#sources-of-bias-in-computational-biology-datasets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="why-we-care">
+<h3><span class="section-number">3.3.1. </span>Why we care<a class="headerlink" href="#why-we-care" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="we-want-to-trust-science">
+<h4><span class="section-number">3.3.1.1. </span>We want to trust science<a class="headerlink" href="#we-want-to-trust-science" title="Permalink to this headline">¶</a></h4>
+<blockquote class="epigraph">
+<div><p>The imposing edifice of science provides a challenging view of what can be achieved by the accumulation of many small efforts in a steady objective and dedicated search for truth.</p>
+<p class="attribution">—Charles H. Townes</p>
+</div></blockquote>
+<p>We want to trust the results of scientific research. Not only when it’s our own (because it’s fun and exciting to look for and find the truth), but because scientific research is generally paid for by tax, and the results that are generated by it drive policy, drug treatments, and innovations.</p>
+<p>In all fields, science is a search for the truth. And in all fields, there are concerns about what makes bad, unreliable, un-useful, or biased research; what must be done or not done to uphold science’s claim to truth, or at least reliability. Computational biology has a number of unique characteristics which make these questions worth discussing in its specific context.</p>
+<p>As mentioned earlier, in contrast to other fields, many bioinformatics datasets have been freely available and accessible on the internet since its inception. Computational biology might be a good place to look for what is required to really benefit from those open datasets, what can be gained from them (and what can’t), and what the next steps in reproducibility should be, beyond making data accessible.c</p>
+<p>Secondly, the creation of these databases has birthed a lot of research that is highly reliant on a handful of large ontologies and databases, the completeness of which is unknown, and the cataloging process by which they are added to is extremely uneven.</p>
+<p>Thirdly, many of the new publications in this field showcase novel software and models which build on these resources, despite the fact that much of it is difficult to validate due to the lack of gold standard datasets.</p>
+<p>When scientific results are often based on statistics, it’s inevitable that some proportion of published scientific results will not be true. This isn’t a problem, as over time, researchers can double-check interesting scientific results, and the literature can be updated to reflect that. This is sciences self-correcting mechanism. If a result can be replicated in a different circumstance by a different person, it reinforces the likelihood that the result is true. A replication doesn’t have to reveal the exact same level of statistical significance  or effect size to be successful, but (usually, depending on definitions) just a similar result.</p>
+</div>
+<div class="section" id="the-reproducibility-crisis">
+<h4><span class="section-number">3.3.1.2. </span>The reproducibility crisis<a class="headerlink" href="#the-reproducibility-crisis" title="Permalink to this headline">¶</a></h4>
+<blockquote class="epigraph">
+<div><p>In science consensus is irrelevant. What is relevant is reproducible results.</p>
+<p class="attribution">—Michael Crichton</p>
+</div></blockquote>
+<p>The reproducibility crisis is the realisation that worryingly large proportions of research results do not reproduce. Replication studies have found that only 11% of cancer research findings<a class="bibtex reference internal" href="#begley2012-oc" id="id43">[55]</a>, 20-25% of drug-target findings<a class="bibtex reference internal" href="#begley2012-oc" id="id44">[55]</a><a class="bibtex reference internal" href="#prinz2011-rh" id="id45">[56]</a>, and 39% of psychology findings<a class="bibtex reference internal" href="#open-science-collaboration2015-vi" id="id46">[57]</a> reproduced. Surveys of researchers across disciplines reveal that more than 70% of scientists say they have failed to reproduce another paper’s result, and over 50% say they have failed to reproduce their own results<a class="bibtex reference internal" href="#baker2016-tb" id="id47">[58]</a>. It seems that science’s self-correcting mechanism is not working as intended.</p>
+<p>This shocking irreproducibility is thought to be due to a multitude of factors, including poor data management, lack of available materials/details of experiments, publication bias, poor statistical knowledge, and questionable research practices<a class="bibtex reference internal" href="#bishop2019-hg" id="id48">[59]</a>.</p>
+<div class="section" id="null-hypothesis-significance-testing">
+<h5><span class="section-number">3.3.1.2.1. </span>Null Hypothesis Significance Testing<a class="headerlink" href="#null-hypothesis-significance-testing" title="Permalink to this headline">¶</a></h5>
+<blockquote class="epigraph">
+<div><p>Statistical significance is the least interesting thing about the results. You should describe the results in terms of measures of magnitude –not just, does a treatment affect people, but how much does it affect them.</p>
+<p class="attribution">—Gene V. Glass</p>
+</div></blockquote>
+<p>Null Hypothesis Significance Testing (NHST) is the most popular method by which scientific hypotheses are tested and reported. This reporting usually consists mostly of a p-value, a measure of statistical significance: the likelihood that a false positive could be obtained just by chance. In other words p-values are a measure of type 1 error (false positives). The threshold for this, usually denoted by <span class="math notranslate nohighlight">\(\alpha\)</span> is most often set to 0.05, as recommended by Fischer, however there have been many debates about whether this is the most sensible cut-off for science today. Despite the dominance of p-values as main or only reported statistic across scientific fields, they do not imply that a result is interesting (the effect might be small or the hypothesis uninteresting), or even that it’s likely to be true. Sometimes the p-value is not even reported, but only whether or not it crossed the p&lt;0.05 threshold.</p>
+<p>Two other useful quantities of NHST are effect size and statistical power. Effect size is the magnitude of the effect found by the statistical test. A very small effect can only be detected with a large enough sample size. Statistical power is a measure related to the type 2 error (false negatives), it is <span class="math notranslate nohighlight">\(1-\beta\)</span> where <span class="math notranslate nohighlight">\(\beta\)</span> is the false positive rate. A statistical power of 80% is customary, where it is calculated, in which case there is a 20% chance that a result is a false negative if the null hypothesis is accepted. A very highly powered test with a high (non-significant) p-value represents strong evidence that the null hypothesis is true, although it may often be reported as “failing to reach significance”. Low-powered tests, coinciding with low sample sizes, mean that both the acceptance or rejection of the null hypothesis is likely to be unreliable.</p>
+<p>P-values do not have a high prediction value for reproducibility, since they have a high spread, even when a test is reasonably highly powered. Statistician Geoff Cumming refers to this as the “dance of the p-values”. Instead, a measure of the expected truth of a finding can be estimated from the proportion of hypotheses that are true in a given field, the statistical power, the p-value threshold as:</p>
+<div class="math notranslate nohighlight">
+\[
+ppv=\frac{(1-\beta)p_{true}}{p_{true}(1-\beta-\alpha)+\alpha}
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(ppv\)</span> stands for positive predictive value and <span class="math notranslate nohighlight">\(p_{true}\)</span> is the proportion of true hypotheses in a field<a class="bibtex reference internal" href="#ioannidis2005-mo" id="id49">[60]</a>.</p>
+<p>For this version of the formula (there is also a version that includes bias, which was instrumental in the Ionnaidis’ claim that “most published research findings are false”<a class="bibtex reference internal" href="#ioannidis2005-mo" id="id50">[60]</a>), and standard choices for power and statistical significance of <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> and <span class="math notranslate nohighlight">\(\beta=0.2\)</span>, we would expect more findings to false than true if <span class="math notranslate nohighlight">\(p_{true}&lt;0.0588\)</span> (3.s.f). That might seem like a small number, but in some bioinformatics experiments, we hypothesise that millions of SNPs may be responsible for a trait, when only small numbers are. On the other hand, if half of researchers hypotheses were correct for a given field (<span class="math notranslate nohighlight">\(p_{true}=0.5\)</span>), the formula would yield <span class="math notranslate nohighlight">\(ppv=0.941\)</span> (3.s.f.), but the low reproducibility of GWAS results, gene annotations, etc, implies that the proportion of true hypotheses is less than this.</p>
+<p>The same approach can be used to calculate the limit for <span class="math notranslate nohighlight">\(p_{true}\)</span> for which we’d expect there to be more false positives than false negatives. Using the same values for and  and , we get <span class="math notranslate nohighlight">\(p_{true}=0.2\)</span>, i.e. if less than 20% of hypotheses are true, then we are more likely to get false positives than false negatives. This is interesting as most published scientific results are claiming a positive result, so we are essentially erring on the side of publishing erroneous errors.</p>
+<div class="figure align-default" id="p-hacking">
+<a class="reference internal image-reference" href="../_images/p_hacking.png"><img alt="../_images/p_hacking.png" src="../_images/p_hacking.png" style="height: 220px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Images that are illustrative of researchers approaches to p-values and p-hacking. The left image is <a class="reference external" href="https://twitter.com/FaustoBustos/status/1103435523777978368">a popular tweet</a>, while the right image is <a class="reference external" href="https://xkcd.com/1478/">an xkcd comic</a>).</span><a class="headerlink" href="#p-hacking" title="Permalink to this image">¶</a></p>
+</div>
+<p>In addition to poor reporting and underpowered tests, the pressure on scientists to publish means that researchers may be tempted to (or may accidentally, due to statistical ignorance) employ data-mining tactics in order to harvest significant p-values. This practice is known as “p-hacking”, and evidence for its existence can be found in distributions of p-values in scientific literature<a class="bibtex reference internal" href="#head2015-ns" id="id51">[61]</a>, as well as popular culture (<a class="reference internal" href="#p-hacking"><span class="std std-numref">Fig. 3.3</span></a>). This can include rerunning analysis with different models/covariates, collecting data until a significant p-value is reached, or performing 20 experiments and only publishing the results of one.</p>
+<blockquote class="epigraph">
+<div><p>The first principle is that you must not fool yourself – and you are the easiest person to fool.
+– Richard Feynman</p>
+</div></blockquote>
+<p>There are several suggested tonics to the problem of uninformative and ubiquitous p-values. Reporting p-values as numbers rather than in relation to a threshold (e.g. p&lt;0.05) is starting point. Information about statistical power and effect size should also be provided. In addition to giving researchers reading a paper a better idea of the quality of it, this also allows science to self-correct a little easier, since individual p-values can then be combined into more reliable p-values, using for example Fischer’s method<a class="bibtex reference internal" href="#fisher1990-ro" id="id52">[62]</a>.</p>
+<p>A more interesting solution is pre-registration, as used in clinical trials. This involves a detailed publication in advance of the analysis protocols that will be used in order to prevent tweaking analysis based on seeing the data. This solves p-hacking related problems, and makes a distinction between hypothesis-generating and hypothesis-testing research.</p>
+<p>For cases where many hypotheses are being generated at once (for example in GWAS), multiple hypothesis corrections (e.g. the Bonferroni correction<a class="bibtex reference internal" href="#dunn1958-sj" id="id53">[63]</a> or the False Discovery Rate<a class="bibtex reference internal" href="#benjamini1995-me" id="id54">[64]</a>) can be employed to adjust the p-value to account for this.</p>
+</div>
+<div class="section" id="publication-bias">
+<h5><span class="section-number">3.3.1.2.2. </span>Publication bias<a class="headerlink" href="#publication-bias" title="Permalink to this headline">¶</a></h5>
+<p>Although with current standard p-value and power cut-offs, negative results are more likely to be true than positive ones, negative results are much harder to publish. This bias is likely to be responsible for the draw of questionable research practices like p-hacking. It also means that there is a lot of unpublished, negative results which are likely to be repeated, since there is no way that someone could know it has already been done. A highly powered negative result could be very interesting, for example, we know hardly anything about which genes do not appear to affect phenotypes, since these results are not published<a class="bibtex reference internal" href="#barbaric2007-zm" id="id55">[17]</a>, but they would help enormously with the challenge of creating a gold standard dataset for gene function prediction.</p>
+<p>Registered reports are an attempt to remove these problems associated with publication bias, by linking the concept of pre-registration with that of publishing. Essentially, authors submit their introduction and methods section to a journal and at this point they undergo peer review and the journal agrees to publish the results, regardless of the result. At the time of writing over 170 journals were accepting registered reports and the number has been growing in recent months, across disciplines, although they are currently most popular in psychology and neuroscience<a class="bibtex reference internal" href="#hardwicke-undated-jj" id="id56">[65]</a>. This solution also offers peer-review at a more helpful stage in the manuscript, when it’s still possible to make changes to the experiment.</p>
+</div>
+</div>
+<div class="section" id="reproducibility-in-bioinformatics">
+<h4><span class="section-number">3.3.1.3. </span>Reproducibility in bioinformatics<a class="headerlink" href="#reproducibility-in-bioinformatics" title="Permalink to this headline">¶</a></h4>
+<p>In a field that has long had a huge number of open data repositories, and a relatively high level of statistical knowledge among researchers, in some ways bioinformatics might be expected to be ahead of the curve in terms of reproducible research. It certainly seems that as a field, it excelling at open research. At the same time, however, it is even more important for the work to be reproducible if data and software are being reused by multiple researchers.</p>
+<p>The Gene Ontology Annotations (GOA) are a combination of experimental and computational annotations. While the supporting publications for the experimental annotations are available, the GO consortium do not provide the statistical evidence that they used alongside this (e.g. p-value, effect size), etc.</p>
+</div>
+<div class="section" id="when-is-a-model-useful">
+<h4><span class="section-number">3.3.1.4. </span>When is a model useful?<a class="headerlink" href="#when-is-a-model-useful" title="Permalink to this headline">¶</a></h4>
+<blockquote class="epigraph">
+<div><p>All models are wrong, but some are useful</p>
+<p class="attribution">—George Box</p>
+</div></blockquote>
+<p>Models are most useful to us when they generate testable hypotheses about the underlying mechanisms of a process. In this way, they can help to advance science. They can also be useful to us if they generate predictions for forecasts. These predictions can be tested, which helps us to improve the model, and if they are accurate, they can also help us to generate hypotheses, or they may be useful in and of themselves.</p>
+<hr class="docutils" />
+<p><strong>Chapter References</strong></p>
+<p id="bibtex-bibliography-c03-compbio-background/0-compbio-bg-0"><dl class="citation">
+<dt class="bibtex label" id="zaucha2015-ez"><span class="brackets"><a class="fn-backref" href="#id6">1</a></span></dt>
+<dd><p>Jan Zaucha, Jonathan Stahlhacke, Matt E Oates, Natalie Thurlby, Owen J L Rackham, Hai Fang, Ben Smithers, and Julian Gough. A proteome quality index. <em>Environ. Microbiol.</em>, 17(1):4–9, 2015. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1462-2920.12622">https://onlinelibrary.wiley.com/doi/abs/10.1111/1462-2920.12622</a>.</p>
+</dd>
+<dt class="bibtex label" id="oates2015-li"><span class="brackets"><a class="fn-backref" href="#id36">2</a></span></dt>
+<dd><p>Matt E Oates, Jonathan Stahlhacke, Dimitrios V Vavoulis, Ben Smithers, Owen J L Rackham, Adam J Sardar, Jan Zaucha, Natalie Thurlby, Hai Fang, and Julian Gough. The SUPERFAMILY 1.75 database in 2014: a doubling of data. <em>Nucleic Acids Res.</em>, 43(Database issue):D227–33, January 2015.</p>
+</dd>
+<dt class="bibtex label" id="barbaric2007-zm"><span class="brackets"><a class="fn-backref" href="#id55">17</a></span></dt>
+<dd><p>Ivana Barbaric, Gaynor Miller, and T Neil Dear. Appearances can be deceiving: phenotypes of knockout mice. <em>Brief. Funct. Genomic. Proteomic.</em>, 6(2):91–103, June 2007.</p>
+</dd>
+<dt class="bibtex label" id="jensen2010-fk"><span class="brackets"><a class="fn-backref" href="#id1">22</a></span></dt>
+<dd><p>Lars J Jensen and Peer Bork. Ontologies in quantitative biology: a basis for comparison, integration, and discovery. <em>PLoS Biol.</em>, 8(5):e1000374, May 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1371/journal.pbio.1000374">http://dx.doi.org/10.1371/journal.pbio.1000374</a>.</p>
+</dd>
+<dt class="bibtex label" id="blunt2001-wr"><span class="brackets"><a class="fn-backref" href="#id2">23</a></span></dt>
+<dd><p>Wilfrid Blunt. <em>The Compleat Naturalist: A Life of Linnaeus</em>. Frances Lincoln, 2001. URL: <a class="reference external" href="https://play.google.com/store/books/details?id=B3YOvgAACAAJ">https://play.google.com/store/books/details?id=B3YOvgAACAAJ</a>.</p>
+</dd>
+<dt class="bibtex label" id="ehret1748-bx"><span class="brackets"><a class="fn-backref" href="#id3">24</a></span></dt>
+<dd><p>Ehret. <em>Plantae et papiliones rariores</em>. Volume 1748. [London :s.n.],, 1748. URL: <a class="reference external" href="https://www.biodiversitylibrary.org/item/205762">https://www.biodiversitylibrary.org/item/205762</a>.</p>
+</dd>
+<dt class="bibtex label" id="overton2015-vo"><span class="brackets"><a class="fn-backref" href="#id4">25</a></span></dt>
+<dd><p>James A Overton, Heiko Dietze, Shahim Essaid, David Osumi-Sutherland, and Christopher J Mungall. ROBOT: a command-line tool for ontology development. In <em>ICBO</em>. ceur-ws.org, 2015. URL: <a class="reference external" href="http://ceur-ws.org/Vol-1515/demo6.pdf">http://ceur-ws.org/Vol-1515/demo6.pdf</a>.</p>
+</dd>
+<dt class="bibtex label" id="fang2013-et"><span class="brackets">26</span><span class="fn-backref">(<a href="#id7">1</a>,<a href="#id9">2</a>)</span></dt>
+<dd><p>Hai Fang, Matt E Oates, Ralph B Pethica, Jenny M Greenwood, Adam J Sardar, Owen J L Rackham, Philip C J Donoghue, Alexandros Stamatakis, David A de Lima Morais, and Julian Gough. A daily-updated tree of (sequenced) life as a reference for genome research. <em>Sci. Rep.</em>, 3:2015, 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1038/srep02015">http://dx.doi.org/10.1038/srep02015</a>.</p>
+</dd>
+<dt class="bibtex label" id="cracraft2004-ud"><span class="brackets"><a class="fn-backref" href="#id8">27</a></span></dt>
+<dd><p>Joel Cracraft and Michael J Donoghue. <em>Assembling the Tree of Life</em>. Oxford University Press, July 2004. URL: <a class="reference external" href="https://www.amazon.co.uk/Assembling-Tree-Life-Joel-Cracraft/dp/0195172345">https://www.amazon.co.uk/Assembling-Tree-Life-Joel-Cracraft/dp/0195172345</a>.</p>
+</dd>
+<dt class="bibtex label" id="dohmen2016-iv"><span class="brackets"><a class="fn-backref" href="#id10">28</a></span></dt>
+<dd><p>Elias Dohmen, Lukas P M Kremer, Erich Bornberg-Bauer, and Carsten Kemena. DOGMA: domain-based transcriptome and proteome quality assessment. <em>Bioinformatics</em>, 32(17):2577–2581, September 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1093/bioinformatics/btw231">http://dx.doi.org/10.1093/bioinformatics/btw231</a>.</p>
+</dd>
+<dt class="bibtex label" id="simao2015-gc"><span class="brackets"><a class="fn-backref" href="#id11">29</a></span></dt>
+<dd><p>Felipe A Simão, Robert M Waterhouse, Panagiotis Ioannidis, Evgenia V Kriventseva, and Evgeny M Zdobnov. BUSCO: assessing genome assembly and annotation completeness with single-copy orthologs. <em>Bioinformatics</em>, 31(19):3210–3212, October 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1093/bioinformatics/btv351">http://dx.doi.org/10.1093/bioinformatics/btv351</a>.</p>
+</dd>
+<dt class="bibtex label" id="kitts2016-eo"><span class="brackets">30</span><span class="fn-backref">(<a href="#id12">1</a>,<a href="#id14">2</a>,<a href="#id16">3</a>)</span></dt>
+<dd><p>Paul A Kitts, Deanna M Church, Françoise Thibaud-Nissen, Jinna Choi, Vichet Hem, Victor Sapojnikov, Robert G Smith, Tatiana Tatusova, Charlie Xiang, Andrey Zherikov, Michael DiCuccio, Terence D Murphy, Kim D Pruitt, and Avi Kimchi. Assembly: a resource for assembled genomes at NCBI. <em>Nucleic Acids Res.</em>, 44(D1):D73–80, January 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkv1226">http://dx.doi.org/10.1093/nar/gkv1226</a>.</p>
+</dd>
+<dt class="bibtex label" id="sims2014-df"><span class="brackets"><a class="fn-backref" href="#id13">31</a></span></dt>
+<dd><p>David Sims, Ian Sudbery, Nicholas E Ilott, Andreas Heger, and Chris P Ponting. Sequencing depth and coverage: key considerations in genomic analyses. <em>Nat. Rev. Genet.</em>, 15(2):121–132, February 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nrg3642">http://dx.doi.org/10.1038/nrg3642</a>.</p>
+</dd>
+<dt class="bibtex label" id="watson2019-pz"><span class="brackets"><a class="fn-backref" href="#id15">32</a></span></dt>
+<dd><p>Mick Watson and Amanda Warr. Errors in long-read assemblies can critically affect protein prediction. <em>Nat. Biotechnol.</em>, 37(2):124–126, February 2019. URL: <a class="reference external" href="http://dx.doi.org/10.1038/s41587-018-0004-z">http://dx.doi.org/10.1038/s41587-018-0004-z</a>.</p>
+</dd>
+<dt class="bibtex label" id="thomas2017-vm"><span class="brackets"><a class="fn-backref" href="#id17">33</a></span></dt>
+<dd><p>Paul D Thomas. The gene ontology and the meaning of biological function. <em>Methods Mol. Biol.</em>, 1446:15–24, 2017. URL: <a class="reference external" href="http://dx.doi.org/10.1007/978-1-4939-3743-1_2">http://dx.doi.org/10.1007/978-1-4939-3743-1_2</a>.</p>
+</dd>
+<dt class="bibtex label" id="sherry2001-nm"><span class="brackets"><a class="fn-backref" href="#id18">34</a></span></dt>
+<dd><p>S T Sherry. dbSNP: the NCBI database of genetic variation. <em>Nucleic Acids Res.</em>, 29(1):308–311, 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/29.1.308">http://dx.doi.org/10.1093/nar/29.1.308</a>.</p>
+</dd>
+<dt class="bibtex label" id="petryszak2016-je"><span class="brackets"><a class="fn-backref" href="#id19">35</a></span></dt>
+<dd><p>Robert Petryszak, Maria Keays, Y Amy Tang, Nuno A Fonseca, Elisabet Barrera, Tony Burdett, Anja Füllgrabe, Alfonso Muñoz-Pomer Fuentes, Simon Jupp, Satu Koskinen, Oliver Mannion, Laura Huerta, Karine Megy, Catherine Snow, Eleanor Williams, Mitra Barzine, Emma Hastings, Hendrik Weisser, James Wright, Pankaj Jaiswal, Wolfgang Huber, Jyoti Choudhary, Helen E Parkinson, and Alvis Brazma. Expression atlas update—an integrated database of gene and protein expression in humans, animals and plants. 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkv1045">http://dx.doi.org/10.1093/nar/gkv1045</a>.</p>
+</dd>
+<dt class="bibtex label" id="illumina2014-nd"><span class="brackets"><a class="fn-backref" href="#id20">36</a></span></dt>
+<dd><p>I Illumina. Understanding illumina quality scores. <em>Technical Note: Informatics</em>, 2014. URL: <a class="reference external" href="https://www.illumina.com/documents/products/technotes/technote_Q-Scores.pdf">https://www.illumina.com/documents/products/technotes/technote_Q-Scores.pdf</a>.</p>
+</dd>
+<dt class="bibtex label" id="wagner2012-ac"><span class="brackets"><a class="fn-backref" href="#id21">37</a></span></dt>
+<dd><p>Günter P Wagner, Koryu Kin, and Vincent J Lynch. Measurement of mRNA abundance using RNA-seq data: RPKM measure is inconsistent among samples. <em>Theory Biosci.</em>, 131(4):281–285, December 2012. URL: <a class="reference external" href="http://dx.doi.org/10.1007/s12064-012-0162-3">http://dx.doi.org/10.1007/s12064-012-0162-3</a>.</p>
+</dd>
+<dt class="bibtex label" id="pimentel2014-xm"><span class="brackets"><a class="fn-backref" href="#id22">38</a></span></dt>
+<dd><p>H Pimentel. What the FPKM? a review of RNA-Seq expression units. 2014. URL: <a class="reference external" href="https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/">https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/</a>.</p>
+</dd>
+<dt class="bibtex label" id="robinson2010-kl"><span class="brackets">39</span><span class="fn-backref">(<a href="#id23">1</a>,<a href="#id24">2</a>)</span></dt>
+<dd><p>M D Robinson, D J McCarthy, and G K Smyth. Edger: a bioconductor package for differential expression analysis of digital gene expression data. <em>Bioinformatics</em>, 26(1):139–140, 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1093/bioinformatics/btp616">http://dx.doi.org/10.1093/bioinformatics/btp616</a>.</p>
+</dd>
+<dt class="bibtex label" id="love2014-vx"><span class="brackets"><a class="fn-backref" href="#id25">40</a></span></dt>
+<dd><p>Michael I Love, Wolfgang Huber, and Simon Anders. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. <em>Genome Biol.</em>, 15(12):550, 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1186/s13059-014-0550-8">http://dx.doi.org/10.1186/s13059-014-0550-8</a>.</p>
+</dd>
+<dt class="bibtex label" id="leek2010-yw"><span class="brackets">41</span><span class="fn-backref">(<a href="#id26">1</a>,<a href="#id28">2</a>,<a href="#id29">3</a>)</span></dt>
+<dd><p>Jeffrey T Leek, Robert B Scharpf, Héctor Corrada Bravo, David Simcha, Benjamin Langmead, W Evan Johnson, Donald Geman, Keith Baggerly, and Rafael A Irizarry. Tackling the widespread and critical impact of batch effects in high-throughput data. <em>Nat. Rev. Genet.</em>, 11(10):733–739, October 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nrg2825">http://dx.doi.org/10.1038/nrg2825</a>.</p>
+</dd>
+<dt class="bibtex label" id="irizarry2005-ie"><span class="brackets"><a class="fn-backref" href="#id27">42</a></span></dt>
+<dd><p>Rafael A Irizarry, Daniel Warren, Forrest Spencer, Irene F Kim, Shyam Biswal, Bryan C Frank, Edward Gabrielson, Joe G N Garcia, Joel Geoghegan, Gregory Germino, Constance Griffin, Sara C Hilmer, Eric Hoffman, Anne E Jedlicka, Ernest Kawasaki, Francisco Martínez-Murillo, Laura Morsberger, Hannah Lee, David Petersen, John Quackenbush, Alan Scott, Michael Wilson, Yanqin Yang, Shui Qing Ye, and Wayne Yu. Multiple-laboratory comparison of microarray platforms. <em>Nat. Methods</em>, 2(5):345–350, May 2005. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nmeth756">http://dx.doi.org/10.1038/nmeth756</a>.</p>
+</dd>
+<dt class="bibtex label" id="altschul1990-zf"><span class="brackets"><a class="fn-backref" href="#id30">43</a></span></dt>
+<dd><p>S F Altschul, W Gish, W Miller, E W Myers, and D J Lipman. Basic local alignment search tool. <em>J. Mol. Biol.</em>, 215(3):403–410, October 1990. URL: <a class="reference external" href="http://dx.doi.org/10.1016/S0022-2836(05)80360-2">http://dx.doi.org/10.1016/S0022-2836(05)80360-2</a>.</p>
+</dd>
+<dt class="bibtex label" id="murzin1995-se"><span class="brackets"><a class="fn-backref" href="#id31">44</a></span></dt>
+<dd><p>A G Murzin, S E Brenner, T Hubbard, and C Chothia. SCOP: a structural classification of proteins database for the investigation of sequences and structures. <em>J. Mol. Biol.</em>, 247(4):536–540, April 1995. URL: <a class="reference external" href="http://dx.doi.org/10.1006/jmbi.1995.0159">http://dx.doi.org/10.1006/jmbi.1995.0159</a>.</p>
+</dd>
+<dt class="bibtex label" id="andreeva2014-om"><span class="brackets"><a class="fn-backref" href="#id32">45</a></span></dt>
+<dd><p>Antonina Andreeva, Dave Howorth, Cyrus Chothia, Eugene Kulesha, and Alexey G Murzin. SCOP2 prototype: a new approach to protein structure mining. <em>Nucleic Acids Res.</em>, 42(Database issue):D310–4, January 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkt1242">http://dx.doi.org/10.1093/nar/gkt1242</a>.</p>
+</dd>
+<dt class="bibtex label" id="orengo1997-vf"><span class="brackets"><a class="fn-backref" href="#id33">46</a></span></dt>
+<dd><p>C A Orengo, A D Michie, S Jones, D T Jones, M B Swindells, and J M Thornton. CATH – a hierarchic classification of protein domain structures. <em>Structure</em>, 5(8):1093–1109, 1997. URL: <a class="reference external" href="http://dx.doi.org/10.1016/s0969-2126(97)00260-8">http://dx.doi.org/10.1016/s0969-2126(97)00260-8</a>.</p>
+</dd>
+<dt class="bibtex label" id="csaba2009-of"><span class="brackets"><a class="fn-backref" href="#id34">47</a></span></dt>
+<dd><p>Gergely Csaba, Fabian Birzele, and Ralf Zimmer. Systematic comparison of SCOP and CATH: a new gold standard for protein structure analysis. <em>BMC Struct. Biol.</em>, 9:23, April 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1186/1472-6807-9-23">http://dx.doi.org/10.1186/1472-6807-9-23</a>.</p>
+</dd>
+<dt class="bibtex label" id="gough2001-ct"><span class="brackets"><a class="fn-backref" href="#id35">48</a></span></dt>
+<dd><p>J Gough, K Karplus, R Hughey, and C Chothia. Assignment of homology to genome sequences using a library of hidden markov models that represent all proteins of known structure. <em>J. Mol. Biol.</em>, 313(4):903–919, November 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1006/jmbi.2001.5080">http://dx.doi.org/10.1006/jmbi.2001.5080</a>.</p>
+</dd>
+<dt class="bibtex label" id="fang2013-ms"><span class="brackets"><a class="fn-backref" href="#id37">49</a></span></dt>
+<dd><p>Hai Fang and Julian Gough. DcGO: database of domain-centric ontologies on functions, phenotypes, diseases and more. <em>Nucleic Acids Res.</em>, 41(Database issue):D536–44, January 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gks1080">http://dx.doi.org/10.1093/nar/gks1080</a>.</p>
+</dd>
+<dt class="bibtex label" id="fang2013-ix"><span class="brackets"><a class="fn-backref" href="#id38">50</a></span></dt>
+<dd><p>Hai Fang and Julian Gough. A domain-centric solution to functional genomics via dcGO predictor. <em>BMC Bioinformatics</em>, 14 Suppl 3:S9, February 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1186/1471-2105-14-S3-S9">http://dx.doi.org/10.1186/1471-2105-14-S3-S9</a>.</p>
+</dd>
+<dt class="bibtex label" id="shihab2013-pk"><span class="brackets"><a class="fn-backref" href="#id39">51</a></span></dt>
+<dd><p>Hashem A Shihab, Julian Gough, David N Cooper, Peter D Stenson, Gary L A Barker, Keith J Edwards, Ian N M Day, and Tom R Gaunt. Predicting the functional, molecular, and phenotypic consequences of amino acid substitutions using hidden markov models. <em>Hum. Mutat.</em>, 34(1):57–65, January 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1002/humu.22225">http://dx.doi.org/10.1002/humu.22225</a>.</p>
+</dd>
+<dt class="bibtex label" id="stenson2009-jc"><span class="brackets"><a class="fn-backref" href="#id40">52</a></span></dt>
+<dd><p>Peter D Stenson, Matthew Mort, Edward V Ball, Katy Howells, Andrew D Phillips, Nick St Thomas, and David N Cooper. The human gene mutation database: 2008 update. <em>Genome Med.</em>, 1(1):13, January 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1186/gm13">http://dx.doi.org/10.1186/gm13</a>.</p>
+</dd>
+<dt class="bibtex label" id="pundir2016-ya"><span class="brackets"><a class="fn-backref" href="#id41">53</a></span></dt>
+<dd><p>Sangya Pundir, Maria J Martin, Claire O’Donovan, and The UniProt Consortium. UniProt tools. <em>Curr. Protoc. Bioinformatics</em>, pages 1.29.1–1.29.15, 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1002/0471250953.bi0129s53">http://dx.doi.org/10.1002/0471250953.bi0129s53</a>.</p>
+</dd>
+<dt class="bibtex label" id="mclaren2016-di"><span class="brackets"><a class="fn-backref" href="#id42">54</a></span></dt>
+<dd><p>William McLaren, Laurent Gil, Sarah E Hunt, Harpreet Singh Riat, Graham R S Ritchie, Anja Thormann, Paul Flicek, and Fiona Cunningham. The ensembl variant effect predictor. <em>Genome Biol.</em>, 17(1):122, June 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1186/s13059-016-0974-4">http://dx.doi.org/10.1186/s13059-016-0974-4</a>.</p>
+</dd>
+<dt class="bibtex label" id="begley2012-oc"><span class="brackets">55</span><span class="fn-backref">(<a href="#id43">1</a>,<a href="#id44">2</a>)</span></dt>
+<dd><p>C Glenn Begley and Lee M Ellis. Drug development: raise standards for preclinical cancer research. <em>Nature</em>, 483(7391):531–533, March 2012. URL: <a class="reference external" href="http://dx.doi.org/10.1038/483531a">http://dx.doi.org/10.1038/483531a</a>.</p>
+</dd>
+<dt class="bibtex label" id="prinz2011-rh"><span class="brackets"><a class="fn-backref" href="#id45">56</a></span></dt>
+<dd><p>Florian Prinz, Thomas Schlange, and Khusru Asadullah. Believe it or not: how much can we rely on published data on potential drug targets? <em>Nat. Rev. Drug Discov.</em>, 10(9):712–712, 2011. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nrd3439-c1">http://dx.doi.org/10.1038/nrd3439-c1</a>.</p>
+</dd>
+<dt class="bibtex label" id="open-science-collaboration2015-vi"><span class="brackets"><a class="fn-backref" href="#id46">57</a></span></dt>
+<dd><p>Open Science Collaboration. PSYCHOLOGY. estimating the reproducibility of psychological science. <em>Science</em>, 349(6251):aac4716, August 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1126/science.aac4716">http://dx.doi.org/10.1126/science.aac4716</a>.</p>
+</dd>
+<dt class="bibtex label" id="baker2016-tb"><span class="brackets"><a class="fn-backref" href="#id47">58</a></span></dt>
+<dd><p>Monya Baker. 1,500 scientists lift the lid on reproducibility. <em>Nature</em>, 533(7604):452–454, May 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1038/533452a">http://dx.doi.org/10.1038/533452a</a>.</p>
+</dd>
+<dt class="bibtex label" id="bishop2019-hg"><span class="brackets"><a class="fn-backref" href="#id48">59</a></span></dt>
+<dd><p>Dorothy Bishop. Rein in the four horsemen of irreproducibility. <em>Nature</em>, 568(7753):435, April 2019. URL: <a class="reference external" href="http://dx.doi.org/10.1038/d41586-019-01307-2">http://dx.doi.org/10.1038/d41586-019-01307-2</a>.</p>
+</dd>
+<dt class="bibtex label" id="ioannidis2005-mo"><span class="brackets">60</span><span class="fn-backref">(<a href="#id49">1</a>,<a href="#id50">2</a>)</span></dt>
+<dd><p>John P A Ioannidis. Why most published research findings are false. <em>PLoS Med.</em>, 2(8):e124, August 2005. URL: <a class="reference external" href="http://dx.doi.org/10.1371/journal.pmed.0020124">http://dx.doi.org/10.1371/journal.pmed.0020124</a>.</p>
+</dd>
+<dt class="bibtex label" id="head2015-ns"><span class="brackets"><a class="fn-backref" href="#id51">61</a></span></dt>
+<dd><p>Megan L Head, Luke Holman, Rob Lanfear, Andrew T Kahn, and Michael D Jennions. The extent and consequences of p-hacking in science. <em>PLoS Biol.</em>, 13(3):e1002106, March 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1371/journal.pbio.1002106">http://dx.doi.org/10.1371/journal.pbio.1002106</a>.</p>
+</dd>
+<dt class="bibtex label" id="fisher1990-ro"><span class="brackets"><a class="fn-backref" href="#id52">62</a></span></dt>
+<dd><p>R A Fisher and F Yates. <em>Statistical Methods, Experimental Design, and Scientific Inference: A Re-Issue of Statistical Methods for Research Workers, the Design of Experiments, and Statistical Methods and Scientific Inference</em>. OUP Oxford, April 1990. URL: <a class="reference external" href="https://www.amazon.co.uk/Statistical-Methods-Experimental-Scientific-Inference/dp/0198522290">https://www.amazon.co.uk/Statistical-Methods-Experimental-Scientific-Inference/dp/0198522290</a>.</p>
+</dd>
+<dt class="bibtex label" id="dunn1958-sj"><span class="brackets"><a class="fn-backref" href="#id53">63</a></span></dt>
+<dd><p>Olive Jean Dunn. Estimation of the means of dependent variables. <em>The Annals of Mathematical Statistics</em>, 29(4):1095–1111, 1958. URL: <a class="reference external" href="http://dx.doi.org/10.1214/aoms/1177706443">http://dx.doi.org/10.1214/aoms/1177706443</a>.</p>
+</dd>
+<dt class="bibtex label" id="benjamini1995-me"><span class="brackets"><a class="fn-backref" href="#id54">64</a></span></dt>
+<dd><p>Yoav Benjamini and Yosef Hochberg. Controlling the false discovery rate: a practical and powerful approach to multiple testing. <em>Journal of the Royal Statistical Society: Series B (Methodological)</em>, 57(1):289–300, 1995. URL: <a class="reference external" href="http://dx.doi.org/10.1111/j.2517-6161.1995.tb02031.x">http://dx.doi.org/10.1111/j.2517-6161.1995.tb02031.x</a>.</p>
+</dd>
+<dt class="bibtex label" id="hardwicke-undated-jj"><span class="brackets"><a class="fn-backref" href="#id56">65</a></span></dt>
+<dd><p>Tom Elis Hardwicke and John Ioannidis. Mapping the universe of registered reports. <em>Nature Human Behaviour</em>, 2018. URL: <a class="reference external" href="https://www.nature.com/articles/s41562-018-0444-y">https://www.nature.com/articles/s41562-018-0444-y</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

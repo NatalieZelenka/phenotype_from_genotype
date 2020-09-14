@@ -248,7 +248,7 @@ The GWAS catalog database{cite}`Buniello2019-cv,L_Emery2017-rd` was founded in 2
 Insight into gene function can also be gained by “knocking out” a gene, preventing it from being translated into a working protein, for example using CRISPR. Combinations of up to four genes can be knocked out in a single experiment. Knocking out a gene can lead to a difference in phenotype, and differences in gene expression, which can be used to help determine gene regulatory networks. There is a lot of existing data on the phenotypic results of mouse knockouts, since they are often used to create mouse models for diseases. Unfortunately, it is not always well-recorded when knockouts lead to no detectable phenotypic change{cite}`Barbaric2007-zm`.
 
 ---
-**References**
+**Chapter References**
 
 ```{bibliography} /_bibliography/references.bib
 :filter: docname in docnames
