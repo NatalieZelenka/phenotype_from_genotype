@@ -5,3 +5,7 @@ venv/*
 .idea/
 book/_build/pdf/
 book/_build/latex/
+.Rproj.user
+.Rhistory
+*.Rproj
+.ipynb_checkpoints
