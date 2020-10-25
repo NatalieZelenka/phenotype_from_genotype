@@ -14,10 +14,17 @@
   numbered: true
   chapters:
   - file: c01-introduction/intro
-  - file:  c02-biology-background/0-bg-biology
+  - file: c02-biology-background/0-bg-biology
   - file: c03-compbio-background/0-compbio-bg
   - file: c04-snowflake/0-snowflake
-  - file: c05-combining/0-combining
+  - file: c05-combining/0-index
+    sections:
+      - file: c05-combining/1-background.md
+      - file: c05-combining/2-data.md
+      - file: c05-combining/3-data-wrangling.Rmd
+      - file: c05-combining/4-uberon.md
+      - file: c05-combining/5-batch-correction.md
+      - file: c05-combining/6-results.md
   - file: c06-filter/0-filter.md
   - file: c07-conclusion/0-conclusion
 

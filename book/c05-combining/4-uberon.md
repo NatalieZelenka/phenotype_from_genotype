@@ -41,7 +41,15 @@ For example, sample `FF:11511-119G8` (Bronchial Epithelial Cell, donor1) is mapp
 Similar missing annotations were discovered between Aorta and Artery, and Hair follicle and Dermal papilla.
 
 #### Mislabelled FANTOM sample: `FF:11590-120G6` should be labelled _Alveolar Epithelial Cells_ not _Renal Glomerular Endothelial Cells_ 
-The FANTOM sample ontology contains two samples named Renal Glomerular Endothelial Cells, donor2; FF:11590-120G6 and FF:11594-120H1. One of these is a mislabelled sample, which is actually an Alveolar Epithelial Cell sample.
+The FANTOM sample ontology contains two samples named Renal Glomerular Endothelial Cells, donor2; `FF:11590-120G6` and `FF:11594-120H1`. One of these is a mislabelled sample, which is actually an Alveolar Epithelial Cell sample.
 
 #### Imprecise FANTOM annotation to tissue
 Several FANTOM tissues are labelled by name colloquially, rather than precisely. For example, both Nucleus pulpopus and Vertebra are labelled Spinal cord (although the spinal cord itself is considered disjoint from these entities, both by definition, and in the Uberon ontology). It’s for this reason that the ontology mapping is preferred over the labelled sample name in creating the overall FANTOM sample-to-tissue mapping.
+
+---
+**Page References**
+
+```{bibliography} /_bibliography/references.bib
+:filter: docname in docnames
+:style: unsrt
+```
