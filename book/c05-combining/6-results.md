@@ -10,6 +10,10 @@ Figure 23: PCA plot showing colour by experiment and tissue group.
 
 The simulated data does not simulate the mean expression that we would expect for a given tissue type or experiment, so the labels in Figure 23 instead indicate the model design rather than the expression, i.e. there are the same number of GTEx-labelled simulated samples, which have the same breakdown of tissues as those in our final combined data set.
 
+#### ComBat on simulated data
+
+The obvious next step is to test batch effect removal such as ComBat on the simulated dataset. 
+
 ### Dataset
 [//]: # (TODO: REWRITE!)
 The combined dataset represents 122 healthy tissues (all of which map to Uberon terms), over almost 20,000 samples, all which have consistent labelled sample information (age, development stage, sex). This information can now be used to increase coverage of the FilP filter of protein function predictions. 
@@ -19,6 +23,7 @@ While a great deal of careful work has clearly been spent on making the datasets
 The problem of batch effects for this dataset has not yet been overcome. This means that the dataset can not yet be used for the purpose of improving measurements from baseline experiments (e.g. housekeeping genes or baseline tissue-specific gene expression).
 
 However, by overcoming the data cleaning and standardisation necessary to have all datasets in the same format with the same sample metadata, the dataset can be used for analyses where batch and other sample metadata is used as covariates (e.g. differential expression of tissues).  In its current iteration, it is also suitable for use in FilP, where the dataset only needs to distinguish between presence/absence. 
+
 
 
 ---
