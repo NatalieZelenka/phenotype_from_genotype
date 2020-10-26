@@ -25,6 +25,7 @@
       - file: c05-combining/4-uberon.md
       - file: c05-combining/5-batch-correction.md
       - file: c05-combining/6-results.md
+      - file: c05-combining/7-future-work.md
   - file: c06-filter/0-filter.md
   - file: c07-conclusion/0-conclusion
 

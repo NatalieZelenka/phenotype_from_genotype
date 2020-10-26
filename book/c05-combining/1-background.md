@@ -1,18 +1,10 @@
 
 ## Background
-Gene expression data measures the number of transcribed proteins in a sample at a specific time. It's a popular experimental technique as demonstrated by the 3,564 studies and 112,225 assays currently available on Gene Expression Atlas website(Petryszak et al. 2016). Researchers use this data to characterise gene function.
-
-Yet each individual measure of expression is only a snapshot of what a gene can do. It only tells us about the transcription of proteins at that one time. If we want a full understanding of what a gene does, we must understand how it's expressed in a variety of scenarios. For example, in different tissues, from different people, at different times of day, and across many repeats. That kind of data would allow us to answer questions that aren't currently possible. Data to enable this is not easy to come by. It would be too expensive for one experiment to measure so many samples. 
-
-Combining expression data from many different experiments could overcome this problem. There are already an example of this happening for two experiments(Wang et al. 2018). It would result in the rich information about genes that we desire. Unfortunately, this approach reveals another problem: batch effects. Batch effects are measurement artifacts that appear due to differences in experimental protocol. Their prevalence makes gene expression experiments very difficult to compare or combine.
-
-This chapter combines four gene expression data sets, collating sample and tissue information about them into a common format. A simulated dataset for tissue-specific batch-effected data is created as a starting point for exploring batch effect removal for this combined dataset.
 
 ### Tissue and cell-specific gene expression
 We’re yet to fully understand the intricacies of the human transcriptome, but if there is one factor that we know plays a huge role, it’s cell type. We know that the same DNA is in every cell, and yet the morphology and function of each cell is determined by its cell type, due to its gene expression. 
 
 While we may prefer to look at the gene expression of a cell type, we currently have much less scRNA-seq data than bulk RNA-seq data. Bulk RNA-seq also gives us the ability to measure the gene expression of tissues as they appear in humans. The average supply of a protein to a tissue (averaged over multiple cell types) may well influence a tissue’s phenotype, in these circumstances gene expression at the level of a tissue may give us information that we can’t retrieve from cell-line cells.
-
 
 Figure 17:  Images of smooth muscle tissue from the stomach wall (left) and lung tissue (right), examples of homogeneous and heterogeneous tissue types respectively, taken from the Human Tissue Atlas website(The Human Protein Atlas ).
 
@@ -29,16 +21,6 @@ There is general agreement that integrating omics datasets is one of the primary
 
 Due to these complications, many of the important questions that we seek to answer through gene expression are difficult to get an accurate measurement of. However, batch correction methodologies, biological ontologies, and curated databases of gene expression data are constantly evolving, and are now at a point where combining datasets in order to get an improved global picture of gene expression is feasible. Attempting to combine datasets has the added bonus of contributing to the accuracy of these databases and ontologies by drawing attention to inconsistencies.
 
-### Batch-effect removal 
-There are a number of batch correction analyses which attempt to remove batch effects from RNA-seq data. Batch correction can be very useful for understanding baseline gene expression, but can lead to inflated p-values for downstream analysis (notably for differential gene expression, using ComBat[90]), where a more sensible approach is to include batch as a confounder for statistical tests. 
-
-#### Surrogate Variable Analysis
-Surrogate Variable Analysis (SVA)[91] is used in cases where you do not have a covariate that drives batch effect (i.e. you do not have information about processing date, technicians, processing centres, etc), but you expect that batch effects will be present. SVA estimates which samples belong to which batches, before using ComBat to remove the effect due to those batches.
-
-#### ComBat
-ComBat[90] is a popular batch effect removal procedure, which was first developed for use with microarray data, but continues to be a popular choice for RNA-seq data. Generally, it is a well-trusted method for both of these types of gene expression data[92], but more recently has been shown to “overcorrect” batches for RNA-seq data[93].
-
-ComBat is an Empirical Bayes method, meaning that the prior distribution is estimated from the data. It is designed to “borrow/share information” between genes in order to get a better estimate of batch effects, and assumes that batch effects affect many genes in similar ways. 
 
 ---
 **Page References**
