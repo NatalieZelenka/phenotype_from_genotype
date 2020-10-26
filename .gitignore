@@ -10,3 +10,4 @@ book/_build/latex/
 .Rhistory
 *.Rproj
 .ipynb_checkpoints
+*.ipynb
