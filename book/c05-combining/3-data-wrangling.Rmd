@@ -1,12 +1,4 @@
----
-title: "1-data-wrangling.Rmd"
-author: "Natalie Thurlby"
-date: "9/15/2020"
-output: html_document
-  code_folding: hide
----
-
-## Data Wrangling 
+# Data Wrangling
 Before the data sets could be combined, substantial data wrangling was necessary. The details of these processes; obtaining, checking, mapping identifiers, excluding irrelevant data, etc, are described in this section.
 <!--TODO: Signpost to appendix if appropriate-->
 
@@ -21,6 +13,7 @@ The steps required to obtain consistently formatted and labelled data can be des
 3. Aggregating metadata
 
 <!--TODO: Check reference `combining-data-pipeline` works -->
+
 ```{python combining-data-pipeline, fig.align='center', fig.cap='Funnel plot showing the data cleaning pipeline for FANTOM transcripts/genes (left) and samples (right), along with the number which remained after each stage of data cleaning.' }
 # Code here for creating data wrangling pipeline image. Steps should be labelled matching 1A, 1B, etc.
 ```
@@ -78,8 +71,8 @@ FANTOM also contains time courses of cell differentiation (cells changing from o
 <!-- TODO: details here-->
 To create consistent metadata for the samples (e.g. age, developmental stage, replicate status, etc), information was extracted from multiple sources (including GxA and additional data from each experiment), and sometimes manually curated or corrected. 
 
-```{python combining-funnel-plot, fig.align='center', fig.cap='Funnel plot showing the data cleaning pipeline for FANTOM transcripts/genes (left) and samples (right), along with the number which remained after each stage of data cleaning.', }
-# code here
+```{python combining-funnel-plot, fig.align='center', fig.cap='Funnel plot showing the data cleaning pipeline for FANTOM transcripts/genes (left) and samples (right), along with the number which remained after each stage of data cleaning.' }
+# Code here for creating data wrangling pipeline image. Steps should be labelled matching 1A, 1B, etc.
 ```
 
 {numref}`combining-funnel-plot` shows a funnel plot, showing how the FANTOM5 data was processed to select the final genes and samples present in the combined dataset. 

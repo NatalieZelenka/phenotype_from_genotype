@@ -19,13 +19,13 @@
   - file: c04-snowflake/0-snowflake
   - file: c05-combining/0-index
     sections:
-      - file: c05-combining/1-background.md
-      - file: c05-combining/2-data.md
-      - file: c05-combining/3-data-wrangling.Rmd
-      - file: c05-combining/4-uberon.md
-      - file: c05-combining/5-batch-correction.md
-      - file: c05-combining/6-results.md
-      - file: c05-combining/7-future-work.md
+      - file: c05-combining/1-background
+      - file: c05-combining/2-data
+      - file: c05-combining/3-data-wrangling
+      - file: c05-combining/4-uberon
+      - file: c05-combining/5-batch-correction
+      - file: c05-combining/6-results
+      - file: c05-combining/7-future-work
   - file: c06-filter/0-filter.md
   - file: c07-conclusion/0-conclusion
 

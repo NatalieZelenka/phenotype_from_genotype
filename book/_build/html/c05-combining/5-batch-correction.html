@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>6.1.5. Batch correction &#8212; Phenotype from Genotype</title>
+    <title>6.1.6. Batch correction &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -36,8 +36,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.1.6. Results" href="6-results.html" />
-    <link rel="prev" title="6.1.3. The uberon-py package" href="4-uberon.html" />
+    <link rel="next" title="6.1.7. Results" href="6-results.html" />
+    <link rel="prev" title="6.1.4. The uberon-py package" href="4-uberon.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -169,8 +169,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="3-data-wrangling.html">
+     6.1.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="4-uberon.html">
-     6.1.3. The
+     6.1.4. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -181,22 +186,22 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4-uberon.html#functionality">
-     6.1.4. Functionality
+     6.1.5. Functionality
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.1.5. Batch correction
+     6.1.6. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     6.1.6. Results
+     6.1.7. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-future-work.html">
-     6.1.7. Future Work
+     6.1.8. Future Work
     </a>
    </li>
   </ul>
@@ -315,54 +320,54 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-are-batch-effects">
-   6.1.5.1. What are batch effects?
+   6.1.6.1. What are batch effects?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#batch-effect-removal-methodologies">
-   6.1.5.2. Batch-effect removal methodologies
+   6.1.6.2. Batch-effect removal methodologies
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#surrogate-variable-analysis">
-     6.1.5.2.1. Surrogate Variable Analysis
+     6.1.6.2.1. Surrogate Variable Analysis
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#combat">
-     6.1.5.2.2. ComBat
+     6.1.6.2.2. ComBat
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pre-batch-corrected-data">
-   6.1.5.3. Pre-batch-corrected data
+   6.1.6.3. Pre-batch-corrected data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#method">
-   6.1.5.4. Method
+   6.1.6.4. Method
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#simulating-tissue-specific-gene-expression-count-data-with-batch-effects">
-     6.1.5.4.1. Simulating tissue-specific gene expression count data with batch effects
+     6.1.6.4.1. Simulating tissue-specific gene expression count data with batch effects
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#measures-of-tissue-specificity">
-       6.1.5.4.1.1. Measures of tissue specificity
+       6.1.6.4.1.1. Measures of tissue specificity
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#simulation-method">
-       6.1.5.4.1.2. Simulation Method
+       6.1.6.4.1.2. Simulation Method
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#limitations">
-       6.1.5.4.1.3. Limitations
+       6.1.6.4.1.3. Limitations
       </a>
      </li>
     </ul>
@@ -380,26 +385,26 @@
               <div>
                 
   <div class="section" id="batch-correction">
-<h1><span class="section-number">6.1.5. </span>Batch correction<a class="headerlink" href="#batch-correction" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.1.6. </span>Batch correction<a class="headerlink" href="#batch-correction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-are-batch-effects">
-<h2><span class="section-number">6.1.5.1. </span>What are batch effects?<a class="headerlink" href="#what-are-batch-effects" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.6.1. </span>What are batch effects?<a class="headerlink" href="#what-are-batch-effects" title="Permalink to this headline">¶</a></h2>
 <!--TODO: What are batch effects: borrow from relevant part of thesis-->
 </div>
 <div class="section" id="batch-effect-removal-methodologies">
-<h2><span class="section-number">6.1.5.2. </span>Batch-effect removal methodologies<a class="headerlink" href="#batch-effect-removal-methodologies" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.6.2. </span>Batch-effect removal methodologies<a class="headerlink" href="#batch-effect-removal-methodologies" title="Permalink to this headline">¶</a></h2>
 <p>There are a number of batch correction analyses which attempt to remove batch effects from RNA-seq data. Batch correction can be very useful for understanding baseline gene expression, but can lead to inflated p-values for downstream analysis (notably for differential gene expression, using ComBat<a class="bibtex reference internal" href="../end-matter/reference.html#johnson2007-zh" id="id1">[95]</a>), where a more sensible approach is to include batch as a confounder for statistical tests.</p>
 <div class="section" id="surrogate-variable-analysis">
-<h3><span class="section-number">6.1.5.2.1. </span>Surrogate Variable Analysis<a class="headerlink" href="#surrogate-variable-analysis" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.6.2.1. </span>Surrogate Variable Analysis<a class="headerlink" href="#surrogate-variable-analysis" title="Permalink to this headline">¶</a></h3>
 <p>Surrogate Variable Analysis (SVA)<a class="bibtex reference internal" href="../end-matter/reference.html#leek2007-ba" id="id2">[96]</a> is used in cases where you do not have a covariate that drives batch effect (i.e. you do not have information about processing date, technicians, processing centres, etc), but you expect that batch effects will be present. SVA estimates which samples belong to which batches, before using ComBat to remove the effect due to those batches.</p>
 </div>
 <div class="section" id="combat">
-<h3><span class="section-number">6.1.5.2.2. </span>ComBat<a class="headerlink" href="#combat" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.6.2.2. </span>ComBat<a class="headerlink" href="#combat" title="Permalink to this headline">¶</a></h3>
 <p>ComBat<a class="bibtex reference internal" href="../end-matter/reference.html#johnson2007-zh" id="id3">[95]</a> is a popular batch effect removal procedure, which was first developed for use with microarray data, but continues to be a popular choice for RNA-seq data. Generally, it is a well-trusted method for both of these types of gene expression data<a class="bibtex reference internal" href="../end-matter/reference.html#chen2011-ke" id="id4">[97]</a>, but more recently has been shown to “over-correct” batches for RNA-seq data<a class="bibtex reference internal" href="../end-matter/reference.html#liu2016-wa" id="id5">[98]</a>.</p>
 <p>ComBat is an Empirical Bayes method, meaning that the prior distribution is estimated from the data. It is designed to “borrow/share information” between genes in order to get a better estimate of batch effects, and assumes that batch effects affect many genes in similar ways.</p>
 </div>
 </div>
 <div class="section" id="pre-batch-corrected-data">
-<h2><span class="section-number">6.1.5.3. </span>Pre-batch-corrected data<a class="headerlink" href="#pre-batch-corrected-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.6.3. </span>Pre-batch-corrected data<a class="headerlink" href="#pre-batch-corrected-data" title="Permalink to this headline">¶</a></h2>
 <p>Visual inspection of <code class="xref std std-numref docutils literal notranslate"><span class="pre">combine-pca-before</span></code> shows that data appears to cluster by experiment more strongly than by tissue group, meaning that batch correction is necessary to compare across experiment samples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -410,15 +415,15 @@
 </div>
 </div>
 <div class="section" id="method">
-<h2><span class="section-number">6.1.5.4. </span>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.6.4. </span>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h2>
 <!--TODO: write method overview, e.g. simulate data, and apply batch correction to show it would work on this kind of thing, then apply it to our actual data-->
 <div class="section" id="simulating-tissue-specific-gene-expression-count-data-with-batch-effects">
-<h3><span class="section-number">6.1.5.4.1. </span>Simulating tissue-specific gene expression count data with batch effects<a class="headerlink" href="#simulating-tissue-specific-gene-expression-count-data-with-batch-effects" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.6.4.1. </span>Simulating tissue-specific gene expression count data with batch effects<a class="headerlink" href="#simulating-tissue-specific-gene-expression-count-data-with-batch-effects" title="Permalink to this headline">¶</a></h3>
 <p>Simulated data can be used to test that methodologies are applicable to new data types. Since simulated data has a well-defined ground truth, we can test the performance and accuracy of a methodology using it. If the real data is similar to the simulated data, we can assume that methodologies will perform similarly on the real data.</p>
 <p>Data can be simulated based on its expected distribution. For gene expression data, a negative binomial distribution is chosen to represent the underlying gene expression counts because the distribution is always positive, and does not assume mean and variance are equal. The parameters for the simulated distribution for each gene can be chosen based on estimates from existing data sets. This allows for any number of samples to be simulated. Additional effects (e.g. noise) can be added to this base level of gene expression and pre-decided fold changes for differences between samples (e.g. differential expression of tissue-specific genes, or batch effects) can be achieved by multiplying the simulated data.</p>
 <p>In order to test whether ComBat can be used to deal with combining the experiments chosen (considering the unbalanced design), a simulated data set of tissue-specific batch-affected gene expression data was created. In order to do this, decisions had to be made about the scale and distribution of the batch effect and tissue-specific effects. These were estimated from a subset of the FANTOM5 and GTEx datasets.</p>
 <div class="section" id="measures-of-tissue-specificity">
-<h4><span class="section-number">6.1.5.4.1.1. </span>Measures of tissue specificity<a class="headerlink" href="#measures-of-tissue-specificity" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.1.6.4.1.1. </span>Measures of tissue specificity<a class="headerlink" href="#measures-of-tissue-specificity" title="Permalink to this headline">¶</a></h4>
 <p>The expected fold-change due to tissue-specific effects must be pre-decided in order to simulate the dataset. The size of the effect and number genes affected were estimated using data from the Human Protein Atlas (available at https://www.proteinatlas.org/download/proteinatlas.tsv.zip), which contains for each tissue-specific gene, the transcripts per million (TPM) for tissues that were found to be tissue-enriched (at least a 5 fold change, compared to all other tissues), group-enriched (at least a 5 fold change between the group of 2-7 tissues compared to all other tissues) or tissue enhanced (at least a 5 fold change between the tissue and the average of all other tissues), and the transcripts per million of the most highly expressed tissues that were not. Taken together (tissue-enriched, group-enriched and tissue-enhanced), we here refer to these genes/tissues as tissue-specific.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -431,14 +436,14 @@
 <p>The number of genes that were found to be in some sense tissue-specific was also extracted from the HPA data, and compared to log-normal, exponential and power-law distributions. Again, the log-normal distribution fitted best (<span class="math notranslate nohighlight">\(D=0.10\)</span>). It was parameterised by <span class="math notranslate nohighlight">\(\mu=5.44, \sigma=0.70\)</span>. The small number of tissues (37) makes it hard to assess the accuracy of this fit, but visual inspection of the graph (orange line, right-hand plot, <code class="xref std std-numref docutils literal notranslate"><span class="pre">dist-tissue-specific</span></code>) reveals it to be reasonable.</p>
 </div>
 <div class="section" id="simulation-method">
-<h4><span class="section-number">6.1.5.4.1.2. </span>Simulation Method<a class="headerlink" href="#simulation-method" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.1.6.4.1.2. </span>Simulation Method<a class="headerlink" href="#simulation-method" title="Permalink to this headline">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">polyester</span></code> R package<a class="bibtex reference internal" href="../end-matter/reference.html#frazee2015-kg" id="id6">[99]</a> was used to simulate RNA-seq count data with the same design of tissues, samples, and experiments as in the combined data set. To make the data set more manageable, the data set was simulated for 1000 genes. The <code class="docutils literal notranslate"><span class="pre">create_read_numbers</span></code> function is used to simulate base reads based on the FANTOM5 data set, and add tissue-specific effects (as calculated earlier) and batch effects.</p>
 <p>The simulated data set is <span class="math notranslate nohighlight">\(Y_{ijk}\propto Negative Binomal (mean=\mu_{jk},size=r_{jk})\)</span> for replicate <span class="math notranslate nohighlight">\(i\)</span>, gene <span class="math notranslate nohighlight">\(j\)</span>, and sample <span class="math notranslate nohighlight">\(k\)</span>. The means are given by <span class="math notranslate nohighlight">\(\mu_{jk}=\mu'_j+\lambda+{jk} \cdot mod\)</span> where <span class="math notranslate nohighlight">\(\mu'_j\)</span> are the estimated base means per gene, <span class="math notranslate nohighlight">\(\lambda_{jk}\)</span> are the generated log-fold changes in matrix format, including both batch and tissue effects (<code class="docutils literal notranslate"><span class="pre">coeffs_batch.csv</span></code>), and <span class="math notranslate nohighlight">\(mod\)</span> is the model design matrix. The dispersion parameter (size), <span class="math notranslate nohighlight">\(r_{jk}\)</span> is calculated based on <span class="math notranslate nohighlight">\(\mu_{jk}\)</span> and the fit between mean and size (estimated from the FANTOM5 data).</p>
 <p>In order to do this, the FANTOM5 data was cleaned to contain only the set of genes present in all experiments (<code class="docutils literal notranslate"><span class="pre">common_genes.csv</span></code>) and <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values for expression counts were set to 0. This data was then used as input to polyester to parameterize the negative binomial distributions for the simulated base expression counts. Parameters calculated by polyester include means per gene and size, and probability of a zero count per gene.</p>
 <p>Tissue effects were calculated as previously described, and included in the coefficient matrix.  Batch effects were assumed to affect 50% of the 1000 simulated genes. In all cases, each affected gene all had a log-fold change randomly generated normally distributed (<span class="math notranslate nohighlight">\(\mu=0,\sigma=1\)</span>) effect due to batch, which was persistent across samples.</p>
 </div>
 <div class="section" id="limitations">
-<h4><span class="section-number">6.1.5.4.1.3. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.1.6.4.1.3. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h4>
 <p>A good indication of the size or extent of batch effects was not readily available. Batch effects (log-fold changes - and proportion of genes affected by them) were chosen such that the simulated distributions most closely (according to visual inspection of PCA and box-plots).</p>
 <p>The simulated data set is read counts and the fold changes are calculated from TPM data, however the simulated data does not include effects due to gene length or library size.</p>
 <hr class="docutils" />
@@ -476,8 +481,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="4-uberon.html" title="previous page"><span class="section-number">6.1.3. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
-    <a class='right-next' id="next-link" href="6-results.html" title="next page"><span class="section-number">6.1.6. </span>Results</a>
+    <a class='left-prev' id="prev-link" href="4-uberon.html" title="previous page"><span class="section-number">6.1.4. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
+    <a class='right-next' id="next-link" href="6-results.html" title="next page"><span class="section-number">6.1.7. </span>Results</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
