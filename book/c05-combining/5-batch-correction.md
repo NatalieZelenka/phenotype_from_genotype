@@ -80,7 +80,7 @@ The number of genes that were found to be in some sense tissue-specific was also
 ##### Simulation Method
 The `polyester` R package{cite}`Frazee2015-kg` was used to simulate RNA-seq count data with the same design of tissues, samples, and experiments as in the combined data set. To make the data set more manageable, the data set was simulated for 1000 genes. The `create_read_numbers` function is used to simulate base reads based on the FANTOM5 data set, and add tissue-specific effects (as calculated earlier) and batch effects. 
 
-The simulated data set is $Y_{ijk}\propto NegativeBinomal (mean=\mu_{jk},size=r_{jk})$ for replicate $i$, gene $j$, and sample $k$. The means are given by $\mu_{jk}=\mu'_j+\lambda+{jk} \cdot mod$ where $\mu'_j$ are the estimated base means per gene, $\lambda_{jk}$ are the generated log-fold changes in matrix format, including both batch and tissue effects (`coeffs_batch.csv`), and $mod$ is the model design matrix. The dispersion parameter (size), $r_{jk}$ is calculated based on $\mu_{jk}$ and the fit between mean and size (estimated from the FANTOM5 data).
+The simulated data set is $Y_{ijk}\propto Negative Binomal (mean=\mu_{jk},size=r_{jk})$ for replicate $i$, gene $j$, and sample $k$. The means are given by $\mu_{jk}=\mu'_j+\lambda+{jk} \cdot mod$ where $\mu'_j$ are the estimated base means per gene, $\lambda_{jk}$ are the generated log-fold changes in matrix format, including both batch and tissue effects (`coeffs_batch.csv`), and $mod$ is the model design matrix. The dispersion parameter (size), $r_{jk}$ is calculated based on $\mu_{jk}$ and the fit between mean and size (estimated from the FANTOM5 data).
 
 In order to do this, the FANTOM5 data was cleaned to contain only the set of genes present in all experiments (`common_genes.csv`) and `NaN` values for expression counts were set to 0. This data was then used as input to polyester to parameterize the negative binomial distributions for the simulated base expression counts. Parameters calculated by polyester include means per gene and size, and probability of a zero count per gene. 
 
@@ -89,7 +89,7 @@ Tissue effects were calculated as previously described, and included in the coef
 ##### Limitations
 A good indication of the size or extent of batch effects was not readily available. Batch effects (log-fold changes - and proportion of genes affected by them) were chosen such that the simulated distributions most closely (according to visual inspection of PCA and box-plots).
 
-The simulated dataset is read counts and the fold changes are calculated from TPM data, however the simulated data does not include effects due to gene length or library size.
+The simulated data set is read counts and the fold changes are calculated from TPM data, however the simulated data does not include effects due to gene length or library size.
 
 ---
 **Page References**
