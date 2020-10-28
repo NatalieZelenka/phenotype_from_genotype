@@ -215,6 +215,12 @@ Gene expression data is used to understand the function of genes, to identify ho
 
 One of the most popular measures of gene expression, is the measure of how much RNA is in a cell at a given time. 
 
+#### FANTOM Consortium
+[//]: # (TODO: ADd Fantom5 citation, move this bit to somewhere sensible.)
+As the human genome project was nearing completion, researchers had a parts list of human biology, but few of the functions of these parts (genes) were known. A consortium of scientists formed, named after the challenge they were addressing: the Functional ANnoTation Of the MAmmalian genome (FANTOM). 
+
+The consortium has run a range of large scale collaborative projects in five rounds to further this goal. The first FANTOM project used only the mouse genome, but later versions also included human. The latest project, FANTOM5[80] represents one of the most comprehensive collections of gene expression data. It contains a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations
+
 #### The Gene Expression Atlas
 The Gene Expression Atlas{cite}`Petryszak2016-je` (GxA) is the European Bioinformatics Institutes’ open source gene and protein expression database, and the largest of its type. At the time of writing, it contains over 3,000 gene expression and protein abundance experiments across many organisms, organism parts (tissues), diseases, and sequencing technologies. There is a separate atlas for scRNA-seq experiments. 
 

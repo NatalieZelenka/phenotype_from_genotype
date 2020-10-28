@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>2.1. Big questions: What is genetically determined? &#8212; Phenotype from Genotype</title>
+    <title>Data &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -14,9 +14,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -24,11 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -38,8 +36,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.2. Building Blocks" href="2-building-blocks.html" />
-    <link rel="prev" title="2. Biology Background" href="0-bg-biology.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -124,55 +120,16 @@
   Main book
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../c01-introduction/intro.html">
    1. Introduction
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="0-bg-biology.html">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html">
    2. Biology Background
   </a>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     2.1. Big questions: What is genetically determined?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2-building-blocks.html">
-     2.2. Building Blocks
-    </a>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="2-building-blocks/1-dna.html">
-       2.2.1. DNA
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="2-building-blocks/2-central-dogma.html">
-       2.2.2. The central dogma of molecular biology
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="2-building-blocks/3-genes-and-genomes.html">
-       2.2.3. Genes, Genomes, and Genetic Variation
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="2-building-blocks/4-proteins.html">
-       2.2.4. Primary, Secondary, Tertiary, and Quaternary
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3-reading-dna-rna.html">
-     2.3. Reading DNA and RNA
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../c03-compbio-background/0-compbio-bg.html">
@@ -190,12 +147,12 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../c05-combining/0-combining.html">
+  <a class="reference internal" href="../c05-combining/0-index.html">
    5. Combining RNA-seq datasets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../c06-filter/0-filter.html">
+  <a class="reference internal" href="0-index.html">
    6. Filtering computational predictions with tissue-specific expression information
   </a>
  </li>
@@ -258,7 +215,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/c02-biology-background/1-big-questions.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/c06-filter/2-data.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -285,7 +242,24 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cafa3-version">
+   CAFA3 Version
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#updated-version">
+   Updated Version
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -294,13 +268,22 @@
         
               <div>
                 
-  <div class="section" id="big-questions-what-is-genetically-determined">
-<h1><span class="section-number">2.1. </span>Big questions: What is genetically determined?<a class="headerlink" href="#big-questions-what-is-genetically-determined" title="Permalink to this headline">¶</a></h1>
-<p>Humans have been trying to figure out why they are the way they are, and which aspects of themselves they’ll pass down to their children for millennia. There have been some interesting theories of inheritance over this time, from the popular ancient theory of soft inheritance{% cite Zirkle1935-sb %} (that people can pass on traits they gained during their lives) to 16th-century alchemists who theorised that sperm contains tiny fully formed humans{% cite Particulars1999-hu %} (i.e. women didn’t pass down anything).</p>
-<p>When Watson and Crick discovered the now familiar structure of DNA in 1953, we took a huge step towards being able to answer these questions, and understood that it was possible to read the “code of life”. It wasn’t until 2003 with the completion of the human genome project that researchers had access to that whole code for a person, and scientists could set about trying to decode it.</p>
-<p>The eventual destination that many scientists in this field have in mind is a full understanding of how our individual genomes and their interaction with the environment affects us. We’re still a long way off, but we now have many human genomes to investigate, as well as a fuller understanding of how other aspects of our molecular makeup (for example epigenetics or microbiomes) affect us. We have not yet arrived in the future of personalised medicine, but we do now have a lot of information about the different processes through which genotype is influencing phenotype. This section provides an overview of our current understanding.</p>
+  <div class="section" id="data">
+<h1>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cafa3-version">
+<h2>CAFA3 Version<a class="headerlink" href="#cafa3-version" title="Permalink to this headline">¶</a></h2>
+<p>FANTOM only</p>
+</div>
+<div class="section" id="updated-version">
+<h2>Updated Version<a class="headerlink" href="#updated-version" title="Permalink to this headline">¶</a></h2>
+<p>Combined data set</p>
 <hr class="docutils" />
-<p>{% bibliography –cited %}</p>
+<p><strong>Page References</strong></p>
+<p id="bibtex-bibliography-c06-filter/2-data-0"></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -316,7 +299,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./c02-biology-background"
+            path: "./c06-filter"
         },
         predefinedOutput: true
     }
@@ -331,8 +314,6 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="0-bg-biology.html" title="previous page"><span class="section-number">2. </span>Biology Background</a>
-    <a class='right-next' id="next-link" href="2-building-blocks.html" title="next page"><span class="section-number">2.2. </span>Building Blocks</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

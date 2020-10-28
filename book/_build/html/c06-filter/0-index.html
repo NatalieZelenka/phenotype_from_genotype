@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>2.2.4.2.1. Reading DNA and RNA &#8212; Phenotype from Genotype</title>
+    <title>6. Filtering computational predictions with tissue-specific expression information &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -14,9 +14,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -24,11 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -38,8 +36,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Computational Biology Background" href="../c03-compbio-background/0-compbio-bg.html" />
-    <link rel="prev" title="2. Biology Background" href="0-bg-biology.html" />
+    <link rel="next" title="6.1. Introduction" href="1-introduction.html" />
+    <link rel="prev" title="5.1.8. Future Work" href="../c05-combining/7-future-work.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -130,17 +128,10 @@
    1. Introduction
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="0-bg-biology.html">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html">
    2. Biology Background
   </a>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     2.2.4.2.1. Reading DNA and RNA
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../c03-compbio-background/0-compbio-bg.html">
@@ -158,14 +149,21 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../c05-combining/0-combining.html">
+  <a class="reference internal" href="../c05-combining/0-index.html">
    5. Combining RNA-seq datasets
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c06-filter/0-filter.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    6. Filtering computational predictions with tissue-specific expression information
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
@@ -226,7 +224,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/c02-biology-background/3-reading-dna-rna.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/c06-filter/0-index.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -253,31 +251,7 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sequencing-technology">
-   2.2.4.2.1.1. Sequencing technology
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rna-seq">
-     2.2.4.2.1.1.1. RNA-seq
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#microarrays">
-     2.2.4.2.1.1.2. Microarrays
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#assembly-and-alignment">
-   2.2.4.2.1.2. Assembly and alignment
-  </a>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -286,32 +260,18 @@
         
               <div>
                 
-  <div class="section" id="reading-dna-and-rna">
-<h1><span class="section-number">2.2.4.2.1. </span>Reading DNA and RNA<a class="headerlink" href="#reading-dna-and-rna" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="sequencing-technology">
-<h2><span class="section-number">2.2.4.2.1.1. </span>Sequencing technology<a class="headerlink" href="#sequencing-technology" title="Permalink to this headline">¶</a></h2>
-<p>The process of reading DNA and RNA is called sequencing. From the late 1970’s until the mid 2000s, Sanger sequencing was the most popular sequencing technology, although it underwent various improvements over this timescale. In Sanger sequencing (and other first-generation methods), reads of around 800bp are sequenced, one at a time. The human genome project sequenced the first human genome using this method{% cite Venter2001-wn %}, and it’s still used in some circumstances, for example validating next generation sequencing. It was much more popular to sequence DNA than RNA with this type of technology.</p>
-<p>Second, or next generation sequencing (NGS), also referred to as high-throughput sequencing, is a catch-all term for the faster and cheaper sequencing technologies which replaced the previously used Sanger sequencing. A feature that is common to NGS methods is that many shorter reads (around 100bp, exact numbers depending on the specific technology) are sequenced in parallel. The process is massively parallel: millions to billions of short sequences can be read at a time. This is a huge factor in making NGS much faster (and therefore cheaper) than Sanger sequencing. In turn, this speed and cheapness means that more repeats can be sequenced, increasing the overall accuracy of NGS over Sanger (despite the accuracy of each individual read being generally lower). NGS can be used for sequencing either DNA or RNA (known as RNA-seq when applied to the whole transcriptome).</p>
-<p>There are now also third generation sequencing technologies that allow much longer reads to be sequenced.</p>
-<div class="section" id="rna-seq">
-<h3><span class="section-number">2.2.4.2.1.1.1. </span>RNA-seq<a class="headerlink" href="#rna-seq" title="Permalink to this headline">¶</a></h3>
-<p>While (NGS) DNA-sequencing and RNA-seq can use the same underlying NGS technologies, there exist some notable differences. For example, RNA is reverse-transcribed into strands of complementary DNA, before being sequenced, since sequencing DNA is currently easier than sequencing RNA. RNA-seq is used much less often for de novo sequencing, and is generally mapped to a reference sequence.</p>
-<p>Since transcription is dependent on time, tissue, location, cell, etc, RNA-seq experiments are also dependent on all of these conditions. Furthermore, they are sensitive to differences in laboratory conditions and experimental design, creating artefacts in the resulting data known as batch effects.</p>
-</div>
-<div class="section" id="microarrays">
-<h3><span class="section-number">2.2.4.2.1.1.2. </span>Microarrays<a class="headerlink" href="#microarrays" title="Permalink to this headline">¶</a></h3>
-<p>Through the 1970s into the early 2000s, DNA arrays/microarrays developed alongside sequencing as a way of measuring the presence of previously sequenced DNA in new samples. These arrays contain pre-chosen fragments of DNA (probes) arranged in spots, with each spot containing many copies of the probe, on a solid surface, e.g. glass, silicon or plastic. The probes consist of single strands of DNA, and arrays operate on the principle that the complementary DNA from the sample will bind tightly to it.</p>
-<p>These arrays were originally macro-sized, one of the first being 26 × 38 cm and containing 144 probes{% cite Bumgarner2013-hg %}, but are now on small chips, which can contain up to millions of probes.</p>
-<p>Arrays were extremely popular for measuring gene expression, but this technology has largely been superseded by the more accurate and comprehensive RNA-seq. However, microarrays are still commonly used by companies like 23andMe for genotyping an individual (measuring specific alleles).</p>
-</div>
-</div>
-<div class="section" id="assembly-and-alignment">
-<h2><span class="section-number">2.2.4.2.1.2. </span>Assembly and alignment<a class="headerlink" href="#assembly-and-alignment" title="Permalink to this headline">¶</a></h2>
-<p><img alt="Figure X_alignment: Image showing how RNA-Seq reads are mapped to the genome (image from Advancing RNA-Seq Analysis {% cite Haas2010-lm %}). A similar process is followed for DNA." src="content/images/alignment.png" /></p>
-<p>The short reads that are the output of initial sequencing must be assembled to create longer sequences of DNA, whether that’s sequencing of individual genes, whole exome sequencing (WES) or whole genome sequencing (WGS). This is done by aligning reads to one another and (if available) to an existing reference sequence. This of course requires the reads to overlap, so longer and more numerous reads make this task easier. The process and underlying algorithms differ considerably whether the sequence being assembled can be mapped to an existing sequence or is being created de novo.</p>
-<p>The current estimate for raw sequencing accuracy of an individual NGS read is around 0.24%{% cite Pfeiffer2018-kt %}, meaning that on average one base pair will be incorrect for a 500pb read. Multiple repeats are therefore required to obtain a more accurate measurement of the assembled sequence, which is further necessary since there are many repeated sequences (perhaps over two thirds of the human genome{% cite De_Koning2011-ac %}). The depth (or coverage) for a nucleotide is the number of reads that overlap that nucleotide. Similarly, the average depth of a sequence can be calculated.</p>
+  <div class="section" id="filtering-computational-predictions-with-tissue-specific-expression-information">
+<span id="c06-filter"></span><h1><span class="section-number">6. </span>Filtering computational predictions with tissue-specific expression information<a class="headerlink" href="#filtering-computational-predictions-with-tissue-specific-expression-information" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes a protein function prediction method that I created as an entry to the CAFA3<a class="bibtex reference internal" href="#zhou2019-jk" id="id1">[4]</a> protein function competition. All work presented in this chapter is my own.</p>
 <hr class="docutils" />
-<p>{% bibliography –cited %}</p>
+<p><strong>Page References</strong></p>
+<p id="bibtex-bibliography-c06-filter/0-index-0"><dl class="citation">
+<dt class="bibtex label" id="zhou2019-jk"><span class="brackets"><a class="fn-backref" href="#id1">4</a></span></dt>
+<dd><p>Naihui Zhou, Yuxiang Jiang, Timothy R Bergquist, Alexandra J Lee, Balint Z Kacsoh, Alex W Crocker, Kimberley A Lewis, George Georghiou, Huy N Nguyen, Md Nafiz Hamid, Larry Davis, Tunca Dogan, Volkan Atalay, Ahmet S Rifaioglu, Alperen Dalkiran, Rengul Cetin-Atalay, Chengxin Zhang, Rebecca L Hurto, Peter L Freddolino, Yang Zhang, Prajwal Bhat, Fran Supek, José M Fernández, Branislava Gemovic, Vladimir R Perovic, Radoslav S Davidović, Neven Sumonja, Nevena Veljkovic, Ehsaneddin Asgari, Mohammad R K Mofrad, Giuseppe Profiti, Castrense Savojardo, Pier Luigi Martelli, Rita Casadio, Florian Boecker, Indika Kahanda, Natalie Thurlby, Alice C McHardy, Alexandre Renaux, Rabie Saidi, Julian Gough, Alex A Freitas, Magdalena Antczak, Fabio Fabris, Mark N Wass, Jie Hou, Jianlin Cheng, Zheng Wang, Alfonso E Romero, Alberto Paccanaro, Haixuan Yang, Tatyana Goldberg, Chenguang Zhao, Liisa Holm, Petri Törönen, Alan J Medlar, Elaine Zosa, Itamar Borukhov, Ilya Novikov, Angela Wilkins, Olivier Lichtarge, Po-Han Chi, Wei-Cheng Tseng, Michal Linial, Peter W Rose, Christophe Dessimoz, Vedrana Vidulin, Saso Dzeroski, Ian Sillitoe, Sayoni Das, Jonathan Gill Lees, David T Jones, Cen Wan, Domenico Cozzetto, Rui Fa, Mateo Torres, Alex Wiarwick Vesztrocy, Jose Manuel Rodriguez, Michael L Tress, Marco Frasca, Marco Notaro, Giuliano Grossi, Alessandro Petrini, Matteo Re, Giorgio Valentini, Marco Mesiti, Daniel B Roche, Jonas Reeb, David W Ritchie, Sabeur Aridhi, Seyed Ziaeddin Alborzi, Marie-Dominique Devignes, Koo Da Chen Emily, Richard Bonneau, Vladimir Gligorijević, Meet Barot, Hai Fang, Stefano Toppo, Enrico Lavezzo, Marco Falda, Michele Berselli, Silvio C E Tosatto, Marco Carraro, Damiano Piovesan, Hafeez Ur Rehman, Qizhong Mao, Shanshan Zhang, Slobodan Vucetic, Gage S Black, Dane Jo, Dallas J Larsen, Ashton R Omdahl, Luke W Sagers, Erica Suh, Jonathan B Dayton, Liam J McGuffin, Danielle A Brackenridge, Patricia C Babbitt, Jeffrey M Yunes, Paolo Fontana, Feng Zhang, Shanfeng Zhu, Ronghui You, Zihan Zhang, Suyang Dai, Shuwei Yao, Weidong Tian, Renzhi Cao, Caleb Chandler, Miguel Amezola, Devon Johnson, Jia-Ming Chang, Wen-Hung Liao, Yi-Wei Liu, Stefano Pascarelli, Yotam Frank, Robert Hoehndorf, Maxat Kulmanov, Imane Boudellioua, Gianfranco Politano, Stefano Di Carlo, Alfredo Benso, Kai Hakala, Filip Ginter, Farrokh Mehryary, Suwisa Kaewphan, Jari Björne, Hans Moen, Martti E E Tolvanen, Tapio Salakoski, Daisuke Kihara, Aashish Jain, Tomislav Šmuc, Adrian Altenhoff, Asa Ben-Hur, Burkhard Rost, Steven E Brenner, Christine A Orengo, Constance J Jeffery, Giovanni Bosco, Deborah A Hogan, Maria J Martin, Claire O’Donovan, Sean D Mooney, Casey S Greene, Predrag Radivojac, and Iddo Friedberg. The CAFA challenge reports improved protein function prediction and new functional annotations for hundreds of genes through experimental screens. <em>bioRxiv</em>, pages 653105, May 2019.</p>
+</dd>
+</dl>
+</p>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -328,7 +288,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./c02-biology-background"
+            path: "./c06-filter"
         },
         predefinedOutput: true
     }
@@ -343,8 +303,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="0-bg-biology.html" title="previous page"><span class="section-number">2. </span>Biology Background</a>
-    <a class='right-next' id="next-link" href="../c03-compbio-background/0-compbio-bg.html" title="next page"><span class="section-number">3. </span>Computational Biology Background</a>
+    <a class='left-prev' id="prev-link" href="../c05-combining/7-future-work.html" title="previous page"><span class="section-number">5.1.8. </span>Future Work</a>
+    <a class='right-next' id="next-link" href="1-introduction.html" title="next page"><span class="section-number">6.1. </span>Introduction</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
