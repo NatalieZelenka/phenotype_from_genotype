@@ -26,7 +26,12 @@
       - file: c05-combining/5-batch-correction
       - file: c05-combining/6-results
       - file: c05-combining/7-future-work
-  - file: c06-filter/0-filter.md
+  - file: c06-filter/0-index
+    sections:
+      - file: c06-filter/1-introduction
+      - file: c06-filter/2-methods
+      - file: c06-filter/3-results
+      - file: c06-filter/4-future-work
   - file: c07-conclusion/0-conclusion
 
 - part: End Matter

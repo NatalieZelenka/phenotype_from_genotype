@@ -41,10 +41,24 @@ Due to the nature of the validation set, it’s possible that the best-scoring C
 #### Past CAFAs
 In 2014, the CAFA2 experiment began: 100,8216 target sequences from 27 different species were released to participants. In addition to the GO Biological Process and Molecular Function ontologies used in CAFA1, predictions were also requested for the Human Phenotype Ontology and GO Cellular Component ontology. 
 
+### Overview
+
+```{figure} ../images/filp-overview.png
+---
+height: 220px
+name: filp-overview
+---
+A flow chart showing how FilP works.
+```
+
+The filter is a simple rule-based model. Such models have not been very successful, as is the case for most models. This work is simply meant to show that including tissue-specific information can improve the results of protein function prediction, suggesting that it should be included in future ensemble predictors.
+
+Such a tool could be used on top of any protein function predictor, but would provide the most value for predictors that rely on structural or sequence similarity
+
 ---
 **Page References**
 
 ```{bibliography} /_bibliography/references.bib
 :filter: docname in docnames
-:style: unsrt
+:style: unsrtyy
 ```
