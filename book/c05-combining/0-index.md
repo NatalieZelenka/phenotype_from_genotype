@@ -15,7 +15,7 @@ This chapter combines four gene expression data sets, collating sample and tissu
 
 [//]: # (TODO: Explain the structure of this chapter here)
 [//]: # (TODO: Add figures)
-[//]: # (TODO: Update config to include notebooks)
+[//]: # (TODO: Tidy structure of 0-index and 1-background)
 
 
 ---
