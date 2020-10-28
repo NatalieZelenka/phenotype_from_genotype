@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Declaration &#8212; Phenotype from Genotype</title>
+    <title>Methods &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -36,8 +36,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Introduction" href="../c01-introduction/intro.html" />
-    <link rel="prev" title="Abstract" href="abstract.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -80,39 +78,39 @@
   Front Matter
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="title-page.html">
+  <a class="reference internal" href="../front-matter/title-page.html">
    Title Page
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="list-of-figures.html">
+  <a class="reference internal" href="../front-matter/list-of-figures.html">
    List of Figures
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="list-of-tables.html">
+  <a class="reference internal" href="../front-matter/list-of-tables.html">
    List of Tables
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="full-table-of-contents.html">
+  <a class="reference internal" href="../front-matter/full-table-of-contents.html">
    Table of Contents
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="acknowledgements.html">
+  <a class="reference internal" href="../front-matter/acknowledgements.html">
    Acknowledgements
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="abstract.html">
+  <a class="reference internal" href="../front-matter/abstract.html">
    Abstract
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/declaration.html">
    Declaration
   </a>
  </li>
@@ -154,7 +152,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../c06-filter/0-index.html">
+  <a class="reference internal" href="0-index.html">
    6. Filtering computational predictions with tissue-specific expression information
   </a>
  </li>
@@ -215,9 +213,12 @@
     
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="../_sources/c06-filter/3-methods.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/front-matter/declaration.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/c06-filter/3-methods.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -236,6 +237,23 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/c06-filter/3-methods.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -244,7 +262,19 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-an-expression-cut-off">
+   Choosing an expression cut-off
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mapping-multi-species-phenotype-terms-to-tissue">
+   Mapping multi-species phenotype terms to tissue
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -253,11 +283,27 @@
         
               <div>
                 
-  <div class="section" id="declaration">
-<h1>Declaration<a class="headerlink" href="#declaration" title="Permalink to this headline">¶</a></h1>
-<p>I declare that the work in this dissertation was carried out in accordance with the requirements of the University’s Regulations and Code of Practice for Research Degree Programmes and that it has not been submitted for any other academic award. Except where indicated by specific reference in the text, the work is the candidate’s own work. Work done in collaboration with, or with the assistance of, others, is indicated as such. Any views expressed in the dissertation are those of the author.</p>
-<p>Signed: Natalie Thurlby</p>
-<p>Date: <!-- TODO: update --></p>
+  <div class="section" id="methods">
+<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="choosing-an-expression-cut-off">
+<h2>Choosing an expression cut-off<a class="headerlink" href="#choosing-an-expression-cut-off" title="Permalink to this headline">¶</a></h2>
+<p>FilP filters out predictions which are not expressed in the tissue relating to the prediction. Deciding whether a gene is or isn’t expressed in a tissue is not trivial with gene expression data, since it can be noisy. Therefore a cut-off must be chosen.  This cut-off was chosen for TPM-normalised data was chosen as this best allows for comparing between different samples. The cut-off was chosen by plotting the distribution of TPM expression and choosing a value below which there appeared to be little noise (10 TPM).</p>
+</div>
+<div class="section" id="mapping-multi-species-phenotype-terms-to-tissue">
+<h2>Mapping multi-species phenotype terms to tissue<a class="headerlink" href="#mapping-multi-species-phenotype-terms-to-tissue" title="Permalink to this headline">¶</a></h2>
+<p>Figure 14: A diagram illustrating parts of the UBERON and GO ontologies, with a fictional example of an UBERON-GO relationship. In this example, Regulation of lung development would be related to Left lung, but not to Bronchiole (as regulation of lung development could refer to a regulation of a different part of the lung).</p>
+<p>The extended uberon ontology is first interrogated for any existing relation to the term in the ontology. Failing this, text-mining is used to map based on phenotype term names. After removing regular (nltk) stopwords (e.g. “and”,”the”) and a small number of manually curated phenotypic stopwords (e.g. “phenotype”, “abnormality”), an exact match between an UBERON term’s name or synonyms and phenotype term’s name is searched for. If such a match does not exist, individual words from the phenotype term are then searched for exactly, such that the HP term “abnormality of the head and neck” would be mapped to UBERON’s “head” and “neck” terms (but never “neck of radius”). In cases where multiple terms are found, a common parent would be searched for, in the case of this example, “craniocervical region”.</p>
+<p>Failing that, a TF-IDF based similarity measure is used to search a list of related words (e.g. “mental” and “brain” have high similarity since they often appear together. The similarity measures are based on the term descriptions in both ontologies. There were a small number of outstanding phenotype terms, which were manually mapped to relevant phenotype terms where one existed.</p>
+</div>
+</div>
+<div class="section" id="limitations">
+<h1>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h1>
+<p><span class="xref myst">//</span>: # (TODO: Rewrite since FANTOM5 is not the data set any more).</p>
+<p>Although the FANTOM5 data set has a good coverage of tissue types and number of samples, the filter is nonetheless limited to the tissues it contains. It is also limited by the coverage and accuracy of the mapping from phenotype to tissue.</p>
+<p>Similarly, although proteins, tissues and protein functions may be present in multiple species, FilP only uses human data, so the filter only measures if a gene is expressed in the human tissue of interest. This means that where there are differences in expression between species, FilP will be incorrect if it is run on non-human data (not recommended).</p>
+<hr class="docutils" />
+<p><strong>Page References</strong></p>
+<p id="bibtex-bibliography-c06-filter/3-methods-0"></p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -273,7 +319,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./front-matter"
+            path: "./c06-filter"
         },
         predefinedOutput: true
     }
@@ -288,8 +334,6 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="abstract.html" title="previous page">Abstract</a>
-    <a class='right-next' id="next-link" href="../c01-introduction/intro.html" title="next page"><span class="section-number">1. </span>Introduction</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

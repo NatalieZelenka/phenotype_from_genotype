@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.1. Introduction &#8212; Phenotype from Genotype</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Conclusion" href="../c07-conclusion/0-conclusion.html" />
+    <link rel="prev" title="6. Filtering computational predictions with tissue-specific expression information" href="0-index.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter_book_intro.html">
+   Start Here
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/title-page.html">
+   Title Page
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/list-of-figures.html">
+   List of Figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/list-of-tables.html">
+   List of Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/declaration.html">
+   Declaration
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Main book
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html">
+   2. Biology Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c03-compbio-background/0-compbio-bg.html">
+   3. Computational Biology Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c04-snowflake/0-snowflake.html">
+   4. Phenotype prediction with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Snowflake
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c05-combining/0-index.html">
+   5. Combining RNA-seq datasets
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.1. Introduction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
+   7. Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/c06-filter/1-introduction.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#critical-assessment-of-functional-annotation">
+   6.1.1. Critical Assessment of Functional Annotation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenge">
+     6.1.1.1. Challenge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cafa-validation">
+     6.1.1.2. CAFA Validation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#limitations-of-validation-method">
+       6.1.1.2.1. Limitations of validation method
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#past-cafas">
+     6.1.1.3. Past CAFAs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   6.1.2. Overview
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction">
+<h1><span class="section-number">6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>As previously mentioned, there are many genes/proteins for which we have sequence information, but not functional information. This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes.</p>
+<p>There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information (e.g. via the CAFA competitions<a class="bibtex reference internal" href="0-index.html#zhou2019-jk" id="id1">[4]</a><a class="bibtex reference internal" href="../end-matter/reference.html#jiang2016-rz" id="id2">[3]</a><a class="bibtex reference internal" href="../end-matter/reference.html#radivojac2013-wh" id="id3">[4]</a>). If successful, this would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments. Such knowledge could be used to identify genes or proteins for future treatments. An accurate model might also be able to give us an insight into the mechanisms behind such functions, giving further insight into how an effective therapy might be designed.</p>
+<p>Machine learning methods are currently the most successful class of protein function predictors. While this is promising for answering one aspect of the problem (“what are the functions of a given protein?”), they do not always attempt to answer how or why.</p>
+<p>Structural or sequence methods that estimate protein function based on for example conservation or structure counter this problem. However, they are generally less accurate. One reason for this might be that they can predict that a protein affects a phenotype in a context that it would never encounter. For example, that a protein which is only ever transcribed in skin cells is associated with lung cancer. Such predictions are at odds with our understanding of how proteins function, and gene expression data could be used to filter out such predictions.</p>
+<p>Disease-associated genes are generally overexpressed in the tissue they cause symptoms in, with the exception of cancer-associated genes<a class="bibtex reference internal" href="../end-matter/reference.html#lage2008-gq" id="id4">[5]</a><a class="bibtex reference internal" href="../end-matter/reference.html#winter2004-rr" id="id5">[3]</a>. This can and has already been leveraged effectively as part of gene and variant prioritisation methods <a class="bibtex reference internal" href="../end-matter/reference.html#rackham2015-jp" id="id6">[6]</a><a class="bibtex reference internal" href="../end-matter/reference.html#antanaviciute2015-ke" id="id7">[7]</a>. Despite this, issue-specific gene expression data was completely missing from entries to CAFA1 or CAFA2.</p>
+<p>For this reason, I developed a filter to be used on top of any protein function prediction method (FilP), which removes predictions where the protein is not transcribed in the tissue that the phenotype relates to.</p>
+<div class="section" id="critical-assessment-of-functional-annotation">
+<h2><span class="section-number">6.1.1. </span>Critical Assessment of Functional Annotation<a class="headerlink" href="#critical-assessment-of-functional-annotation" title="Permalink to this headline">¶</a></h2>
+<p>Critical Assessment of Functional Annotation (CAFA) is an international community-wide competition for the prediction of protein function. It has been running approximately every 2-3 years since 2013. CAFA aims both to stimulate research in the field of protein function prediction, and to measure progress in the field.</p>
+<div class="section" id="challenge">
+<h3><span class="section-number">6.1.1.1. </span>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h3>
+<p>Each CAFA challenge begins by the organisers releasing a large number of target sequences about which participants must make predictions. Participants can use any additional data they see fit to make predictions, which must be triples containing a sequence ID, ontology term ID (e.g. a GO/HP identifier), and a confidence score between 0 and 1. A score of 1 indicates a very confidence predictor, while a score of 0 is equivalent to not returning the prediction. Each team may submit up to three models, the best of which is ranked.</p>
+</div>
+<div class="section" id="cafa-validation">
+<h3><span class="section-number">6.1.1.2. </span>CAFA Validation<a class="headerlink" href="#cafa-validation" title="Permalink to this headline">¶</a></h3>
+<p>This confidence score allows for a range of possible sets of predictions, depending on the threshold parameter \tau. Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined as:</p>
+<div class="math notranslate nohighlight">
+\[$ precision = p = \frac{t_p}{t_p + f_p} $\]</div>
+<div class="math notranslate nohighlight">
+\[$ recall = r = \frac{t_p}{t_p + f_n} $\]</div>
+<p>Precision-recall curves are generally used to validate a predictors performance, but the <span class="math notranslate nohighlight">\(F_1\)</span> measure gives a one-number overview of the performance:</p>
+<div class="math notranslate nohighlight">
+\[$F_1 =2/frac{precision \cdot recall}{precision + recall}$\]</div>
+<p>Since the precision and recall will be different for any <span class="math notranslate nohighlight">\(\tau\)</span>, the <span class="math notranslate nohighlight">\(F_{max}\)</span> score is the maximum possible <span class="math notranslate nohighlight">\(F_1\)</span> for any value of <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<p>CAFA validation can either be term-centric or protein-centric. For each option, submissions are assessed per species and for wholly unknown and partially known genes separately.</p>
+<div class="section" id="limitations-of-validation-method">
+<h4><span class="section-number">6.1.1.2.1. </span>Limitations of validation method<a class="headerlink" href="#limitations-of-validation-method" title="Permalink to this headline">¶</a></h4>
+<p>There is no penalty for making a broad guess, or reward for making a precise one. This is one of the reasons that the naive method does so well: for example it is not penalised for guessing that the root term of the GO BPO ontology Biological Process is related to every gene.</p>
+<p>Due to the nature of the validation set, it’s possible that the best-scoring CAFA methods simply predict which associations are likely to be discovered soon (i.e. associations to genes people are currently studying).</p>
+</div>
+</div>
+<div class="section" id="past-cafas">
+<h3><span class="section-number">6.1.1.3. </span>Past CAFAs<a class="headerlink" href="#past-cafas" title="Permalink to this headline">¶</a></h3>
+<p>In 2014, the CAFA2 experiment began: 100,8216 target sequences from 27 different species were released to participants. In addition to the GO Biological Process and Molecular Function ontologies used in CAFA1, predictions were also requested for the Human Phenotype Ontology and GO Cellular Component ontology.</p>
+</div>
+</div>
+<div class="section" id="overview">
+<h2><span class="section-number">6.1.2. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="filp-overview">
+<a class="reference internal image-reference" href="../_images/filp-overview.png"><img alt="../_images/filp-overview.png" src="../_images/filp-overview.png" style="height: 220px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">A flow chart showing how FilP works.</span><a class="headerlink" href="#filp-overview" title="Permalink to this image">¶</a></p>
+</div>
+<p>The filter is a simple rule-based model. Such models have not been very successful, as is the case for most models. This work is simply meant to show that including tissue-specific information can improve the results of protein function prediction, suggesting that it should be included in future ensemble predictors.</p>
+<p>Such a tool could be used on top of any protein function predictor, but would provide the most value for predictors that rely on structural or sequence similarity</p>
+<hr class="docutils" />
+<p><strong>Page References</strong></p>
+<p id="bibtex-bibliography-c06-filter/1-introduction-0"><dl class="citation">
+<dt class="bibtex label" id="zhou2019-jk"><span class="brackets"><a class="fn-backref" href="#id1">4</a></span></dt>
+<dd><p>Naihui Zhou, Yuxiang Jiang, Timothy R Bergquist, Alexandra J Lee, Balint Z Kacsoh, Alex W Crocker, Kimberley A Lewis, George Georghiou, Huy N Nguyen, Md Nafiz Hamid, Larry Davis, Tunca Dogan, Volkan Atalay, Ahmet S Rifaioglu, Alperen Dalkiran, Rengul Cetin-Atalay, Chengxin Zhang, Rebecca L Hurto, Peter L Freddolino, Yang Zhang, Prajwal Bhat, Fran Supek, José M Fernández, Branislava Gemovic, Vladimir R Perovic, Radoslav S Davidović, Neven Sumonja, Nevena Veljkovic, Ehsaneddin Asgari, Mohammad R K Mofrad, Giuseppe Profiti, Castrense Savojardo, Pier Luigi Martelli, Rita Casadio, Florian Boecker, Indika Kahanda, Natalie Thurlby, Alice C McHardy, Alexandre Renaux, Rabie Saidi, Julian Gough, Alex A Freitas, Magdalena Antczak, Fabio Fabris, Mark N Wass, Jie Hou, Jianlin Cheng, Zheng Wang, Alfonso E Romero, Alberto Paccanaro, Haixuan Yang, Tatyana Goldberg, Chenguang Zhao, Liisa Holm, Petri Törönen, Alan J Medlar, Elaine Zosa, Itamar Borukhov, Ilya Novikov, Angela Wilkins, Olivier Lichtarge, Po-Han Chi, Wei-Cheng Tseng, Michal Linial, Peter W Rose, Christophe Dessimoz, Vedrana Vidulin, Saso Dzeroski, Ian Sillitoe, Sayoni Das, Jonathan Gill Lees, David T Jones, Cen Wan, Domenico Cozzetto, Rui Fa, Mateo Torres, Alex Wiarwick Vesztrocy, Jose Manuel Rodriguez, Michael L Tress, Marco Frasca, Marco Notaro, Giuliano Grossi, Alessandro Petrini, Matteo Re, Giorgio Valentini, Marco Mesiti, Daniel B Roche, Jonas Reeb, David W Ritchie, Sabeur Aridhi, Seyed Ziaeddin Alborzi, Marie-Dominique Devignes, Koo Da Chen Emily, Richard Bonneau, Vladimir Gligorijević, Meet Barot, Hai Fang, Stefano Toppo, Enrico Lavezzo, Marco Falda, Michele Berselli, Silvio C E Tosatto, Marco Carraro, Damiano Piovesan, Hafeez Ur Rehman, Qizhong Mao, Shanshan Zhang, Slobodan Vucetic, Gage S Black, Dane Jo, Dallas J Larsen, Ashton R Omdahl, Luke W Sagers, Erica Suh, Jonathan B Dayton, Liam J McGuffin, Danielle A Brackenridge, Patricia C Babbitt, Jeffrey M Yunes, Paolo Fontana, Feng Zhang, Shanfeng Zhu, Ronghui You, Zihan Zhang, Suyang Dai, Shuwei Yao, Weidong Tian, Renzhi Cao, Caleb Chandler, Miguel Amezola, Devon Johnson, Jia-Ming Chang, Wen-Hung Liao, Yi-Wei Liu, Stefano Pascarelli, Yotam Frank, Robert Hoehndorf, Maxat Kulmanov, Imane Boudellioua, Gianfranco Politano, Stefano Di Carlo, Alfredo Benso, Kai Hakala, Filip Ginter, Farrokh Mehryary, Suwisa Kaewphan, Jari Björne, Hans Moen, Martti E E Tolvanen, Tapio Salakoski, Daisuke Kihara, Aashish Jain, Tomislav Šmuc, Adrian Altenhoff, Asa Ben-Hur, Burkhard Rost, Steven E Brenner, Christine A Orengo, Constance J Jeffery, Giovanni Bosco, Deborah A Hogan, Maria J Martin, Claire O’Donovan, Sean D Mooney, Casey S Greene, Predrag Radivojac, and Iddo Friedberg. The CAFA challenge reports improved protein function prediction and new functional annotations for hundreds of genes through experimental screens. <em>bioRxiv</em>, pages 653105, May 2019.</p>
+</dd>
+<dt class="bibtex label" id="winter2004-rr"><span class="brackets"><a class="fn-backref" href="#id5">3</a></span></dt>
+<dd><p>Eitan E Winter, Leo Goodstadt, and Chris P Ponting. Elevated rates of protein secretion, evolution, and disease among tissue-specific genes. <em>Genome Res.</em>, 14(1):54–61, January 2004. URL: <a class="reference external" href="http://dx.doi.org/10.1101/gr.1924004">http://dx.doi.org/10.1101/gr.1924004</a>.</p>
+</dd>
+<dt class="bibtex label" id="jiang2016-rz"><span class="brackets"><a class="fn-backref" href="#id2">3</a></span></dt>
+<dd><p>Yuxiang Jiang, Tal Ronnen Oron, Wyatt T Clark, Asma R Bankapur, Daniel D’Andrea, Rosalba Lepore, Christopher S Funk, Indika Kahanda, Karin M Verspoor, Asa Ben-Hur, Da Chen Emily Koo, Duncan Penfold-Brown, Dennis Shasha, Noah Youngs, Richard Bonneau, Alexandra Lin, Sayed M E Sahraeian, Pier Luigi Martelli, Giuseppe Profiti, Rita Casadio, Renzhi Cao, Zhaolong Zhong, Jianlin Cheng, Adrian Altenhoff, Nives Skunca, Christophe Dessimoz, Tunca Dogan, Kai Hakala, Suwisa Kaewphan, Farrokh Mehryary, Tapio Salakoski, Filip Ginter, Hai Fang, Ben Smithers, Matt Oates, Julian Gough, Petri Törönen, Patrik Koskinen, Liisa Holm, Ching-Tai Chen, Wen-Lian Hsu, Kevin Bryson, Domenico Cozzetto, Federico Minneci, David T Jones, Samuel Chapman, Dukka Bkc, Ishita K Khan, Daisuke Kihara, Dan Ofer, Nadav Rappoport, Amos Stern, Elena Cibrian-Uhalte, Paul Denny, Rebecca E Foulger, Reija Hieta, Duncan Legge, Ruth C Lovering, Michele Magrane, Anna N Melidoni, Prudence Mutowo-Meullenet, Klemens Pichler, Aleksandra Shypitsyna, Biao Li, Pooya Zakeri, Sarah ElShal, Léon-Charles Tranchevent, Sayoni Das, Natalie L Dawson, David Lee, Jonathan G Lees, Ian Sillitoe, Prajwal Bhat, Tamás Nepusz, Alfonso E Romero, Rajkumar Sasidharan, Haixuan Yang, Alberto Paccanaro, Jesse Gillis, Adriana E Sedeño-Cortés, Paul Pavlidis, Shou Feng, Juan M Cejuela, Tatyana Goldberg, Tobias Hamp, Lothar Richter, Asaf Salamov, Toni Gabaldon, Marina Marcet-Houben, Fran Supek, Qingtian Gong, Wei Ning, Yuanpeng Zhou, Weidong Tian, Marco Falda, Paolo Fontana, Enrico Lavezzo, Stefano Toppo, Carlo Ferrari, Manuel Giollo, Damiano Piovesan, Silvio C E Tosatto, Angela Del Pozo, José M Fernández, Paolo Maietta, Alfonso Valencia, Michael L Tress, Alfredo Benso, Stefano Di Carlo, Gianfranco Politano, Alessandro Savino, Hafeez Ur Rehman, Matteo Re, Marco Mesiti, Giorgio Valentini, Joachim W Bargsten, Aalt D J van Dijk, Branislava Gemovic, Sanja Glisic, Vladmir Perovic, Veljko Veljkovic, Nevena Veljkovic, Danillo C Almeida-E-Silva, Ricardo Z N Vencio, Malvika Sharan, Jörg Vogel, Lakesh Kansakar, Shanshan Zhang, Slobodan Vucetic, Zheng Wang, Michael J E Sternberg, Mark N Wass, Rachael P Huntley, Maria J Martin, Claire O’Donovan, Peter N Robinson, Yves Moreau, Anna Tramontano, Patricia C Babbitt, Steven E Brenner, Michal Linial, Christine A Orengo, Burkhard Rost, Casey S Greene, Sean D Mooney, Iddo Friedberg, and Predrag Radivojac. An expanded evaluation of protein function prediction methods shows an improvement in accuracy. <em>Genome Biol.</em>, 17(1):184, September 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1186/s13059-016-1037-6">http://dx.doi.org/10.1186/s13059-016-1037-6</a>.</p>
+</dd>
+<dt class="bibtex label" id="radivojac2013-wh"><span class="brackets"><a class="fn-backref" href="#id3">4</a></span></dt>
+<dd><p>Predrag Radivojac, Wyatt T Clark, Tal Ronnen Oron, Alexandra M Schnoes, Tobias Wittkop, Artem Sokolov, Kiley Graim, Christopher Funk, Karin Verspoor, Asa Ben-Hur, Gaurav Pandey, Jeffrey M Yunes, Ameet S Talwalkar, Susanna Repo, Michael L Souza, Damiano Piovesan, Rita Casadio, Zheng Wang, Jianlin Cheng, Hai Fang, Julian Gough, Patrik Koskinen, Petri Törönen, Jussi Nokso-Koivisto, Liisa Holm, Domenico Cozzetto, Daniel W A Buchan, Kevin Bryson, David T Jones, Bhakti Limaye, Harshal Inamdar, Avik Datta, Sunitha K Manjari, Rajendra Joshi, Meghana Chitale, Daisuke Kihara, Andreas M Lisewski, Serkan Erdin, Eric Venner, Olivier Lichtarge, Robert Rentzsch, Haixuan Yang, Alfonso E Romero, Prajwal Bhat, Alberto Paccanaro, Tobias Hamp, Rebecca Kaßner, Stefan Seemayer, Esmeralda Vicedo, Christian Schaefer, Dominik Achten, Florian Auer, Ariane Boehm, Tatjana Braun, Maximilian Hecht, Mark Heron, Peter Hönigschmid, Thomas A Hopf, Stefanie Kaufmann, Michael Kiening, Denis Krompass, Cedric Landerer, Yannick Mahlich, Manfred Roos, Jari Björne, Tapio Salakoski, Andrew Wong, Hagit Shatkay, Fanny Gatzmann, Ingolf Sommer, Mark N Wass, Michael J E Sternberg, Nives Škunca, Fran Supek, Matko Bošnjak, Panče Panov, Sašo Džeroski, Tomislav Šmuc, Yiannis A I Kourmpetis, Aalt D J van Dijk, Cajo J F ter Braak, Yuanpeng Zhou, Qingtian Gong, Xinran Dong, Weidong Tian, Marco Falda, Paolo Fontana, Enrico Lavezzo, Barbara Di Camillo, Stefano Toppo, Liang Lan, Nemanja Djuric, Yuhong Guo, Slobodan Vucetic, Amos Bairoch, Michal Linial, Patricia C Babbitt, Steven E Brenner, Christine Orengo, Burkhard Rost, Sean D Mooney, and Iddo Friedberg. A large-scale evaluation of computational protein function prediction. <em>Nat. Methods</em>, 10(3):221–227, March 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nmeth.2340">http://dx.doi.org/10.1038/nmeth.2340</a>.</p>
+</dd>
+<dt class="bibtex label" id="lage2008-gq"><span class="brackets"><a class="fn-backref" href="#id4">5</a></span></dt>
+<dd><p>Kasper Lage, Niclas Tue Hansen, E Olof Karlberg, Aron C Eklund, Francisco S Roque, Patricia K Donahoe, Zoltan Szallasi, Thomas Skøt Jensen, and Søren Brunak. A large-scale analysis of tissue-specific pathology and gene expression of human disease genes and complexes. <em>Proc. Natl. Acad. Sci. U. S. A.</em>, 105(52):20870–20875, December 2008. URL: <a class="reference external" href="http://dx.doi.org/10.1073/pnas.0810772105">http://dx.doi.org/10.1073/pnas.0810772105</a>.</p>
+</dd>
+<dt class="bibtex label" id="rackham2015-jp"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p>Owen J L Rackham, Hashem A Shihab, Michael R Johnson, and Enrico Petretto. EvoTol: a protein-sequence based evolutionary intolerance framework for disease-gene prioritization. <em>Nucleic Acids Res.</em>, 43(5):e33, March 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gku1322">http://dx.doi.org/10.1093/nar/gku1322</a>.</p>
+</dd>
+<dt class="bibtex label" id="antanaviciute2015-ke"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p>Agne Antanaviciute, Catherine Daly, Laura A Crinnion, Alexander F Markham, Christopher M Watson, David T Bonthron, and Ian M Carr. GeneTIER: prioritization of candidate disease genes using tissue-specific gene expression profiles. <em>Bioinformatics</em>, 31(16):2728–2735, August 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1093/bioinformatics/btv196">http://dx.doi.org/10.1093/bioinformatics/btv196</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c06-filter"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="0-index.html" title="previous page"><span class="section-number">6. </span>Filtering computational predictions with tissue-specific expression information</a>
+    <a class='right-next' id="next-link" href="../c07-conclusion/0-conclusion.html" title="next page"><span class="section-number">7. </span>Conclusion</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

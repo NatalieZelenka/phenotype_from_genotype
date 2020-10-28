@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>6.1.3. Data Wrangling &#8212; Phenotype from Genotype</title>
+    <title>5.1.3. Data Wrangling &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -36,8 +36,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.1.4. The uberon-py package" href="4-uberon.html" />
-    <link rel="prev" title="6.1.2. Data" href="2-data.html" />
+    <link rel="next" title="5.1.4. The uberon-py package" href="4-uberon.html" />
+    <link rel="prev" title="5.1.2. Data" href="2-data.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -134,18 +134,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html#id18">
-   3. Biology Background
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../c03-compbio-background/0-compbio-bg.html">
-   4. Computational Biology Background
+   3. Computational Biology Background
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../c04-snowflake/0-snowflake.html">
-   5. Phenotype prediction with
+   4. Phenotype prediction with
    <code class="docutils literal notranslate">
     <span class="pre">
      Snowflake
@@ -155,27 +150,27 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="reference internal" href="0-index.html">
-   6. Combining RNA-seq datasets
+   5. Combining RNA-seq datasets
   </a>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="1-background.html">
-     6.1.1. Background
+     5.1.1. Background
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2-data.html">
-     6.1.2. Data
+     5.1.2. Data
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.1.3. Data Wrangling
+     5.1.3. Data Wrangling
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4-uberon.html">
-     6.1.4. The
+     5.1.4. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -186,34 +181,34 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4-uberon.html#functionality">
-     6.1.5. Functionality
+     5.1.5. Functionality
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5-batch-correction.html">
-     6.1.6. Batch correction
+     5.1.6. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     6.1.7. Results
+     5.1.7. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-future-work.html">
-     6.1.8. Future Work
+     5.1.8. Future Work
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../c06-filter/0-filter.html">
-   7. Filtering computational predictions with tissue-specific expression information
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
-   8. Conclusion
+   7. Conclusion
   </a>
  </li>
 </ul>
@@ -300,8 +295,15 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
-   6.1.3.1. Overview
+   5.1.3.1. Overview
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tissue-groups">
+     5.1.3.1.1. Tissue Groups
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -314,11 +316,11 @@
               <div>
                 
   <div class="section" id="data-wrangling">
-<h1><span class="section-number">6.1.3. </span>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5.1.3. </span>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">¶</a></h1>
 <p>Before the data sets could be combined, substantial data wrangling was necessary. The details of these processes; obtaining, checking, mapping identifiers, excluding irrelevant data, etc, are described in this section.</p>
 <!--TODO: Signpost to appendix if appropriate-->
 <div class="section" id="overview">
-<h2><span class="section-number">6.1.3.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1.3.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>The steps required to obtain consistently formatted and labelled data can be described as follows:</p>
 <ol class="simple">
 <li><p>Obtaining the raw expression per gene for healthy human tissues
@@ -357,15 +359,28 @@ The FANTOM5 data set also contains non-human (mouse) samples. The FANTOM sample 
 <p><strong>2. Mapping to UBERON</strong></p>
 <!--TODO: tidy this section-->
 <p>Mapping from samples to Uberon tissue required the development of a small Python package <code class="docutils literal notranslate"><span class="pre">uberon_py</span></code>. To create input to this package, informal tissue names (e.g. blood, kidney) were taken from the experimental design files (or the human sample information file for FANTOM) to create a map of samples to informal tissue names. For FANTOM, the FANTOM ontology could also be used to create a more fine-grained mapping of samples to tissues based on FANTOM sample identifiers and/or cell type (CL) identifiers.</p>
+<p><strong>HPA</strong>
+The HPA samples were mapped using exact matches to Uberon names. Three types of sample did not have exact matches: “transformed skin fibroblast”, “suprapubic skin”, and “ebv-transformed lymphocyte”. I manually mapped “suprapubic skin” to UBERON:0001415 Skin of pelvis, and excluded the other two (corresponding to excluding 869 samples).</p>
+<p><strong>HDBR</strong>
+For HDBR, tissue names from the “organism part’ column of the column data file were matched to Uberon names and synonyms from the Uberon extended ontology. The 96 unmatched terms corresponding to mixed brain tissues and brain fragments were defaulted to the more general Uberon Brain term.</p>
 <p><strong>FANTOM</strong>
-FANTOM also contains time courses of cell differentiation (cells changing from one type to another) as well measures of perturbed cells. Since these samples do not have a well-defined locality in the body given by cell or tissue type, they were not used in the combined dataset. Such samples were filtered out using the human sample information spreadsheet.</p>
-<p><strong>3/. Aggregating Metadata</strong></p>
-<!-- TODO: details here-->
-<p>To create consistent metadata for the samples (e.g. age, developmental stage, replicate status, etc), information was extracted from multiple sources (including GxA and additional data from each experiment), and sometimes manually curated or corrected.</p>
+Since an experimental design file could not be obtained for FANTOM via GxA, additional sample information was obtained via the FANTOM5 website, namely the human sample information file (HumanSamples2.0.sdrf.xlsx) and the FANTOM5 ontology.</p>
+<p>FANTOM also contains time courses of cell differentiation (cells changing from one type to another) as well measures of perturbed cells. Since these samples do not have a well-defined locality in the body given by cell or tissue type, they were not used in the combined dataset. Such samples were filtered out using the human sample information spreadsheet.</p>
+<p><strong>3/. Aggregating Metadata</strong>
+To create consistent metadata for the samples (e.g. age, developmental stage, replicate status, etc), information was extracted from multiple sources (including GxA and additional data from each experiment), and sometimes manually curated or corrected.</p>
+<p>Metadata about the experiments was collected from multiple sources, primarily the column data files accessed via ExpressionAtlas. This metadata was used to describe the the experimental design for ComBat. The metadata collected includes, where available, sample identifier, individual identifier, age (exact), age (range), developmental stage, tissue type (Uberon term), sex, experiment, biological replicate identifier and technical replicate identifier.</p>
+<p>Both age variables are given in years and may include negative values (e.g. for a developing fetus). The age (range) variable contains uneven ranges, since this allows there to be an age-related factor that is compatible across the experiments. These values had to be converted to common units manually, since they were incompatible between experiments, and age-related terms were missing in GxA for GTEx and HPA, although for GTEx it was possible to acquire via its own website (at https://storage.googleapis.com/gtex_analysis_v7/annotations/GTEx_v7_Annotations_SubjectPhenotypesDS.txt ).</p>
+<p>FANTOM metadata was mostly taken from the human sample information file. There were discrepancies between ages and developmental stages in the FANTOM human samples file, for example, sample FF:10027-101D9	is labelled as “thymus, adult, pool1” in the Description field, but as “0.5,0.5,0.83 years old infant” in the Developmental Stage field, and sample FF:10209-103G2 has an age of ‘M’ and a sex of ‘28’. There were also numerous typographical inconsistencies, for example, “3 year old child”, “3 years old child”, “25 year old”, “76” and “76 years old adult” all feature in the same column, amongst other errors. For this reason, creating a cleaned experimental design file was laborious, but the resulting file has been sent to the FANTOM data curators so that they might make it officially available.</p>
+<p>FANTOM technical and biological replicates are indicated in the annotated gene expression FANTOM file, by the inclusion of “tech_rep” or “biol_rep” in the long sample labels e.g. “counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20tech_rep1.CNhs10855.11227-116C3.hg38.nobarcode”. These were used to create the experimental design file.</p>
+<p>Note: there is an error in the original transcript expression file for one of these identifiers (counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode) such that it is missing the “tech” part of the the replicate label. This was manually changed in my copy of the input file and the FANTOM data curation team was informed.</p>
+<div class="section" id="tissue-groups">
+<h3><span class="section-number">5.1.3.1.1. </span>Tissue Groups<a class="headerlink" href="#tissue-groups" title="Permalink to this headline">¶</a></h3>
+<p>Eleven more general tissue groups (for example brain, digestive system, connective tissue) were identified by hand. Individual tissues were mapped to these groups using the <code class="docutils literal notranslate"><span class="pre">Relations()</span></code> function.</p>
 <p><code class="xref std std-numref docutils literal notranslate"><span class="pre">combining-funnel-plot</span></code> shows a funnel plot, showing how the FANTOM5 data was processed to select the final genes and samples present in the combined dataset.</p>
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c05-combining/3-data-wrangling-0"></p>
+</div>
 </div>
 </div>
 
@@ -397,8 +412,8 @@ FANTOM also contains time courses of cell differentiation (cells changing from o
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="2-data.html" title="previous page"><span class="section-number">6.1.2. </span>Data</a>
-    <a class='right-next' id="next-link" href="4-uberon.html" title="next page"><span class="section-number">6.1.4. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
+    <a class='left-prev' id="prev-link" href="2-data.html" title="previous page"><span class="section-number">5.1.2. </span>Data</a>
+    <a class='right-next' id="next-link" href="4-uberon.html" title="next page"><span class="section-number">5.1.4. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -1,28 +1,10 @@
----
-jupytext:
-  formats: ipynb,md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 ## Methods
 [//]: # (TODO: Overview here?)
 [//]: # (TODO: Code here)
 [//]: # (TODO: Links to packages, etc)
 
-+++
-
 ### Choosing an expression cut-off
 FilP filters out predictions which are not expressed in the tissue relating to the prediction. Deciding whether a gene is or isn’t expressed in a tissue is not trivial with gene expression data, since it can be noisy. Therefore a cut-off must be chosen.  This cut-off was chosen for TPM-normalised data was chosen as this best allows for comparing between different samples. The cut-off was chosen by plotting the distribution of TPM expression and choosing a value below which there appeared to be little noise (10 TPM).
-
-+++
 
 ### Mapping multi-species phenotype terms to tissue
 [//]: # (TODO: Figure 14:)
@@ -32,8 +14,6 @@ The extended uberon ontology is first interrogated for any existing relation to 
 
 Failing that, a TF-IDF based similarity measure is used to search a list of related words (e.g. “mental” and “brain” have high similarity since they often appear together. The similarity measures are based on the term descriptions in both ontologies. There were a small number of outstanding phenotype terms, which were manually mapped to relevant phenotype terms where one existed.
 
-+++
-
 ## Limitations
 [//]: # (TODO: Rewrite since FANTOM5 is not the data set any more).
 
@@ -41,9 +21,7 @@ Although the FANTOM5 data set has a good coverage of tissue types and number of 
 
 Similarly, although proteins, tissues and protein functions may be present in multiple species, FilP only uses human data, so the filter only measures if a gene is expressed in the human tissue of interest. This means that where there are differences in expression between species, FilP will be incorrect if it is run on non-human data (not recommended).
 
-```{code-cell} ipython3
 
-```
 
 ---
 **Page References**
