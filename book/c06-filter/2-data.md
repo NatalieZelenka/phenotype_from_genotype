@@ -6,6 +6,5 @@
 ### CAFA3 Version 
 FANTOM only
 
-
 ### Updated Version
 Combined data set
