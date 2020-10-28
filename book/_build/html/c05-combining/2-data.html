@@ -1,0 +1,511 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.1.2. Data &#8212; Phenotype from Genotype</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.1.3. The uberon-py package" href="4-uberon.html" />
+    <link rel="prev" title="6.1.1. Background" href="1-background.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter_book_intro.html">
+   Start Here
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/title-page.html">
+   Title Page
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/list-of-figures.html">
+   List of Figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/list-of-tables.html">
+   List of Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/declaration.html">
+   Declaration
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Main book
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html">
+   2. Biology Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html#id18">
+   3. Biology Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c03-compbio-background/0-compbio-bg.html">
+   4. Computational Biology Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c04-snowflake/0-snowflake.html">
+   5. Phenotype prediction with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Snowflake
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="0-index.html">
+   6. Combining RNA-seq datasets
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-background.html">
+     6.1.1. Background
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.1.2. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-uberon.html">
+     6.1.3. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       uberon-py
+      </span>
+     </code>
+     package
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-uberon.html#functionality">
+     6.1.4. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-batch-correction.html">
+     6.1.5. Batch correction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-results.html">
+     6.1.6. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-future-work.html">
+     6.1.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c06-filter/0-filter.html">
+   7. Filtering computational predictions with tissue-specific expression information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
+   8. Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/c05-combining/2-data.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#criteria-for-choosing-datasets">
+   6.1.2.1. Criteria for choosing datasets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measures-of-gene-expression">
+     6.1.2.1.1. Measures of gene expression
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gene-expression-vs-protein-abundance">
+       6.1.2.1.1.1. Gene expression vs protein abundance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gene-expression-vs-transcript-expression">
+       6.1.2.1.1.2. Gene expression vs Transcript expression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inclusion-of-cage-data">
+       6.1.2.1.1.3. Inclusion of CAGE data
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chosen-data-sets">
+   6.1.2.2. Chosen data sets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#human-protein-atlas">
+     6.1.2.2.1. Human Protein Atlas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#genotype-tissue-expression">
+     6.1.2.2.2. Genotype Tissue Expression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#human-developmental-biology-resource">
+     6.1.2.2.3. Human Developmental Biology Resource
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data">
+<h1><span class="section-number">6.1.2. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="criteria-for-choosing-datasets">
+<h2><span class="section-number">6.1.2.1. </span>Criteria for choosing datasets<a class="headerlink" href="#criteria-for-choosing-datasets" title="Permalink to this headline">¶</a></h2>
+<p>Datasets were chosen from the EBI’s Gene Expression Atlas (GxA). A major benefit of the GxA is that experiments using the same sequencing technology are re-analysed by GxA using the same data analysis pipeline (iRAP<a class="bibtex reference internal" href="../end-matter/reference.html#fonseca2014-hp" id="id1">[2]</a> for RNA-Seq). In addition to ensuring the quality of each data set included, and running it through the same pipeline, the GxA adds additional metadata for the experiments by using the literature to biologically and technically annotate each sample.</p>
+<p>Data sets from the GxA were chosen based on the following requirements.</p>
+<ul class="simple">
+<li><p><strong>Samples must be sequenced using Next Generation Sequencing</strong>, i.e. including RNA-Seq and CAGE, and excluding microarrays.</p></li>
+<li><p><strong>Data sets must contain a breadth of tissues and genes</strong> (after quality control). This is to aid batch correction by facilitating the most balanced data set design in terms of batch (experiment) to group (tissue), and in order to have good coverage of genes and tissues, which is necessary for downstream use.</p></li>
+<li><p><strong>Samples must not be disease-focused</strong>. In order to reduce the complexity of the analysis and the interpretation of the resulting data set, samples of diseased tissues or cell lines were discarded. Experiments where the focus of the data set was to investigate a particular disease or classes of diseases were discarded. Besides reducing the complexity of the analysis, this choice also made sense based on the previous guideline, since most disease datasets (with the exception of cancer datasets) tended to have a narrow breadth of tissues. I feel that including disease gene expression would be a natural extension to this work if the data allowed for it, but most GxA baseline gene expression experiments which listed organism part as a variable were focused on cancer, which is known to be tissue-non-specific<a class="bibtex reference internal" href="../end-matter/reference.html#love2014-vx" id="id2">[25]</a><a class="bibtex reference internal" href="../end-matter/reference.html#winter2004-rr" id="id3">[3]</a>.</p></li>
+</ul>
+<p>Of the over 3000 experiments in the GxA, 1134 contain human samples, and just less than 3% of those (30 experiments) are baseline gene expression experiments. Of these there are 4 which offer a good coverage of non-disease organism parts. The data sets that were chosen to be used in the combined data set are detailed below.</p>
+<div class="section" id="measures-of-gene-expression">
+<h3><span class="section-number">6.1.2.1.1. </span>Measures of gene expression<a class="headerlink" href="#measures-of-gene-expression" title="Permalink to this headline">¶</a></h3>
+<p>As described in the introduction chapter, there are many ways to measure which proteins are being created. Here, I justify my choices of measures to include in the combined dataset.</p>
+<div class="section" id="gene-expression-vs-protein-abundance">
+<h4><span class="section-number">6.1.2.1.1.1. </span>Gene expression vs protein abundance<a class="headerlink" href="#gene-expression-vs-protein-abundance" title="Permalink to this headline">¶</a></h4>
+<p>Gene expression levels are not necessarily strongly correlated with protein abundance; this has been found in mice<a class="bibtex reference internal" href="../end-matter/reference.html#schwanhausser2011-tm" id="id4">[4]</a>, yeast<a class="bibtex reference internal" href="../end-matter/reference.html#gygi1999-lr" id="id5">[5]</a>, and human<a class="bibtex reference internal" href="../end-matter/reference.html#kosti2016-gt" id="id6">[6]</a>. In human, Spearman correlations between protein abundance and gene expression levels vary between 0.36 and 0.50, depending on tissue, meaning that they are only weakly or moderately correlated<a class="bibtex reference internal" href="../end-matter/reference.html#kosti2016-gt" id="id7">[6]</a>.
+There are many interacting reasons why this is the case. One reason is that there is something preventing the mRNA from being translated, such as slow codons, the temperature, ribosome occupancy, or regulatory RNAs and proteins<a class="bibtex reference internal" href="../end-matter/reference.html#maier2009-vw" id="id8">[7]</a>. In these cases, the DNA is transcribed into mRNA, but the protein is never produced, meaning that using gene expression data as a measure of how much protein is produced would be overestimating the protein abundance. If these factors were a large contribution to the weak correlation, it could provide better results to use protein abundance data instead of mRNA abundance data to make predictions about how proteins are affecting human phenotypes.
+On the other hand, it could equally be possible that proteins are being produced, but not measured by protein abundance techniques. Protein half-lives range over orders of magnitude from seconds to days<a class="bibtex reference internal" href="../end-matter/reference.html#maier2009-vw" id="id9">[7]</a><a class="bibtex reference internal" href="../end-matter/reference.html#beyer2004-ws" id="id10">[8]</a>. In this case, gene expression data may be a more reliable measure of protein production than protein abundance, since proteins may degrade before being measured. In yeast, protein degradation was shown to be the largest contribution to the protein-mRNA correlation compared to codon and amino acid usage (the two other factors estimated in the study), and more influential than those other two factors combined<a class="bibtex reference internal" href="../end-matter/reference.html#wu2008-hb" id="id11">[9]</a>
+.
+In summary, there’s no perfect measure of translation, but since gene expression data is more readily available, and protein degradation appears to account for most of the differences between correlations, gene expression data presents the best proxy for translation for the downstream uses discussed here.</p>
+</div>
+<div class="section" id="gene-expression-vs-transcript-expression">
+<h4><span class="section-number">6.1.2.1.1.2. </span>Gene expression vs Transcript expression<a class="headerlink" href="#gene-expression-vs-transcript-expression" title="Permalink to this headline">¶</a></h4>
+<p>It’s likely that transcript expression data would provide more insight than gene expression data if it were available, since it is likely that there are tissue-specific transcripts which do not correspond to tissue-specific genes, e.g. where different transcripts from the same gene are expressed in different tissues. Transcript expression data, however, is harder to come by and this approach relies on a wealth of available data. Furthermore, transcript expression data can be straightforwardly converted to gene expression data (by summing over the transcripts), while the conversion of gene to transcript expression data is decidedly less accurate. When transcript-expression (CAGE) measurements are aggregated at the gene/protein level, measures of tissue-specificity have been found to largely (75-93%) match up with measures of tissue-specificity resulting from gene-expression measurements, as found in a comparison between the HPA and FANTOM5 experiments<a class="bibtex reference internal" href="../end-matter/reference.html#yu2015-uf" id="id12">[10]</a>.
+For these reasons, I have taken a gene-centric approach here. It may be important, however, to consider whether a gene has multiple transcripts in downstream analysis, for example, if including tissue-specific gene expression information when predicting the function of a protein-coding SNV (since it may not be in the relevant transcript).</p>
+</div>
+<div class="section" id="inclusion-of-cage-data">
+<h4><span class="section-number">6.1.2.1.1.3. </span>Inclusion of CAGE data<a class="headerlink" href="#inclusion-of-cage-data" title="Permalink to this headline">¶</a></h4>
+<p>CAGE is transcript expression, rather than gene expression, and there are likely to be different transcripts measured by CAGE than by RNA-Seq. As mentioned above, however, it is possible to calculate gene expression from transcript expression. It’s also possible to map between CAGE transcription start sites and existing transcript IDs that may be featured in RNA-Seq arrays. When this is done, it has been observed that the results of CAGE are comparable to those of RNA-seq, so the inclusion of CAGE data in a combined dataset is reasonable.</p>
+<p>“We found that the quantified levels of gene expression are largely comparable across platforms and conclude that CAGE and RNA-seq are complementary technologies that can be used to improve incomplete gene models”<a class="bibtex reference internal" href="../end-matter/reference.html#kawaji2014-tl" id="id13">[11]</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="chosen-data-sets">
+<h2><span class="section-number">6.1.2.2. </span>Chosen data sets<a class="headerlink" href="#chosen-data-sets" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the FANTOM5 data (described in the previous chapter), three other large gene expression experiments were chosen:</p>
+<div class="section" id="human-protein-atlas">
+<h3><span class="section-number">6.1.2.2.1. </span>Human Protein Atlas<a class="headerlink" href="#human-protein-atlas" title="Permalink to this headline">¶</a></h3>
+<p>The Human Protein Atlas (HPA) project<a class="bibtex reference internal" href="../end-matter/reference.html#uhlen2010-mx" id="id14">[12]</a><a class="bibtex reference internal" href="../end-matter/reference.html#uhlen2015-at" id="id15">[13]</a> aims to map all human proteins in cells (including subcellular locations), tissues and organs. The HPA project’s data is not limited to the gene expression data that can be found in GxA, but that is the only part of the data that is used here. The gene expression data that was used (E-MTAB-2836 in GxA) excludes cell lines and includes tissue samples of 122 individuals and 32 different non-diseased tissue types.</p>
+</div>
+<div class="section" id="genotype-tissue-expression">
+<h3><span class="section-number">6.1.2.2.2. </span>Genotype Tissue Expression<a class="headerlink" href="#genotype-tissue-expression" title="Permalink to this headline">¶</a></h3>
+<p>The Genotype Tissue Expression (GTEx) project<a class="bibtex reference internal" href="../end-matter/reference.html#gtex-consortium2013-gl" id="id16">[14]</a> was developed specifically for the purpose of studying tissue-specific gene expression in humans and gene expression data from over 18,000 samples, including 53 non-diseased tissue types and 550 individuals (ranging in age from 20s to 70s).</p>
+</div>
+<div class="section" id="human-developmental-biology-resource">
+<h3><span class="section-number">6.1.2.2.3. </span>Human Developmental Biology Resource<a class="headerlink" href="#human-developmental-biology-resource" title="Permalink to this headline">¶</a></h3>
+<p>The Human Developmental Biology Resource (HDBR) Expression data<a class="bibtex reference internal" href="../end-matter/reference.html#lindsay2016-en" id="id17">[15]</a> is slightly different from the other data sets in that contains a much narrower range of sample types. All HDBR samples are human brain samples at different stages of development, ranging from 3 to 20 weeks after conception.</p>
+<hr class="docutils" />
+<p><strong>Page References</strong></p>
+<p id="bibtex-bibliography-c05-combining/2-data-0"><dl class="citation">
+<dt class="bibtex label" id="love2014-vx"><span class="brackets"><a class="fn-backref" href="#id2">25</a></span></dt>
+<dd><p>Michael I Love, Wolfgang Huber, and Simon Anders. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. <em>Genome Biol.</em>, 15(12):550, 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1186/s13059-014-0550-8">http://dx.doi.org/10.1186/s13059-014-0550-8</a>.</p>
+</dd>
+<dt class="bibtex label" id="fonseca2014-hp"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dd><p>Nuno A Fonseca, Robert Petryszak, John Marioni, and Alvis Brazma. iRAP - an integrated RNA-seq analysis pipeline. Preprint, June 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1101/005991">http://dx.doi.org/10.1101/005991</a>.</p>
+</dd>
+<dt class="bibtex label" id="winter2004-rr"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Eitan E Winter, Leo Goodstadt, and Chris P Ponting. Elevated rates of protein secretion, evolution, and disease among tissue-specific genes. <em>Genome Res.</em>, 14(1):54–61, January 2004. URL: <a class="reference external" href="http://dx.doi.org/10.1101/gr.1924004">http://dx.doi.org/10.1101/gr.1924004</a>.</p>
+</dd>
+<dt class="bibtex label" id="schwanhausser2011-tm"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>Björn Schwanhäusser, Dorothea Busse, Na Li, Gunnar Dittmar, Johannes Schuchhardt, Jana Wolf, Wei Chen, and Matthias Selbach. Global quantification of mammalian gene expression control. <em>Nature</em>, 473(7347):337–342, May 2011. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nature10098">http://dx.doi.org/10.1038/nature10098</a>.</p>
+</dd>
+<dt class="bibtex label" id="gygi1999-lr"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p>S P Gygi, Y Rochon, B R Franza, and R Aebersold. Correlation between protein and mRNA abundance in yeast. <em>Mol. Cell. Biol.</em>, 19(3):1720–1730, March 1999. URL: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/10022859">https://www.ncbi.nlm.nih.gov/pubmed/10022859</a>.</p>
+</dd>
+<dt class="bibtex label" id="kosti2016-gt"><span class="brackets">6</span><span class="fn-backref">(<a href="#id6">1</a>,<a href="#id7">2</a>)</span></dt>
+<dd><p>Idit Kosti, Nishant Jain, Dvir Aran, Atul J Butte, and Marina Sirota. Cross-tissue analysis of gene and protein expression in normal and cancer tissues. <em>Sci. Rep.</em>, 6:24799, May 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1038/srep24799">http://dx.doi.org/10.1038/srep24799</a>.</p>
+</dd>
+<dt class="bibtex label" id="maier2009-vw"><span class="brackets">7</span><span class="fn-backref">(<a href="#id8">1</a>,<a href="#id9">2</a>)</span></dt>
+<dd><p>Tobias Maier, Marc Güell, and Luis Serrano. Correlation of mRNA and protein in complex biological samples. <em>FEBS Lett.</em>, 583(24):3966–3973, December 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1016/j.febslet.2009.10.036">http://dx.doi.org/10.1016/j.febslet.2009.10.036</a>.</p>
+</dd>
+<dt class="bibtex label" id="beyer2004-ws"><span class="brackets"><a class="fn-backref" href="#id10">8</a></span></dt>
+<dd><p>Andreas Beyer, Jens Hollunder, Heinz-Peter Nasheuer, and Thomas Wilhelm. Post-transcriptional expression regulation in the yeast saccharomyces cerevisiae on a genomic scale. <em>Mol. Cell. Proteomics</em>, 3(11):1083–1092, November 2004. URL: <a class="reference external" href="http://dx.doi.org/10.1074/mcp.M400099-MCP200">http://dx.doi.org/10.1074/mcp.M400099-MCP200</a>.</p>
+</dd>
+<dt class="bibtex label" id="wu2008-hb"><span class="brackets"><a class="fn-backref" href="#id11">9</a></span></dt>
+<dd><p>Gang Wu, Lei Nie, and Weiwen Zhang. Integrative analyses of posttranscriptional regulation in the yeast saccharomyces cerevisiae using transcriptomic and proteomic data. <em>Curr. Microbiol.</em>, 57(1):18–22, July 2008. URL: <a class="reference external" href="http://dx.doi.org/10.1007/s00284-008-9145-5">http://dx.doi.org/10.1007/s00284-008-9145-5</a>.</p>
+</dd>
+<dt class="bibtex label" id="yu2015-uf"><span class="brackets"><a class="fn-backref" href="#id12">10</a></span></dt>
+<dd><p>Nancy Yiu-Lin Yu, Björn M Hallström, Linn Fagerberg, Fredrik Ponten, Hideya Kawaji, Piero Carninci, Alistair R R Forrest, Fantom Consortium, Yoshihide Hayashizaki, Mathias Uhlén, and Carsten O Daub. Complementing tissue characterization by integrating transcriptome profiling from the human protein atlas and from the FANTOM5 consortium. <em>Nucleic Acids Res.</em>, 43(14):6787–6798, August 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkv608">http://dx.doi.org/10.1093/nar/gkv608</a>.</p>
+</dd>
+<dt class="bibtex label" id="kawaji2014-tl"><span class="brackets"><a class="fn-backref" href="#id13">11</a></span></dt>
+<dd><p>Hideya Kawaji, Marina Lizio, Masayoshi Itoh, Mutsumi Kanamori-Katayama, Ai Kaiho, Hiromi Nishiyori-Sueki, Jay W Shin, Miki Kojima-Ishiyama, Mitsuoki Kawano, Mitsuyoshi Murata, Noriko Ninomiya-Fukuda, Sachi Ishikawa-Kato, Sayaka Nagao-Sato, Shohei Noma, Yoshihide Hayashizaki, Alistair R R Forrest, Piero Carninci, and FANTOM Consortium. Comparison of CAGE and RNA-seq transcriptome profiling using clonally amplified and single-molecule next-generation sequencing. <em>Genome Res.</em>, 24(4):708–717, April 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1101/gr.156232.113">http://dx.doi.org/10.1101/gr.156232.113</a>.</p>
+</dd>
+<dt class="bibtex label" id="uhlen2010-mx"><span class="brackets"><a class="fn-backref" href="#id14">12</a></span></dt>
+<dd><p>Mathias Uhlen, Per Oksvold, Linn Fagerberg, Emma Lundberg, Kalle Jonasson, Mattias Forsberg, Martin Zwahlen, Caroline Kampf, Kenneth Wester, Sophia Hober, Henrik Wernerus, Lisa Björling, and Fredrik Ponten. Towards a knowledge-based human protein atlas. <em>Nature Biotechnology</em>, 28(12):1248–1250, 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nbt1210-1248">http://dx.doi.org/10.1038/nbt1210-1248</a>.</p>
+</dd>
+<dt class="bibtex label" id="uhlen2015-at"><span class="brackets"><a class="fn-backref" href="#id15">13</a></span></dt>
+<dd><p>Mathias Uhlén, Linn Fagerberg, Björn M Hallström, Cecilia Lindskog, Per Oksvold, Adil Mardinoglu, Åsa Sivertsson, Caroline Kampf, Evelina Sjöstedt, Anna Asplund, Ingmarie Olsson, Karolina Edlund, Emma Lundberg, Sanjay Navani, Cristina Al-Khalili Szigyarto, Jacob Odeberg, Dijana Djureinovic, Jenny Ottosson Takanen, Sophia Hober, Tove Alm, Per-Henrik Edqvist, Holger Berling, Hanna Tegel, Jan Mulder, Johan Rockberg, Peter Nilsson, Jochen M Schwenk, Marica Hamsten, Kalle von Feilitzen, Mattias Forsberg, Lukas Persson, Fredric Johansson, Martin Zwahlen, Gunnar von Heijne, Jens Nielsen, and Fredrik Pontén. Proteomics. tissue-based map of the human proteome. <em>Science</em>, 347(6220):1260419, January 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1126/science.1260419">http://dx.doi.org/10.1126/science.1260419</a>.</p>
+</dd>
+<dt class="bibtex label" id="gtex-consortium2013-gl"><span class="brackets"><a class="fn-backref" href="#id16">14</a></span></dt>
+<dd><p>GTEx Consortium. The Genotype-Tissue expression (GTEx) project. <em>Nat. Genet.</em>, 45(6):580–585, June 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1038/ng.2653">http://dx.doi.org/10.1038/ng.2653</a>.</p>
+</dd>
+<dt class="bibtex label" id="lindsay2016-en"><span class="brackets"><a class="fn-backref" href="#id17">15</a></span></dt>
+<dd><p>Susan J Lindsay, Yaobo Xu, Steven N Lisgo, Lauren F Harkin, Andrew J Copp, Dianne Gerrelli, Gavin J Clowry, Aysha Talbot, Michael J Keogh, Jonathan Coxhead, Mauro Santibanez-Koref, and Patrick F Chinnery. HDBR expression: a unique resource for global and individual gene expression studies during early human brain development. <em>Front. Neuroanat.</em>, 10:86, October 2016. URL: <a class="reference external" href="http://dx.doi.org/10.3389/fnana.2016.00086">http://dx.doi.org/10.3389/fnana.2016.00086</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c05-combining"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="1-background.html" title="previous page"><span class="section-number">6.1.1. </span>Background</a>
+    <a class='right-next' id="next-link" href="4-uberon.html" title="next page"><span class="section-number">6.1.3. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
