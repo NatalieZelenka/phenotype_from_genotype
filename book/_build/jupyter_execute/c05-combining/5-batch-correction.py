@@ -1,17 +1,3 @@
----
-jupytext:
-  formats: ipynb,md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 ## Batch correction
 
 ### What are batch effects?
@@ -31,19 +17,7 @@ ComBat is an Empirical Bayes method, meaning that the prior distribution is esti
 ### Pre-batch-corrected data
 Visual inspection of {numref}`combine-pca-before` shows that data appears to cluster by experiment more strongly than by tissue group, meaning that batch correction is necessary to compare across experiment samples.
 
-```{code-cell} ipython3
----
-render:
-  figure:
-    caption: PCA plots without batch correction coloured by experiment (left) and
-      tissue group (right). This PCA was carried out on a subset of 1000 randomly
-      selected genes, after quantile normalisation and filtering of absent genes.
-    name: combine-pca-before
-  image:
-    width: 200px
----
 # Code to create combine-pca-before
-```
 
 ### Method
 <!--TODO: write method overview, e.g. simulate data, and apply batch correction to show it would work on this kind of thing, then apply it to our actual data-->
@@ -58,20 +32,7 @@ In order to test whether ComBat can be used to deal with combining the experimen
 ##### Measures of tissue specificity
 The expected fold-change due to tissue-specific effects must be pre-decided in order to simulate the dataset. The size of the effect and number genes affected were estimated using data from the Human Protein Atlas (available at https://www.proteinatlas.org/download/proteinatlas.tsv.zip), which contains for each tissue-specific gene, the transcripts per million (TPM) for tissues that were found to be tissue-enriched (at least a 5 fold change, compared to all other tissues), group-enriched (at least a 5 fold change between the group of 2-7 tissues compared to all other tissues) or tissue enhanced (at least a 5 fold change between the tissue and the average of all other tissues), and the transcripts per million of the most highly expressed tissues that were not. Taken together (tissue-enriched, group-enriched and tissue-enhanced), we here refer to these genes/tissues as tissue-specific.
 
-```{code-cell} ipython3
----
-render:
-  figure:
-    caption: The HPA data and data simulated by a log-normal fitted to the data, for
-      both the distribution of tissue-specific fold-change over all tissue-specific
-      gene-sample pairs (left) and the number of tissue-specific genes per tissue
-      over the 37 HPA tissues (right).
-    name: dist-tissue-specific
-  image:
-    width: 200px
----
 # Code to make: The HPA data and data simulated by a log-normal fitted to the data, for both the distribution of tissue-specific fold-change over all tissue-specific gene-sample pairs (left) and the number of tissue-specific genes per tissue over the 37 HPA tissues (right)
-```
 
 For any of these tissue-specific genes/tissues, the fold change per tissue per gene was calculated. The distribution of fold changes was compared to an exponential, log-normal and power-law distribution using the python `powerlaw` package. The log-normal distribution was the best fit ($D=0.11$), and the parameters fitting the fold changes to the log-normal distribution were estimated as $\mu=1.57, \sigma=1.66$. Visually inspecting the graph reveals that the data simulated from these parameters appears to fit the data well (orange line, left-hand plot, {numref}`dist-tissue-specific`).
 

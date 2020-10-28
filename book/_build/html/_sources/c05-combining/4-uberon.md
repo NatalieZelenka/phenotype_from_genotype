@@ -1,5 +1,6 @@
 ## The `uberon-py` package
 [//]: # (TODO: Make Uberon-py a website and link to it)
+[//]: # (TODO: Make a Zenodo for uberon-py and reference it here)
 
 In order to map between Uberon tissues, CL cells, and named tissues from sample information, I created a small Python Package -  `uberon-py`, which is [available to install]([https://pypi.org/project/uberon-py/]) via the Python Package Index, with code [available on GitHub](https://github.com/NatalieThurlby/uberon-py).
 

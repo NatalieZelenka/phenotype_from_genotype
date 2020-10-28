@@ -1,48 +1,12 @@
----
-jupytext:
-  formats: ipynb,md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 ## Results
 <!--TODO: Write-->
 
 ### Simulated data
 Box-plots (figure {numref}`box-plot-sim`) shows that the simulated data has similar distributions to the true data, and PCA (figure {numref}`pca-sim`) reveals that batch effects are visible in the simulated data, as they are in the real data.
 
-```{code-cell} ipython3
----
-render:
-  figure:
-    caption: Box-plots showing distributions of the real (left) and simulated (right)
-      data.
-    name: box-plot-sim
-  image:
-    width: 200px
----
 # Code for box-plots showing distributions of the real (left) and simulated (right) data.
-```
 
-```{code-cell} ipython3
----
-render:
-  figure:
-    caption: PCA plot showing colour by experiment and tissue group.
-    name: pca-sim
-  image:
-    width: 200px
----
 # Code for PCA plot showing colour by experiment and tissue group. 
-```
-
 
 The simulated data does not simulate the mean expression that we would expect for a given tissue type or experiment, so the labels in {numref}`pca-sim` instead indicate the model design rather than the expression, i.e. there are the same number of GTEx-labelled simulated samples, which have the same breakdown of tissues as those in our final combined data set.
 

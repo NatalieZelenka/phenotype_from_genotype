@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>6. Combining RNA-seq datasets &#8212; Phenotype from Genotype</title>
+    <title>6.1.7. Future Work &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -36,8 +36,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.1.1. Background" href="1-background.html" />
-    <link rel="prev" title="5. Phenotype prediction with Snowflake" href="../c04-snowflake/0-snowflake.html" />
+    <link rel="next" title="7. Filtering computational predictions with tissue-specific expression information" href="../c06-filter/0-filter.html" />
+    <link rel="prev" title="6.1.6. Results" href="6-results.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -154,10 +154,10 @@
   </a>
  </li>
  <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="0-index.html">
    6. Combining RNA-seq datasets
   </a>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="1-background.html">
      6.1.1. Background
@@ -194,8 +194,8 @@
      6.1.6. Results
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="7-future-work.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      6.1.7. Future Work
     </a>
    </li>
@@ -265,7 +265,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/c05-combining/0-index.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/c05-combining/7-future-work.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -294,8 +294,13 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivation">
-   6.1. Motivation
+  <a class="reference internal nav-link" href="#mapping-improvements">
+   6.1.7.1. Mapping improvements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scrna-inclusion">
+   6.1.7.2. scRNA inclusion
   </a>
  </li>
 </ul>
@@ -308,28 +313,33 @@
         
               <div>
                 
-  <div class="section" id="combining-rna-seq-datasets">
-<span id="c05-combining"></span><h1><span class="section-number">6. </span>Combining RNA-seq datasets<a class="headerlink" href="#combining-rna-seq-datasets" title="Permalink to this headline">¶</a></h1>
-<p>This chapter describes my attempts to create a simulated tissue-specific dataset and to combine gene expression data from 4 large tissue-specific RNA-Seq experiments. All work in this chapter is my own.</p>
-<div class="section" id="motivation">
-<h2><span class="section-number">6.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
-<p>Gene expression data measures the number of transcribed proteins in a sample at a specific time. It’s a popular experimental technique as demonstrated by the 3,564 studies and 112,225 assays currently available on Gene Expression Atlas website <a class="bibtex reference internal" href="../end-matter/reference.html#petryszak2016-je" id="id1">[20]</a>. Researchers use this data to characterise gene function.</p>
-<p>Yet each individual measure of expression is only a snapshot of what a gene can do. It only tells us about the transcription of proteins at that one time. If we want a full understanding of what a gene does, we must understand how it’s expressed in a variety of scenarios. For example, in different tissues, from different people, at different times of day, and across many repeats. That kind of data would allow us to answer questions that aren’t currently possible. Data to enable this is not easy to come by. It would be too expensive for one experiment to measure so many samples.</p>
-<p>Combining expression data from many different experiments could overcome this problem. There are already an example of this happening for two experiments<a class="bibtex reference internal" href="../end-matter/reference.html#wang2018-rz" id="id2">[2]</a>. It would result in the rich information about genes that we desire. Unfortunately, this approach reveals another problem: batch effects. Batch effects are measurement artifacts that appear due to differences in experimental protocol. Their prevalence makes gene expression experiments very difficult to compare or combine.</p>
-<p>This chapter combines four gene expression data sets, collating sample and tissue information about them into a common format. A simulated data set for tissue-specific batch-effected data is created as a starting point for exploring batch effect removal for this combined data set.</p>
+  <div class="section" id="future-work">
+<h1><span class="section-number">6.1.7. </span>Future Work<a class="headerlink" href="#future-work" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mapping-improvements">
+<h2><span class="section-number">6.1.7.1. </span>Mapping improvements<a class="headerlink" href="#mapping-improvements" title="Permalink to this headline">¶</a></h2>
+<p>Firstly, there are also some mapping improvements which might improve the quality of the data set as a resource for other people.</p>
+<p>It is sometimes appropriate for samples to map to two apparently distinct Uberon terms. For example, leukocytes are known to be part of the immune system, but are found in the blood. In the FANTOM mapping, they would be mapped by name to blood, but by ontology to immune system. In this case, we could imagine mapping to two Uberon terms rather than defaulting to where the cells were collected, since researchers interested in blood or the immune system would both like to access the information.</p>
+<p>In addition, it would be preferable to map simultaneously to tissue and cell type, since this enables researchers to, for example, make queries about expression about the same cell types in different tissue locations, query the data set against scRNA-seq data, or simply find cell as well as tissue specific information.  This could be achieved partly with relative ease by using the ontological mapping between CL and Uberon. Improvement of the CL-Uberon mapping would then allow for a complete understanding of which cell types are in a tissue, but not their relative abundances.</p>
+<p>Alternatively, a cell type deconvolution programme (e.g. CIBERSORT<a class="bibtex reference internal" href="../end-matter/reference.html#newman2015-le" id="id1">[1]</a>, BSEQ-sc<span class="bibtex" id="id2">[Gaujoux_undated-ru]</span>, or MuSiC<a class="bibtex reference internal" href="../end-matter/reference.html#wang2019-hc" id="id3">[2]</a>) could be used, which would output percentages of cell types making up a tissue. Cell type deconvolution however generally requires the input of a large scRNA-seq dataset as input, which there doesn’t exist enough diversity of at present, to deconvolve all tissue types.</p>
+</div>
+<div class="section" id="scrna-inclusion">
+<h2><span class="section-number">6.1.7.2. </span>scRNA inclusion<a class="headerlink" href="#scrna-inclusion" title="Permalink to this headline">¶</a></h2>
+<p>Since ComBat is known to suffer from unbalanced datasets, an alternative might be used: Mutal Nearest Neighbour (MNN) method for bulk RNA-Seq data. MNN is a batch effect removal methodology for scRNA-seq data which was recently developed by Haghverdi et al<a class="bibtex reference internal" href="../end-matter/reference.html#haghverdi2018-ig" id="id4">[3]</a>. The benefit of this methodology (in addition to its superior batch effect removal) is its ability to cope with unbalanced sample compositions.  Despite being developed for scRNA-seq, it works well on heterogeneous tissues like the pancreas, so it may be possible to use or extend it to bulk RNA-seq, especially if cell type deconvolution can be employed on the bulk RNA-seq. If this was possible, using an MNN-based method would allow us to overcome ComBat’s requirement for a balanced experimental design since it requires only one cell in common between, although more cells in common will increase the accuracy.</p>
+<p>As the number of scRNA-seq experiments increase, including them in a combined dataset of tissue-specific expression will become more statistically viable. A prerequisite of including scRNA-seq data would be the use of an alternative batch effect removal algorithm that is suitable for single cell data, (e.g. MNN).It would be interesting to compare how the expression of cells which can exist in multiple tissue types differs across those different tissue types, and to investigate whether some gene expression is truly tissue-specific rather than cell-type specific.</p>
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
-<p id="bibtex-bibliography-c05-combining/0-index-0"><dl class="citation">
-<dt class="bibtex label" id="petryszak2016-je"><span class="brackets"><a class="fn-backref" href="#id1">20</a></span></dt>
-<dd><p>Robert Petryszak, Maria Keays, Y Amy Tang, Nuno A Fonseca, Elisabet Barrera, Tony Burdett, Anja Füllgrabe, Alfonso Muñoz-Pomer Fuentes, Simon Jupp, Satu Koskinen, Oliver Mannion, Laura Huerta, Karine Megy, Catherine Snow, Eleanor Williams, Mitra Barzine, Emma Hastings, Hendrik Weisser, James Wright, Pankaj Jaiswal, Wolfgang Huber, Jyoti Choudhary, Helen E Parkinson, and Alvis Brazma. Expression atlas update—an integrated database of gene and protein expression in humans, animals and plants. 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkv1045">http://dx.doi.org/10.1093/nar/gkv1045</a>.</p>
+<p id="bibtex-bibliography-c05-combining/7-future-work-0"><dl class="citation">
+<dt class="bibtex label" id="newman2015-le"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Aaron M Newman, Chih Long Liu, Michael R Green, Andrew J Gentles, Weiguo Feng, Yue Xu, Chuong D Hoang, Maximilian Diehn, and Ash A Alizadeh. Robust enumeration of cell subsets from tissue expression profiles. <em>Nat. Methods</em>, 12(5):453–457, May 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nmeth.3337">http://dx.doi.org/10.1038/nmeth.3337</a>.</p>
 </dd>
-<dt class="bibtex label" id="wang2018-rz"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Qingguo Wang, Joshua Armenia, Chao Zhang, Alexander V Penson, Ed Reznik, Liguo Zhang, Thais Minet, Angelica Ochoa, Benjamin E Gross, Christine A Iacobuzio-Donahue, Doron Betel, Barry S Taylor, Jianjiong Gao, and Nikolaus Schultz. Unifying cancer and normal RNA sequencing data from different sources. <em>Sci Data</em>, 5:180061, April 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1038/sdata.2018.61">http://dx.doi.org/10.1038/sdata.2018.61</a>.</p>
+<dt class="bibtex label" id="wang2019-hc"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p>Xuran Wang, Jihwan Park, Katalin Susztak, Nancy R Zhang, and Mingyao Li. Bulk tissue cell type deconvolution with multi-subject single-cell expression reference. <em>Nat. Commun.</em>, 10(1):380, January 2019. URL: <a class="reference external" href="http://dx.doi.org/10.1038/s41467-018-08023-x">http://dx.doi.org/10.1038/s41467-018-08023-x</a>.</p>
+</dd>
+<dt class="bibtex label" id="haghverdi2018-ig"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dd><p>Laleh Haghverdi, Aaron T L Lun, Michael D Morgan, and John C Marioni. Batch effects in single-cell RNA-sequencing data are corrected by matching mutual nearest neighbors. <em>Nat. Biotechnol.</em>, 36(5):421–427, June 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nbt.4091">http://dx.doi.org/10.1038/nbt.4091</a>.</p>
 </dd>
 </dl>
 </p>
-<div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 
@@ -361,8 +371,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../c04-snowflake/0-snowflake.html" title="previous page"><span class="section-number">5. </span>Phenotype prediction with <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code></a>
-    <a class='right-next' id="next-link" href="1-background.html" title="next page"><span class="section-number">6.1.1. </span>Background</a>
+    <a class='left-prev' id="prev-link" href="6-results.html" title="previous page"><span class="section-number">6.1.6. </span>Results</a>
+    <a class='right-next' id="next-link" href="../c06-filter/0-filter.html" title="next page"><span class="section-number">7. </span>Filtering computational predictions with tissue-specific expression information</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>6.1. Background &#8212; Phenotype from Genotype</title>
+    <title>6.1.1. Background &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -36,7 +36,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.2. Data" href="2-data.html" />
+    <link rel="next" title="6.1.2. Data" href="2-data.html" />
     <link rel="prev" title="6. Combining RNA-seq datasets" href="0-index.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -160,17 +160,17 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.1. Background
+     6.1.1. Background
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2-data.html">
-     6.2. Data
+     6.1.2. Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4-uberon.html">
-     6.3. The
+     6.1.3. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -181,17 +181,22 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4-uberon.html#functionality">
-     6.4. Functionality
+     6.1.4. Functionality
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5-batch-correction.html">
-     6.5. Batch correction
+     6.1.5. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     6.6. Results
+     6.1.6. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-future-work.html">
+     6.1.7. Future Work
     </a>
    </li>
   </ul>
@@ -290,30 +295,13 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tissue-and-cell-specific-gene-expression">
-   6.1.1. Tissue and cell-specific gene expression
+   6.1.1.1. Tissue and cell-specific gene expression
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#why-one-experiment-isnt-enough-why-combine-gene-expression-data">
-   6.1.2. Why one experiment isn’t enough - why combine gene expression data
+   6.1.1.2. Why one experiment isn’t enough - why combine gene expression data
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#batch-effect-removal">
-   6.1.3. Batch-effect removal
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surrogate-variable-analysis">
-     6.1.3.1. Surrogate Variable Analysis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combat">
-     6.1.3.2. ComBat
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -326,41 +314,56 @@
               <div>
                 
   <div class="section" id="background">
-<h1><span class="section-number">6.1. </span>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
-<p>Gene expression data measures the number of transcribed proteins in a sample at a specific time. It’s a popular experimental technique as demonstrated by the 3,564 studies and 112,225 assays currently available on Gene Expression Atlas website(Petryszak et al. 2016). Researchers use this data to characterise gene function.</p>
-<p>Yet each individual measure of expression is only a snapshot of what a gene can do. It only tells us about the transcription of proteins at that one time. If we want a full understanding of what a gene does, we must understand how it’s expressed in a variety of scenarios. For example, in different tissues, from different people, at different times of day, and across many repeats. That kind of data would allow us to answer questions that aren’t currently possible. Data to enable this is not easy to come by. It would be too expensive for one experiment to measure so many samples.</p>
-<p>Combining expression data from many different experiments could overcome this problem. There are already an example of this happening for two experiments(Wang et al. 2018). It would result in the rich information about genes that we desire. Unfortunately, this approach reveals another problem: batch effects. Batch effects are measurement artifacts that appear due to differences in experimental protocol. Their prevalence makes gene expression experiments very difficult to compare or combine.</p>
-<p>This chapter combines four gene expression data sets, collating sample and tissue information about them into a common format. A simulated dataset for tissue-specific batch-effected data is created as a starting point for exploring batch effect removal for this combined dataset.</p>
+<h1><span class="section-number">6.1.1. </span>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="tissue-and-cell-specific-gene-expression">
-<h2><span class="section-number">6.1.1. </span>Tissue and cell-specific gene expression<a class="headerlink" href="#tissue-and-cell-specific-gene-expression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.1.1. </span>Tissue and cell-specific gene expression<a class="headerlink" href="#tissue-and-cell-specific-gene-expression" title="Permalink to this headline">¶</a></h2>
 <p>We’re yet to fully understand the intricacies of the human transcriptome, but if there is one factor that we know plays a huge role, it’s cell type. We know that the same DNA is in every cell, and yet the morphology and function of each cell is determined by its cell type, due to its gene expression.</p>
 <p>While we may prefer to look at the gene expression of a cell type, we currently have much less scRNA-seq data than bulk RNA-seq data. Bulk RNA-seq also gives us the ability to measure the gene expression of tissues as they appear in humans. The average supply of a protein to a tissue (averaged over multiple cell types) may well influence a tissue’s phenotype, in these circumstances gene expression at the level of a tissue may give us information that we can’t retrieve from cell-line cells.</p>
 <p>Figure 17:  Images of smooth muscle tissue from the stomach wall (left) and lung tissue (right), examples of homogeneous and heterogeneous tissue types respectively, taken from the Human Tissue Atlas website(The Human Protein Atlas ).</p>
 <p>Tissues can be made up of various cell types. Some tissue types (e.g. smooth muscle) are quite homogeneous, comprising of predominantly one cell type and/or lacking structural features. Other tissues (e.g. lung) are heterogeneous, consisting of multiple cell types and features. Figure 17 shows the different structure of two example tissue types. The bronchioles of the lung alone consist of six different cell types (basal cells, neuroendocrine cells, ciliated cells, serous cells, Clara cells and goblet cells), while smooth muscle tissue consists almost exclusively of tightly packed smooth muscle cells. The varying proportions of constituent cell types in heterogeneous tissues can influence tissue function.</p>
-<p>Tissue and cell type is only one source of variation in gene expression, which can also vary by, for example, individual organism[81], age[82,83], sex[84,85], time of day[81,86], and spatial location within a tissue or culture[87]. There are also interactions between these different sources of variation, for example certain genes may only exhibit differential expression based on time of day in certain cell types.</p>
+<p>Tissue and cell type is only one source of variation in gene expression, which can also vary by, for example, individual organism<a class="bibtex reference internal" href="../end-matter/reference.html#cortijo2019-wi" id="id1">[2]</a>, age<a class="bibtex reference internal" href="../end-matter/reference.html#vinuela2018age" id="id2">[3]</a><a class="bibtex reference internal" href="../end-matter/reference.html#yang2015-mo" id="id3">[4]</a>, sex<a class="bibtex reference internal" href="../end-matter/reference.html#reinius2009-ir" id="id4">[5]</a><a class="bibtex reference internal" href="../end-matter/reference.html#stone2019-fk" id="id5">[6]</a>, time of day<a class="bibtex reference internal" href="../end-matter/reference.html#cortijo2019-wi" id="id6">[2]</a><a class="bibtex reference internal" href="../end-matter/reference.html#schibler2007-jx" id="id7">[7]</a>, and spatial location within a tissue or culture<a class="bibtex reference internal" href="../end-matter/reference.html#svensson2018-oa" id="id8">[8]</a>. There are also interactions between these different sources of variation, for example certain genes may only exhibit differential expression based on time of day in certain cell types.</p>
 <p>Such information can be used to check if genes are expressed in a given cell/tissue, which may indicate the gene function, to identify housekeeping genes, and to build models of gene regulatory networks.</p>
 </div>
 <div class="section" id="why-one-experiment-isnt-enough-why-combine-gene-expression-data">
-<h2><span class="section-number">6.1.2. </span>Why one experiment isn’t enough - why combine gene expression data<a class="headerlink" href="#why-one-experiment-isnt-enough-why-combine-gene-expression-data" title="Permalink to this headline">¶</a></h2>
-<p>Falling costs and rapid advances in sequencing technologies have resulted in what many have described as a deluge of -omics data[88]. For a typical (human) next-generation sequencing transcriptomics experiment, data will be collected for 20,000+ genes, but generally far fewer samples, and very few replicates of a certain kind of sample (e.g. tissue). For context, the largest experiment in the Ensembl Gene Expression Atlas (GxA) is the Genotype-Tissue Expression (GTEx) Project with 18736 samples, but this is of course across many tissues. This is another example of data which is subject to the curse of dimensionality.</p>
-<p>There is general agreement that integrating omics datasets is one of the primary challenges to overcome if we wish to harness the full information contained within them[89]. When it comes to gene expression, we have “big data”, but not enough and not appropriately aggregated to answer the questions we wish to answer. Having more repeated measurements, and more variation in samples would allow researchers to apply additional statistical techniques, and ask additional questions. Combining gene expression data sets, however, is not trivial: a major problem is their well known susceptibility to batch effects (differences in measurements due to technical artefacts of sequencing batch) [50]. There are also further problems, for example, having enough meaningful information recorded per sample, access to data in raw count format, and mapping between the data that is given and similar samples in other datasets, as well as computational problems (data storage, optimisation of running operations on many or large files, etc).</p>
+<h2><span class="section-number">6.1.1.2. </span>Why one experiment isn’t enough - why combine gene expression data<a class="headerlink" href="#why-one-experiment-isnt-enough-why-combine-gene-expression-data" title="Permalink to this headline">¶</a></h2>
+<p>Falling costs and rapid advances in sequencing technologies have resulted in what many have described as a deluge of -omics data<a class="bibtex reference internal" href="../end-matter/reference.html#bell2009-uq" id="id9">[9]</a>. For a typical (human) next-generation sequencing transcriptomics experiment, data will be collected for 20,000+ genes, but generally far fewer samples, and very few replicates of a certain kind of sample (e.g. tissue). For context, the largest experiment in the Ensembl Gene Expression Atlas (GxA) is the Genotype-Tissue Expression (GTEx) Project with 18736 samples, but this is of course across many tissues. This is another example of data which is subject to the curse of dimensionality.</p>
+<p>There is general agreement that integrating omics datasets is one of the primary challenges to overcome if we wish to harness the full information contained within them<a class="bibtex reference internal" href="../end-matter/reference.html#gomez-cabrero2014-gk" id="id10">[10]</a>. When it comes to gene expression, we have “big data”, but not enough and not appropriately aggregated to answer the questions we wish to answer. Having more repeated measurements, and more variation in samples would allow researchers to apply additional statistical techniques, and ask additional questions. Combining gene expression data sets, however, is not trivial: a major problem is their well known susceptibility to batch effects (differences in measurements due to technical artefacts of sequencing batch) <a class="bibtex reference internal" href="../end-matter/reference.html#leek2010-yw" id="id11">[26]</a>. There are also further problems, for example, having enough meaningful information recorded per sample, access to data in raw count format, and mapping between the data that is given and similar samples in other datasets, as well as computational problems (data storage, optimisation of running operations on many or large files, etc).</p>
 <p>Due to these complications, many of the important questions that we seek to answer through gene expression are difficult to get an accurate measurement of. However, batch correction methodologies, biological ontologies, and curated databases of gene expression data are constantly evolving, and are now at a point where combining datasets in order to get an improved global picture of gene expression is feasible. Attempting to combine datasets has the added bonus of contributing to the accuracy of these databases and ontologies by drawing attention to inconsistencies.</p>
-</div>
-<div class="section" id="batch-effect-removal">
-<h2><span class="section-number">6.1.3. </span>Batch-effect removal<a class="headerlink" href="#batch-effect-removal" title="Permalink to this headline">¶</a></h2>
-<p>There are a number of batch correction analyses which attempt to remove batch effects from RNA-seq data. Batch correction can be very useful for understanding baseline gene expression, but can lead to inflated p-values for downstream analysis (notably for differential gene expression, using ComBat[90]), where a more sensible approach is to include batch as a confounder for statistical tests.</p>
-<div class="section" id="surrogate-variable-analysis">
-<h3><span class="section-number">6.1.3.1. </span>Surrogate Variable Analysis<a class="headerlink" href="#surrogate-variable-analysis" title="Permalink to this headline">¶</a></h3>
-<p>Surrogate Variable Analysis (SVA)[91] is used in cases where you do not have a covariate that drives batch effect (i.e. you do not have information about processing date, technicians, processing centres, etc), but you expect that batch effects will be present. SVA estimates which samples belong to which batches, before using ComBat to remove the effect due to those batches.</p>
-</div>
-<div class="section" id="combat">
-<h3><span class="section-number">6.1.3.2. </span>ComBat<a class="headerlink" href="#combat" title="Permalink to this headline">¶</a></h3>
-<p>ComBat[90] is a popular batch effect removal procedure, which was first developed for use with microarray data, but continues to be a popular choice for RNA-seq data. Generally, it is a well-trusted method for both of these types of gene expression data[92], but more recently has been shown to “overcorrect” batches for RNA-seq data[93].</p>
-<p>ComBat is an Empirical Bayes method, meaning that the prior distribution is estimated from the data. It is designed to “borrow/share information” between genes in order to get a better estimate of batch effects, and assumes that batch effects affect many genes in similar ways.</p>
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
-<p id="bibtex-bibliography-c05-combining/1-background-0"></p>
-</div>
+<p id="bibtex-bibliography-c05-combining/1-background-0"><dl class="citation">
+<dt class="bibtex label" id="leek2010-yw"><span class="brackets"><a class="fn-backref" href="#id11">26</a></span></dt>
+<dd><p>Jeffrey T Leek, Robert B Scharpf, Héctor Corrada Bravo, David Simcha, Benjamin Langmead, W Evan Johnson, Donald Geman, Keith Baggerly, and Rafael A Irizarry. Tackling the widespread and critical impact of batch effects in high-throughput data. <em>Nat. Rev. Genet.</em>, 11(10):733–739, October 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nrg2825">http://dx.doi.org/10.1038/nrg2825</a>.</p>
+</dd>
+<dt class="bibtex label" id="cortijo2019-wi"><span class="brackets">2</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id6">2</a>)</span></dt>
+<dd><p>S Cortijo, Z Aydin, S Ahnert, and others. Widespread inter‐individual gene expression variability in arabidopsis thaliana. <em>Mol. Syst. Biol.</em>, 2019. URL: <a class="reference external" href="http://msb.embopress.org/content/15/1/e8591.abstract">http://msb.embopress.org/content/15/1/e8591.abstract</a>.</p>
+</dd>
+<dt class="bibtex label" id="vinuela2018age"><span class="brackets"><a class="fn-backref" href="#id2">3</a></span></dt>
+<dd><p>Ana Viñuela, Andrew A Brown, Alfonso Buil, Pei-Chien Tsai, Matthew N Davies, Jordana T Bell, Emmanouil T Dermitzakis, Timothy D Spector, and Kerrin S Small. Age-dependent changes in mean and variance of gene expression across tissues in a twin cohort. <em>Human molecular genetics</em>, 27(4):732–741, 2018.</p>
+</dd>
+<dt class="bibtex label" id="yang2015-mo"><span class="brackets"><a class="fn-backref" href="#id3">4</a></span></dt>
+<dd><p>Jialiang Yang, Tao Huang, Francesca Petralia, Quan Long, Bin Zhang, Carmen Argmann, Yong Zhao, Charles V Mobbs, Eric E Schadt, Jun Zhu, Zhidong Tu, and GTEx Consortium. Synchronized age-related gene expression changes across multiple tissues in human and the link to complex diseases. <em>Sci. Rep.</em>, 5:15145, October 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1038/srep15145">http://dx.doi.org/10.1038/srep15145</a>.</p>
+</dd>
+<dt class="bibtex label" id="reinius2009-ir"><span class="brackets"><a class="fn-backref" href="#id4">5</a></span></dt>
+<dd><p>B Reinius and E Jazin. Prenatal sex differences in the human brain. <em>Mol. Psychiatry</em>, 14(11):987, 988–9, November 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1038/mp.2009.79">http://dx.doi.org/10.1038/mp.2009.79</a>.</p>
+</dd>
+<dt class="bibtex label" id="stone2019-fk"><span class="brackets"><a class="fn-backref" href="#id5">6</a></span></dt>
+<dd><p>Gregory Stone, Ashley Choi, Meritxell Oliva, Joshua Gorham, Mahyar Heydarpour, Christine E Seidman, Jon G Seidman, Sary F Aranki, Simon C Body, Vincent J Carey, Benjamin A Raby, Barbara E Stranger, and Jochen D Muehlschlegel. Sex differences in gene expression in response to ischemia in the human left ventricular myocardium. <em>Hum. Mol. Genet.</em>, January 2019. URL: <a class="reference external" href="http://dx.doi.org/10.1093/hmg/ddz014">http://dx.doi.org/10.1093/hmg/ddz014</a>.</p>
+</dd>
+<dt class="bibtex label" id="schibler2007-jx"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p>Ueli Schibler. The daily timing of gene expression and physiology in mammals. <em>Dialogues Clin. Neurosci.</em>, 9(3):257–272, 2007. URL: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/17969863">https://www.ncbi.nlm.nih.gov/pubmed/17969863</a>.</p>
+</dd>
+<dt class="bibtex label" id="svensson2018-oa"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
+<dd><p>Valentine Svensson, Sarah A Teichmann, and Oliver Stegle. SpatialDE: identification of spatially variable genes. <em>Nat. Methods</em>, 15(5):343–346, May 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nmeth.4636">http://dx.doi.org/10.1038/nmeth.4636</a>.</p>
+</dd>
+<dt class="bibtex label" id="bell2009-uq"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
+<dd><p>Gordon Bell, Tony Hey, and Alex Szalay. Computer science. beyond the data deluge. <em>Science</em>, 323(5919):1297–1298, March 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1126/science.1170411">http://dx.doi.org/10.1126/science.1170411</a>.</p>
+</dd>
+<dt class="bibtex label" id="gomez-cabrero2014-gk"><span class="brackets"><a class="fn-backref" href="#id10">10</a></span></dt>
+<dd><p>David Gomez-Cabrero, Imad Abugessaisa, Dieter Maier, Andrew Teschendorff, Matthias Merkenschlager, Andreas Gisel, Esteban Ballestar, Erik Bongcam-Rudloff, Ana Conesa, and Jesper Tegnér. Data integration in the era of omics: current and future challenges. <em>BMC Syst. Biol.</em>, 8 Suppl 2:I1, March 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1186/1752-0509-8-S2-I1">http://dx.doi.org/10.1186/1752-0509-8-S2-I1</a>.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 
@@ -393,7 +396,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="0-index.html" title="previous page"><span class="section-number">6. </span>Combining RNA-seq datasets</a>
-    <a class='right-next' id="next-link" href="2-data.html" title="next page"><span class="section-number">6.2. </span>Data</a>
+    <a class='right-next' id="next-link" href="2-data.html" title="next page"><span class="section-number">6.1.2. </span>Data</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
