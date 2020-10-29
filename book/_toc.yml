@@ -16,7 +16,7 @@
   - file: c01-introduction/intro
   - file: c02-biology-background/0-bg-biology
   - file: c03-compbio-background/0-compbio-bg
-  - file: c04-snowflake/0-snowflake
+  - file: c04-snowflake/0-index
     sections:
       - file: c04-snowflake/1-introduction
       - file: c04-snowflake/2-snowflake-method
@@ -37,9 +37,11 @@
   - file: c06-filter/0-index
     sections:
       - file: c06-filter/1-introduction
-      - file: c06-filter/2-methods
-      - file: c06-filter/3-results
-      - file: c06-filter/4-future-work
+      - file: c06-filter/2-data
+      - file: c06-filter/3-methods
+      - file: c06-filter/4-results
+      - file: c06-filter/5-discussion
+      - file: c06-filter/6-future-work
   - file: c07-conclusion/0-conclusion
 
 - part: End Matter

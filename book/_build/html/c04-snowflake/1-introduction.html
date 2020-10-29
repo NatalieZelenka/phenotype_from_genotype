@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>4. Phenotype prediction with Snowflake &#8212; Phenotype from Genotype</title>
+    <title>4.1. Introduction &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -36,8 +36,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Combining RNA-seq datasets" href="../c05-combining/0-index.html" />
-    <link rel="prev" title="3. Computational Biology Background" href="../c03-compbio-background/0-compbio-bg.html" />
+    <link rel="next" title="4.2. Snowflake Method" href="2-snowflake-method.html" />
+    <link rel="prev" title="4. Phenotype prediction with Snowflake" href="0-index.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -139,7 +139,7 @@
   </a>
  </li>
  <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="0-index.html">
    4. Phenotype prediction with
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -147,6 +147,43 @@
     </span>
    </code>
   </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-snowflake-method.html">
+     4.2. Snowflake Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-clustering-snps.html">
+     4.3. Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-data.html">
+     4.4. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-results.html">
+     4.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-discussion.html">
+     4.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-future-work.html">
+     4.7. Future Work
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../c05-combining/0-index.html">
@@ -217,7 +254,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/c04-snowflake/0-snowflake.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/c04-snowflake/1-introduction.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -253,8 +290,26 @@
         
               <div>
                 
-  <div class="section" id="phenotype-prediction-with-snowflake">
-<span id="c04-snowflake"></span><h1><span class="section-number">4. </span>Phenotype prediction with <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code><a class="headerlink" href="#phenotype-prediction-with-snowflake" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="introduction">
+<h1><span class="section-number">4.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>A huge question in biology is how does phenotype arise from genotype. Efforts to disentangle these relationships generally take a reductionist approach, looking closely at one particular gene or phenotype.</p>
+<p>We are fortunate in biology to have good quality, curated, open datasets that cover genomes across the tree of life, as well as cross-species ontologies of biological processes, diseases, and anatomical entities (to name just a few). These resources are only possible because of the international community who contribute to them, and the talented bio-curators who curate them.</p>
+<p>In this chapter, I present some extensive exploratory work which was carried out in developing the Snowflake phenotype prediction method. This method combines conservation and variant effect scores using FATHMM<a class="bibtex reference internal" href="../end-matter/reference.html#shihab2013-pk" id="id1">[36]</a>, inference about function of protein domains using DcGO<a class="bibtex reference internal" href="../end-matter/reference.html#fang2013-ms" id="id2">[34]</a>, and human genetic variation data from the 2500 genomes project<a class="bibtex reference internal" href="../end-matter/reference.html#consortium2015-ci" id="id3">[3]</a> to predict phenotypes of individuals based on their combinations of missense SNPs.</p>
+<p>The aim of the phenotype predictor is to reveal individuals with unusual combinations of deleterious SNPs associated with a phenotype. This may not be expected to provide a very accurate prediction, as it will only work for missense SNPs in coding regions of globular proteins. However, the advantage over other methods (e.g. GWAS) is that the role of the involved SNPs is explained.</p>
+<hr class="docutils" />
+<p><strong>Page References</strong></p>
+<p id="bibtex-bibliography-c04-snowflake/1-introduction-0"><dl class="citation">
+<dt class="bibtex label" id="fang2013-ms"><span class="brackets"><a class="fn-backref" href="#id2">34</a></span></dt>
+<dd><p>Hai Fang and Julian Gough. DcGO: database of domain-centric ontologies on functions, phenotypes, diseases and more. <em>Nucleic Acids Res.</em>, 41(Database issue):D536–44, January 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gks1080">http://dx.doi.org/10.1093/nar/gks1080</a>.</p>
+</dd>
+<dt class="bibtex label" id="shihab2013-pk"><span class="brackets"><a class="fn-backref" href="#id1">36</a></span></dt>
+<dd><p>Hashem A Shihab, Julian Gough, David N Cooper, Peter D Stenson, Gary L A Barker, Keith J Edwards, Ian N M Day, and Tom R Gaunt. Predicting the functional, molecular, and phenotypic consequences of amino acid substitutions using hidden markov models. <em>Hum. Mutat.</em>, 34(1):57–65, January 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1002/humu.22225">http://dx.doi.org/10.1002/humu.22225</a>.</p>
+</dd>
+<dt class="bibtex label" id="consortium2015-ci"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>The 1000 Genomes Project Consortium and The 1000 Genomes Project Consortium. A global reference for human genetic variation. <em>Nature</em>, 526(7571):68–74, 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nature15393">http://dx.doi.org/10.1038/nature15393</a>.</p>
+</dd>
+</dl>
+</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -285,8 +340,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../c03-compbio-background/0-compbio-bg.html" title="previous page"><span class="section-number">3. </span>Computational Biology Background</a>
-    <a class='right-next' id="next-link" href="../c05-combining/0-index.html" title="next page"><span class="section-number">5. </span>Combining RNA-seq datasets</a>
+    <a class='left-prev' id="prev-link" href="0-index.html" title="previous page"><span class="section-number">4. </span>Phenotype prediction with <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code></a>
+    <a class='right-next' id="next-link" href="2-snowflake-method.html" title="next page"><span class="section-number">4.2. </span>Snowflake Method</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

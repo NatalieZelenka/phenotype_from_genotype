@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Discussion &#8212; Phenotype from Genotype</title>
+    <title>6.5. Discussion &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -36,6 +36,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.6. Future work" href="6-future-work.html" />
+    <link rel="prev" title="6.4. Results" href="4-results.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -120,7 +122,7 @@
   Main book
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../c01-introduction/intro.html">
    1. Introduction
@@ -137,7 +139,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../c04-snowflake/0-snowflake.html">
+  <a class="reference internal" href="../c04-snowflake/0-index.html">
    4. Phenotype prediction with
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -151,10 +153,42 @@
    5. Combining RNA-seq datasets
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active">
   <a class="reference internal" href="0-index.html">
    6. Filtering computational predictions with tissue-specific expression information
   </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-data.html">
+     6.2. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-methods.html">
+     6.3. Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-results.html">
+     6.4. Results
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.5. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-future-work.html">
+     6.6. Future work
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
@@ -252,7 +286,7 @@
               <div>
                 
   <div class="section" id="discussion">
-<h1>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.5. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h1>
 <p>FilP’s low coverage of tissues (due to its reliance on the FANTOM dataset) limits the number of predictions that can be filtered out. However, by combining baseline gene expression sets from multiple sources (the focus of the next chapter), this coverage of tissues (and therefore phenotype terms) may be improved.</p>
 <p>Nonetheless, despite the incremental improvement, FilP met its goals in increasing the precision of DcGO predictions. Moreover, all occasions when FilP wrongly filtered out (true) predictions, appear to be explainable due to the sample condition of the gene expression data.</p>
 <p>The results show that including gene expression information does improve results of a structure-based predictor, and that this improvement is extremely unlikely to be due to chance. The overall improvement is very slight, but this might be improved by a more comprehensive coverage of gene expression data for tissues, or by an improved mapping of tissues to ontology terms.</p>
@@ -289,6 +323,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="4-results.html" title="previous page"><span class="section-number">6.4. </span>Results</a>
+    <a class='right-next' id="next-link" href="6-future-work.html" title="next page"><span class="section-number">6.6. </span>Future work</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

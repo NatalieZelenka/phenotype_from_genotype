@@ -1,17 +1,3 @@
----
-jupytext:
-  formats: ipynb,md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 ## Methods
 [//]: # (TODO: Overview here?)
 [//]: # (TODO: Code here)
@@ -34,8 +20,8 @@ Failing that, a TF-IDF based similarity measure is used to search a list of rela
 
 +++
 
-## Limitations
-[//]: # (TODO: Rewrite since FANTOM5 is not the data set any more).
+### Limitations
+<!--TODO: Rewrite since FANTOM5 is not the data set any more)-->
 
 Although the FANTOM5 data set has a good coverage of tissue types and number of samples, the filter is nonetheless limited to the tissues it contains. It is also limited by the coverage and accuracy of the mapping from phenotype to tissue.
 

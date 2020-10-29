@@ -36,7 +36,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Conclusion" href="../c07-conclusion/0-conclusion.html" />
+    <link rel="next" title="6.2. Data" href="2-data.html" />
     <link rel="prev" title="6. Filtering computational predictions with tissue-specific expression information" href="0-index.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -139,7 +139,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../c04-snowflake/0-snowflake.html">
+  <a class="reference internal" href="../c04-snowflake/0-index.html">
    4. Phenotype prediction with
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -161,6 +161,31 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-data.html">
+     6.2. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-methods.html">
+     6.3. Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-results.html">
+     6.4. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-discussion.html">
+     6.5. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-future-work.html">
+     6.6. Future work
     </a>
    </li>
   </ul>
@@ -299,7 +324,7 @@
   <div class="section" id="introduction">
 <h1><span class="section-number">6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>As previously mentioned, there are many genes/proteins for which we have sequence information, but not functional information. This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes.</p>
-<p>There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information (e.g. via the CAFA competitions<a class="bibtex reference internal" href="0-index.html#zhou2019-jk" id="id1">[4]</a><a class="bibtex reference internal" href="../end-matter/reference.html#jiang2016-rz" id="id2">[3]</a><a class="bibtex reference internal" href="../end-matter/reference.html#radivojac2013-wh" id="id3">[4]</a>). If successful, this would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments. Such knowledge could be used to identify genes or proteins for future treatments. An accurate model might also be able to give us an insight into the mechanisms behind such functions, giving further insight into how an effective therapy might be designed.</p>
+<p>There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information (e.g. via the CAFA competitions<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id1">[4]</a><a class="bibtex reference internal" href="../end-matter/reference.html#jiang2016-rz" id="id2">[3]</a><a class="bibtex reference internal" href="../end-matter/reference.html#radivojac2013-wh" id="id3">[4]</a>). If successful, this would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments. Such knowledge could be used to identify genes or proteins for future treatments. An accurate model might also be able to give us an insight into the mechanisms behind such functions, giving further insight into how an effective therapy might be designed.</p>
 <p>Machine learning methods are currently the most successful class of protein function predictors. While this is promising for answering one aspect of the problem (“what are the functions of a given protein?”), they do not always attempt to answer how or why.</p>
 <p>Structural or sequence methods that estimate protein function based on for example conservation or structure counter this problem. However, they are generally less accurate. One reason for this might be that they can predict that a protein affects a phenotype in a context that it would never encounter. For example, that a protein which is only ever transcribed in skin cells is associated with lung cancer. Such predictions are at odds with our understanding of how proteins function, and gene expression data could be used to filter out such predictions.</p>
 <p>Disease-associated genes are generally overexpressed in the tissue they cause symptoms in, with the exception of cancer-associated genes<a class="bibtex reference internal" href="../end-matter/reference.html#lage2008-gq" id="id4">[5]</a><a class="bibtex reference internal" href="../end-matter/reference.html#winter2004-rr" id="id5">[3]</a>. This can and has already been leveraged effectively as part of gene and variant prioritisation methods <a class="bibtex reference internal" href="../end-matter/reference.html#rackham2015-jp" id="id6">[6]</a><a class="bibtex reference internal" href="../end-matter/reference.html#antanaviciute2015-ke" id="id7">[7]</a>. Despite this, issue-specific gene expression data was completely missing from entries to CAFA1 or CAFA2.</p>
@@ -400,7 +425,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="0-index.html" title="previous page"><span class="section-number">6. </span>Filtering computational predictions with tissue-specific expression information</a>
-    <a class='right-next' id="next-link" href="../c07-conclusion/0-conclusion.html" title="next page"><span class="section-number">7. </span>Conclusion</a>
+    <a class='right-next' id="next-link" href="2-data.html" title="next page"><span class="section-number">6.2. </span>Data</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
