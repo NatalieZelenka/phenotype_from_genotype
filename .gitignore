@@ -11,4 +11,4 @@ book/_build/latex/
 *.Rproj
 .ipynb_checkpoints
 *.ipynb
-book/data/
+data/

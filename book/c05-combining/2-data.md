@@ -60,6 +60,8 @@ For reproducibility, this was done by downloading [the json file](resources/gxa_
 - no mention of "cancer" in the description
 
 ```{code-cell} r
+:tags: [hide-input]
+
 libraries <- function(){
     library(httr)
     library(jsonlite)
@@ -72,6 +74,8 @@ suppressMessages(libraries())
 ```
 
 ```{code-cell} r
+:tags: [hide-input]
+
 analysis_date <- "2019-06-01"  #YYYY-mm-dd
 min_assays <- 80
 
@@ -128,6 +132,8 @@ funnel_info <- funnel_info %>%
 ```
 
 ```{code-cell} r
+:tags: [hide-input]
+
 fig <- plot_ly()
 fig <- fig %>%
   add_trace(
@@ -141,21 +147,25 @@ fig <- fig %>%
 display(fig)
 ```
 
-As {numref}`funnel-combine-gxa` shows, at the time of writing, there are over 3000 experiments in the GxA, and of these 27 are human baseline RNA-Seq experiments. Of these there are 4 which offer a good coverage of non-disease organism parts. The data sets that were chosen to be used in the combined data set are detailed below in {numref}`table-chosen-combine-gxa`.
-
-```{code-cell} r
-gxa_experiment_info <- gxa_experiment_info %>% select(experimentAccession, experimentDescription, numberOfAssays, experimentalFactors)
-head(gxa_experiment_info)
-```
-
-
+As {numref}`funnel-combine-gxa` shows, at the time of writing, there are over 3000 experiments in the GxA, and of these 27 are human baseline RNA-Seq experiments. Of these there are 4 which offer a good coverage of non-disease organism parts. 
 
 +++
 
 ### Chosen data sets
 [//]: # (TODO: cross-reference here, and maybe FANTOM5 should be in the background?)
-[//]: # (TODO: Explain FANTOM5 here in the same terms as the other projects)
-In addition to the FANTOM5 data (described in the previous chapter), three other large gene expression experiments were chosen:
+The data sets that were chosen to be used in the combined data set are shown in {numref}`table-chosen-combine-gxa`, and described below. 
+
+```{code-cell} r
+:tags: [hide-input]
+
+gxa_experiment_info <- gxa_experiment_info %>% add_column(shortName=c("HPA", "FANTOM5", "GTEx", "HDBR")) %>% select(shortName, experimentAccession, experimentDescription, numberOfAssays, experimentalFactors)
+
+head(gxa_experiment_info)
+```
+
+#### FANTOM5 
+[//]: # (TODO: Explain FANTOM5 here in the same terms as the other projects and link to previous description.)
+The FANTOM5 experiment was described in the previous chapter.
 
 #### Human Protein Atlas
 The Human Protein Atlas (HPA) project{cite}`Uhlen2010-mx,Uhlen2015-at` aims to map all human proteins in cells (including subcellular locations), tissues and organs. The HPA project’s data is not limited to the gene expression data that can be found in GxA, but that is the only part of the data that is used here. The gene expression data that was used (E-MTAB-2836 in GxA) excludes cell lines and includes tissue samples of 122 individuals and 32 different non-diseased tissue types. 
@@ -174,29 +184,57 @@ Data was obtained, where possible via the *ExpressionAtlas* R package{cite}`Keay
 
 For the FANTOM experiment counts for transcript expression were downloaded directly [from the FANTOM website](http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz).  The downloaded FANTOM5 file has already undergone some quality control by FANTOM, it is limited to peaks which meet a “robust” threshold (>10 read counts and 1TPM for at least one sample). 
 
-```{code-cell} r
++++ {"tags": ["hide-input"]}
+
+<!-- TODO: turn back into a code cell IF I can make sure it doesn't get executed - takes forever-->
+```{r}
+
+exp_dir <- 'data/experiments/'
+fantom_url <- 'http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz'
+folder_names <- c('E-MTAB-2836'='hpa/','E-MTAB-3358'='fantom/','E-MTAB-5214'='gtex/','E-MTAB-4840'='hdbr/')
+
 for(accession_number in gxa_experiment_info$experimentAccession){
-    summary <- getAtlasExperiment(accession_number)
-    write.table(assays(summary$rnaseq)$counts, 
-                sep='\t',
-                file = paste("../data/experiments/",
-                             accession_number,
-                             "_counts.tsv",
-                             sep=""))
-    write.table(colData(summary$rnaseq), 
-                sep='\t', 
-                file = paste("../data/experiments/",
-                             accession_number,
-                             "_colData.tsv",
-                             sep=""))
+    # Create the directories:
+    ifelse(!dir.exists(paste(exp_dir, folder_names[accession_number], sep="")), 
+           dir.create(paste(exp_dir, folder_names[accession_number], sep="")), FALSE)
+    if(accession_number == 'E-MTAB-3358'){
+        # FANTOM is downloaded directly:
+        fantom_path <- paste(exp_dir, 
+                             folder_names[accession_number],
+                             basename(fantom_url),
+                             sep="")
+        download.file(fantom_url, fantom_path)
+        # TODO: download other FANTOM files
+    }
+    else{
+        # Other experiments are downloaded using `ExpressionAtlas`
+        summary <- getAtlasExperiment(accession_number)
+        write.table(assays(summary$rnaseq)$counts, 
+                    sep='\t',
+                    file = paste(exp_dir,
+                                 folder_names[accession_number],
+                                 accession_number,
+                                 "_counts.tsv",
+                                 sep=""))
+        write.table(colData(summary$rnaseq), 
+                    sep='\t', 
+                    file = paste(exp_dir,
+                                 folder_names[accession_number],
+                                 accession_number,
+                                 "_colData.tsv",
+                                 sep=""))
     
     # A messy way of saving the metadata because it's a list of different length lists:
-    sink(paste("../data/experiments/",
-               accession_number,
-               "_metadata.txt",
-               sep="")); print(metadata(summary$rnaseq)); sink()
+        sink(paste(exp_dir,
+                   folder_names[accession_number],
+                   accession_number,
+                   "_metadata.txt",
+                   sep="")); print(metadata(summary$rnaseq)); sink()
     }
+}
 ```
+
++++
 
 ---
 **Page References**
