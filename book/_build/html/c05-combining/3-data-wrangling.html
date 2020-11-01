@@ -199,6 +199,11 @@
      5.1.8. Future Work
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-future-work.html#other-datasets">
+     5.1.9. Other datasets
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -335,10 +340,7 @@ D. (Where required) Filtering out non-human samples</p></li>
 <p><code class="xref std std-numref docutils literal notranslate"><span class="pre">combining-data-pipeline</span></code> shows an overview of the data wrangling pipeline. Additional steps 1A, 1B, and 1C were only necessary for the FANTOM dataset.</p>
 <p><strong>1A. Obtaining raw expression per gene for healthy human tissues</strong></p>
 <!--TODO: Check how raw the data was and if it's sensible to refer to it that way)-->
-<p>Raw data was obtained, where possible via the <em>ExpressionAtlas</em> R package[107], which gives gene expression counts identified by ENSG IDs, metadata (containing pipeline, filtering, mapping and quantification information), and details of experimental design (containing for example organism part name, individual demographics, and replicate information, depending on the experiment).</p>
-<p>For the HPA, GTeX and HDBR experiments, count data were available through the <em>ExpressionAtlas</em> R package[107], while this was not the case for the FANTOM dataset.</p>
-<p>For the FANTOM experiment counts for transcript expression were downloaded directly <a class="reference external" href="http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz">from the FANTOM website</a>.<br />
-The downloaded FANTOM5 file has already undergone some quality control by FANTOM, it is limited to peaks which meet a “robust” threshold (&gt;10 read counts and 1TPM for at least one sample).</p>
+<p>As mentioned in <a class="reference internal" href="2-data.html#data-aquisition"><span class="std std-ref">Data acquisition</span></a>, for the HPA, GTeX and HDBR experiments, count data were available through the <em>ExpressionAtlas</em> R package<a class="bibtex reference internal" href="../end-matter/reference.html#keays2018-pg" id="id1">[16]</a>, while this was not the case for the FANTOM dataset, which was downloaded directly.</p>
 <p><strong>1B. Mapping from transcript to gene</strong></p>
 <p>This step was only required for the FANTOM dataset.</p>
 <!--TODO: sentence about why FANTOM is per transcript - CAGE)-->
@@ -379,7 +381,12 @@ To create consistent metadata for the samples (e.g. age, developmental stage, re
 <p><code class="xref std std-numref docutils literal notranslate"><span class="pre">combining-funnel-plot</span></code> shows a funnel plot, showing how the FANTOM5 data was processed to select the final genes and samples present in the combined dataset.</p>
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
-<p id="bibtex-bibliography-c05-combining/3-data-wrangling-0"></p>
+<p id="bibtex-bibliography-c05-combining/3-data-wrangling-0"><dl class="citation">
+<dt class="bibtex label" id="keays2018-pg"><span class="brackets"><a class="fn-backref" href="#id1">16</a></span></dt>
+<dd><p>M Keays. ExpressionAtlas: download datasets from EMBL-EBI expression atlas. R package version 1.10.0. 2018. URL: <a class="reference external" href="https://bioconductor.org/packages/release/bioc/html/ExpressionAtlas.html">https://bioconductor.org/packages/release/bioc/html/ExpressionAtlas.html</a>.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 </div>

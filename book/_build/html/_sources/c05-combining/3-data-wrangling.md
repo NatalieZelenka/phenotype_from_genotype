@@ -31,12 +31,7 @@ name: combining-data-pipeline
 **1A\. Obtaining raw expression per gene for healthy human tissues**
 <!--TODO: Check how raw the data was and if it's sensible to refer to it that way)-->
 
-Raw data was obtained, where possible via the *ExpressionAtlas* R package[107], which gives gene expression counts identified by ENSG IDs, metadata (containing pipeline, filtering, mapping and quantification information), and details of experimental design (containing for example organism part name, individual demographics, and replicate information, depending on the experiment). 
-
-For the HPA, GTeX and HDBR experiments, count data were available through the *ExpressionAtlas* R package[107], while this was not the case for the FANTOM dataset. 
-
-For the FANTOM experiment counts for transcript expression were downloaded directly [from the FANTOM website](http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz).  
-The downloaded FANTOM5 file has already undergone some quality control by FANTOM, it is limited to peaks which meet a “robust” threshold (>10 read counts and 1TPM for at least one sample). 
+As mentioned in {ref}`data-aquisition`, for the HPA, GTeX and HDBR experiments, count data were available through the *ExpressionAtlas* R package{cite}`Keays2018-pg`, while this was not the case for the FANTOM dataset, which was downloaded directly. 
 
 **1B\. Mapping from transcript to gene** 
 

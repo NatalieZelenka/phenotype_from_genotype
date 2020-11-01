@@ -26,7 +26,8 @@ Data sets from the GxA were chosen based on the following requirements.
 
 #### Next Generation Sequencing
 As described in the introduction chapter, there are many ways to measure which proteins are being created. Here, I justify my choices of measures to include in the combined dataset.
-[//]: # (TODO: explain why RNA-Seq not mircroarrays).
+
+<!-- (TODO: explain why RNA-Seq not mircroarrays)-->
 
 ##### Gene expression vs protein abundance
 Gene expression levels are not necessarily strongly correlated with protein abundance; this has been found in mice{cite}`Schwanhausser2011-tm`, yeast{cite}`Gygi1999-lr`, and human{cite}`Kosti2016-gt`. In human, Spearman correlations between protein abundance and gene expression levels vary between 0.36 and 0.50, depending on tissue, meaning that they are only weakly or moderately correlated{cite}`Kosti2016-gt`.
@@ -60,8 +61,15 @@ For reproducibility, this was done by downloading [the json file](resources/gxa_
 - no mention of "cancer" in the description
 
 ```{code-cell} r
-:tags: [hide-input]
-
+---
+render:
+  figure:
+    caption: Test caption
+    name: funnel-combine-gxa
+  image:
+    width: 800px
+tags: [hide-input]
+---
 libraries <- function(){
     library(httr)
     library(jsonlite)
@@ -69,12 +77,9 @@ libraries <- function(){
     library(plotly)
     library(IRdisplay)
     library(ExpressionAtlas) 
+    library(htmlwidgets)
 }
 suppressMessages(libraries())
-```
-
-```{code-cell} r
-:tags: [hide-input]
 
 analysis_date <- "2019-06-01"  #YYYY-mm-dd
 min_assays <- 80
@@ -129,31 +134,33 @@ gxa_experiment_info <- gxa_experiment_info %>%
 funnel_info <- funnel_info %>%
   add_row(name="Not cancer experiments",
           num_experiments=nrow(gxa_experiment_info))
+
+
+
+create_fig <- function(){
+    fig <- plot_ly()
+    fig <- fig %>% add_trace(
+        type = "funnel",
+        y = as.character(funnel_info$name),
+        x = as.integer(funnel_info$num_experiments))
+    fig <- fig %>% layout(yaxis = list(categoryarray = as.character(funnel_info$name)))
+
+    # orca(fig, 'figs/funnel.png', width=800)
+    # IRdisplay::display_png(file='figs/funnel.png')
+    # saveWidget(fig, "figs/funnel_interactive.html", selfcontained = FALSE)
+    display(fig)
+}
+
+suppressWarnings(create_fig())
 ```
 
-```{code-cell} r
-:tags: [hide-input]
-
-fig <- plot_ly()
-fig <- fig %>%
-  add_trace(
-  type = "funnel",
-  y = as.character(funnel_info$name),
-  x = as.integer(funnel_info$num_experiments)
-  )
-fig <- fig %>%
-  layout(yaxis = list(categoryarray = as.character(funnel_info$name)))
-
-display(fig)
-```
-
-As {numref}`funnel-combine-gxa` shows, at the time of writing, there are over 3000 experiments in the GxA, and of these 27 are human baseline RNA-Seq experiments. Of these there are 4 which offer a good coverage of non-disease organism parts. 
+As {numref}`funnel-combine-gxa` shows, at the time of writing, there are over 3000 experiments in the GxA, and of these 27 are human baseline RNA-Seq experiments. Of these there are 4 which offer a good coverage of non-disease organism parts.
 
 +++
 
 ### Chosen data sets
 [//]: # (TODO: cross-reference here, and maybe FANTOM5 should be in the background?)
-The data sets that were chosen to be used in the combined data set are shown in {numref}`table-chosen-combine-gxa`, and described below. 
+The data sets that were chosen to be used in the combined data set are shown in {numref}`table-chosen-combine-gxa`, and described below.
 
 ```{code-cell} r
 :tags: [hide-input]
@@ -174,7 +181,7 @@ The Human Protein Atlas (HPA) project{cite}`Uhlen2010-mx,Uhlen2015-at` aims to m
 The Genotype Tissue Expression (GTEx) project{cite}`GTEx_Consortium2013-gl` was developed specifically for the purpose of studying tissue-specific gene expression in humans and gene expression data from over 18,000 samples, including 53 non-diseased tissue types and 550 individuals (ranging in age from 20s to 70s). 
 
 #### Human Developmental Biology Resource
-The Human Developmental Biology Resource (HDBR) Expression data{cite}`Lindsay2016-en` is slightly different from the other data sets in that contains a much narrower range of sample types. All HDBR samples are human brain samples at different stages of development, ranging from 3 to 20 weeks after conception. 
+The Human Developmental Biology Resource (HDBR) Expression data{cite}`Lindsay2016-en` is slightly different from the other data sets in that contains a much narrower range of sample types. All HDBR samples are human brain samples at different stages of development, ranging from 3 to 20 weeks after conception.
 
 +++
 
@@ -182,7 +189,7 @@ The Human Developmental Biology Resource (HDBR) Expression data{cite}`Lindsay201
 ### Data acquisition
 Data was obtained, where possible via the *ExpressionAtlas* R package{cite}`Keays2018-pg`, which gives gene expression counts identified by ENSG IDs, metadata (containing pipeline, filtering, mapping and quantification information), and details of experimental design (containing for example organism part name, individual demographics, and replicate information, depending on the experiment). 
 
-For the FANTOM experiment counts for transcript expression were downloaded directly [from the FANTOM website](http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz).  The downloaded FANTOM5 file has already undergone some quality control by FANTOM, it is limited to peaks which meet a “robust” threshold (>10 read counts and 1TPM for at least one sample). 
+For the FANTOM experiment counts for transcript expression were downloaded directly [from the FANTOM website](http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz).  The downloaded FANTOM5 file has already undergone some quality control by FANTOM, it is limited to peaks which meet a “robust” threshold (>10 read counts and 1TPM for at least one sample).
 
 +++ {"tags": ["hide-input"]}
 

@@ -214,7 +214,10 @@
     
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="_sources/jupyter_book_intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/jupyter_book_intro.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -235,6 +238,23 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/jupyter_book_intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -248,6 +268,23 @@
   <a class="reference internal nav-link" href="#what-is-a-jupyter-book">
    What is a Jupyter Book?
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contents-and-navigation">
+     Contents and navigation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viewing-code">
+     Viewing code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#give-me-the-pdf">
@@ -272,7 +309,32 @@
 <div class="section" id="what-is-a-jupyter-book">
 <h2>What is a Jupyter Book?<a class="headerlink" href="#what-is-a-jupyter-book" title="Permalink to this headline">¶</a></h2>
 <p>This jupyter book thesis is made up of markdown files and jupyter notebooks, which are kept in <span class="xref myst">this</span> GitHub repo. The code for all graphs in <!--chapters X, Y and Z of--> this thesis are available there (as jupyter notebooks), which you can run for yourself using <span class="xref myst">binder</span> if you like. This jupyter book thesis is therefore as up-to-date and as reproducible as possible.</p>
-<p>You can use the sidebar on the left to navigate to a chapter or section, or if you need a more fine-grained look at what’s inside, you can look at <span class="xref myst">the table of contents</span>.</p>
+<div class="section" id="contents-and-navigation">
+<h3>Contents and navigation<a class="headerlink" href="#contents-and-navigation" title="Permalink to this headline">¶</a></h3>
+<p>You can use the sidebar on the left to navigate to a chapter or section, while the sidebar on the right navigates more finely within a “page” of the book. If you’d like an overview of the whole book, you can look at <span class="xref myst">the table of contents</span>.</p>
+<p>At the bottom of each page are buttons which let you go to the previous or next sections.</p>
+</div>
+<div class="section" id="viewing-code">
+<h3>Viewing code<a class="headerlink" href="#viewing-code" title="Permalink to this headline">¶</a></h3>
+<p>Where code is used to collect data, perform an analysis, or create a graph that is shown or mentioned in the book, you can see the code used to create it, by clicking on the “Click to show” arrow like the one here:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;How did I make this output?&quot;</span><span class="p">)</span>
+<span class="c1"># This is how</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>How did I make this output?
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<p>References for each page are given at the end of the page, but there is also a <span class="xref myst">separate bibliography</span> for the full book.</p>
+</div>
 </div>
 <div class="section" id="give-me-the-pdf">
 <h2>Give me the PDF<a class="headerlink" href="#give-me-the-pdf" title="Permalink to this headline">¶</a></h2>
@@ -295,16 +357,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "steering_group"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "steering_group",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'steering_group'</script>
 
               </div>
               

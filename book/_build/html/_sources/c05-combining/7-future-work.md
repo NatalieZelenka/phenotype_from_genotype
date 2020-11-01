@@ -14,6 +14,9 @@ Since ComBat is known to suffer from unbalanced datasets, an alternative might b
 
 As the number of scRNA-seq experiments increase, including them in a combined dataset of tissue-specific expression will become more statistically viable. A prerequisite of including scRNA-seq data would be the use of an alternative batch effect removal algorithm that is suitable for single cell data, (e.g. MNN).It would be interesting to compare how the expression of cells which can exist in multiple tissue types differs across those different tissue types, and to investigate whether some gene expression is truly tissue-specific rather than cell-type specific.
 
+## Other datasets
+There are now two more datasets in the GxA matching our criteria:
+
 
 ---
 **Page References**

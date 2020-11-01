@@ -199,6 +199,11 @@
      5.1.8. Future Work
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#other-datasets">
+     5.1.9. Other datasets
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -326,6 +331,11 @@
 <h2><span class="section-number">5.1.8.2. </span>scRNA inclusion<a class="headerlink" href="#scrna-inclusion" title="Permalink to this headline">¶</a></h2>
 <p>Since ComBat is known to suffer from unbalanced datasets, an alternative might be used: Mutal Nearest Neighbour (MNN) method for bulk RNA-Seq data. MNN is a batch effect removal methodology for scRNA-seq data which was recently developed by Haghverdi et al<a class="bibtex reference internal" href="../end-matter/reference.html#haghverdi2018-ig" id="id4">[3]</a>. The benefit of this methodology (in addition to its superior batch effect removal) is its ability to cope with unbalanced sample compositions.  Despite being developed for scRNA-seq, it works well on heterogeneous tissues like the pancreas, so it may be possible to use or extend it to bulk RNA-seq, especially if cell type deconvolution can be employed on the bulk RNA-seq. If this was possible, using an MNN-based method would allow us to overcome ComBat’s requirement for a balanced experimental design since it requires only one cell in common between, although more cells in common will increase the accuracy.</p>
 <p>As the number of scRNA-seq experiments increase, including them in a combined dataset of tissue-specific expression will become more statistically viable. A prerequisite of including scRNA-seq data would be the use of an alternative batch effect removal algorithm that is suitable for single cell data, (e.g. MNN).It would be interesting to compare how the expression of cells which can exist in multiple tissue types differs across those different tissue types, and to investigate whether some gene expression is truly tissue-specific rather than cell-type specific.</p>
+</div>
+</div>
+<div class="section" id="other-datasets">
+<h1><span class="section-number">5.1.9. </span>Other datasets<a class="headerlink" href="#other-datasets" title="Permalink to this headline">¶</a></h1>
+<p>There are now two more datasets in the GxA matching our criteria:</p>
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c05-combining/7-future-work-0"><dl class="citation">
@@ -340,7 +350,6 @@
 </dd>
 </dl>
 </p>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
