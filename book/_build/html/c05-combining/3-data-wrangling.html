@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>5.1.3. Data Wrangling &#8212; Phenotype from Genotype</title>
+    <title>5.3. Data Wrangling &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -36,8 +36,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.1.4. The uberon-py package" href="4-uberon.html" />
-    <link rel="prev" title="5.1.2. Data" href="2-data.html" />
+    <link rel="next" title="5.4. The uberon-py package" href="4-uberon.html" />
+    <link rel="prev" title="5.2. Data" href="2-data.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -155,22 +155,22 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="1-background.html">
-     5.1.1. Background
+     5.1. Background
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2-data.html">
-     5.1.2. Data
+     5.2. Data
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     5.1.3. Data Wrangling
+     5.3. Data Wrangling
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4-uberon.html">
-     5.1.4. The
+     5.4. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -180,28 +180,23 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4-uberon.html#functionality">
-     5.1.5. Functionality
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="5-batch-correction.html">
-     5.1.6. Batch correction
+     5.5. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     5.1.7. Results
+     5.6. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-future-work.html">
-     5.1.8. Future Work
+     5.7. Future Work
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-future-work.html#other-datasets">
-     5.1.9. Other datasets
+     5.8. Other datasets
     </a>
    </li>
   </ul>
@@ -300,12 +295,12 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
-   5.1.3.1. Overview
+   5.3.1. Overview
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#tissue-groups">
-     5.1.3.1.1. Tissue Groups
+     5.3.1.1. Tissue Groups
     </a>
    </li>
   </ul>
@@ -320,12 +315,12 @@
         
               <div>
                 
-  <div class="section" id="data-wrangling">
-<h1><span class="section-number">5.1.3. </span>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">¶</a></h1>
+  <!-- #region -->
+<div class="section" id="data-wrangling">
+<h1><span class="section-number">5.3. </span>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">¶</a></h1>
 <p>Before the data sets could be combined, substantial data wrangling was necessary. The details of these processes; obtaining, checking, mapping identifiers, excluding irrelevant data, etc, are described in this section.</p>
-<!--TODO: Signpost to appendix if appropriate-->
 <div class="section" id="overview">
-<h2><span class="section-number">5.1.3.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.3.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>The steps required to obtain consistently formatted and labelled data can be described as follows:</p>
 <ol class="simple">
 <li><p>Obtaining the raw expression per gene for healthy human tissues
@@ -336,15 +331,11 @@ D. (Where required) Filtering out non-human samples</p></li>
 <li><p>Mapping from sample name to UBERON tissue</p></li>
 <li><p>Aggregating metadata</p></li>
 </ol>
-<!--TODO: Check reference `combining-data-pipeline` works -->
 <p><code class="xref std std-numref docutils literal notranslate"><span class="pre">combining-data-pipeline</span></code> shows an overview of the data wrangling pipeline. Additional steps 1A, 1B, and 1C were only necessary for the FANTOM dataset.</p>
 <p><strong>1A. Obtaining raw expression per gene for healthy human tissues</strong></p>
-<!--TODO: Check how raw the data was and if it's sensible to refer to it that way)-->
-<p>As mentioned in <a class="reference internal" href="2-data.html#data-aquisition"><span class="std std-ref">Data acquisition</span></a>, for the HPA, GTeX and HDBR experiments, count data were available through the <em>ExpressionAtlas</em> R package<a class="bibtex reference internal" href="../end-matter/reference.html#keays2018-pg" id="id1">[16]</a>, while this was not the case for the FANTOM dataset, which was downloaded directly.</p>
+<p>As mentioned in <a class="reference internal" href="2-data.html#data-aquisition"><span class="std std-ref">Data acquisition</span></a>, for the HPA, GTeX and HDBR experiments, count data were available through the <em>ExpressionAtlas</em> R package<a class="bibtex reference internal" href="#keays2018-pg" id="id1">[114]</a>, while this was not the case for the FANTOM dataset, which was downloaded directly.</p>
 <p><strong>1B. Mapping from transcript to gene</strong></p>
 <p>This step was only required for the FANTOM dataset.</p>
-<!--TODO: sentence about why FANTOM is per transcript - CAGE)-->
-<!--TODO: cite biomart-->
 <p>FANTOM provides mappings to gene IDs based on proximity of genes to peaks according to Ensembl. Gene expression was then calculated by summing over transcripts mapped to genes. The transcripts were already mapped to HGNC gene identifiers in the downloaded FANTOM file and <a class="reference external" href="https://www.ensembl.org/biomart">Ensembl’s Biomart</a> was used to obtain a mapping from HGNC gene identifiers to ENSG gene identifiers, in order to match the gene expression atlas format.</p>
 <p>Any transcripts which mapped to multiple genes were discarded, as were any HGNC ids which did not map to ENSG ids.</p>
 <p><strong>1C. Filtering out disease samples</strong></p>
@@ -359,7 +350,6 @@ The FANTOM sample ontology was used to remove samples which are models for disea
 <p><strong>FANTOM</strong>
 The FANTOM5 data set also contains non-human (mouse) samples. The FANTOM sample ontology (which was downloaded <a class="reference external" href="http://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt">from here</a>) was used to look-up which FANTOM samples are human samples, i.e. have an <code class="docutils literal notranslate"><span class="pre">is_a</span></code> relationship to the term <code class="docutils literal notranslate"><span class="pre">FF:0000210</span></code> (human sample) directly or indirectly.</p>
 <p><strong>2. Mapping to UBERON</strong></p>
-<!--TODO: tidy this section-->
 <p>Mapping from samples to Uberon tissue required the development of a small Python package <code class="docutils literal notranslate"><span class="pre">uberon_py</span></code>. To create input to this package, informal tissue names (e.g. blood, kidney) were taken from the experimental design files (or the human sample information file for FANTOM) to create a map of samples to informal tissue names. For FANTOM, the FANTOM ontology could also be used to create a more fine-grained mapping of samples to tissues based on FANTOM sample identifiers and/or cell type (CL) identifiers.</p>
 <p><strong>HPA</strong>
 The HPA samples were mapped using exact matches to Uberon names. Three types of sample did not have exact matches: “transformed skin fibroblast”, “suprapubic skin”, and “ebv-transformed lymphocyte”. I manually mapped “suprapubic skin” to UBERON:0001415 Skin of pelvis, and excluded the other two (corresponding to excluding 869 samples).</p>
@@ -376,17 +366,21 @@ To create consistent metadata for the samples (e.g. age, developmental stage, re
 <p>FANTOM technical and biological replicates are indicated in the annotated gene expression FANTOM file, by the inclusion of “tech_rep” or “biol_rep” in the long sample labels e.g. “counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20tech_rep1.CNhs10855.11227-116C3.hg38.nobarcode”. These were used to create the experimental design file.</p>
 <p>Note: there is an error in the original transcript expression file for one of these identifiers (counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode) such that it is missing the “tech” part of the the replicate label. This was manually changed in my copy of the input file and the FANTOM data curation team was informed.</p>
 <div class="section" id="tissue-groups">
-<h3><span class="section-number">5.1.3.1.1. </span>Tissue Groups<a class="headerlink" href="#tissue-groups" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.3.1.1. </span>Tissue Groups<a class="headerlink" href="#tissue-groups" title="Permalink to this headline">¶</a></h3>
 <p>Eleven more general tissue groups (for example brain, digestive system, connective tissue) were identified by hand. Individual tissues were mapped to these groups using the <code class="docutils literal notranslate"><span class="pre">Relations()</span></code> function.</p>
 <p><code class="xref std std-numref docutils literal notranslate"><span class="pre">combining-funnel-plot</span></code> shows a funnel plot, showing how the FANTOM5 data was processed to select the final genes and samples present in the combined dataset.</p>
-<hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c05-combining/3-data-wrangling-0"><dl class="citation">
-<dt class="bibtex label" id="keays2018-pg"><span class="brackets"><a class="fn-backref" href="#id1">16</a></span></dt>
+<dt class="bibtex label" id="keays2018-pg"><span class="brackets"><a class="fn-backref" href="#id1">114</a></span></dt>
 <dd><p>M Keays. ExpressionAtlas: download datasets from EMBL-EBI expression atlas. R package version 1.10.0. 2018. URL: <a class="reference external" href="https://bioconductor.org/packages/release/bioc/html/ExpressionAtlas.html">https://bioconductor.org/packages/release/bioc/html/ExpressionAtlas.html</a>.</p>
 </dd>
 </dl>
 </p>
+<hr class="docutils" />
+<!-- #endregion -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -419,8 +413,8 @@ To create consistent metadata for the samples (e.g. age, developmental stage, re
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="2-data.html" title="previous page"><span class="section-number">5.1.2. </span>Data</a>
-    <a class='right-next' id="next-link" href="4-uberon.html" title="next page"><span class="section-number">5.1.4. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
+    <a class='left-prev' id="prev-link" href="2-data.html" title="previous page"><span class="section-number">5.2. </span>Data</a>
+    <a class='right-next' id="next-link" href="4-uberon.html" title="next page"><span class="section-number">5.4. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

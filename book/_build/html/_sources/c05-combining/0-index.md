@@ -3,8 +3,6 @@
 
 This chapter describes my attempts to create a simulated tissue-specific dataset and to combine gene expression data from 4 large tissue-specific RNA-Seq experiments. All work in this chapter is my own.
 
-## Motivation
-
 Gene expression data measures the number of transcribed proteins in a sample at a specific time. It's a popular experimental technique as demonstrated by the 3,564 studies and 112,225 assays currently available on Gene Expression Atlas website {cite}`Petryszak2016-je`. Researchers use this data to characterise gene function.
 
 Yet each individual measure of expression is only a snapshot of what a gene can do. It only tells us about the transcription of proteins at that one time. If we want a full understanding of what a gene does, we must understand how it's expressed in a variety of scenarios. For example, in different tissues, from different people, at different times of day, and across many repeats. That kind of data would allow us to answer questions that aren't currently possible. Data to enable this is not easy to come by. It would be too expensive for one experiment to measure so many samples. 

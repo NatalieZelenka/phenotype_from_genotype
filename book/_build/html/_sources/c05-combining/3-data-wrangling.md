@@ -1,8 +1,6 @@
-
+<!-- #region -->
 # Data Wrangling
 Before the data sets could be combined, substantial data wrangling was necessary. The details of these processes; obtaining, checking, mapping identifiers, excluding irrelevant data, etc, are described in this section.
-<!--TODO: Signpost to appendix if appropriate-->
-
 ### Overview
 The steps required to obtain consistently formatted and labelled data can be described as follows:
 1. Obtaining the raw expression per gene for healthy human tissues
@@ -12,32 +10,24 @@ The steps required to obtain consistently formatted and labelled data can be des
     D. (Where required) Filtering out non-human samples
 2. Mapping from sample name to UBERON tissue
 3. Aggregating metadata
-
-<!--TODO: Check reference `combining-data-pipeline` works -->
-
 ```{code-cell}
----
 fig.align: center
 fig.cap: Funnel plot showing the data cleaning pipeline for FANTOM transcripts/genes
   (left) and samples (right), along with the number which remained after each stage
   of data cleaning.
 name: combining-data-pipeline
----
 # Code here for creating data wrangling pipeline image. Steps should be labelled matching 1A, 1B, etc.
 ```
 
 {numref}`combining-data-pipeline` shows an overview of the data wrangling pipeline. Additional steps 1A, 1B, and 1C were only necessary for the FANTOM dataset.
 
 **1A\. Obtaining raw expression per gene for healthy human tissues**
-<!--TODO: Check how raw the data was and if it's sensible to refer to it that way)-->
 
 As mentioned in {ref}`data-aquisition`, for the HPA, GTeX and HDBR experiments, count data were available through the *ExpressionAtlas* R package{cite}`Keays2018-pg`, while this was not the case for the FANTOM dataset, which was downloaded directly. 
 
 **1B\. Mapping from transcript to gene** 
 
 This step was only required for the FANTOM dataset.
-<!--TODO: sentence about why FANTOM is per transcript - CAGE)-->
-<!--TODO: cite biomart-->
 
 FANTOM provides mappings to gene IDs based on proximity of genes to peaks according to Ensembl. Gene expression was then calculated by summing over transcripts mapped to genes. The transcripts were already mapped to HGNC gene identifiers in the downloaded FANTOM file and [Ensembl’s Biomart](https://www.ensembl.org/biomart) was used to obtain a mapping from HGNC gene identifiers to ENSG gene identifiers, in order to match the gene expression atlas format. 
 
@@ -64,7 +54,6 @@ The GTEx, HDBR, and HPA experiments contained only human samples.
 The FANTOM5 data set also contains non-human (mouse) samples. The FANTOM sample ontology (which was downloaded [from here](http://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt)) was used to look-up which FANTOM samples are human samples, i.e. have an `is_a` relationship to the term `FF:0000210` (human sample) directly or indirectly. 
 
 **2\. Mapping to UBERON**
-<!--TODO: tidy this section-->
 
 Mapping from samples to Uberon tissue required the development of a small Python package `uberon_py`. To create input to this package, informal tissue names (e.g. blood, kidney) were taken from the experimental design files (or the human sample information file for FANTOM) to create a map of samples to informal tissue names. For FANTOM, the FANTOM ontology could also be used to create a more fine-grained mapping of samples to tissues based on FANTOM sample identifiers and/or cell type (CL) identifiers.
 
@@ -97,22 +86,24 @@ Eleven more general tissue groups (for example brain, digestive system, connecti
 
 
 ```{code-cell}
----
 fig.align: center
 fig.cap: Funnel plot showing the data cleaning pipeline for FANTOM transcripts/genes
   (left) and samples (right), along with the number which remained after each stage
   of data cleaning.
 name: combining-funnel-plot
----
 # Code here for creating data wrangling pipeline image. Steps should be labelled matching 1A, 1B, etc.
 ```
 
 {numref}`combining-funnel-plot` shows a funnel plot, showing how the FANTOM5 data was processed to select the final genes and samples present in the combined dataset. 
 
----
 **Page References**
 
 ```{bibliography} /_bibliography/references.bib
 :filter: docname in docnames
 :style: unsrt
+```
+---
+<!-- #endregion -->
+```python
+
 ```

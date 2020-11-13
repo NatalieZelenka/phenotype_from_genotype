@@ -46,6 +46,8 @@ For reproducibility, this was done by downloading [the json file](resources/gxa_
 - at least 80 assays. 
 - no mention of "cancer" in the description
 
+<!-- TODO: Add acquisition of Gtex extra data-->
+
 libraries <- function(){
     library(httr)
     library(jsonlite)
