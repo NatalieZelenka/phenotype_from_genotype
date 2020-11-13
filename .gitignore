@@ -11,3 +11,4 @@ book/_build/latex/
 *.Rproj
 .ipynb_checkpoints
 *.ipynb
+experiments/
