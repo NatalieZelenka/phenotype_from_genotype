@@ -10,6 +10,7 @@ The motivation for doing this kind of work is primarily understanding how our bo
 
 In this chapter, I present work which was carried out in developing the Snowflake phenotype prediction method. This method combines conservation and variant effect scores using FATHMM{cite}`Shihab2013-pk`, inference about function of protein domains using DcGO{cite}`Fang2013-ms`, and human genetic variation data from the 2500 genomes project{cite}`Consortium2015-ci` to predict phenotypes of individuals based on their combinations of missense SNPs. 
 
+[//]: # (TODO: Move these contributions to the index section.)
 
 My contributions to this software included:
 - Adding functionality for running `Snowflake` for different numbers of individuals, including:
@@ -23,6 +24,13 @@ My contributions to this software included:
     - whole genome
 - Improvements to memory usage (by sharing memory)
 - Developing the outputs, e.g. the output score.
+- Investigating a wide range of clustering and outlier detection methods for detecting outliers in SNPs (orginally used k-means)
+- Planning how to and validating the model against:
+  - ALSPAC dataset
+  - Athletes dataset
+  - CAGI dataset
+
+[//]: # (TODO: Explain the overall idea of the snowflake prediction method here before delving into it massively in the next section.)
 
 ---
 **Page References**

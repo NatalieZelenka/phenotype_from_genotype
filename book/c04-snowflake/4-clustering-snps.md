@@ -30,7 +30,7 @@ A range of clustering methods were trialled on the phenotype predictor in an att
 +++
 
 ### Choice of distance metric
-The phenotype predictor’s original distance metric was non-linear, such that the homozygous calls were further from each other than the distance via the heterozygous call, as shown in {numref}`non-linear-metric`. Non-linear distance metrics mean that it is not possible to create a location matrix rather than a distance matrix. This is required for some types of clustering. 
+The phenotype predictor’s original distance metric was non-linear, such that the homozygous calls were further from each other than the distance via the heterozygous call, as shown in {numref}`non-linear-metric`. Non-linear distance metrics mean that it is not possible to create a location matrix rather than a distance matrix. This is required for some types of clustering.
 
 +++
 
@@ -44,7 +44,7 @@ Original non-linear distance metric. $MM$ denotes homozygous mutant alleles, $WW
 
 +++
 
-A linear distance metric which also captured the increased likelihood of homozygous alleles to be disease-causing ({numref}`linear-metric`) was developed to enable this, and to better represent the biology. In this version, the popularity of an allele decides which homozygous call the heterozygous call is more functionally similar to. 
+A linear distance metric which also captured the increased likelihood of homozygous alleles to be disease-causing ({numref}`linear-metric`) was developed to enable this, and to better represent the biology. In this version, the popularity of an allele decides which homozygous call the heterozygous call is more functionally similar to.
 
 +++
 
