@@ -12,3 +12,4 @@ book/_build/latex/
 .ipynb_checkpoints
 *.ipynb
 data/
+experiments/

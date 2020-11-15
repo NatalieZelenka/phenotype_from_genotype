@@ -31,11 +31,13 @@ Flowchart showing an overview of the phenotype predictor. Scores are generated p
 {numref}`snowflake-overview` shows how the phenotype predictor is run. One or more genotypes (in 23andme, or VCF format) are needed as input. Each genotype will be compared against all others, including (optionally) a diverse background set from the 2500 genomes project{cite}`Consortium2015-ci`. 
 
 1. For each phenotype $i$, a list of SNPS is generated such that the SNPs are associated with the phenotype (according to DcGO), and the SNPs are present in the input individuals.
-2. The input SNPS are given deleterious scores (using FATHMM), and this us used to construct an $N_{i}\cross M$ matrix of scores is created based on the individual’s alleles for each of these SNPs, (where $N$=number of SNPs and $M$=number of individuals).
+2. The input SNPS are given deleterious scores (using FATHMM), and this us used to construct an $N_{i}\times M$ matrix of scores is created based on the individual’s alleles for each of these SNPs, (where $N$=number of SNPs and $M$=number of individuals).
 3. Individuals of interest are clustered by SNP, alongside a diverse background of other people
 4. A score is calculated per person per phenotype, designed to calculate how much of an outlier the person is according to their SNPs for a given phenotype.
 
 Further detail on these steps is provided below:
+
+<!--TODO: Check in detail how the following tools are described in the background section and reference back to them.-->
 
 #### SNPs are mapped to phenotype terms using DcGO
 DcGO{cite}`Fang2013-ms` is used to map combinations of protein domains to their associated phenotype terms, using a false discovery rate cut-off of $10^{-3}$ or less. SNPs are therefore mapped to phenotype terms by whether they fall in a gene whose protein contains domains or combinations of domains that are statistically associated with a phenotype. In order to do this, DcGO makes use of SUPERFAMILY{cite}`Gough2001-ct` domain assignments, and a variety of ontology annotations (GO{cite}`Ashburner2000-cr`, MPO{cite}`Smith2005-uh`, HP{cite}`Robinson2010-ga`, DOID{cite}`Schriml2012-dz` and others).
@@ -84,7 +86,7 @@ Implementing these running modes and increases in efficiency was a collaborative
 As mentioned in the overview, using DcGO as the only SNP-phenotype mapping leaves out some known associations that are not due to protein domain structure. Adding dbSNP{cite}`Sherry2001-nm` associations to the predictor was one of my contributions to this software. 
 
 #### Dealing with missing calls 
-Genotyping SNP arrays often contain missing calls, where the call can not be accurately determined. This is an obstacle to the phenotype predictor if left unchecked as it can appear that an individual has a very unusual call when it is really just unknown.
+Genotyping SNP arrays often contain missing calls, where the call can not be accurately determined. This is an obstacle to the phenotype predictor if left unchecked as it can appear that an individual has a very unusual call when it is really just unknown. Sincce most people have a call, the missing call is unusual, and this is flagged.
 
 The most sensible solution to this problem is to assign the most common call for the individual’s cluster (i.e. combination of SNPs). This prevents a new cluster being formed or an individual appearing to be more unusual than they are. However, there is a downside to this approach when there are many missing calls. Adding all missing calls to a cluster that was only slightly more common than the alternatives can lead to the new cluster containing the missing data dwarfing the others. To fix this, SNPs with many missing calls were discarded. This implementation of missing calls was one of my personal contributions.
 
@@ -104,6 +106,11 @@ I developed a simple method of prioritising predictions according to these requi
 ```{code-cell} ipython3
 # Code for: Ranked scores for `DOID:1324` - the disease ontology term Lung Cancer (left) and HP:0008518 - the human phenotype ontology term for Absent/underdeveloped sacral bone (right). These represent an interesting and uninteresting distribution of scores, respectively.  - `ranked-scores`
 ```
+
+### Outputs of the predictor
+
+[//]: # (TODO: Write)
+
 
 ---
 **Page References**
