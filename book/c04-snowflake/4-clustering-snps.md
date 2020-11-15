@@ -14,6 +14,7 @@ kernelspec:
 
 ## Considerations for Clustering SNPs
 [//]: # (TODO: Write this section)
+[//]: # (TODO: Explain that heterozygous SNPs can also be disease-causing and that sometimes we will be looking to score highly just homozygous people and sometimes homo and heterozygous people. Give examples from SNPedia. Maybe move this to overview?)
 In this section, I discuss the implementation of clustering and outlier detection methodologies for SNPs.
 
 [//]: # (TODO: Cross-ref to overview)
@@ -33,7 +34,8 @@ The original implementation of the phenotype predictor used k-means clustering{c
 
 Spectral clustering, DBSCAN (Density-Based Spatial Clustering of Applications with Noise), OPTICS and LOF (Local Outlier Factor) were also implemented. This involved automation of parameter selection, to enable clustering to be performed automatically on thousands of phenotype terms. These methods have theoretical pros and cons with respect to the predictor. For example, OPTICS and DBSCAN do not need the number of clusters as an input, but instead require the minimum number of points required to form a cluster and a radius from each point to consider as part of a cluster, which has more meaning in this context. They also automatically output outliers to clusters, which will affect the resulting phenotype score, potentially in unseen ways - particularly as it is difficult to visualise high-dimensional data. OPTICS is the default setting, as in addition to not requiring a number of clusters, it can identify clusters of differing densities (a quality that DBSCAN lacks - as can be seen in the second row of {numref}`clustering-comparison`). A final informed choice between these options requires a large benchmarking set.
 
-[//]: # (TODO: Comparison of kmeans, spectral, dbscan, optics and LOF for 5 phenotypes (using Open SNP))
+[//]: # (TODO: Comparison of kmeans, spectral, dbscan, optics and LOF for 2 phenotypes, e.g. using CAGI PGP)
+[//]: # (TODO: Discuss how choice of k in kmeans and spectral, or choice of other hyperparameters effects the final score - which clustering methods are more/less sensitive)
 
 +++
 
