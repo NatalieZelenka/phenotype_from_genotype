@@ -1,0 +1,614 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Snowflake input data &#8212; Phenotype from Genotype</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter_book_intro.html">
+   Start Here
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/title-page.html">
+   Title Page
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/list-of-figures.html">
+   List of Figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/list-of-tables.html">
+   List of Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/declaration.html">
+   Declaration
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Main book
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html">
+   2. Biology Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c03-compbio-background/0-compbio-bg.html">
+   3. Computational Biology Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-index.html">
+   4. Phenotype prediction with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Snowflake
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c05-combining/0-index.html">
+   5. Combining RNA-seq datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
+   7. Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/c04-snowflake/3-data.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/c04-snowflake/3-data.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/c04-snowflake/3-data.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-sources">
+   Data sources
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background-data-sets-the-1000-genomes-project">
+     Background data sets: The 1000 Genomes Project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alspac">
+   ALSPAC
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phenotypes">
+     Phenotypes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#original-data-format">
+     Original data format
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#athletes">
+   Athletes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cagi">
+   CAGI
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-pipelines">
+   Data Pipelines
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pipeline-for-creating-background-cohort-inputs">
+     Pipeline for creating background cohort inputs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#genome-project-background-files">
+       1000 Genome Project background files
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pipeline-for-creating-vcf-files-from-23andme-data">
+     Pipeline for creating VCF files from 23andMe data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#andme-chips">
+       23andMe chips
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ambiguous-flips">
+       Ambiguous Flips
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     ALSPAC
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creating-vcf-files">
+       Creating VCF files
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Phenotypes
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     CAGI
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Creating VCF files
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mapping-phenotypes-to-cagi-measurements">
+       Mapping phenotypes to CAGI measurements
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Athletes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       Creating VCF files
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       Mapping phenotypes to CAGI measurements
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="snowflake-input-data">
+<h1>Snowflake input data<a class="headerlink" href="#snowflake-input-data" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> requires:
+- genetic data as input, in VCF format.
+- conservation scores per SNP.</p>
+<p>This section describes the sources and pipelines for creating input files.</p>
+<div class="section" id="data-sources">
+<h2>Data sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="background-data-sets-the-1000-genomes-project">
+<h3>Background data sets: The 1000 Genomes Project<a class="headerlink" href="#background-data-sets-the-1000-genomes-project" title="Permalink to this headline">¶</a></h3>
+<p>As described in the overview, <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> requires a genetic “background” data set, so that meaningful clustering can take place. Snowflake has the functionality to be run with any background data set, but few datasets are available that contain genetic data from a wide range of populations.</p>
+<p>The 1000 Genomes project<a class="bibtex reference internal" href="../end-matter/reference.html#consortium2015-ci" id="id1">[3]</a><a class="bibtex reference internal" href="../end-matter/reference.html#genomes-project-consortium2012-ek" id="id2">[2]</a> ran from 2008 to 2015, with the aim of comprehensively mapping human genetic variation across diverse populations. The project sequenced whole genomes, and released data in two main phases:</p>
+<ul class="simple">
+<li><p>Phase 1: 37.9 million variants, in 1092 individuals, across 14 populations</p></li>
+<li><p>Phase 3: 84.4 million, in 2504 individuals, across 26 populations</p></li>
+</ul>
+<p>Data from the 1000 Genomes project are always used for the background cohort to <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> in this thesis, with data from the 1000 Genomes project Phase 3<a class="bibtex reference internal" href="../end-matter/reference.html#consortium2015-ci" id="id3">[3]</a> used as a default, and earlier experiments using data from Phase 1<a class="bibtex reference internal" href="../end-matter/reference.html#genomes-project-consortium2012-ek" id="id4">[2]</a>.</p>
+<p>For both phases of the 1000 Genomes project, data are provided as VCF files for each Chromosome. Both data sets are available through the <a class="reference external" href="https://www.internationalgenome.org/data">International Genome Sequencing Resource</a><a class="bibtex reference internal" href="../end-matter/reference.html#fairley2020-hp" id="id5">[3]</a> (IGSR); phase 1 VCFs can be downloaded <span class="xref myst">here</span>, and phase 3 VCFs can be downloaded <span class="xref myst">here</span>.</p>
+</div>
+</div>
+<div class="section" id="alspac">
+<h2>ALSPAC<a class="headerlink" href="#alspac" title="Permalink to this headline">¶</a></h2>
+<p>The Avon Longitudinal Study of Parents and Children, ALSPAC<a class="bibtex reference internal" href="../end-matter/reference.html#golding2001-oj" id="id6">[4]</a> (a.k.a. the children of the 90s) is a cohort of over 14,000 families from the Avon area. Of these, 8365 of the children were genotyped by 23andMe and passed quality control. The participants were genotyped using the 23andme v2 chip, which measures ~550,000 SNPS. A wealth of phenotype information has also been collected from these families, through a series of voluntary surveys and clinics.</p>
+<div class="section" id="phenotypes">
+<h3>Phenotypes<a class="headerlink" href="#phenotypes" title="Permalink to this headline">¶</a></h3>
+<p>Due to the private nature of the data, we were granted access to the genotype data first, then allowed to request a small number of high-scoring phenotypes after running the predictor.</p>
+<p><span class="xref myst">//</span>: # (TODO: explain that using the catalogue - and link - ALSPAC phenotypes matching the DcGO phenotypes were chosen for the highest scoring things on a the prototype version. Maybe explain that due to the sensitivity of this to other things, they were not the highest ranking things any more).</p>
+<p>We had ethics approval to run the anonymised genotype information for the ALSPAC cohort in the phenotype predictor, and then to request phenotype information for the top-scoring phenotypes. The phenotype predictor was run on this cohort. Unfortunately the majority of the top-predicted phenotype terms (Ataxia, Abnormal Fat Cell Morphology, Abnormal Fetal Development) did not map cleanly to ALSPAC phenotypes, and those that did (e.g. Intellectual Disability) had many missing values, or did not overlap with the genotyped individuals.</p>
+<p><span class="xref myst">//</span>: # (TODO: Cite lack of diversity).
+Although the ALSPAC dataset is large, it is not very diverse, therefore the 1000 genomes project (Phase 1) genomes were used as a background set.</p>
+</div>
+<div class="section" id="original-data-format">
+<h3>Original data format<a class="headerlink" href="#original-data-format" title="Permalink to this headline">¶</a></h3>
+<p><strong>Genotype data format</strong></p>
+<p><strong>Phenotype data format</strong></p>
+</div>
+</div>
+<div class="section" id="athletes">
+<h2>Athletes<a class="headerlink" href="#athletes" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cagi">
+<h2>CAGI<a class="headerlink" href="#cagi" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="data-pipelines">
+<h2>Data Pipelines<a class="headerlink" href="#data-pipelines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pipeline-for-creating-background-cohort-inputs">
+<h3>Pipeline for creating background cohort inputs<a class="headerlink" href="#pipeline-for-creating-background-cohort-inputs" title="Permalink to this headline">¶</a></h3>
+<p>For any given run of <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code>, we are only interested in variants where:</p>
+<ul class="simple">
+<li><p>there is overlap between the background cohort, the predictive cohort</p></li>
+<li><p>AND we have conservation information so that we can score the deleteriousnss of the variant.</p></li>
+</ul>
+<p>We first create base versions of the <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> background cohort input files, and then create slimmed versions of the background set (with only the overlapping variants for each input/predictive dataset) for each input run.</p>
+<p>For the base versions of the background cohort, we create:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> file containing conservation scores per SNP</p></li>
+<li><p>A VCF file containing the genetic data for the background set that overlaps with the information in the <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> file.</p></li>
+</ul>
+<p><strong>Step 1: Acquire variant information as a large temporary VCF file</strong>
+We first create a large VCF file containing all possible variants.</p>
+<p>In order to make the <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> file it is necessary to have a list of all variants of interest; their locations on the genome, and the possible variants at that location.</p>
+<p>In the case of the 1000 Genomes project, we create a large temporary VCF file by downloading and concatenating the per chromosome VCF files (minus the meta data at the top for all bar the first, which is the same for all files).</p>
+<p><strong>Step 2: Create <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> file</strong>
+After obtaining the large VCF file, we then:</p>
+<ul class="simple">
+<li><p>trim the VCF file to contain only the necessary columns (first 10) to reduce the amount of memory required in the next step.</p></li>
+<li><p>run these variants through the <a class="reference external" href="https://www.ensembl.org/info/docs/tools/vep/index.html">Variant Effect Predictor</a>, using the correct build.</p></li>
+<li><p>grep for “missense”</p></li>
+<li><p>run <code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">create-consequence</span></code> to get a FATHMM score for each missense variant and create the <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> file.</p></li>
+</ul>
+<p><strong>Step 3: Create the base background VCF</strong>
+Since the VCF file created in Step 1 is larger than needed by <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code>, we then reduce the temporary VCF file (created in Step 1) to only the proteins in the <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> file created in Step 2. Other variants will not be used by the predictor, and this substantially reduces the memory needed to run <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code>.</p>
+<p><span class="xref myst">//</span>: # (TODO: Write about the diversity/limitations of the 2500 genomes project).
+<span class="xref myst">//</span>: # (TODO: Write about the impact of the fact that the 2500 genomes project is whole genome sequencing, while the rest is mostly genotype data)
+<span class="xref myst">//</span>: # (TODO: Put somewhere -after creating the VCF and <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> files for the input individuals, we create a slimmed version of the background cohort files)</p>
+<div class="section" id="genome-project-background-files">
+<h4>1000 Genome Project background files<a class="headerlink" href="#genome-project-background-files" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="pipeline-for-creating-vcf-files-from-23andme-data">
+<h3>Pipeline for creating VCF files from 23andMe data<a class="headerlink" href="#pipeline-for-creating-vcf-files-from-23andme-data" title="Permalink to this headline">¶</a></h3>
+<p>The CAGI, Athletes, and ALSPAC datasets were all genotyped using 23andMe, so the following applies to all of these datasets.</p>
+<div class="section" id="andme-chips">
+<h4>23andMe chips<a class="headerlink" href="#andme-chips" title="Permalink to this headline">¶</a></h4>
+<p>Since launch, 23andMe have used a number of different illumina chips for their genotyping service. These chips capture information for different SNPs.</p>
+</div>
+<div class="section" id="ambiguous-flips">
+<h4>Ambiguous Flips<a class="headerlink" href="#ambiguous-flips" title="Permalink to this headline">¶</a></h4>
+<p>The majority of input data to the predictor is 23andMe data. In testing the predictor with the 2500G background and a cohort of 23andMe genomes, it became clear that for many phenotypes, the background was forming a separate cluster to the cohort. This led to the realisation that there are 23andMe calls which had the opposite ratio of wild type:mutant than the 2500 genomes. Some further reading revealed this to be a known problem<a class="bibtex reference internal" href="../end-matter/reference.html#church2005-zv" id="id7">[5]</a>, which may be due to ambiguous flips<a class="bibtex reference internal" href="../end-matter/reference.html#sand2007-ed" id="id8">[6]</a>.</p>
+<p>Implausible distributions of SNPs in the input cohort (given the background) are therefore discarded. i.e if the input cohort doesn’t match the background. (all one way and the rest all the other).</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>ALSPAC<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="creating-vcf-files">
+<h4>Creating VCF files<a class="headerlink" href="#creating-vcf-files" title="Permalink to this headline">¶</a></h4>
+<p><strong>Missing values</strong>
+<span class="xref myst">//</span>: # (TODO: write - or possibly move to results section)</p>
+<p><strong>Distribution of SNPs per phenotype</strong>
+<span class="xref myst">//</span>: # (TODO: Distribution of number of SNPs per phenotype for ALSPAC, showing overall and highlighting phenotypes with ground truth information)</p>
+<p><strong>Distribution of SNP scores within phenotypes</strong>
+<span class="xref myst">//</span>: # (TODO: Distribution of number SNP scores within phenotypes - violin plot with some examples - for ALSPAC. Known phenotypes included, dotted lines showing max scores for any SNP.)</p>
+</div>
+<div class="section" id="id10">
+<h4>Phenotypes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>CAGI<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h4>Creating VCF files<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<p><strong>Missing values</strong>
+<span class="xref myst">//</span>: # (TODO: write - or possibly move to results section)</p>
+<p><strong>Distribution of SNPs per phenotype</strong>
+<span class="xref myst">//</span>: # (TODO: Distribution of number of SNPs per phenotype for ALSPAC, showing overall and highlighting phenotypes with ground truth information)</p>
+<p><strong>Distribution of SNP scores within phenotypes</strong>
+<span class="xref myst">//</span>: # (TODO: Distribution of number SNP scores within phenotypes - violin plot with some examples - for CAGI. Known phenotypes included, dotted lines showing max scores for any SNP.)</p>
+</div>
+<div class="section" id="mapping-phenotypes-to-cagi-measurements">
+<h4>Mapping phenotypes to CAGI measurements<a class="headerlink" href="#mapping-phenotypes-to-cagi-measurements" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>Athletes<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h4>Creating VCF files<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p><strong>Missing values</strong>
+<span class="xref myst">//</span>: # (TODO: write - or possibly move to results section)</p>
+<p><strong>Distribution of SNPs per phenotype</strong>
+<span class="xref myst">//</span>: # (TODO: Distribution of number of SNPs per phenotype for ALSPAC, showing overall and highlighting phenotypes with ground truth information)</p>
+<p><strong>Distribution of SNP scores within phenotypes</strong>
+<span class="xref myst">//</span>: # (TODO: Distribution of number SNP scores within phenotypes - violin plot with some examples - for CAGI. Known phenotypes included, dotted lines showing max scores for any SNP.)</p>
+</div>
+<div class="section" id="id15">
+<h4>Mapping phenotypes to CAGI measurements<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<hr class="docutils" />
+<p><strong>Page References</strong></p>
+<p id="bibtex-bibliography-c04-snowflake/3-data-0"><dl class="citation">
+<dt class="bibtex label" id="consortium2015-ci"><span class="brackets">3</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p>The 1000 Genomes Project Consortium and The 1000 Genomes Project Consortium. A global reference for human genetic variation. <em>Nature</em>, 526(7571):68–74, 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nature15393">http://dx.doi.org/10.1038/nature15393</a>.</p>
+</dd>
+<dt class="bibtex label" id="genomes-project-consortium2012-ek"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id4">2</a>)</span></dt>
+<dd><p>1000 Genomes Project Consortium, Goncalo R Abecasis, Adam Auton, Lisa D Brooks, Mark A DePristo, Richard M Durbin, Robert E Handsaker, Hyun Min Kang, Gabor T Marth, and Gil A McVean. An integrated map of genetic variation from 1,092 human genomes. <em>Nature</em>, 491(7422):56–65, November 2012. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nature11632">http://dx.doi.org/10.1038/nature11632</a>.</p>
+</dd>
+<dt class="bibtex label" id="fairley2020-hp"><span class="brackets"><a class="fn-backref" href="#id5">3</a></span></dt>
+<dd><p>Susan Fairley, Ernesto Lowy-Gallego, Emily Perry, and Paul Flicek. The international genome sample resource (IGSR) collection of open human genomic variation resources. <em>Nucleic Acids Res.</em>, 48(D1):D941–D947, January 2020. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkz836">http://dx.doi.org/10.1093/nar/gkz836</a>.</p>
+</dd>
+<dt class="bibtex label" id="golding2001-oj"><span class="brackets"><a class="fn-backref" href="#id6">4</a></span></dt>
+<dd><p>Golding, Golding, Pembrey, Jones, and The Alspac Study Team. ALSPAC-The avon longitudinal study of parents and children. <em>Paediatr. Perinat. Epidemiol.</em>, 15(1):74–87, 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1046/j.1365-3016.2001.00325.x">http://dx.doi.org/10.1046/j.1365-3016.2001.00325.x</a>.</p>
+</dd>
+<dt class="bibtex label" id="church2005-zv"><span class="brackets"><a class="fn-backref" href="#id7">5</a></span></dt>
+<dd><p>G M Church. The personal genome project. <em>Mol. Syst. Biol.</em>, 1:2005.0030, December 2005. URL: <a class="reference external" href="http://dx.doi.org/10.1038/msb4100040">http://dx.doi.org/10.1038/msb4100040</a>.</p>
+</dd>
+<dt class="bibtex label" id="sand2007-ed"><span class="brackets"><a class="fn-backref" href="#id8">6</a></span></dt>
+<dd><p>Philipp G Sand. A lesson not learned: allele misassignment. <em>Behav. Brain Funct.</em>, 3(1):65, 2007. URL: <a class="reference external" href="http://dx.doi.org/10.1186/1744-9081-3-65">http://dx.doi.org/10.1186/1744-9081-3-65</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c04-snowflake"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

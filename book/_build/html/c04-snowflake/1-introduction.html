@@ -36,7 +36,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.2. Snowflake Method" href="2-snowflake-method.html" />
+    <link rel="next" title="4.2. Snowflake Algorithm" href="2-snowflake-method.html" />
     <link rel="prev" title="4. Phenotype prediction with Snowflake" href="0-index.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -155,32 +155,22 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2-snowflake-method.html">
-     4.2. Snowflake Method
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3-clustering-snps.html">
-     4.3. Clustering SNPs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4-data.html">
-     4.4. Data
+     4.2. Snowflake Algorithm
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5-results.html">
-     4.5. Results
+     4.3. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-discussion.html">
-     4.6. Discussion
+     4.4. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-future-work.html">
-     4.7. Future Work
+     4.5. Future Work
     </a>
    </li>
   </ul>
@@ -292,10 +282,38 @@
                 
   <div class="section" id="introduction">
 <h1><span class="section-number">4.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>A huge question in biology is how does phenotype arise from genotype. Efforts to disentangle these relationships generally take a reductionist approach, looking closely at one particular gene or phenotype.</p>
-<p>We are fortunate in biology to have good quality, curated, open datasets that cover genomes across the tree of life, as well as cross-species ontologies of biological processes, diseases, and anatomical entities (to name just a few). These resources are only possible because of the international community who contribute to them, and the talented bio-curators who curate them.</p>
-<p>In this chapter, I present some extensive exploratory work which was carried out in developing the Snowflake phenotype prediction method. This method combines conservation and variant effect scores using FATHMM<a class="bibtex reference internal" href="../end-matter/reference.html#shihab2013-pk" id="id1">[36]</a>, inference about function of protein domains using DcGO<a class="bibtex reference internal" href="../end-matter/reference.html#fang2013-ms" id="id2">[34]</a>, and human genetic variation data from the 2500 genomes project<a class="bibtex reference internal" href="../end-matter/reference.html#consortium2015-ci" id="id3">[3]</a> to predict phenotypes of individuals based on their combinations of missense SNPs.</p>
-<p>The aim of the phenotype predictor is to reveal individuals with unusual combinations of deleterious SNPs associated with a phenotype. This may not be expected to provide a very accurate prediction, as it will only work for missense SNPs in coding regions of globular proteins. However, the advantage over other methods (e.g. GWAS) is that the role of the involved SNPs is explained.</p>
+<p>How does phenotype arise from genotype? As explained in the <code class="xref std std-numref docutils literal notranslate"><span class="pre">c02-biology-bg</span></code>, we understand the mechanisms theoretically: differences in DNA cause differences in cell functionality, which interact with the cell environment to create differences in overall phenotype. Efforts to disentangle which genes effect which phenotypes generally take a reductionist approach where we look closely at one particular gene or phenotype. Predicting an individual human phenotype is then based on combinations of mutations that have been discovered through these processes. This chapter describes a radical alternative: predicting human phenotype from genotype directly from data about both the molecular reality of these mutations, together with data about their distributions in the population.</p>
+<p>We are fortunate in biology to have good quality, curated, open datasets that cover genomes across the tree of life, as well as cross-species ontologies of biological processes, diseases, and anatomical entities (to name just a few). These resources are only possible because of the international community who contribute to them, and the talented bio-curators who curate them. The <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> phenotype prediction method works by identifying individuals who have unusual combinations of deleterious SNPs associated with a phenotype. The phenotype predictor uses only data about missense SNPs in coding regions of globular proteins, so it can only be expected to work well where phenotypes are determined primarily by these kinds of mutations. However, the advantage over other methods (e.g. GWAS) is that the role of the involved SNPs is explained.</p>
+<p>The motivation for doing this kind of work is primarily understanding how our bodies work, but there are clear benefits in health if an accurate phenotype prediction method was developed: we would know where to focus our efforts in terms of treating phenotypes which are disease related.</p>
+<p>In this chapter, I present work which was carried out in developing the Snowflake phenotype prediction method. This method combines conservation and variant effect scores using FATHMM<a class="bibtex reference internal" href="../end-matter/reference.html#shihab2013-pk" id="id1">[36]</a>, inference about function of protein domains using DcGO<a class="bibtex reference internal" href="../end-matter/reference.html#fang2013-ms" id="id2">[34]</a>, and human genetic variation data from the 2500 genomes project<a class="bibtex reference internal" href="../end-matter/reference.html#consortium2015-ci" id="id3">[3]</a> to predict phenotypes of individuals based on their combinations of missense SNPs.</p>
+<p>My contributions to this software included:</p>
+<ul class="simple">
+<li><p>Adding functionality for running <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> for different numbers of individuals, including:</p>
+<ul>
+<li><p>One person against a background set</p></li>
+<li><p>Multiple people against a background set</p></li>
+<li><p>A cohort without a background set</p></li>
+</ul>
+</li>
+<li><p>Dealing with missing calls</p></li>
+<li><p>Creating a pipeline for creating input files for different genomic data types, e.g.:</p>
+<ul>
+<li><p>genotyping formats, including different 23andMe formats (from different chips)</p></li>
+<li><p>VCF format</p></li>
+<li><p>whole genome</p></li>
+</ul>
+</li>
+<li><p>Improvements to memory usage (by sharing memory)</p></li>
+<li><p>Developing the outputs, e.g. the output score.</p></li>
+<li><p>Investigating a wide range of clustering and outlier detection methods for detecting outliers in SNPs (orginally used k-means)</p></li>
+<li><p>Planning how to and validating the model against:</p>
+<ul>
+<li><p>ALSPAC dataset</p></li>
+<li><p>Athletes dataset</p></li>
+<li><p>CAGI dataset</p></li>
+</ul>
+</li>
+</ul>
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c04-snowflake/1-introduction-0"><dl class="citation">
@@ -341,7 +359,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="0-index.html" title="previous page"><span class="section-number">4. </span>Phenotype prediction with <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code></a>
-    <a class='right-next' id="next-link" href="2-snowflake-method.html" title="next page"><span class="section-number">4.2. </span>Snowflake Method</a>
+    <a class='right-next' id="next-link" href="2-snowflake-method.html" title="next page"><span class="section-number">4.2. </span>Snowflake Algorithm</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

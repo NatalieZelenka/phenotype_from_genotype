@@ -1,17 +1,3 @@
----
-jupytext:
-  formats: ipynb,md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 ## Snowflake input data
 [//]: # (TODO: Have I already explained VCF format? Link or explain here. Cite. Cite the version of the format we use. Explain that there are different versions.)
 `Snowflake` requires:
@@ -20,11 +6,7 @@ kernelspec:
      
 This section describes the sources and pipelines for creating input files.
 
-+++
-
 ### Data sources
-
-+++
 
 #### Background data sets: The 1000 Genomes Project
 [//]: # (TODO: cross-ref to overview)
@@ -39,13 +21,9 @@ Data from the 1000 Genomes project are always used for the background cohort to 
 
 For both phases of the 1000 Genomes project, data are provided as VCF files for each Chromosome. Both data sets are available through the [International Genome Sequencing Resource](https://www.internationalgenome.org/data){cite}`Fairley2020-hp` (IGSR); phase 1 VCFs can be downloaded [here](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/), and phase 3 VCFs can be downloaded [here](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/).
 
-+++
-
 ### ALSPAC
 [//]: # (TODO: Further describe the value of the dataset and what it is generally used for)
 The Avon Longitudinal Study of Parents and Children, ALSPAC{cite}`Golding2001-oj` (a.k.a. the children of the 90s) is a cohort of over 14,000 families from the Avon area. Of these, 8365 of the children were genotyped by 23andMe and passed quality control. The participants were genotyped using the 23andme v2 chip, which measures ~550,000 SNPS. A wealth of phenotype information has also been collected from these families, through a series of voluntary surveys and clinics.
-
-+++
 
 #### Phenotypes
 Due to the private nature of the data, we were granted access to the genotype data first, then allowed to request a small number of high-scoring phenotypes after running the predictor.
@@ -62,29 +40,19 @@ We had ethics approval to run the anonymised genotype information for the ALSPAC
 [//]: # (TODO: Cite lack of diversity).
 Although the ALSPAC dataset is large, it is not very diverse, therefore the 1000 genomes project (Phase 1) genomes were used as a background set.
 
-+++
-
 #### Original data format
 [//]: # (TODO: Write)
 **Genotype data format**
 
 **Phenotype data format**
 
-+++
-
 ### Athletes
 [//]: # (TODO: Write)
-
-+++
 
 ### CAGI
 [//]: # (TODO: Write)
 
-+++
-
 ### Data Pipelines
-
-+++
 
 #### Pipeline for creating background cohort inputs
 For any given run of `Snowflake`, we are only interested in variants where:
@@ -123,8 +91,6 @@ Since the VCF file created in Step 1 is larger than needed by `Snowflake`, we th
 [//]: # (TODO: Write)
 [//]: # (TODO: Exploratory Data Analysis/Data set stats here)
 
-+++
-
 #### Pipeline for creating VCF files from 23andMe data
 The CAGI, Athletes, and ALSPAC datasets were all genotyped using 23andMe, so the following applies to all of these datasets.
 
@@ -138,8 +104,6 @@ The majority of input data to the predictor is 23andMe data. In testing the pred
 
 [//]: # (TODO: Finish writing this sentence:)
 Implausible distributions of SNPs in the input cohort (given the background) are therefore discarded. i.e if the input cohort doesn't match the background. (all one way and the rest all the other).
-
-+++
 
 #### ALSPAC
 
@@ -158,8 +122,6 @@ Implausible distributions of SNPs in the input cohort (given the background) are
 
 ##### Phenotypes
 [//]: # (TODO: Mapping phenotypes to ALSPAC measurements. Write - was done by hand using the ALSPAC catalogue)
-
-+++
 
 #### CAGI
 [//]: # (TODO: Possibly delete this section)
@@ -180,8 +142,6 @@ Implausible distributions of SNPs in the input cohort (given the background) are
 ##### Mapping phenotypes to CAGI measurements
 [//]: # (TODO: Write)
 
-+++
-
 #### Athletes
 [//]: # (TODO: Possibly delete this section)
 
@@ -200,8 +160,6 @@ Implausible distributions of SNPs in the input cohort (given the background) are
 
 ##### Mapping phenotypes to CAGI measurements
 [//]: # (TODO: Write)
-
-+++
 
 ---
 **Page References**

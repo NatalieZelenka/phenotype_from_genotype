@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Data Wrangling &#8212; Phenotype from Genotype</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter_book_intro.html">
+   Start Here
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/title-page.html">
+   Title Page
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/list-of-figures.html">
+   List of Figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/list-of-tables.html">
+   List of Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front-matter/declaration.html">
+   Declaration
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Main book
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html">
+   2. Biology Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c03-compbio-background/0-compbio-bg.html">
+   3. Computational Biology Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c04-snowflake/0-index.html">
+   4. Phenotype prediction with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Snowflake
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-index.html">
+   5. Combining RNA-seq datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
+   7. Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/c05-combining/4-data-wrangling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/c05-combining/4-data-wrangling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/c05-combining/4-data-wrangling.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tissue-groups">
+     Tissue Groups
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-wrangling">
+<h1>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">¶</a></h1>
+<p>Before the data sets could be combined, substantial data wrangling was necessary. The details of these processes; obtaining, checking, mapping identifiers, excluding irrelevant data, etc, are described in this section.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The steps required to obtain consistently formatted and labelled data can be described as follows:</p>
+<ol class="simple">
+<li><p>Obtaining the raw expression per gene for healthy human tissues</p></li>
+</ol>
+<ul class="simple">
+<li><p>a. Obtaining data</p></li>
+<li><p>b. (Where required) Mapping from transcript to gene</p></li>
+<li><p>c. (Where required) Filtering out disease samples</p></li>
+<li><p>d. (Where required) Filtering out non-human samples</p></li>
+</ul>
+<ol class="simple">
+<li><p>Mapping from sample name to UBERON tissue</p></li>
+<li><p>Aggregating metadata</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fig.align: center</span>
+<span class="c1"># fig.cap: Funnel plot showing the data cleaning pipeline for FANTOM transcripts/genes</span>
+<span class="c1">#   (left) and samples (right), along with the number which remained after each stage</span>
+<span class="c1">#   of data cleaning.</span>
+<span class="c1"># name: combining-data-pipeline</span>
+<span class="c1"># Code here for creating data wrangling pipeline image. Steps should be labelled matching 1A, 1B, etc.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="xref std std-numref docutils literal notranslate"><span class="pre">combining-data-pipeline</span></code> shows an overview of the data wrangling pipeline. Additional steps 1A, 1B, and 1C were only necessary for the FANTOM dataset.</p>
+<p><strong>1A. Obtaining raw expression per gene for healthy human tissues</strong></p>
+<p>As mentioned in <span class="xref std std-ref">data-aquisition</span>, for the HPA, GTeX and HDBR experiments, count data were available through the <em>ExpressionAtlas</em> R package<span class="bibtex" id="id1">[Keays2018-pg]</span>, while this was not the case for the FANTOM dataset, which was downloaded directly.</p>
+<p><strong>1B. Mapping from transcript to gene</strong></p>
+<p>This step was only required for the FANTOM dataset.</p>
+<p>FANTOM provides mappings to gene IDs based on proximity of genes to peaks according to Ensembl. Gene expression was then calculated by summing over transcripts mapped to genes. The transcripts were already mapped to HGNC gene identifiers in the downloaded FANTOM file and <a class="reference external" href="https://www.ensembl.org/biomart">Ensembl’s Biomart</a> was used to obtain a mapping from HGNC gene identifiers to ENSG gene identifiers, in order to match the gene expression atlas format.</p>
+<p>Any transcripts which mapped to multiple genes were discarded, as were any HGNC ids which did not map to ENSG ids.</p>
+<p><strong>1C. Filtering out disease samples</strong></p>
+<p>The HDBR and HPA experiments contained only healthy samples.</p>
+<p><strong>GTEx</strong>
+Although GTEx contained clinical data, no disease-related phenotypes were removed from the data set, since the <code class="docutils literal notranslate"><span class="pre">disease</span></code> column contains only values of “normal” and the only clinical variables (as described in the <code class="docutils literal notranslate"><span class="pre">clinical_variables</span></code> column) in the dataset were sun exposure or lack thereof for skin tissues. I judged these to be within the normal range of environments that we would expect skin to be subjected to.</p>
+<p><strong>FANTOM</strong>
+The FANTOM sample ontology was used to remove samples which are models for diseases. Samples which are disease models are identified using the <code class="docutils literal notranslate"><span class="pre">is_model_for</span></code> relationship and these relationships are propagated to the children terms based on the <code class="docutils literal notranslate"><span class="pre">is_a</span></code> relationship. For example, <code class="docutils literal notranslate"><span class="pre">FF:11558-120D1</span></code> (Fibroblast - skin spinal muscular atrophy, donor2) would be removed from the set of samples, since:
+<code class="docutils literal notranslate"><span class="pre">FF:11558-120D1</span></code> (Fibroblast - skin spinal muscular atrophy, donor2) <code class="docutils literal notranslate"><span class="pre">is_a</span> <span class="pre">FF:0000251</span></code> (human fibroblast - skin spinal muscular atrophy sample) <code class="docutils literal notranslate"><span class="pre">is_model_for</span> <span class="pre">DOID:12377</span></code> (spinal muscular atrophy).</p>
+<p><strong>1D. Filtering out non-human samples</strong></p>
+<p>The GTEx, HDBR, and HPA experiments contained only human samples.</p>
+<p><strong>FANTOM</strong>
+The FANTOM5 data set also contains non-human (mouse) samples. The FANTOM sample ontology (which was downloaded <a class="reference external" href="http://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt">from here</a>) was used to look-up which FANTOM samples are human samples, i.e. have an <code class="docutils literal notranslate"><span class="pre">is_a</span></code> relationship to the term <code class="docutils literal notranslate"><span class="pre">FF:0000210</span></code> (human sample) directly or indirectly.</p>
+<p><strong>2. Mapping to UBERON</strong></p>
+<p>Mapping from samples to Uberon tissue required the development of a small Python package <code class="docutils literal notranslate"><span class="pre">uberon_py</span></code>. To create input to this package, informal tissue names (e.g. blood, kidney) were taken from the experimental design files (or the human sample information file for FANTOM) to create a map of samples to informal tissue names. For FANTOM, the FANTOM ontology could also be used to create a more fine-grained mapping of samples to tissues based on FANTOM sample identifiers and/or cell type (CL) identifiers.</p>
+<p><strong>HPA</strong>
+The HPA samples were mapped using exact matches to Uberon names. Three types of sample did not have exact matches: “transformed skin fibroblast”, “suprapubic skin”, and “ebv-transformed lymphocyte”. I manually mapped “suprapubic skin” to UBERON:0001415 Skin of pelvis, and excluded the other two (corresponding to excluding 869 samples).</p>
+<p><strong>HDBR</strong>
+For HDBR, tissue names from the “organism part’ column of the column data file were matched to Uberon names and synonyms from the Uberon extended ontology. The 96 unmatched terms corresponding to mixed brain tissues and brain fragments were defaulted to the more general Uberon Brain term.</p>
+<p><strong>FANTOM</strong>
+Since an experimental design file could not be obtained for FANTOM via GxA, additional sample information was obtained via the FANTOM5 website, namely the human sample information file (HumanSamples2.0.sdrf.xlsx) and the FANTOM5 ontology.</p>
+<p>FANTOM also contains time courses of cell differentiation (cells changing from one type to another) as well measures of perturbed cells. Since these samples do not have a well-defined locality in the body given by cell or tissue type, they were not used in the combined dataset. Such samples were filtered out using the human sample information spreadsheet.</p>
+<p><strong>3/. Aggregating Metadata</strong>
+To create consistent metadata for the samples (e.g. age, developmental stage, replicate status, etc), information was extracted from multiple sources (including GxA and additional data from each experiment), and sometimes manually curated or corrected.</p>
+<p>Metadata about the experiments was collected from multiple sources, primarily the column data files accessed via ExpressionAtlas. This metadata was used to describe the the experimental design for ComBat. The metadata collected includes, where available, sample identifier, individual identifier, age (exact), age (range), developmental stage, tissue type (Uberon term), sex, experiment, biological replicate identifier and technical replicate identifier.</p>
+<p>Both age variables are given in years and may include negative values (e.g. for a developing fetus). The age (range) variable contains uneven ranges, since this allows there to be an age-related factor that is compatible across the experiments. These values had to be converted to common units manually, since they were incompatible between experiments, and age-related terms were missing in GxA for GTEx and HPA, although for GTEx it was possible to acquire via its own website (at https://storage.googleapis.com/gtex_analysis_v7/annotations/GTEx_v7_Annotations_SubjectPhenotypesDS.txt ).</p>
+<p>FANTOM metadata was mostly taken from the human sample information file. There were discrepancies between ages and developmental stages in the FANTOM human samples file, for example, sample <code class="docutils literal notranslate"><span class="pre">FF:10027-101D9</span></code> is labelled as “thymus, adult, pool1” in the Description field, but as “0.5,0.5,0.83 years old infant” in the Developmental Stage field, and sample <code class="docutils literal notranslate"><span class="pre">FF:10209-103G2</span></code> has an age of ‘M’ and a sex of ‘28’. There were also numerous typographical inconsistencies, for example, “3 year old child”, “3 years old child”, “25 year old”, “76” and “76 years old adult” all feature in the same column, amongst other errors. For this reason, creating a cleaned experimental design file was laborious, but the resulting file has been sent to the FANTOM data curators so that they might make it officially available.</p>
+<p>FANTOM technical and biological replicates are indicated in the annotated gene expression FANTOM file, by the inclusion of “tech_rep” or “biol_rep” in the long sample labels e.g. <code class="docutils literal notranslate"><span class="pre">counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20tech_rep1.CNhs10855.11227-116C3.hg38.nobarcode</span></code>. These were used to create the experimental design file.</p>
+<p>Note: there is an error in the original transcript expression file for one of these identifiers (<code class="docutils literal notranslate"><span class="pre">counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode</span></code>) such that it is missing the “tech” part of the the replicate label. This was manually changed in my copy of the input file and the FANTOM data curation team was informed.</p>
+<div class="section" id="tissue-groups">
+<h3>Tissue Groups<a class="headerlink" href="#tissue-groups" title="Permalink to this headline">¶</a></h3>
+<p>Eleven more general tissue groups (for example brain, digestive system, connective tissue) were identified by hand. Individual tissues were mapped to these groups using the <code class="docutils literal notranslate"><span class="pre">Relations()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fig.align: center</span>
+<span class="c1"># fig.cap: Funnel plot showing the data cleaning pipeline for FANTOM transcripts/genes</span>
+<span class="c1">#   (left) and samples (right), along with the number which remained after each stage</span>
+<span class="c1">#   of data cleaning.</span>
+<span class="c1"># name: combining-funnel-plot</span>
+<span class="c1"># Code here for creating data wrangling pipeline image. Steps should be labelled matching 1A, 1B, etc.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>{numref}`combining-funnel-plot` shows a funnel plot, showing how the FANTOM5 data was processed to select the final genes and samples present in the combined dataset. 
+
+**Page References**
+
+```{bibliography} /_bibliography/references.bib
+:filter: docname in docnames
+:style: unsrt
+```
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-3-d8031418bdd0&gt;&quot;, line 1
+    {numref}`combining-funnel-plot` shows a funnel plot, showing how the FANTOM5 data was processed to select the final genes and samples present in the combined dataset.
+            ^
+SyntaxError: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c05-combining"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

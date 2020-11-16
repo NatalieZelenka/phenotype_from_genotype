@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>4.5. Results &#8212; Phenotype from Genotype</title>
+    <title>4.2. Results &#8212; Phenotype from Genotype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -36,8 +36,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.6. Discussion" href="6-discussion.html" />
-    <link rel="prev" title="4.4. Data" href="4-data.html" />
+    <link rel="next" title="4.3. Discussion" href="6-discussion.html" />
+    <link rel="prev" title="4.1. Introduction" href="1-introduction.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -153,34 +153,19 @@
      4.1. Introduction
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2-snowflake-method.html">
-     4.2. Snowflake Method
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3-clustering-snps.html">
-     4.3. Clustering SNPs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4-data.html">
-     4.4. Data
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     4.5. Results
+     4.2. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-discussion.html">
-     4.6. Discussion
+     4.3. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-future-work.html">
-     4.7. Future Work
+     4.4. Future Work
     </a>
    </li>
   </ul>
@@ -254,9 +239,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/c04-snowflake/5-results.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/c04-snowflake/5-results.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -273,6 +258,28 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/c04-snowflake/5-results.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/c04-snowflake/5-results.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -283,9 +290,60 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cagi-competition">
-   4.5.1. CAGI Competition
+  <a class="reference internal nav-link" href="#alspac">
+   4.2.1. ALSPAC
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exploratory-analysis-of-predictions">
+     4.2.1.1. Exploratory analysis of predictions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#validation">
+     4.2.1.2. Validation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples-of-predictions">
+     4.2.1.3. Examples of predictions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cagi">
+   4.2.2. CAGI
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     4.2.2.1. Exploratory analysis of predictions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     4.2.2.2. Validation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#genetrainer">
+   4.2.3. Genetrainer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     4.2.3.1. Exploratory analysis of predictions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     4.2.3.2. Validation
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -298,10 +356,59 @@
               <div>
                 
   <div class="section" id="results">
-<h1><span class="section-number">4.5. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="cagi-competition">
-<h2><span class="section-number">4.5.1. </span>CAGI Competition<a class="headerlink" href="#cagi-competition" title="Permalink to this headline">¶</a></h2>
-<p>The phenotype predictor was entered into the CAGI competition<a class="bibtex reference internal" href="../end-matter/reference.html#mcinnes2019-ov" id="id1">[84]</a> (work by Jan Zaucha)<a class="bibtex reference internal" href="../end-matter/reference.html#zaucha2018-dg" id="id2">[85]</a>, where it had some success. The phenotype predictor placed fourth in a challenge matching trait profiles to genotypes, but this result was not statistically significant (p&gt;0.05).</p>
+<h1><span class="section-number">4.2. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="alspac">
+<h2><span class="section-number">4.2.1. </span>ALSPAC<a class="headerlink" href="#alspac" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exploratory-analysis-of-predictions">
+<h3><span class="section-number">4.2.1.1. </span>Exploratory analysis of predictions<a class="headerlink" href="#exploratory-analysis-of-predictions" title="Permalink to this headline">¶</a></h3>
+<p><strong>Number of predictions per phenotype</strong>
+<span class="xref myst">//</span>: # (TODO: predictions per phenotype histogram)</p>
+<p><strong>Range of interestingness scores</strong></p>
+</div>
+<div class="section" id="validation">
+<h3><span class="section-number">4.2.1.2. </span>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h3>
+<p><strong>Boostrapping graph</strong></p>
+<p><strong>ROC curve</strong></p>
+<p><strong>Validation of single-SNP known phenotypes</strong>
+<span class="xref myst">//</span>: # (TODO: Show that single-SNP phenotypes get the “correct” result for people/snps)</p>
+</div>
+<div class="section" id="examples-of-predictions">
+<h3><span class="section-number">4.2.1.3. </span>Examples of predictions<a class="headerlink" href="#examples-of-predictions" title="Permalink to this headline">¶</a></h3>
+<p><strong>Re-finding known SNPs</strong></p>
+<p><strong>Predictions that find new SNPs in a known gene</strong></p>
+<p><strong>Predictions that are made using information from non-human experiments</strong></p>
+<p><strong>Predictions where you need a combination of SNPs for a trait.</strong></p>
+</div>
+</div>
+<div class="section" id="cagi">
+<h2><span class="section-number">4.2.2. </span>CAGI<a class="headerlink" href="#cagi" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3><span class="section-number">4.2.2.1. </span>Exploratory analysis of predictions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><strong>Number of predictions per phenotype</strong>
+<span class="xref myst">//</span>: # (TODO: predictions per phenotype histogram)</p>
+<p><strong>Range of interestingness scores</strong></p>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">4.2.2.2. </span>Validation<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><strong>Boostrapping graph</strong></p>
+<p><strong>ROC curve</strong></p>
+</div>
+</div>
+<div class="section" id="genetrainer">
+<h2><span class="section-number">4.2.3. </span>Genetrainer<a class="headerlink" href="#genetrainer" title="Permalink to this headline">¶</a></h2>
+<p>The genetrainer dataset was focused on only one phenotype.</p>
+<div class="section" id="id3">
+<h3><span class="section-number">4.2.3.1. </span>Exploratory analysis of predictions<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p><strong>Range of interestingness scores</strong></p>
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">4.2.3.2. </span>Validation<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><strong>Boostrapping graph</strong></p>
+<p><strong>ROC curve</strong></p>
+<hr class="docutils" />
+<p><strong>Page References</strong></p>
+<p id="bibtex-bibliography-c04-snowflake/5-results-0"></p>
+</div>
 </div>
 </div>
 
@@ -333,8 +440,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="4-data.html" title="previous page"><span class="section-number">4.4. </span>Data</a>
-    <a class='right-next' id="next-link" href="6-discussion.html" title="next page"><span class="section-number">4.6. </span>Discussion</a>
+    <a class='left-prev' id="prev-link" href="1-introduction.html" title="previous page"><span class="section-number">4.1. </span>Introduction</a>
+    <a class='right-next' id="next-link" href="6-discussion.html" title="next page"><span class="section-number">4.3. </span>Discussion</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

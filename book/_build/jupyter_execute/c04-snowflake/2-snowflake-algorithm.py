@@ -1,22 +1,6 @@
----
-jupytext:
-  formats: ipynb,md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
-## Snowflake Method
+## Snowflake Algorithm
 
 ### Overview
-
-+++
 
 ```{figure} ../images/snowflake-overview.png
 ---
@@ -25,8 +9,6 @@ name: snowflake-overview
 ---
 Flowchart showing an overview of the phenotype predictor. Scores are generated per allele using SUPERFAMILY, FATHMM and dcGO for both the input genotype(s), and the background genotypes. These data points are then combined into a matrix, which is then clustered..
 ```
-
-+++
 
 {numref}`snowflake-overview` shows how the phenotype predictor is run. One or more genotypes (in 23andme, or VCF format) are needed as input. Each genotype will be compared against all others, including (optionally) a diverse background set from the 2500 genomes project{cite}`Consortium2015-ci`. 
 
@@ -66,8 +48,6 @@ $$score_{ij}=L_{ij}+\mu_{\gamma} \cdot G_{ij}$$
 
 Such that: $\mu_{\gamma}=\frac{exp(\gamma \frac{n-n_j}{n})-1}{exp(\gamma)-1}$ where $\gamma$ is a parameter representing how strongly we wish to penalise large clusters, $n$ is the over all number of individuals and $n_j$ is the number of individuals in a cluster.
 
-+++
-
 ### Features added to the predictor
 As mentioned, the phenotype predictor was already prototyped when I began working on it. However, considerable time was spent developing, bug-fixing, and extending this prototype. Here, I describe my contributions to this.
 
@@ -97,15 +77,11 @@ The phenotype predictor outputs a score for each person for each phenotype. Our 
 
 I developed a simple method of prioritising predictions according to these requirements. A confidence score is achieved by plotting the ranked raw score and measuring the minimum area between a straight line resting on this line (resting on the two points furthest from y=x) and the line itself, as illustrated in {numref}`shaded-score`. Since this measure takes into account the size of the raw scores, these confidence scores  compared across phenotypes.
 
-{numref}`ranked-scores` shows an example of an interesting and uninteresting distribution. These distributions mostly depend on the number, population frequency, and FATHMM score of the SNPs associated with the phenotype term. 
+{numref}`ranked-scores` shows an example of an interesting and uninteresting distribution. These distributions mostly depend on the number, population frequency, and FATHMM score of the SNPs associated with the phenotype term.
 
-```{code-cell} ipython3
 # Code for: An illustration of how the confidence score is calculated (shaded area).  - `shaded-score`
-```
 
-```{code-cell} ipython3
 # Code for: Ranked scores for `DOID:1324` - the disease ontology term Lung Cancer (left) and HP:0008518 - the human phenotype ontology term for Absent/underdeveloped sacral bone (right). These represent an interesting and uninteresting distribution of scores, respectively.  - `ranked-scores`
-```
 
 ### Outputs of the predictor
 
