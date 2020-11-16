@@ -1,12 +1,23 @@
 (c04-snowflake)=
 # Phenotype prediction with `Snowflake`
 
-This Chapter describes a phenotype prediction method that I worked on alongside Jan Zaucha, Ben Smithers and Julian Gough. The original idea for the predictor was Julian’s and he created an initial implementation of it in perl. This perl version was initially ported to Python by Ben, and subsequently contributed to heavily by both me and Jan, fixing a number of bugs, and adding essential functionality. We first worked on the same version of the predictor together, before forking the software into two different versions to suit our own research. These developments resulted in a patent{cite}`Gough2017-ik`, on which I am an author. 
+[//]: # (TODO: Cite ALSPAC here)
+[//]: # (TODO: Put in other datasets if I mention them)
+[//]: # (TODO: Cross-reference to the sections of the Chapter)
 
-The project is now being taken forward by the Computational Genomics group at MRC.
+This Chapter describes:
+ - The `Snowflake` algorithm for phenotype prediction and my contributions to it, including:
+    * Development to increase the algorithm's functionality, including:
+        + Running with different formats and numbers of inputs and background cohorts
+        + Dealing with missing calls 
+        + Alternative clustering and scoring methods
+        + Development to outputs
+    * Improvements to memory-usage and speed
+    * Development of tools to create input files for the `Snowflake`
+ - Comparisons of possible ways to cluster SNPs which were investigated in the creation of the algorithm.
+ - Attempts to validate the algorithm with it's application to the ALSPAC data set.
 
-
-[//]: # (TODO: Say what happens in this chapter exactly)
+The development of the  `Snowflake` algorithm resulted in a patent{cite}`Gough2017-ik`, on which I am an author.
 
 ---
 **Page References**
