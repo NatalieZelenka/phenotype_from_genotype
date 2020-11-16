@@ -1,7 +1,7 @@
 (c05-combining)=
 # Combining RNA-seq datasets
 
-This chapter describes my attempts to create a simulated tissue-specific dataset and to combine gene expression data from 4 large tissue-specific RNA-Seq experiments. All work in this chapter is my own.
+This chapter describes my attempts to create a simulated tissue-specific dataset and to combine gene expression data from 4 large tissue-specific RNA-Seq experiments. 
 
 Gene expression data measures the number of transcribed proteins in a sample at a specific time. It's a popular experimental technique as demonstrated by the 3,564 studies and 112,225 assays currently available on Gene Expression Atlas website {cite}`Petryszak2016-je`. Researchers use this data to characterise gene function.
 
@@ -14,7 +14,8 @@ This chapter combines four gene expression data sets, collating sample and tissu
 [//]: # (TODO: Explain the structure of this chapter here)
 [//]: # (TODO: Add figures)
 [//]: # (TODO: Tidy structure of 0-index and 1-background)
-
+[//]: # (TODO: Clearly outline my contribitions and any published e.g. preprint)
+[//]: # (TODO: Move most stuff to bg/introduction)
 
 ---
 **Page References**
