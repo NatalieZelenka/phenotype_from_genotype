@@ -170,7 +170,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/3-bias.html#summary">
+    <a class="reference internal" href="../c03-compbio-background/4-summary.html">
      3.4. Summary
     </a>
    </li>
@@ -584,12 +584,12 @@
 </div>
 <div class="section" id="snps-are-mapped-to-phenotype-terms-using-dcgo-and-dbsnp">
 <h3>SNPs are mapped to phenotype terms using DcGO and dbSNP<a class="headerlink" href="#snps-are-mapped-to-phenotype-terms-using-dcgo-and-dbsnp" title="Permalink to this headline">¶</a></h3>
-<p>DcGO<a class="bibtex reference internal" href="../end-matter/reference.html#fang2013-ms" id="id2">[1]</a> is used to map combinations of protein domains to their associated phenotype terms, using a false discovery rate cut-off of <span class="math notranslate nohighlight">\(10^{-3}\)</span> or less. SNPs are therefore mapped to phenotype terms by whether they fall in a gene whose protein contains domains or combinations of domains that are statistically associated with a phenotype. In order to do this, DcGO makes use of SUPERFAMILY<a class="bibtex reference internal" href="../end-matter/reference.html#gough2001-ct" id="id3">[4]</a> domain assignments, and a variety of ontology annotations (GO<a class="bibtex reference internal" href="../end-matter/reference.html#ashburner2000-cr" id="id4">[5]</a>, MPO<a class="bibtex reference internal" href="../end-matter/reference.html#smith2005-uh" id="id5">[6]</a>, HP<a class="bibtex reference internal" href="../end-matter/reference.html#robinson2010-ga" id="id6">[7]</a>, DOID<a class="bibtex reference internal" href="../end-matter/reference.html#schriml2012-dz" id="id7">[8]</a> and others).</p>
-<p>Using DcGO means that phenotypes are only mapped to protein if the link is statistically significant due to the protein’s contingent domains. This leaves out some known protein-phenotype links, where the function may be due to disorder for example rather than protein domain structure. Known phenotype-associated variants are therefore added back in using dbSNP<a class="bibtex reference internal" href="../end-matter/reference.html#sherry2001-nm" id="id8">[9]</a>.</p>
+<p>DcGO<a class="bibtex reference internal" href="../end-matter/reference.html#fang2013-ms" id="id2">[1]</a> is used to map combinations of protein domains to their associated phenotype terms, using a false discovery rate cut-off of <span class="math notranslate nohighlight">\(10^{-3}\)</span> or less. SNPs are therefore mapped to phenotype terms by whether they fall in a gene whose protein contains domains or combinations of domains that are statistically associated with a phenotype. In order to do this, DcGO makes use of SUPERFAMILY<a class="bibtex reference internal" href="../end-matter/reference.html#gough2001-ct" id="id3">[25]</a> domain assignments, and a variety of ontology annotations (GO<a class="bibtex reference internal" href="../end-matter/reference.html#ashburner2000-cr" id="id4">[28]</a>, MPO<a class="bibtex reference internal" href="../end-matter/reference.html#smith2005-uh" id="id5">[7]</a>, HP<a class="bibtex reference internal" href="../end-matter/reference.html#robinson2010-ga" id="id6">[8]</a>, DOID<a class="bibtex reference internal" href="../end-matter/reference.html#schriml2012-dz" id="id7">[9]</a> and others).</p>
+<p>Using DcGO means that phenotypes are only mapped to protein if the link is statistically significant due to the protein’s contingent domains. This leaves out some known protein-phenotype links, where the function may be due to disorder for example rather than protein domain structure. Known phenotype-associated variants are therefore added back in using dbSNP<a class="bibtex reference internal" href="../end-matter/reference.html#sherry2001-nm" id="id8">[11]</a>.</p>
 </div>
 <div class="section" id="snps-are-given-deleteriousness-scores-using-fathmm">
 <h3>SNPs are given deleteriousness scores using FATHMM<a class="headerlink" href="#snps-are-given-deleteriousness-scores-using-fathmm" title="Permalink to this headline">¶</a></h3>
-<p>The phenotype predictor uses the unweighted FATHMM scores<a class="bibtex reference internal" href="../end-matter/reference.html#shihab2013-pk" id="id9">[3]</a> to get scores per SNP for the likelihood of it causing a deleterious mutation. This is based on conservation of protein domains across all life, according to data from SUPERFAMILY<a class="bibtex reference internal" href="../end-matter/reference.html#gough2001-ct" id="id10">[4]</a> and Pfam<a class="bibtex reference internal" href="../end-matter/reference.html#bateman2002-bz" id="id11">[10]</a>.</p>
+<p>The phenotype predictor uses the unweighted FATHMM scores<a class="bibtex reference internal" href="../end-matter/reference.html#shihab2013-pk" id="id9">[3]</a> to get scores per SNP for the likelihood of it causing a deleterious mutation. This is based on conservation of protein domains across all life, according to data from SUPERFAMILY<a class="bibtex reference internal" href="../end-matter/reference.html#gough2001-ct" id="id10">[25]</a> and Pfam<a class="bibtex reference internal" href="../end-matter/reference.html#bateman2002-bz" id="id11">[10]</a>.</p>
 <p>This method gives SNPs the same base FATHMM score for being deleterious, no matter which phenotype we are predicting them for. It is therefore the combination of SNPs per phenotype, and their rarity in the population that determines the phenotype prediction score.</p>
 </div>
 <div class="section" id="comparison-to-a-background-via-clustering">
@@ -635,7 +635,7 @@ $<span class="math notranslate nohighlight">\(score_{ij}=L_{ij}+\mu_{\gamma} \cd
 </div>
 <div class="section" id="adding-snp-phenotype-associations-from-dbsnp">
 <h3>Adding SNP-phenotype associations from dbSNP<a class="headerlink" href="#adding-snp-phenotype-associations-from-dbsnp" title="Permalink to this headline">¶</a></h3>
-<p>As mentioned in the overview, using DcGO as the only SNP-phenotype mapping leaves out some known associations that are not due to protein domain structure. Adding dbSNP<a class="bibtex reference internal" href="../end-matter/reference.html#sherry2001-nm" id="id18">[9]</a> associations to the predictor was one of my contributions to this software.</p>
+<p>As mentioned in the overview, using DcGO as the only SNP-phenotype mapping leaves out some known associations that are not due to protein domain structure. Adding dbSNP<a class="bibtex reference internal" href="../end-matter/reference.html#sherry2001-nm" id="id18">[11]</a> associations to the predictor was one of my contributions to this software.</p>
 </div>
 <div class="section" id="dealing-with-missing-calls">
 <h3>Dealing with missing calls<a class="headerlink" href="#dealing-with-missing-calls" title="Permalink to this headline">¶</a></h3>
@@ -717,6 +717,15 @@ Since the VCF file created in Step 1 is larger than needed by <code class="docut
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c04-snowflake/2-snowflake-algorithm-0"><dl class="citation">
+<dt class="bibtex label" id="sherry2001-nm"><span class="brackets">11</span><span class="fn-backref">(<a href="#id8">1</a>,<a href="#id18">2</a>)</span></dt>
+<dd><p>S T Sherry. dbSNP: the NCBI database of genetic variation. <em>Nucleic Acids Res.</em>, 29(1):308–311, 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/29.1.308">http://dx.doi.org/10.1093/nar/29.1.308</a>.</p>
+</dd>
+<dt class="bibtex label" id="gough2001-ct"><span class="brackets">25</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id10">2</a>)</span></dt>
+<dd><p>J Gough, K Karplus, R Hughey, and C Chothia. Assignment of homology to genome sequences using a library of hidden markov models that represent all proteins of known structure. <em>J. Mol. Biol.</em>, 313(4):903–919, November 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1006/jmbi.2001.5080">http://dx.doi.org/10.1006/jmbi.2001.5080</a>.</p>
+</dd>
+<dt class="bibtex label" id="ashburner2000-cr"><span class="brackets"><a class="fn-backref" href="#id4">28</a></span></dt>
+<dd><p>M Ashburner, C A Ball, J A Blake, D Botstein, H Butler, J M Cherry, A P Davis, K Dolinski, S S Dwight, J T Eppig, M A Harris, D P Hill, L Issel-Tarver, A Kasarskis, S Lewis, J C Matese, J E Richardson, M Ringwald, G M Rubin, and G Sherlock. Gene ontology: tool for the unification of biology. the gene ontology consortium. <em>Nat. Genet.</em>, 25(1):25–29, May 2000. URL: <a class="reference external" href="http://dx.doi.org/10.1038/75556">http://dx.doi.org/10.1038/75556</a>.</p>
+</dd>
 <dt class="bibtex label" id="fang2013-ms"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
 <dd><p>Hai Fang and Julian Gough. DcGO: database of domain-centric ontologies on functions, phenotypes, diseases and more. <em>Nucleic Acids Res.</em>, 41(Database issue):D536–44, January 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gks1080">http://dx.doi.org/10.1093/nar/gks1080</a>.</p>
 </dd>
@@ -726,23 +735,14 @@ Since the VCF file created in Step 1 is larger than needed by <code class="docut
 <dt class="bibtex label" id="consortium2015-ci"><span class="brackets">3</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id12">2</a>,<a href="#id13">3</a>,<a href="#id15">4</a>)</span></dt>
 <dd><p>The 1000 Genomes Project Consortium and The 1000 Genomes Project Consortium. A global reference for human genetic variation. <em>Nature</em>, 526(7571):68–74, 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nature15393">http://dx.doi.org/10.1038/nature15393</a>.</p>
 </dd>
-<dt class="bibtex label" id="gough2001-ct"><span class="brackets">4</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id10">2</a>)</span></dt>
-<dd><p>J Gough, K Karplus, R Hughey, and C Chothia. Assignment of homology to genome sequences using a library of hidden markov models that represent all proteins of known structure. <em>J. Mol. Biol.</em>, 313(4):903–919, November 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1006/jmbi.2001.5080">http://dx.doi.org/10.1006/jmbi.2001.5080</a>.</p>
-</dd>
-<dt class="bibtex label" id="ashburner2000-cr"><span class="brackets"><a class="fn-backref" href="#id4">5</a></span></dt>
-<dd><p>M Ashburner, C A Ball, J A Blake, D Botstein, H Butler, J M Cherry, A P Davis, K Dolinski, S S Dwight, J T Eppig, M A Harris, D P Hill, L Issel-Tarver, A Kasarskis, S Lewis, J C Matese, J E Richardson, M Ringwald, G M Rubin, and G Sherlock. Gene ontology: tool for the unification of biology. the gene ontology consortium. <em>Nat. Genet.</em>, 25(1):25–29, May 2000. URL: <a class="reference external" href="http://dx.doi.org/10.1038/75556">http://dx.doi.org/10.1038/75556</a>.</p>
-</dd>
-<dt class="bibtex label" id="smith2005-uh"><span class="brackets"><a class="fn-backref" href="#id5">6</a></span></dt>
+<dt class="bibtex label" id="smith2005-uh"><span class="brackets"><a class="fn-backref" href="#id5">7</a></span></dt>
 <dd><p>Cynthia L Smith, Carroll-Ann W Goldsmith, and Janan T Eppig. The mammalian phenotype ontology as a tool for annotating, analyzing and comparing phenotypic information. <em>Genome Biol.</em>, 6(1):R7, 2005. URL: <a class="reference external" href="http://dx.doi.org/10.1186/gb-2004-6-1-r7">http://dx.doi.org/10.1186/gb-2004-6-1-r7</a>.</p>
 </dd>
-<dt class="bibtex label" id="robinson2010-ga"><span class="brackets"><a class="fn-backref" href="#id6">7</a></span></dt>
+<dt class="bibtex label" id="robinson2010-ga"><span class="brackets"><a class="fn-backref" href="#id6">8</a></span></dt>
 <dd><p>P N Robinson and S Mundlos. The human phenotype ontology. <em>Clin. Genet.</em>, 77(6):525–534, 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1111/j.1399-0004.2010.01436.x">http://dx.doi.org/10.1111/j.1399-0004.2010.01436.x</a>.</p>
 </dd>
-<dt class="bibtex label" id="schriml2012-dz"><span class="brackets"><a class="fn-backref" href="#id7">8</a></span></dt>
+<dt class="bibtex label" id="schriml2012-dz"><span class="brackets"><a class="fn-backref" href="#id7">9</a></span></dt>
 <dd><p>Lynn Marie Schriml, Cesar Arze, Suvarna Nadendla, Yu-Wei Wayne Chang, Mark Mazaitis, Victor Felix, Gang Feng, and Warren Alden Kibbe. Disease ontology: a backbone for disease semantic integration. <em>Nucleic Acids Res.</em>, 40(Database issue):D940–6, January 2012. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkr972">http://dx.doi.org/10.1093/nar/gkr972</a>.</p>
-</dd>
-<dt class="bibtex label" id="sherry2001-nm"><span class="brackets">9</span><span class="fn-backref">(<a href="#id8">1</a>,<a href="#id18">2</a>)</span></dt>
-<dd><p>S T Sherry. dbSNP: the NCBI database of genetic variation. <em>Nucleic Acids Res.</em>, 29(1):308–311, 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/29.1.308">http://dx.doi.org/10.1093/nar/29.1.308</a>.</p>
 </dd>
 <dt class="bibtex label" id="bateman2002-bz"><span class="brackets"><a class="fn-backref" href="#id11">10</a></span></dt>
 <dd><p>Alex Bateman, Ewan Birney, Lorenzo Cerruti, Richard Durbin, Laurence Etwiller, Sean R Eddy, Sam Griffiths-Jones, Kevin L Howe, Mhairi Marshall, and Erik L L Sonnhammer. The pfam protein families database. <em>Nucleic Acids Res.</em>, 30(1):276–280, January 2002. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/30.1.276">http://dx.doi.org/10.1093/nar/30.1.276</a>.</p>

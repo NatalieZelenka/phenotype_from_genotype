@@ -20,6 +20,7 @@
       - file: c03-compbio-background/1-measuring-genotype-phenotype
       - file: c03-compbio-background/2-comp-bio-methods
       - file: c03-compbio-background/3-bias
+      - file: c03-compbio-background/4-summary
   - file: c04-snowflake/0-index
     sections:
       - file: c04-snowflake/1-introduction

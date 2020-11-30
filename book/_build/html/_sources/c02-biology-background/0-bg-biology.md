@@ -54,6 +54,7 @@ A photo of the original six-foot tall metal model of DNA made by Watson and Cric
 
 Most people recognise the double helix of deoxyribonucleic acid (DNA) shown in {numref}`dna-metal-model`, it’s a twisted ladder consisting of four nucleotides; adenine, cytosine, thymine, and guanine (A, C, T, G). It the “code of life” that contains the instructions for making all of the things which make up our bodies and the obvious starting point for understanding how they work. A given nucleotide on one strand is always linked to its partner on the other strand - A with T, and G with C - which creates redundancy and a convenient copying mechanism. Lengths of DNA are measured in these base pairs (bp). 
 
+[//]: # (TODO: Explain chromosomes and mitochondria v. briefly.)
 
 ### RNA, and the central dogma of molecular biology
 [//]: # (TODO: Cite DNA makes RNA makes proteins.)
@@ -126,7 +127,7 @@ Genes are also not necessarily a “unit of heritability” - we inherit regions
 
 (genomes=)
 #### Genomes
-The genome is the full amount of DNA belonging to an organism. We can talk about the genome of an individual, or about the genome of an organism (e.g. the human genome). When we talk about an organisms's genome, we do so in relation to an example genome for that organism, a *reference* genome, which does not belong to any particular person, but instead is supposed to have the most common nucleotide each location. 
+The genome is the full amount of DNA belonging to an organism. We can talk about the genome of an individual, or about the genome of an organism (e.g. the human genome). When we talk about an individual organism's genome, we do so in relation to an example genome for that organism, a *reference* genome, which does not belong to any particular individual, but instead is supposed to have the most common nucleotide each location. 
 
 [//]: # (TODO: describe exome? Put in how much of genome is covered by SNPs?)
 The human genome is 3 billion base pairs long, and contains approximately 20,000 genes (which make up around 2% of the genome).
@@ -201,51 +202,6 @@ While protein domains exist in one confirmation, not all linkers are rigid. Flex
 Intrinsically disordered proteins can exist in a number of conformations, rather than one fixed structure. On some occasions, the disordered regions are known to be functional, while on others, proteins may be non-functional until they bind with another macromolecule which forces them into a fixed conformation.
 
 [//]: # (TODO: Potentially add something about protein families and superfamilies here.)
-### Reading DNA and RNA
-[//]: # (TODO: Move to bioinformatics part? Or no?)
-
-(sequencing-technology)=
-#### Sequencing technology
-[//]: # (TODO: rewrite)
-
-The process of reading DNA and RNA is called sequencing. From the late 1970’s until the mid 2000s, Sanger sequencing was the most popular sequencing technology, although it underwent various improvements over this timescale. In Sanger sequencing (and other first-generation methods), reads of around 800bp are sequenced, one at a time. The human genome project sequenced the first human genome using this method{cite}`Venter2001-wn`, and it’s still used in some circumstances, for example validating next generation sequencing. It was much more popular to sequence DNA than RNA with this type of technology.
-
-Second, or next generation sequencing (NGS), also referred to as high-throughput sequencing, is a catch-all term for the faster and cheaper sequencing technologies which replaced the previously used Sanger sequencing. A feature that is common to NGS methods is that many shorter reads (around 100bp, exact numbers depending on the specific technology) are sequenced in parallel. The process is massively parallel: millions to billions of short sequences can be read at a time. This is a huge factor in making NGS much faster (and therefore cheaper) than Sanger sequencing. In turn, this speed and cheapness means that more repeats can be sequenced, increasing the overall accuracy of NGS over Sanger (despite the accuracy of each individual read being generally lower). NGS can be used for sequencing either DNA or RNA (known as RNA-seq when applied to the whole transcriptome). 
-
-There are now also third generation sequencing technologies that allow much longer reads to be sequenced.
-
-##### RNA-seq 
-While (NGS) DNA-sequencing and RNA-seq can use the same underlying NGS technologies, there exist some notable differences. For example, RNA is reverse-transcribed into strands of complementary DNA, before being sequenced, since sequencing DNA is currently easier than sequencing RNA. RNA-seq is used much less often for de novo sequencing, and is generally mapped to a reference sequence. 
-
-Since transcription is dependent on time, tissue, location, cell, etc, RNA-seq experiments are also dependent on all of these conditions. Furthermore, they are sensitive to differences in laboratory conditions and experimental design, creating artefacts in the resulting data known as batch effects. 
-
-##### Microarrays
-Through the 1970s into the early 2000s, DNA arrays/microarrays developed alongside sequencing as a way of measuring the presence of previously sequenced DNA in new samples. These arrays contain pre-chosen fragments of DNA (probes) arranged in spots, with each spot containing many copies of the probe, on a solid surface, e.g. glass, silicon or plastic. The probes consist of single strands of DNA, and arrays operate on the principle that the complementary DNA from the sample will bind tightly to it.
-
-These arrays were originally macro-sized, one of the first being 26 × 38 cm and containing 144 probes{cite}`Bumgarner2013-hg`, but are now on small chips, which can contain up to millions of probes.
-
-Arrays were extremely popular for measuring gene expression, but this technology has largely been superseded by the more accurate and comprehensive RNA-seq. However, microarrays are still commonly used by companies like 23andMe for genotyping an individual (measuring specific alleles).
-
-(assembly-and-alignment)=
-#### Assembly and alignment
-
-[//]: # (TODO: Check that aligment is referenced in the text and that the image is)
-
-```{figure} ../images/alignment.png
----
-height: 240px
-name: alignment
----
-Image showing how RNA-Seq reads are mapped to the genome (image from Advancing RNA-Seq Analysis {cite}`Haas2010-lm`). A similar process is followed for DNA.
-``` ``
-
-[//]: # (TODO: delete extra backticks)
-
-[//]: # (TODO: Have I said the word exome before this point? What about de novo?)
-
-The short reads that are the output of initial sequencing must be assembled to create longer sequences of DNA, whether that’s sequencing of individual genes, whole exome sequencing (WES) or whole genome sequencing (WGS). This is done by aligning reads to one another and (if available) to an existing reference sequence. This of course requires the reads to overlap, so longer and more numerous reads make this task easier. The process and underlying algorithms differ considerably whether the sequence being assembled can be mapped to an existing sequence or is being created de novo.
-
-The current estimate for raw sequencing accuracy of an individual NGS read is around 0.24%{cite}`Pfeiffer2018-kt`, meaning that on average one base pair will be incorrect for a 500pb read. Multiple repeats are therefore required to obtain a more accurate measurement of the assembled sequence, which is further necessary since there are many repeated sequences (perhaps over two thirds of the human genome{cite}`De_Koning2011-ac`). The depth (or coverage) for a nucleotide is the number of reads that overlap that nucleotide. Similarly, the average depth of a sequence can be calculated. 
 
 [//]: # (TODO: Rename this section to be about phenotype)
 
