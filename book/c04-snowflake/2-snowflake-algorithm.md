@@ -120,6 +120,7 @@ Implementing these running modes and increases in efficiency was a collaborative
 As mentioned in the overview, using DcGO as the only SNP-phenotype mapping leaves out some known associations that are not due to protein domain structure. Adding dbSNP{cite}`Sherry2001-nm` associations to the predictor was one of my contributions to this software. 
 
 #### Dealing with missing calls 
+[//]: # (TODO: What about the Y chromosome?)
 Genotyping SNP arrays often contain missing calls, where the call can not be accurately determined. This is an obstacle to the phenotype predictor if left unchecked as it can appear that an individual has a very unusual call when it is really just unknown. Sincce most people have a call, the missing call is unusual, and this is flagged.
 
 The most sensible solution to this problem is to assign the most common call for the individual’s cluster (i.e. combination of SNPs). This prevents a new cluster being formed or an individual appearing to be more unusual than they are. However, there is a downside to this approach when there are many missing calls. Adding all missing calls to a cluster that was only slightly more common than the alternatives can lead to the new cluster containing the missing data dwarfing the others. To fix this, SNPs with many missing calls were discarded. This implementation of missing calls was one of my personal contributions.
@@ -158,6 +159,8 @@ For the base versions of the background cohort, we create:
 - A `.Consequence` file containing conservation scores per SNP
 - A VCF file containing the genetic data for the background set that overlaps with the information in the `.Consequence` file.
 
+[//]: # (TODO: Optional for thesis: Upload scripts which do this to `snowflake` repo: `deletesparecomments.py`)
+
 **Step 1: Acquire variant information as a large temporary VCF file**
 We first create a large VCF file containing all possible variants.
 
@@ -185,7 +188,8 @@ Since the VCF file created in Step 1 is larger than needed by `Snowflake`, we th
 
 +++
 
-### `snowflake create_inputs`
+(snowflake-create-input)=
+### `snowflake create_input`
 
 +++
 

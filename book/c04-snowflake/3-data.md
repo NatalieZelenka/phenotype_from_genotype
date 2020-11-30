@@ -30,15 +30,20 @@ This section describes the sources and pipelines for creating input files.
 [//]: # (TODO: Further describe the value of the dataset and what it is generally used for)
 The Avon Longitudinal Study of Parents and Children, ALSPAC{cite}`Golding2001-oj` (a.k.a. the children of the 90s) is a cohort of over 14,000 families from the Avon area. A wealth of phenotype information has also been collected from these families, through a series of voluntary surveys and clinics.
 
-Due to the private nature of the data, we were granted access to the genotype data first, then allowed to request a small number of high-scoring phenotypes after running the predictor.
+Due to the personal and private nature of the data, we were granted access to the genotype data first, then allowed to request a small number of high-scoring phenotypes after running the predictor.
 [//]: # (TODO: link ethics approval docs (put on OSF?)
 
 Although the ALSPAC dataset is large, it is not very diverse, therefore the 1000 genomes project (Phase 1) genomes were used as a background set.
 
 ##### Genotypes
 [//]: # (TODO: Write)
-[//]: # (TODO: Cross-ref to description of VCF creation in previous section)
 Of the 14,000+ families in the ALSPAC cohort, 8365 of the children were genotyped by 23andMe and passed quality control. The participants were genotyped using the 23andme v2 chip, which measures ~550,000 SNPS.
+
+[//]: # (TODO: Fix cross-ref)
+[//]: # (TODO: Optional for thesis: Link to reproducible versions of scripts that do this: form_alspac_vcf, form_alspac_consequence)
+These 23andMe files use build 36 of the human reference genome, so a 36 build version of the `.vcf` and `.Consequence` files for ALSPAC were made first (created with the `snowflake create_input` command described in {numref}`snowflake-create-input`), before converting them to the build 37 versions which were used for input to the `Snowflake`. 
+
+[//]: # (TODO: Here?? EDA: Number of variants overlap with 1000G)
 
 +++
 

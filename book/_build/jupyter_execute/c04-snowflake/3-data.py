@@ -8,43 +8,35 @@ This section describes the sources and pipelines for creating input files.
 
 ### Data sources
 
-#### Background data sets: The 1000 Genomes Project
-[//]: # (TODO: cross-ref to overview)
-As described in the overview, `Snowflake` requires a genetic "background" data set, so that meaningful clustering can take place. Snowflake has the functionality to be run with any background data set, but few datasets are available that contain genetic data from a wide range of populations.
-
-[//]: # (TODO: cross ref to whole genome sequencing)
-The 1000 Genomes project{cite}`Consortium2015-ci,1000_Genomes_Project_Consortium2012-ek` ran from 2008 to 2015, with the aim of comprehensively mapping human genetic variation across diverse populations. The project sequenced whole genomes, and released data in two main phases:
-- Phase 1: 37.9 million variants, in 1092 individuals, across 14 populations
-- Phase 3: 84.4 million, in 2504 individuals, across 26 populations
-
-Data from the 1000 Genomes project are always used for the background cohort to `Snowflake` in this thesis, with data from the 1000 Genomes project Phase 3{cite}`Consortium2015-ci` used as a default, and earlier experiments using data from Phase 1{cite}`1000_Genomes_Project_Consortium2012-ek`. 
-
-For both phases of the 1000 Genomes project, data are provided as VCF files for each Chromosome. Both data sets are available through the [International Genome Sequencing Resource](https://www.internationalgenome.org/data){cite}`Fairley2020-hp` (IGSR); phase 1 VCFs can be downloaded [here](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/), and phase 3 VCFs can be downloaded [here](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/).
-
-### ALSPAC
+#### ALSPAC
 [//]: # (TODO: Further describe the value of the dataset and what it is generally used for)
-The Avon Longitudinal Study of Parents and Children, ALSPAC{cite}`Golding2001-oj` (a.k.a. the children of the 90s) is a cohort of over 14,000 families from the Avon area. Of these, 8365 of the children were genotyped by 23andMe and passed quality control. The participants were genotyped using the 23andme v2 chip, which measures ~550,000 SNPS. A wealth of phenotype information has also been collected from these families, through a series of voluntary surveys and clinics.
+The Avon Longitudinal Study of Parents and Children, ALSPAC{cite}`Golding2001-oj` (a.k.a. the children of the 90s) is a cohort of over 14,000 families from the Avon area. A wealth of phenotype information has also been collected from these families, through a series of voluntary surveys and clinics.
 
-#### Phenotypes
-Due to the private nature of the data, we were granted access to the genotype data first, then allowed to request a small number of high-scoring phenotypes after running the predictor.
-
+Due to the personal and private nature of the data, we were granted access to the genotype data first, then allowed to request a small number of high-scoring phenotypes after running the predictor.
 [//]: # (TODO: link ethics approval docs (put on OSF?)
 
+Although the ALSPAC dataset is large, it is not very diverse, therefore the 1000 genomes project (Phase 1) genomes were used as a background set.
+
+##### Genotypes
+[//]: # (TODO: Write)
+Of the 14,000+ families in the ALSPAC cohort, 8365 of the children were genotyped by 23andMe and passed quality control. The participants were genotyped using the 23andme v2 chip, which measures ~550,000 SNPS.
+
+[//]: # (TODO: Fix cross-ref)
+[//]: # (TODO: Optional for thesis: Link to reproducible versions of scripts that do this: form_alspac_vcf, form_alspac_consequence)
+These 23andMe files use build 36 of the human reference genome, so a 36 build version of the `.vcf` and `.Consequence` files for ALSPAC were made first (created with the `snowflake create_input` command described in {numref}`snowflake-create-input`), before converting them to the build 37 versions which were used for input to the `Snowflake`. 
+
+[//]: # (TODO: Here?? EDA: Number of variants overlap with 1000G)
+
+##### Phenotypes
 [//]: # (TODO: explain that using the catalogue - and link - ALSPAC phenotypes matching the DcGO phenotypes were chosen for the highest scoring things on a the prototype version. Maybe explain that due to the sensitivity of this to other things, they were not the highest ranking things any more).
 
 [//]: # (TODO: Rewrite paragraph below:)
-We had ethics approval to run the anonymised genotype information for the ALSPAC cohort in the phenotype predictor, and then to request phenotype information for the top-scoring phenotypes. The phenotype predictor was run on this cohort. Unfortunately the majority of the top-predicted phenotype terms (Ataxia, Abnormal Fat Cell Morphology, Abnormal Fetal Development) did not map cleanly to ALSPAC phenotypes, and those that did (e.g. Intellectual Disability) had many missing values, or did not overlap with the genotyped individuals.
+The majority of the top-predicted phenotype terms (Ataxia, Abnormal Fat Cell Morphology, Abnormal Fetal Development) did not map cleanly to ALSPAC phenotypes, and those that did (e.g. Intellectual Disability) had many missing values, or did not overlap with the genotyped individuals.
 
+[//]: # (TODO: EDA Graph: What phenotypes do we have?)
 [//]: # (TODO: EDA Graph: Phenotype missing data)
 
 [//]: # (TODO: Cite lack of diversity).
-Although the ALSPAC dataset is large, it is not very diverse, therefore the 1000 genomes project (Phase 1) genomes were used as a background set.
-
-#### Original data format
-[//]: # (TODO: Write)
-**Genotype data format**
-
-**Phenotype data format**
 
 ### Athletes
 [//]: # (TODO: Write)
@@ -53,43 +45,6 @@ Although the ALSPAC dataset is large, it is not very diverse, therefore the 1000
 [//]: # (TODO: Write)
 
 ### Data Pipelines
-
-#### Pipeline for creating background cohort inputs
-For any given run of `Snowflake`, we are only interested in variants where:
-- there is overlap between the background cohort, the predictive cohort
-- AND we have conservation information so that we can score the deleteriousnss of the variant.
-
-[//]: # (TODO: Come up with a name for the none-background genetic data set and use it consistently)
-We first create base versions of the `Snowflake` background cohort input files, and then create slimmed versions of the background set (with only the overlapping variants for each input/predictive dataset) for each input run.
-
-For the base versions of the background cohort, we create:
-- A `.Consequence` file containing conservation scores per SNP
-- A VCF file containing the genetic data for the background set that overlaps with the information in the `.Consequence` file.
-
-**Step 1: Acquire variant information as a large temporary VCF file**
-We first create a large VCF file containing all possible variants.
-
-In order to make the `.Consequence` file it is necessary to have a list of all variants of interest; their locations on the genome, and the possible variants at that location. 
-
-In the case of the 1000 Genomes project, we create a large temporary VCF file by downloading and concatenating the per chromosome VCF files (minus the meta data at the top for all bar the first, which is the same for all files). 
-
-**Step 2: Create `.Consequence` file**
-After obtaining the large VCF file, we then:
-- trim the VCF file to contain only the necessary columns (first 10) to reduce the amount of memory required in the next step.
-- run these variants through the [Variant Effect Predictor](https://www.ensembl.org/info/docs/tools/vep/index.html), using the correct build.
-- grep for "missense"
-- run `snowflake create-consequence` to get a FATHMM score for each missense variant and create the `.Consequence` file.
-
-**Step 3: Create the base background VCF**
-Since the VCF file created in Step 1 is larger than needed by `Snowflake`, we then reduce the temporary VCF file (created in Step 1) to only the proteins in the `.Consequence` file created in Step 2. Other variants will not be used by the predictor, and this substantially reduces the memory needed to run `Snowflake`.
-
-[//]: # (TODO: Write about the diversity/limitations of the 2500 genomes project).
-[//]: # (TODO: Write about the impact of the fact that the 2500 genomes project is whole genome sequencing, while the rest is mostly genotype data)
-[//]: # (TODO: Put somewhere -after creating the VCF and `.Consequence` files for the input individuals, we create a slimmed version of the background cohort files)
-
-##### 1000 Genome Project background files
-[//]: # (TODO: Write)
-[//]: # (TODO: Exploratory Data Analysis/Data set stats here)
 
 #### Pipeline for creating VCF files from 23andMe data
 The CAGI, Athletes, and ALSPAC datasets were all genotyped using 23andMe, so the following applies to all of these datasets.

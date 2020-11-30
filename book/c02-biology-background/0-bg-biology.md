@@ -13,6 +13,7 @@ My aim in this Chapter is threefold:
 1. to provide information about the provenance of data that computational biologists use, in order to aid in discussions about the limitations of the data in later chapters<!--TODO: which ones-->.
 1. to provide a basic run-down of molecular biology, in order to allow someone without a biology background to understand the rest of this thesis. 
 
+(big.questions)=
 ### Big questions: What is genetically determined?
 
 Why are people the way we are? Which aspects of people are inherited? What is fixed by genetics and what can be changed by the way we live our lives? These are long-standing human questions, with obvious applications to medicine.
@@ -23,6 +24,7 @@ The ancient theory of soft inheritance{cite}`Zirkle1935-sb` said that people can
 
 When Watson and Crick discovered the now familiar structure of DNA in 1953, we took a huge step towards being able to answer these questions, and understood that it was possible to read the “code of life”. It wasn’t until 2003 with the completion of the human genome project that researchers had access to that whole code for a person, and scientists could set about trying to decode it. 
 
+[//]: # (TODO: Do we have "many" whole genomes?)
 The eventual destination that many scientists in this field have in mind is a full understanding of how our individual genomes and their interaction with the environment affects us. We’re still a long way off, but we now have many human genomes to investigate, as well as a fuller understanding of how other aspects of our molecular makeup (for example epi-genetics or microbiomes) affect us. We have not yet arrived in the future of personalised medicine, but we do now have a lot of information about the different processes through which genotype is influencing phenotype. This section provides an overview of our current understanding.
 
 [//]: # (TODO: Cite Watson + Crick) 
@@ -31,9 +33,9 @@ The eventual destination that many scientists in this field have in mind is a fu
 [//]: # (TODO: The idea of what and how something is genetically determined is difficult to define. Intuitively, we define it based on how much of the variability we can measure is determined by genes: this is called *heritability*. 100% heritable - eye colour, 0% heritable - taste in clothes - or somewhere in between on this linear scale. This must be a simplification: a lot of the traits that we're trying to measure are more complex than that, for example athletic performance, aggressive behaviour, sexual preferences... Heritability also depends on the definition of a "normal" environment. It may be that there is an environmental influence we could dream up that would change our eye colour, then eye colour would no longer be 100% heritable. What we actually want to know is the relationship between genetics and the environment: a causal diagram for all phenotypes.)
 
 ### Building blocks
-
 Here I explain the key classes of biological molecules that are vital in our understanding of inheritance: the nucleic acids, DNA and RNA, and their product - proteins. 
 
+(what-is-dna)=
 #### DNA
 
 [//]: # (TODO: Sort out figure labelling. Use TOC to go through in order and replace for the site and PDF)
@@ -46,6 +48,9 @@ name: dna-metal-model
 ---
 A photo of the original six-foot tall metal model of DNA made by Watson and Crick in 1953. Image from the Cold Spring Harbor Archives{cite}`noauthor_undated-ih`.
 ```
+```
+
+[//]: # (TODO: delete extra backticks )
 
 Most people recognise the double helix of deoxyribonucleic acid (DNA) shown in {numref}`dna-metal-model`, it’s a twisted ladder consisting of four nucleotides; adenine, cytosine, thymine, and guanine (A, C, T, G). It the “code of life” that contains the instructions for making all of the things which make up our bodies and the obvious starting point for understanding how they work. A given nucleotide on one strand is always linked to its partner on the other strand - A with T, and G with C - which creates redundancy and a convenient copying mechanism. Lengths of DNA are measured in these base pairs (bp). 
 
@@ -88,6 +93,8 @@ alt: The figure shows an amino acid chart. It consists of three concentric circl
 An amino acid wheel chart (from sigmaaldrich.com{cite}`noauthor_undated-ic`) showing the mapping between nucleotide codons and amino acids. The chart is read from the inside out, so for example, UGA is a stop codon, and UUG encodes for leucine ("Leu").
 ``` ``
 
+[//]: # (TODO: Delete extra backticks)
+
 The process by which RNA is made into a protein is known as translation. First the RNA is converted into a string of amino acids, and then the string of amino acids automatically folds into its’ usual three dimensional structure. The protein folding aspect is not part of translation.
 
 This process is mostly carried out by a large and complex piece of molecular machinery called the ribosome. The ribosome reads and processes RNA in sets of three nucleotides at a time - these are called codons. Each codon is either a flag to the ribosome (e.g “stop here”, “start here”) or corresponds to an amino acid. Although we would expect $4^3=64$ permutations of nucleotides, there are only 21 different amino acids which can be incorporated into proteins in humans, so there is redundancy: multiple codons can encode for the same amino acids. We can see this clearly in {numref}`amino-acid-wheel`, for example, UAA, UGA, and UAG are all read as stop codons.
@@ -117,8 +124,12 @@ Genes are also not a straightforward unit. Just because a gene is read to create
 
 Genes are also not necessarily a “unit of heritability” - we inherit regions around genes together with them and do not necessarily inherit whole copies of each gene from each parent (although this is rare). 
 
+(genomes=)
 #### Genomes
-The genome is the full amount of DNA belonging to an organism. We can talk about the genome of an individual, or about the genome of an organism (e.g. the human genome). We talk about the human genome in relation to an example human genome called a reference genome, which does not belong to any particular person, but instead is supposed to have the most common nucleotide for humans at each location. The human genome is 3 billion base pairs long, and contains approximately 20,000 genes (which make up around 2% of the genome).
+The genome is the full amount of DNA belonging to an organism. We can talk about the genome of an individual, or about the genome of an organism (e.g. the human genome). When we talk about an organisms's genome, we do so in relation to an example genome for that organism, a *reference* genome, which does not belong to any particular person, but instead is supposed to have the most common nucleotide each location. 
+
+[//]: # (TODO: describe exome? Put in how much of genome is covered by SNPs?)
+The human genome is 3 billion base pairs long, and contains approximately 20,000 genes (which make up around 2% of the genome).
 
 #### Genetic variation
 As you are no doubt aware, individuals of the same species share the vast majority of their DNA. Genetic variation is the difference in DNA sequence between individuals in a population, and variants are locations on an organisms genome where we observe variation between individuals. There are different types of genetic variation, for example indels (insertions and deletions)- where small sections of DNA are inserted or deleted from the genome - and copy number variations (CNVs) where larger stretches of the genome are repeated. However, the most well-studied and common type of genetic variation between humans are single nucleotide polymorphisms (SNPs, pronounced “snips”).
@@ -130,7 +141,7 @@ A SNP is a location on an organism’s genome where there are differences of a s
 
 Variation at a location does not imply a disease-causing effect, many SNPs are neutral. Much of the time, the aim of studying such variants is to determine which are which. This is often done through looking at their rarity, either in a specific human population (e.g. people with diabetes), the entire human population, or across the tree of life. 
 
-SNPs are defined by their location on a human reference genome. An individual allele for a given SNP is defined as “wild” type if it matches the reference genome and “mutant” if it does not. The reference genome does not always have the most common allele at each location, although this is it’s aim, so “wild” and “mutant” do not necessarily imply anything about rarity. 
+SNPs are defined by their location on a human reference genome, for example Chr1: . An individual allele for a given SNP is defined as “wild” type if it matches the reference genome and “mutant” if it does not. The reference genome does not always have the most common allele at each location, although this is it’s aim, so “wild” and “mutant” do not necessarily imply anything about rarity. 
 
 If there are only two nucleotide possibilities for a SNP (e.g. A or C), then it is called bi-allelic; the vast majority of SNPs are of this type. Multi-allelic SNPs (e.g. A, T or C) are much rarer. 
 
@@ -176,6 +187,8 @@ alt: The figure shows a red lego block linked to a yellow lego block, which is t
 ---
 An illustration of the lego analogy for protein domains. Coloured bricks represent protein domains - colour represents a specific protein domain type, while thin grey bricks represent polypeptide linkers which link domains. Image created using mecabricks{cite}`Jarraud2019-jj`
 ```
+```
+[//]: # (TODO: delete extra ```)
 
 The quaternary structures of proteins - protein domains - have proved particularly interesting for research. A simple and oft-used metaphor is to think of protein domains as lego building blocks ({numref}`lego`) which can be linked by polypeptide chains to make up a protein. These polypeptide chains (known as linkers) are often inflexible, in order to allow only one conformation of the protein. Small and simple proteins often consist of just one domain, while bigger proteins can contain many domains. An individual domain can be found in many different proteins, and multiple times in the same protein. 
 
@@ -189,8 +202,11 @@ Intrinsically disordered proteins can exist in a number of conformations, rather
 
 [//]: # (TODO: Potentially add something about protein families and superfamilies here.)
 ### Reading DNA and RNA
+[//]: # (TODO: Move to bioinformatics part? Or no?)
 
+(sequencing-technology)=
 #### Sequencing technology
+[//]: # (TODO: rewrite)
 
 The process of reading DNA and RNA is called sequencing. From the late 1970’s until the mid 2000s, Sanger sequencing was the most popular sequencing technology, although it underwent various improvements over this timescale. In Sanger sequencing (and other first-generation methods), reads of around 800bp are sequenced, one at a time. The human genome project sequenced the first human genome using this method{cite}`Venter2001-wn`, and it’s still used in some circumstances, for example validating next generation sequencing. It was much more popular to sequence DNA than RNA with this type of technology.
 
@@ -210,6 +226,7 @@ These arrays were originally macro-sized, one of the first being 26 × 38 cm and
 
 Arrays were extremely popular for measuring gene expression, but this technology has largely been superseded by the more accurate and comprehensive RNA-seq. However, microarrays are still commonly used by companies like 23andMe for genotyping an individual (measuring specific alleles).
 
+(assembly-and-alignment)=
 #### Assembly and alignment
 
 [//]: # (TODO: Check that aligment is referenced in the text and that the image is)
@@ -220,7 +237,9 @@ height: 240px
 name: alignment
 ---
 Image showing how RNA-Seq reads are mapped to the genome (image from Advancing RNA-Seq Analysis {cite}`Haas2010-lm`). A similar process is followed for DNA.
-```
+``` ``
+
+[//]: # (TODO: delete extra backticks)
 
 [//]: # (TODO: Have I said the word exome before this point? What about de novo?)
 

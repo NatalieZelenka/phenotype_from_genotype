@@ -3,7 +3,7 @@
 [//]: # (TODO: fix cross ref it's not working:)
 
 ### Motivation
-How does phenotype arise from genotype? In {numref}`c02-biology-bg`, we discussed the theoretical mechanisms: differences in DNA cause differences in cell functionality, which interact with the cell environment to create differences in overall phenotype. Efforts to disentangle which genes affect which phenotypes generally take a reductionist approach where we look closely at one particular gene or phenotype. Predicting an individual human phenotype is then based on combinations of mutations that have been discovered through these processes. This chapter describes a radical alternative: predicting human phenotype from genotype directly from data about both the molecular reality of these mutations, together with data about their distributions in the population.
+How does phenotype arise from genotype? In {ref}`Chapter 2<c02-biology-bg>`, we discussed the theoretical mechanisms: differences in DNA cause differences in cell functionality, which interact with the cell environment to create differences in overall phenotype. Efforts to disentangle which genes affect which phenotypes generally take a reductionist approach where we look closely at one particular gene or phenotype. Predicting an individual human phenotype is then based on combinations of mutations that have been discovered through these processes. This chapter describes a radical alternative: predicting human phenotype from genotype directly from data about both the molecular reality of these mutations, together with data about their distributions in the population.
 
 [//]: # (TODO: When are other approaches successful? What are the downsides?)
 

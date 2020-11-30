@@ -1,20 +1,41 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Snowflake Algorithm &#8212; Phenotype from Genotype</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -23,9 +44,9 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -37,8 +58,8 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -58,22 +79,19 @@
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../jupyter_book_intro.html">
    Start Here
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Front Matter
  </span>
@@ -115,7 +133,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Main book
  </span>
@@ -131,12 +149,36 @@
    2. Biology Background
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c03-compbio-background/0-compbio-bg.html">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c03-compbio-background/0-index.html">
    3. Computational Biology Background
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/1-measuring-genotype-phenotype.html">
+     3.1. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/2-comp-bio-methods.html">
+     3.2. How large computational biology datasets are used
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-bias.html">
+     3.3. Sources of bias in computational biology datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-bias.html#summary">
+     3.4. Summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="0-index.html">
    4. Phenotype prediction with
    <code class="docutils literal notranslate">
@@ -145,16 +187,124 @@
     </span>
    </code>
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-results.html">
+     4.2. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-discussion.html">
+     4.3. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-future-work.html">
+     4.4. Future Work
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../c05-combining/0-index.html">
    5. Combining RNA-seq datasets
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/1-background.html">
+     5.1.1. Background
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/2-data.html">
+     5.1.2. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/3-data-wrangling.html">
+     5.1.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/4-uberon.html">
+     5.1.4. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       uberon-py
+      </span>
+     </code>
+     package
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/4-uberon.html#functionality">
+     5.1.5. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/5-batch-correction.html">
+     5.1.6. Batch correction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/6-results.html">
+     5.1.7. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/7-future-work.html">
+     5.1.8. Future Work
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../c06-filter/0-index.html">
    6. Filtering computational predictions with tissue-specific expression information
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-data.html">
+     6.2. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-methods.html">
+     6.3. Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/4-results.html">
+     6.4. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-discussion.html">
+     6.5. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-future-work.html">
+     6.6. Future work
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
@@ -162,7 +312,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   End Matter
  </span>
@@ -175,9 +325,7 @@
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -206,11 +354,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         <a class="dropdown-buttons"
@@ -225,14 +373,15 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -258,19 +407,32 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
+  <a class="reference internal nav-link" href="#snowflake-predict">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     snowflake
+    </span>
+    <span class="pre">
+     predict
+    </span>
+   </code>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#snps-are-mapped-to-phenotype-terms-using-dcgo">
-     SNPs are mapped to phenotype terms using DcGO
+    <a class="reference internal nav-link" href="#overview">
+     Overview
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#snps-are-mapped-to-phenotype-terms-using-dcgo-and-dbsnp">
+     SNPs are mapped to phenotype terms using DcGO and dbSNP
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -280,7 +442,12 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparison-to-a-background-via-clustering">
-     Comparison to a background via clustering,
+     Comparison to a background via clustering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background-data-sets-the-1000-genomes-project">
+     Background data sets: The 1000 Genomes Project
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -315,16 +482,77 @@
      Confidence score per phenotype
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#outputs">
+     Outputs
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outputs-of-the-predictor">
-   Outputs of the predictor
+  <a class="reference internal nav-link" href="#snowflake-create-background">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     snowflake
+    </span>
+    <span class="pre">
+     create_background
+    </span>
+   </code>
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#genome-project-background-files">
+     1000 Genome Project background files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#snowflake-create-input">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     snowflake
+    </span>
+    <span class="pre">
+     create_input
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#snowflake-preprocessing">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     snowflake
+    </span>
+    <span class="pre">
+     preprocessing
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inputs">
+     Inputs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     Outputs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#method">
+     Method
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -333,36 +561,52 @@
               <div>
                 
   <div class="section" id="snowflake-algorithm">
-<h1>Snowflake Algorithm<a class="headerlink" href="#snowflake-algorithm" title="Permalink to this headline">¶</a></h1>
+<h1><code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> Algorithm<a class="headerlink" href="#snowflake-algorithm" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of the <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> algorithm is</p>
+<p>This section describes the <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> phenotype prediction algorithm that I developed alongside Jan Zaucha, Ben Smithers and Julian Gough.</p>
+<p>The original idea for the predictor was Julian’s and he created an initial implementation of it in perl. This perl version was initially ported to Python by Ben, and subsequently contributed to heavily by both me and Jan, where we both fixed a number of bugs, and added essential functionality. We then forked the software into two different versions to suit our own research, mine focusing on human phenotype prediction. The project is now being taken forward by the Computational Genomics group at MRC led by Julian.</p>
+<div class="section" id="snowflake-predict">
+<h2><code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">predict</span></code><a class="headerlink" href="#snowflake-predict" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="snowflake-overview">
 <a class="reference internal image-reference" href="../_images/snowflake-overview.png"><img alt="../_images/snowflake-overview.png" src="../_images/snowflake-overview.png" style="height: 220px;" /></a>
 <p class="caption"><span class="caption-text">Flowchart showing an overview of the phenotype predictor. Scores are generated per allele using SUPERFAMILY, FATHMM and dcGO for both the input genotype(s), and the background genotypes. These data points are then combined into a matrix, which is then clustered..</span><a class="headerlink" href="#snowflake-overview" title="Permalink to this image">¶</a></p>
 </div>
-<p><code class="xref std std-numref docutils literal notranslate"><span class="pre">snowflake-overview</span></code> shows how the phenotype predictor is run. One or more genotypes (in 23andme, or VCF format) are needed as input. Each genotype will be compared against all others, including (optionally) a diverse background set from the 2500 genomes project<a class="bibtex reference internal" href="#consortium2015-ci" id="id1">[3]</a>.</p>
+<p><code class="xref std std-numref docutils literal notranslate"><span class="pre">snowflake-overview</span></code> shows how an overview of how <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> operates. One or more genotypes (in VCF format) are needed: this is the <em>input cohort</em>. Each genotype will be compared against all others, including (optionally) a diverse background set from the 1000 Genomes Project<a class="bibtex reference internal" href="../end-matter/reference.html#consortium2015-ci" id="id1">[3]</a>.</p>
 <ol class="simple">
-<li><p>For each phenotype <span class="math notranslate nohighlight">\(i\)</span>, a list of SNPS is generated such that the SNPs are associated with the phenotype (according to DcGO), and the SNPs are present in the input individuals.</p></li>
-<li><p>The input SNPS are given deleterious scores (using FATHMM), and this us used to construct an <span class="math notranslate nohighlight">\(N_{i}\times M\)</span> matrix of scores is created based on the individual’s alleles for each of these SNPs, (where <span class="math notranslate nohighlight">\(N\)</span>=number of SNPs and <span class="math notranslate nohighlight">\(M\)</span>=number of individuals).</p></li>
+<li><p>For each phenotype <span class="math notranslate nohighlight">\(i\)</span>, a list of SNPs is generated such that the SNPs are associated with the phenotype (according to DcGO), and the SNPs are present in the input individuals.</p></li>
+<li><p>The input SNPs are given deleterious scores (using FATHMM), and this us used to construct an <span class="math notranslate nohighlight">\(N_{i}\times M\)</span> matrix of scores is created based on the individual’s alleles for each of these SNPs, (where <span class="math notranslate nohighlight">\(N\)</span>=number of SNPs and <span class="math notranslate nohighlight">\(M\)</span>=number of individuals).</p></li>
 <li><p>Individuals of interest are clustered by SNP, alongside a diverse background of other people</p></li>
 <li><p>A score is calculated per person per phenotype, designed to calculate how much of an outlier the person is according to their SNPs for a given phenotype.</p></li>
 </ol>
 <p>Further detail on these steps is provided below:</p>
-<!--TODO: Check in detail how the following tools are described in the background section and reference back to them.-->
-<div class="section" id="snps-are-mapped-to-phenotype-terms-using-dcgo">
-<h3>SNPs are mapped to phenotype terms using DcGO<a class="headerlink" href="#snps-are-mapped-to-phenotype-terms-using-dcgo" title="Permalink to this headline">¶</a></h3>
-<p>DcGO<a class="bibtex reference internal" href="#fang2013-ms" id="id2">[34]</a> is used to map combinations of protein domains to their associated phenotype terms, using a false discovery rate cut-off of <span class="math notranslate nohighlight">\(10^{-3}\)</span> or less. SNPs are therefore mapped to phenotype terms by whether they fall in a gene whose protein contains domains or combinations of domains that are statistically associated with a phenotype. In order to do this, DcGO makes use of SUPERFAMILY<a class="bibtex reference internal" href="#gough2001-ct" id="id3">[33]</a> domain assignments, and a variety of ontology annotations (GO<a class="bibtex reference internal" href="#ashburner2000-cr" id="id4">[17]</a>, MPO<a class="bibtex reference internal" href="#smith2005-uh" id="id5">[72]</a>, HP<a class="bibtex reference internal" href="#robinson2010-ga" id="id6">[73]</a>, DOID<a class="bibtex reference internal" href="#schriml2012-dz" id="id7">[74]</a> and others).</p>
-<p>Using DcGO means that phenotypes are only mapped to protein if the link is statistically significant due to the protein’s contingent domains. This leaves out some known protein-phenotype links, where the function may be due to disorder for example rather than protein domain structure. Known phenotype-associated variants are therefore added back in using dbSNP<a class="bibtex reference internal" href="#sherry2001-nm" id="id8">[19]</a>.</p>
+</div>
+<div class="section" id="snps-are-mapped-to-phenotype-terms-using-dcgo-and-dbsnp">
+<h3>SNPs are mapped to phenotype terms using DcGO and dbSNP<a class="headerlink" href="#snps-are-mapped-to-phenotype-terms-using-dcgo-and-dbsnp" title="Permalink to this headline">¶</a></h3>
+<p>DcGO<a class="bibtex reference internal" href="../end-matter/reference.html#fang2013-ms" id="id2">[1]</a> is used to map combinations of protein domains to their associated phenotype terms, using a false discovery rate cut-off of <span class="math notranslate nohighlight">\(10^{-3}\)</span> or less. SNPs are therefore mapped to phenotype terms by whether they fall in a gene whose protein contains domains or combinations of domains that are statistically associated with a phenotype. In order to do this, DcGO makes use of SUPERFAMILY<a class="bibtex reference internal" href="../end-matter/reference.html#gough2001-ct" id="id3">[4]</a> domain assignments, and a variety of ontology annotations (GO<a class="bibtex reference internal" href="../end-matter/reference.html#ashburner2000-cr" id="id4">[5]</a>, MPO<a class="bibtex reference internal" href="../end-matter/reference.html#smith2005-uh" id="id5">[6]</a>, HP<a class="bibtex reference internal" href="../end-matter/reference.html#robinson2010-ga" id="id6">[7]</a>, DOID<a class="bibtex reference internal" href="../end-matter/reference.html#schriml2012-dz" id="id7">[8]</a> and others).</p>
+<p>Using DcGO means that phenotypes are only mapped to protein if the link is statistically significant due to the protein’s contingent domains. This leaves out some known protein-phenotype links, where the function may be due to disorder for example rather than protein domain structure. Known phenotype-associated variants are therefore added back in using dbSNP<a class="bibtex reference internal" href="../end-matter/reference.html#sherry2001-nm" id="id8">[9]</a>.</p>
 </div>
 <div class="section" id="snps-are-given-deleteriousness-scores-using-fathmm">
 <h3>SNPs are given deleteriousness scores using FATHMM<a class="headerlink" href="#snps-are-given-deleteriousness-scores-using-fathmm" title="Permalink to this headline">¶</a></h3>
-<p>The phenotype predictor uses the unweighted FATHMM scores<a class="bibtex reference internal" href="#shihab2013-pk" id="id9">[36]</a> to get scores per SNP for the likelihood of it causing a deleterious mutation. This is based on conservation of protein domains across all life, according to data from SUPERFAMILY<a class="bibtex reference internal" href="#gough2001-ct" id="id10">[33]</a> and Pfam<a class="bibtex reference internal" href="#bateman2002-bz" id="id11">[75]</a>.</p>
+<p>The phenotype predictor uses the unweighted FATHMM scores<a class="bibtex reference internal" href="../end-matter/reference.html#shihab2013-pk" id="id9">[3]</a> to get scores per SNP for the likelihood of it causing a deleterious mutation. This is based on conservation of protein domains across all life, according to data from SUPERFAMILY<a class="bibtex reference internal" href="../end-matter/reference.html#gough2001-ct" id="id10">[4]</a> and Pfam<a class="bibtex reference internal" href="../end-matter/reference.html#bateman2002-bz" id="id11">[10]</a>.</p>
 <p>This method gives SNPs the same base FATHMM score for being deleterious, no matter which phenotype we are predicting them for. It is therefore the combination of SNPs per phenotype, and their rarity in the population that determines the phenotype prediction score.</p>
 </div>
 <div class="section" id="comparison-to-a-background-via-clustering">
-<h3>Comparison to a background via clustering,<a class="headerlink" href="#comparison-to-a-background-via-clustering" title="Permalink to this headline">¶</a></h3>
-<p>Individuals are compared to all others through clustering. This usually includes comparing each individual to the genetically diverse background of the 2500 genomes project<a class="bibtex reference internal" href="#consortium2015-ci" id="id12">[3]</a>.</p>
+<h3>Comparison to a background via clustering<a class="headerlink" href="#comparison-to-a-background-via-clustering" title="Permalink to this headline">¶</a></h3>
+<p>Individuals are compared to all others through clustering. This usually includes comparing each individual to the genetically diverse background of the 2500 genomes project<a class="bibtex reference internal" href="../end-matter/reference.html#consortium2015-ci" id="id12">[3]</a>.</p>
 <p>Clustering is the task of grouping objects into a number of groups (clusters) so that items in the same cluster are similar to each other by some measure. There are many clustering algorithms, but most are unsupervised learning algorithms which iterate while looking to minimise dissimilarity in the same cluster. A number of options were implemented for the predictor, but for the time being at least, OPTICS is used as a default.</p>
+</div>
+<div class="section" id="background-data-sets-the-1000-genomes-project">
+<h3>Background data sets: The 1000 Genomes Project<a class="headerlink" href="#background-data-sets-the-1000-genomes-project" title="Permalink to this headline">¶</a></h3>
+<p>As described in the overview, <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> requires a genetic “background” data set, so that meaningful clustering can take place. Snowflake has the functionality to be run with any background data set, but few datasets are available that contain genetic data from a wide range of populations.</p>
+<p>The 1000 Genomes project<a class="bibtex reference internal" href="../end-matter/reference.html#consortium2015-ci" id="id13">[3]</a><a class="bibtex reference internal" href="../end-matter/reference.html#genomes-project-consortium2012-ek" id="id14">[11]</a> ran from 2008 to 2015, with the aim of comprehensively mapping human genetic variation across diverse populations. The project sequenced whole genomes, and released data in two main phases:</p>
+<ul class="simple">
+<li><p>Phase 1: 37.9 million variants, in 1092 individuals, across 14 populations</p></li>
+<li><p>Phase 3: 84.4 million, in 2504 individuals, across 26 populations</p></li>
+</ul>
+<p>Data from the 1000 Genomes project are always used for the background cohort to <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> in this thesis, with data from the 1000 Genomes project Phase 3<a class="bibtex reference internal" href="../end-matter/reference.html#consortium2015-ci" id="id15">[3]</a> used as a default, and earlier experiments using data from Phase 1<a class="bibtex reference internal" href="../end-matter/reference.html#genomes-project-consortium2012-ek" id="id16">[11]</a>.</p>
+<p>For both phases of the 1000 Genomes project, data are provided as VCF files for each Chromosome. Both data sets are available through the <a class="reference external" href="https://www.internationalgenome.org/data">International Genome Sequencing Resource</a><a class="bibtex reference internal" href="../end-matter/reference.html#fairley2020-hp" id="id17">[12]</a> (IGSR); phase 1 VCFs can be downloaded <span class="xref myst">here</span>, and phase 3 VCFs can be downloaded <span class="xref myst">here</span>.</p>
 </div>
 <div class="section" id="phenotype-score">
 <h3>Phenotype score<a class="headerlink" href="#phenotype-score" title="Permalink to this headline">¶</a></h3>
@@ -391,13 +635,13 @@ $<span class="math notranslate nohighlight">\(score_{ij}=L_{ij}+\mu_{\gamma} \cd
 </div>
 <div class="section" id="adding-snp-phenotype-associations-from-dbsnp">
 <h3>Adding SNP-phenotype associations from dbSNP<a class="headerlink" href="#adding-snp-phenotype-associations-from-dbsnp" title="Permalink to this headline">¶</a></h3>
-<p>As mentioned in the overview, using DcGO as the only SNP-phenotype mapping leaves out some known associations that are not due to protein domain structure. Adding dbSNP<a class="bibtex reference internal" href="#sherry2001-nm" id="id13">[19]</a> associations to the predictor was one of my contributions to this software.</p>
+<p>As mentioned in the overview, using DcGO as the only SNP-phenotype mapping leaves out some known associations that are not due to protein domain structure. Adding dbSNP<a class="bibtex reference internal" href="../end-matter/reference.html#sherry2001-nm" id="id18">[9]</a> associations to the predictor was one of my contributions to this software.</p>
 </div>
 <div class="section" id="dealing-with-missing-calls">
 <h3>Dealing with missing calls<a class="headerlink" href="#dealing-with-missing-calls" title="Permalink to this headline">¶</a></h3>
 <p>Genotyping SNP arrays often contain missing calls, where the call can not be accurately determined. This is an obstacle to the phenotype predictor if left unchecked as it can appear that an individual has a very unusual call when it is really just unknown. Sincce most people have a call, the missing call is unusual, and this is flagged.</p>
 <p>The most sensible solution to this problem is to assign the most common call for the individual’s cluster (i.e. combination of SNPs). This prevents a new cluster being formed or an individual appearing to be more unusual than they are. However, there is a downside to this approach when there are many missing calls. Adding all missing calls to a cluster that was only slightly more common than the alternatives can lead to the new cluster containing the missing data dwarfing the others. To fix this, SNPs with many missing calls were discarded. This implementation of missing calls was one of my personal contributions.</p>
-<p>Alternatives such as assigning the most common call for that SNP only, or assigning an average score for that SNP dimension by carrying out a “normalised cut”<a class="bibtex reference internal" href="#poland2006-gd" id="id14">[76]</a> are untenable since they can create the same problem we are trying to overcome: the appearance of an individual having an unusual combination of calls.</p>
+<p>Alternatives such as assigning the most common call for that SNP only, or assigning an average score for that SNP dimension by carrying out a “normalised cut”<a class="bibtex reference internal" href="../end-matter/reference.html#poland2006-gd" id="id19">[13]</a> are untenable since they can create the same problem we are trying to overcome: the appearance of an individual having an unusual combination of calls.</p>
 </div>
 <div class="section" id="confidence-score-per-phenotype">
 <h3>Confidence score per phenotype<a class="headerlink" href="#confidence-score-per-phenotype" title="Permalink to this headline">¶</a></h3>
@@ -419,47 +663,102 @@ $<span class="math notranslate nohighlight">\(score_{ij}=L_{ij}+\mu_{\gamma} \cd
 </div>
 </div>
 </div>
+<div class="section" id="outputs">
+<h3>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="outputs-of-the-predictor">
-<h2>Outputs of the predictor<a class="headerlink" href="#outputs-of-the-predictor" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="snowflake-create-background">
+<h2><code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">create_background</span></code><a class="headerlink" href="#snowflake-create-background" title="Permalink to this headline">¶</a></h2>
+<p>For any given run of <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code>, we are only interested in variants where:</p>
+<ul class="simple">
+<li><p>there is overlap between the background cohort, the predictive cohort</p></li>
+<li><p>AND we have conservation information so that we can score the deleteriousnss of the variant.</p></li>
+</ul>
+<p>We first create base versions of the <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> background cohort input files, and then create slimmed versions of the background set (with only the overlapping variants for each input/predictive dataset) for each input run.</p>
+<p>For the base versions of the background cohort, we create:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> file containing conservation scores per SNP</p></li>
+<li><p>A VCF file containing the genetic data for the background set that overlaps with the information in the <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> file.</p></li>
+</ul>
+<p><strong>Step 1: Acquire variant information as a large temporary VCF file</strong>
+We first create a large VCF file containing all possible variants.</p>
+<p>In order to make the <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> file it is necessary to have a list of all variants of interest; their locations on the genome, and the possible variants at that location.</p>
+<p>In the case of the 1000 Genomes project, we create a large temporary VCF file by downloading and concatenating the per chromosome VCF files (minus the meta data at the top for all bar the first, which is the same for all files).</p>
+<p><strong>Step 2: Create <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> file</strong>
+After obtaining the large VCF file, we then:</p>
+<ul class="simple">
+<li><p>trim the VCF file to contain only the necessary columns (first 10) to reduce the amount of memory required in the next step.</p></li>
+<li><p>run these variants through the <a class="reference external" href="https://www.ensembl.org/info/docs/tools/vep/index.html">Variant Effect Predictor</a>, using the correct build.</p></li>
+<li><p>grep for “missense”</p></li>
+<li><p>run <code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">create-consequence</span></code> to get a FATHMM score for each missense variant and create the <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> file.</p></li>
+</ul>
+<p><strong>Step 3: Create the base background VCF</strong>
+Since the VCF file created in Step 1 is larger than needed by <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code>, we then reduce the temporary VCF file (created in Step 1) to only the proteins in the <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> file created in Step 2. Other variants will not be used by the predictor, and this substantially reduces the memory needed to run <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code>.</p>
+<p><span class="xref myst">//</span>: # (TODO: Write about the diversity/limitations of the 2500 genomes project).
+<span class="xref myst">//</span>: # (TODO: Write about the impact of the fact that the 2500 genomes project is whole genome sequencing, while the rest is mostly genotype data)
+<span class="xref myst">//</span>: # (TODO: Put somewhere -after creating the VCF and <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> files for the input individuals, we create a slimmed version of the background cohort files)</p>
+<div class="section" id="genome-project-background-files">
+<h3>1000 Genome Project background files<a class="headerlink" href="#genome-project-background-files" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="snowflake-create-input">
+<span id="id20"></span><h2><code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">create_input</span></code><a class="headerlink" href="#snowflake-create-input" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="snowflake-preprocessing">
+<h2><code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">preprocessing</span></code><a class="headerlink" href="#snowflake-preprocessing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="inputs">
+<h3>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id21">
+<h3>Outputs<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="method">
+<h3>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h3>
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c04-snowflake/2-snowflake-algorithm-0"><dl class="citation">
-<dt class="bibtex label" id="ashburner2000-cr"><span class="brackets"><a class="fn-backref" href="#id4">17</a></span></dt>
-<dd><p>M Ashburner, C A Ball, J A Blake, D Botstein, H Butler, J M Cherry, A P Davis, K Dolinski, S S Dwight, J T Eppig, M A Harris, D P Hill, L Issel-Tarver, A Kasarskis, S Lewis, J C Matese, J E Richardson, M Ringwald, G M Rubin, and G Sherlock. Gene ontology: tool for the unification of biology. the gene ontology consortium. <em>Nat. Genet.</em>, 25(1):25–29, May 2000. URL: <a class="reference external" href="http://dx.doi.org/10.1038/75556">http://dx.doi.org/10.1038/75556</a>.</p>
-</dd>
-<dt class="bibtex label" id="sherry2001-nm"><span class="brackets">19</span><span class="fn-backref">(<a href="#id8">1</a>,<a href="#id13">2</a>)</span></dt>
-<dd><p>S T Sherry. dbSNP: the NCBI database of genetic variation. <em>Nucleic Acids Res.</em>, 29(1):308–311, 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/29.1.308">http://dx.doi.org/10.1093/nar/29.1.308</a>.</p>
-</dd>
-<dt class="bibtex label" id="gough2001-ct"><span class="brackets">33</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id10">2</a>)</span></dt>
-<dd><p>J Gough, K Karplus, R Hughey, and C Chothia. Assignment of homology to genome sequences using a library of hidden markov models that represent all proteins of known structure. <em>J. Mol. Biol.</em>, 313(4):903–919, November 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1006/jmbi.2001.5080">http://dx.doi.org/10.1006/jmbi.2001.5080</a>.</p>
-</dd>
-<dt class="bibtex label" id="fang2013-ms"><span class="brackets"><a class="fn-backref" href="#id2">34</a></span></dt>
+<dt class="bibtex label" id="fang2013-ms"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
 <dd><p>Hai Fang and Julian Gough. DcGO: database of domain-centric ontologies on functions, phenotypes, diseases and more. <em>Nucleic Acids Res.</em>, 41(Database issue):D536–44, January 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gks1080">http://dx.doi.org/10.1093/nar/gks1080</a>.</p>
 </dd>
-<dt class="bibtex label" id="shihab2013-pk"><span class="brackets"><a class="fn-backref" href="#id9">36</a></span></dt>
+<dt class="bibtex label" id="shihab2013-pk"><span class="brackets"><a class="fn-backref" href="#id9">3</a></span></dt>
 <dd><p>Hashem A Shihab, Julian Gough, David N Cooper, Peter D Stenson, Gary L A Barker, Keith J Edwards, Ian N M Day, and Tom R Gaunt. Predicting the functional, molecular, and phenotypic consequences of amino acid substitutions using hidden markov models. <em>Hum. Mutat.</em>, 34(1):57–65, January 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1002/humu.22225">http://dx.doi.org/10.1002/humu.22225</a>.</p>
 </dd>
-<dt class="bibtex label" id="consortium2015-ci"><span class="brackets">3</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id12">2</a>)</span></dt>
+<dt class="bibtex label" id="consortium2015-ci"><span class="brackets">3</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id12">2</a>,<a href="#id13">3</a>,<a href="#id15">4</a>)</span></dt>
 <dd><p>The 1000 Genomes Project Consortium and The 1000 Genomes Project Consortium. A global reference for human genetic variation. <em>Nature</em>, 526(7571):68–74, 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nature15393">http://dx.doi.org/10.1038/nature15393</a>.</p>
 </dd>
-<dt class="bibtex label" id="smith2005-uh"><span class="brackets"><a class="fn-backref" href="#id5">72</a></span></dt>
+<dt class="bibtex label" id="gough2001-ct"><span class="brackets">4</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id10">2</a>)</span></dt>
+<dd><p>J Gough, K Karplus, R Hughey, and C Chothia. Assignment of homology to genome sequences using a library of hidden markov models that represent all proteins of known structure. <em>J. Mol. Biol.</em>, 313(4):903–919, November 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1006/jmbi.2001.5080">http://dx.doi.org/10.1006/jmbi.2001.5080</a>.</p>
+</dd>
+<dt class="bibtex label" id="ashburner2000-cr"><span class="brackets"><a class="fn-backref" href="#id4">5</a></span></dt>
+<dd><p>M Ashburner, C A Ball, J A Blake, D Botstein, H Butler, J M Cherry, A P Davis, K Dolinski, S S Dwight, J T Eppig, M A Harris, D P Hill, L Issel-Tarver, A Kasarskis, S Lewis, J C Matese, J E Richardson, M Ringwald, G M Rubin, and G Sherlock. Gene ontology: tool for the unification of biology. the gene ontology consortium. <em>Nat. Genet.</em>, 25(1):25–29, May 2000. URL: <a class="reference external" href="http://dx.doi.org/10.1038/75556">http://dx.doi.org/10.1038/75556</a>.</p>
+</dd>
+<dt class="bibtex label" id="smith2005-uh"><span class="brackets"><a class="fn-backref" href="#id5">6</a></span></dt>
 <dd><p>Cynthia L Smith, Carroll-Ann W Goldsmith, and Janan T Eppig. The mammalian phenotype ontology as a tool for annotating, analyzing and comparing phenotypic information. <em>Genome Biol.</em>, 6(1):R7, 2005. URL: <a class="reference external" href="http://dx.doi.org/10.1186/gb-2004-6-1-r7">http://dx.doi.org/10.1186/gb-2004-6-1-r7</a>.</p>
 </dd>
-<dt class="bibtex label" id="robinson2010-ga"><span class="brackets"><a class="fn-backref" href="#id6">73</a></span></dt>
+<dt class="bibtex label" id="robinson2010-ga"><span class="brackets"><a class="fn-backref" href="#id6">7</a></span></dt>
 <dd><p>P N Robinson and S Mundlos. The human phenotype ontology. <em>Clin. Genet.</em>, 77(6):525–534, 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1111/j.1399-0004.2010.01436.x">http://dx.doi.org/10.1111/j.1399-0004.2010.01436.x</a>.</p>
 </dd>
-<dt class="bibtex label" id="schriml2012-dz"><span class="brackets"><a class="fn-backref" href="#id7">74</a></span></dt>
+<dt class="bibtex label" id="schriml2012-dz"><span class="brackets"><a class="fn-backref" href="#id7">8</a></span></dt>
 <dd><p>Lynn Marie Schriml, Cesar Arze, Suvarna Nadendla, Yu-Wei Wayne Chang, Mark Mazaitis, Victor Felix, Gang Feng, and Warren Alden Kibbe. Disease ontology: a backbone for disease semantic integration. <em>Nucleic Acids Res.</em>, 40(Database issue):D940–6, January 2012. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkr972">http://dx.doi.org/10.1093/nar/gkr972</a>.</p>
 </dd>
-<dt class="bibtex label" id="bateman2002-bz"><span class="brackets"><a class="fn-backref" href="#id11">75</a></span></dt>
+<dt class="bibtex label" id="sherry2001-nm"><span class="brackets">9</span><span class="fn-backref">(<a href="#id8">1</a>,<a href="#id18">2</a>)</span></dt>
+<dd><p>S T Sherry. dbSNP: the NCBI database of genetic variation. <em>Nucleic Acids Res.</em>, 29(1):308–311, 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/29.1.308">http://dx.doi.org/10.1093/nar/29.1.308</a>.</p>
+</dd>
+<dt class="bibtex label" id="bateman2002-bz"><span class="brackets"><a class="fn-backref" href="#id11">10</a></span></dt>
 <dd><p>Alex Bateman, Ewan Birney, Lorenzo Cerruti, Richard Durbin, Laurence Etwiller, Sean R Eddy, Sam Griffiths-Jones, Kevin L Howe, Mhairi Marshall, and Erik L L Sonnhammer. The pfam protein families database. <em>Nucleic Acids Res.</em>, 30(1):276–280, January 2002. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/30.1.276">http://dx.doi.org/10.1093/nar/30.1.276</a>.</p>
 </dd>
-<dt class="bibtex label" id="poland2006-gd"><span class="brackets"><a class="fn-backref" href="#id14">76</a></span></dt>
+<dt class="bibtex label" id="genomes-project-consortium2012-ek"><span class="brackets">11</span><span class="fn-backref">(<a href="#id14">1</a>,<a href="#id16">2</a>)</span></dt>
+<dd><p>1000 Genomes Project Consortium, Goncalo R Abecasis, Adam Auton, Lisa D Brooks, Mark A DePristo, Richard M Durbin, Robert E Handsaker, Hyun Min Kang, Gabor T Marth, and Gil A McVean. An integrated map of genetic variation from 1,092 human genomes. <em>Nature</em>, 491(7422):56–65, November 2012. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nature11632">http://dx.doi.org/10.1038/nature11632</a>.</p>
+</dd>
+<dt class="bibtex label" id="fairley2020-hp"><span class="brackets"><a class="fn-backref" href="#id17">12</a></span></dt>
+<dd><p>Susan Fairley, Ernesto Lowy-Gallego, Emily Perry, and Paul Flicek. The international genome sample resource (IGSR) collection of open human genomic variation resources. <em>Nucleic Acids Res.</em>, 48(D1):D941–D947, January 2020. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkz836">http://dx.doi.org/10.1093/nar/gkz836</a>.</p>
+</dd>
+<dt class="bibtex label" id="poland2006-gd"><span class="brackets"><a class="fn-backref" href="#id19">13</a></span></dt>
 <dd><p>Jan Poland and Thomas Zeugmann. Clustering pairwise distances with missing data: maximum cuts versus normalized cuts. <em>Discovery Science</em>, pages 197–208, 2006. URL: <a class="reference external" href="http://dx.doi.org/10.1007/11893318_21">http://dx.doi.org/10.1007/11893318_21</a>.</p>
 </dd>
 </dl>
 </p>
+</div>
 </div>
 </div>
 
@@ -509,7 +808,10 @@ $<span class="math notranslate nohighlight">\(score_{ij}=L_{ij}+\mu_{\gamma} \cd
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
   </body>
 </html>

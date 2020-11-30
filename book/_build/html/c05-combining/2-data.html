@@ -1,20 +1,41 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>5.1.2. Data &#8212; Phenotype from Genotype</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -23,9 +44,9 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -39,8 +60,8 @@
     <link rel="next" title="5.1.3. Data Wrangling" href="3-data-wrangling.html" />
     <link rel="prev" title="5.1.1. Background" href="1-background.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -60,22 +81,19 @@
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../jupyter_book_intro.html">
    Start Here
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Front Matter
  </span>
@@ -117,7 +135,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Main book
  </span>
@@ -133,12 +151,36 @@
    2. Biology Background
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c03-compbio-background/0-compbio-bg.html">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c03-compbio-background/0-index.html">
    3. Computational Biology Background
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/1-measuring-genotype-phenotype.html">
+     3.1. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/2-comp-bio-methods.html">
+     3.2. How large computational biology datasets are used
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-bias.html">
+     3.3. Sources of bias in computational biology datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-bias.html#summary">
+     3.4. Summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../c04-snowflake/0-index.html">
    4. Phenotype prediction with
    <code class="docutils literal notranslate">
@@ -147,12 +189,36 @@
     </span>
    </code>
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-results.html">
+     4.2. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/6-discussion.html">
+     4.3. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/7-future-work.html">
+     4.4. Future Work
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="0-index.html">
    5. Combining RNA-seq datasets
   </a>
-  <ul class="current">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="1-background.html">
      5.1.1. Background
@@ -200,11 +266,47 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../c06-filter/0-index.html">
    6. Filtering computational predictions with tissue-specific expression information
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-data.html">
+     6.2. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-methods.html">
+     6.3. Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/4-results.html">
+     6.4. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-discussion.html">
+     6.5. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-future-work.html">
+     6.6. Future work
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
@@ -212,7 +314,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   End Matter
  </span>
@@ -225,9 +327,7 @@
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -256,11 +356,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -272,14 +372,15 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -288,6 +389,7 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -347,6 +449,7 @@
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -358,12 +461,12 @@
 <h1><span class="section-number">5.1.2. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="criteria-for-choosing-datasets">
 <h2><span class="section-number">5.1.2.1. </span>Criteria for choosing datasets<a class="headerlink" href="#criteria-for-choosing-datasets" title="Permalink to this headline">¶</a></h2>
-<p>Datasets were chosen from the EBI’s Gene Expression Atlas (GxA). A major benefit of the GxA is that experiments using the same sequencing technology are re-analysed by GxA using the same data analysis pipeline (iRAP<a class="bibtex reference internal" href="../end-matter/reference.html#fonseca2014-hp" id="id1">[2]</a> for RNA-Seq). In addition to ensuring the quality of each data set included, and running it through the same pipeline, the GxA adds additional metadata for the experiments by using the literature to biologically and technically annotate each sample.</p>
+<p>Datasets were chosen from the EBI’s Gene Expression Atlas (GxA). A major benefit of the GxA is that experiments using the same sequencing technology are re-analysed by GxA using the same data analysis pipeline (iRAP<a class="bibtex reference internal" href="../end-matter/reference.html#fonseca2014-hp" id="id1">[1]</a> for RNA-Seq). In addition to ensuring the quality of each data set included, and running it through the same pipeline, the GxA adds additional metadata for the experiments by using the literature to biologically and technically annotate each sample.</p>
 <p>Data sets from the GxA were chosen based on the following requirements.</p>
 <ul class="simple">
 <li><p><strong>Samples must be sequenced using Next Generation Sequencing</strong>, i.e. including RNA-Seq and CAGE, and excluding microarrays.</p></li>
 <li><p><strong>Data sets must contain a breadth of tissues and genes</strong> (after quality control). This is to aid batch correction by facilitating the most balanced data set design in terms of batch (experiment) to group (tissue), and in order to have good coverage of genes and tissues, which is necessary for downstream use.</p></li>
-<li><p><strong>Samples must not be disease-focused</strong>. In order to reduce the complexity of the analysis and the interpretation of the resulting data set, samples of diseased tissues or cell lines were discarded. Experiments where the focus of the data set was to investigate a particular disease or classes of diseases were discarded. Besides reducing the complexity of the analysis, this choice also made sense based on the previous guideline, since most disease datasets (with the exception of cancer datasets) tended to have a narrow breadth of tissues. I feel that including disease gene expression would be a natural extension to this work if the data allowed for it, but most GxA baseline gene expression experiments which listed organism part as a variable were focused on cancer, which is known to be tissue-non-specific<a class="bibtex reference internal" href="../end-matter/reference.html#love2014-vx" id="id2">[25]</a><a class="bibtex reference internal" href="../end-matter/reference.html#winter2004-rr" id="id3">[3]</a>.</p></li>
+<li><p><strong>Samples must not be disease-focused</strong>. In order to reduce the complexity of the analysis and the interpretation of the resulting data set, samples of diseased tissues or cell lines were discarded. Experiments where the focus of the data set was to investigate a particular disease or classes of diseases were discarded. Besides reducing the complexity of the analysis, this choice also made sense based on the previous guideline, since most disease datasets (with the exception of cancer datasets) tended to have a narrow breadth of tissues. I feel that including disease gene expression would be a natural extension to this work if the data allowed for it, but most GxA baseline gene expression experiments which listed organism part as a variable were focused on cancer, which is known to be tissue-non-specific<a class="bibtex reference internal" href="../end-matter/reference.html#love2014-vx" id="id2">[2]</a><a class="bibtex reference internal" href="../end-matter/reference.html#winter2004-rr" id="id3">[3]</a>.</p></li>
 </ul>
 <p>Of the over 3000 experiments in the GxA, 1134 contain human samples, and just less than 3% of those (30 experiments) are baseline gene expression experiments. Of these there are 4 which offer a good coverage of non-disease organism parts. The data sets that were chosen to be used in the combined data set are detailed below.</p>
 <div class="section" id="measures-of-gene-expression">
@@ -406,11 +509,11 @@ For these reasons, I have taken a gene-centric approach here. It may be importan
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c05-combining/2-data-0"><dl class="citation">
-<dt class="bibtex label" id="love2014-vx"><span class="brackets"><a class="fn-backref" href="#id2">25</a></span></dt>
-<dd><p>Michael I Love, Wolfgang Huber, and Simon Anders. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. <em>Genome Biol.</em>, 15(12):550, 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1186/s13059-014-0550-8">http://dx.doi.org/10.1186/s13059-014-0550-8</a>.</p>
-</dd>
-<dt class="bibtex label" id="fonseca2014-hp"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dt class="bibtex label" id="fonseca2014-hp"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>Nuno A Fonseca, Robert Petryszak, John Marioni, and Alvis Brazma. iRAP - an integrated RNA-seq analysis pipeline. Preprint, June 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1101/005991">http://dx.doi.org/10.1101/005991</a>.</p>
+</dd>
+<dt class="bibtex label" id="love2014-vx"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Michael I Love, Wolfgang Huber, and Simon Anders. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. <em>Genome Biol.</em>, 15(12):550, 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1186/s13059-014-0550-8">http://dx.doi.org/10.1186/s13059-014-0550-8</a>.</p>
 </dd>
 <dt class="bibtex label" id="winter2004-rr"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
 <dd><p>Eitan E Winter, Leo Goodstadt, and Chris P Ponting. Elevated rates of protein secretion, evolution, and disease among tissue-specific genes. <em>Genome Res.</em>, 14(1):54–61, January 2004. URL: <a class="reference external" href="http://dx.doi.org/10.1101/gr.1924004">http://dx.doi.org/10.1101/gr.1924004</a>.</p>
@@ -505,7 +608,10 @@ For these reasons, I have taken a gene-centric approach here. It may be importan
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
   </body>
 </html>

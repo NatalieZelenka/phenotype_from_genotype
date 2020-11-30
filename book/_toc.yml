@@ -15,7 +15,11 @@
   chapters:
   - file: c01-introduction/intro
   - file: c02-biology-background/0-bg-biology
-  - file: c03-compbio-background/0-compbio-bg
+  - file: c03-compbio-background/0-index
+    sections:
+      - file: c03-compbio-background/1-measuring-genotype-phenotype
+      - file: c03-compbio-background/2-comp-bio-methods
+      - file: c03-compbio-background/3-bias
   - file: c04-snowflake/0-index
     sections:
       - file: c04-snowflake/1-introduction
