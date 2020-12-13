@@ -36,7 +36,7 @@ Now we're going to look at the details of how this is measured and stored in com
 Since smaller pieces of DNA are generally talked about in relation to the whole genome, we'll go from big to small, beginning with whole genomes and moving through to individual SNPs.
 
 #### Whole genome
-The entire whole genome is all the genetic material of an organism. In humans, this means all chromosomal and mitochondrial DNA, whether or not it is transcribed into RNA, or translated into proteins.
+The whole genome is all the genetic material of an organism. In humans, this means all chromosomal and mitochondrial DNA, whether or not it is transcribed into RNA, or translated into proteins.
 No sequencing technology can read whole chromosomes end to end: all work by reading shorter lengths of DNA (*reads*).
 
 (sequencing-technology)=
