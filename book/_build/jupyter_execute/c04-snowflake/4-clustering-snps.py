@@ -1,5 +1,6 @@
 ## Considerations for Clustering SNPs
 [//]: # (TODO: Write this section)
+[//]: # (TODO: Intrinsin dimensionality)
 [//]: # (TODO: Explain that heterozygous SNPs can also be disease-causing and that sometimes we will be looking to score highly just homozygous people and sometimes homo and heterozygous people. Give examples from SNPedia. Maybe move this to overview?)
 In this section, I discuss the implementation of clustering and outlier detection methodologies for SNPs.
 

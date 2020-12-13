@@ -1,5 +1,7 @@
 ## Discussion
-It is disappointing that the phenotype predictor does not produce statistically significant results. However, the phenotype predictor may yet be useful for revealing candidate SNPs for certain kinds of diseases, and when a suitable data set becomes available (e.g. through the growing number of publicly available genotypes on platforms such as OpenSNP{cite}`Greshake2014-mp`), this method will still be ready to be tested. An alternative validation would be experimentally testing a prediction (e.g. with knockouts) of a phenotype with a highly interesting distribution of scores.
+It is disappointing that the phenotype predictor does not produce statistically significant results.
+However, the phenotype predictor may yet be useful for revealing candidate SNPs for certain kinds of diseases, and when a suitable data set becomes available (e.g. through the growing number of publicly available genotypes on platforms such as OpenSNP{cite}`Greshake2014-mp`), this method will still be ready to be tested. 
+An alternative validation would be experimentally testing a prediction (e.g. with knockouts) of a phenotype with a highly interesting distribution of scores.
 
 [//]: # (TODO: How many terms appear to be successful? How many more than we would expect? Does this imply how much of our biology is influenced by missense mutations versus other tyoes? Or is it more of a relfection of the quality of our data.)
 
