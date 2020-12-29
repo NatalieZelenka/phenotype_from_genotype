@@ -146,10 +146,44 @@
    1. Introduction
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
    2. Biology Background
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: domains and disorder
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Linking genotype and phenotype: associations between regions of DNA and traits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../c03-compbio-background/0-index.html">
@@ -321,6 +355,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../end-matter/reference.html">
    Bibliography
   </a>
@@ -400,31 +439,31 @@
   <div class="section" id="discussion">
 <h1><span class="section-number">4.3. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h1>
 <p>It is disappointing that the phenotype predictor does not produce statistically significant results.
-However, the phenotype predictor may yet be useful for revealing candidate SNPs for certain kinds of diseases, and when a suitable data set becomes available (e.g. through the growing number of publicly available genotypes on platforms such as OpenSNP<a class="bibtex reference internal" href="#greshake2014-mp" id="id1">[85]</a>), this method will still be ready to be tested.
+However, the phenotype predictor may yet be useful for revealing candidate SNPs for certain kinds of diseases, and when a suitable data set becomes available (e.g. through the growing number of publicly available genotypes on platforms such as OpenSNP<a class="bibtex reference internal" href="../end-matter/reference.html#greshake2014-mp" id="id1">[1]</a>), this method will still be ready to be tested.
 An alternative validation would be experimentally testing a prediction (e.g. with knockouts) of a phenotype with a highly interesting distribution of scores.</p>
-<p>Despite much development effort, there remain some idiosyncrasies to the predictor. For example, DcGO can map multiple terms to the same set of SNPs. This can sometimes be a diverse group of phenotypes which do not tend to co-occur in individuals and when this occurs, it is likely that we cannot make a good prediction. A semantic similarity measure, such as GOGO<a class="bibtex reference internal" href="#zhao2018-rw" id="id2">[86]</a> or Wang’s method<a class="bibtex reference internal" href="#wang2007-yc" id="id3">[87]</a> could be used to check this, and update the confidence score accordingly.</p>
-<p>There are also clearly many aspects of the molecular biology mentioned in chapter 1 that are not represented in the model used by the phenotype predictor. For example, nonsense mutations, regulatory networks, the environment of the cell (e.g. tissue-specific gene expression). Updating the predictor to include these things could potentially give the predictor enough power to be validated on existing data sets. For example, non-coding variants could be included by extending DcGO annotations to SNPs in linkage disequilibrium, and using the non-coding version of FATHMM (FATHMM-XF<a class="bibtex reference internal" href="#rogers2018-rc" id="id4">[88]</a>).</p>
+<p>Despite much development effort, there remain some idiosyncrasies to the predictor. For example, DcGO can map multiple terms to the same set of SNPs. This can sometimes be a diverse group of phenotypes which do not tend to co-occur in individuals and when this occurs, it is likely that we cannot make a good prediction. A semantic similarity measure, such as GOGO<a class="bibtex reference internal" href="../end-matter/reference.html#zhao2018-rw" id="id2">[2]</a> or Wang’s method<a class="bibtex reference internal" href="../end-matter/reference.html#wang2007-yc" id="id3">[3]</a> could be used to check this, and update the confidence score accordingly.</p>
+<p>There are also clearly many aspects of the molecular biology mentioned in chapter 1 that are not represented in the model used by the phenotype predictor. For example, nonsense mutations, regulatory networks, the environment of the cell (e.g. tissue-specific gene expression). Updating the predictor to include these things could potentially give the predictor enough power to be validated on existing data sets. For example, non-coding variants could be included by extending DcGO annotations to SNPs in linkage disequilibrium, and using the non-coding version of FATHMM (FATHMM-XF<a class="bibtex reference internal" href="../end-matter/reference.html#rogers2018-rc" id="id4">[4]</a>).</p>
 <p>In investigating some of the ALSPAC phenotype predictions, I identified that some of the predicted dcGO relations between proteins and ontology terms may not be expressed in the tissue of interest. Improving dcGO or FATHMM may be a good route for improving the predictor, and this is the focus of the next Chapter.</p>
-<p>The phenotype predictor was also entered into the CAGI competition<a class="bibtex reference internal" href="#mcinnes2019-ov" id="id5">[89]</a> (work by Jan Zaucha)<a class="bibtex reference internal" href="#zaucha2018-dg" id="id6">[90]</a>, where it had some success. The phenotype predictor placed fourth in a challenge matching trait profiles to genotypes, but this result was not statistically significant (p&gt;0.05).</p>
+<p>The phenotype predictor was also entered into the CAGI competition<a class="bibtex reference internal" href="../end-matter/reference.html#mcinnes2019-ov" id="id5">[5]</a> (work by Jan Zaucha)<a class="bibtex reference internal" href="../end-matter/reference.html#zaucha2018-dg" id="id6">[6]</a>, where it had some success. The phenotype predictor placed fourth in a challenge matching trait profiles to genotypes, but this result was not statistically significant (p&gt;0.05).</p>
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c04-snowflake/6-discussion-0"><dl class="citation">
-<dt class="bibtex label" id="greshake2014-mp"><span class="brackets"><a class="fn-backref" href="#id1">85</a></span></dt>
+<dt class="bibtex label" id="greshake2014-mp"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>Bastian Greshake, Philipp E Bayer, Helge Rausch, and Julia Reda. openSNP–a crowdsourced web resource for personal genomics. <em>PLoS One</em>, 9(3):e89204, March 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1371/journal.pone.0089204">http://dx.doi.org/10.1371/journal.pone.0089204</a>.</p>
 </dd>
-<dt class="bibtex label" id="zhao2018-rw"><span class="brackets"><a class="fn-backref" href="#id2">86</a></span></dt>
+<dt class="bibtex label" id="zhao2018-rw"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>Chenguang Zhao and Zheng Wang. GOGO: an improved algorithm to measure the semantic similarity between gene ontology terms. <em>Sci. Rep.</em>, 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1038/s41598-018-33219-y">http://dx.doi.org/10.1038/s41598-018-33219-y</a>.</p>
 </dd>
-<dt class="bibtex label" id="wang2007-yc"><span class="brackets"><a class="fn-backref" href="#id3">87</a></span></dt>
+<dt class="bibtex label" id="wang2007-yc"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
 <dd><p>James Z Wang, Zhidian Du, Rapeeporn Payattakool, Philip S Yu, and Chin-Fu Chen. A new method to measure the semantic similarity of GO terms. <em>Bioinformatics</em>, 23(10):1274–1281, May 2007. URL: <a class="reference external" href="http://dx.doi.org/10.1093/bioinformatics/btm087">http://dx.doi.org/10.1093/bioinformatics/btm087</a>.</p>
 </dd>
-<dt class="bibtex label" id="rogers2018-rc"><span class="brackets"><a class="fn-backref" href="#id4">88</a></span></dt>
+<dt class="bibtex label" id="rogers2018-rc"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
 <dd><p>Mark F Rogers, Hashem A Shihab, Matthew Mort, David N Cooper, Tom R Gaunt, and Colin Campbell. FATHMM-XF: accurate prediction of pathogenic point mutations via extended features. <em>Bioinformatics</em>, 34(3):511–513, February 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1093/bioinformatics/btx536">http://dx.doi.org/10.1093/bioinformatics/btx536</a>.</p>
 </dd>
-<dt class="bibtex label" id="mcinnes2019-ov"><span class="brackets"><a class="fn-backref" href="#id5">89</a></span></dt>
+<dt class="bibtex label" id="mcinnes2019-ov"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
 <dd><p>Gregory McInnes, Roxana Daneshjou, Panagiostis Katsonis, Olivier Lichtarge, Rajgopal Srinivasan, Sadhna Rana, Predrag Radivojac, Sean D Mooney, Kymberleigh A Pagel, Moses Stamboulian, Yuxiang Jiang, Emidio Capriotti, Yanran Wang, Yana Bromberg, Samuele Bovo, Castrense Savojardo, Pier Luigi Martelli, Rita Casadio, Lipika R Pal, John Moult, Steven E Brenner, and Russ Altman. Predicting venous thromboembolism risk from exomes in the critical assessment of genome interpretation (CAGI) challenges. <em>Hum. Mutat.</em>, 40(9):1314–1320, September 2019. URL: <a class="reference external" href="http://dx.doi.org/10.1002/humu.23825">http://dx.doi.org/10.1002/humu.23825</a>.</p>
 </dd>
-<dt class="bibtex label" id="zaucha2018-dg"><span class="brackets"><a class="fn-backref" href="#id6">90</a></span></dt>
+<dt class="bibtex label" id="zaucha2018-dg"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
 <dd><p>Jan Maciej Zaucha. <em>Predicting Outlier Phenotypes from SNPS: A Journey Through Molecular Biology</em>. PhD thesis, University of Bristol, 2018. URL: <a class="reference external" href="https://play.google.com/store/books/details?id=_M7QvQEACAAJ">https://play.google.com/store/books/details?id=_M7QvQEACAAJ</a>.</p>
 </dd>
 </dl>

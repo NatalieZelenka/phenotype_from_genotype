@@ -14,7 +14,14 @@
   numbered: true
   chapters:
   - file: c01-introduction/intro
-  - file: c02-biology-background/0-bg-biology
+  - file: c02-biology-background/0-index
+    sections:
+      - file: c02-biology-background/1-big-questions
+      - file: c02-biology-background/2-biological-molecules
+      - file: c02-biology-background/3-more-dna
+      - file: c02-biology-background/4-more-proteins
+      - file: c02-biology-background/5-phenotype
+      - file: c02-biology-background/6-summary
   - file: c03-compbio-background/0-index
     sections:
       - file: c03-compbio-background/1-measuring-genotype-phenotype
@@ -51,5 +58,6 @@
 
 - part: End Matter
   chapters:
+  - file: end-matter/glossary
   - file: end-matter/reference
     title: Bibliography

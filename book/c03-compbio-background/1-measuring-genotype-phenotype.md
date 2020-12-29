@@ -85,16 +85,23 @@ After assembly, even in the most complete genomes, we are still left with some s
 ##### The human reference genome
 As {ref}`previously mentioned<genomes>`, reference genomes are designed to represent whole organisms: these genomes aim to have the most common allele at any given nucleotide, and are then annotated at positions where individuals differ. 
 
-[//]: # (TODO: cite sequencing artifacts)
 **Builds and patches:** 
 As more genomes are sequenced, more information comes to light about the nature of the human genome. 
 For example, some locations are revealed to be likely sequencing artifacts. 
 New major versions of genomes are released every few years to fix these changes. 
-These versions are called *builds*.
+These versions are called *builds*. 
+Between builds and patches, sequences may be added, removed, or moved to different locations on chromosomes.
 
-[//]: # (TODO: insert table of builds here. Name, year, size?)
+(different-builds)=
+**Differences between GRC and UCSC builds:**
+Different versions of the builds are released by the Genome Reference Consortium (GRC) and the University of California Santa Cruz (UCSC) Genomics Institute. 
+Table {numref}`build-table` shows information about the most recent human reference builds, taken from the UCSC website{cite}`noauthor_undated-ci`.
+For example, `hg19` (**h**uman **g**enome build **19**), is largely equivalent to `GRCh37` (**G**enome **R**eference **C**onsortium **h**uman build **37**).
+These are generally used interchangeably by researchers, but there are some differences between them. 
+These differences including formatting differences (storing chromosome as integers rather than strings like `chr1`), the inclusion of mitochondrial DNA, as well as small numbers of differences of the locations of some variants on some chromosomes {cite}`GATK_Team2020-au`.
 
-```{list-table} Table showing human reference genome builds.
+
+```{list-table} Table showing human reference genome builds
 :header-rows: 1
 :name: build-table
 
@@ -112,14 +119,6 @@ These versions are called *builds*.
   - March 2006
 ```
 
-Between builds and patches, sequences may be added, removed, or moved to different locations on chromosomes.
-
-[//]: # (TODO: Explain and cite differences between grc and uscs build versions, cross-ref table)
-**Differences between GRC and UCSC builds: **
-Different versions of the builds are released by the Genome Reference Consortium (GRC) and the University of California Santa Cruz (UCSC) Genomics Institute. 
-These are generally used interchangeably by researchers, but there are some differences between them. 
-These differences including formatting differences (storing chromosome as integers rather than strings like 'chr1'), the inclusion of mitochondrial DNA, as well as small numbers of differences of the locations of some variants on some chromosomes.
-
 ##### Whole Genome Sequencing of individuals
 When individual humans have their whole genomes sequenced, this is compared to the human reference genome. 
 The alleles at each location are commonly stored in Variant Call Format (VCF) files. 
@@ -128,6 +127,7 @@ These describe the locations on the genome of variations between individuals, gi
 [//]: # (TODO: Include sample of VCF to break up text?)
 
 **Position and BED formats**
+
 
 [//]: # (TODO: Write)
 
@@ -173,7 +173,6 @@ The answer boils down to the effect of the environment. “DNA makes RNA makes p
 In any given individual, the same DNA is present in their liver cells, skin cells, and neurons. The difference in how these cells/tissues look and function is due to differences in which proteins are actually being made at any given time. Gene expression is a way of measuring how the environment of the cell is affecting the process of making proteins from DNA.
 
 Gene expression data is used to understand the function of genes, to identify housekeeping genes, to re-engineer gene regulatory networks, and more. This kind of insight can not be gained from looking at DNA alone.
-
 
 #### RNA-seq 
 NGS can be used for sequencing either DNA or RNA (known as RNA-seq when applied to the whole transcriptome).

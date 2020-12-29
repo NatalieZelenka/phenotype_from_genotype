@@ -144,10 +144,44 @@
    1. Introduction
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
    2. Biology Background
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: domains and disorder
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Linking genotype and phenotype: associations between regions of DNA and traits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../c03-compbio-background/0-index.html">
@@ -319,6 +353,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../end-matter/reference.html">
    Bibliography
   </a>
@@ -475,7 +514,7 @@
 </div>
 <div class="section" id="choice-of-clustering-methodology">
 <h2>Choice of clustering methodology<a class="headerlink" href="#choice-of-clustering-methodology" title="Permalink to this headline">¶</a></h2>
-<p>The original implementation of the phenotype predictor used k-means clustering<a class="bibtex reference internal" href="#le-cam1967-ku" id="id1">[81]</a>. This wasn’t suitable for the predictor, since we expect combinations of SNPs to form non-spherical shapes (see <code class="xref std std-numref docutils literal notranslate"><span class="pre">non-spherical</span></code>), and k-means cannot achieve this (see <code class="xref std std-numref docutils literal notranslate"><span class="pre">clustering-comparison</span></code>).</p>
+<p>The original implementation of the phenotype predictor used k-means clustering<a class="bibtex reference internal" href="../end-matter/reference.html#le-cam1967-ku" id="id1">[1]</a>. This wasn’t suitable for the predictor, since we expect combinations of SNPs to form non-spherical shapes (see <code class="xref std std-numref docutils literal notranslate"><span class="pre">non-spherical</span></code>), and k-means cannot achieve this (see <code class="xref std std-numref docutils literal notranslate"><span class="pre">clustering-comparison</span></code>).</p>
 <p>Spectral clustering, DBSCAN (Density-Based Spatial Clustering of Applications with Noise), OPTICS and LOF (Local Outlier Factor) were also implemented. This involved automation of parameter selection, to enable clustering to be performed automatically on thousands of phenotype terms. These methods have theoretical pros and cons with respect to the predictor. For example, OPTICS and DBSCAN do not need the number of clusters as an input, but instead require the minimum number of points required to form a cluster and a radius from each point to consider as part of a cluster, which has more meaning in this context. They also automatically output outliers to clusters, which will affect the resulting phenotype score, potentially in unseen ways - particularly as it is difficult to visualise high-dimensional data. OPTICS is the default setting, as in addition to not requiring a number of clusters, it can identify clusters of differing densities (a quality that DBSCAN lacks - as can be seen in the second row of <code class="xref std std-numref docutils literal notranslate"><span class="pre">clustering-comparison</span></code>). A final informed choice between these options requires a large benchmarking set.</p>
 </div>
 <div class="section" id="choice-of-distance-metric">
@@ -496,7 +535,7 @@
 </div>
 <div class="figure align-default" id="clustering-comparison">
 <a class="reference internal image-reference" href="../_images/clustering_comparison.png"><img alt="../_images/clustering_comparison.png" src="../_images/clustering_comparison.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-text">Comparison illustrating differences between the implemented clustering methods. Image adapted from sklearn documentation<a class="bibtex reference internal" href="#noauthor-undated-nc" id="id2">[82]</a>.</span><a class="headerlink" href="#clustering-comparison" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Comparison illustrating differences between the implemented clustering methods. Image adapted from sklearn documentation<a class="bibtex reference internal" href="../end-matter/reference.html#noauthor-undated-nc" id="id2">[2]</a>.</span><a class="headerlink" href="#clustering-comparison" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="input-individuals">
@@ -504,7 +543,7 @@
 </div>
 <div class="section" id="the-curse-of-dimensionality">
 <h2>The curse of dimensionality<a class="headerlink" href="#the-curse-of-dimensionality" title="Permalink to this headline">¶</a></h2>
-<p>The “curse of dimensionality” is a phrase coined by Richard E Bellman, during his work on dynamic programming<a class="bibtex reference internal" href="#bellman1957-dc" id="id3">[83]</a>, but has since proved relevant in many different mathematical and data-driven fields. In addition to it’s more colloquial use as a catch-all complaint about high-dimensional data, the “curse” refers to the sparsity of data that occurs exponentially with an increase in dimensions. This leads to various problems in different fields<a class="bibtex reference internal" href="#zimek2012-fg" id="id4">[84]</a> and of which we run into two in this chapter; general difficulty in reaching statistical significance and reduced usefulness of clustering, distance, and outlier metrics.</p>
+<p>The “curse of dimensionality” is a phrase coined by Richard E Bellman, during his work on dynamic programming<a class="bibtex reference internal" href="../end-matter/reference.html#bellman1957-dc" id="id3">[3]</a>, but has since proved relevant in many different mathematical and data-driven fields. In addition to it’s more colloquial use as a catch-all complaint about high-dimensional data, the “curse” refers to the sparsity of data that occurs exponentially with an increase in dimensions. This leads to various problems in different fields<a class="bibtex reference internal" href="../end-matter/reference.html#zimek2012-fg" id="id4">[4]</a> and of which we run into two in this chapter; general difficulty in reaching statistical significance and reduced usefulness of clustering, distance, and outlier metrics.</p>
 <p>This problem can be reduced by choosing a clustering/outlier detection method which is more robust to the number of dimensions. It is also helpful to reduce the number of dimensions in some way (feature selection), or to project the data into a different coordinate system (feature projection) and then discard some of the newly calculated coordinates/dimensions.</p>
 <p>A range of clustering methods were trialled on the phenotype predictor in an attempt to overcome the curse of dimensionality and increase the phenotype predictor’s accuracy. Jan mostly implemented the Spectral Clustering, while I implemented the other methods.</p>
 <div class="section" id="dimensionality-reduction">
@@ -518,16 +557,16 @@
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c04-snowflake/4-clustering-snps-0"><dl class="citation">
-<dt class="bibtex label" id="le-cam1967-ku"><span class="brackets"><a class="fn-backref" href="#id1">81</a></span></dt>
+<dt class="bibtex label" id="le-cam1967-ku"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>Lucien Marie Le Cam and Jerzy Neyman. <em>Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability</em>. University of California Press, 1967. URL: <a class="reference external" href="https://play.google.com/store/books/details?id=EN6isXsFdKgC">https://play.google.com/store/books/details?id=EN6isXsFdKgC</a>.</p>
 </dd>
-<dt class="bibtex label" id="noauthor-undated-nc"><span class="brackets"><a class="fn-backref" href="#id2">82</a></span></dt>
+<dt class="bibtex label" id="noauthor-undated-nc"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>2.3. clustering — scikit-learn 0.21.2 documentation. <span><a class="reference external" href="#"></a></span>https://scikit-learn.org/stable/modules/clustering.html. Accessed: 2019-6-9. URL: <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html">https://scikit-learn.org/stable/modules/clustering.html</a>.</p>
 </dd>
-<dt class="bibtex label" id="bellman1957-dc"><span class="brackets"><a class="fn-backref" href="#id3">83</a></span></dt>
+<dt class="bibtex label" id="bellman1957-dc"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
 <dd><p>Richard Bellman. <em>Dynamic Programming</em>. Princeton University Press, 1957. URL: <a class="reference external" href="https://play.google.com/store/books/details?id=wdtoPwAACAAJ">https://play.google.com/store/books/details?id=wdtoPwAACAAJ</a>.</p>
 </dd>
-<dt class="bibtex label" id="zimek2012-fg"><span class="brackets"><a class="fn-backref" href="#id4">84</a></span></dt>
+<dt class="bibtex label" id="zimek2012-fg"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
 <dd><p>A Zimek, E Schubert, and H P Kriegel. A survey on unsupervised outlier detection in high‐dimensional numerical data. <em>Stat. Anal. Data Min.</em>, 2012. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sam.11161">https://onlinelibrary.wiley.com/doi/abs/10.1002/sam.11161</a>.</p>
 </dd>
 </dl>

@@ -57,7 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Biology Background" href="../c02-biology-background/0-bg-biology.html" />
+    <link rel="next" title="2. Biology Background" href="../c02-biology-background/0-index.html" />
     <link rel="prev" title="Declaration" href="../front-matter/declaration.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -146,10 +146,44 @@
    1. Introduction
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
    2. Biology Background
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: domains and disorder
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Linking genotype and phenotype: associations between regions of DNA and traits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../c03-compbio-background/0-index.html">
@@ -321,6 +355,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../end-matter/reference.html">
    Bibliography
   </a>
@@ -412,7 +451,7 @@ Notes on chapters:
 -->
 <p>The central theme of this thesis is the relationship between protein function - at either a molecular or phenotypic level - and the sequence of its associated DNA and RNA. A recurring motif is impact of the provenance of related data and what that means for attempts to make genome-wide predictions about these relationships.</p>
 <p>In the spirit of trying to make my work as reproducibly and Open as possible, this thesis is available online as a Jupyter Book: the latest version is available online <span class="xref myst">here</span>.</p>
-<p><a class="reference internal" href="../c02-biology-background/0-bg-biology.html#c02-biology-bg"><span class="std std-ref">Chapter 2</span></a> contains the biological background information on which the rest of the thesis is based. It tells the story of how phenotype arises from genotype, and introduces the different biological molecules that are involved. It begins at the very basics: what are DNA, RNA, proteins, and phenotypes? How do we measure them? And how do we measure the connections between them? This background is intended to make this thesis readable to someone without a background in biology. This chapter does not contain any of my own research. In the light of Black Lives Matter, I have included asides in this book where I mention scientists who have a legacy of scientific racism.</p>
+<p><a class="reference internal" href="../c02-biology-background/0-index.html#c02-biology-bg"><span class="std std-ref">Chapter 2</span></a> contains the biological background information on which the rest of the thesis is based. It tells the story of how phenotype arises from genotype, and introduces the different biological molecules that are involved. It begins at the very basics: what are DNA, RNA, proteins, and phenotypes? How do we measure them? And how do we measure the connections between them? This background is intended to make this thesis readable to someone without a background in biology. This chapter does not contain any of my own research. In the light of Black Lives Matter, I have included asides in this book where I mention researchers who have been involved in eugenics and/or racism. I have done this as I don’t want to highlight the scientific achievements of these individuals, without also acknowledging their legacy of scientific racism.</p>
 <p><a class="reference internal" href="../c03-compbio-background/0-index.html#c03-compbio-bg"><span class="std std-ref">Chapter 3</span></a> is a second background chapter, which contains some of my own work. It follows on from the first by discussing popular resources in computational biology, their provenance, and the impact of this on the field. This includes mathematical modelling of publications of named genes and sensitivity analysis of gene enrichment analyses. I also present here my contributions to reproducibility-related collaborative projects that I have and continue to be involved with: the Proteome Quality Index paper<a class="bibtex reference internal" href="../end-matter/reference.html#zaucha2015-ez" id="id1">[1]</a>, my contribution to the collaborative 2014 SUPERFAMILY update paper<a class="bibtex reference internal" href="../end-matter/reference.html#oates2015-li" id="id2">[2]</a>, and the (ongoing) MAPS project.</p>
 <p>In <a class="reference internal" href="../c04-snowflake/0-index.html#c04-snowflake"><span class="std std-ref">Chapter 4</span></a>, I describe my preliminary efforts to integrate the data sources described in the background chapters into Snowflake, a phenotype predictor<a class="bibtex reference internal" href="../end-matter/reference.html#gough2017-ik" id="id3">[3]</a>. I discuss potential reasons for the poor performance of the predictor.</p>
 <p><a class="reference internal" href="../c05-combining/0-index.html#c05-combining"><span class="std std-ref">Chapter 5</span></a> discusses a combined tissue-specific RNA-Seq data sets from four experiments. I present this alongside two resources that I created in order to create this: a Python package for mapping samples to tissues, and a set of simulated tissue-specific data-sets.</p>
@@ -466,7 +505,7 @@ Notes on chapters:
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../front-matter/declaration.html" title="previous page">Declaration</a>
-    <a class='right-next' id="next-link" href="../c02-biology-background/0-bg-biology.html" title="next page"><span class="section-number">2. </span>Biology Background</a>
+    <a class='right-next' id="next-link" href="../c02-biology-background/0-index.html" title="next page"><span class="section-number">2. </span>Biology Background</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -146,10 +146,44 @@
    1. Introduction
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
    2. Biology Background
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: domains and disorder
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Linking genotype and phenotype: associations between regions of DNA and traits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../c03-compbio-background/0-index.html">
@@ -321,6 +355,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../end-matter/reference.html">
    Bibliography
   </a>
@@ -466,7 +505,7 @@
 <ul class="simple">
 <li><p><strong>Samples must be sequenced using Next Generation Sequencing</strong>, i.e. including RNA-Seq and CAGE, and excluding microarrays.</p></li>
 <li><p><strong>Data sets must contain a breadth of tissues and genes</strong> (after quality control). This is to aid batch correction by facilitating the most balanced data set design in terms of batch (experiment) to group (tissue), and in order to have good coverage of genes and tissues, which is necessary for downstream use.</p></li>
-<li><p><strong>Samples must not be disease-focused</strong>. In order to reduce the complexity of the analysis and the interpretation of the resulting data set, samples of diseased tissues or cell lines were discarded. Experiments where the focus of the data set was to investigate a particular disease or classes of diseases were discarded. Besides reducing the complexity of the analysis, this choice also made sense based on the previous guideline, since most disease datasets (with the exception of cancer datasets) tended to have a narrow breadth of tissues. I feel that including disease gene expression would be a natural extension to this work if the data allowed for it, but most GxA baseline gene expression experiments which listed organism part as a variable were focused on cancer, which is known to be tissue-non-specific<a class="bibtex reference internal" href="../end-matter/reference.html#love2014-vx" id="id2">[17]</a><a class="bibtex reference internal" href="../end-matter/reference.html#winter2004-rr" id="id3">[3]</a>.</p></li>
+<li><p><strong>Samples must not be disease-focused</strong>. In order to reduce the complexity of the analysis and the interpretation of the resulting data set, samples of diseased tissues or cell lines were discarded. Experiments where the focus of the data set was to investigate a particular disease or classes of diseases were discarded. Besides reducing the complexity of the analysis, this choice also made sense based on the previous guideline, since most disease datasets (with the exception of cancer datasets) tended to have a narrow breadth of tissues. I feel that including disease gene expression would be a natural extension to this work if the data allowed for it, but most GxA baseline gene expression experiments which listed organism part as a variable were focused on cancer, which is known to be tissue-non-specific<a class="bibtex reference internal" href="../end-matter/reference.html#love2014-vx" id="id2">[19]</a><a class="bibtex reference internal" href="../end-matter/reference.html#winter2004-rr" id="id3">[3]</a>.</p></li>
 </ul>
 <p>Of the over 3000 experiments in the GxA, 1134 contain human samples, and just less than 3% of those (30 experiments) are baseline gene expression experiments. Of these there are 4 which offer a good coverage of non-disease organism parts. The data sets that were chosen to be used in the combined data set are detailed below.</p>
 <div class="section" id="measures-of-gene-expression">
@@ -509,7 +548,7 @@ For these reasons, I have taken a gene-centric approach here. It may be importan
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c05-combining/2-data-0"><dl class="citation">
-<dt class="bibtex label" id="love2014-vx"><span class="brackets"><a class="fn-backref" href="#id2">17</a></span></dt>
+<dt class="bibtex label" id="love2014-vx"><span class="brackets"><a class="fn-backref" href="#id2">19</a></span></dt>
 <dd><p>Michael I Love, Wolfgang Huber, and Simon Anders. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. <em>Genome Biol.</em>, 15(12):550, 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1186/s13059-014-0550-8">http://dx.doi.org/10.1186/s13059-014-0550-8</a>.</p>
 </dd>
 <dt class="bibtex label" id="fonseca2014-hp"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>

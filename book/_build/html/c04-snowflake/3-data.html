@@ -144,10 +144,44 @@
    1. Introduction
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
    2. Biology Background
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: domains and disorder
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Linking genotype and phenotype: associations between regions of DNA and traits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../c03-compbio-background/0-index.html">
@@ -318,6 +352,11 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../end-matter/reference.html">
    Bibliography
@@ -544,13 +583,14 @@
 <div class="section" id="alspac">
 <h3>ALSPAC<a class="headerlink" href="#alspac" title="Permalink to this headline">¶</a></h3>
 <p>The Avon Longitudinal Study of Parents and Children, ALSPAC<a class="bibtex reference internal" href="../end-matter/reference.html#golding2001-oj" id="id1">[1]</a> (a.k.a. the children of the 90s) is a cohort of over 14,000 families from the Avon area. A wealth of phenotype information has also been collected from these families, through a series of voluntary surveys and clinics.</p>
-<p>Due to the personal and private nature of the data, we were granted access to the genotype data first, then allowed to request a small number of high-scoring phenotypes after running the predictor.
-<span class="xref myst">//</span>: # (TODO: link ethics approval docs (put on OSF?)</p>
+<p>Due to the personal and private nature of the data, we were granted access to the genotype data first, then allowed to request a small number of high-scoring phenotypes after running the predictor.</p>
 <p>Although the ALSPAC dataset is large, it is not very diverse, therefore the 1000 genomes project (Phase 1) genomes were used as a background set.</p>
 <div class="section" id="genotypes">
 <h4>Genotypes<a class="headerlink" href="#genotypes" title="Permalink to this headline">¶</a></h4>
 <p>Of the 14,000+ families in the ALSPAC cohort, 8365 of the children were genotyped by 23andMe and passed quality control. The participants were genotyped using the 23andme v2 chip, which measures ~550,000 SNPS.</p>
-<p>These 23andMe files use build 36 of the human reference genome, so a 36 build version of the <code class="docutils literal notranslate"><span class="pre">.vcf</span></code> and <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> files for ALSPAC were made first (created with the <code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">create_input</span></code> command described in <code class="xref std std-numref docutils literal notranslate"><span class="pre">snowflake-create-input</span></code>), before converting them to the build 37 versions which were used for input to the <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code>.</p>
+<p>These 23andMe files use build 36 of the human reference genome, so a build 36 version of the <code class="docutils literal notranslate"><span class="pre">.vcf</span></code> and <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> files for ALSPAC were made first (created with the <code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">create_input</span></code> command described in <code class="xref std std-numref docutils literal notranslate"><span class="pre">snowflake-create-input</span></code>), before lifting them over to the build 37 versions which were used for input to the <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code>.</p>
+<p><strong>Lift-over procedure</strong>
+Lifting over VCF files between <span class="xref std std-ref">different-builds</span> was done using the UCSC LiftOver tool.</p>
 </div>
 <div class="section" id="phenotypes">
 <h4>Phenotypes<a class="headerlink" href="#phenotypes" title="Permalink to this headline">¶</a></h4>

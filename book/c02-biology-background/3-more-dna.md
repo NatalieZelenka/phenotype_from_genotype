@@ -1,0 +1,91 @@
+(dna-organised)=
+### A closer look at DNA: Genomes, Genes, and Genetic Variation
+Now that we have a basic overview of how DNA can influence phenotype, we can discuss it in a little more detail.
+
+(genomes)=
+#### Genomes
+The genome is the full amount of DNA belonging to an organism. We can talk about the genome of an individual, or about the genome of an organism (e.g. the human genome).
+When we talk about an organism's genome, we do so in relation to an example genome for that organism.
+This is called a *reference* genome, and does not belong to any particular individual, but instead is supposed to have the most common nucleotide each location.
+We can then discuss individuals genomes in relation to the relevant reference genome.
+
+#### Genes
+As mentioned, genes are stretches of DNA that encode for RNA. Only a proportion of an organism's DNA is made up of genes. Regions of DNA that are not within genes are known as *non-coding* or *inter-genic*. These regions can still affect phenotype, by influencing the expression of other genes can include enhancers and promoters. 
+
+[//]: # (TODO: Cite how much human DNA is genes in bp?)
+
+The human genome is 3 billion base pairs long, and contains approximately 20,000 genes (which make up around 2% of the genome).
+
+[//]: # (TODO: describe exome? Put in how much of genome is covered by SNPs?)
+
+(introns-exons)=
+Although we define genes as regions of DNA which encode for proteins, not all of the DNA of a gene is transcribed into mature RNA. There are two types of regions inside the gene: introns (regions which cannot be transcribed) and exons (which can be transcribed). 
+The introns are removed during the processing step in a process known as *splicing*. 
+In addition, many genes have the capability to be transcribed into multiple transcripts, via a process known as alternative splicing.
+This can happen, for example, by skipping some of the exons during splicing.
+
+Even where DNA can be expressed as proteins, the level of expression depends on the cell environment and other DNA.
+ 
+[//]: # (TODO: link for regulating transcription) 
+
+Genes are also not a straightforward unit. 
+Just because a gene is transcribed, does not mean that RNA is always translated into a protein. 
+Furthermore, there is not a 1:1 mapping of genes:proteins for those that do (one gene could be read to create multiple different proteins).
+There can be disagreements about the locations of genes on the genome, and popular databases of genes fundamentally disagree on this and on the number of genes{cite}`Salzberg2018-yc`. 
+Gene names and symbols change over time, and can be difficult to map between for this reason. 
+
+Genes are also not necessarily a “unit of heritability” - we inherit regions around genes together with them and do not necessarily inherit whole copies of each gene from each parent (although this is rare). 
+
+#### Genetic variation
+As you are no doubt aware, individuals of the same species share the vast majority of their DNA. 
+Genetic variation is the difference in DNA sequence between individuals in a population, and variants are locations on an organisms genome where we observe variation between individuals. 
+There are different types of genetic variation, for example indels (insertions and deletions)- where small sections of DNA are inserted or deleted from the genome - and copy number variations (CNVs) where larger stretches of the genome are repeated. 
+However, the most well-studied and common type of genetic variation between humans are single nucleotide polymorphisms (SNPs, pronounced “snips”).
+
+The different forms that a variant can take in the population are called alleles, depending on the type of variant. 
+Alleles could be different forms of a whole gene, or as small in length as an individual nucleotide.
+
+##### SNPs and SNVs
+A SNP is a location on an organism’s genome where there are differences of a single nucleotide (“A”,”C”,”T”,”G”) between individuals. In some fields, these variations are only considered to be Single Nucleotide *Polymorphisms* if they are relatively commonly occurring in the population (at least 1%), while Single Nucleotide Variants (SNVs) can include both rare and common variants. 
+
+Variation at a location does not imply a disease-causing effect, many SNPs are neutral. Much of the time, the aim of studying such variants is to determine which are which. This is often done through looking at their rarity, either in a specific human population (e.g. people with diabetes), the entire human population, or across the tree of life. 
+
+SNPs are defined by their location on a human reference genome, for example Chr1: . An individual allele for a given SNP is defined as “wild” type if it matches the reference genome and “mutant” if it does not. The reference genome does not always have the most common allele at each location, although this is it’s aim, so “wild” and “mutant” do not necessarily imply anything about rarity. 
+
+If there are only two nucleotide possibilities for a SNP (e.g. A or C), then it is called bi-allelic; the vast majority of SNPs are of this type. Multi-allelic SNPs (e.g. A, T or C) are much rarer. 
+
+Since (except for X/Y chromosomes) humans have two copies of each chromosome, an individual will have two alleles for each SNP. These may match (which we call homozygous) or not (heterozygous). Sometimes a disease-causing allele can cause problems even for heterozygotes, while in other cases a person needs two copies of the disease-causing allele in order for it to have an effect.
+
+SNPs can occur either in coding or non-coding regions of the genome. 
+In non-coding regions, SNPs can still affect gene expression, for example by altering a promoter site. 
+SNVs in coding regions have two types: synonymous or non-synonymous, based on whether they alter the amino acid sequence.
+
+###### Non-synonymous SNVs
+If a SNP alters the amino acid makeup of a protein, it is known as non-synonymous. 
+Non-synonymous SNVs can cause either nonsense or missense mutations. 
+
+Nonsense mutations occur where the SNP substitution results in a stop codon (e.g. TAG) in an unusual position, which signals for a ribosome to stop translating RNA into a protein. 
+This results in an incomplete and usually nonfunctional protein. 
+The effect of a nonsense mutation would be more or less severe depending on the location of the new stop codon. 
+For example, if it was close to the end of the protein, the protein may still be functional. 
+Sufficiently incomplete proteins are usually destroyed by the cell. 
+
+[//]: # (TODO: Is this true? About location of stop codon. If so, I want the link!)
+
+On the other hand, missense mutations occur where the SNP substitution results in an amino acid substitution in the protein. 
+Some amino acids can be substituted without causing any difference to the function of the protein, while others can severely impede the protein.
+
+###### Synonymous SNVs
+Synonymous SNVs occur where substituting the usual nucleotide with another results in the same amino acid. 
+The resulting protein will have the exact same functionality. 
+However, synonymous SNVs could still have an effect on high-level traits, since different nucleotides are translated at different speeds. 
+
+[//]: # (TODO: Add a section about linkage disequalibrium/a mention of it ONLY if I have included it in Snowflake/Filter: From original:  Two alleles at given locations on the genome are in linkage disequilibrium when the association between them is more than would be expected at random. Linkage disequilibrium may occur between alleles even when there is no genetic linkage present, for example as a result of the presence of both alleles being selected for in a population.)
+
+---
+**Page References**
+
+```{bibliography} /_bibliography/references.bib
+:filter: docname in docnames
+:style: unsrt
+```

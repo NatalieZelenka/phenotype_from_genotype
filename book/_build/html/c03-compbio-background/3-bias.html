@@ -146,10 +146,44 @@
    1. Introduction
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c02-biology-background/0-bg-biology.html">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
    2. Biology Background
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: domains and disorder
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Linking genotype and phenotype: associations between regions of DNA and traits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="0-index.html">
@@ -320,6 +354,11 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../end-matter/reference.html">
    Bibliography
@@ -492,8 +531,8 @@
 <div><p>In science consensus is irrelevant. What is relevant is reproducible results.</p>
 <p class="attribution">—Michael Crichton</p>
 </div></blockquote>
-<p>The reproducibility crisis is the realisation that worryingly large proportions of research results do not reproduce. Replication studies have found that only 11% of cancer research findings<a class="bibtex reference internal" href="../end-matter/reference.html#begley2012-oc" id="id1">[2]</a>, 20-25% of drug-target findings<a class="bibtex reference internal" href="../end-matter/reference.html#begley2012-oc" id="id2">[2]</a><a class="bibtex reference internal" href="../end-matter/reference.html#prinz2011-rh" id="id3">[3]</a>, and 39% of psychology findings<a class="bibtex reference internal" href="../end-matter/reference.html#open-science-collaboration2015-vi" id="id4">[4]</a> reproduced. Surveys of researchers across disciplines reveal that more than 70% of scientists say they have failed to reproduce another paper’s result, and over 50% say they have failed to reproduce their own results<a class="bibtex reference internal" href="../end-matter/reference.html#baker2016-tb" id="id5">[5]</a>. It seems that science’s self-correcting mechanism is not working as intended.</p>
-<p>This shocking irreproducibility is thought to be due to a multitude of factors, including poor data management, lack of available materials/details of experiments, publication bias, poor statistical knowledge, and questionable research practices<a class="bibtex reference internal" href="../end-matter/reference.html#bishop2019-hg" id="id6">[6]</a>.</p>
+<p>The reproducibility crisis is the realisation that worryingly large proportions of research results do not reproduce. Replication studies have found that only 11% of cancer research findings<a class="bibtex reference internal" href="../end-matter/reference.html#begley2012-oc" id="id1">[3]</a>, 20-25% of drug-target findings<a class="bibtex reference internal" href="../end-matter/reference.html#begley2012-oc" id="id2">[3]</a><a class="bibtex reference internal" href="../end-matter/reference.html#prinz2011-rh" id="id3">[4]</a>, and 39% of psychology findings<a class="bibtex reference internal" href="../end-matter/reference.html#open-science-collaboration2015-vi" id="id4">[5]</a> reproduced. Surveys of researchers across disciplines reveal that more than 70% of scientists say they have failed to reproduce another paper’s result, and over 50% say they have failed to reproduce their own results<a class="bibtex reference internal" href="../end-matter/reference.html#baker2016-tb" id="id5">[6]</a>. It seems that science’s self-correcting mechanism is not working as intended.</p>
+<p>This shocking irreproducibility is thought to be due to a multitude of factors, including poor data management, lack of available materials/details of experiments, publication bias, poor statistical knowledge, and questionable research practices<a class="bibtex reference internal" href="../end-matter/reference.html#bishop2019-hg" id="id6">[7]</a>.</p>
 <div class="section" id="null-hypothesis-significance-testing">
 <h4><span class="section-number">3.3.1.2.1. </span>Null Hypothesis Significance Testing<a class="headerlink" href="#null-hypothesis-significance-testing" title="Permalink to this headline">¶</a></h4>
 <blockquote class="epigraph">
@@ -507,25 +546,25 @@
 \[
 ppv=\frac{(1-\beta)p_{true}}{p_{true}(1-\beta-\alpha)+\alpha}
 \]</div>
-<p>Where <span class="math notranslate nohighlight">\(ppv\)</span> stands for positive predictive value and <span class="math notranslate nohighlight">\(p_{true}\)</span> is the proportion of true hypotheses in a field<a class="bibtex reference internal" href="../end-matter/reference.html#ioannidis2005-mo" id="id7">[7]</a>.</p>
-<p>For this version of the formula (there is also a version that includes bias, which was instrumental in the Ionnaidis’ claim that “most published research findings are false”<a class="bibtex reference internal" href="../end-matter/reference.html#ioannidis2005-mo" id="id8">[7]</a>), and standard choices for power and statistical significance of <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> and <span class="math notranslate nohighlight">\(\beta=0.2\)</span>, we would expect more findings to false than true if <span class="math notranslate nohighlight">\(p_{true}&lt;0.0588\)</span> (3.s.f). That might seem like a small number, but in some bioinformatics experiments, we hypothesise that millions of SNPs may be responsible for a trait, when only small numbers are. On the other hand, if half of researchers hypotheses were correct for a given field (<span class="math notranslate nohighlight">\(p_{true}=0.5\)</span>), the formula would yield <span class="math notranslate nohighlight">\(ppv=0.941\)</span> (3.s.f.), but the low reproducibility of GWAS results, gene annotations, etc, implies that the proportion of true hypotheses is less than this.</p>
+<p>Where <span class="math notranslate nohighlight">\(ppv\)</span> stands for positive predictive value and <span class="math notranslate nohighlight">\(p_{true}\)</span> is the proportion of true hypotheses in a field<a class="bibtex reference internal" href="../end-matter/reference.html#ioannidis2005-mo" id="id7">[8]</a>.</p>
+<p>For this version of the formula (there is also a version that includes bias, which was instrumental in the Ionnaidis’ claim that “most published research findings are false”<a class="bibtex reference internal" href="../end-matter/reference.html#ioannidis2005-mo" id="id8">[8]</a>), and standard choices for power and statistical significance of <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> and <span class="math notranslate nohighlight">\(\beta=0.2\)</span>, we would expect more findings to false than true if <span class="math notranslate nohighlight">\(p_{true}&lt;0.0588\)</span> (3.s.f). That might seem like a small number, but in some bioinformatics experiments, we hypothesise that millions of SNPs may be responsible for a trait, when only small numbers are. On the other hand, if half of researchers hypotheses were correct for a given field (<span class="math notranslate nohighlight">\(p_{true}=0.5\)</span>), the formula would yield <span class="math notranslate nohighlight">\(ppv=0.941\)</span> (3.s.f.), but the low reproducibility of GWAS results, gene annotations, etc, implies that the proportion of true hypotheses is less than this.</p>
 <p>The same approach can be used to calculate the limit for <span class="math notranslate nohighlight">\(p_{true}\)</span> for which we’d expect there to be more false positives than false negatives. Using the same values for and  and , we get <span class="math notranslate nohighlight">\(p_{true}=0.2\)</span>, i.e. if less than 20% of hypotheses are true, then we are more likely to get false positives than false negatives. This is interesting as most published scientific results are claiming a positive result, so we are essentially erring on the side of publishing erroneous errors.</p>
 <div class="figure align-default" id="p-hacking">
 <a class="reference internal image-reference" href="../_images/p_hacking.png"><img alt="../_images/p_hacking.png" src="../_images/p_hacking.png" style="height: 220px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Images that are illustrative of researchers approaches to p-values and p-hacking. The left image is <a class="reference external" href="https://twitter.com/FaustoBustos/status/1103435523777978368">a popular tweet</a>, while the right image is <a class="reference external" href="https://xkcd.com/1478/">an xkcd comic</a>).</span><a class="headerlink" href="#p-hacking" title="Permalink to this image">¶</a></p>
 </div>
-<p>In addition to poor reporting and underpowered tests, the pressure on scientists to publish means that researchers may be tempted to (or may accidentally, due to statistical ignorance) employ data-mining tactics in order to harvest significant p-values. This practice is known as “p-hacking”, and evidence for its existence can be found in distributions of p-values in scientific literature<a class="bibtex reference internal" href="../end-matter/reference.html#head2015-ns" id="id9">[8]</a>, as well as popular culture (<a class="reference internal" href="#p-hacking"><span class="std std-numref">Fig. 3.4</span></a>). This can include rerunning analysis with different models/covariates, collecting data until a significant p-value is reached, or performing 20 experiments and only publishing the results of one.</p>
+<p>In addition to poor reporting and underpowered tests, the pressure on scientists to publish means that researchers may be tempted to (or may accidentally, due to statistical ignorance) employ data-mining tactics in order to harvest significant p-values. This practice is known as “p-hacking”, and evidence for its existence can be found in distributions of p-values in scientific literature<a class="bibtex reference internal" href="../end-matter/reference.html#head2015-ns" id="id9">[9]</a>, as well as popular culture (<a class="reference internal" href="#p-hacking"><span class="std std-numref">Fig. 3.4</span></a>). This can include rerunning analysis with different models/covariates, collecting data until a significant p-value is reached, or performing 20 experiments and only publishing the results of one.</p>
 <blockquote class="epigraph">
 <div><p>The first principle is that you must not fool yourself – and you are the easiest person to fool.
 – Richard Feynman</p>
 </div></blockquote>
-<p>There are several suggested tonics to the problem of uninformative and ubiquitous p-values. Reporting p-values as numbers rather than in relation to a threshold (e.g. p&lt;0.05) is starting point. Information about statistical power and effect size should also be provided. In addition to giving researchers reading a paper a better idea of the quality of it, this also allows science to self-correct a little easier, since individual p-values can then be combined into more reliable p-values, using for example Fischer’s method<a class="bibtex reference internal" href="../end-matter/reference.html#fisher1990-ro" id="id10">[9]</a>.</p>
+<p>There are several suggested tonics to the problem of uninformative and ubiquitous p-values. Reporting p-values as numbers rather than in relation to a threshold (e.g. p&lt;0.05) is starting point. Information about statistical power and effect size should also be provided. In addition to giving researchers reading a paper a better idea of the quality of it, this also allows science to self-correct a little easier, since individual p-values can then be combined into more reliable p-values, using for example Fischer’s method<a class="bibtex reference internal" href="../end-matter/reference.html#fisher1990-ro" id="id10">[10]</a>.</p>
 <p>A more interesting solution is pre-registration, as used in clinical trials. This involves a detailed publication in advance of the analysis protocols that will be used in order to prevent tweaking analysis based on seeing the data. This solves p-hacking related problems, and makes a distinction between hypothesis-generating and hypothesis-testing research.</p>
-<p>For cases where many hypotheses are being generated at once (for example in GWAS), multiple hypothesis corrections (e.g. the Bonferroni correction<a class="bibtex reference internal" href="../end-matter/reference.html#dunn1958-sj" id="id11">[10]</a> or the False Discovery Rate<a class="bibtex reference internal" href="../end-matter/reference.html#benjamini1995-me" id="id12">[11]</a>) can be employed to adjust the p-value to account for this.</p>
+<p>For cases where many hypotheses are being generated at once (for example in GWAS), multiple hypothesis corrections (e.g. the Bonferroni correction<a class="bibtex reference internal" href="../end-matter/reference.html#dunn1958-sj" id="id11">[11]</a> or the False Discovery Rate<a class="bibtex reference internal" href="../end-matter/reference.html#benjamini1995-me" id="id12">[12]</a>) can be employed to adjust the p-value to account for this.</p>
 </div>
 <div class="section" id="publication-bias">
 <h4><span class="section-number">3.3.1.2.2. </span>Publication bias<a class="headerlink" href="#publication-bias" title="Permalink to this headline">¶</a></h4>
-<p>Although with current standard p-value and power cut-offs, negative results are more likely to be true than positive ones, negative results are much harder to publish. This bias is likely to be responsible for the draw of questionable research practices like p-hacking. It also means that there is a lot of unpublished, negative results which are likely to be repeated, since there is no way that someone could know it has already been done. A highly powered negative result could be very interesting, for example, we know hardly anything about which genes do not appear to affect phenotypes, since these results are not published<a class="bibtex reference internal" href="../end-matter/reference.html#barbaric2007-zm" id="id13">[12]</a>, but they would help enormously with the challenge of creating a gold standard dataset for gene function prediction.</p>
+<p>Although with current standard p-value and power cut-offs, negative results are more likely to be true than positive ones, negative results are much harder to publish. This bias is likely to be responsible for the draw of questionable research practices like p-hacking. It also means that there is a lot of unpublished, negative results which are likely to be repeated, since there is no way that someone could know it has already been done. A highly powered negative result could be very interesting, for example, we know hardly anything about which genes do not appear to affect phenotypes, since these results are not published<a class="bibtex reference internal" href="../end-matter/reference.html#barbaric2007-zm" id="id13">[3]</a>, but they would help enormously with the challenge of creating a gold standard dataset for gene function prediction.</p>
 <p>Registered reports are an attempt to remove these problems associated with publication bias, by linking the concept of pre-registration with that of publishing. Essentially, authors submit their introduction and methods section to a journal and at this point they undergo peer review and the journal agrees to publish the results, regardless of the result. At the time of writing over 170 journals were accepting registered reports and the number has been growing in recent months, across disciplines, although they are currently most popular in psychology and neuroscience<a class="bibtex reference internal" href="../end-matter/reference.html#hardwicke-undated-jj" id="id14">[13]</a>. This solution also offers peer-review at a more helpful stage in the manuscript, when it’s still possible to make changes to the experiment.</p>
 </div>
 </div>
@@ -649,38 +688,38 @@ ppv=\frac{(1-\beta)p_{true}}{p_{true}(1-\beta-\alpha)+\alpha}
 <dt class="bibtex label" id="zaucha2015-ez"><span class="brackets"><a class="fn-backref" href="#id16">1</a></span></dt>
 <dd><p>Jan Zaucha, Jonathan Stahlhacke, Matt E Oates, Natalie Thurlby, Owen J L Rackham, Hai Fang, Ben Smithers, and Julian Gough. A proteome quality index. <em>Environ. Microbiol.</em>, 17(1):4–9, 2015. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1462-2920.12622">https://onlinelibrary.wiley.com/doi/abs/10.1111/1462-2920.12622</a>.</p>
 </dd>
-<dt class="bibtex label" id="begley2012-oc"><span class="brackets">2</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dt class="bibtex label" id="barbaric2007-zm"><span class="brackets"><a class="fn-backref" href="#id13">3</a></span></dt>
+<dd><p>Ivana Barbaric, Gaynor Miller, and T Neil Dear. Appearances can be deceiving: phenotypes of knockout mice. <em>Brief. Funct. Genomic. Proteomic.</em>, 6(2):91–103, June 2007.</p>
+</dd>
+<dt class="bibtex label" id="begley2012-oc"><span class="brackets">3</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
 <dd><p>C Glenn Begley and Lee M Ellis. Drug development: raise standards for preclinical cancer research. <em>Nature</em>, 483(7391):531–533, March 2012. URL: <a class="reference external" href="http://dx.doi.org/10.1038/483531a">http://dx.doi.org/10.1038/483531a</a>.</p>
 </dd>
-<dt class="bibtex label" id="prinz2011-rh"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dt class="bibtex label" id="prinz2011-rh"><span class="brackets"><a class="fn-backref" href="#id3">4</a></span></dt>
 <dd><p>Florian Prinz, Thomas Schlange, and Khusru Asadullah. Believe it or not: how much can we rely on published data on potential drug targets? <em>Nat. Rev. Drug Discov.</em>, 10(9):712–712, 2011. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nrd3439-c1">http://dx.doi.org/10.1038/nrd3439-c1</a>.</p>
 </dd>
-<dt class="bibtex label" id="open-science-collaboration2015-vi"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dt class="bibtex label" id="open-science-collaboration2015-vi"><span class="brackets"><a class="fn-backref" href="#id4">5</a></span></dt>
 <dd><p>Open Science Collaboration. PSYCHOLOGY. estimating the reproducibility of psychological science. <em>Science</em>, 349(6251):aac4716, August 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1126/science.aac4716">http://dx.doi.org/10.1126/science.aac4716</a>.</p>
 </dd>
-<dt class="bibtex label" id="baker2016-tb"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dt class="bibtex label" id="baker2016-tb"><span class="brackets"><a class="fn-backref" href="#id5">6</a></span></dt>
 <dd><p>Monya Baker. 1,500 scientists lift the lid on reproducibility. <em>Nature</em>, 533(7604):452–454, May 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1038/533452a">http://dx.doi.org/10.1038/533452a</a>.</p>
 </dd>
-<dt class="bibtex label" id="bishop2019-hg"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dt class="bibtex label" id="bishop2019-hg"><span class="brackets"><a class="fn-backref" href="#id6">7</a></span></dt>
 <dd><p>Dorothy Bishop. Rein in the four horsemen of irreproducibility. <em>Nature</em>, 568(7753):435, April 2019. URL: <a class="reference external" href="http://dx.doi.org/10.1038/d41586-019-01307-2">http://dx.doi.org/10.1038/d41586-019-01307-2</a>.</p>
 </dd>
-<dt class="bibtex label" id="ioannidis2005-mo"><span class="brackets">7</span><span class="fn-backref">(<a href="#id7">1</a>,<a href="#id8">2</a>)</span></dt>
+<dt class="bibtex label" id="ioannidis2005-mo"><span class="brackets">8</span><span class="fn-backref">(<a href="#id7">1</a>,<a href="#id8">2</a>)</span></dt>
 <dd><p>John P A Ioannidis. Why most published research findings are false. <em>PLoS Med.</em>, 2(8):e124, August 2005. URL: <a class="reference external" href="http://dx.doi.org/10.1371/journal.pmed.0020124">http://dx.doi.org/10.1371/journal.pmed.0020124</a>.</p>
 </dd>
-<dt class="bibtex label" id="head2015-ns"><span class="brackets"><a class="fn-backref" href="#id9">8</a></span></dt>
+<dt class="bibtex label" id="head2015-ns"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
 <dd><p>Megan L Head, Luke Holman, Rob Lanfear, Andrew T Kahn, and Michael D Jennions. The extent and consequences of p-hacking in science. <em>PLoS Biol.</em>, 13(3):e1002106, March 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1371/journal.pbio.1002106">http://dx.doi.org/10.1371/journal.pbio.1002106</a>.</p>
 </dd>
-<dt class="bibtex label" id="fisher1990-ro"><span class="brackets"><a class="fn-backref" href="#id10">9</a></span></dt>
+<dt class="bibtex label" id="fisher1990-ro"><span class="brackets"><a class="fn-backref" href="#id10">10</a></span></dt>
 <dd><p>R A Fisher and F Yates. <em>Statistical Methods, Experimental Design, and Scientific Inference: A Re-Issue of Statistical Methods for Research Workers, the Design of Experiments, and Statistical Methods and Scientific Inference</em>. OUP Oxford, April 1990. URL: <a class="reference external" href="https://www.amazon.co.uk/Statistical-Methods-Experimental-Scientific-Inference/dp/0198522290">https://www.amazon.co.uk/Statistical-Methods-Experimental-Scientific-Inference/dp/0198522290</a>.</p>
 </dd>
-<dt class="bibtex label" id="dunn1958-sj"><span class="brackets"><a class="fn-backref" href="#id11">10</a></span></dt>
+<dt class="bibtex label" id="dunn1958-sj"><span class="brackets"><a class="fn-backref" href="#id11">11</a></span></dt>
 <dd><p>Olive Jean Dunn. Estimation of the means of dependent variables. <em>The Annals of Mathematical Statistics</em>, 29(4):1095–1111, 1958. URL: <a class="reference external" href="http://dx.doi.org/10.1214/aoms/1177706443">http://dx.doi.org/10.1214/aoms/1177706443</a>.</p>
 </dd>
-<dt class="bibtex label" id="benjamini1995-me"><span class="brackets"><a class="fn-backref" href="#id12">11</a></span></dt>
+<dt class="bibtex label" id="benjamini1995-me"><span class="brackets"><a class="fn-backref" href="#id12">12</a></span></dt>
 <dd><p>Yoav Benjamini and Yosef Hochberg. Controlling the false discovery rate: a practical and powerful approach to multiple testing. <em>Journal of the Royal Statistical Society: Series B (Methodological)</em>, 57(1):289–300, 1995. URL: <a class="reference external" href="http://dx.doi.org/10.1111/j.2517-6161.1995.tb02031.x">http://dx.doi.org/10.1111/j.2517-6161.1995.tb02031.x</a>.</p>
-</dd>
-<dt class="bibtex label" id="barbaric2007-zm"><span class="brackets"><a class="fn-backref" href="#id13">12</a></span></dt>
-<dd><p>Ivana Barbaric, Gaynor Miller, and T Neil Dear. Appearances can be deceiving: phenotypes of knockout mice. <em>Brief. Funct. Genomic. Proteomic.</em>, 6(2):91–103, June 2007.</p>
 </dd>
 <dt class="bibtex label" id="hardwicke-undated-jj"><span class="brackets"><a class="fn-backref" href="#id14">13</a></span></dt>
 <dd><p>Tom Elis Hardwicke and John Ioannidis. Mapping the universe of registered reports. <em>Nature Human Behaviour</em>, 2018. URL: <a class="reference external" href="https://www.nature.com/articles/s41562-018-0444-y">https://www.nature.com/articles/s41562-018-0444-y</a>.</p>
