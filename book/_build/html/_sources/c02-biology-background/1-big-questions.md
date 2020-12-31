@@ -18,15 +18,14 @@ The ancient theory of soft inheritance{cite}`Zirkle1935-sb` said that people can
 [//]: # (TODO: Gregor Mendel pea image)
 [//]: # (TODO: Cite Mendel)
 
-
 Gregor Mendel's famous pea experiments provided the earliest scientific basis for genetics through his experiments with independently inherited traits of peas (e.g. purple or white flowers, tall or shot plants, wrinkled or round seeds...). 
 Importantly, he discovered rules of inheritance that indicated that offspring have combinations of discrete genetic material (rather than a blend).
 He also showed that one trait that we can measure (e.g. purple flowers) can actually be caused by a number of different genetic combinations.
 
 [//]: # (TODO: Cite Wilhelm Johannsen seed size work)
 
-This concept was expanded by Wilhelm Johannsen, who coined the term "gene" as the name for this genetic material. 
-Johnannsen's work also distinguished between "genotype" and "phenotype": *genotype* being is the genetic material organisms have, and *phenotype* being the measurable trait. 
+This concept was expanded by Wilhelm Johannsen, who coined the term "gene" as the name for the hidden material that caused the traits. 
+Johnannsen's work also distinguished between "genotype" and "phenotype": *genotype* being the hidden (genetic) material that organisms have, and *phenotype* being the measurable trait. 
 His research showed that some phenotypes (e.g. seed size) could vary considerably even with genetically identical plants, due to their environment.
 
 [//]: # (TODO: Cite Watson + Crick) 
@@ -69,17 +68,17 @@ In addition, the first personalised genomic medicine chemotherapy treatment is n
 
 The eventual destination of this field is a full understanding of how our individual genomes and their interaction with the environment affects us. 
 With this understanding, we would anticipate a much wider application of both personalised medicine and gene therapies.
+These therapies are not yet a common occurrence: the eleven approved cell and gene therapies come from a pool of such 500 clinical trials{cite}`Cynober2020-rx`.
 
 [//]: # (TODO: Cite genes % of DNA)
 
-These therapies are not yet a common occurrence: the eleven approved cell and gene therapies come from a pool of such 500 clinical trials{cite}`Cynober2020-rx`.
 Perhaps it makes sense that we are not finding drug targets quickly, as we still don't know the functionality of approximately 20% of human genes.
 And genes are only a small part (1.2%) of our DNA, and the part we understand best.
-Beyond our DNA, there are many other aspects of our cellular and social environments that will effect which parts of our genes are being actively used, and how much.
-This section provides an overview of our scientific current model for how DNA effects phenotype, so that we can identify the sources of information that we do have and can make use of.
+Beyond our DNA, there are many other aspects of our cellular and social environments that will have an effect on which parts of our genes are being actively used, and how much.
+This section provides an overview of our scientific current model for how DNA affects phenotype, so that we can identify the sources of information that we do have and can make use of.
 
 Despite what we don't know, this is also the moment where when we have the fullest understanding of our genetics so far.
-We have huge, expertly curated, databases containing the great collective knowledge of many experiments about our DNA, how it is being used, and what traits it effects.
+We have huge, expertly curated, databases containing the great collective knowledge of many experiments about our DNA, how it is being used, and what traits it affects.
 Perhaps it is now possible to begin to synthesise some of this collective knowledge into a fuller understanding of complex traits.
 
 ---
