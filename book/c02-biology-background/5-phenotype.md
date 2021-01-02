@@ -1,5 +1,6 @@
 ### Linking genotype and phenotype: associations between regions of DNA and traits
 [//]: # (TODO: Does this section fit?)
+[//]: # (TODO: Heritability?)
 
 #### Is there a gene for that?
 Since “DNA makes RNA makes proteins” and proteins have functions, it might seem sensible to say that there is a gene “for” a given function. 

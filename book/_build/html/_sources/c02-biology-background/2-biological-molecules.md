@@ -1,29 +1,25 @@
 (biological.molecules)=
 ## Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
-Here I explain the classes of biological molecules that are vital in our understanding of genetics: the nucleic acids, DNA and RNA, and their product - proteins.
+Here I explain the classes of biological molecules that are vital in our understanding of genetics: the nucleic acids, DNA and RNA, and their product: proteins.
 
 (what-is-dna)=
 ### DNA
 
-[//]: # (TODO: Sort out figure labelling. Use TOC to go through in order and replace for the site and PDF)
-[//]: # (TODO: Cite Watson + Crick again) 
-
-```{figure} ../images/dna_metalmodel.jpg
+```{figure} ../images/dna-both.png
 ---
 height: 220px
-name: dna-metal-model
+name: dna-both
 ---
-A photo of the original six-foot tall metal model of DNA made by Watson and Crick in 1953. Image from the Cold Spring Harbor Archives{cite}`noauthor_undated-ih`.
-``` ``
+Left: A photo of the original six-foot tall metal model of DNA made by Watson and Crick in 1953, alongside their discovery{cite}`Watson1953-np`. Image from the Cold Spring Harbor Archives{cite}`noauthor_undated-ih`.
+Right: A cartoon representation of DNA, showing the copy in the complementary strand.
+``` 
 
-[//]: # (TODO: delete backticks)
-
-Most people recognise the double helix of deoxyribonucleic acid (DNA) shown in {numref}`dna-metal-model`, it’s a twisted ladder consisting of four nucleotides; adenine, cytosine, thymine, and guanine (A, C, T, G). 
-It the “code of life” that contains the instructions for making all of the things which make up our bodies and the obvious starting point for understanding how they work. 
+Most people recognise the double helix of deoxyribonucleic acid (DNA) shown in {numref}`dna-both`, it’s a twisted ladder consisting of four nucleotides; adenine, cytosine, thymine, and guanine (A, C, T, G). 
+It the “code of life” that contains the instructions for making (almost) all of the things which make up our bodies and therefore, an obvious starting point for understanding how they work. 
 A given nucleotide on one strand is always linked to its partner on the other strand - A with T, and G with C - which creates redundancy and a convenient copying mechanism.
 Lengths of DNA are measured in these base pairs (bp). 
 
-[//]: # (TODO: Explain chromosomes and mitochondria v. briefly.)
+Human DNA is organised into chromosomes, we have two copies of each of our 23 nuclear chromosomes within (almost) every cell, as well as a varying number of copies of our mitochondrial chromosome in the cells which have mitochondria. 
 
 (central-dogma)=
 #### How DNA affects us: the central dogma of molecular biology
@@ -33,7 +29,7 @@ The central dogma of molecular biology can be paraphrased as **"DNA makes RNA ma
 
 (almost-everything)= 
 ```{margin} *Almost* everything
-Proteins make up a lot of molecular machinery in the body as well as structures, however there are other actors, too. There are functional RNA molecules, and fats (which may or may not be synthesised using proteins) can also make up structural parts of the body (for example in cell membranes).
+Proteins make up a lot of molecular machinery in the body as well as structures, however there are other actors, too, for example, functional RNA molecules. Fats (which may or may not be synthesised using proteins) can also make up structural parts of the body such as cell membranes.
 ``` 
 
 The central dogma describes the process of gene expression. Gene expression has two parts: transcription (“DNA makes RNA”) and translation (“RNA makes proteins”).

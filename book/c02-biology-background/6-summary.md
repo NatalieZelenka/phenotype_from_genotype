@@ -2,6 +2,7 @@
 ## Summary: how genotype and phenotype are linked
 
 [//]: # (TODO: Write or delete. If delete, remove link in c02/0-index.md)
+[//]: # (TODO: Draw the scientific model)
 
 ---
 **Page References**

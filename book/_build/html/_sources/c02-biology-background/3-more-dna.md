@@ -10,11 +10,11 @@ This is called a *reference* genome, and does not belong to any particular indiv
 We can then discuss individuals genomes in relation to the relevant reference genome.
 
 #### Genes
-As mentioned, genes are stretches of DNA that encode for RNA. Only a proportion of an organism's DNA is made up of genes. Regions of DNA that are not within genes are known as *non-coding* or *inter-genic*. These regions can still affect phenotype, by influencing the expression of other genes can include enhancers and promoters. 
-
 [//]: # (TODO: Cite how much human DNA is genes in bp?)
+As mentioned, genes are stretches of DNA that encode for RNA. Only a proportion of an organism's DNA is made up of genes. For example, the human genome is 3 billion base pairs long, and contains approximately 20,000 genes (which make up around 1-2% of the genome). Regions of DNA that are not within genes are known as *non-coding* or *inter-genic*. These regions can still affect phenotype, by influencing the expression of other genes can include enhancers and promoters. 
 
-The human genome is 3 billion base pairs long, and contains approximately 20,000 genes (which make up around 2% of the genome).
+
+
 
 [//]: # (TODO: describe exome? Put in how much of genome is covered by SNPs?)
 
