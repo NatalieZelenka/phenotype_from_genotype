@@ -49,6 +49,13 @@ On some occasions, the disordered regions are known to be functional, while on o
 
 [//]: # (TODO: Potentially add something about protein families and superfamilies here.)
 
+#### The protein folding problem
+As mentioned above, translated strings of amino acids fold automatically (or sometimes with the help of *chaperone* proteins) into the 3D structure of proteins. 
+It’s the structure of proteins which define their function since their shape effects what they can bind to. 
+Predicting what the structure of a protein will be from the string of amino acids is known as the protein folding problem. 
+It’s has been one of the grandest challenges in biology for over half a century. If it were solved, it would revolutionise protein function and phenotype prediction. 
+
+[//]: # (TODO: Mention google deep mind?)
 
 ---
 **Page References**

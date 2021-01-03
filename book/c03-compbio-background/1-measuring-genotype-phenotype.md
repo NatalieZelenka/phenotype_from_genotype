@@ -225,6 +225,13 @@ When it is known, date of sequence processing is often used as a surrogate for b
 ### Proteins
 [//]: # (TODO: Mention how proteins map to transcripts and to genes and variants and whole genomes)
 
+#### Protein Structures
+[//]: # (TODO: Make sure this makes sense here I just moved it)
+
+In 1969, Margaret Dayhoff created the first bioinformatics database to store protein structures imaged using X-ray crystallography, related to her publication of Atlas of Protein Sequence and Structure{cite}`Hersh1967-ox`. 
+Soon after, in 1972, the Protein DataBank (PDB){cite}`noauthor_undated-ow` was established. 
+This continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.
+
 #### Protein classification
 Scientists are often interested in a "favourite" gene or protein, or have obtained a list of genes or proteins that they are interested in through a recent experiment. If an experiment about the specific protein has been carried out (e.g. to determine its function or structure), then a database like Uniprot (containing function and sequence information) or PDB (structure information) can be queried. However, this kind of information is not available for all proteins, so this is often necessary to make inferences about protein structure or function based on for example sequence similarity or protein classification.
 
