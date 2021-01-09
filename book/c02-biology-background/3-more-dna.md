@@ -14,6 +14,8 @@ We also discuss individuals' genomes in relation to the difference between the i
 (genes-enhancers-promoters)=
 ### Genes and the regions around them
 
+Genes have been central to the historical study of dna, hence "genetics". As {ref}`previously mentioned<genes-first-mentioned>`, we define genes are the stretches of DNA which can be transcribed into RNA.
+
 #### Genes, enhancers, promoters
 [//]: # (TODO: Draw Genes, alternate transcripts, enhancers, promoters)
 [//]: # (TODO: Write)
@@ -24,8 +26,10 @@ This can happen, for example, by skipping some of the exons during splicing.
 
 Even where DNA can be expressed as proteins, the level of expression depends on the cell environment and other DNA.
 
+(genes-are-complex)=
 #### The complexities of genes
 [//]: # (TODO: Cite how much human DNA is genes in bp?)
+[//]: # (TODO: Cite the selfish gene)
 
 As mentioned, genes are stretches of DNA that can be transcribed. In humans they make up around 1-2% of the genome. 
 

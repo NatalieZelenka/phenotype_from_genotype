@@ -49,7 +49,15 @@ name: transcription
 An illustration of the transcription process, showing the role of RNA polymerase in building RNA.
 ``` 
 
-The process by which "DNA makes RNA" is known as transcription. The process happens to certain lengths of DNA, and these lengths of DNA are called *genes*. In humans, genes vary in length from hundreds to millions of base pairs. 
+(genes-first-mentioned)=
+The process by which "DNA makes RNA" is known as transcription. The process happens to certain lengths of DNA, and these lengths of DNA are which {ref}`are called<complicated-genes-margin>` *genes*. In humans, genes vary in length from hundreds to millions of base pairs. 
+
+(complicated-genes-margin)=
+```{margin} Definining "genes"
+Genes are not a straightforward unit, as I describe in a bit more detail {ref}`later<genes-are-complex>`.  
+Some sources use "gene" only to describe genes which encode for proteins, but I include genes which encode for RNA.
+
+```
 
 The action of transcription is largely carried out by an enzyme called *RNA polymerase*, which binds to a promoter region of the DNA, close to but outside the gene. 
 This region is only accessible in certain cellular conditions. A rough model is that in conditions in which it is unfavourable for the gene to be transcribed, other molecules will block the promoter. 

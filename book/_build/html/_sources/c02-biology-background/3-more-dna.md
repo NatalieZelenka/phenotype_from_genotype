@@ -5,14 +5,16 @@ Now that we have a basic overview of how DNA can influence phenotype, we can dis
 (genomes)=
 ### Genomes
 The genome is the full amount of DNA belonging to an organism. We can talk about the genome of an individual, or about the genome of an organism (e.g. the human genome).
-When we talk about an organism's genome, we are actually talking about an example genome for that organism: the *reference* genome. 
-The reference genome not belong to any particular individual, but instead is supposed to have the most common nucleotide each location. 
+When we talk about an organism's genome, we are actually talking about an example genome for that organism: the organisms' *reference* genome. 
+The reference genome not belong to any individual organism, but instead is supposed to have the most common nucleotide each DNA location. 
 
 Reference genomes allow us to make general statements about an organism: for example the human genome is 3 billion base pairs long. 
-We also discuss individuals genomes in relation to the difference between the individual and the reference genome.
+We also discuss individuals' genomes in relation to the difference between the individual and the reference genome.
 
 (genes-enhancers-promoters)=
 ### Genes and the regions around them
+
+Genes have been central to the historical study of dna, hence "genetics". As {ref}`previously mentioned<genes-first-mentioned>`, we define genes are the stretches of DNA which can be transcribed into RNA.
 
 #### Genes, enhancers, promoters
 [//]: # (TODO: Draw Genes, alternate transcripts, enhancers, promoters)
@@ -24,8 +26,10 @@ This can happen, for example, by skipping some of the exons during splicing.
 
 Even where DNA can be expressed as proteins, the level of expression depends on the cell environment and other DNA.
 
+(genes-are-complex)=
 #### The complexities of genes
 [//]: # (TODO: Cite how much human DNA is genes in bp?)
+[//]: # (TODO: Cite the selfish gene)
 
 As mentioned, genes are stretches of DNA that can be transcribed. In humans they make up around 1-2% of the genome. 
 
@@ -33,20 +37,19 @@ However, genes are not as straightforward a unit as they sound.
 Due to their long history, the word "gene" has different uses.
 
 For example, gene is often used as shorthand for "DNA that causes phenotypic differences" (for example in Richard Dawkin's best-seller "The Selfish Gene", and in news articles with titles of the form "Scientists have discovered a gene for...").
-However, there are multiple reasons why this isn't a great way of thinking about genes.
- Firstly, genes are not guaranteed to cause phenotypic differences, and more importantly, nor are they the only sections of DNA which can influence phenotype.
+However, there are multiple reasons why this is an incomplete and outdated understanding.
+ Firstly, genes are not guaranteed to cause phenotypic differences, and more importantly, nor are they the only sections of DNA which can influence phenotype. 
 Secondly, there is not a 1:1 mapping between genes:proteins. 
 One gene could be read to create multiple different proteins (due to alternative splicing), and perhaps only one of those proteins causes a phenotypic difference.
 
 [//]: # (TODO: Cite not always genes whole inherited)
-Genes are also often touted as a “unit of heritability”, but this is similarly not always the case. 
+Genes are also often touted as a “unit of heritability/heredity”, but this is similarly not always the case. 
 DNA is more likely to be inherited together if it is close togther on the chromosome,so generally we inherit whole copies of genes (and the regions around them) together - in fact usually we often inherit stretches of multiple genes together.
 It is possible however, for chromosomal crossover to occur within a gene (i.e. for genes not to be inherited "in one piece" with one whole copy from each parent).
 
 [//]: # (TODO: Move this paragraph to compbio-background)
 There can be disagreements about the locations of genes on the genome, and popular databases of genes fundamentally disagree on this and on the number of genes{cite}`Salzberg2018-yc`. 
 Gene names and symbols change over time, and can be difficult to map between for this reason. 
-
 
 (single-nucleotides)=
 ##### SNPs and SNVs
@@ -55,7 +58,7 @@ Gene names and symbols change over time, and can be difficult to map between for
 
 A SNP is a location on an organism’s genome where there are differences of a single nucleotide (“A”,”C”,”T”,”G”) between individuals. In some fields, these variations are only considered to be Single Nucleotide *Polymorphisms* if they are relatively commonly occurring in the population (at least 1%), while Single Nucleotide Variants (SNVs) can include both rare and common variants. 
 
-Variation at a location does not imply a disease-causing effect, many SNPs are neutral. Much of the time, the aim of studying such variants is to determine which are which. This is often done through looking at their rarity, either in a specific human population (e.g. people with diabetes), the entire human population, or across the tree of life. 
+Variation at a location does not imply a disease-causing effect, many SNPs appear to be neutral. Much of the time, the aim of studying such variants is to determine which are which. This is often done through looking at their rarity, either in a specific human population (e.g. people with diabetes), the entire human population, or across the tree of life. 
 
 [//]: # (TODO: Chr1: ??)
 SNPs are defined by their location on a human reference genome, for example Chr1: . An individual allele for a given SNP is defined as “wild” type if it matches the reference genome and “mutant” if it does not. The reference genome does not always have the most common allele at each location, although this is it’s aim, so “wild” and “mutant” do not necessarily imply anything about rarity. 
