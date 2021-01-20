@@ -1,5 +1,5 @@
 (big.questions)=
-## Big questions: What is genetically determined, and how?
+# Big questions: What is genetically determined, and how?
 
 As humans, we are curious and want to understand ourselves. 
 We want to know the answers to questions like: "Why are people the way we are?", "Which aspects of ourselves have we inherited?", and "What is fixed and what can be changed by the way we live our lives?"
@@ -10,7 +10,7 @@ While eugenics is thankfully no longer in vogue, there is no guarantee that scie
 However, knowing more about ourselves clearly also has the capacity to be used for the good of all.
 By understanding how our bodies work, researchers seek to develop new, more effective, and kinder treatments for diseases.
 
-### History of inheritable traits
+## History of inheritable traits
 
 Humanity has been trying to answer the big questions long before we discovered DNA. 
 The ancient theory of soft inheritance{cite}`Zirkle1935-sb` said that people can pass on traits they gained during their lives, while 16th-century alchemists theorised that sperm contains tiny fully formed humans{cite}`Grafton_undated-af` (i.e. women didn't pass down anything). 
@@ -55,7 +55,7 @@ We now have thousands of human genomes to investigate, and the promises of gene 
 At the time of writing, there are eleven cell and gene therapies approved by the European Medicines Agency{cite}`Cynober2020-rx`, which treat a variety of cancers, as well as Crohn's disease, and eye and cartilage problems. 
 In addition, the first personalised genomic medicine chemotherapy treatment is now available on the NHS, for cancer patients with the allele of the [DYPD](https://www.genecards.org/cgi-bin/carddisp.pl?gene=DPYD) gene that cause slower breakdown of chemotherapy toxins{cite}`Guardian_staff_reporter2020-lb`.
 
-### The future
+## The future
 
 The eventual destination of this field is a full understanding of how our individual genomes and their interaction with the environment affects us. 
 With this understanding, we would anticipate a much wider application of both personalised medicine and gene therapies.
@@ -69,11 +69,3 @@ This section provides an overview of our scientific current model for how DNA af
 Despite what we don't know, this is also the moment where when we have the fullest understanding of our genetics so far.
 We have huge, expertly curated, databases containing the great collective knowledge of many experiments about our DNA, how it is being used, and what traits it affects.
 Perhaps it is now possible to begin to synthesise some of this collective knowledge into a fuller understanding of complex traits.
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

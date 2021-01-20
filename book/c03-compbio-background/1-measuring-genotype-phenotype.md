@@ -132,8 +132,11 @@ These describe the locations on the genome of variations between individuals, gi
 [//]: # (TODO: Write)
 
 #### Genes
-[//]: # (TODO: Write: sequenced the same way, persistent identifiers, which map to genomes)
+There can be disagreements about the locations of genes on the genome, and popular databases of genes fundamentally disagree on this and on the number of genes{cite}`Salzberg2018-yc`. 
+Gene names and symbols change over time, and can be difficult to map between for this reason.
 
+[//]: # (TODO: Write: sequenced the same way, persistent identifiers, which map to genomes)
+[//]: # (TODO: Explain that regulatory features are not as well defined yet, i.e. with IDs, etc.)
 #### Variants
 [//]: # (TODO: Sentence about variants)
 

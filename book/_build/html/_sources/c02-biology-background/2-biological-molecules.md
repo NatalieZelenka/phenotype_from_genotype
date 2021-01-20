@@ -1,9 +1,9 @@
 (biological.molecules)=
-## Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+# Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
 Here I introduce the classes of biological molecules that are vital in our understanding of genetics: the nucleic acids (DNA and RNA), and their product: proteins.
 
 (what-is-dna)=
-### DNA
+## DNA
 
 ```{figure} ../images/dna-both.png
 ---
@@ -34,7 +34,7 @@ Proteins make up a lot of molecular machinery in the body as well as structures,
 
 The central dogma describes the process of gene expression. Gene expression has two parts: transcription (“DNA makes RNA”) and translation (“RNA makes proteins”).
 
-#### "DNA makes RNA", a.k.a, transcription
+### "DNA makes RNA", a.k.a, transcription
 
 (what-is-rna)=
 RNA (or ribonucleic acid) was originally discovered alongside DNA as a nucleic acid, an acidic substance found in the nucleus of cells. It was later discovered that they are also found in bacterial and archeal cells (which don't have nuclei). 
@@ -79,7 +79,7 @@ What is transcribed and how quickly is affected by many different kinds of prote
 Transcription factors are of particular note, which are proteins that bind to DNA close to or in the promoter region, and either *activate* the gene (increasing it’s rate of transcription), by for example recruiting RNA polymerase, or *repress* it (decrease it’s rate of transcription).
 These transcription factors are in turn regulated by other transcription factors, which creates a network of gene regulation; a gene regulatory network (GRN).
 
-#### "RNA makes Proteins", a.k.a. Translation
+### "RNA makes Proteins", a.k.a. Translation
 The second part of the central dogma is "RNA makes proteins" a.k.a. translation.
 
 (what-are-proteins)=
@@ -87,6 +87,7 @@ Proteins have been investigated independently from DNA and RNA.
 They were named by Dutch chemist Gerardus Mulder in his 1839 paper{cite}`Mulder1839-rf`, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>. 
 This intriguing result bolstered research in this area, eventually resulting in our current understanding of proteins as biological macromolecules composed of amino acids. 
 
+(what-is-translation)=
 Translation describes the process in which a string of amino acids is created based on the RNA sequence.
 Proteins are made of these amino acid strings (called *polypeptides*), and after translation, they will fold (potentially with the assistence of *chaperone* proteins) into the proteins usual globular three dimensional conformation. 
 
@@ -109,7 +110,7 @@ Transfer RNA (tRNA) transports the amino acids to the ribosome where the polypep
 Although we would expect $4^3=64$ permutations of nucleotides, there are only 21 different amino acids which can be incorporated into proteins in humans, so there is redundancy: multiple codons can encode for the same amino acids. 
 We can see this clearly in the left part of {numref}`translation`, for example, UAA, UGA, and UAG are all read as stop codons.
 
-#### "... and proteins do everything."
+### "... and proteins do everything."
 The unwritten addendum implied by “DNA makes RNA makes proteins” is “...and proteins do ({ref}`almost<almost-everything>`) everything”. 
 If DNA encodes for life, then proteins are what make up life. 
 They are the material building blocks of our bodies, and they also have a vast number of other functions: they can be enzymes catalysing reactions, hormones controlling metabolism, transporters for other proteins, signalling proteins, they might be transcription factors (controlling the expression of genes), or have many other functions.
@@ -117,11 +118,3 @@ They are the material building blocks of our bodies, and they also have a vast n
 In turn, these processes influence our phenotypes. 
 A phenotype can be something like the level of a certain hormone in the bloodstream, so in a very simple case, a  could effect the phenotype by it's difference in the speed of expression.
 A phenotype could alternatively be something like height, which could have a number of genetic (and non-genetic) influences.
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

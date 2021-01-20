@@ -34,10 +34,3 @@ In {ref}`Chapter 4<c04-snowflake>`, I describe my preliminary efforts to integra
 In {ref}`Chapter 6<c06-filter>`, I discuss a filter-based gene function predictor that I entered in the CAFA3 competition{cite}`Zhou2019-jk`.
 
 Finally, I discuss my conclusions in {ref}`Chapter 7<c07-conclusion>`.
-
----
-**References**
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```
