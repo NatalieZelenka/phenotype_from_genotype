@@ -230,18 +230,39 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/3-data.html">
+     4.3. Snowflake input data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/4-clustering-snps.html">
+     4.4. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/5-results.html">
-     4.2. Results
+     4.5. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/6-discussion.html">
-     4.3. Discussion
+     4.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/7-future-work.html">
-     4.4. Future Work
+     4.7. Future Work
     </a>
    </li>
   </ul>
@@ -456,7 +477,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#and-proteins-do-everything">
-     2.2.2.3. “…and proteins do everything.”
+     2.2.2.3. “… and proteins do everything.”
     </a>
    </li>
   </ul>
@@ -504,20 +525,25 @@ In contrast to DNA, RNA is a single-stranded molecule, with the bases A, C, G an
 There are different forms of RNA which perform different functions. It is messenger RNA (mRNA) that is the intermediate product between DNA and Proteins.</p>
 <div class="figure align-default" id="transcription">
 <a class="reference internal image-reference" href="../_images/transcription.png"><img alt="../_images/transcription.png" src="../_images/transcription.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.3 </span><span class="caption-text">An illustration of the transcription process, showing the role of RNA polymerase in building RNA.</span><a class="headerlink" href="#transcription" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.3 </span><span class="caption-text">An illustration of the transcription and splicing processes, showing the role of RNA polymerase in building RNA.</span><a class="headerlink" href="#transcription" title="Permalink to this image">¶</a></p>
 </div>
 <p id="genes-first-mentioned">The process by which “DNA makes RNA” is known as transcription. The process happens to certain lengths of DNA, and these lengths of DNA are which <a class="reference internal" href="#complicated-genes-margin"><span class="std std-ref">are called</span></a> <em>genes</em>. In humans, genes vary in length from hundreds to millions of base pairs.</p>
 <div class="margin sidebar" id="complicated-genes-margin">
 <p class="sidebar-title">Definining “genes”</p>
-<p>Genes are not a straightforward unit, as I describe in a bit more detail <a class="reference internal" href="3-more-dna.html#genes-are-complex"><span class="std std-ref">later</span></a>.
+<p>Genes are not a straightforward unit, as I describe in a bit more detail <a class="reference internal" href="3-more-dna.html#genes-are-complex"><span class="std std-ref">later</span></a>.<br />
 Some sources use “gene” only to describe genes which encode for proteins, but I include genes which encode for RNA.</p>
 </div>
 <p>The action of transcription is largely carried out by an enzyme called <em>RNA polymerase</em>, which binds to a promoter region of the DNA, close to but outside the gene.
 This region is only accessible in certain cellular conditions. A rough model is that in conditions in which it is unfavourable for the gene to be transcribed, other molecules will block the promoter.</p>
 <p><a class="reference internal" href="#transcription"><span class="std std-numref">Fig. 2.3</span></a> illustrates the next part of this process. The RNA polymerase splits the DNA and adds complementary RNA nucleotides to the DNA, after which the RNA sugar backbone is formed.
-The RNA-DNA helix is then split, at which point we have what is known as precursor RNA or pre-RNA.
-The pre-RNA then undergoes <em>splicing</em>, where parts of the RNA (<em>introns</em>) are removed, leaving only <em>exons</em>.
+The RNA-DNA helix is then split, at which point we have what is known as precursor RNA or pre-RNA.</p>
+<p>After transcription, the pre-RNA then undergoes <em>post-transcriptional modifications</em> such as <em>splicing</em>, where parts of the RNA (<em>introns</em>) are removed, leaving only <em>exons</em>.
+This can also bee seen in <a class="reference internal" href="#transcription"><span class="std std-numref">Fig. 2.3</span></a>.
 Splicing is part of the final processing step to create the finished product: a mature RNA transcript.</p>
+<p id="alternative-splicing">During this step a gene could be transcribed into one of multiple transcripts, via a process known as <em>alternative splicing</em>.
+This can happen, for example, by skipping some of the exons during splicing.
+So, “DNA makes RNA(<em>s</em>)”.
+This means that there’s not a one-to-one relationship between genes and transcripts, and therefore between genes and proteins.</p>
 <p>What is transcribed and how quickly is affected by many different kinds of proteins, as well as other molecules, for example histone modifications.
 Transcription factors are of particular note, which are proteins that bind to DNA close to or in the promoter region, and either <em>activate</em> the gene (increasing it’s rate of transcription), by for example recruiting RNA polymerase, or <em>repress</em> it (decrease it’s rate of transcription).
 These transcription factors are in turn regulated by other transcription factors, which creates a network of gene regulation; a gene regulatory network (GRN).</p>
@@ -525,7 +551,8 @@ These transcription factors are in turn regulated by other transcription factors
 <div class="section" id="rna-makes-proteins-a-k-a-translation">
 <h3><span class="section-number">2.2.2.2. </span>“RNA makes Proteins”, a.k.a. Translation<a class="headerlink" href="#rna-makes-proteins-a-k-a-translation" title="Permalink to this headline">¶</a></h3>
 <p>The second part of the central dogma is “RNA makes proteins” a.k.a. translation.</p>
-<p id="what-are-proteins">Proteins have been investigated independently from DNA and RNA. They were named by Dutch chemist Gerardus Mulder in his 1839 paper<a class="bibtex reference internal" href="#mulder1839-rf" id="id3">[18]</a>, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>.
+<p id="what-are-proteins">Proteins have been investigated independently from DNA and RNA.
+They were named by Dutch chemist Gerardus Mulder in his 1839 paper<a class="bibtex reference internal" href="#mulder1839-rf" id="id3">[18]</a>, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>.
 This intriguing result bolstered research in this area, eventually resulting in our current understanding of proteins as biological macromolecules composed of amino acids.</p>
 <p>Translation describes the process in which a string of amino acids is created based on the RNA sequence.
 Proteins are made of these amino acid strings (called <em>polypeptides</em>), and after translation, they will fold (potentially with the assistence of <em>chaperone</em> proteins) into the proteins usual globular three dimensional conformation.</p>
@@ -542,12 +569,13 @@ Transfer RNA (tRNA) transports the amino acids to the ribosome where the polypep
 We can see this clearly in the left part of <a class="reference internal" href="#translation"><span class="std std-numref">Fig. 2.4</span></a>, for example, UAA, UGA, and UAG are all read as stop codons.</p>
 </div>
 <div class="section" id="and-proteins-do-everything">
-<h3><span class="section-number">2.2.2.3. </span>“…and proteins do everything.”<a class="headerlink" href="#and-proteins-do-everything" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.2.3. </span>“… and proteins do everything.”<a class="headerlink" href="#and-proteins-do-everything" title="Permalink to this headline">¶</a></h3>
 <p>The unwritten addendum implied by “DNA makes RNA makes proteins” is “…and proteins do (<a class="reference internal" href="#almost-everything"><span class="std std-ref">almost</span></a>) everything”.
 If DNA encodes for life, then proteins are what make up life.
 They are the material building blocks of our bodies, and they also have a vast number of other functions: they can be enzymes catalysing reactions, hormones controlling metabolism, transporters for other proteins, signalling proteins, they might be transcription factors (controlling the expression of genes), or have many other functions.</p>
 <p>In turn, these processes influence our phenotypes.
-A phenotype can be something like the level of a certain hormone in the bloodstream, so in a very simple case, a  could effect the phenotype by it’s difference in the speed of expression. A phenotype could alternatively be something like height, which could have a number of genetic (and non-genetic) influences.</p>
+A phenotype can be something like the level of a certain hormone in the bloodstream, so in a very simple case, a  could effect the phenotype by it’s difference in the speed of expression.
+A phenotype could alternatively be something like height, which could have a number of genetic (and non-genetic) influences.</p>
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c02-biology-background/2-biological-molecules-0"><dl class="citation">

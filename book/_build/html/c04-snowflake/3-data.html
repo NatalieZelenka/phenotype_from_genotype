@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snowflake input data &#8212; Phenotype from Genotype</title>
+    <title>4.3. Snowflake input data &#8212; Phenotype from Genotype</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.4. Considerations for Clustering SNPs" href="4-clustering-snps.html" />
+    <link rel="prev" title="4.2. Snowflake Algorithm" href="2-snowflake-algorithm.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -138,7 +140,7 @@
   Main book
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../c01-introduction/intro.html">
    1. Introduction
@@ -212,7 +214,7 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="0-index.html">
    4. Phenotype prediction with
    <code class="docutils literal notranslate">
@@ -221,25 +223,46 @@
     </span>
    </code>
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="1-introduction.html">
      4.1. Introduction
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     4.3. Snowflake input data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-clustering-snps.html">
+     4.4. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="5-results.html">
-     4.2. Results
+     4.5. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-discussion.html">
-     4.3. Discussion
+     4.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-future-work.html">
-     4.4. Future Work
+     4.7. Future Work
     </a>
    </li>
   </ul>
@@ -454,22 +477,22 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-sources">
-   Data sources
+   4.3.1. Data sources
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#alspac">
-     ALSPAC
+     4.3.1.1. ALSPAC
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#genotypes">
-       Genotypes
+       4.3.1.1.1. Genotypes
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#phenotypes">
-       Phenotypes
+       4.3.1.1.2. Phenotypes
       </a>
      </li>
     </ul>
@@ -478,83 +501,83 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#athletes">
-   Athletes
+   4.3.2. Athletes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cagi">
-   CAGI
+   4.3.3. CAGI
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-pipelines">
-   Data Pipelines
+   4.3.4. Data Pipelines
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pipeline-for-creating-vcf-files-from-23andme-data">
-     Pipeline for creating VCF files from 23andMe data
+     4.3.4.1. Pipeline for creating VCF files from 23andMe data
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#andme-chips">
-       23andMe chips
+       4.3.4.1.1. 23andMe chips
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ambiguous-flips">
-       Ambiguous Flips
+       4.3.4.1.2. Ambiguous Flips
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     ALSPAC
+     4.3.4.2. ALSPAC
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#creating-vcf-files">
-       Creating VCF files
+       4.3.4.2.1. Creating VCF files
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id5">
-       Phenotypes
+       4.3.4.2.2. Phenotypes
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id6">
-     CAGI
+     4.3.4.3. CAGI
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id7">
-       Creating VCF files
+       4.3.4.3.1. Creating VCF files
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#mapping-phenotypes-to-cagi-measurements">
-       Mapping phenotypes to CAGI measurements
+       4.3.4.3.2. Mapping phenotypes to CAGI measurements
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id8">
-     Athletes
+     4.3.4.4. Athletes
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id9">
-       Creating VCF files
+       4.3.4.4.1. Creating VCF files
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id10">
-       Mapping phenotypes to CAGI measurements
+       4.3.4.4.2. Mapping phenotypes to CAGI measurements
       </a>
      </li>
     </ul>
@@ -573,27 +596,27 @@
               <div>
                 
   <div class="section" id="snowflake-input-data">
-<h1>Snowflake input data<a class="headerlink" href="#snowflake-input-data" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4.3. </span>Snowflake input data<a class="headerlink" href="#snowflake-input-data" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> requires:
 - genetic data as input, in VCF format.
 - conservation scores per SNP.</p>
 <p>This section describes the sources and pipelines for creating input files.</p>
 <div class="section" id="data-sources">
-<h2>Data sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3.1. </span>Data sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="alspac">
-<h3>ALSPAC<a class="headerlink" href="#alspac" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.1.1. </span>ALSPAC<a class="headerlink" href="#alspac" title="Permalink to this headline">¶</a></h3>
 <p>The Avon Longitudinal Study of Parents and Children, ALSPAC<a class="bibtex reference internal" href="../end-matter/reference.html#golding2001-oj" id="id1">[1]</a> (a.k.a. the children of the 90s) is a cohort of over 14,000 families from the Avon area. A wealth of phenotype information has also been collected from these families, through a series of voluntary surveys and clinics.</p>
 <p>Due to the personal and private nature of the data, we were granted access to the genotype data first, then allowed to request a small number of high-scoring phenotypes after running the predictor.</p>
 <p>Although the ALSPAC dataset is large, it is not very diverse, therefore the 1000 genomes project (Phase 1) genomes were used as a background set.</p>
 <div class="section" id="genotypes">
-<h4>Genotypes<a class="headerlink" href="#genotypes" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.1.1.1. </span>Genotypes<a class="headerlink" href="#genotypes" title="Permalink to this headline">¶</a></h4>
 <p>Of the 14,000+ families in the ALSPAC cohort, 8365 of the children were genotyped by 23andMe and passed quality control. The participants were genotyped using the 23andme v2 chip, which measures ~550,000 SNPS.</p>
-<p>These 23andMe files use build 36 of the human reference genome, so a build 36 version of the <code class="docutils literal notranslate"><span class="pre">.vcf</span></code> and <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> files for ALSPAC were made first (created with the <code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">create_input</span></code> command described in <code class="xref std std-numref docutils literal notranslate"><span class="pre">snowflake-create-input</span></code>), before lifting them over to the build 37 versions which were used for input to the <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code>.</p>
+<p>These 23andMe files use build 36 of the human reference genome, so a build 36 version of the <code class="docutils literal notranslate"><span class="pre">.vcf</span></code> and <code class="docutils literal notranslate"><span class="pre">.Consequence</span></code> files for ALSPAC were made first (created with the <code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">create_input</span></code> command described in <a class="reference internal" href="2-snowflake-algorithm.html#snowflake-create-input"><span class="std std-numref">Section 4.2.4</span></a>), before lifting them over to the build 37 versions which were used for input to the <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code>.</p>
 <p><strong>Lift-over procedure</strong>
 Lifting over VCF files between <span class="xref std std-ref">different-builds</span> was done using the UCSC LiftOver tool.</p>
 </div>
 <div class="section" id="phenotypes">
-<h4>Phenotypes<a class="headerlink" href="#phenotypes" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.1.1.2. </span>Phenotypes<a class="headerlink" href="#phenotypes" title="Permalink to this headline">¶</a></h4>
 <p><span class="xref myst">//</span>: # (TODO: explain that using the catalogue - and link - ALSPAC phenotypes matching the DcGO phenotypes were chosen for the highest scoring things on a the prototype version. Maybe explain that due to the sensitivity of this to other things, they were not the highest ranking things any more).</p>
 <p>The majority of the top-predicted phenotype terms (Ataxia, Abnormal Fat Cell Morphology, Abnormal Fetal Development) did not map cleanly to ALSPAC phenotypes, and those that did (e.g. Intellectual Disability) had many missing values, or did not overlap with the genotyped individuals.</p>
 <p><span class="xref myst">//</span>: # (TODO: Cite lack of diversity).</p>
@@ -601,30 +624,30 @@ Lifting over VCF files between <span class="xref std std-ref">different-builds</
 </div>
 </div>
 <div class="section" id="athletes">
-<h2>Athletes<a class="headerlink" href="#athletes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3.2. </span>Athletes<a class="headerlink" href="#athletes" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="cagi">
-<h2>CAGI<a class="headerlink" href="#cagi" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3.3. </span>CAGI<a class="headerlink" href="#cagi" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="data-pipelines">
-<h2>Data Pipelines<a class="headerlink" href="#data-pipelines" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3.4. </span>Data Pipelines<a class="headerlink" href="#data-pipelines" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="pipeline-for-creating-vcf-files-from-23andme-data">
-<h3>Pipeline for creating VCF files from 23andMe data<a class="headerlink" href="#pipeline-for-creating-vcf-files-from-23andme-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.4.1. </span>Pipeline for creating VCF files from 23andMe data<a class="headerlink" href="#pipeline-for-creating-vcf-files-from-23andme-data" title="Permalink to this headline">¶</a></h3>
 <p>The CAGI, Athletes, and ALSPAC datasets were all genotyped using 23andMe, so the following applies to all of these datasets.</p>
 <div class="section" id="andme-chips">
-<h4>23andMe chips<a class="headerlink" href="#andme-chips" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.4.1.1. </span>23andMe chips<a class="headerlink" href="#andme-chips" title="Permalink to this headline">¶</a></h4>
 <p>Since launch, 23andMe have used a number of different illumina chips for their genotyping service. These chips capture information for different SNPs.</p>
 </div>
 <div class="section" id="ambiguous-flips">
-<h4>Ambiguous Flips<a class="headerlink" href="#ambiguous-flips" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.4.1.2. </span>Ambiguous Flips<a class="headerlink" href="#ambiguous-flips" title="Permalink to this headline">¶</a></h4>
 <p>The majority of input data to the predictor is 23andMe data. In testing the predictor with the 2500G background and a cohort of 23andMe genomes, it became clear that for many phenotypes, the background was forming a separate cluster to the cohort. This led to the realisation that there are 23andMe calls which had the opposite ratio of wild type:mutant than the 2500 genomes. Some further reading revealed this to be a known problem<a class="bibtex reference internal" href="../end-matter/reference.html#church2005-zv" id="id2">[2]</a>, which may be due to ambiguous flips<a class="bibtex reference internal" href="../end-matter/reference.html#sand2007-ed" id="id3">[3]</a>.</p>
 <p>Implausible distributions of SNPs in the input cohort (given the background) are therefore discarded. i.e if the input cohort doesn’t match the background. (all one way and the rest all the other).</p>
 </div>
 </div>
 <div class="section" id="id4">
-<h3>ALSPAC<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.4.2. </span>ALSPAC<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="creating-vcf-files">
-<h4>Creating VCF files<a class="headerlink" href="#creating-vcf-files" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.4.2.1. </span>Creating VCF files<a class="headerlink" href="#creating-vcf-files" title="Permalink to this headline">¶</a></h4>
 <p><strong>Missing values</strong>
 <span class="xref myst">//</span>: # (TODO: write - or possibly move to results section)</p>
 <p><strong>Distribution of SNPs per phenotype</strong>
@@ -633,13 +656,13 @@ Lifting over VCF files between <span class="xref std std-ref">different-builds</
 <span class="xref myst">//</span>: # (TODO: Distribution of number SNP scores within phenotypes - violin plot with some examples - for ALSPAC. Known phenotypes included, dotted lines showing max scores for any SNP.)</p>
 </div>
 <div class="section" id="id5">
-<h4>Phenotypes<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.4.2.2. </span>Phenotypes<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
 <div class="section" id="id6">
-<h3>CAGI<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.4.3. </span>CAGI<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id7">
-<h4>Creating VCF files<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.4.3.1. </span>Creating VCF files<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <p><strong>Missing values</strong>
 <span class="xref myst">//</span>: # (TODO: write - or possibly move to results section)</p>
 <p><strong>Distribution of SNPs per phenotype</strong>
@@ -648,13 +671,13 @@ Lifting over VCF files between <span class="xref std std-ref">different-builds</
 <span class="xref myst">//</span>: # (TODO: Distribution of number SNP scores within phenotypes - violin plot with some examples - for CAGI. Known phenotypes included, dotted lines showing max scores for any SNP.)</p>
 </div>
 <div class="section" id="mapping-phenotypes-to-cagi-measurements">
-<h4>Mapping phenotypes to CAGI measurements<a class="headerlink" href="#mapping-phenotypes-to-cagi-measurements" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.4.3.2. </span>Mapping phenotypes to CAGI measurements<a class="headerlink" href="#mapping-phenotypes-to-cagi-measurements" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
 <div class="section" id="id8">
-<h3>Athletes<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.4.4. </span>Athletes<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id9">
-<h4>Creating VCF files<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.4.4.1. </span>Creating VCF files<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
 <p><strong>Missing values</strong>
 <span class="xref myst">//</span>: # (TODO: write - or possibly move to results section)</p>
 <p><strong>Distribution of SNPs per phenotype</strong>
@@ -663,7 +686,7 @@ Lifting over VCF files between <span class="xref std std-ref">different-builds</
 <span class="xref myst">//</span>: # (TODO: Distribution of number SNP scores within phenotypes - violin plot with some examples - for CAGI. Known phenotypes included, dotted lines showing max scores for any SNP.)</p>
 </div>
 <div class="section" id="id10">
-<h4>Mapping phenotypes to CAGI measurements<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.4.4.2. </span>Mapping phenotypes to CAGI measurements<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c04-snowflake/3-data-0"><dl class="citation">
@@ -711,6 +734,8 @@ Lifting over VCF files between <span class="xref std std-ref">different-builds</
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="2-snowflake-algorithm.html" title="previous page"><span class="section-number">4.2. </span><code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> Algorithm</a>
+    <a class='right-next' id="next-link" href="4-clustering-snps.html" title="next page"><span class="section-number">4.4. </span>Considerations for Clustering SNPs</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

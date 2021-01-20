@@ -2,54 +2,71 @@
 ## A closer look at DNA: Genomes, Genes, and Genetic Variation
 Now that we have a basic overview of how DNA can influence phenotype, we can discuss the way that DNA is organised and categorised in a little more detail. We'll look from big ({ref}`genomes<genomes>`) to small ({ref}`single nucleotides<single-nucleotides>`).
 
+### Genomes, exomes, proteomes
+
 (genomes)=
-### Genomes
+#### Genomes
 The genome is the full amount of DNA belonging to an organism. We can talk about the genome of an individual, or about the genome of an organism (e.g. the human genome).
 When we talk about an organism's genome, we are actually talking about an example genome for that organism: the organisms' *reference* genome. 
 The reference genome not belong to any individual organism, but instead is supposed to have the most common nucleotide each DNA location. 
 
-Reference genomes allow us to make general statements about an organism: for example the human genome is 3 billion base pairs long. 
+Reference genomes allow us to make general statements about an organism (e.g. "the human genome is 3 billion base pairs long"), and also to make comparisons between organisms (e.g. {ref}`"humans share 1% of their DNA with a banana"<human-banana-dna>`). 
 We also discuss individuals' genomes in relation to the difference between the individual and the reference genome.
 
-(genes-enhancers-promoters)=
+(human-banana-dna)= 
+```{margin} Humans and bananas
+Humans share 50% of their *protein-coding* dna with bananas, but only 1% of their genome.
+``` 
+
+#### The exome and the proteome
+Still thinking big, we have the *exome* and the *proteome*. 
+Both of these refer to locations across the whole genome, but missing stretches in between.
+The exome describes the set of all exons (protein-coding nucleotides) across the genome. 
+The proteome is generally used to mean the set of all proteins in in an organism (which can be much larger than the set of genes due to {ref}`alternate splicing<alternative-splicing>`), but it can also be used to describe the part of the genome with relating to the set of protein sequences.
+
 ### Genes and the regions around them
 
-Genes have been central to the historical study of dna, hence "genetics". As {ref}`previously mentioned<genes-first-mentioned>`, we define genes are the stretches of DNA which can be transcribed into RNA.
+#### Genes
+DNA is often considered at the level of the gene.
+Genes have been so central to the historical study of dna (hence the name *gene*tics), and the gene-centric view of molecular biology continues to this day.
+For example, many researchers have favourite genes, which they primarily study, and understand the mechanisms of in detail. 
+And for this reason, diseases and phenotypes are often attributed at level of the gene, rather than at a more fine-grained level of the specific mutation.
 
-#### Genes, enhancers, promoters
-[//]: # (TODO: Draw Genes, alternate transcripts, enhancers, promoters)
-[//]: # (TODO: Write)
-[//]: # (TODO: describe exome)
-
-In addition, many genes have the capability to be transcribed into multiple transcripts, via a process known as alternative splicing.
-This can happen, for example, by skipping some of the exons during splicing.
-
-Even where DNA can be expressed as proteins, the level of expression depends on the cell environment and other DNA.
+As {ref}`previously mentioned<genes-first-mentioned>`, we define genes are the stretches of DNA which can be transcribed into RNA.
+However, the seemingly simple definition hides a lot of complexities: due to their long history, the word "gene" has had different uses and meanings.
 
 (genes-are-complex)=
-#### The complexities of genes
+##### The complexities of genes
 [//]: # (TODO: Cite how much human DNA is genes in bp?)
 [//]: # (TODO: Cite the selfish gene)
+[//]: # (TODO: Explain/link to alternative splicing)
+[//]: # (TODO: Mention overlapping genes)
 
-As mentioned, genes are stretches of DNA that can be transcribed. In humans they make up around 1-2% of the genome. 
-
-However, genes are not as straightforward a unit as they sound. 
-Due to their long history, the word "gene" has different uses.
-
-For example, gene is often used as shorthand for "DNA that causes phenotypic differences" (for example in Richard Dawkin's best-seller "The Selfish Gene", and in news articles with titles of the form "Scientists have discovered a gene for...").
+The word gene is often used as shorthand for "DNA that causes phenotypic differences" (for example in Richard Dawkin's best-seller "The Selfish Gene", and in news articles with titles of the form "Scientists have discovered a gene for...").
 However, there are multiple reasons why this is an incomplete and outdated understanding.
- Firstly, genes are not guaranteed to cause phenotypic differences, and more importantly, nor are they the only sections of DNA which can influence phenotype. 
-Secondly, there is not a 1:1 mapping between genes:proteins. 
-One gene could be read to create multiple different proteins (due to alternative splicing), and perhaps only one of those proteins causes a phenotypic difference.
+Firstly, genes are not guaranteed to cause phenotypic differences.
+More importantly, nor are genes the only sections of DNA which can influence phenotype. 
+Thirdly, there is not a one-to-one mapping from genes-to-proteins: one gene could be read to create multiple different proteins (due to {ref}`alternate splicing<alternative-splicing>`), and sometimes only one of those proteins might cause a phenotypic difference.
 
 [//]: # (TODO: Cite not always genes whole inherited)
+[//]: # (TODO: Rephrase chromosomal crossover so that I don't say that?)
 Genes are also often touted as a “unit of heritability/heredity”, but this is similarly not always the case. 
-DNA is more likely to be inherited together if it is close togther on the chromosome,so generally we inherit whole copies of genes (and the regions around them) together - in fact usually we often inherit stretches of multiple genes together.
+DNA is more likely to be inherited together if it is close together on the chromosome,so generally we inherit whole copies of genes (and the regions around them) together - in fact usually we often inherit stretches of multiple genes together.
 It is possible however, for chromosomal crossover to occur within a gene (i.e. for genes not to be inherited "in one piece" with one whole copy from each parent).
 
 [//]: # (TODO: Move this paragraph to compbio-background)
 There can be disagreements about the locations of genes on the genome, and popular databases of genes fundamentally disagree on this and on the number of genes{cite}`Salzberg2018-yc`. 
 Gene names and symbols change over time, and can be difficult to map between for this reason. 
+
+(genes-enhancers-promoters)=
+#### Gene regulation
+[//]: # (TODO: Draw Genes, alternate transcripts, enhancers, promoters)
+[//]: # (TODO: Write)
+[//]: # (TODO: Explain in Ch3 that regulatory features are not as well defined yet, i.e. with IDs, etc.)
+
+Other nearby stretches of DNA are also of interest in relation to genes: enhancers, silencers, insulators, and promoters. These are stretches of DNA that proteins can bind to 
+
+Even where DNA can be expressed as proteins, the level of expression depends on the cell environment and other DNA.
 
 (single-nucleotides)=
 ##### SNPs and SNVs

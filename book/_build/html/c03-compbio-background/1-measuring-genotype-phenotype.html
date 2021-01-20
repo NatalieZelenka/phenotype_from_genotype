@@ -230,18 +230,39 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/3-data.html">
+     4.3. Snowflake input data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/4-clustering-snps.html">
+     4.4. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/5-results.html">
-     4.2. Results
+     4.5. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/6-discussion.html">
-     4.3. Discussion
+     4.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/7-future-work.html">
-     4.4. Future Work
+     4.7. Future Work
     </a>
    </li>
   </ul>
@@ -614,14 +635,14 @@
 <h2><span class="section-number">3.1.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="linneaus-ehret">
 <a class="reference internal image-reference" href="../_images/linneaus_ehret.png"><img alt="../_images/linneaus_ehret.png" src="../_images/linneaus_ehret.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Carl Linneaus developed a system of classifying plants, animals and minerals, including plant classification based on their number of stamens<a class="bibtex reference internal" href="#blunt2001-wr" id="id1">[27]</a>. The left image is a key to this classification system taken from his book, while the right image is a depiction of how the system works, drawn by botanist George Ehret<a class="bibtex reference internal" href="#ehret1748-bx" id="id2">[28]</a>.</span><a class="headerlink" href="#linneaus-ehret" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Carl Linneaus developed a system of classifying plants, animals and minerals, including plant classification based on their number of stamens<a class="bibtex reference internal" href="../end-matter/reference.html#blunt2001-wr" id="id1">[3]</a>. The left image is a key to this classification system taken from his book, while the right image is a depiction of how the system works, drawn by botanist George Ehret<a class="bibtex reference internal" href="../end-matter/reference.html#ehret1748-bx" id="id2">[4]</a>.</span><a class="headerlink" href="#linneaus-ehret" title="Permalink to this image">¶</a></p>
 </div>
 <div class="margin sidebar" id="linneus-racist">
 <p class="sidebar-title">Linneus and scientific racism</p>
-<p>Linneus’ classifications included a racist hierarchical classification of human beings<a class="bibtex reference internal" href="#charmantier-undated-wy" id="id3">[29]</a>.</p>
+<p>Linneus’ classifications included a racist hierarchical classification of human beings<a class="bibtex reference internal" href="../end-matter/reference.html#charmantier-undated-wy" id="id3">[5]</a>.</p>
 </div>
 <p>Cataloguing and classifying has been a successful scientific endeavour in other disciplines (e.g. the periodic table), but it’s a cornerstone of biology.
-Biological classification dates back to the Linnaean taxonomy from the mid 1700s (see <a class="reference internal" href="#linneaus-ehret"><span class="std std-numref">Fig. 3.1</span></a>), which described species, their features, and the relationships between them<a class="bibtex reference internal" href="#jensen2010-fk" id="id4">[30]</a>.
+Biological classification dates back to the Linnaean taxonomy from the mid 1700s (see <a class="reference internal" href="#linneaus-ehret"><span class="std std-numref">Fig. 3.1</span></a>), which described species, their features, and the relationships between them<a class="bibtex reference internal" href="../end-matter/reference.html#jensen2010-fk" id="id4">[6]</a>.
 The work contains some <a class="reference internal" href="#linneus-racist"><span class="std std-ref">unforgivable, hateful ideas</span></a>.
 Nonetheless the idea of measuring and connecting the biological world also birthed an enduring tradition of classification in biology.</p>
 <p>Modern biology continues in this tradition of classification, cataloguing biology in ever more (molecular) detail: cells, genes, transcripts, proteins, and pathways.
@@ -642,7 +663,7 @@ No sequencing technology can read whole chromosomes end to end: all work by read
 <span id="sequencing-technology"></span><h4><span class="section-number">3.1.2.1.1. </span>Sequencing<a class="headerlink" href="#sequencing" title="Permalink to this headline">¶</a></h4>
 <p>From the late 1970’s until the mid 2000s, <em>Sanger sequencing</em> was the most popular sequencing technology, although it underwent various improvements over this timescale.
 In Sanger sequencing (and other first-generation methods), reads of around 800bp are sequenced, one at a time.
-The human genome project sequenced the first human genome using this method<a class="bibtex reference internal" href="#venter2001-wn" id="id5">[7]</a>, and it’s still used in some circumstances, for example validating next generation sequencing.</p>
+The human genome project sequenced the first human genome using this method<a class="bibtex reference internal" href="../end-matter/reference.html#venter2001-wn" id="id5">[7]</a>, and it’s still used in some circumstances, for example validating next generation sequencing.</p>
 <p>Second, or <em>next generation sequencing</em> (NGS), also referred to as high-throughput sequencing, is a catch-all term for the faster and cheaper sequencing technologies which replaced the previously used Sanger sequencing.
 A feature that is common to NGS methods is that many shorter reads (around 100bp, exact numbers depending on the specific technology) are sequenced in parallel.
 The process is massively parallel: millions to billions of short sequences can be read at a time.
@@ -655,14 +676,14 @@ In turn, this speed and cheapness means that more repeats can be sequenced, incr
 <p>Whichever <a class="reference internal" href="#sequencing-technology"><span class="std std-ref">technology</span></a> is used, DNA is sequenced in smalls sections, which must then be <em>assembled</em> to make the full genome, organised into chromosomes.</p>
 <div class="figure align-default" id="alignment">
 <a class="reference internal image-reference" href="../_images/alignment.png"><img alt="../_images/alignment.png" src="../_images/alignment.png" style="height: 240px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Image showing how RNA-Seq reads are mapped to the genome (image from Advancing RNA-Seq Analysis <a class="bibtex reference internal" href="#haas2010-lm" id="id6">[31]</a>). A similar process is followed for DNA.
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Image showing how RNA-Seq reads are mapped to the genome (image from Advancing RNA-Seq Analysis <a class="bibtex reference internal" href="../end-matter/reference.html#haas2010-lm" id="id6">[7]</a>). A similar process is followed for DNA.
 ``` ``</span><a class="headerlink" href="#alignment" title="Permalink to this image">¶</a></p>
 <div class="legend">
 <p>The short reads that are the output of initial sequencing must be assembled to create longer sequences of DNA, whether that’s genes or whole genomes.
 This is done by aligning reads to one another and (if available) to an existing reference sequence.
 This of course requires the reads to overlap, so longer and more numerous reads make this task easier.</p>
-<p>The current estimate for raw sequencing accuracy of an individual NGS read is around 0.24%<a class="bibtex reference internal" href="#pfeiffer2018-kt" id="id7">[32]</a>, meaning that on average one base pair will be incorrect for a 500pb read.
-Multiple repeats are therefore required to obtain a more accurate measurement of the assembled sequence, which is further necessary since there are many repeated sequences (perhaps over two thirds of the human genome<a class="bibtex reference internal" href="#de-koning2011-ac" id="id8">[33]</a>).
+<p>The current estimate for raw sequencing accuracy of an individual NGS read is around 0.24%<a class="bibtex reference internal" href="../end-matter/reference.html#pfeiffer2018-kt" id="id7">[8]</a>, meaning that on average one base pair will be incorrect for a 500pb read.
+Multiple repeats are therefore required to obtain a more accurate measurement of the assembled sequence, which is further necessary since there are many repeated sequences (perhaps over two thirds of the human genome<a class="bibtex reference internal" href="../end-matter/reference.html#de-koning2011-ac" id="id8">[9]</a>).
 The depth (or coverage) for a nucleotide is the number of reads that overlap that nucleotide. Similarly, the average depth of a sequence can be calculated.</p>
 <p>After assembly, even in the most complete genomes, we are still left with some sequences that could not be placed, and some parts of the genome that we still don’t know about.</p>
 </div>
@@ -679,10 +700,10 @@ These versions are called <em>builds</em>.
 Between builds and patches, sequences may be added, removed, or moved to different locations on chromosomes.</p>
 <p id="different-builds"><strong>Differences between GRC and UCSC builds:</strong>
 Different versions of the builds are released by the Genome Reference Consortium (GRC) and the University of California Santa Cruz (UCSC) Genomics Institute.
-Table <a class="reference internal" href="#build-table"><span class="std std-numref">Table 3.1</span></a> shows information about the most recent human reference builds, taken from the UCSC website<a class="bibtex reference internal" href="#noauthor-undated-ci" id="id9">[34]</a>.
+Table <a class="reference internal" href="#build-table"><span class="std std-numref">Table 3.1</span></a> shows information about the most recent human reference builds, taken from the UCSC website<a class="bibtex reference internal" href="../end-matter/reference.html#noauthor-undated-ci" id="id9">[10]</a>.
 For example, <code class="docutils literal notranslate"><span class="pre">hg19</span></code> (<strong>h</strong>uman <strong>g</strong>enome build <strong>19</strong>), is largely equivalent to <code class="docutils literal notranslate"><span class="pre">GRCh37</span></code> (<strong>G</strong>enome <strong>R</strong>eference <strong>C</strong>onsortium <strong>h</strong>uman build <strong>37</strong>).
 These are generally used interchangeably by researchers, but there are some differences between them.
-These differences including formatting differences (storing chromosome as integers rather than strings like <code class="docutils literal notranslate"><span class="pre">chr1</span></code>), the inclusion of mitochondrial DNA, as well as small numbers of differences of the locations of some variants on some chromosomes <a class="bibtex reference internal" href="#gatk-team2020-au" id="id10">[35]</a>.</p>
+These differences including formatting differences (storing chromosome as integers rather than strings like <code class="docutils literal notranslate"><span class="pre">chr1</span></code>), the inclusion of mitochondrial DNA, as well as small numbers of differences of the locations of some variants on some chromosomes <a class="bibtex reference internal" href="../end-matter/reference.html#gatk-team2020-au" id="id10">[11]</a>.</p>
 <table class="table" id="build-table">
 <caption><span class="caption-number">Table 3.1 </span><span class="caption-text">Table showing human reference genome builds</span><a class="headerlink" href="#build-table" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -730,7 +751,7 @@ These describe the locations on the genome of variations between individuals, gi
 <p>Through the 1970s into the early 2000s, DNA arrays/microarrays developed alongside sequencing as a way of measuring the presence of previously sequenced DNA in new samples.
 These arrays contain pre-chosen fragments of DNA (probes) arranged in spots, with each spot containing many copies of the probe, on a solid surface, e.g. glass, silicon or plastic.
 The probes consist of single strands of DNA, and arrays operate on the principle that the complementary DNA from the sample will bind tightly to it.</p>
-<p>These arrays were originally macro-sized, one of the first being 26 × 38 cm and containing 144 probes<a class="bibtex reference internal" href="#bumgarner2013-hg" id="id11">[36]</a>, but are now on small chips, which can contain up to millions of probes.</p>
+<p>These arrays were originally macro-sized, one of the first being 26 × 38 cm and containing 144 probes<a class="bibtex reference internal" href="../end-matter/reference.html#bumgarner2013-hg" id="id11">[12]</a>, but are now on small chips, which can contain up to millions of probes.</p>
 <p>Arrays were extremely popular for measuring gene expression, but this technology has largely been superseded by the more accurate and comprehensive RNA-seq.
 However, microarrays are still commonly used by companies like 23andMe for genotyping an individual (measuring specific alleles).</p>
 </div>
@@ -738,7 +759,7 @@ However, microarrays are still commonly used by companies like 23andMe for genot
 <h4><span class="section-number">3.1.2.3.2. </span>Variant databases<a class="headerlink" href="#variant-databases" title="Permalink to this headline">¶</a></h4>
 <p>Databases like dbSNP, clinVar, and SNPedia contain information about the location of SNVs, their possible alleles, and their association to diseases.
 These are often used as part of a variant prioritisation pipeline, as well as by individuals who are investigating their own SNVs.</p>
-<p>The NCBI’s dbSNP<a class="bibtex reference internal" href="#sherry2001-nm" id="id12">[1]</a> is the world’s largest database of nucleotide variations, including their locations, possible alleles, and associations to diseases.
+<p>The NCBI’s dbSNP<a class="bibtex reference internal" href="../end-matter/reference.html#sherry2001-nm" id="id12">[13]</a> is the world’s largest database of nucleotide variations, including their locations, possible alleles, and associations to diseases.
 It contains information from ten organisms (including human) and has information on indels and short tandem repeats in addition to SNVs. It was designed to store the annotations that are outputted from GWAS studies.
 Anyone can submit their findings about variants, and they must indicate what sort of evidence they have for the association.
 The database gives SNVs unique identifiers (Reference SNP cluster IDs, a.k.a. RSIDs) of the form rs###, which are used by many other resources.</p>
@@ -765,30 +786,30 @@ The database gives SNVs unique identifiers (Reference SNP cluster IDs, a.k.a. RS
 </div>
 <div class="section" id="the-gene-expression-atlas">
 <h3><span class="section-number">3.1.3.3. </span>The Gene Expression Atlas<a class="headerlink" href="#the-gene-expression-atlas" title="Permalink to this headline">¶</a></h3>
-<p>The Gene Expression Atlas<a class="bibtex reference internal" href="#petryszak2016-je" id="id13">[1]</a> (GxA) is the European Bioinformatics Institutes’ open source gene and protein expression database, and the largest of its type. At the time of writing, it contains over 3,000 gene expression and protein abundance experiments across many organisms, organism parts (tissues), diseases, and sequencing technologies. There is a separate atlas for scRNA-seq experiments.</p>
+<p>The Gene Expression Atlas<a class="bibtex reference internal" href="../end-matter/reference.html#petryszak2016-je" id="id13">[14]</a> (GxA) is the European Bioinformatics Institutes’ open source gene and protein expression database, and the largest of its type. At the time of writing, it contains over 3,000 gene expression and protein abundance experiments across many organisms, organism parts (tissues), diseases, and sequencing technologies. There is a separate atlas for scRNA-seq experiments.</p>
 </div>
 <div class="section" id="gene-expression-data-pipeline">
 <h3><span class="section-number">3.1.3.4. </span>Gene expression data pipeline<a class="headerlink" href="#gene-expression-data-pipeline" title="Permalink to this headline">¶</a></h3>
 <p>Whether gene expression data gathered is gathered using microarrays or RNA-Seq, it goes through a substantial pipeline before it is used in a statistical analysis, or made available as a resource.</p>
 <div class="section" id="quality-control">
 <h4><span class="section-number">3.1.3.4.1. </span>Quality Control<a class="headerlink" href="#quality-control" title="Permalink to this headline">¶</a></h4>
-<p>Before RNA-Seq data undergoes alignment, it undergoes quality control. This involves comparing sequencing parameters to a data set of known accuracy<a class="bibtex reference internal" href="#illumina2014-nd" id="id14">[39]</a> and is usually done as part of the sequencing.</p>
+<p>Before RNA-Seq data undergoes alignment, it undergoes quality control. This involves comparing sequencing parameters to a data set of known accuracy<a class="bibtex reference internal" href="../end-matter/reference.html#illumina2014-nd" id="id14">[15]</a> and is usually done as part of the sequencing.</p>
 </div>
 <div class="section" id="normalisation-within-sample-normalisation">
 <h4><span class="section-number">3.1.3.4.2. </span>Normalisation - within-sample normalisation<a class="headerlink" href="#normalisation-within-sample-normalisation" title="Permalink to this headline">¶</a></h4>
 <p>Within-sample normalisation methods are designed to account for sequencing depth and gene length so that gene expression values from the same sample (e.g. different replicates) can be more easily compared. Longer genes will have more reads mapped to them for an equal level of expression, so RNA-seq will report more counts. Similarly, without normalising, samples with greater sequencing depth will have higher counts for an equal level of expression.</p>
-<p>RPKM/FPKM (Reads/Fragments Per Kilobase Million) and TPM (Tags Per Million) are the three major normalisation techniques used for this purpose. In RPKM and FPKM, counts are first normalised for sequencing depth, and then for gene length. This means that they are suitable for comparing within a sample (e.g. between replicates. TPM, however performs the same steps in the opposite order, which has the desirable effect of ensuring that columns corresponding to TPM normalised samples sum to the same number. This means that TPM gives us a measure of relative abundance; we can compare across samples which proportion of counts are from each gene. For this reason, TPM is now generally preferred over RPKM/FPKM<a class="bibtex reference internal" href="#wagner2012-ac" id="id15">[40]</a><a class="bibtex reference internal" href="#pimentel2014-xm" id="id16">[41]</a>.</p>
+<p>RPKM/FPKM (Reads/Fragments Per Kilobase Million) and TPM (Tags Per Million) are the three major normalisation techniques used for this purpose. In RPKM and FPKM, counts are first normalised for sequencing depth, and then for gene length. This means that they are suitable for comparing within a sample (e.g. between replicates. TPM, however performs the same steps in the opposite order, which has the desirable effect of ensuring that columns corresponding to TPM normalised samples sum to the same number. This means that TPM gives us a measure of relative abundance; we can compare across samples which proportion of counts are from each gene. For this reason, TPM is now generally preferred over RPKM/FPKM<a class="bibtex reference internal" href="../end-matter/reference.html#wagner2012-ac" id="id15">[16]</a><a class="bibtex reference internal" href="../end-matter/reference.html#pimentel2014-xm" id="id16">[17]</a>.</p>
 </div>
 <div class="section" id="normalisation-between-sample">
 <h4><span class="section-number">3.1.3.4.3. </span>Normalisation - between-sample<a class="headerlink" href="#normalisation-between-sample" title="Permalink to this headline">¶</a></h4>
 <p>While TPM gives us a measure of relative abundance, it does not give us a measure of absolute abundance. One outlying gene which is highly expressed will have the effect of making all other genes look relatively less expressed. We might expect this to occur, particularly when samples are under different conditions (e.g. disease/treatment). Between-sample normalisation methods are designed to counter this issue, and enable researchers to compare different samples.</p>
-<p>These methods adjust counts to reduce the impact of outlying expression values. Examples include scale normalisation methods like TMM (used in edgeR<a class="bibtex reference internal" href="#robinson2010-kl" id="id17">[42]</a>), the Log Geometric Mean (used in DESeq2<a class="bibtex reference internal" href="#robinson2010-kl" id="id18">[42]</a><a class="bibtex reference internal" href="#love2014-vx" id="id19">[1]</a>), and quantile normalisation (giving samples the same distribution of counts).</p>
+<p>These methods adjust counts to reduce the impact of outlying expression values. Examples include scale normalisation methods like TMM (used in edgeR<a class="bibtex reference internal" href="../end-matter/reference.html#robinson2010-kl" id="id17">[18]</a>), the Log Geometric Mean (used in DESeq2<a class="bibtex reference internal" href="../end-matter/reference.html#robinson2010-kl" id="id18">[18]</a><a class="bibtex reference internal" href="../end-matter/reference.html#love2014-vx" id="id19">[19]</a>), and quantile normalisation (giving samples the same distribution of counts).</p>
 </div>
 <div class="section" id="batch-correction">
 <h4><span class="section-number">3.1.3.4.4. </span>Batch correction<a class="headerlink" href="#batch-correction" title="Permalink to this headline">¶</a></h4>
-<p>Even after all this normalising, systematic effects can be present in gene expression data, due to sequencing batch, or some correlated condition. All types of gene expression data are known to suffer from these batch effects<a class="bibtex reference internal" href="#leek2010-yw" id="id20">[1]</a>; unwanted variation associated with the batch it was sequenced in, resulting from unknown variation during the process of sequencing for example the date, time, or location of sequencing<a class="bibtex reference internal" href="#irizarry2005-ie" id="id21">[45]</a>, or the technician doing the work. Some of these effects may be due to factors that might be expected to genuinely influence expression of genes, such as temperature, time of year, humidity, diet, individual, age, etc. Covariates such as these are often unrecorded and/or not reported, so it is not easy to distinguish these from those due to protocol differences, such as reagents, personnel doing the sequencing, hardware, processing pipeline, etc.</p>
-<p>Batch effects can often confound and obscure the biological differences of interest between samples (e.g. tumour versus healthy tissue). At best, batch effects add random variation to expression measurements, which obscure signals. Often they can also add systematic differences that can lead to incorrect biological conclusions<a class="bibtex reference internal" href="#leek2010-yw" id="id22">[1]</a>. They are a problem for analysing the output of an individual experiment where there are multiple sequencing batches, but pose a particular problem in combining data from different experiments, as there is almost certainly more variations between analysis pipelines.</p>
-<p>When it is known, date of sequence processing is often used as a surrogate for batch, enabling researchers to check for, and then remove, batch effects if necessary. Principal components analysis is often used to visually inspect experimental results for batch effects; when biologically alike samples cluster together rather than those from like-batches, batch effects are often ignored. Batch effects may affect only specific subsets of genes, and may affect different genes in different ways<a class="bibtex reference internal" href="#leek2010-yw" id="id23">[1]</a>. This means that normalisation (e.g. TPM, FKPM) will not account for batch.</p>
+<p>Even after all this normalising, systematic effects can be present in gene expression data, due to sequencing batch, or some correlated condition. All types of gene expression data are known to suffer from these batch effects<a class="bibtex reference internal" href="../end-matter/reference.html#leek2010-yw" id="id20">[20]</a>; unwanted variation associated with the batch it was sequenced in, resulting from unknown variation during the process of sequencing for example the date, time, or location of sequencing<a class="bibtex reference internal" href="../end-matter/reference.html#irizarry2005-ie" id="id21">[21]</a>, or the technician doing the work. Some of these effects may be due to factors that might be expected to genuinely influence expression of genes, such as temperature, time of year, humidity, diet, individual, age, etc. Covariates such as these are often unrecorded and/or not reported, so it is not easy to distinguish these from those due to protocol differences, such as reagents, personnel doing the sequencing, hardware, processing pipeline, etc.</p>
+<p>Batch effects can often confound and obscure the biological differences of interest between samples (e.g. tumour versus healthy tissue). At best, batch effects add random variation to expression measurements, which obscure signals. Often they can also add systematic differences that can lead to incorrect biological conclusions<a class="bibtex reference internal" href="../end-matter/reference.html#leek2010-yw" id="id22">[20]</a>. They are a problem for analysing the output of an individual experiment where there are multiple sequencing batches, but pose a particular problem in combining data from different experiments, as there is almost certainly more variations between analysis pipelines.</p>
+<p>When it is known, date of sequence processing is often used as a surrogate for batch, enabling researchers to check for, and then remove, batch effects if necessary. Principal components analysis is often used to visually inspect experimental results for batch effects; when biologically alike samples cluster together rather than those from like-batches, batch effects are often ignored. Batch effects may affect only specific subsets of genes, and may affect different genes in different ways<a class="bibtex reference internal" href="../end-matter/reference.html#leek2010-yw" id="id23">[20]</a>. This means that normalisation (e.g. TPM, FKPM) will not account for batch.</p>
 </div>
 </div>
 </div>
@@ -796,8 +817,8 @@ The database gives SNVs unique identifiers (Reference SNP cluster IDs, a.k.a. RS
 <span id="protein-measurements"></span><h2><span class="section-number">3.1.4. </span>Proteins<a class="headerlink" href="#proteins" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="protein-structures">
 <h3><span class="section-number">3.1.4.1. </span>Protein Structures<a class="headerlink" href="#protein-structures" title="Permalink to this headline">¶</a></h3>
-<p>In 1969, Margaret Dayhoff created the first bioinformatics database to store protein structures imaged using X-ray crystallography, related to her publication of Atlas of Protein Sequence and Structure<a class="bibtex reference internal" href="#hersh1967-ox" id="id24">[19]</a>.
-Soon after, in 1972, the Protein DataBank (PDB)<a class="bibtex reference internal" href="#noauthor-undated-ow" id="id25">[20]</a> was established.
+<p>In 1969, Margaret Dayhoff created the first bioinformatics database to store protein structures imaged using X-ray crystallography, related to her publication of Atlas of Protein Sequence and Structure<a class="bibtex reference internal" href="../end-matter/reference.html#hersh1967-ox" id="id24">[22]</a>.
+Soon after, in 1972, the Protein DataBank (PDB)<a class="bibtex reference internal" href="../end-matter/reference.html#noauthor-undated-ow" id="id25">[23]</a> was established.
 This continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.</p>
 </div>
 <div class="section" id="protein-classification">
@@ -805,21 +826,21 @@ This continues to be well-used and updated, at the time of writing holding struc
 <p>Scientists are often interested in a “favourite” gene or protein, or have obtained a list of genes or proteins that they are interested in through a recent experiment. If an experiment about the specific protein has been carried out (e.g. to determine its function or structure), then a database like Uniprot (containing function and sequence information) or PDB (structure information) can be queried. However, this kind of information is not available for all proteins, so this is often necessary to make inferences about protein structure or function based on for example sequence similarity or protein classification.</p>
 <div class="section" id="blast">
 <h4><span class="section-number">3.1.4.2.1. </span>BLAST<a class="headerlink" href="#blast" title="Permalink to this headline">¶</a></h4>
-<p>BLAST, or the The Basic Local Alignment Search Tool<a class="bibtex reference internal" href="#altschul1990-zf" id="id26">[46]</a>, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.</p>
+<p>BLAST, or the The Basic Local Alignment Search Tool<a class="bibtex reference internal" href="../end-matter/reference.html#altschul1990-zf" id="id26">[24]</a>, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.</p>
 </div>
 <div class="section" id="scop">
 <h4><span class="section-number">3.1.4.2.2. </span>SCOP<a class="headerlink" href="#scop" title="Permalink to this headline">¶</a></h4>
-<p>The Structural Classification of Proteins (SCOP) database<a class="bibtex reference internal" href="#murzin1995-se" id="id27">[47]</a> classifies all proteins with known structure based on their structural similarities, based on the consideration of the protein’s constituent domains. The classification is mostly done at the level of families, superfamilies, and folds arranged in a tree structure. Families represent the most similar proteins, which share a “clear evolutionary relationship”, while superfamilies represent less close evolutionary relationships, and folds represent the same secondary structure. This protein classification task, while aided by automation, was carried out largely by manual visual inspection.</p>
-<p>SCOP was updated until 2009, but has been succeeded by SCOP2<a class="bibtex reference internal" href="#andreeva2014-om" id="id28">[48]</a>. However, SCOP2 has a different underlying classification system, based on a complex graph, rather than a hierarchy. The CATH (Class, Architecture, Topology, Homologous superfamily)<a class="bibtex reference internal" href="#orengo1997-vf" id="id29">[49]</a> database provides another classification system, (also operating hierarchically), but created mostly via automation, which leads to major differences between the classifications<a class="bibtex reference internal" href="#csaba2009-of" id="id30">[50]</a>.</p>
+<p>The Structural Classification of Proteins (SCOP) database<a class="bibtex reference internal" href="../end-matter/reference.html#murzin1995-se" id="id27">[25]</a> classifies all proteins with known structure based on their structural similarities, based on the consideration of the protein’s constituent domains. The classification is mostly done at the level of families, superfamilies, and folds arranged in a tree structure. Families represent the most similar proteins, which share a “clear evolutionary relationship”, while superfamilies represent less close evolutionary relationships, and folds represent the same secondary structure. This protein classification task, while aided by automation, was carried out largely by manual visual inspection.</p>
+<p>SCOP was updated until 2009, but has been succeeded by SCOP2<a class="bibtex reference internal" href="../end-matter/reference.html#andreeva2014-om" id="id28">[26]</a>. However, SCOP2 has a different underlying classification system, based on a complex graph, rather than a hierarchy. The CATH (Class, Architecture, Topology, Homologous superfamily)<a class="bibtex reference internal" href="../end-matter/reference.html#orengo1997-vf" id="id29">[27]</a> database provides another classification system, (also operating hierarchically), but created mostly via automation, which leads to major differences between the classifications<a class="bibtex reference internal" href="../end-matter/reference.html#csaba2009-of" id="id30">[28]</a>.</p>
 </div>
 <div class="section" id="superfamily">
 <h4><span class="section-number">3.1.4.2.3. </span>SUPERFAMILY<a class="headerlink" href="#superfamily" title="Permalink to this headline">¶</a></h4>
-<p>SUPERFAMILY<a class="bibtex reference internal" href="#gough2001-ct" id="id31">[2]</a> uses HMMs to assign sequences to SCOP domains, primarily at the superfamily level. This allows the functions of poorly understood proteins to be inferred based on how closely they match known superfamilies. HMMs are very successful at such assignments since pairwise correlations between proteins (or their domains) and other proteins in the family may be weak, but consistently for many proteins; this can be picked up by an HMM. The superfamily level is chosen since it is the broadest level which suggests evolutionary relationships, but SUPERFAMILY also generates assignments at the (stricter) family level.</p>
+<p>SUPERFAMILY<a class="bibtex reference internal" href="../end-matter/reference.html#gough2001-ct" id="id31">[29]</a> uses HMMs to assign sequences to SCOP domains, primarily at the superfamily level. This allows the functions of poorly understood proteins to be inferred based on how closely they match known superfamilies. HMMs are very successful at such assignments since pairwise correlations between proteins (or their domains) and other proteins in the family may be weak, but consistently for many proteins; this can be picked up by an HMM. The superfamily level is chosen since it is the broadest level which suggests evolutionary relationships, but SUPERFAMILY also generates assignments at the (stricter) family level.</p>
 <p>HMMs are created by first finding closely relating protein homologs for a given protein superfamily using BLAST, and then extending it by comparing the HMM to more distantly related homologs. The resulting HMM library is fine-tuned by some manual curation.</p>
 <p>The SUPERFAMILY website also contains other tools, including a database of all sequences (genomes) which are used to generate the HMM library.</p>
 <p>(my-supfam-contribution=)
 <strong>SUPERFAMILY update</strong>
-I contributed to SUPERFAMILY’s 2014 update<a class="bibtex reference internal" href="#oates2015-li" id="id32">[2]</a> by editing the paper, uploading a small number of proteomes. The SUPERFAMILY database of proteomes doubled from 1400 to over 3200 from 2010 to 2014. The update paper described this development, as well as highlighting SUPERFAMILY as a resource for unique proteomes that are not found elsewhere (e.g. Uniprot). Although SUPERFAMILY’s primary resource is it’s HMM library, it also integrates a range of other tools for sequence analysis, for example protein disorder prediction (D2P2) and GO annotation (dcGO), as well as a domain-based phylogenetic tree.</p>
+I contributed to SUPERFAMILY’s 2014 update<a class="bibtex reference internal" href="../end-matter/reference.html#oates2015-li" id="id32">[2]</a> by editing the paper, uploading a small number of proteomes. The SUPERFAMILY database of proteomes doubled from 1400 to over 3200 from 2010 to 2014. The update paper described this development, as well as highlighting SUPERFAMILY as a resource for unique proteomes that are not found elsewhere (e.g. Uniprot). Although SUPERFAMILY’s primary resource is it’s HMM library, it also integrates a range of other tools for sequence analysis, for example protein disorder prediction (D2P2) and GO annotation (dcGO), as well as a domain-based phylogenetic tree.</p>
 </div>
 </div>
 </div>
@@ -831,7 +852,7 @@ I contributed to SUPERFAMILY’s 2014 update<a class="bibtex reference internal"
 All ontologies contain entities names and descriptions (e.g. diseases, gene functions), different classifications of those entities (e.g. immune system disorders) and relate these classifications to one another hierarchically, sometimes with multiple types of relationships (e.g “is a”, “part of”). Hierarchical ontologies can be thought of as having a tree-like structure with one, or just a few root terms which are very general terms that all other terms in the ontology are related to, for example “biological process”, and leaf terms, which are the most specific terms in the ontology (e.g “positive regulation of cardiac muscle tissue regeneration”).</p>
 <p>Relations between terms are directional, for example “positive regulation of cardiac muscle tissue regeneration” is a “regulation of cardiac muscle tissue regeneration”, but not vice versa. In such relationships the parent term is the more general term closer to the root (“positive regulation of…”) and the child term is the more specific term (“regulation of..”). It is not permitted for there to be cycles in ontologies, for example <em>term A</em> <code class="docutils literal notranslate"><span class="pre">is_a</span></code> <em>term B</em> <code class="docutils literal notranslate"><span class="pre">is_a</span></code> <em>term A</em>.</p>
 <p>Terms in ontologies are given identifiers, usually of the form: <code class="docutils literal notranslate"><span class="pre">XXX:#######</span></code>, where <code class="docutils literal notranslate"><span class="pre">XXX</span></code> is an upper-case identifier for the whole ontology, e.g. <code class="docutils literal notranslate"><span class="pre">GO</span></code> for Gene Ontology, <code class="docutils literal notranslate"><span class="pre">CL</span></code> for Cell Ontology, etc. For example, <code class="docutils literal notranslate"><span class="pre">GO:0008150</span></code> is the GO term for <em>Biological Process</em>.</p>
-<p>Ontologies are generally created through some combination of manual curation by highly skilled biocurators and logic-testing (checking for illogical relationships, for example using ROBOT<a class="bibtex reference internal" href="#overton2015-vo" id="id33">[52]</a>). Creating an ontology is generally a long-term project, with new suggestions and updates to the ontologies being made as new knowledge accumulates, or just as more people have time to add to them. As well as being the work of dedicated curators, contributions to ontologies can usually be crowd-sourced from the scientific community using GitHub issues, mailing list discussions, web forms, and dedicated workshops. In this way, they are similar to other bioinformatics community-driven efforts like structural and sequence databases.</p>
+<p>Ontologies are generally created through some combination of manual curation by highly skilled biocurators and logic-testing (checking for illogical relationships, for example using ROBOT<a class="bibtex reference internal" href="../end-matter/reference.html#overton2015-vo" id="id33">[30]</a>). Creating an ontology is generally a long-term project, with new suggestions and updates to the ontologies being made as new knowledge accumulates, or just as more people have time to add to them. As well as being the work of dedicated curators, contributions to ontologies can usually be crowd-sourced from the scientific community using GitHub issues, mailing list discussions, web forms, and dedicated workshops. In this way, they are similar to other bioinformatics community-driven efforts like structural and sequence databases.</p>
 <p>There are also cross-ontology mappings and annotations, where terms from one ontology are linked to those in another (e.g. relating gene functions and tissues) or to entities in a database (e.g. gene functions to genes). These also require the work of dedicated curators, who search through literature, assessing various criteria for the inclusion of an annotation (such criteria vary by ontology). Since this is a laborious process, there are also many computational methods to annotate ontology terms automatically.</p>
 <p>There are two major file formats in which ontologies are currently stored. The OBO format is a human-readable format, while the OWL format is more complex, but has more functionality. The OWL format can be queried using querying languages, for example SPARQL (an SQL-like querying language).</p>
 <p>Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities. Ontologies and particularly their annotations are varying degrees of incomplete, and this will have an impact on the results of any downstream use of them.</p>
@@ -839,20 +860,20 @@ All ontologies contain entities names and descriptions (e.g. diseases, gene func
 <h4><span class="section-number">3.1.5.1.1. </span>Gene Ontology<a class="headerlink" href="#gene-ontology" title="Permalink to this headline">¶</a></h4>
 <div class="figure align-default" id="go-rilla">
 <a class="reference internal image-reference" href="../_images/go_rilla.png"><img alt="../_images/go_rilla.png" src="../_images/go_rilla.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla<a class="bibtex reference internal" href="#eden2009-ic" id="id34">[53]</a>)
+<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla<a class="bibtex reference internal" href="../end-matter/reference.html#eden2009-ic" id="id34">[31]</a>)
 ``` ``</span><a class="headerlink" href="#go-rilla" title="Permalink to this image">¶</a></p>
 <div class="legend">
-<p>The Gene Ontology (GO)<a class="bibtex reference internal" href="#ashburner2000-cr" id="id35">[3]</a> is one of the first biomedical ontologies, and continues to be one of the most popular.
-It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems<a class="bibtex reference internal" href="#thomas2017-vm" id="id36">[55]</a>.
+<p>The Gene Ontology (GO)<a class="bibtex reference internal" href="../end-matter/reference.html#ashburner2000-cr" id="id35">[32]</a> is one of the first biomedical ontologies, and continues to be one of the most popular.
+It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems<a class="bibtex reference internal" href="../end-matter/reference.html#thomas2017-vm" id="id36">[33]</a>.
 It includes:</p>
 <ol class="simple">
 <li><p>The standard gene ontology, which is a hierarchical set of terms describing functions.</p></li>
 <li><p>The gene ontology annotations (GOA) database, which contains manual and computationally derived mappings from gene products to gene ontology terms.</p></li>
 <li><p>Tools for using and updating these resources.</p></li>
 </ol>
-<p>The Gene Ontology defines the “universe” of possible functions a gene might have, while the functions of particular genes are captured as GO annotations<a class="bibtex reference internal" href="#thomas2017-vm" id="id37">[55]</a>.</p>
-<p>The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies<a class="bibtex reference internal" href="#ashburner2000-cr" id="id38">[3]</a>.
-Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process)<a class="bibtex reference internal" href="#thomas2017-vm" id="id39">[55]</a>.</p>
+<p>The Gene Ontology defines the “universe” of possible functions a gene might have, while the functions of particular genes are captured as GO annotations<a class="bibtex reference internal" href="../end-matter/reference.html#thomas2017-vm" id="id37">[33]</a>.</p>
+<p>The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies<a class="bibtex reference internal" href="../end-matter/reference.html#ashburner2000-cr" id="id38">[32]</a>.
+Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process)<a class="bibtex reference internal" href="../end-matter/reference.html#thomas2017-vm" id="id39">[33]</a>.</p>
 <hr class="docutils" />
 <p><strong>Chapter References</strong></p>
 <p id="bibtex-bibliography-c03-compbio-background/1-measuring-genotype-phenotype-0"><dl class="citation">
@@ -862,97 +883,97 @@ Gene products in GO are assumed to carry out molecular-level process or activity
 <dt class="bibtex label" id="venter2001-wn"><span class="brackets"><a class="fn-backref" href="#id5">7</a></span></dt>
 <dd><p>J C Venter, M D Adams, E W Myers, P W Li, R J Mural, G G Sutton, H O Smith, M Yandell, C A Evans, R A Holt, J D Gocayne, P Amanatides, R M Ballew, D H Huson, J R Wortman, Q Zhang, C D Kodira, X H Zheng, L Chen, M Skupski, G Subramanian, P D Thomas, J Zhang, G L Gabor Miklos, C Nelson, S Broder, A G Clark, J Nadeau, V A McKusick, N Zinder, A J Levine, R J Roberts, M Simon, C Slayman, M Hunkapiller, R Bolanos, A Delcher, I Dew, D Fasulo, M Flanigan, L Florea, A Halpern, S Hannenhalli, S Kravitz, S Levy, C Mobarry, K Reinert, K Remington, J Abu-Threideh, E Beasley, K Biddick, V Bonazzi, R Brandon, M Cargill, I Chandramouliswaran, R Charlab, K Chaturvedi, Z Deng, V Di Francesco, P Dunn, K Eilbeck, C Evangelista, A E Gabrielian, W Gan, W Ge, F Gong, Z Gu, P Guan, T J Heiman, M E Higgins, R R Ji, Z Ke, K A Ketchum, Z Lai, Y Lei, Z Li, J Li, Y Liang, X Lin, F Lu, G V Merkulov, N Milshina, H M Moore, A K Naik, V A Narayan, B Neelam, D Nusskern, D B Rusch, S Salzberg, W Shao, B Shue, J Sun, Z Wang, A Wang, X Wang, J Wang, M Wei, R Wides, C Xiao, C Yan, A Yao, J Ye, M Zhan, W Zhang, H Zhang, Q Zhao, L Zheng, F Zhong, W Zhong, S Zhu, S Zhao, D Gilbert, S Baumhueter, G Spier, C Carter, A Cravchik, T Woodage, F Ali, H An, A Awe, D Baldwin, H Baden, M Barnstead, I Barrow, K Beeson, D Busam, A Carver, A Center, M L Cheng, L Curry, S Danaher, L Davenport, R Desilets, S Dietz, K Dodson, L Doup, S Ferriera, N Garg, A Gluecksmann, B Hart, J Haynes, C Haynes, C Heiner, S Hladun, D Hostin, J Houck, T Howland, C Ibegwam, J Johnson, F Kalush, L Kline, S Koduru, A Love, F Mann, D May, S McCawley, T McIntosh, I McMullen, M Moy, L Moy, B Murphy, K Nelson, C Pfannkoch, E Pratts, V Puri, H Qureshi, M Reardon, R Rodriguez, Y H Rogers, D Romblad, B Ruhfel, R Scott, C Sitter, M Smallwood, E Stewart, R Strong, E Suh, R Thomas, N N Tint, S Tse, C Vech, G Wang, J Wetter, S Williams, M Williams, S Windsor, E Winn-Deen, K Wolfe, J Zaveri, K Zaveri, J F Abril, R Guigó, M J Campbell, K V Sjolander, B Karlak, A Kejariwal, H Mi, B Lazareva, T Hatton, A Narechania, K Diemer, A Muruganujan, N Guo, S Sato, V Bafna, S Istrail, R Lippert, R Schwartz, B Walenz, S Yooseph, D Allen, A Basu, J Baxendale, L Blick, M Caminha, J Carnes-Stine, P Caulk, Y H Chiang, M Coyne, C Dahlke, A Mays, M Dombroski, M Donnelly, D Ely, S Esparham, C Fosler, H Gire, S Glanowski, K Glasser, A Glodek, M Gorokhov, K Graham, B Gropman, M Harris, J Heil, S Henderson, J Hoover, D Jennings, C Jordan, J Jordan, J Kasha, L Kagan, C Kraft, A Levitsky, M Lewis, X Liu, J Lopez, D Ma, W Majoros, J McDaniel, S Murphy, M Newman, T Nguyen, N Nguyen, M Nodell, S Pan, J Peck, M Peterson, W Rowe, R Sanders, J Scott, M Simpson, T Smith, A Sprague, T Stockwell, R Turner, E Venter, M Wang, M Wen, D Wu, M Wu, A Xia, A Zandieh, and X Zhu. The sequence of the human genome. <em>Science</em>, 291(5507):1304–1351, February 2001.</p>
 </dd>
-<dt class="bibtex label" id="blunt2001-wr"><span class="brackets"><a class="fn-backref" href="#id1">27</a></span></dt>
+<dt class="bibtex label" id="blunt2001-wr"><span class="brackets"><a class="fn-backref" href="#id1">3</a></span></dt>
 <dd><p>Wilfrid Blunt. <em>The Compleat Naturalist: A Life of Linnaeus</em>. Frances Lincoln, 2001. URL: <a class="reference external" href="https://play.google.com/store/books/details?id=B3YOvgAACAAJ">https://play.google.com/store/books/details?id=B3YOvgAACAAJ</a>.</p>
 </dd>
-<dt class="bibtex label" id="ehret1748-bx"><span class="brackets"><a class="fn-backref" href="#id2">28</a></span></dt>
+<dt class="bibtex label" id="ehret1748-bx"><span class="brackets"><a class="fn-backref" href="#id2">4</a></span></dt>
 <dd><p>Ehret. <em>Plantae et papiliones rariores</em>. Volume 1748. [London :s.n.],, 1748. URL: <a class="reference external" href="https://www.biodiversitylibrary.org/item/205762">https://www.biodiversitylibrary.org/item/205762</a>.</p>
 </dd>
-<dt class="bibtex label" id="charmantier-undated-wy"><span class="brackets"><a class="fn-backref" href="#id3">29</a></span></dt>
+<dt class="bibtex label" id="charmantier-undated-wy"><span class="brackets"><a class="fn-backref" href="#id3">5</a></span></dt>
 <dd><p>Dr Isabelle Charmantier. Linnaeus and race. <span><a class="reference external" href="#"></a></span>https://www.linnean.org/learning/who-was-linnaeus/linnaeus-and-race. Accessed: 2020-11-30. URL: <a class="reference external" href="https://www.linnean.org/learning/who-was-linnaeus/linnaeus-and-race">https://www.linnean.org/learning/who-was-linnaeus/linnaeus-and-race</a>.</p>
 </dd>
-<dt class="bibtex label" id="jensen2010-fk"><span class="brackets"><a class="fn-backref" href="#id4">30</a></span></dt>
+<dt class="bibtex label" id="jensen2010-fk"><span class="brackets"><a class="fn-backref" href="#id4">6</a></span></dt>
 <dd><p>Lars J Jensen and Peer Bork. Ontologies in quantitative biology: a basis for comparison, integration, and discovery. <em>PLoS Biol.</em>, 8(5):e1000374, May 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1371/journal.pbio.1000374">http://dx.doi.org/10.1371/journal.pbio.1000374</a>.</p>
 </dd>
-<dt class="bibtex label" id="haas2010-lm"><span class="brackets"><a class="fn-backref" href="#id6">31</a></span></dt>
+<dt class="bibtex label" id="haas2010-lm"><span class="brackets"><a class="fn-backref" href="#id6">7</a></span></dt>
 <dd><p>Brian J Haas and Michael C Zody. Advancing RNA-Seq analysis. <em>Nat. Biotechnol.</em>, 28(5):421–423, May 2010.</p>
 </dd>
-<dt class="bibtex label" id="pfeiffer2018-kt"><span class="brackets"><a class="fn-backref" href="#id7">32</a></span></dt>
+<dt class="bibtex label" id="pfeiffer2018-kt"><span class="brackets"><a class="fn-backref" href="#id7">8</a></span></dt>
 <dd><p>Franziska Pfeiffer, Carsten Gröber, Michael Blank, Kristian Händler, Marc Beyer, Joachim L Schultze, and Günter Mayer. Systematic evaluation of error rates and causes in short samples in next-generation sequencing. <em>Sci. Rep.</em>, 8(1):10950, July 2018.</p>
 </dd>
-<dt class="bibtex label" id="de-koning2011-ac"><span class="brackets"><a class="fn-backref" href="#id8">33</a></span></dt>
+<dt class="bibtex label" id="de-koning2011-ac"><span class="brackets"><a class="fn-backref" href="#id8">9</a></span></dt>
 <dd><p>A P Jason de Koning, Wanjun Gu, Todd A Castoe, Mark A Batzer, and David D Pollock. Repetitive elements may comprise over two-thirds of the human genome. <em>PLoS Genet.</em>, 7(12):e1002384, December 2011.</p>
 </dd>
-<dt class="bibtex label" id="noauthor-undated-ci"><span class="brackets"><a class="fn-backref" href="#id9">34</a></span></dt>
+<dt class="bibtex label" id="noauthor-undated-ci"><span class="brackets"><a class="fn-backref" href="#id9">10</a></span></dt>
 <dd><p>Genome browser FAQ. <span><a class="reference external" href="#"></a></span>https://genome.ucsc.edu/FAQ/FAQreleases.html. Accessed: 2020-12-13. URL: <a class="reference external" href="https://genome.ucsc.edu/FAQ/FAQreleases.html">https://genome.ucsc.edu/FAQ/FAQreleases.html</a>.</p>
 </dd>
-<dt class="bibtex label" id="gatk-team2020-au"><span class="brackets"><a class="fn-backref" href="#id10">35</a></span></dt>
+<dt class="bibtex label" id="gatk-team2020-au"><span class="brackets"><a class="fn-backref" href="#id10">11</a></span></dt>
 <dd><p>GATK Team. Human genome reference builds - GRCh38 or hg38 - b37 - hg19. <span><a class="reference external" href="#"></a></span>https://gatk.broadinstitute.org/hc/en-us/articles/360035890951, June 2020. Accessed: 2020-12-13. URL: <a class="reference external" href="https://gatk.broadinstitute.org/hc/en-us/articles/360035890951">https://gatk.broadinstitute.org/hc/en-us/articles/360035890951</a>.</p>
 </dd>
-<dt class="bibtex label" id="bumgarner2013-hg"><span class="brackets"><a class="fn-backref" href="#id11">36</a></span></dt>
+<dt class="bibtex label" id="bumgarner2013-hg"><span class="brackets"><a class="fn-backref" href="#id11">12</a></span></dt>
 <dd><p>Roger Bumgarner. Overview of DNA microarrays: types, applications, and their future. <em>Curr. Protoc. Mol. Biol.</em>, Chapter 22:Unit 22.1., January 2013.</p>
 </dd>
-<dt class="bibtex label" id="sherry2001-nm"><span class="brackets"><a class="fn-backref" href="#id12">1</a></span></dt>
+<dt class="bibtex label" id="sherry2001-nm"><span class="brackets"><a class="fn-backref" href="#id12">13</a></span></dt>
 <dd><p>S T Sherry. dbSNP: the NCBI database of genetic variation. <em>Nucleic Acids Res.</em>, 29(1):308–311, 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/29.1.308">http://dx.doi.org/10.1093/nar/29.1.308</a>.</p>
 </dd>
-<dt class="bibtex label" id="petryszak2016-je"><span class="brackets"><a class="fn-backref" href="#id13">1</a></span></dt>
+<dt class="bibtex label" id="petryszak2016-je"><span class="brackets"><a class="fn-backref" href="#id13">14</a></span></dt>
 <dd><p>Robert Petryszak, Maria Keays, Y Amy Tang, Nuno A Fonseca, Elisabet Barrera, Tony Burdett, Anja Füllgrabe, Alfonso Muñoz-Pomer Fuentes, Simon Jupp, Satu Koskinen, Oliver Mannion, Laura Huerta, Karine Megy, Catherine Snow, Eleanor Williams, Mitra Barzine, Emma Hastings, Hendrik Weisser, James Wright, Pankaj Jaiswal, Wolfgang Huber, Jyoti Choudhary, Helen E Parkinson, and Alvis Brazma. Expression atlas update—an integrated database of gene and protein expression in humans, animals and plants. 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkv1045">http://dx.doi.org/10.1093/nar/gkv1045</a>.</p>
 </dd>
-<dt class="bibtex label" id="illumina2014-nd"><span class="brackets"><a class="fn-backref" href="#id14">39</a></span></dt>
+<dt class="bibtex label" id="illumina2014-nd"><span class="brackets"><a class="fn-backref" href="#id14">15</a></span></dt>
 <dd><p>I Illumina. Understanding illumina quality scores. <em>Technical Note: Informatics</em>, 2014. URL: <a class="reference external" href="https://www.illumina.com/documents/products/technotes/technote_Q-Scores.pdf">https://www.illumina.com/documents/products/technotes/technote_Q-Scores.pdf</a>.</p>
 </dd>
-<dt class="bibtex label" id="wagner2012-ac"><span class="brackets"><a class="fn-backref" href="#id15">40</a></span></dt>
+<dt class="bibtex label" id="wagner2012-ac"><span class="brackets"><a class="fn-backref" href="#id15">16</a></span></dt>
 <dd><p>Günter P Wagner, Koryu Kin, and Vincent J Lynch. Measurement of mRNA abundance using RNA-seq data: RPKM measure is inconsistent among samples. <em>Theory Biosci.</em>, 131(4):281–285, December 2012. URL: <a class="reference external" href="http://dx.doi.org/10.1007/s12064-012-0162-3">http://dx.doi.org/10.1007/s12064-012-0162-3</a>.</p>
 </dd>
-<dt class="bibtex label" id="pimentel2014-xm"><span class="brackets"><a class="fn-backref" href="#id16">41</a></span></dt>
+<dt class="bibtex label" id="pimentel2014-xm"><span class="brackets"><a class="fn-backref" href="#id16">17</a></span></dt>
 <dd><p>H Pimentel. What the FPKM? a review of RNA-Seq expression units. 2014. URL: <a class="reference external" href="https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/">https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/</a>.</p>
 </dd>
-<dt class="bibtex label" id="robinson2010-kl"><span class="brackets">42</span><span class="fn-backref">(<a href="#id17">1</a>,<a href="#id18">2</a>)</span></dt>
+<dt class="bibtex label" id="robinson2010-kl"><span class="brackets">18</span><span class="fn-backref">(<a href="#id17">1</a>,<a href="#id18">2</a>)</span></dt>
 <dd><p>M D Robinson, D J McCarthy, and G K Smyth. Edger: a bioconductor package for differential expression analysis of digital gene expression data. <em>Bioinformatics</em>, 26(1):139–140, 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1093/bioinformatics/btp616">http://dx.doi.org/10.1093/bioinformatics/btp616</a>.</p>
 </dd>
-<dt class="bibtex label" id="love2014-vx"><span class="brackets"><a class="fn-backref" href="#id19">1</a></span></dt>
+<dt class="bibtex label" id="love2014-vx"><span class="brackets"><a class="fn-backref" href="#id19">19</a></span></dt>
 <dd><p>Michael I Love, Wolfgang Huber, and Simon Anders. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. <em>Genome Biol.</em>, 15(12):550, 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1186/s13059-014-0550-8">http://dx.doi.org/10.1186/s13059-014-0550-8</a>.</p>
 </dd>
-<dt class="bibtex label" id="leek2010-yw"><span class="brackets">1</span><span class="fn-backref">(<a href="#id20">1</a>,<a href="#id22">2</a>,<a href="#id23">3</a>)</span></dt>
+<dt class="bibtex label" id="leek2010-yw"><span class="brackets">20</span><span class="fn-backref">(<a href="#id20">1</a>,<a href="#id22">2</a>,<a href="#id23">3</a>)</span></dt>
 <dd><p>Jeffrey T Leek, Robert B Scharpf, Héctor Corrada Bravo, David Simcha, Benjamin Langmead, W Evan Johnson, Donald Geman, Keith Baggerly, and Rafael A Irizarry. Tackling the widespread and critical impact of batch effects in high-throughput data. <em>Nat. Rev. Genet.</em>, 11(10):733–739, October 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nrg2825">http://dx.doi.org/10.1038/nrg2825</a>.</p>
 </dd>
-<dt class="bibtex label" id="irizarry2005-ie"><span class="brackets"><a class="fn-backref" href="#id21">45</a></span></dt>
+<dt class="bibtex label" id="irizarry2005-ie"><span class="brackets"><a class="fn-backref" href="#id21">21</a></span></dt>
 <dd><p>Rafael A Irizarry, Daniel Warren, Forrest Spencer, Irene F Kim, Shyam Biswal, Bryan C Frank, Edward Gabrielson, Joe G N Garcia, Joel Geoghegan, Gregory Germino, Constance Griffin, Sara C Hilmer, Eric Hoffman, Anne E Jedlicka, Ernest Kawasaki, Francisco Martínez-Murillo, Laura Morsberger, Hannah Lee, David Petersen, John Quackenbush, Alan Scott, Michael Wilson, Yanqin Yang, Shui Qing Ye, and Wayne Yu. Multiple-laboratory comparison of microarray platforms. <em>Nat. Methods</em>, 2(5):345–350, May 2005. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nmeth756">http://dx.doi.org/10.1038/nmeth756</a>.</p>
 </dd>
-<dt class="bibtex label" id="hersh1967-ox"><span class="brackets"><a class="fn-backref" href="#id24">19</a></span></dt>
+<dt class="bibtex label" id="hersh1967-ox"><span class="brackets"><a class="fn-backref" href="#id24">22</a></span></dt>
 <dd><p>Robert T Hersh. Atlas of protein sequence and structure, 1966. <em>Syst. Biol.</em>, 16(3):262–263, September 1967.</p>
 </dd>
-<dt class="bibtex label" id="noauthor-undated-ow"><span class="brackets"><a class="fn-backref" href="#id25">20</a></span></dt>
+<dt class="bibtex label" id="noauthor-undated-ow"><span class="brackets"><a class="fn-backref" href="#id25">23</a></span></dt>
 <dd><p>Protein data bank.</p>
 </dd>
-<dt class="bibtex label" id="altschul1990-zf"><span class="brackets"><a class="fn-backref" href="#id26">46</a></span></dt>
+<dt class="bibtex label" id="altschul1990-zf"><span class="brackets"><a class="fn-backref" href="#id26">24</a></span></dt>
 <dd><p>S F Altschul, W Gish, W Miller, E W Myers, and D J Lipman. Basic local alignment search tool. <em>J. Mol. Biol.</em>, 215(3):403–410, October 1990. URL: <a class="reference external" href="http://dx.doi.org/10.1016/S0022-2836(05)80360-2">http://dx.doi.org/10.1016/S0022-2836(05)80360-2</a>.</p>
 </dd>
-<dt class="bibtex label" id="murzin1995-se"><span class="brackets"><a class="fn-backref" href="#id27">47</a></span></dt>
+<dt class="bibtex label" id="murzin1995-se"><span class="brackets"><a class="fn-backref" href="#id27">25</a></span></dt>
 <dd><p>A G Murzin, S E Brenner, T Hubbard, and C Chothia. SCOP: a structural classification of proteins database for the investigation of sequences and structures. <em>J. Mol. Biol.</em>, 247(4):536–540, April 1995. URL: <a class="reference external" href="http://dx.doi.org/10.1006/jmbi.1995.0159">http://dx.doi.org/10.1006/jmbi.1995.0159</a>.</p>
 </dd>
-<dt class="bibtex label" id="andreeva2014-om"><span class="brackets"><a class="fn-backref" href="#id28">48</a></span></dt>
+<dt class="bibtex label" id="andreeva2014-om"><span class="brackets"><a class="fn-backref" href="#id28">26</a></span></dt>
 <dd><p>Antonina Andreeva, Dave Howorth, Cyrus Chothia, Eugene Kulesha, and Alexey G Murzin. SCOP2 prototype: a new approach to protein structure mining. <em>Nucleic Acids Res.</em>, 42(Database issue):D310–4, January 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkt1242">http://dx.doi.org/10.1093/nar/gkt1242</a>.</p>
 </dd>
-<dt class="bibtex label" id="orengo1997-vf"><span class="brackets"><a class="fn-backref" href="#id29">49</a></span></dt>
+<dt class="bibtex label" id="orengo1997-vf"><span class="brackets"><a class="fn-backref" href="#id29">27</a></span></dt>
 <dd><p>C A Orengo, A D Michie, S Jones, D T Jones, M B Swindells, and J M Thornton. CATH – a hierarchic classification of protein domain structures. <em>Structure</em>, 5(8):1093–1109, 1997. URL: <a class="reference external" href="http://dx.doi.org/10.1016/s0969-2126(97)00260-8">http://dx.doi.org/10.1016/s0969-2126(97)00260-8</a>.</p>
 </dd>
-<dt class="bibtex label" id="csaba2009-of"><span class="brackets"><a class="fn-backref" href="#id30">50</a></span></dt>
+<dt class="bibtex label" id="csaba2009-of"><span class="brackets"><a class="fn-backref" href="#id30">28</a></span></dt>
 <dd><p>Gergely Csaba, Fabian Birzele, and Ralf Zimmer. Systematic comparison of SCOP and CATH: a new gold standard for protein structure analysis. <em>BMC Struct. Biol.</em>, 9:23, April 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1186/1472-6807-9-23">http://dx.doi.org/10.1186/1472-6807-9-23</a>.</p>
 </dd>
-<dt class="bibtex label" id="gough2001-ct"><span class="brackets"><a class="fn-backref" href="#id31">2</a></span></dt>
+<dt class="bibtex label" id="gough2001-ct"><span class="brackets"><a class="fn-backref" href="#id31">29</a></span></dt>
 <dd><p>J Gough, K Karplus, R Hughey, and C Chothia. Assignment of homology to genome sequences using a library of hidden markov models that represent all proteins of known structure. <em>J. Mol. Biol.</em>, 313(4):903–919, November 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1006/jmbi.2001.5080">http://dx.doi.org/10.1006/jmbi.2001.5080</a>.</p>
 </dd>
-<dt class="bibtex label" id="overton2015-vo"><span class="brackets"><a class="fn-backref" href="#id33">52</a></span></dt>
+<dt class="bibtex label" id="overton2015-vo"><span class="brackets"><a class="fn-backref" href="#id33">30</a></span></dt>
 <dd><p>James A Overton, Heiko Dietze, Shahim Essaid, David Osumi-Sutherland, and Christopher J Mungall. ROBOT: a command-line tool for ontology development. In <em>ICBO</em>. ceur-ws.org, 2015. URL: <a class="reference external" href="http://ceur-ws.org/Vol-1515/demo6.pdf">http://ceur-ws.org/Vol-1515/demo6.pdf</a>.</p>
 </dd>
-<dt class="bibtex label" id="eden2009-ic"><span class="brackets"><a class="fn-backref" href="#id34">53</a></span></dt>
+<dt class="bibtex label" id="eden2009-ic"><span class="brackets"><a class="fn-backref" href="#id34">31</a></span></dt>
 <dd><p>Eran Eden, Roy Navon, Israel Steinfeld, Doron Lipson, and Zohar Yakhini. GOrilla: a tool for discovery and visualization of enriched GO terms in ranked gene lists. <em>BMC Bioinformatics</em>, 10:48, February 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1186/1471-2105-10-48">http://dx.doi.org/10.1186/1471-2105-10-48</a>.</p>
 </dd>
-<dt class="bibtex label" id="ashburner2000-cr"><span class="brackets">3</span><span class="fn-backref">(<a href="#id35">1</a>,<a href="#id38">2</a>)</span></dt>
+<dt class="bibtex label" id="ashburner2000-cr"><span class="brackets">32</span><span class="fn-backref">(<a href="#id35">1</a>,<a href="#id38">2</a>)</span></dt>
 <dd><p>M Ashburner, C A Ball, J A Blake, D Botstein, H Butler, J M Cherry, A P Davis, K Dolinski, S S Dwight, J T Eppig, M A Harris, D P Hill, L Issel-Tarver, A Kasarskis, S Lewis, J C Matese, J E Richardson, M Ringwald, G M Rubin, and G Sherlock. Gene ontology: tool for the unification of biology. the gene ontology consortium. <em>Nat. Genet.</em>, 25(1):25–29, May 2000. URL: <a class="reference external" href="http://dx.doi.org/10.1038/75556">http://dx.doi.org/10.1038/75556</a>.</p>
 </dd>
-<dt class="bibtex label" id="thomas2017-vm"><span class="brackets">55</span><span class="fn-backref">(<a href="#id36">1</a>,<a href="#id37">2</a>,<a href="#id39">3</a>)</span></dt>
+<dt class="bibtex label" id="thomas2017-vm"><span class="brackets">33</span><span class="fn-backref">(<a href="#id36">1</a>,<a href="#id37">2</a>,<a href="#id39">3</a>)</span></dt>
 <dd><p>Paul D Thomas. The gene ontology and the meaning of biological function. <em>Methods Mol. Biol.</em>, 1446:15–24, 2017. URL: <a class="reference external" href="http://dx.doi.org/10.1007/978-1-4939-3743-1_2">http://dx.doi.org/10.1007/978-1-4939-3743-1_2</a>.</p>
 </dd>
 </dl>

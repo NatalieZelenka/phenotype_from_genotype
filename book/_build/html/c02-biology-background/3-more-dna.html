@@ -230,18 +230,39 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/3-data.html">
+     4.3. Snowflake input data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/4-clustering-snps.html">
+     4.4. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/5-results.html">
-     4.2. Results
+     4.5. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/6-discussion.html">
-     4.3. Discussion
+     4.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/7-future-work.html">
-     4.4. Future Work
+     4.7. Future Work
     </a>
    </li>
   </ul>
@@ -435,9 +456,21 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genomes">
-   2.3.1. Genomes
+  <a class="reference internal nav-link" href="#genomes-exomes-proteomes">
+   2.3.1. Genomes, exomes, proteomes
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#genomes">
+     2.3.1.1. Genomes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-exome-and-the-proteome">
+     2.3.1.2. The exome and the proteome
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#genes-and-the-regions-around-them">
@@ -445,13 +478,20 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     2.3.2.1. Genes, enhancers, promoters
+    <a class="reference internal nav-link" href="#genes">
+     2.3.2.1. Genes
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-complexities-of-genes">
+       2.3.2.1.1. The complexities of genes
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-complexities-of-genes">
-     2.3.2.2. The complexities of genes
+    <a class="reference internal nav-link" href="#gene-regulation">
+     2.3.2.2. Gene regulation
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -494,38 +534,56 @@
   <div class="section" id="a-closer-look-at-dna-genomes-genes-and-genetic-variation">
 <h1><span class="section-number">2.3. </span>A closer look at DNA: Genomes, Genes, and Genetic Variation<a class="headerlink" href="#a-closer-look-at-dna-genomes-genes-and-genetic-variation" title="Permalink to this headline">¶</a></h1>
 <p>Now that we have a basic overview of how DNA can influence phenotype, we can discuss the way that DNA is organised and categorised in a little more detail. We’ll look from big (<a class="reference internal" href="#genomes"><span class="std std-ref">genomes</span></a>) to small (<a class="reference internal" href="#single-nucleotides"><span class="std std-ref">single nucleotides</span></a>).</p>
+<div class="section" id="genomes-exomes-proteomes">
+<h2><span class="section-number">2.3.1. </span>Genomes, exomes, proteomes<a class="headerlink" href="#genomes-exomes-proteomes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="genomes">
-<span id="id1"></span><h2><span class="section-number">2.3.1. </span>Genomes<a class="headerlink" href="#genomes" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h3><span class="section-number">2.3.1.1. </span>Genomes<a class="headerlink" href="#genomes" title="Permalink to this headline">¶</a></h3>
 <p>The genome is the full amount of DNA belonging to an organism. We can talk about the genome of an individual, or about the genome of an organism (e.g. the human genome).
 When we talk about an organism’s genome, we are actually talking about an example genome for that organism: the organisms’ <em>reference</em> genome.
 The reference genome not belong to any individual organism, but instead is supposed to have the most common nucleotide each DNA location.</p>
-<p>Reference genomes allow us to make general statements about an organism: for example the human genome is 3 billion base pairs long.
+<p>Reference genomes allow us to make general statements about an organism (e.g. “the human genome is 3 billion base pairs long”), and also to make comparisons between organisms (e.g. <a class="reference internal" href="#human-banana-dna"><span class="std std-ref">“humans share 1% of their DNA with a banana”</span></a>).
 We also discuss individuals’ genomes in relation to the difference between the individual and the reference genome.</p>
+<div class="margin sidebar" id="human-banana-dna">
+<p class="sidebar-title">Humans and bananas</p>
+<p>Humans share 50% of their <em>protein-coding</em> dna with bananas, but only 1% of their genome.</p>
+</div>
+</div>
+<div class="section" id="the-exome-and-the-proteome">
+<h3><span class="section-number">2.3.1.2. </span>The exome and the proteome<a class="headerlink" href="#the-exome-and-the-proteome" title="Permalink to this headline">¶</a></h3>
+<p>Still thinking big, we have the <em>exome</em> and the <em>proteome</em>.
+Both of these refer to locations across the whole genome, but missing stretches in between.
+The exome describes the set of all exons (protein-coding nucleotides) across the genome.
+The proteome is generally used to mean the set of all proteins in in an organism (which can be much larger than the set of genes due to <a class="reference internal" href="2-biological-molecules.html#alternative-splicing"><span class="std std-ref">alternate splicing</span></a>), but it can also be used to describe the part of the genome with relating to the set of protein sequences.</p>
+</div>
 </div>
 <div class="section" id="genes-and-the-regions-around-them">
-<span id="genes-enhancers-promoters"></span><h2><span class="section-number">2.3.2. </span>Genes and the regions around them<a class="headerlink" href="#genes-and-the-regions-around-them" title="Permalink to this headline">¶</a></h2>
-<p>Genes have been central to the historical study of dna, hence “genetics”. As <a class="reference internal" href="2-biological-molecules.html#genes-first-mentioned"><span class="std std-ref">previously mentioned</span></a>, we define genes are the stretches of DNA which can be transcribed into RNA.</p>
-<div class="section" id="id2">
-<h3><span class="section-number">2.3.2.1. </span>Genes, enhancers, promoters<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>In addition, many genes have the capability to be transcribed into multiple transcripts, via a process known as alternative splicing.
-This can happen, for example, by skipping some of the exons during splicing.</p>
-<p>Even where DNA can be expressed as proteins, the level of expression depends on the cell environment and other DNA.</p>
-</div>
+<h2><span class="section-number">2.3.2. </span>Genes and the regions around them<a class="headerlink" href="#genes-and-the-regions-around-them" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="genes">
+<h3><span class="section-number">2.3.2.1. </span>Genes<a class="headerlink" href="#genes" title="Permalink to this headline">¶</a></h3>
+<p>DNA is often considered at the level of the gene.
+Genes have been so central to the historical study of dna (hence the name <em>gene</em>tics), and the gene-centric view of molecular biology continues to this day.
+For example, many researchers have favourite genes, which they primarily study, and understand the mechanisms of in detail.
+And for this reason, diseases and phenotypes are often attributed at level of the gene, rather than at a more fine-grained level of the specific mutation.</p>
+<p>As <a class="reference internal" href="2-biological-molecules.html#genes-first-mentioned"><span class="std std-ref">previously mentioned</span></a>, we define genes are the stretches of DNA which can be transcribed into RNA.
+However, the seemingly simple definition hides a lot of complexities: due to their long history, the word “gene” has had different uses and meanings.</p>
 <div class="section" id="the-complexities-of-genes">
-<span id="genes-are-complex"></span><h3><span class="section-number">2.3.2.2. </span>The complexities of genes<a class="headerlink" href="#the-complexities-of-genes" title="Permalink to this headline">¶</a></h3>
-<p>As mentioned, genes are stretches of DNA that can be transcribed. In humans they make up around 1-2% of the genome.</p>
-<p>However, genes are not as straightforward a unit as they sound.
-Due to their long history, the word “gene” has different uses.</p>
-<p>For example, gene is often used as shorthand for “DNA that causes phenotypic differences” (for example in Richard Dawkin’s best-seller “The Selfish Gene”, and in news articles with titles of the form “Scientists have discovered a gene for…”).
+<span id="genes-are-complex"></span><h4><span class="section-number">2.3.2.1.1. </span>The complexities of genes<a class="headerlink" href="#the-complexities-of-genes" title="Permalink to this headline">¶</a></h4>
+<p>The word gene is often used as shorthand for “DNA that causes phenotypic differences” (for example in Richard Dawkin’s best-seller “The Selfish Gene”, and in news articles with titles of the form “Scientists have discovered a gene for…”).
 However, there are multiple reasons why this is an incomplete and outdated understanding.
-Firstly, genes are not guaranteed to cause phenotypic differences, and more importantly, nor are they the only sections of DNA which can influence phenotype.
-Secondly, there is not a 1:1 mapping between genes:proteins.
-One gene could be read to create multiple different proteins (due to alternative splicing), and perhaps only one of those proteins causes a phenotypic difference.</p>
+Firstly, genes are not guaranteed to cause phenotypic differences.
+More importantly, nor are genes the only sections of DNA which can influence phenotype.
+Thirdly, there is not a one-to-one mapping from genes-to-proteins: one gene could be read to create multiple different proteins (due to <a class="reference internal" href="2-biological-molecules.html#alternative-splicing"><span class="std std-ref">alternate splicing</span></a>), and sometimes only one of those proteins might cause a phenotypic difference.</p>
 <p>Genes are also often touted as a “unit of heritability/heredity”, but this is similarly not always the case.
-DNA is more likely to be inherited together if it is close togther on the chromosome,so generally we inherit whole copies of genes (and the regions around them) together - in fact usually we often inherit stretches of multiple genes together.
+DNA is more likely to be inherited together if it is close together on the chromosome,so generally we inherit whole copies of genes (and the regions around them) together - in fact usually we often inherit stretches of multiple genes together.
 It is possible however, for chromosomal crossover to occur within a gene (i.e. for genes not to be inherited “in one piece” with one whole copy from each parent).</p>
-<p>There can be disagreements about the locations of genes on the genome, and popular databases of genes fundamentally disagree on this and on the number of genes<a class="bibtex reference internal" href="#salzberg2018-yc" id="id3">[22]</a>.
+<p>There can be disagreements about the locations of genes on the genome, and popular databases of genes fundamentally disagree on this and on the number of genes<a class="bibtex reference internal" href="#salzberg2018-yc" id="id2">[19]</a>.
 Gene names and symbols change over time, and can be difficult to map between for this reason.</p>
+</div>
+</div>
+<div class="section" id="gene-regulation">
+<span id="genes-enhancers-promoters"></span><h3><span class="section-number">2.3.2.2. </span>Gene regulation<a class="headerlink" href="#gene-regulation" title="Permalink to this headline">¶</a></h3>
+<p>Other nearby stretches of DNA are also of interest in relation to genes: enhancers, silencers, insulators, and promoters. These are stretches of DNA that proteins can bind to</p>
+<p>Even where DNA can be expressed as proteins, the level of expression depends on the cell environment and other DNA.</p>
 <div class="section" id="snps-and-snvs">
 <span id="single-nucleotides"></span><h4><span class="section-number">2.3.2.2.1. </span>SNPs and SNVs<a class="headerlink" href="#snps-and-snvs" title="Permalink to this headline">¶</a></h4>
 <p>A SNP is a location on an organism’s genome where there are differences of a single nucleotide (“A”,”C”,”T”,”G”) between individuals. In some fields, these variations are only considered to be Single Nucleotide <em>Polymorphisms</em> if they are relatively commonly occurring in the population (at least 1%), while Single Nucleotide Variants (SNVs) can include both rare and common variants.</p>
@@ -568,7 +626,7 @@ Alleles could be different forms of a whole gene, or as small in length as an in
 <hr class="docutils" />
 <p><strong>Page References</strong></p>
 <p id="bibtex-bibliography-c02-biology-background/3-more-dna-0"><dl class="citation">
-<dt class="bibtex label" id="salzberg2018-yc"><span class="brackets"><a class="fn-backref" href="#id3">22</a></span></dt>
+<dt class="bibtex label" id="salzberg2018-yc"><span class="brackets"><a class="fn-backref" href="#id2">19</a></span></dt>
 <dd><p>Steven L Salzberg. Open questions: how many genes do we have? <em>BMC Biol.</em>, 16(1):94, August 2018.</p>
 </dd>
 </dl>

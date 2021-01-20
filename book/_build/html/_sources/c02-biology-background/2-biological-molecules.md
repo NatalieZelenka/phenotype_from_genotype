@@ -46,7 +46,7 @@ There are different forms of RNA which perform different functions. It is messen
 height: 220px
 name: transcription
 ---
-An illustration of the transcription process, showing the role of RNA polymerase in building RNA.
+An illustration of the transcription and splicing processes, showing the role of RNA polymerase in building RNA.
 ``` 
 
 (genes-first-mentioned)=
@@ -54,7 +54,7 @@ The process by which "DNA makes RNA" is known as transcription. The process happ
 
 (complicated-genes-margin)=
 ```{margin} Definining "genes"
-Genes are not a straightforward unit, as I describe in a bit more detail {ref}`later<genes-are-complex>`. 
+Genes are not a straightforward unit, as I describe in a bit more detail {ref}`later<genes-are-complex>`.  
 Some sources use "gene" only to describe genes which encode for proteins, but I include genes which encode for RNA.
 
 ```
@@ -64,8 +64,16 @@ This region is only accessible in certain cellular conditions. A rough model is 
 
 {numref}`transcription` illustrates the next part of this process. The RNA polymerase splits the DNA and adds complementary RNA nucleotides to the DNA, after which the RNA sugar backbone is formed. 
 The RNA-DNA helix is then split, at which point we have what is known as precursor RNA or pre-RNA. 
-The pre-RNA then undergoes *splicing*, where parts of the RNA (*introns*) are removed, leaving only *exons*. 
+
+After transcription, the pre-RNA then undergoes *post-transcriptional modifications* such as *splicing*, where parts of the RNA (*introns*) are removed, leaving only *exons*. 
+This can also bee seen in {numref}`transcription`.
 Splicing is part of the final processing step to create the finished product: a mature RNA transcript.
+
+(alternative-splicing)=
+During this step a gene could be transcribed into one of multiple transcripts, via a process known as *alternative splicing*.
+This can happen, for example, by skipping some of the exons during splicing. 
+So, "DNA makes RNA(*s*)".
+This means that there's not a one-to-one relationship between genes and transcripts, and therefore between genes and proteins.
 
 What is transcribed and how quickly is affected by many different kinds of proteins, as well as other molecules, for example histone modifications. 
 Transcription factors are of particular note, which are proteins that bind to DNA close to or in the promoter region, and either *activate* the gene (increasing it’s rate of transcription), by for example recruiting RNA polymerase, or *repress* it (decrease it’s rate of transcription).
@@ -75,7 +83,8 @@ These transcription factors are in turn regulated by other transcription factors
 The second part of the central dogma is "RNA makes proteins" a.k.a. translation.
 
 (what-are-proteins)=
-Proteins have been investigated independently from DNA and RNA. They were named by Dutch chemist Gerardus Mulder in his 1839 paper{cite}`Mulder1839-rf`, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>. 
+Proteins have been investigated independently from DNA and RNA. 
+They were named by Dutch chemist Gerardus Mulder in his 1839 paper{cite}`Mulder1839-rf`, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>. 
 This intriguing result bolstered research in this area, eventually resulting in our current understanding of proteins as biological macromolecules composed of amino acids. 
 
 Translation describes the process in which a string of amino acids is created based on the RNA sequence.
@@ -100,13 +109,14 @@ Transfer RNA (tRNA) transports the amino acids to the ribosome where the polypep
 Although we would expect $4^3=64$ permutations of nucleotides, there are only 21 different amino acids which can be incorporated into proteins in humans, so there is redundancy: multiple codons can encode for the same amino acids. 
 We can see this clearly in the left part of {numref}`translation`, for example, UAA, UGA, and UAG are all read as stop codons.
 
-#### "...and proteins do everything."
+#### "... and proteins do everything."
 The unwritten addendum implied by “DNA makes RNA makes proteins” is “...and proteins do ({ref}`almost<almost-everything>`) everything”. 
 If DNA encodes for life, then proteins are what make up life. 
 They are the material building blocks of our bodies, and they also have a vast number of other functions: they can be enzymes catalysing reactions, hormones controlling metabolism, transporters for other proteins, signalling proteins, they might be transcription factors (controlling the expression of genes), or have many other functions.
 
 In turn, these processes influence our phenotypes. 
-A phenotype can be something like the level of a certain hormone in the bloodstream, so in a very simple case, a  could effect the phenotype by it's difference in the speed of expression. A phenotype could alternatively be something like height, which could have a number of genetic (and non-genetic) influences.
+A phenotype can be something like the level of a certain hormone in the bloodstream, so in a very simple case, a  could effect the phenotype by it's difference in the speed of expression.
+A phenotype could alternatively be something like height, which could have a number of genetic (and non-genetic) influences.
 
 ---
 **Page References**

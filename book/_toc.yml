@@ -31,9 +31,9 @@
   - file: c04-snowflake/0-index
     sections:
       - file: c04-snowflake/1-introduction
-      - file: c04-snowflake/2-snowflake-method
-      - file: c04-snowflake/3-clustering-snps
-      - file: c04-snowflake/4-data
+      - file: c04-snowflake/2-snowflake-algorithm
+      - file: c04-snowflake/3-data
+      - file: c04-snowflake/4-clustering-snps
       - file: c04-snowflake/5-results
       - file: c04-snowflake/6-discussion
       - file: c04-snowflake/7-future-work
