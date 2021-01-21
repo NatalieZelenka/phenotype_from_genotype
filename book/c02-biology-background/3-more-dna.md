@@ -36,14 +36,20 @@ However, the seemingly simple definition hides a lot of complexities: due to the
 [//]: # (TODO: Cite the selfish gene)
 [//]: # (TODO: Cite overlapping genes)
 
+### "A gene for X"
 The word gene is often used as shorthand for "DNA that causes phenotypic differences" (for example in Richard Dawkin's best-seller "The Selfish Gene", and in news articles with titles of the form "Scientists have discovered a gene for...").
-However, there are multiple reasons why this is an incomplete and outdated understanding.
-Firstly, genes are not guaranteed to cause phenotypic differences.
-More importantly, nor are genes the only sections of DNA which can influence phenotype. 
-Thirdly, there is not a one-to-one mapping from genes-to-proteins: one gene could be read to create multiple different proteins (due to {ref}`alternate splicing<alternative-splicing>`), and sometimes only one of those proteins might cause a phenotypic difference. 
-And to add one more complication, genes can overlap, meaning that a single nucleotide mutation could impact on multiple genes.
+However, there are multiple reasons why this is an incomplete and in some ways outdated understanding. 
+Single gene diseases do exist, however most of the time {ref}`the same gene can make multiple different proteins<alternative-splicing>`) which may not all cause phenotypic differences, the same protein can be involved in multiple different pathways and have multiple functions, and multiple proteins can contribute to one function. 
+Genes are also not guaranteed to cause phenotypic differences, and are not the only sections of DNA which can influence phenotype. 
+To add one more complication, genes can overlap, meaning that a single nucleotide mutation could impact on multiple genes.
+
+The interaction between DNA, RNA and proteins, and the environment is also important to consider. 
+Although DNA makes RNA makes proteins and proteins do pretty much everything in our bodies, which proteins are made and how they behave is highly dependent on the environment. 
+The function of a gene might not be evident in some environments since the protein is never transcribed, or it may behave differently. 
+Many traits may be mostly environmental.
 
 [//]: # (TODO: Cite not always genes whole inherited)
+### Units of heritability
 Genes are also often touted as a “unit of heritability/heredity”, but this is similarly not always the case. 
 DNA is more likely to be inherited together if it is close together on the chromosome, so generally we inherit whole copies of genes (and the regions around them) together - in fact usually we often inherit stretches of multiple genes together.
 Despite this, it is also possible that genes are not inherited "in one piece" with one whole copy from each parent. 
