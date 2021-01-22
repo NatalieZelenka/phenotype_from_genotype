@@ -1,7 +1,8 @@
 (c05-combining)=
 # Combining RNA-seq datasets
 
-This chapter describes my attempts to create a simulated tissue-specific dataset and to combine gene expression data from 4 large tissue-specific RNA-Seq experiments. All work in this chapter is my own.
+This chapter describes my attempts to create a simulated tissue-specific data set and to combine gene expression data from 4 large tissue-specific RNA-Seq experiments. 
+All work in this chapter is my own.
 
 ## Motivation
 
@@ -23,8 +24,9 @@ Unfortunately, this approach reveals another problem: batch effects.
 Batch effects are measurement artifacts that appear due to differences in experimental protocol.
 Their prevalence makes gene expression experiments very difficult to compare or combine.
 
-This chapter combines four gene expression data sets, collating sample and tissue information about them into a common format. A simulated data set for tissue-specific batch-effected data is created as a starting point for exploring batch effect removal for this combined data set.
+This chapter combines four gene expression data sets, collating sample and tissue information about them into a common format. 
+A simulated data set for tissue-specific batch-effected data is created as a starting point for exploring batch effect removal for this combined data set.
 
 [//]: # (TODO: Explain the structure of this chapter here)
 [//]: # (TODO: Add figures)
-[//]: # (TODO: Tidy structure of 0-index and 1-background)
+[//]: # (TODO: Tidy structure of 0-index and 1-background: move motivation to background, and edit down)

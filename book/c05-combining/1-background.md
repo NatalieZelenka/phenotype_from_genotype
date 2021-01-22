@@ -2,11 +2,15 @@
 ## Background
 
 ### Tissue and cell-specific gene expression
+[//]: # (TODO: Cite transcriptome confusion)
+[//]: # (TODO: Make sure I have mentioned transcriptome: do it in an aside if I haven't already)
+
 We’re yet to fully understand the intricacies of the human transcriptome, but if there is one factor that we know plays a huge role, it’s cell type. 
 We know that the same DNA is in every cell, and yet the morphology and function of each cell is determined by its cell type, due to its gene expression. 
 
 While we may prefer to look at the gene expression of a cell type, we currently have much less scRNA-seq data than bulk RNA-seq data.
-Bulk RNA-seq also gives us the ability to measure the gene expression of tissues as they appear in humans. The average supply of a protein to a tissue (averaged over multiple cell types) may well influence a tissue’s phenotype, in these circumstances gene expression at the level of a tissue may give us information that we can’t retrieve from cell-line cells.
+Bulk RNA-seq also gives us the ability to measure the gene expression of tissues as they appear in humans. 
+The average supply of a protein to a tissue (averaged over multiple cell types) may well influence a tissue’s phenotype, in these circumstances gene expression at the level of a tissue may give us information that we can’t retrieve from cell-line cells.
 
 [//]: # (TODO: ADd in image, cite and cross-ref)
 Figure 17:  Images of smooth muscle tissue from the stomach wall (left) and lung tissue (right), examples of homogeneous and heterogeneous tissue types respectively, taken from the Human Tissue Atlas website(The Human Protein Atlas ).
@@ -37,11 +41,3 @@ There are also further problems, for example, having enough meaningful informati
 Due to these complications, many of the important questions that we seek to answer through gene expression are difficult to get an accurate measurement of. 
 However, batch correction methodologies, biological ontologies, and curated databases of gene expression data are constantly evolving, and are now at a point where combining datasets in order to get an improved global picture of gene expression is feasible. 
 Attempting to combine datasets has the added bonus of contributing to the accuracy of these databases and ontologies by drawing attention to inconsistencies.
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```
