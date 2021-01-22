@@ -1,5 +1,33 @@
 # Background
 
+[//]: # (TODO: Edit down: too long)
+[//]: # (TODO: Rewrite: combine motivation and why 1 exp isn't enough: so much overlap!)
+
+## Motivation
+[//]: # (TODO: Add link to FILP)
+[//]: # (TODO: cross ref to Ch3)
+
+Gene expression data measures the number of transcribed proteins in a sample at a specific time.
+It's a popular experimental technique as demonstrated by the 3,564 studies and 112,225 assays currently available on Gene Expression Atlas website {cite}`Petryszak2016-je`. 
+Researchers use this data to characterise gene function.
+
+Yet each individual measure of expression is only a snapshot of what a gene can do. 
+It only tells us about the transcription of proteins at that one time. 
+If we want a full understanding of what a gene does, we must understand how it's expressed in a variety of scenarios. 
+For example, in different tissues, from different people, at different times of day, and across many repeats. 
+That kind of data would allow us to answer questions that aren't currently possible. Data to enable this is not easy to come by. 
+It would be too expensive for one experiment to measure so many samples. 
+
+Combining expression data from many different experiments could overcome this problem. 
+There are already an example of this happening for two experiments{cite}`Wang2018-rz`. 
+It would result in the rich information about genes that we desire. 
+Unfortunately, this approach reveals another problem: batch effects. 
+Batch effects are measurement artifacts that appear due to differences in experimental protocol.
+Their prevalence makes gene expression experiments very difficult to compare or combine.
+
+This chapter combines four gene expression data sets, collating sample and tissue information about them into a common format. 
+A simulated data set for tissue-specific batch-effected data is created as a starting point for exploring batch effect removal for this combined data set.
+
 ## Tissue and cell-specific gene expression
 [//]: # (TODO: Cite transcriptome confusion)
 [//]: # (TODO: Make sure I have mentioned transcriptome: do it in an aside if I haven't already)
