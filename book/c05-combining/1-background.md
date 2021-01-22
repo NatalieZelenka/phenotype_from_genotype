@@ -1,7 +1,6 @@
+# Background
 
-## Background
-
-### Tissue and cell-specific gene expression
+## Tissue and cell-specific gene expression
 [//]: # (TODO: Cite transcriptome confusion)
 [//]: # (TODO: Make sure I have mentioned transcriptome: do it in an aside if I haven't already)
 
@@ -26,7 +25,7 @@ There are also interactions between these different sources of variation, for ex
 
 Such information can be used to check if genes are expressed in a given cell/tissue, which may indicate the gene function, to identify housekeeping genes, and to build models of gene regulatory networks. 
 
-### Why one experiment isn’t enough - why combine gene expression data
+## Why one experiment isn’t enough - why combine gene expression data
 Falling costs and rapid advances in sequencing technologies have resulted in what many have described as a deluge of -omics data{cite}`Bell2009-uq`. 
 For a typical (human) next-generation sequencing transcriptomics experiment, data will be collected for 20,000+ genes, but generally far fewer samples, and very few replicates of a certain kind of sample (e.g. tissue). 
 For context, the largest experiment in the Ensembl Gene Expression Atlas (GxA) is the Genotype-Tissue Expression (GTEx) Project with 18736 samples, but this is of course across many tissues. 
