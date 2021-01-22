@@ -1,2 +1,2 @@
-jupyter-book
-jupytext
+jupytext 1.6.0
+jupyter-book 0.8.3
