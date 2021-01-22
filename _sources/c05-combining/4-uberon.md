@@ -46,11 +46,3 @@ The FANTOM sample ontology contains two samples named Renal Glomerular Endotheli
 
 #### Imprecise FANTOM annotation to tissue
 Several FANTOM tissues are labelled by name colloquially, rather than precisely. For example, both Nucleus pulpopus and Vertebra are labelled Spinal cord (although the spinal cord itself is considered disjoint from these entities, both by definition, and in the Uberon ontology). It’s for this reason that the ontology mapping is preferred over the labelled sample name in creating the overall FANTOM sample-to-tissue mapping.
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```
