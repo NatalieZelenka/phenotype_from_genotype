@@ -1,5 +1,6 @@
 ## Introduction
 [//]: # (TODO: Add cross-ref)
+[//]: # (TODO: Release mapping data separately)
 
 As previously mentioned, there are many genes/proteins for which we have sequence information, but not functional information. This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes. 
 

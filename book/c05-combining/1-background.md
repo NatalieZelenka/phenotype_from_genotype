@@ -38,6 +38,8 @@ For context, the largest experiment in the Ensembl Gene Expression Atlas (GxA) i
 It is currently too expensive for one experiment to measure enough samples to give us a comprehensive understanding of how genes can behave.
 So, when it comes to gene expression, we have “big data” because we are measuring so many genes, but in any one experiment we don't collect enough to have a deep understanding of how these genes behave in different contexts.
 
+[//]: # (TODO: Preliminary work: show basic coverage of one data set - for gene expression only: over UBERON. Note: coverage can be improved by mapping phenotypes: tissues as well as increasing gene expression data)
+
 ## The Approach
 ### Combining data sets
 Combining expression data from many different experiments has the potential to create a data set containing a more representative view of gene expression. 
@@ -87,6 +89,8 @@ The varying proportions of constituent cell types in heterogeneous tissues can i
 
 ## Approach
 There is general agreement that integrating -omics datasets is one of the primary challenges to overcome if we wish to harness the full information contained within them{cite}`Gomez-Cabrero2014-gk`. 
+The creation of a combined tissue-specific gene expression data is necessary in order to 
+
 
 Experiments are chosen such that it is possible to apply batch effect removal techniques to ensure that these batch effects are minimised.
 
