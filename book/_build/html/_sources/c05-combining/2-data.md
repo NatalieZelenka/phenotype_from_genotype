@@ -59,6 +59,11 @@ When transcript-expression (CAGE) measurements are aggregated at the gene/protei
 For these reasons, I have taken a gene-centric approach here. 
 t may be important, however, to consider whether a gene has multiple transcripts in downstream analysis, for example, if including tissue-specific gene expression information when predicting the function of a protein-coding SNV (since it may not be in the relevant transcript).
 
+#### Tissue-specificity versus cell-specificity
+While we may prefer to look at the gene expression of a cell type, we currently have much less scRNA-seq data than bulk RNA-seq data.
+Bulk RNA-seq also gives us the ability to measure the gene expression of tissues as they appear in humans. 
+The average supply of a protein to a tissue (averaged over multiple cell types) may well influence a tissue’s phenotype, in these circumstances gene expression at the level of a tissue may give us information that we can’t retrieve from cell-line cells alone.
+
 #### Inclusion of CAGE data
 CAGE is transcript expression, rather than gene expression, and there are likely to be different transcripts measured by CAGE than by RNA-Seq. 
 As mentioned above, however, it is possible to calculate gene expression from transcript expression. 

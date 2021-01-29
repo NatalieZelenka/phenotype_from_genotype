@@ -1,3 +1,4 @@
+(snowflake-results)=
 ## Results
 
 ### ALSPAC
@@ -55,11 +56,3 @@ The genetrainer dataset was focused on only one phenotype.
 **Boostrapping graph**
 
 **ROC curve**
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

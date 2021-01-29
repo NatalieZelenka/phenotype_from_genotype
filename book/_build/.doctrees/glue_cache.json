@@ -1,14 +1,1 @@
-{
-  "c05-combining/test": {
-    "plotly_test": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "plotly_test",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {}
-    }
-  }
-}
+{}
