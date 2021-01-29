@@ -16,10 +16,3 @@ The {ref}`second Section<compbio-methods>` will then touch upon how some of thes
 
 Finally, in the {ref}`third Section<compbio-bias>` of this chapter, I will consider what potential sources of bias this data contains. Here I mention my contributions to two collaborative projects: PQI and MAPS (ongoing).
 
----
-**Chapter References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

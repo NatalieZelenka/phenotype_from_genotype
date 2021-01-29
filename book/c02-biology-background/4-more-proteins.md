@@ -3,7 +3,7 @@
 Just as DNA has been classified at different levels (SNP, gene, genome), so too have proteins. In contrast to DNA, what's interesting (and useful!) to know about proteins is their structure.
 
 {ref}`As mentioned earlier<what-is-translation>`, translated strings of amino acids fold automatically (or sometimes with the help of other proteins) into the 3D structure of proteins. 
-{ref}`We still don't understand how this happens<protein-folding-problem> very well.`
+{ref}`We still don't understand how this happens very well.<protein-folding-problem>`
 
 [//]: # (TODO: Mention deep mind? Complain it's not science if no one can see it)
 

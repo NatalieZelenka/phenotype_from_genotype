@@ -51,14 +51,3 @@ Tissue effects were calculated as previously described, and included in the coef
 A good indication of the size or extent of batch effects was not readily available. Batch effects (log-fold changes - and proportion of genes affected by them) were chosen such that the simulated distributions most closely (according to visual inspection of PCA and box-plots).
 
 The simulated data set is read counts and the fold changes are calculated from TPM data, however the simulated data does not include effects due to gene length or library size.
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-
-```{code-cell} ipython3
-
-```

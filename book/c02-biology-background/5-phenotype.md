@@ -1,6 +1,6 @@
 # Linking genotype and phenotype
 [//]: # (TODO: Different types of phenotypes: environmental, copy number variations, etc)
-
+[//]: # (TODO: Briefly mention metabolome: https://en.wikipedia.org/wiki/Metabolome)
 [//]: # (TODO: Explain CRISPR in an aside to below if haven't mentioned already)
 ## Knockouts
 Insight into gene function can be gained by “knocking out” a gene, preventing it from being translated into a working protein, for example using CRISPR. 

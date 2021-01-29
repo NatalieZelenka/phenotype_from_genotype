@@ -89,7 +89,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../jupyter_book_intro.html">
-   Start Here
+   Start here
   </a>
  </li>
 </ul>
@@ -99,40 +99,29 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../front-matter/title-page.html">
-   Title Page
+   Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/list-of-figures.html">
-   List of Figures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/list-of-tables.html">
-   List of Tables
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/full-table-of-contents.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/acknowledgements.html">
-   Acknowledgements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/abstract.html">
-   Abstract
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/declaration.html">
-   Declaration
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/acknowledgements.html">
+     Acknowledgements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/abstract.html">
+     Abstract
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/declaration.html">
+     Declaration
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -168,12 +157,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
-     2.4. Looking more closely at proteins: domains and disorder
+     2.4. Looking more closely at proteins: function, structure and classification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
-     2.5. Linking genotype and phenotype: associations between regions of DNA and traits
+     2.5. Linking genotype and phenotype
     </a>
    </li>
    <li class="toctree-l2">
@@ -276,22 +265,22 @@
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/1-background.html">
-     5.1.1. Background
+     5.1. Background
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/2-data.html">
-     5.1.2. Data
+     5.2. Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/3-data-wrangling.html">
-     5.1.3. Data Wrangling
+     5.3. Data Wrangling
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/4-uberon.html">
-     5.1.4. The
+     5.4. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -302,22 +291,27 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/4-uberon.html#functionality">
-     5.1.5. Functionality
+     5.5. Functionality
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/5-batch-correction.html">
-     5.1.6. Batch correction
+     5.6. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/6-results.html">
-     5.1.7. Results
+     5.7. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/7-future-work.html">
-     5.1.8. Future Work
+    <a class="reference internal" href="../c05-combining/7-discussion.html">
+     5.8. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/8-future-work.html">
+     5.9. Future Work
     </a>
    </li>
   </ul>
@@ -585,7 +579,7 @@ ppv=\frac{(1-\beta)p_{true}}{p_{true}(1-\beta-\alpha)+\alpha}
 </div>
 <div class="section" id="publication-bias">
 <h4><span class="section-number">3.3.1.2.2. </span>Publication bias<a class="headerlink" href="#publication-bias" title="Permalink to this headline">¶</a></h4>
-<p>Although with current standard p-value and power cut-offs, negative results are more likely to be true than positive ones, negative results are much harder to publish. This bias is likely to be responsible for the draw of questionable research practices like p-hacking. It also means that there is a lot of unpublished, negative results which are likely to be repeated, since there is no way that someone could know it has already been done. A highly powered negative result could be very interesting, for example, we know hardly anything about which genes do not appear to affect phenotypes, since these results are not published<a class="bibtex reference internal" href="../end-matter/reference.html#barbaric2007-zm" id="id13">[3]</a>, but they would help enormously with the challenge of creating a gold standard dataset for gene function prediction.</p>
+<p>Although with current standard p-value and power cut-offs, negative results are more likely to be true than positive ones, negative results are much harder to publish. This bias is likely to be responsible for the draw of questionable research practices like p-hacking. It also means that there is a lot of unpublished, negative results which are likely to be repeated, since there is no way that someone could know it has already been done. A highly powered negative result could be very interesting, for example, we know hardly anything about which genes do not appear to affect phenotypes, since these results are not published<a class="bibtex reference internal" href="../end-matter/reference.html#barbaric2007-zm" id="id13">[2]</a>, but they would help enormously with the challenge of creating a gold standard dataset for gene function prediction.</p>
 <p>Registered reports are an attempt to remove these problems associated with publication bias, by linking the concept of pre-registration with that of publishing. Essentially, authors submit their introduction and methods section to a journal and at this point they undergo peer review and the journal agrees to publish the results, regardless of the result. At the time of writing over 170 journals were accepting registered reports and the number has been growing in recent months, across disciplines, although they are currently most popular in psychology and neuroscience<a class="bibtex reference internal" href="../end-matter/reference.html#hardwicke-undated-jj" id="id14">[13]</a>. This solution also offers peer-review at a more helpful stage in the manuscript, when it’s still possible to make changes to the experiment.</p>
 </div>
 </div>
@@ -709,7 +703,7 @@ ppv=\frac{(1-\beta)p_{true}}{p_{true}(1-\beta-\alpha)+\alpha}
 <dt class="bibtex label" id="zaucha2015-ez"><span class="brackets"><a class="fn-backref" href="#id16">1</a></span></dt>
 <dd><p>Jan Zaucha, Jonathan Stahlhacke, Matt E Oates, Natalie Thurlby, Owen J L Rackham, Hai Fang, Ben Smithers, and Julian Gough. A proteome quality index. <em>Environ. Microbiol.</em>, 17(1):4–9, 2015. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1462-2920.12622">https://onlinelibrary.wiley.com/doi/abs/10.1111/1462-2920.12622</a>.</p>
 </dd>
-<dt class="bibtex label" id="barbaric2007-zm"><span class="brackets"><a class="fn-backref" href="#id13">3</a></span></dt>
+<dt class="bibtex label" id="barbaric2007-zm"><span class="brackets"><a class="fn-backref" href="#id13">2</a></span></dt>
 <dd><p>Ivana Barbaric, Gaynor Miller, and T Neil Dear. Appearances can be deceiving: phenotypes of knockout mice. <em>Brief. Funct. Genomic. Proteomic.</em>, 6(2):91–103, June 2007.</p>
 </dd>
 <dt class="bibtex label" id="begley2012-oc"><span class="brackets">3</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>

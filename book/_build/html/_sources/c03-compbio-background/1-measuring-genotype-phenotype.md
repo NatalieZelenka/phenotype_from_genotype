@@ -136,7 +136,10 @@ There can be disagreements about the locations of genes on the genome, and popul
 Gene names and symbols change over time, and can be difficult to map between for this reason.
 
 [//]: # (TODO: Write: sequenced the same way, persistent identifiers, which map to genomes)
+#### Regulatory features
 [//]: # (TODO: Explain that regulatory features are not as well defined yet, i.e. with IDs, etc.)
+[//]: # (TODO: Mention http://www.ensembl.org/info/genome/funcgen/regulatory_features.html)
+
 #### Variants
 [//]: # (TODO: Sentence about variants)
 
@@ -188,15 +191,7 @@ Since transcription is dependent on time, tissue, location, cell, etc, RNA-seq e
 
 One of the most popular measures of gene expression, is the measure of how much RNA is in a cell at a given time. 
 
-#### FANTOM Consortium
-[//]: # (TODO: ADd Fantom5 citation, move this bit to somewhere sensible.)
-As the human genome project was nearing completion, researchers had a parts list of human biology, but few of the functions of these parts (genes) were known. A consortium of scientists formed, named after the challenge they were addressing: the Functional ANnoTation Of the MAmmalian genome (FANTOM). 
 
-[//]: # (TODO: Fix FANTOM5 citation)
-The consortium has run a range of large scale collaborative projects in five rounds to further this goal. The first FANTOM project used only the mouse genome, but later versions also included human. The latest project, FANTOM5[80] represents one of the most comprehensive collections of gene expression data. It contains a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations
-
-#### The Gene Expression Atlas
-The Gene Expression Atlas{cite}`Petryszak2016-je` (GxA) is the European Bioinformatics Institutes’ open source gene and protein expression database, and the largest of its type. At the time of writing, it contains over 3,000 gene expression and protein abundance experiments across many organisms, organism parts (tissues), diseases, and sequencing technologies. There is a separate atlas for scRNA-seq experiments. 
 
 #### Gene expression data pipeline
 [//]: # (TODO: This section needs more work)
@@ -243,6 +238,7 @@ Scientists are often interested in a "favourite" gene or protein, or have obtain
 BLAST, or the The Basic Local Alignment Search Tool{cite}`Altschul1990-zf`, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.
 
 ##### SCOP
+[//]: # (TODO: Rewrite below based on section 2.4)
 The Structural Classification of Proteins (SCOP) database{cite}`Murzin1995-se` classifies all proteins with known structure based on their structural similarities, based on the consideration of the protein’s constituent domains. The classification is mostly done at the level of families, superfamilies, and folds arranged in a tree structure. Families represent the most similar proteins, which share a “clear evolutionary relationship”, while superfamilies represent less close evolutionary relationships, and folds represent the same secondary structure. This protein classification task, while aided by automation, was carried out largely by manual visual inspection.
 
 SCOP was updated until 2009, but has been succeeded by SCOP2{cite}`Andreeva2014-om`. However, SCOP2 has a different underlying classification system, based on a complex graph, rather than a hierarchy. The CATH (Class, Architecture, Topology, Homologous superfamily){cite}`Orengo1997-vf` database provides another classification system, (also operating hierarchically), but created mostly via automation, which leads to major differences between the classifications{cite}`Csaba2009-of`.

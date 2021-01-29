@@ -3,8 +3,7 @@ venv/*
 .jekyll-cache/
 .sass-cache/
 .idea/
-book/_build/pdf/
-book/_build/latex/
+book/_build/
 .Rproj.user
 .Rdata
 .Rhistory

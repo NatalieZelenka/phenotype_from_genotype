@@ -136,7 +136,10 @@ There can be disagreements about the locations of genes on the genome, and popul
 Gene names and symbols change over time, and can be difficult to map between for this reason.
 
 [//]: # (TODO: Write: sequenced the same way, persistent identifiers, which map to genomes)
+#### Regulatory features
 [//]: # (TODO: Explain that regulatory features are not as well defined yet, i.e. with IDs, etc.)
+[//]: # (TODO: Mention http://www.ensembl.org/info/genome/funcgen/regulatory_features.html)
+
 #### Variants
 [//]: # (TODO: Sentence about variants)
 
@@ -188,15 +191,8 @@ Since transcription is dependent on time, tissue, location, cell, etc, RNA-seq e
 
 One of the most popular measures of gene expression, is the measure of how much RNA is in a cell at a given time. 
 
-#### FANTOM Consortium
-[//]: # (TODO: ADd Fantom5 citation, move this bit to somewhere sensible.)
-As the human genome project was nearing completion, researchers had a parts list of human biology, but few of the functions of these parts (genes) were known. A consortium of scientists formed, named after the challenge they were addressing: the Functional ANnoTation Of the MAmmalian genome (FANTOM). 
-
-[//]: # (TODO: Fix FANTOM5 citation)
-The consortium has run a range of large scale collaborative projects in five rounds to further this goal. The first FANTOM project used only the mouse genome, but later versions also included human. The latest project, FANTOM5[80] represents one of the most comprehensive collections of gene expression data. It contains a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations
-
-#### The Gene Expression Atlas
-The Gene Expression Atlas{cite}`Petryszak2016-je` (GxA) is the European Bioinformatics Institutes’ open source gene and protein expression database, and the largest of its type. At the time of writing, it contains over 3,000 gene expression and protein abundance experiments across many organisms, organism parts (tissues), diseases, and sequencing technologies. There is a separate atlas for scRNA-seq experiments. 
+#### Differential expression versus baseline
+[//]: # (TODO: Write)
 
 #### Gene expression data pipeline
 [//]: # (TODO: This section needs more work)
@@ -212,17 +208,14 @@ Within-sample normalisation methods are designed to account for sequencing depth
 
 RPKM/FPKM (Reads/Fragments Per Kilobase Million) and TPM (Tags Per Million) are the three major normalisation techniques used for this purpose. In RPKM and FPKM, counts are first normalised for sequencing depth, and then for gene length. This means that they are suitable for comparing within a sample (e.g. between replicates. TPM, however performs the same steps in the opposite order, which has the desirable effect of ensuring that columns corresponding to TPM normalised samples sum to the same number. This means that TPM gives us a measure of relative abundance; we can compare across samples which proportion of counts are from each gene. For this reason, TPM is now generally preferred over RPKM/FPKM{cite}`Wagner2012-ac,Pimentel2014-xm`.
 
+(rna-normalisation)=
 ##### Normalisation - between-sample
 While TPM gives us a measure of relative abundance, it does not give us a measure of absolute abundance. One outlying gene which is highly expressed will have the effect of making all other genes look relatively less expressed. We might expect this to occur, particularly when samples are under different conditions (e.g. disease/treatment). Between-sample normalisation methods are designed to counter this issue, and enable researchers to compare different samples.
 
 These methods adjust counts to reduce the impact of outlying expression values. Examples include scale normalisation methods like TMM (used in edgeR{cite}`Robinson2010-kl`), the Log Geometric Mean (used in DESeq2{cite}`Robinson2010-kl,Love2014-vx`), and quantile normalisation (giving samples the same distribution of counts).
 
-##### Batch correction
-Even after all this normalising, systematic effects can be present in gene expression data, due to sequencing batch, or some correlated condition. All types of gene expression data are known to suffer from these batch effects{cite}`Leek2010-yw`; unwanted variation associated with the batch it was sequenced in, resulting from unknown variation during the process of sequencing for example the date, time, or location of sequencing{cite}`Irizarry2005-ie`, or the technician doing the work. Some of these effects may be due to factors that might be expected to genuinely influence expression of genes, such as temperature, time of year, humidity, diet, individual, age, etc. Covariates such as these are often unrecorded and/or not reported, so it is not easy to distinguish these from those due to protocol differences, such as reagents, personnel doing the sequencing, hardware, processing pipeline, etc. 
+[//]: # (TODO: Explain batch effects here?)
 
-Batch effects can often confound and obscure the biological differences of interest between samples (e.g. tumour versus healthy tissue). At best, batch effects add random variation to expression measurements, which obscure signals. Often they can also add systematic differences that can lead to incorrect biological conclusions{cite}`Leek2010-yw`. They are a problem for analysing the output of an individual experiment where there are multiple sequencing batches, but pose a particular problem in combining data from different experiments, as there is almost certainly more variations between analysis pipelines.
-
-When it is known, date of sequence processing is often used as a surrogate for batch, enabling researchers to check for, and then remove, batch effects if necessary. Principal components analysis is often used to visually inspect experimental results for batch effects; when biologically alike samples cluster together rather than those from like-batches, batch effects are often ignored. Batch effects may affect only specific subsets of genes, and may affect different genes in different ways{cite}`Leek2010-yw`. This means that normalisation (e.g. TPM, FKPM) will not account for batch.
 
 (protein-measurements)=
 ### Proteins

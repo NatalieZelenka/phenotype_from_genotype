@@ -57,7 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.1.1. Background" href="1-background.html" />
+    <link rel="next" title="5.1. Background" href="1-background.html" />
     <link rel="prev" title="4.7. Future Work" href="../c04-snowflake/7-future-work.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -89,7 +89,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../jupyter_book_intro.html">
-   Start Here
+   Start here
   </a>
  </li>
 </ul>
@@ -99,40 +99,29 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../front-matter/title-page.html">
-   Title Page
+   Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/list-of-figures.html">
-   List of Figures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/list-of-tables.html">
-   List of Tables
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/full-table-of-contents.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/acknowledgements.html">
-   Acknowledgements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/abstract.html">
-   Abstract
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/declaration.html">
-   Declaration
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/acknowledgements.html">
+     Acknowledgements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/abstract.html">
+     Abstract
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/declaration.html">
+     Declaration
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -168,12 +157,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
-     2.4. Looking more closely at proteins: domains and disorder
+     2.4. Looking more closely at proteins: function, structure and classification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
-     2.5. Linking genotype and phenotype: associations between regions of DNA and traits
+     2.5. Linking genotype and phenotype
     </a>
    </li>
    <li class="toctree-l2">
@@ -276,22 +265,22 @@
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="1-background.html">
-     5.1.1. Background
+     5.1. Background
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2-data.html">
-     5.1.2. Data
+     5.2. Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-data-wrangling.html">
-     5.1.3. Data Wrangling
+     5.3. Data Wrangling
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4-uberon.html">
-     5.1.4. The
+     5.4. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -302,22 +291,27 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4-uberon.html#functionality">
-     5.1.5. Functionality
+     5.5. Functionality
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5-batch-correction.html">
-     5.1.6. Batch correction
+     5.6. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     5.1.7. Results
+     5.7. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="7-future-work.html">
-     5.1.8. Future Work
+    <a class="reference internal" href="7-discussion.html">
+     5.8. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8-future-work.html">
+     5.9. Future Work
     </a>
    </li>
   </ul>
@@ -450,20 +444,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivation">
-   5.1. Motivation
-  </a>
- </li>
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -473,26 +453,9 @@
                 
   <div class="section" id="combining-rna-seq-datasets">
 <span id="c05-combining"></span><h1><span class="section-number">5. </span>Combining RNA-seq datasets<a class="headerlink" href="#combining-rna-seq-datasets" title="Permalink to this headline">¶</a></h1>
-<p>This chapter describes my attempts to create a simulated tissue-specific dataset and to combine gene expression data from 4 large tissue-specific RNA-Seq experiments. All work in this chapter is my own.</p>
-<div class="section" id="motivation">
-<h2><span class="section-number">5.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
-<p>Gene expression data measures the number of transcribed proteins in a sample at a specific time. It’s a popular experimental technique as demonstrated by the 3,564 studies and 112,225 assays currently available on Gene Expression Atlas website <a class="bibtex reference internal" href="../end-matter/reference.html#petryszak2016-je" id="id1">[14]</a>. Researchers use this data to characterise gene function.</p>
-<p>Yet each individual measure of expression is only a snapshot of what a gene can do. It only tells us about the transcription of proteins at that one time. If we want a full understanding of what a gene does, we must understand how it’s expressed in a variety of scenarios. For example, in different tissues, from different people, at different times of day, and across many repeats. That kind of data would allow us to answer questions that aren’t currently possible. Data to enable this is not easy to come by. It would be too expensive for one experiment to measure so many samples.</p>
-<p>Combining expression data from many different experiments could overcome this problem. There are already an example of this happening for two experiments<a class="bibtex reference internal" href="../end-matter/reference.html#wang2018-rz" id="id2">[2]</a>. It would result in the rich information about genes that we desire. Unfortunately, this approach reveals another problem: batch effects. Batch effects are measurement artifacts that appear due to differences in experimental protocol. Their prevalence makes gene expression experiments very difficult to compare or combine.</p>
-<p>This chapter combines four gene expression data sets, collating sample and tissue information about them into a common format. A simulated data set for tissue-specific batch-effected data is created as a starting point for exploring batch effect removal for this combined data set.</p>
-<hr class="docutils" />
-<p><strong>Page References</strong></p>
-<p id="bibtex-bibliography-c05-combining/0-index-0"><dl class="citation">
-<dt class="bibtex label" id="petryszak2016-je"><span class="brackets"><a class="fn-backref" href="#id1">14</a></span></dt>
-<dd><p>Robert Petryszak, Maria Keays, Y Amy Tang, Nuno A Fonseca, Elisabet Barrera, Tony Burdett, Anja Füllgrabe, Alfonso Muñoz-Pomer Fuentes, Simon Jupp, Satu Koskinen, Oliver Mannion, Laura Huerta, Karine Megy, Catherine Snow, Eleanor Williams, Mitra Barzine, Emma Hastings, Hendrik Weisser, James Wright, Pankaj Jaiswal, Wolfgang Huber, Jyoti Choudhary, Helen E Parkinson, and Alvis Brazma. Expression atlas update—an integrated database of gene and protein expression in humans, animals and plants. 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkv1045">http://dx.doi.org/10.1093/nar/gkv1045</a>.</p>
-</dd>
-<dt class="bibtex label" id="wang2018-rz"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Qingguo Wang, Joshua Armenia, Chao Zhang, Alexander V Penson, Ed Reznik, Liguo Zhang, Thais Minet, Angelica Ochoa, Benjamin E Gross, Christine A Iacobuzio-Donahue, Doron Betel, Barry S Taylor, Jianjiong Gao, and Nikolaus Schultz. Unifying cancer and normal RNA sequencing data from different sources. <em>Sci Data</em>, 5:180061, April 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1038/sdata.2018.61">http://dx.doi.org/10.1038/sdata.2018.61</a>.</p>
-</dd>
-</dl>
-</p>
+<p>This chapter describes my attempts to create a simulated tissue-specific data set and to combine gene expression data from 4 large tissue-specific RNA-Seq experiments.
+All work in this chapter is my own.</p>
 <div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 
@@ -525,7 +488,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../c04-snowflake/7-future-work.html" title="previous page"><span class="section-number">4.7. </span>Future Work</a>
-    <a class='right-next' id="next-link" href="1-background.html" title="next page"><span class="section-number">5.1.1. </span>Background</a>
+    <a class='right-next' id="next-link" href="1-background.html" title="next page"><span class="section-number">5.1. </span>Background</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

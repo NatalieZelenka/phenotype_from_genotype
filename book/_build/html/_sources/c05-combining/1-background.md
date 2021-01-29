@@ -1,12 +1,43 @@
+# Background
 
-## Background
+[//]: # (TODO: Edit down: too long)
+[//]: # (TODO: Rewrite: combine motivation and why 1 exp isn't enough: so much overlap!)
 
-### Tissue and cell-specific gene expression
+## Motivation
+[//]: # (TODO: Add link to FILP)
+[//]: # (TODO: cross ref to Ch3)
+
+Gene expression data measures the number of transcribed proteins in a sample at a specific time.
+It's a popular experimental technique as demonstrated by the 3,564 studies and 112,225 assays currently available on Gene Expression Atlas website {cite}`Petryszak2016-je`. 
+Researchers use this data to characterise gene function.
+
+Yet each individual measure of expression is only a snapshot of what a gene can do. 
+It only tells us about the transcription of proteins at that one time. 
+If we want a full understanding of what a gene does, we must understand how it's expressed in a variety of scenarios. 
+For example, in different tissues, from different people, at different times of day, and across many repeats. 
+That kind of data would allow us to answer questions that aren't currently possible. Data to enable this is not easy to come by. 
+It would be too expensive for one experiment to measure so many samples. 
+
+Combining expression data from many different experiments could overcome this problem. 
+There are already an example of this happening for two experiments{cite}`Wang2018-rz`. 
+It would result in the rich information about genes that we desire. 
+Unfortunately, this approach reveals another problem: batch effects. 
+Batch effects are measurement artifacts that appear due to differences in experimental protocol.
+Their prevalence makes gene expression experiments very difficult to compare or combine.
+
+This chapter combines four gene expression data sets, collating sample and tissue information about them into a common format. 
+A simulated data set for tissue-specific batch-effected data is created as a starting point for exploring batch effect removal for this combined data set.
+
+## Tissue and cell-specific gene expression
+[//]: # (TODO: Cite transcriptome confusion)
+[//]: # (TODO: Make sure I have mentioned transcriptome: do it in an aside if I haven't already)
+
 We’re yet to fully understand the intricacies of the human transcriptome, but if there is one factor that we know plays a huge role, it’s cell type. 
 We know that the same DNA is in every cell, and yet the morphology and function of each cell is determined by its cell type, due to its gene expression. 
 
 While we may prefer to look at the gene expression of a cell type, we currently have much less scRNA-seq data than bulk RNA-seq data.
-Bulk RNA-seq also gives us the ability to measure the gene expression of tissues as they appear in humans. The average supply of a protein to a tissue (averaged over multiple cell types) may well influence a tissue’s phenotype, in these circumstances gene expression at the level of a tissue may give us information that we can’t retrieve from cell-line cells.
+Bulk RNA-seq also gives us the ability to measure the gene expression of tissues as they appear in humans. 
+The average supply of a protein to a tissue (averaged over multiple cell types) may well influence a tissue’s phenotype, in these circumstances gene expression at the level of a tissue may give us information that we can’t retrieve from cell-line cells.
 
 [//]: # (TODO: ADd in image, cite and cross-ref)
 Figure 17:  Images of smooth muscle tissue from the stomach wall (left) and lung tissue (right), examples of homogeneous and heterogeneous tissue types respectively, taken from the Human Tissue Atlas website(The Human Protein Atlas ).
@@ -22,7 +53,7 @@ There are also interactions between these different sources of variation, for ex
 
 Such information can be used to check if genes are expressed in a given cell/tissue, which may indicate the gene function, to identify housekeeping genes, and to build models of gene regulatory networks. 
 
-### Why one experiment isn’t enough - why combine gene expression data
+## Why one experiment isn’t enough - why combine gene expression data
 Falling costs and rapid advances in sequencing technologies have resulted in what many have described as a deluge of -omics data{cite}`Bell2009-uq`. 
 For a typical (human) next-generation sequencing transcriptomics experiment, data will be collected for 20,000+ genes, but generally far fewer samples, and very few replicates of a certain kind of sample (e.g. tissue). 
 For context, the largest experiment in the Ensembl Gene Expression Atlas (GxA) is the Genotype-Tissue Expression (GTEx) Project with 18736 samples, but this is of course across many tissues. 
@@ -37,11 +68,3 @@ There are also further problems, for example, having enough meaningful informati
 Due to these complications, many of the important questions that we seek to answer through gene expression are difficult to get an accurate measurement of. 
 However, batch correction methodologies, biological ontologies, and curated databases of gene expression data are constantly evolving, and are now at a point where combining datasets in order to get an improved global picture of gene expression is feasible. 
 Attempting to combine datasets has the added bonus of contributing to the accuracy of these databases and ontologies by drawing attention to inconsistencies.
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

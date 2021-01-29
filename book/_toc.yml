@@ -1,15 +1,18 @@
 - file: jupyter_book_intro
+  not_in_book: true
+
 - part: Front Matter
   numbered: false
   chapters:
   - file: front-matter/title-page
-    title: Title Page
-  - file: front-matter/list-of-figures
-  - file: front-matter/list-of-tables
-  - file: front-matter/full-table-of-contents
-  - file: front-matter/acknowledgements
-  - file: front-matter/abstract
-  - file: front-matter/declaration
+    page_break_after: true
+    sections:
+    - file: front-matter/acknowledgements
+      page_break_after: true
+    - file: front-matter/abstract
+      page_break_after: true
+    - file: front-matter/declaration
+      page_break_after: true
 - part: Main book
   numbered: true
   chapters:
@@ -22,12 +25,14 @@
       - file: c02-biology-background/4-more-proteins
       - file: c02-biology-background/5-phenotype
       - file: c02-biology-background/6-summary
+        page_break_after: true
   - file: c03-compbio-background/0-index
     sections:
       - file: c03-compbio-background/1-measuring-genotype-phenotype
       - file: c03-compbio-background/2-comp-bio-methods
       - file: c03-compbio-background/3-bias
       - file: c03-compbio-background/4-summary
+        page_break_after: true
   - file: c04-snowflake/0-index
     sections:
       - file: c04-snowflake/1-introduction
@@ -37,6 +42,7 @@
       - file: c04-snowflake/5-results
       - file: c04-snowflake/6-discussion
       - file: c04-snowflake/7-future-work
+        page_break_after: true
   - file: c05-combining/0-index
     sections:
       - file: c05-combining/1-background
@@ -45,7 +51,9 @@
       - file: c05-combining/4-uberon
       - file: c05-combining/5-batch-correction
       - file: c05-combining/6-results
-      - file: c05-combining/7-future-work
+      - file: c05-combining/7-discussion
+      - file: c05-combining/8-future-work
+        page_break_after: true
   - file: c06-filter/0-index
     sections:
       - file: c06-filter/1-introduction
@@ -54,10 +62,14 @@
       - file: c06-filter/4-results
       - file: c06-filter/5-discussion
       - file: c06-filter/6-future-work
+        page_break_after: true
   - file: c07-conclusion/0-conclusion
+    page_break_after: true
 
 - part: End Matter
   chapters:
   - file: end-matter/glossary
+    page_break_after: true
   - file: end-matter/reference
     title: Bibliography
+    page_break_after: true

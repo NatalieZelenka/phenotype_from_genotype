@@ -137,8 +137,15 @@ plugins:
   - jekyll-redirect-from
   - jekyll-scholar
 
+latex:
+  latex_documents:
+    targetname: thesis.tex
+  latex_engine: xelatex
+
 sphinx:
   config:
+    latex_elements:
+      printindex: ''
     nb_custom_formats:
         .Rmd:
             - jupytext.reads
