@@ -83,17 +83,10 @@
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter_book_intro.html">
-   Start here
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
+    <p class="caption collapsible-parent">
  <span class="caption-text">
   Front Matter
  </span>
@@ -290,28 +283,23 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4-uberon.html#functionality">
-     5.5. Functionality
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="5-batch-correction.html">
-     5.6. Batch correction
+     5.5. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     5.7. Results
+     5.6. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-discussion.html">
-     5.8. Discussion
+     5.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="8-future-work.html">
-     5.9. Future Work
+     5.8. Future Work
     </a>
    </li>
   </ul>
@@ -384,7 +372,7 @@
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
 </div>
 
 </div>
@@ -411,23 +399,6 @@
         </button>
         
         
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/c05-combining/0-index.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
         <!-- Source interaction buttons -->
 
 
@@ -453,10 +424,12 @@
                 
   <div class="section" id="combining-rna-seq-datasets">
 <span id="c05-combining"></span><h1><span class="section-number">5. </span>Combining RNA-seq datasets<a class="headerlink" href="#combining-rna-seq-datasets" title="Permalink to this headline">¶</a></h1>
-<p>This chapter describes my attempts to create a simulated tissue-specific data set and to combine gene expression data from four large tissue-specific RNA-Seq experiments.
-All work in this chapter is my own.</p>
-<p>In this chapter, I share my approach to combining four gene expression data sets, as well as the resulting data set itself.
-I also present a simulated data set for tissue-specific batch-effected data, which was created to explore batch effect removal for this type of combined data set.</p>
+<p>In this Chapter, four tissue-specific gene expression data sets are combined into one harmonised data set, which is available to the research community - as well as being useful in <a class="reference internal" href="../c06-filter/0-index.html#c06-filter"><span class="std std-ref">the next Chapter</span></a>.</p>
+<p>The constituent data sets were chosen to minimise potential data artefacts, to maximise information about different tissues, and to ensure that we have as balanced an “experimental design” as possible (which is important for batch effect removal).
+The meta-data about the experiments is also combined, and mapped to the UBERON tissue ontology, to ensure the interoperability of the final combined data set.
+A simulated gene expression data set was created to test whether batch correction was appropriate for this data set.
+And after testing ComBat on the simulated gene expression data set, it was applied to the combined tissue-specific experiments data set.</p>
+<p>All work in this Chapter was conducted independently.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>

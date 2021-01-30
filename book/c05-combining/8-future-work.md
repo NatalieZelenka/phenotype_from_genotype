@@ -18,7 +18,7 @@ Cell type deconvolution however generally requires the input of a large scRNA-se
 ### scRNA inclusion
 [//]: # (TODO: Make sure I explain somewhere what scRNA is)
 
-Since ComBat is known to suffer from unbalanced datasets, an alternative might be used: Mutal Nearest Neighbour (MNN) method for bulk RNA-Seq data. 
+Since ComBat is known to suffer from unbalanced datasets, an alternative might be used: Mutual Nearest Neighbour (MNN) method for bulk RNA-Seq data. 
 MNN is a batch effect removal methodology for scRNA-seq data which was recently developed by Haghverdi et al{cite}`Haghverdi2018-ig`. 
 The benefit of this methodology (in addition to its superior batch effect removal) is its ability to cope with unbalanced sample compositions.  
 Despite being developed for scRNA-seq, it works well on heterogeneous tissues like the pancreas, so it may be possible to use or extend it to bulk RNA-seq, especially if cell type deconvolution can be employed on the bulk RNA-seq. 

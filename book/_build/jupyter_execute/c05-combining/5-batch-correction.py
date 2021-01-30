@@ -1,18 +1,8 @@
-## Batch correction
+# Batch correction
+[//]: # (TODO: Batch corrected results here)
+[//]: # (TODO: Make separate section for creation of simulated dataset - which is then used here)
+[//]: # (TODO: Cross-ref to ComBat description <combat-description>)
 
-### What are batch effects?
-<!--TODO: What are batch effects: borrow from relevant part of thesis-->
-
-### Batch-effect removal methodologies
-There are a number of batch correction analyses which attempt to remove batch effects from RNA-seq data. Batch correction can be very useful for understanding baseline gene expression, but can lead to inflated p-values for downstream analysis (notably for differential gene expression, using ComBat{cite}`Johnson2007-zh`), where a more sensible approach is to include batch as a confounder for statistical tests. 
-
-#### Surrogate Variable Analysis
-Surrogate Variable Analysis (SVA){cite}`Leek2007-ba` is used in cases where you do not have a covariate that drives batch effect (i.e. you do not have information about processing date, technicians, processing centres, etc), but you expect that batch effects will be present. SVA estimates which samples belong to which batches, before using ComBat to remove the effect due to those batches.
-
-#### ComBat
-ComBat{cite}`Johnson2007-zh` is a popular batch effect removal procedure, which was first developed for use with microarray data, but continues to be a popular choice for RNA-seq data. Generally, it is a well-trusted method for both of these types of gene expression data{cite}`Chen2011-ke`, but more recently has been shown to “over-correct” batches for RNA-seq data{cite}`Liu2016-wa`.
-
-ComBat is an Empirical Bayes method, meaning that the prior distribution is estimated from the data. It is designed to “borrow/share information” between genes in order to get a better estimate of batch effects, and assumes that batch effects affect many genes in similar ways. 
 
 ### Pre-batch-corrected data
 Visual inspection of {numref}`combine-pca-before` shows that data appears to cluster by experiment more strongly than by tissue group, meaning that batch correction is necessary to compare across experiment samples.

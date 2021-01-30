@@ -1,24 +1,27 @@
 # Background
-[//]: # (TODO: Edit down: too long)
-[//]: # (TODO: Write here: the basic idea - combined gene expression data set with as much meta data as possible: unaltered and with batch effect correction)
-[//]: # (TODO: Add link to FILP)
-[//]: # (TODO: cross ref to Ch3)
-[//]: # (TODO: Rewrite: combine motivation and why 1 exp isn't enough: so much overlap!)
 [//]: # (TODO: Make sure I have already mentioned "omics" - or put it in a margin)
-[//]: # (TODO: Check: Have I mentioned EMBL before?)
-[//]: # (TODO: Check: Have I mentioned pathways?)
-[//]: # (TODO: Check: is simulated data set available?)
-## Motivation
 
-### Genotype to phenotype
+There is general agreement that integrating omics datasets is one of the primary challenges to overcome if we wish to harness the full information contained within them{cite}`Gomez-Cabrero2014-gk`. 
+Combining gene expression data sets is a challenge in terms of data management, statistics, and harmonisation of meta-data for interoperability.
+The latter is crucial for downstream use as we'll see in {ref}`the next Chapter<c06-filter>`. 
+
+## Motivation: linking Genotype and phenotype
 As we explored in {ref}`Chapter 2<c02-biology-bg>`, there is a complex web of interactions between proteins and other molecular machinery that lead to phenotype. 
 
-The {ref}`inconclusive results of the Snowflake<snowflake-results>` led me to pursue an answer to a much smaller piece of the genotype-to-phenotype puzzle. 
+[//]: # (TODO: Check: Have I mentioned pathways before?)
+The {ref}``inconclusive results of the `Snowflake`<snowflake-results>`` led me to pursue an answer to a much smaller piece of the genotype-to-phenotype puzzle. 
 As mentioned in {ref}`the previous Chapter's discussion<dcgo-expression-problem>`, it could be possible that some predictions of a protein's phenotype are incorrect because the protein is not produced, even though they do have a structure that means that they could be involved in the pathway if they were present.
 To understand if this is the case, we need to know as a minimum if a gene is *ever* expressed a relevant context. 
 This would rule out, for example, proteins that are predicted to be associated with eye health, but are only ever produced in the developing limbs.
 
-### Tissue-specific gene expression data
+[//]: # (TODO: Cross-ref to descriptions of other phenotype prediction and variant prioritisation methods)
+And if we could apply this approach to `Snowflake`, then we could also apply it to other phenotype prediction and variant prioritisation methods.
+Furthermore, having access to a (combined) data set with more repeated measurements, and more variation in samples would allow researchers to apply additional statistical techniques, and ask additional questions, by increasing the statistical power. 
+For example, tissue-specific data sets are often used to identify housekeeping genes, and to build models of gene regulatory networks. 
+
+## Tissue-specific gene expression data
+[//]: # (TODO: Check: Have I mentioned EMBL before? Don't have to write long name)
+
 To answer these questions, we need gene expression data.
 Falling costs and rapid advances in sequencing technologies have resulted in what many have described as a deluge of omics data{cite}`Bell2009-uq`. 
 And this includes huge amount of {ref}`gene expression data<rna-measurements>`, as demonstrated by the 3,564 studies and 112,225 assays currently available through the European Molecular Biology Laboratory's (EMBL) Gene Expression Atlas (GxA) website {cite}`Petryszak2016-je`.
@@ -40,14 +43,12 @@ So, when it comes to gene expression, we have “big data” because we are meas
 
 [//]: # (TODO: Preliminary work: show basic coverage of one data set - for gene expression only: over UBERON. Note: coverage can be improved by mapping phenotypes: tissues as well as increasing gene expression data)
 
-## The Approach
-### Combining data sets
+## Combining data sets: batch effects
 Combining expression data from many different experiments has the potential to create a data set containing a more representative view of gene expression. 
 This has already been done for two experiments{cite}`Wang2018-rz`. 
 
-### Batch effects
 [//]: # (TODO: Check if batch effects are mentioned previously)
-Combining gene expression data sets, however, is not trivial: a major problem is their well known susceptibility to batch effects (differences in measurements due to technical artefacts of sequencing batch) {cite}`Leek2010-yw`. 
+Combining gene expression data sets, however, is not trivial: a major problem is their well known susceptibility to batch effects (differences in measurements due to technical artefacts of sequencing batch){cite}`Leek2010-yw`. 
 When combining and comparing gene expression data from two (or more) experiments, it's not obvious how much of our signal comes from real biological differences in transcription, and how much comes from unwanted variation associated with the batch it was sequenced in, resulting from unknown variation during the process of sequencing for example the date, time, or location of sequencing{cite}`Irizarry2005-ie`, or the technician doing the work
 
 To complicate matters, some batch effects may be due to factors that might be expected to genuinely influence expression of genes, such as temperature, time of year, humidity, diet, individual, age, etc.
@@ -63,39 +64,23 @@ They are a problem for analysing the output of an individual experiment where th
 Batch effects may affect only specific subsets of genes, and may affect different genes in different ways{cite}`Leek2010-yw`. This means that {ref}`normalisation<rna-normalisation>` (e.g. TPM, FKPM) will not account for batch.
 However, when it is known, date of sequence processing is often used as a surrogate for batch, enabling researchers to check for, and then remove, batch effects if necessary. 
 
-Principal components analysis is often used to visually inspect experimental results for batch effects; when biologically alike samples cluster together rather than those from like-batches, batch effects are often ignored. 
+There are a number of batch correction analyses which attempt to remove batch effects from RNA-seq data, for example ComBat{cite}`Johnson2007-zh` and Surrogate Variable Analysis (SVA){cite}`Leek2007-ba`
+Batch correction can be very useful for understanding baseline gene expression, but can lead to inflated p-values for downstream analysis (notably for differential gene expression, using ComBat{cite}`Johnson2007-zh`), where a more sensible approach is to include batch as a confounder for statistical tests. 
+
+(combat-description)=
+### Combat
+[//]: # (TODO: Explain need for "balanced experimental design")
+ComBat{cite}`Johnson2007-zh` is a popular batch effect removal procedure, which was first developed for use with microarray data, but continues to be a popular choice for RNA-seq data. 
+Generally, it is a well-trusted method for both of these types of gene expression data{cite}`Chen2011-ke`, although there is some evidence that it may “over-correct” batches for some RNA-seq data{cite}`Liu2016-wa`.
+
+ComBat is an Empirical Bayes method, meaning that the prior distribution is estimated from the data. 
+It is designed to “borrow/share information” between genes in order to get a better estimate of batch effects, and assumes that batch effects affect many genes in similar ways.
+
+### Principal component analysis
+Principal Components Analysis (PCA) is often used to visually inspect experimental results for batch effects; when biologically alike samples cluster together rather than those from like-batches, batch effects are often ignored. 
 In order to do this, we must also have enough meaningful information recorded per sample, access to data in raw count format, and mapping between the data that is given and similar samples in other datasets, as well as computational problems (data storage, optimisation of running operations on many or large files, etc). 
 
-#### Combat
-[//]: # (TODO: Explain ComBat here)
-
-
-#### Using tissue metadata to aid in batch correction
 [//]: # (TODO: Make sure I have mentioned transcriptome: do it in an aside if I haven't already)
-
 Cell type is one of the better understood influences on gene expression. 
 We know that the same DNA is in every cell, and yet the morphology and function of each cell is determined by its cell type, due to its gene expression. 
-So, we can expect largely similar patterns of gene expression in similar cell types.
-This means that it can be used to aid in checking the results of batch correction.
-
-[//]: # (TODO: ADd in image, cite and cross-ref)
-Figure 17:  Images of smooth muscle tissue from the stomach wall (left) and lung tissue (right), examples of homogeneous and heterogeneous tissue types respectively, taken from the Human Tissue Atlas website(The Human Protein Atlas ).
-
-Tissues can be made up of various cell types. 
-Some tissue types (e.g. smooth muscle) are quite homogeneous, comprising of predominantly one cell type and/or lacking structural features. 
-Other tissues (e.g. lung) are heterogeneous, consisting of multiple cell types and features. Figure 17 shows the different structure of two example tissue types. 
-The bronchioles of the lung alone consist of six different cell types (basal cells, neuroendocrine cells, ciliated cells, serous cells, Clara cells and goblet cells), while smooth muscle tissue consists almost exclusively of tightly packed smooth muscle cells. 
-The varying proportions of constituent cell types in heterogeneous tissues can influence tissue function.
-
-## Approach
-There is general agreement that integrating -omics datasets is one of the primary challenges to overcome if we wish to harness the full information contained within them{cite}`Gomez-Cabrero2014-gk`. 
-The creation of a combined tissue-specific gene expression data is necessary in order to 
-
-
-Experiments are chosen such that it is possible to apply batch effect removal techniques to ensure that these batch effects are minimised.
-
-The resulting data set would be useful beyond the specific context of the Snowflake phenotype predictor, but in many contexts where we hope to understand gene function: for example variant prioritisation, or as input to machine learning solutions.
-Having more repeated measurements, and more variation in samples would allow researchers to apply additional statistical techniques, and ask additional questions. 
-
-Tissue-specific data set information can be used to check if genes are expressed in a given cell/tissue, which may indicate the gene function, to identify housekeeping genes, and to build models of gene regulatory networks. 
-
+We can expect largely similar patterns of gene expression in similar cell types, which means that when we know cell type of samples, this information can be used to aid in visually checking the results of batch correction using PCA.

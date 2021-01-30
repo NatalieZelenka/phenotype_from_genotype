@@ -14,6 +14,8 @@ kernelspec:
 
 # Data
 
+This section describes the constituent data sets that were chosen for combination, and how they were chosen and acquired.
+
 ## Criteria for choosing datasets
 Datasets were chosen from the EBI’s Gene Expression Atlas (GxA){cite}`Petryszak2016-je`: the European Bioinformatics Institutes’ Open Source gene and protein expression database, and the largest of its type. 
 At the time of writing, it contains over 3,000 gene expression and protein abundance experiments across many organisms, organism parts (tissues), diseases, and sequencing technologies. 
@@ -57,9 +59,25 @@ Furthermore, transcript expression data can be straightforwardly converted to ge
 When transcript-expression (CAGE) measurements are aggregated at the gene/protein level, measures of tissue-specificity have been found to largely (75-93%) match up with measures of tissue-specificity resulting from gene-expression measurements, as found in a comparison between the HPA and FANTOM5 experiments{cite}`Yu2015-uf`. 
 
 For these reasons, I have taken a gene-centric approach here. 
-t may be important, however, to consider whether a gene has multiple transcripts in downstream analysis, for example, if including tissue-specific gene expression information when predicting the function of a protein-coding SNV (since it may not be in the relevant transcript).
+It may be important, however, to consider whether a gene has multiple transcripts in downstream analysis, for example, if including tissue-specific gene expression information when predicting the function of a protein-coding SNP (since it may not be in the relevant transcript).
 
 #### Tissue-specificity versus cell-specificity
+
+```{figure} ../images/tissues_HPA.png
+---
+height: 220px
+name: homogenous-tissues
+---
+Images of smooth muscle tissue from the stomach wall (left) and lung tissue (right), examples of homogeneous and heterogeneous tissue types respectively, taken from the Human Tissue Atlas website{cite}`noauthor_undated-gi`.
+```
+
+Tissues can be made up of various cell types. 
+Some tissue types (e.g. smooth muscle) are quite homogeneous, comprising of predominantly one cell type and/or lacking structural features. 
+Other tissues (e.g. lung) are heterogeneous, consisting of multiple cell types and features. 
+{numref}`homogenous-tissues` shows the different structure of two example tissue types. 
+The bronchioles of the lung alone consist of six different cell types (basal cells, neuroendocrine cells, ciliated cells, serous cells, Clara cells and goblet cells), while smooth muscle tissue consists almost exclusively of tightly packed smooth muscle cells. 
+The varying proportions of constituent cell types in heterogeneous tissues can influence tissue function.
+
 While we may prefer to look at the gene expression of a cell type, we currently have much less scRNA-seq data than bulk RNA-seq data.
 Bulk RNA-seq also gives us the ability to measure the gene expression of tissues as they appear in humans. 
 The average supply of a protein to a tissue (averaged over multiple cell types) may well influence a tissue’s phenotype, in these circumstances gene expression at the level of a tissue may give us information that we can’t retrieve from cell-line cells alone.

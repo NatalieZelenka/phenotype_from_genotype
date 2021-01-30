@@ -12,8 +12,14 @@ kernelspec:
   name: python3
 ---
 
+(c05.3-data-wrangling)=
 # Data Wrangling
+
+[//]: # (TODO: Cross-ref to Uberon section)
+
 Before the data sets could be combined, substantial data wrangling was necessary. The details of these processes - obtaining, checking, mapping identifiers, and excluding irrelevant data - are described in this section.
+A Python package (`uberon_py`) was developed and used to do much of this mapping. 
+It's functionality is described in {numref}`uberon-py`.
 
 The steps required to obtain consistently formatted and labelled data can be described as follows:
 1. Obtaining the raw expression per gene for healthy human tissues
@@ -67,31 +73,43 @@ The FANTOM5 data set also contains non-human (mouse) samples. The FANTOM sample 
 
 **2\. Mapping to UBERON**
 
-Mapping from samples to Uberon tissue required the development of a small Python package `uberon_py`. To create input to this package, informal tissue names (e.g. blood, kidney) were taken from the experimental design files (or the human sample information file for FANTOM) to create a map of samples to informal tissue names. For FANTOM, the FANTOM ontology could also be used to create a more fine-grained mapping of samples to tissues based on FANTOM sample identifiers and/or cell type (CL) identifiers.
+Mapping from samples to Uberon tissue required the development of a small Python package `uberon_py`. To create input to this package, informal tissue names (e.g. blood, kidney) were taken from the experimental design files (or the human sample information file for FANTOM) to create a map of samples to informal tissue names.
+For FANTOM, the FANTOM ontology could also be used to create a more fine-grained mapping of samples to tissues based on FANTOM sample identifiers and/or cell type (CL) identifiers.
 
 **HPA**
-The HPA samples were mapped using exact matches to Uberon names. Three types of sample did not have exact matches: “transformed skin fibroblast”, “suprapubic skin”, and “ebv-transformed lymphocyte”. I manually mapped “suprapubic skin” to UBERON:0001415 Skin of pelvis, and excluded the other two (corresponding to excluding 869 samples). 
+The HPA samples were mapped using exact matches to Uberon names. 
+Three types of sample did not have exact matches: *transformed skin fibroblast*, *suprapubic skin*, and *ebv-transformed lymphocyte*. 
+I manually mapped *suprapubic skin* to `UBERON:0001415` *Skin of pelvis*, and excluded the other two (corresponding to excluding 869 samples). 
 
 **HDBR**
 For HDBR, tissue names from the “organism part’ column of the column data file were matched to Uberon names and synonyms from the Uberon extended ontology. The 96 unmatched terms corresponding to mixed brain tissues and brain fragments were defaulted to the more general Uberon Brain term. 
 
 **FANTOM**
-Since an experimental design file could not be obtained for FANTOM via GxA, additional sample information was obtained via the FANTOM5 website, namely the human sample information file (HumanSamples2.0.sdrf.xlsx) and the FANTOM5 ontology.
+Since an experimental design file could not be obtained for FANTOM via GxA, additional sample information was obtained via the FANTOM5 website, namely the human sample information file (`HumanSamples2.0.sdrf.xlsx`) and the FANTOM5 ontology.
 
-FANTOM also contains time courses of cell differentiation (cells changing from one type to another) as well measures of perturbed cells. Since these samples do not have a well-defined locality in the body given by cell or tissue type, they were not used in the combined dataset. Such samples were filtered out using the human sample information spreadsheet.
+FANTOM also contains time courses of cell differentiation (cells changing from one type to another) as well measures of perturbed cells. 
+Since these samples do not have a well-defined locality in the body given by cell or tissue type, they were not used in the combined dataset. 
+Such samples were filtered out using the human sample information spreadsheet.
 
 **3/. Aggregating Metadata**
 To create consistent metadata for the samples (e.g. age, developmental stage, replicate status, etc), information was extracted from multiple sources (including GxA and additional data from each experiment), and sometimes manually curated or corrected. 
 
-Metadata about the experiments was collected from multiple sources, primarily the column data files accessed via ExpressionAtlas. This metadata was used to describe the the experimental design for ComBat. The metadata collected includes, where available, sample identifier, individual identifier, age (exact), age (range), developmental stage, tissue type (Uberon term), sex, experiment, biological replicate identifier and technical replicate identifier. 
+Metadata about the experiments was collected from multiple sources, primarily the column data files accessed via ExpressionAtlas. This metadata was used to describe the the experimental design for ComBat. 
+The metadata collected includes, where available, sample identifier, individual identifier, age (exact), age (range), developmental stage, tissue type (Uberon term), sex, experiment, biological replicate identifier and technical replicate identifier. 
 
-Both age variables are given in years and may include negative values (e.g. for a developing fetus). The age (range) variable contains uneven ranges, since this allows there to be an age-related factor that is compatible across the experiments. These values had to be converted to common units manually, since they were incompatible between experiments, and age-related terms were missing in GxA for GTEx and HPA, although for GTEx it was possible to acquire via its own website (at https://storage.googleapis.com/gtex_analysis_v7/annotations/GTEx_v7_Annotations_SubjectPhenotypesDS.txt ).
+Both age variables are given in years and may include negative values (e.g. for a developing fetus). The age (range) variable contains uneven ranges, since this allows there to be an age-related factor that is compatible across the experiments. 
+These values had to be converted to common units manually, since they were incompatible between experiments, and age-related terms were missing in GxA for GTEx and HPA, although for GTEx it was possible to acquire via [its own website](https://storage.googleapis.com/gtex_analysis_v7/annotations/GTEx_v7_Annotations_SubjectPhenotypesDS.txt).
 
-FANTOM metadata was mostly taken from the human sample information file. There were discrepancies between ages and developmental stages in the FANTOM human samples file, for example, sample `FF:10027-101D9` is labelled as “thymus, adult, pool1” in the Description field, but as “0.5,0.5,0.83 years old infant” in the Developmental Stage field, and sample `FF:10209-103G2` has an age of ‘M’ and a sex of ‘28’. There were also numerous typographical inconsistencies, for example, “3 year old child”, “3 years old child”, “25 year old”, “76” and “76 years old adult” all feature in the same column, amongst other errors. For this reason, creating a cleaned experimental design file was laborious, but the resulting file has been sent to the FANTOM data curators so that they might make it officially available.
+FANTOM metadata was mostly taken from the human sample information file. 
+There were discrepancies between ages and developmental stages in the FANTOM human samples file, for example, sample `FF:10027-101D9` is labelled as *thymus, adult, pool1* in the *Description* field, but as *0.5,0.5,0.83 years old infant* in the *Developmental Stage* field, and sample `FF:10209-103G2` has an age of ‘M’ and a sex of ‘28’. 
+There were also numerous typographical inconsistencies, for example, “3 year old child”, “3 years old child”, “25 year old”, “76” and “76 years old adult” all feature in the same column, amongst other errors. 
+For this reason, creating a cleaned experimental design file was laborious, but the resulting file has been sent to the FANTOM data curators so that they might make it officially available.
 
-FANTOM technical and biological replicates are indicated in the annotated gene expression FANTOM file, by the inclusion of “tech_rep” or “biol_rep” in the long sample labels e.g. `counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20tech_rep1.CNhs10855.11227-116C3.hg38.nobarcode`. These were used to create the experimental design file. 
+FANTOM technical and biological replicates are indicated in the annotated gene expression FANTOM file, by the inclusion of “tech_rep” or “biol_rep” in the long sample labels e.g. `counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20tech_rep1.CNhs10855.11227-116C3.hg38.nobarcode`. 
+These were used to create the experimental design file. 
 
-Note: there is an error in the original transcript expression file for one of these identifiers (`counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode`) such that it is missing the “tech” part of the the replicate label. This was manually changed in my copy of the input file and the FANTOM data curation team was informed.
+Note: there is an error in the original transcript expression file for one of these identifiers (`counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode`) such that it is missing the “tech” part of the the replicate label. 
+This was manually changed in my copy of the input file and the FANTOM data curation team was informed.
 
 ##### Tissue Groups
 Eleven more general tissue groups (for example brain, digestive system, connective tissue) were identified by hand. Individual tissues were mapped to these groups using the `Relations()` function. 
@@ -108,10 +126,4 @@ Eleven more general tissue groups (for example brain, digestive system, connecti
 ```{code-cell} ipython3
 {numref}`combining-funnel-plot` shows a funnel plot, showing how the FANTOM5 data was processed to select the final genes and samples present in the combined dataset. 
 
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```
 ```

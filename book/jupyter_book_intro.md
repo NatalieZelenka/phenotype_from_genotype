@@ -2,6 +2,8 @@
 [//]: # (TODO: Check Thesis title)
 [//]: # (TODO: Check links)
 [//]: # (TODO: Check reference to chapters)
+[//]: # (TODO: Do example of a drop-down admonition for code to explain what to look out for)
+[//]: # (TODO: Explain the illustrations are my own where not linked)
 
 You're looking at Natalie Thurlby's thesis *Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions* as a [jupyter book](https://jupyterbook.org/intro.html). 
 

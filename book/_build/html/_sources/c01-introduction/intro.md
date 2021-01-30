@@ -13,7 +13,7 @@ Notes on chapters:
 -->
 
 [//]: # (TODO: Explain Jupyter Book: link to latest online versoin and side notes about racists)
-
+[//]: # (TODO: Put racism description in a margin, e.g. "You may see margin notes like this")
 [//]: # (TODO: Check that this is true)
 
 The central theme of this thesis is the relationship between protein function - at either a molecular or phenotypic level - and the sequence of its associated DNA and RNA. A recurring motif is impact of the provenance of related data and what that means for attempts to make genome-wide predictions about these relationships. 
@@ -26,7 +26,7 @@ In the spirit of trying to make my work as reproducibly and Open as possible, th
 
 In {ref}`Chapter 4<c04-snowflake>`, I describe my preliminary efforts to integrate the data sources described in the background chapters into Snowflake, a phenotype predictor{cite}`Gough2017-ik`. I discuss potential reasons for the poor performance of the predictor.
 
-{ref}`Chapter 5<c05-combining>` discusses a combined tissue-specific RNA-Seq data sets from four experiments. I present this alongside two resources that I created in order to create this: a Python package for mapping samples to tissues, and a set of simulated tissue-specific data-sets.
+{ref}`Chapter 5<c05-combining>` discusses a combined tissue-specific RNA-Seq data sets from four experiments. I present this data set as a resource, alongside a Python package that I created in order to do this: uberon-py.
 
 [//]: # (TODO: Add a zenodo reference to uberon-py, and cite it)
 [//]: # (TODO: Upload data and give it a zenodo reference and cite it)

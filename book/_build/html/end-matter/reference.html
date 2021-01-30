@@ -82,17 +82,10 @@
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter_book_intro.html">
-   Start here
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
+    <p class="caption collapsible-parent">
  <span class="caption-text">
   Front Matter
  </span>
@@ -289,28 +282,23 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/4-uberon.html#functionality">
-     5.5. Functionality
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/5-batch-correction.html">
-     5.6. Batch correction
+     5.5. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/6-results.html">
-     5.7. Results
+     5.6. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/7-discussion.html">
-     5.8. Discussion
+     5.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/8-future-work.html">
-     5.9. Future Work
+     5.8. Future Work
     </a>
    </li>
   </ul>
@@ -383,7 +371,7 @@
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
 </div>
 
 </div>
@@ -410,23 +398,6 @@
         </button>
         
         
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/end-matter/reference.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
         <!-- Source interaction buttons -->
 
 
@@ -458,7 +429,7 @@
 <dt class="bibtex label" id="zaucha2015-ez"><span class="brackets">1</span></dt>
 <dd><p>Jan Zaucha, Jonathan Stahlhacke, Matt E Oates, Natalie Thurlby, Owen J L Rackham, Hai Fang, Ben Smithers, and Julian Gough. A proteome quality index. <em>Environ. Microbiol.</em>, 17(1):4–9, 2015. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1462-2920.12622">https://onlinelibrary.wiley.com/doi/abs/10.1111/1462-2920.12622</a>.</p>
 </dd>
-<dt class="bibtex label" id="oates2015-li"><span class="brackets">2</span></dt>
+<dt class="bibtex label" id="oates2015-li"><span class="brackets">1</span></dt>
 <dd><p>Matt E Oates, Jonathan Stahlhacke, Dimitrios V Vavoulis, Ben Smithers, Owen J L Rackham, Adam J Sardar, Jan Zaucha, Natalie Thurlby, Hai Fang, and Julian Gough. The SUPERFAMILY 1.75 database in 2014: a doubling of data. <em>Nucleic Acids Res.</em>, 43(Database issue):D227–33, January 2015.</p>
 </dd>
 <dt class="bibtex label" id="gough2017-ik"><span class="brackets">1</span></dt>
@@ -485,7 +456,7 @@
 <dt class="bibtex label" id="watson1953-np"><span class="brackets">10</span></dt>
 <dd><p>J D Watson and F H Crick. Molecular structure of nucleic acids; a structure for deoxyribose nucleic acid. <em>Nature</em>, 171(4356):737–738, April 1953. URL: <a class="reference external" href="http://dx.doi.org/10.1038/171737a0">http://dx.doi.org/10.1038/171737a0</a>.</p>
 </dd>
-<dt class="bibtex label" id="venter2001-wn"><span class="brackets">11</span></dt>
+<dt class="bibtex label" id="venter2001-wn"><span class="brackets">2</span></dt>
 <dd><p>J C Venter, M D Adams, E W Myers, P W Li, R J Mural, G G Sutton, H O Smith, M Yandell, C A Evans, R A Holt, J D Gocayne, P Amanatides, R M Ballew, D H Huson, J R Wortman, Q Zhang, C D Kodira, X H Zheng, L Chen, M Skupski, G Subramanian, P D Thomas, J Zhang, G L Gabor Miklos, C Nelson, S Broder, A G Clark, J Nadeau, V A McKusick, N Zinder, A J Levine, R J Roberts, M Simon, C Slayman, M Hunkapiller, R Bolanos, A Delcher, I Dew, D Fasulo, M Flanigan, L Florea, A Halpern, S Hannenhalli, S Kravitz, S Levy, C Mobarry, K Reinert, K Remington, J Abu-Threideh, E Beasley, K Biddick, V Bonazzi, R Brandon, M Cargill, I Chandramouliswaran, R Charlab, K Chaturvedi, Z Deng, V Di Francesco, P Dunn, K Eilbeck, C Evangelista, A E Gabrielian, W Gan, W Ge, F Gong, Z Gu, P Guan, T J Heiman, M E Higgins, R R Ji, Z Ke, K A Ketchum, Z Lai, Y Lei, Z Li, J Li, Y Liang, X Lin, F Lu, G V Merkulov, N Milshina, H M Moore, A K Naik, V A Narayan, B Neelam, D Nusskern, D B Rusch, S Salzberg, W Shao, B Shue, J Sun, Z Wang, A Wang, X Wang, J Wang, M Wei, R Wides, C Xiao, C Yan, A Yao, J Ye, M Zhan, W Zhang, H Zhang, Q Zhao, L Zheng, F Zhong, W Zhong, S Zhu, S Zhao, D Gilbert, S Baumhueter, G Spier, C Carter, A Cravchik, T Woodage, F Ali, H An, A Awe, D Baldwin, H Baden, M Barnstead, I Barrow, K Beeson, D Busam, A Carver, A Center, M L Cheng, L Curry, S Danaher, L Davenport, R Desilets, S Dietz, K Dodson, L Doup, S Ferriera, N Garg, A Gluecksmann, B Hart, J Haynes, C Haynes, C Heiner, S Hladun, D Hostin, J Houck, T Howland, C Ibegwam, J Johnson, F Kalush, L Kline, S Koduru, A Love, F Mann, D May, S McCawley, T McIntosh, I McMullen, M Moy, L Moy, B Murphy, K Nelson, C Pfannkoch, E Pratts, V Puri, H Qureshi, M Reardon, R Rodriguez, Y H Rogers, D Romblad, B Ruhfel, R Scott, C Sitter, M Smallwood, E Stewart, R Strong, E Suh, R Thomas, N N Tint, S Tse, C Vech, G Wang, J Wetter, S Williams, M Williams, S Windsor, E Winn-Deen, K Wolfe, J Zaveri, K Zaveri, J F Abril, R Guigó, M J Campbell, K V Sjolander, B Karlak, A Kejariwal, H Mi, B Lazareva, T Hatton, A Narechania, K Diemer, A Muruganujan, N Guo, S Sato, V Bafna, S Istrail, R Lippert, R Schwartz, B Walenz, S Yooseph, D Allen, A Basu, J Baxendale, L Blick, M Caminha, J Carnes-Stine, P Caulk, Y H Chiang, M Coyne, C Dahlke, A Mays, M Dombroski, M Donnelly, D Ely, S Esparham, C Fosler, H Gire, S Glanowski, K Glasser, A Glodek, M Gorokhov, K Graham, B Gropman, M Harris, J Heil, S Henderson, J Hoover, D Jennings, C Jordan, J Jordan, J Kasha, L Kagan, C Kraft, A Levitsky, M Lewis, X Liu, J Lopez, D Ma, W Majoros, J McDaniel, S Murphy, M Newman, T Nguyen, N Nguyen, M Nodell, S Pan, J Peck, M Peterson, W Rowe, R Sanders, J Scott, M Simpson, T Smith, A Sprague, T Stockwell, R Turner, E Venter, M Wang, M Wen, D Wu, M Wu, A Xia, A Zandieh, and X Zhu. The sequence of the human genome. <em>Science</em>, 291(5507):1304–1351, February 2001.</p>
 </dd>
 <dt class="bibtex label" id="meek2000-ec"><span class="brackets">12</span></dt>
@@ -512,7 +483,7 @@
 <dt class="bibtex label" id="jarraud2019-jj"><span class="brackets">19</span></dt>
 <dd><p>Nicolas Jarraud. Mecabricks. <span><a class="reference external" href="#"></a></span>https://mecabricks.com/, 2019.</p>
 </dd>
-<dt class="bibtex label" id="murzin1995-se"><span class="brackets">20</span></dt>
+<dt class="bibtex label" id="murzin1995-se"><span class="brackets">3</span></dt>
 <dd><p>A G Murzin, S E Brenner, T Hubbard, and C Chothia. SCOP: a structural classification of proteins database for the investigation of sequences and structures. <em>J. Mol. Biol.</em>, 247(4):536–540, April 1995. URL: <a class="reference external" href="http://dx.doi.org/10.1006/jmbi.1995.0159">http://dx.doi.org/10.1006/jmbi.1995.0159</a>.</p>
 </dd>
 <dt class="bibtex label" id="barbaric2007-zm"><span class="brackets">2</span></dt>
@@ -524,94 +495,88 @@
 <dt class="bibtex label" id="l-emery2017-rd"><span class="brackets">23</span></dt>
 <dd><p>J Macarthur L. Emery. GWAS catalog: exploring SNP-trait associations. <span><a class="reference external" href="#"></a></span>http://europepmc.org/article/CTX/C7914, December 2017. Accessed: 2020-9-3. URL: <a class="reference external" href="http://europepmc.org/article/CTX/C7914">http://europepmc.org/article/CTX/C7914</a>.</p>
 </dd>
-<dt class="bibtex label" id="blunt2001-wr"><span class="brackets">24</span></dt>
+<dt class="bibtex label" id="blunt2001-wr"><span class="brackets">4</span></dt>
 <dd><p>Wilfrid Blunt. <em>The Compleat Naturalist: A Life of Linnaeus</em>. Frances Lincoln, 2001. URL: <a class="reference external" href="https://play.google.com/store/books/details?id=B3YOvgAACAAJ">https://play.google.com/store/books/details?id=B3YOvgAACAAJ</a>.</p>
 </dd>
-<dt class="bibtex label" id="ehret1748-bx"><span class="brackets">25</span></dt>
+<dt class="bibtex label" id="ehret1748-bx"><span class="brackets">5</span></dt>
 <dd><p>Ehret. <em>Plantae et papiliones rariores</em>. Volume 1748. [London :s.n.],, 1748. URL: <a class="reference external" href="https://www.biodiversitylibrary.org/item/205762">https://www.biodiversitylibrary.org/item/205762</a>.</p>
 </dd>
-<dt class="bibtex label" id="charmantier-undated-wy"><span class="brackets">26</span></dt>
+<dt class="bibtex label" id="charmantier-undated-wy"><span class="brackets">6</span></dt>
 <dd><p>Dr Isabelle Charmantier. Linnaeus and race. <span><a class="reference external" href="#"></a></span>https://www.linnean.org/learning/who-was-linnaeus/linnaeus-and-race. Accessed: 2020-11-30. URL: <a class="reference external" href="https://www.linnean.org/learning/who-was-linnaeus/linnaeus-and-race">https://www.linnean.org/learning/who-was-linnaeus/linnaeus-and-race</a>.</p>
 </dd>
-<dt class="bibtex label" id="jensen2010-fk"><span class="brackets">27</span></dt>
+<dt class="bibtex label" id="jensen2010-fk"><span class="brackets">7</span></dt>
 <dd><p>Lars J Jensen and Peer Bork. Ontologies in quantitative biology: a basis for comparison, integration, and discovery. <em>PLoS Biol.</em>, 8(5):e1000374, May 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1371/journal.pbio.1000374">http://dx.doi.org/10.1371/journal.pbio.1000374</a>.</p>
 </dd>
-<dt class="bibtex label" id="haas2010-lm"><span class="brackets">28</span></dt>
+<dt class="bibtex label" id="haas2010-lm"><span class="brackets">8</span></dt>
 <dd><p>Brian J Haas and Michael C Zody. Advancing RNA-Seq analysis. <em>Nat. Biotechnol.</em>, 28(5):421–423, May 2010.</p>
 </dd>
-<dt class="bibtex label" id="pfeiffer2018-kt"><span class="brackets">29</span></dt>
+<dt class="bibtex label" id="pfeiffer2018-kt"><span class="brackets">9</span></dt>
 <dd><p>Franziska Pfeiffer, Carsten Gröber, Michael Blank, Kristian Händler, Marc Beyer, Joachim L Schultze, and Günter Mayer. Systematic evaluation of error rates and causes in short samples in next-generation sequencing. <em>Sci. Rep.</em>, 8(1):10950, July 2018.</p>
 </dd>
-<dt class="bibtex label" id="de-koning2011-ac"><span class="brackets">30</span></dt>
+<dt class="bibtex label" id="de-koning2011-ac"><span class="brackets">10</span></dt>
 <dd><p>A P Jason de Koning, Wanjun Gu, Todd A Castoe, Mark A Batzer, and David D Pollock. Repetitive elements may comprise over two-thirds of the human genome. <em>PLoS Genet.</em>, 7(12):e1002384, December 2011.</p>
 </dd>
-<dt class="bibtex label" id="noauthor-undated-ci"><span class="brackets">31</span></dt>
+<dt class="bibtex label" id="noauthor-undated-ci"><span class="brackets">11</span></dt>
 <dd><p>Genome browser FAQ. <span><a class="reference external" href="#"></a></span>https://genome.ucsc.edu/FAQ/FAQreleases.html. Accessed: 2020-12-13. URL: <a class="reference external" href="https://genome.ucsc.edu/FAQ/FAQreleases.html">https://genome.ucsc.edu/FAQ/FAQreleases.html</a>.</p>
 </dd>
-<dt class="bibtex label" id="gatk-team2020-au"><span class="brackets">32</span></dt>
+<dt class="bibtex label" id="gatk-team2020-au"><span class="brackets">12</span></dt>
 <dd><p>GATK Team. Human genome reference builds - GRCh38 or hg38 - b37 - hg19. <span><a class="reference external" href="#"></a></span>https://gatk.broadinstitute.org/hc/en-us/articles/360035890951, June 2020. Accessed: 2020-12-13. URL: <a class="reference external" href="https://gatk.broadinstitute.org/hc/en-us/articles/360035890951">https://gatk.broadinstitute.org/hc/en-us/articles/360035890951</a>.</p>
 </dd>
-<dt class="bibtex label" id="salzberg2018-yc"><span class="brackets">33</span></dt>
+<dt class="bibtex label" id="salzberg2018-yc"><span class="brackets">13</span></dt>
 <dd><p>Steven L Salzberg. Open questions: how many genes do we have? <em>BMC Biol.</em>, 16(1):94, August 2018.</p>
 </dd>
-<dt class="bibtex label" id="bumgarner2013-hg"><span class="brackets">34</span></dt>
+<dt class="bibtex label" id="bumgarner2013-hg"><span class="brackets">14</span></dt>
 <dd><p>Roger Bumgarner. Overview of DNA microarrays: types, applications, and their future. <em>Curr. Protoc. Mol. Biol.</em>, Chapter 22:Unit 22.1., January 2013.</p>
 </dd>
-<dt class="bibtex label" id="sherry2001-nm"><span class="brackets">1</span></dt>
+<dt class="bibtex label" id="sherry2001-nm"><span class="brackets">15</span></dt>
 <dd><p>S T Sherry. dbSNP: the NCBI database of genetic variation. <em>Nucleic Acids Res.</em>, 29(1):308–311, 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/29.1.308">http://dx.doi.org/10.1093/nar/29.1.308</a>.</p>
 </dd>
-<dt class="bibtex label" id="illumina2014-nd"><span class="brackets">36</span></dt>
+<dt class="bibtex label" id="illumina2014-nd"><span class="brackets">16</span></dt>
 <dd><p>I Illumina. Understanding illumina quality scores. <em>Technical Note: Informatics</em>, 2014. URL: <a class="reference external" href="https://www.illumina.com/documents/products/technotes/technote_Q-Scores.pdf">https://www.illumina.com/documents/products/technotes/technote_Q-Scores.pdf</a>.</p>
 </dd>
-<dt class="bibtex label" id="wagner2012-ac"><span class="brackets">37</span></dt>
+<dt class="bibtex label" id="wagner2012-ac"><span class="brackets">17</span></dt>
 <dd><p>Günter P Wagner, Koryu Kin, and Vincent J Lynch. Measurement of mRNA abundance using RNA-seq data: RPKM measure is inconsistent among samples. <em>Theory Biosci.</em>, 131(4):281–285, December 2012. URL: <a class="reference external" href="http://dx.doi.org/10.1007/s12064-012-0162-3">http://dx.doi.org/10.1007/s12064-012-0162-3</a>.</p>
 </dd>
-<dt class="bibtex label" id="pimentel2014-xm"><span class="brackets">38</span></dt>
+<dt class="bibtex label" id="pimentel2014-xm"><span class="brackets">18</span></dt>
 <dd><p>H Pimentel. What the FPKM? a review of RNA-Seq expression units. 2014. URL: <a class="reference external" href="https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/">https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/</a>.</p>
 </dd>
-<dt class="bibtex label" id="robinson2010-kl"><span class="brackets">39</span></dt>
+<dt class="bibtex label" id="robinson2010-kl"><span class="brackets">19</span></dt>
 <dd><p>M D Robinson, D J McCarthy, and G K Smyth. Edger: a bioconductor package for differential expression analysis of digital gene expression data. <em>Bioinformatics</em>, 26(1):139–140, 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1093/bioinformatics/btp616">http://dx.doi.org/10.1093/bioinformatics/btp616</a>.</p>
 </dd>
-<dt class="bibtex label" id="love2014-vx"><span class="brackets">40</span></dt>
+<dt class="bibtex label" id="love2014-vx"><span class="brackets">20</span></dt>
 <dd><p>Michael I Love, Wolfgang Huber, and Simon Anders. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. <em>Genome Biol.</em>, 15(12):550, 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1186/s13059-014-0550-8">http://dx.doi.org/10.1186/s13059-014-0550-8</a>.</p>
 </dd>
-<dt class="bibtex label" id="leek2010-yw"><span class="brackets">41</span></dt>
-<dd><p>Jeffrey T Leek, Robert B Scharpf, Héctor Corrada Bravo, David Simcha, Benjamin Langmead, W Evan Johnson, Donald Geman, Keith Baggerly, and Rafael A Irizarry. Tackling the widespread and critical impact of batch effects in high-throughput data. <em>Nat. Rev. Genet.</em>, 11(10):733–739, October 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nrg2825">http://dx.doi.org/10.1038/nrg2825</a>.</p>
-</dd>
-<dt class="bibtex label" id="irizarry2005-ie"><span class="brackets">42</span></dt>
-<dd><p>Rafael A Irizarry, Daniel Warren, Forrest Spencer, Irene F Kim, Shyam Biswal, Bryan C Frank, Edward Gabrielson, Joe G N Garcia, Joel Geoghegan, Gregory Germino, Constance Griffin, Sara C Hilmer, Eric Hoffman, Anne E Jedlicka, Ernest Kawasaki, Francisco Martínez-Murillo, Laura Morsberger, Hannah Lee, David Petersen, John Quackenbush, Alan Scott, Michael Wilson, Yanqin Yang, Shui Qing Ye, and Wayne Yu. Multiple-laboratory comparison of microarray platforms. <em>Nat. Methods</em>, 2(5):345–350, May 2005. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nmeth756">http://dx.doi.org/10.1038/nmeth756</a>.</p>
-</dd>
-<dt class="bibtex label" id="hersh1967-ox"><span class="brackets">43</span></dt>
+<dt class="bibtex label" id="hersh1967-ox"><span class="brackets">21</span></dt>
 <dd><p>Robert T Hersh. Atlas of protein sequence and structure, 1966. <em>Syst. Biol.</em>, 16(3):262–263, September 1967.</p>
 </dd>
-<dt class="bibtex label" id="noauthor-undated-ow"><span class="brackets">44</span></dt>
+<dt class="bibtex label" id="noauthor-undated-ow"><span class="brackets">22</span></dt>
 <dd><p>Protein data bank.</p>
 </dd>
-<dt class="bibtex label" id="altschul1990-zf"><span class="brackets">45</span></dt>
+<dt class="bibtex label" id="altschul1990-zf"><span class="brackets">23</span></dt>
 <dd><p>S F Altschul, W Gish, W Miller, E W Myers, and D J Lipman. Basic local alignment search tool. <em>J. Mol. Biol.</em>, 215(3):403–410, October 1990. URL: <a class="reference external" href="http://dx.doi.org/10.1016/S0022-2836(05)80360-2">http://dx.doi.org/10.1016/S0022-2836(05)80360-2</a>.</p>
 </dd>
-<dt class="bibtex label" id="andreeva2014-om"><span class="brackets">46</span></dt>
+<dt class="bibtex label" id="andreeva2014-om"><span class="brackets">24</span></dt>
 <dd><p>Antonina Andreeva, Dave Howorth, Cyrus Chothia, Eugene Kulesha, and Alexey G Murzin. SCOP2 prototype: a new approach to protein structure mining. <em>Nucleic Acids Res.</em>, 42(Database issue):D310–4, January 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkt1242">http://dx.doi.org/10.1093/nar/gkt1242</a>.</p>
 </dd>
-<dt class="bibtex label" id="orengo1997-vf"><span class="brackets">47</span></dt>
+<dt class="bibtex label" id="orengo1997-vf"><span class="brackets">25</span></dt>
 <dd><p>C A Orengo, A D Michie, S Jones, D T Jones, M B Swindells, and J M Thornton. CATH – a hierarchic classification of protein domain structures. <em>Structure</em>, 5(8):1093–1109, 1997. URL: <a class="reference external" href="http://dx.doi.org/10.1016/s0969-2126(97)00260-8">http://dx.doi.org/10.1016/s0969-2126(97)00260-8</a>.</p>
 </dd>
-<dt class="bibtex label" id="csaba2009-of"><span class="brackets">48</span></dt>
+<dt class="bibtex label" id="csaba2009-of"><span class="brackets">26</span></dt>
 <dd><p>Gergely Csaba, Fabian Birzele, and Ralf Zimmer. Systematic comparison of SCOP and CATH: a new gold standard for protein structure analysis. <em>BMC Struct. Biol.</em>, 9:23, April 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1186/1472-6807-9-23">http://dx.doi.org/10.1186/1472-6807-9-23</a>.</p>
 </dd>
-<dt class="bibtex label" id="gough2001-ct"><span class="brackets">2</span></dt>
+<dt class="bibtex label" id="gough2001-ct"><span class="brackets">27</span></dt>
 <dd><p>J Gough, K Karplus, R Hughey, and C Chothia. Assignment of homology to genome sequences using a library of hidden markov models that represent all proteins of known structure. <em>J. Mol. Biol.</em>, 313(4):903–919, November 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1006/jmbi.2001.5080">http://dx.doi.org/10.1006/jmbi.2001.5080</a>.</p>
 </dd>
-<dt class="bibtex label" id="overton2015-vo"><span class="brackets">50</span></dt>
+<dt class="bibtex label" id="overton2015-vo"><span class="brackets">28</span></dt>
 <dd><p>James A Overton, Heiko Dietze, Shahim Essaid, David Osumi-Sutherland, and Christopher J Mungall. ROBOT: a command-line tool for ontology development. In <em>ICBO</em>. ceur-ws.org, 2015. URL: <a class="reference external" href="http://ceur-ws.org/Vol-1515/demo6.pdf">http://ceur-ws.org/Vol-1515/demo6.pdf</a>.</p>
 </dd>
-<dt class="bibtex label" id="eden2009-ic"><span class="brackets">51</span></dt>
+<dt class="bibtex label" id="eden2009-ic"><span class="brackets">29</span></dt>
 <dd><p>Eran Eden, Roy Navon, Israel Steinfeld, Doron Lipson, and Zohar Yakhini. GOrilla: a tool for discovery and visualization of enriched GO terms in ranked gene lists. <em>BMC Bioinformatics</em>, 10:48, February 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1186/1471-2105-10-48">http://dx.doi.org/10.1186/1471-2105-10-48</a>.</p>
 </dd>
-<dt class="bibtex label" id="ashburner2000-cr"><span class="brackets">3</span></dt>
+<dt class="bibtex label" id="ashburner2000-cr"><span class="brackets">30</span></dt>
 <dd><p>M Ashburner, C A Ball, J A Blake, D Botstein, H Butler, J M Cherry, A P Davis, K Dolinski, S S Dwight, J T Eppig, M A Harris, D P Hill, L Issel-Tarver, A Kasarskis, S Lewis, J C Matese, J E Richardson, M Ringwald, G M Rubin, and G Sherlock. Gene ontology: tool for the unification of biology. the gene ontology consortium. <em>Nat. Genet.</em>, 25(1):25–29, May 2000. URL: <a class="reference external" href="http://dx.doi.org/10.1038/75556">http://dx.doi.org/10.1038/75556</a>.</p>
 </dd>
-<dt class="bibtex label" id="thomas2017-vm"><span class="brackets">53</span></dt>
+<dt class="bibtex label" id="thomas2017-vm"><span class="brackets">31</span></dt>
 <dd><p>Paul D Thomas. The gene ontology and the meaning of biological function. <em>Methods Mol. Biol.</em>, 1446:15–24, 2017. URL: <a class="reference external" href="http://dx.doi.org/10.1007/978-1-4939-3743-1_2">http://dx.doi.org/10.1007/978-1-4939-3743-1_2</a>.</p>
 </dd>
 <dt class="bibtex label" id="fang2013-ms"><span class="brackets">1</span></dt>
@@ -758,103 +723,112 @@
 <dt class="bibtex label" id="zaucha2018-dg"><span class="brackets">6</span></dt>
 <dd><p>Jan Maciej Zaucha. <em>Predicting Outlier Phenotypes from SNPS: A Journey Through Molecular Biology</em>. PhD thesis, University of Bristol, 2018. URL: <a class="reference external" href="https://play.google.com/store/books/details?id=_M7QvQEACAAJ">https://play.google.com/store/books/details?id=_M7QvQEACAAJ</a>.</p>
 </dd>
+<dt class="bibtex label" id="gomez-cabrero2014-gk"><span class="brackets">100</span></dt>
+<dd><p>David Gomez-Cabrero, Imad Abugessaisa, Dieter Maier, Andrew Teschendorff, Matthias Merkenschlager, Andreas Gisel, Esteban Ballestar, Erik Bongcam-Rudloff, Ana Conesa, and Jesper Tegnér. Data integration in the era of omics: current and future challenges. <em>BMC Syst. Biol.</em>, 8 Suppl 2:I1, March 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1186/1752-0509-8-S2-I1">http://dx.doi.org/10.1186/1752-0509-8-S2-I1</a>.</p>
+</dd>
+<dt class="bibtex label" id="bell2009-uq"><span class="brackets">101</span></dt>
+<dd><p>Gordon Bell, Tony Hey, and Alex Szalay. Computer science. beyond the data deluge. <em>Science</em>, 323(5919):1297–1298, March 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1126/science.1170411">http://dx.doi.org/10.1126/science.1170411</a>.</p>
+</dd>
 <dt class="bibtex label" id="petryszak2016-je"><span class="brackets">102</span></dt>
 <dd><p>Robert Petryszak, Maria Keays, Y Amy Tang, Nuno A Fonseca, Elisabet Barrera, Tony Burdett, Anja Füllgrabe, Alfonso Muñoz-Pomer Fuentes, Simon Jupp, Satu Koskinen, Oliver Mannion, Laura Huerta, Karine Megy, Catherine Snow, Eleanor Williams, Mitra Barzine, Emma Hastings, Hendrik Weisser, James Wright, Pankaj Jaiswal, Wolfgang Huber, Jyoti Choudhary, Helen E Parkinson, and Alvis Brazma. Expression atlas update—an integrated database of gene and protein expression in humans, animals and plants. 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkv1045">http://dx.doi.org/10.1093/nar/gkv1045</a>.</p>
 </dd>
-<dt class="bibtex label" id="wang2018-rz"><span class="brackets">103</span></dt>
-<dd><p>Qingguo Wang, Joshua Armenia, Chao Zhang, Alexander V Penson, Ed Reznik, Liguo Zhang, Thais Minet, Angelica Ochoa, Benjamin E Gross, Christine A Iacobuzio-Donahue, Doron Betel, Barry S Taylor, Jianjiong Gao, and Nikolaus Schultz. Unifying cancer and normal RNA sequencing data from different sources. <em>Sci Data</em>, 5:180061, April 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1038/sdata.2018.61">http://dx.doi.org/10.1038/sdata.2018.61</a>.</p>
-</dd>
-<dt class="bibtex label" id="cortijo2019-wi"><span class="brackets">104</span></dt>
+<dt class="bibtex label" id="cortijo2019-wi"><span class="brackets">103</span></dt>
 <dd><p>S Cortijo, Z Aydin, S Ahnert, and others. Widespread inter‐individual gene expression variability in arabidopsis thaliana. <em>Mol. Syst. Biol.</em>, 2019. URL: <a class="reference external" href="http://msb.embopress.org/content/15/1/e8591.abstract">http://msb.embopress.org/content/15/1/e8591.abstract</a>.</p>
 </dd>
-<dt class="bibtex label" id="vinuela2018age"><span class="brackets">105</span></dt>
+<dt class="bibtex label" id="vinuela2018age"><span class="brackets">104</span></dt>
 <dd><p>Ana Viñuela, Andrew A Brown, Alfonso Buil, Pei-Chien Tsai, Matthew N Davies, Jordana T Bell, Emmanouil T Dermitzakis, Timothy D Spector, and Kerrin S Small. Age-dependent changes in mean and variance of gene expression across tissues in a twin cohort. <em>Human molecular genetics</em>, 27(4):732–741, 2018.</p>
 </dd>
-<dt class="bibtex label" id="yang2015-mo"><span class="brackets">106</span></dt>
+<dt class="bibtex label" id="yang2015-mo"><span class="brackets">105</span></dt>
 <dd><p>Jialiang Yang, Tao Huang, Francesca Petralia, Quan Long, Bin Zhang, Carmen Argmann, Yong Zhao, Charles V Mobbs, Eric E Schadt, Jun Zhu, Zhidong Tu, and GTEx Consortium. Synchronized age-related gene expression changes across multiple tissues in human and the link to complex diseases. <em>Sci. Rep.</em>, 5:15145, October 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1038/srep15145">http://dx.doi.org/10.1038/srep15145</a>.</p>
 </dd>
-<dt class="bibtex label" id="reinius2009-ir"><span class="brackets">107</span></dt>
+<dt class="bibtex label" id="reinius2009-ir"><span class="brackets">106</span></dt>
 <dd><p>B Reinius and E Jazin. Prenatal sex differences in the human brain. <em>Mol. Psychiatry</em>, 14(11):987, 988–9, November 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1038/mp.2009.79">http://dx.doi.org/10.1038/mp.2009.79</a>.</p>
 </dd>
-<dt class="bibtex label" id="stone2019-fk"><span class="brackets">108</span></dt>
+<dt class="bibtex label" id="stone2019-fk"><span class="brackets">107</span></dt>
 <dd><p>Gregory Stone, Ashley Choi, Meritxell Oliva, Joshua Gorham, Mahyar Heydarpour, Christine E Seidman, Jon G Seidman, Sary F Aranki, Simon C Body, Vincent J Carey, Benjamin A Raby, Barbara E Stranger, and Jochen D Muehlschlegel. Sex differences in gene expression in response to ischemia in the human left ventricular myocardium. <em>Hum. Mol. Genet.</em>, January 2019. URL: <a class="reference external" href="http://dx.doi.org/10.1093/hmg/ddz014">http://dx.doi.org/10.1093/hmg/ddz014</a>.</p>
 </dd>
-<dt class="bibtex label" id="schibler2007-jx"><span class="brackets">109</span></dt>
+<dt class="bibtex label" id="schibler2007-jx"><span class="brackets">108</span></dt>
 <dd><p>Ueli Schibler. The daily timing of gene expression and physiology in mammals. <em>Dialogues Clin. Neurosci.</em>, 9(3):257–272, 2007. URL: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/17969863">https://www.ncbi.nlm.nih.gov/pubmed/17969863</a>.</p>
 </dd>
-<dt class="bibtex label" id="svensson2018-oa"><span class="brackets">110</span></dt>
+<dt class="bibtex label" id="svensson2018-oa"><span class="brackets">109</span></dt>
 <dd><p>Valentine Svensson, Sarah A Teichmann, and Oliver Stegle. SpatialDE: identification of spatially variable genes. <em>Nat. Methods</em>, 15(5):343–346, May 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nmeth.4636">http://dx.doi.org/10.1038/nmeth.4636</a>.</p>
 </dd>
-<dt class="bibtex label" id="bell2009-uq"><span class="brackets">111</span></dt>
-<dd><p>Gordon Bell, Tony Hey, and Alex Szalay. Computer science. beyond the data deluge. <em>Science</em>, 323(5919):1297–1298, March 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1126/science.1170411">http://dx.doi.org/10.1126/science.1170411</a>.</p>
+<dt class="bibtex label" id="wang2018-rz"><span class="brackets">110</span></dt>
+<dd><p>Qingguo Wang, Joshua Armenia, Chao Zhang, Alexander V Penson, Ed Reznik, Liguo Zhang, Thais Minet, Angelica Ochoa, Benjamin E Gross, Christine A Iacobuzio-Donahue, Doron Betel, Barry S Taylor, Jianjiong Gao, and Nikolaus Schultz. Unifying cancer and normal RNA sequencing data from different sources. <em>Sci Data</em>, 5:180061, April 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1038/sdata.2018.61">http://dx.doi.org/10.1038/sdata.2018.61</a>.</p>
 </dd>
-<dt class="bibtex label" id="gomez-cabrero2014-gk"><span class="brackets">112</span></dt>
-<dd><p>David Gomez-Cabrero, Imad Abugessaisa, Dieter Maier, Andrew Teschendorff, Matthias Merkenschlager, Andreas Gisel, Esteban Ballestar, Erik Bongcam-Rudloff, Ana Conesa, and Jesper Tegnér. Data integration in the era of omics: current and future challenges. <em>BMC Syst. Biol.</em>, 8 Suppl 2:I1, March 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1186/1752-0509-8-S2-I1">http://dx.doi.org/10.1186/1752-0509-8-S2-I1</a>.</p>
+<dt class="bibtex label" id="leek2010-yw"><span class="brackets">111</span></dt>
+<dd><p>Jeffrey T Leek, Robert B Scharpf, Héctor Corrada Bravo, David Simcha, Benjamin Langmead, W Evan Johnson, Donald Geman, Keith Baggerly, and Rafael A Irizarry. Tackling the widespread and critical impact of batch effects in high-throughput data. <em>Nat. Rev. Genet.</em>, 11(10):733–739, October 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nrg2825">http://dx.doi.org/10.1038/nrg2825</a>.</p>
 </dd>
-<dt class="bibtex label" id="fonseca2014-hp"><span class="brackets">113</span></dt>
+<dt class="bibtex label" id="irizarry2005-ie"><span class="brackets">112</span></dt>
+<dd><p>Rafael A Irizarry, Daniel Warren, Forrest Spencer, Irene F Kim, Shyam Biswal, Bryan C Frank, Edward Gabrielson, Joe G N Garcia, Joel Geoghegan, Gregory Germino, Constance Griffin, Sara C Hilmer, Eric Hoffman, Anne E Jedlicka, Ernest Kawasaki, Francisco Martínez-Murillo, Laura Morsberger, Hannah Lee, David Petersen, John Quackenbush, Alan Scott, Michael Wilson, Yanqin Yang, Shui Qing Ye, and Wayne Yu. Multiple-laboratory comparison of microarray platforms. <em>Nat. Methods</em>, 2(5):345–350, May 2005. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nmeth756">http://dx.doi.org/10.1038/nmeth756</a>.</p>
+</dd>
+<dt class="bibtex label" id="johnson2007-zh"><span class="brackets">113</span></dt>
+<dd><p>W Evan Johnson, Cheng Li, and Ariel Rabinovic. Adjusting batch effects in microarray expression data using empirical bayes methods. <em>Biostatistics</em>, 8(1):118–127, January 2007. URL: <a class="reference external" href="http://dx.doi.org/10.1093/biostatistics/kxj037">http://dx.doi.org/10.1093/biostatistics/kxj037</a>.</p>
+</dd>
+<dt class="bibtex label" id="leek2007-ba"><span class="brackets">114</span></dt>
+<dd><p>Jeffrey T Leek and John D Storey. Capturing heterogeneity in gene expression studies by surrogate variable analysis. <em>PLoS Genet.</em>, 3(9):1724–1735, September 2007. URL: <a class="reference external" href="http://dx.doi.org/10.1371/journal.pgen.0030161">http://dx.doi.org/10.1371/journal.pgen.0030161</a>.</p>
+</dd>
+<dt class="bibtex label" id="chen2011-ke"><span class="brackets">115</span></dt>
+<dd><p>Chao Chen, Kay Grennan, Judith Badner, Dandan Zhang, Elliot Gershon, Li Jin, and Chunyu Liu. Removing batch effects in analysis of expression microarray data: an evaluation of six batch adjustment methods. <em>PLoS One</em>, 6(2):e17238, February 2011. URL: <a class="reference external" href="http://dx.doi.org/10.1371/journal.pone.0017238">http://dx.doi.org/10.1371/journal.pone.0017238</a>.</p>
+</dd>
+<dt class="bibtex label" id="liu2016-wa"><span class="brackets">116</span></dt>
+<dd><p>Q Liu and M Markatou. Evaluation of methods in removing batch effects on RNA-seq data. <em>Infectious Diseases and Translational Medicine</em>, 2016. URL: <a class="reference external" href="http://www.tran-med.com/CN/article/downloadArticleFile.do?attachType=PDF&amp;id=24">http://www.tran-med.com/CN/article/downloadArticleFile.do?attachType=PDF&amp;id=24</a>.</p>
+</dd>
+<dt class="bibtex label" id="fonseca2014-hp"><span class="brackets">117</span></dt>
 <dd><p>Nuno A Fonseca, Robert Petryszak, John Marioni, and Alvis Brazma. iRAP - an integrated RNA-seq analysis pipeline. Preprint, June 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1101/005991">http://dx.doi.org/10.1101/005991</a>.</p>
 </dd>
-<dt class="bibtex label" id="schwanhausser2011-tm"><span class="brackets">114</span></dt>
+<dt class="bibtex label" id="schwanhausser2011-tm"><span class="brackets">118</span></dt>
 <dd><p>Björn Schwanhäusser, Dorothea Busse, Na Li, Gunnar Dittmar, Johannes Schuchhardt, Jana Wolf, Wei Chen, and Matthias Selbach. Global quantification of mammalian gene expression control. <em>Nature</em>, 473(7347):337–342, May 2011. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nature10098">http://dx.doi.org/10.1038/nature10098</a>.</p>
 </dd>
-<dt class="bibtex label" id="gygi1999-lr"><span class="brackets">115</span></dt>
+<dt class="bibtex label" id="gygi1999-lr"><span class="brackets">119</span></dt>
 <dd><p>S P Gygi, Y Rochon, B R Franza, and R Aebersold. Correlation between protein and mRNA abundance in yeast. <em>Mol. Cell. Biol.</em>, 19(3):1720–1730, March 1999. URL: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/10022859">https://www.ncbi.nlm.nih.gov/pubmed/10022859</a>.</p>
 </dd>
-<dt class="bibtex label" id="kosti2016-gt"><span class="brackets">116</span></dt>
+<dt class="bibtex label" id="kosti2016-gt"><span class="brackets">120</span></dt>
 <dd><p>Idit Kosti, Nishant Jain, Dvir Aran, Atul J Butte, and Marina Sirota. Cross-tissue analysis of gene and protein expression in normal and cancer tissues. <em>Sci. Rep.</em>, 6:24799, May 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1038/srep24799">http://dx.doi.org/10.1038/srep24799</a>.</p>
 </dd>
-<dt class="bibtex label" id="maier2009-vw"><span class="brackets">117</span></dt>
+<dt class="bibtex label" id="maier2009-vw"><span class="brackets">121</span></dt>
 <dd><p>Tobias Maier, Marc Güell, and Luis Serrano. Correlation of mRNA and protein in complex biological samples. <em>FEBS Lett.</em>, 583(24):3966–3973, December 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1016/j.febslet.2009.10.036">http://dx.doi.org/10.1016/j.febslet.2009.10.036</a>.</p>
 </dd>
-<dt class="bibtex label" id="beyer2004-ws"><span class="brackets">118</span></dt>
+<dt class="bibtex label" id="beyer2004-ws"><span class="brackets">122</span></dt>
 <dd><p>Andreas Beyer, Jens Hollunder, Heinz-Peter Nasheuer, and Thomas Wilhelm. Post-transcriptional expression regulation in the yeast saccharomyces cerevisiae on a genomic scale. <em>Mol. Cell. Proteomics</em>, 3(11):1083–1092, November 2004. URL: <a class="reference external" href="http://dx.doi.org/10.1074/mcp.M400099-MCP200">http://dx.doi.org/10.1074/mcp.M400099-MCP200</a>.</p>
 </dd>
-<dt class="bibtex label" id="wu2008-hb"><span class="brackets">119</span></dt>
+<dt class="bibtex label" id="wu2008-hb"><span class="brackets">123</span></dt>
 <dd><p>Gang Wu, Lei Nie, and Weiwen Zhang. Integrative analyses of posttranscriptional regulation in the yeast saccharomyces cerevisiae using transcriptomic and proteomic data. <em>Curr. Microbiol.</em>, 57(1):18–22, July 2008. URL: <a class="reference external" href="http://dx.doi.org/10.1007/s00284-008-9145-5">http://dx.doi.org/10.1007/s00284-008-9145-5</a>.</p>
 </dd>
-<dt class="bibtex label" id="yu2015-uf"><span class="brackets">120</span></dt>
+<dt class="bibtex label" id="yu2015-uf"><span class="brackets">124</span></dt>
 <dd><p>Nancy Yiu-Lin Yu, Björn M Hallström, Linn Fagerberg, Fredrik Ponten, Hideya Kawaji, Piero Carninci, Alistair R R Forrest, Fantom Consortium, Yoshihide Hayashizaki, Mathias Uhlén, and Carsten O Daub. Complementing tissue characterization by integrating transcriptome profiling from the human protein atlas and from the FANTOM5 consortium. <em>Nucleic Acids Res.</em>, 43(14):6787–6798, August 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gkv608">http://dx.doi.org/10.1093/nar/gkv608</a>.</p>
 </dd>
-<dt class="bibtex label" id="kawaji2014-tl"><span class="brackets">121</span></dt>
+<dt class="bibtex label" id="noauthor-undated-gi"><span class="brackets">125</span></dt>
+<dd><p>The human protein atlas. <span><a class="reference external" href="#"></a></span>https://www.proteinatlas.org/. Accessed: 2021-1-29. URL: <a class="reference external" href="https://www.proteinatlas.org/">https://www.proteinatlas.org/</a>.</p>
+</dd>
+<dt class="bibtex label" id="kawaji2014-tl"><span class="brackets">126</span></dt>
 <dd><p>Hideya Kawaji, Marina Lizio, Masayoshi Itoh, Mutsumi Kanamori-Katayama, Ai Kaiho, Hiromi Nishiyori-Sueki, Jay W Shin, Miki Kojima-Ishiyama, Mitsuoki Kawano, Mitsuyoshi Murata, Noriko Ninomiya-Fukuda, Sachi Ishikawa-Kato, Sayaka Nagao-Sato, Shohei Noma, Yoshihide Hayashizaki, Alistair R R Forrest, Piero Carninci, and FANTOM Consortium. Comparison of CAGE and RNA-seq transcriptome profiling using clonally amplified and single-molecule next-generation sequencing. <em>Genome Res.</em>, 24(4):708–717, April 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1101/gr.156232.113">http://dx.doi.org/10.1101/gr.156232.113</a>.</p>
 </dd>
 <dt class="bibtex label" id="winter2004-rr"><span class="brackets">2</span></dt>
 <dd><p>Eitan E Winter, Leo Goodstadt, and Chris P Ponting. Elevated rates of protein secretion, evolution, and disease among tissue-specific genes. <em>Genome Res.</em>, 14(1):54–61, January 2004. URL: <a class="reference external" href="http://dx.doi.org/10.1101/gr.1924004">http://dx.doi.org/10.1101/gr.1924004</a>.</p>
 </dd>
-<dt class="bibtex label" id="uhlen2010-mx"><span class="brackets">123</span></dt>
+<dt class="bibtex label" id="uhlen2010-mx"><span class="brackets">128</span></dt>
 <dd><p>Mathias Uhlen, Per Oksvold, Linn Fagerberg, Emma Lundberg, Kalle Jonasson, Mattias Forsberg, Martin Zwahlen, Caroline Kampf, Kenneth Wester, Sophia Hober, Henrik Wernerus, Lisa Björling, and Fredrik Ponten. Towards a knowledge-based human protein atlas. <em>Nature Biotechnology</em>, 28(12):1248–1250, 2010. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nbt1210-1248">http://dx.doi.org/10.1038/nbt1210-1248</a>.</p>
 </dd>
-<dt class="bibtex label" id="uhlen2015-at"><span class="brackets">124</span></dt>
+<dt class="bibtex label" id="uhlen2015-at"><span class="brackets">129</span></dt>
 <dd><p>Mathias Uhlén, Linn Fagerberg, Björn M Hallström, Cecilia Lindskog, Per Oksvold, Adil Mardinoglu, Åsa Sivertsson, Caroline Kampf, Evelina Sjöstedt, Anna Asplund, Ingmarie Olsson, Karolina Edlund, Emma Lundberg, Sanjay Navani, Cristina Al-Khalili Szigyarto, Jacob Odeberg, Dijana Djureinovic, Jenny Ottosson Takanen, Sophia Hober, Tove Alm, Per-Henrik Edqvist, Holger Berling, Hanna Tegel, Jan Mulder, Johan Rockberg, Peter Nilsson, Jochen M Schwenk, Marica Hamsten, Kalle von Feilitzen, Mattias Forsberg, Lukas Persson, Fredric Johansson, Martin Zwahlen, Gunnar von Heijne, Jens Nielsen, and Fredrik Pontén. Proteomics. tissue-based map of the human proteome. <em>Science</em>, 347(6220):1260419, January 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1126/science.1260419">http://dx.doi.org/10.1126/science.1260419</a>.</p>
 </dd>
-<dt class="bibtex label" id="gtex-consortium2013-gl"><span class="brackets">125</span></dt>
+<dt class="bibtex label" id="gtex-consortium2013-gl"><span class="brackets">130</span></dt>
 <dd><p>GTEx Consortium. The Genotype-Tissue expression (GTEx) project. <em>Nat. Genet.</em>, 45(6):580–585, June 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1038/ng.2653">http://dx.doi.org/10.1038/ng.2653</a>.</p>
 </dd>
-<dt class="bibtex label" id="lindsay2016-en"><span class="brackets">126</span></dt>
+<dt class="bibtex label" id="lindsay2016-en"><span class="brackets">131</span></dt>
 <dd><p>Susan J Lindsay, Yaobo Xu, Steven N Lisgo, Lauren F Harkin, Andrew J Copp, Dianne Gerrelli, Gavin J Clowry, Aysha Talbot, Michael J Keogh, Jonathan Coxhead, Mauro Santibanez-Koref, and Patrick F Chinnery. HDBR expression: a unique resource for global and individual gene expression studies during early human brain development. <em>Front. Neuroanat.</em>, 10:86, October 2016. URL: <a class="reference external" href="http://dx.doi.org/10.3389/fnana.2016.00086">http://dx.doi.org/10.3389/fnana.2016.00086</a>.</p>
 </dd>
-<dt class="bibtex label" id="johnson2007-zh"><span class="brackets">127</span></dt>
-<dd><p>W Evan Johnson, Cheng Li, and Ariel Rabinovic. Adjusting batch effects in microarray expression data using empirical bayes methods. <em>Biostatistics</em>, 8(1):118–127, January 2007. URL: <a class="reference external" href="http://dx.doi.org/10.1093/biostatistics/kxj037">http://dx.doi.org/10.1093/biostatistics/kxj037</a>.</p>
-</dd>
-<dt class="bibtex label" id="leek2007-ba"><span class="brackets">128</span></dt>
-<dd><p>Jeffrey T Leek and John D Storey. Capturing heterogeneity in gene expression studies by surrogate variable analysis. <em>PLoS Genet.</em>, 3(9):1724–1735, September 2007. URL: <a class="reference external" href="http://dx.doi.org/10.1371/journal.pgen.0030161">http://dx.doi.org/10.1371/journal.pgen.0030161</a>.</p>
-</dd>
-<dt class="bibtex label" id="chen2011-ke"><span class="brackets">129</span></dt>
-<dd><p>Chao Chen, Kay Grennan, Judith Badner, Dandan Zhang, Elliot Gershon, Li Jin, and Chunyu Liu. Removing batch effects in analysis of expression microarray data: an evaluation of six batch adjustment methods. <em>PLoS One</em>, 6(2):e17238, February 2011. URL: <a class="reference external" href="http://dx.doi.org/10.1371/journal.pone.0017238">http://dx.doi.org/10.1371/journal.pone.0017238</a>.</p>
-</dd>
-<dt class="bibtex label" id="liu2016-wa"><span class="brackets">130</span></dt>
-<dd><p>Q Liu and M Markatou. Evaluation of methods in removing batch effects on RNA-seq data. <em>Infectious Diseases and Translational Medicine</em>, 2016. URL: <a class="reference external" href="http://www.tran-med.com/CN/article/downloadArticleFile.do?attachType=PDF&amp;id=24">http://www.tran-med.com/CN/article/downloadArticleFile.do?attachType=PDF&amp;id=24</a>.</p>
-</dd>
-<dt class="bibtex label" id="frazee2015-kg"><span class="brackets">131</span></dt>
+<dt class="bibtex label" id="frazee2015-kg"><span class="brackets">132</span></dt>
 <dd><p>Alyssa C Frazee, Andrew E Jaffe, Ben Langmead, and Jeffrey T Leek. Polyester: simulating RNA-seq datasets with differential transcript expression. <em>Bioinformatics</em>, 31(17):2778–2784, September 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1093/bioinformatics/btv272">http://dx.doi.org/10.1093/bioinformatics/btv272</a>.</p>
 </dd>
-<dt class="bibtex label" id="newman2015-le"><span class="brackets">132</span></dt>
+<dt class="bibtex label" id="newman2015-le"><span class="brackets">133</span></dt>
 <dd><p>Aaron M Newman, Chih Long Liu, Michael R Green, Andrew J Gentles, Weiguo Feng, Yue Xu, Chuong D Hoang, Maximilian Diehn, and Ash A Alizadeh. Robust enumeration of cell subsets from tissue expression profiles. <em>Nat. Methods</em>, 12(5):453–457, May 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nmeth.3337">http://dx.doi.org/10.1038/nmeth.3337</a>.</p>
 </dd>
-<dt class="bibtex label" id="wang2019-hc"><span class="brackets">133</span></dt>
+<dt class="bibtex label" id="wang2019-hc"><span class="brackets">134</span></dt>
 <dd><p>Xuran Wang, Jihwan Park, Katalin Susztak, Nancy R Zhang, and Mingyao Li. Bulk tissue cell type deconvolution with multi-subject single-cell expression reference. <em>Nat. Commun.</em>, 10(1):380, January 2019. URL: <a class="reference external" href="http://dx.doi.org/10.1038/s41467-018-08023-x">http://dx.doi.org/10.1038/s41467-018-08023-x</a>.</p>
 </dd>
-<dt class="bibtex label" id="haghverdi2018-ig"><span class="brackets">134</span></dt>
+<dt class="bibtex label" id="haghverdi2018-ig"><span class="brackets">135</span></dt>
 <dd><p>Laleh Haghverdi, Aaron T L Lun, Michael D Morgan, and John C Marioni. Batch effects in single-cell RNA-sequencing data are corrected by matching mutual nearest neighbors. <em>Nat. Biotechnol.</em>, 36(5):421–427, June 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nbt.4091">http://dx.doi.org/10.1038/nbt.4091</a>.</p>
 </dd>
 <dt class="bibtex label" id="jiang2016-rz"><span class="brackets">3</span></dt>

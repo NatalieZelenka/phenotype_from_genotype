@@ -144,12 +144,10 @@ latex:
 
 sphinx:
   config:
-    latex_elements:
-      printindex: ''
-    nb_custom_formats:
-        .Rmd:
-            - jupytext.reads
-            - fmt: Rmd
+    html_theme_options:
+      use_download_button: false
+  latex_elements:
+    printindex: ''
 
 # Jupyter Book version - DO NOT CHANGE THIS. It is generated when a new book is created
 jupyter_book_version: "0.6.3"
