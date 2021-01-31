@@ -263,7 +263,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/2-data.html">
-     5.2. Data
+     5.2. Data Acquisition
     </a>
    </li>
    <li class="toctree-l2">
@@ -289,17 +289,22 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/6-results.html">
-     5.6. Results
+     5.6. Results and outputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/6-results.html#combined-data-set">
+     5.7. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/7-discussion.html">
-     5.7. Discussion
+     5.8. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/8-future-work.html">
-     5.8. Future Work
+     5.9. Future Work
     </a>
    </li>
   </ul>
@@ -550,7 +555,7 @@
 <h2><span class="section-number">4.3.1. </span>Data sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="alspac">
 <h3><span class="section-number">4.3.1.1. </span>ALSPAC<a class="headerlink" href="#alspac" title="Permalink to this headline">¶</a></h3>
-<p>The Avon Longitudinal Study of Parents and Children, ALSPAC<a class="bibtex reference internal" href="../end-matter/reference.html#golding2001-oj" id="id1">[1]</a> (a.k.a. the children of the 90s) is a cohort of over 14,000 families from the Avon area. A wealth of phenotype information has also been collected from these families, through a series of voluntary surveys and clinics.</p>
+<p>The Avon Longitudinal Study of Parents and Children, ALSPAC<a class="bibtex reference internal" href="../end-matter/reference.html#golding2001-oj" id="id1">[87]</a> (a.k.a. the children of the 90s) is a cohort of over 14,000 families from the Avon area. A wealth of phenotype information has also been collected from these families, through a series of voluntary surveys and clinics.</p>
 <p>Due to the personal and private nature of the data, we were granted access to the genotype data first, then allowed to request a small number of high-scoring phenotypes after running the predictor.</p>
 <p>Although the ALSPAC dataset is large, it is not very diverse, therefore the 1000 genomes project (Phase 1) genomes were used as a background set.</p>
 <div class="section" id="genotypes">
@@ -585,7 +590,7 @@ Lifting over VCF files between <span class="xref std std-ref">different-builds</
 </div>
 <div class="section" id="ambiguous-flips">
 <h4><span class="section-number">4.3.4.1.2. </span>Ambiguous Flips<a class="headerlink" href="#ambiguous-flips" title="Permalink to this headline">¶</a></h4>
-<p>The majority of input data to the predictor is 23andMe data. In testing the predictor with the 2500G background and a cohort of 23andMe genomes, it became clear that for many phenotypes, the background was forming a separate cluster to the cohort. This led to the realisation that there are 23andMe calls which had the opposite ratio of wild type:mutant than the 2500 genomes. Some further reading revealed this to be a known problem<a class="bibtex reference internal" href="../end-matter/reference.html#church2005-zv" id="id2">[2]</a>, which may be due to ambiguous flips<a class="bibtex reference internal" href="../end-matter/reference.html#sand2007-ed" id="id3">[3]</a>.</p>
+<p>The majority of input data to the predictor is 23andMe data. In testing the predictor with the 2500G background and a cohort of 23andMe genomes, it became clear that for many phenotypes, the background was forming a separate cluster to the cohort. This led to the realisation that there are 23andMe calls which had the opposite ratio of wild type:mutant than the 2500 genomes. Some further reading revealed this to be a known problem<a class="bibtex reference internal" href="../end-matter/reference.html#church2005-zv" id="id2">[88]</a>, which may be due to ambiguous flips<a class="bibtex reference internal" href="../end-matter/reference.html#sand2007-ed" id="id3">[89]</a>.</p>
 <p>Implausible distributions of SNPs in the input cohort (given the background) are therefore discarded. i.e if the input cohort doesn’t match the background. (all one way and the rest all the other).</p>
 </div>
 </div>
@@ -632,20 +637,6 @@ Lifting over VCF files between <span class="xref std std-ref">different-builds</
 </div>
 <div class="section" id="id10">
 <h4><span class="section-number">4.3.4.4.2. </span>Mapping phenotypes to CAGI measurements<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
-<hr class="docutils" />
-<p><strong>Page References</strong></p>
-<p id="bibtex-bibliography-c04-snowflake/3-data-0"><dl class="citation">
-<dt class="bibtex label" id="golding2001-oj"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Golding, Golding, Pembrey, Jones, and The Alspac Study Team. ALSPAC-The avon longitudinal study of parents and children. <em>Paediatr. Perinat. Epidemiol.</em>, 15(1):74–87, 2001. URL: <a class="reference external" href="http://dx.doi.org/10.1046/j.1365-3016.2001.00325.x">http://dx.doi.org/10.1046/j.1365-3016.2001.00325.x</a>.</p>
-</dd>
-<dt class="bibtex label" id="church2005-zv"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>G M Church. The personal genome project. <em>Mol. Syst. Biol.</em>, 1:2005.0030, December 2005. URL: <a class="reference external" href="http://dx.doi.org/10.1038/msb4100040">http://dx.doi.org/10.1038/msb4100040</a>.</p>
-</dd>
-<dt class="bibtex label" id="sand2007-ed"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>Philipp G Sand. A lesson not learned: allele misassignment. <em>Behav. Brain Funct.</em>, 3(1):65, 2007. URL: <a class="reference external" href="http://dx.doi.org/10.1186/1744-9081-3-65">http://dx.doi.org/10.1186/1744-9081-3-65</a>.</p>
-</dd>
-</dl>
-</p>
 </div>
 </div>
 </div>

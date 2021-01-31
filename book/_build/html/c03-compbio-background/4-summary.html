@@ -263,7 +263,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/2-data.html">
-     5.2. Data
+     5.2. Data Acquisition
     </a>
    </li>
    <li class="toctree-l2">
@@ -272,18 +272,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/3-data-wrangling.html#left-and-samples-right-along-with-the-number-which-remained-after-each-stage">
-     5.4. (left) and samples (right), along with the number which remained after each stage
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/3-data-wrangling.html#of-data-cleaning">
-     5.5. of data cleaning.
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/4-uberon.html">
-     5.6. The
+     5.4. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -294,22 +284,27 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/5-batch-correction.html">
-     5.7. Batch correction
+     5.5. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/6-results.html">
-     5.8. Results
+     5.6. Results and outputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/6-results.html#combined-data-set">
+     5.7. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/7-discussion.html">
-     5.9. Discussion
+     5.8. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/8-future-work.html">
-     5.10. Future Work
+     5.9. Future Work
     </a>
    </li>
   </ul>
@@ -436,8 +431,12 @@
 <h1><span class="section-number">3.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
 <p>The purpose of this introductory chapter was to provide an overview of how we think phenotype arises from genotype.
 It’s also to explain why it’s a hard problem!</p>
-<p>To summarise, there are multiple kinds of genetic variation, and even the simplest (the SNP) can exist on multiple parts of the genome, and may or may not affect structure or function of transcribed proteins. Even if the SNP is in a coding region, and is non-synonymous (affects protein structure), it may fall in a disordered region of a protein (leaving us without structural information), we may not know where that protein is transcribed, or it may affect the transcription of multiple different proteins. Furthermore, the SNP may affect phenotype differently with homozygous or heterozygous calls, and the protein may affect phenotype by influencing a network of other proteins, or the protein may exist as a redundant part of a pathway which will only affect phenotype if three other SNPs have specific calls. Even after all this, the presentation of many phenotype depends heavily on the environment.</p>
-<p>Given all this complexity, it may seem no wonder that phenotype prediction is currently inaccurate<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id1">[1]</a>. However, diverse information about biological entities exists, for example gene and protein sequence, protein structure, variant frequencies and functions, and gene expression. Multi-omics approaches that combine these data types have been successful at elucidating mechanisms behind certain phenotypes<a class="bibtex reference internal" href="../end-matter/reference.html#hasin2017-tk" id="id2">[76]</a><a class="bibtex reference internal" href="../end-matter/reference.html#ritchie2015-ds" id="id3">[77]</a><a class="bibtex reference internal" href="../end-matter/reference.html#kristensen2014-iw" id="id4">[78]</a>. There is now the opportunity for genome-wide phenotype predictions to do the same. Obtaining an accurate prediction of phenotype and protein function, even for a subclass of variants/proteins, has the potential to greatly impact people. A method which predicts phenotype directly from the molecular biology would be desirable as it would create a model for how phenotype emerges from genotype, in addition to predictions for important genes.</p>
+<p>Given all this complexity, it may seem no wonder that phenotype prediction is currently inaccurate<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id1">[4]</a>.
+However, diverse information about biological entities exists, for example gene and protein sequence, protein structure, variant frequencies and functions, and gene expression.
+Multi omics approaches that combine these data types have been successful at elucidating mechanisms behind certain phenotypes<a class="bibtex reference internal" href="../end-matter/reference.html#hasin2017-tk" id="id2">[76]</a><a class="bibtex reference internal" href="../end-matter/reference.html#ritchie2015-ds" id="id3">[77]</a><a class="bibtex reference internal" href="../end-matter/reference.html#kristensen2014-iw" id="id4">[78]</a>.
+There is now the opportunity for genome-wide phenotype predictions to do the same.
+Obtaining an accurate prediction of phenotype and protein function, even for a subclass of variants/proteins, has the potential to greatly impact people.
+A method which predicts phenotype directly from the molecular biology would be desirable as it would create a model for how phenotype emerges from genotype, in addition to predictions for important genes.</p>
 </div>
 
     <script type="text/x-thebe-config">

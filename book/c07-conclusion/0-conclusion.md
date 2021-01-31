@@ -1,23 +1,55 @@
 (c07-conclusion)=
 ## Conclusion
-[//]: # (TODO: Rewrite: tell the truth)
-Because of the broad range of projects in this thesis (and the speed at which new methods and datasets become available in this field), there are a number of avenues for future work. 
+[//]: # (TODO: cross-ref this section)
 
-The continued development of the phenotype predictor is something that continues to interest me. In particular, I would love to include tissue-specific gene expression information, and tissue-specific gene networks to see if this enables the predictor to make more accurate predictions for the benchmark data that is currently available. However, I feel that this should be on hold until a sensitivity/multiverse analysis of the components of the predictor (FATHMM and DcGO) can be carried out, and until annotations that are used to benchmark such a tool can be of an assured level of reliability.
+To conclude:
+- I present my contribution towards the `snowflake` phenotype prediction method, and it's use for finding unusual combinations of SNPs with possible explanatory mechanisms for phenotype.
+- I have created research outputs in terms of a combined gene expression data set, and research software, which are useful:
+    - To link existing data sets and ontologies
+    - To discover inconsistencies in data and ontologies
+    - For downstream research
+- I showed that bringing baseline gene expression data into protein function predictions will (with current data) slightly increase the accuracy of those predictions. 
 
-My immediate next steps will be to make the combined gene expression dataset more usable, to finish the current iteration of the MAPS project, and to carry out a multiverse analysis for calculating gene-enrichment.
+In my attempts to make explanative genome-wide predictions about protein function, I have continuously bumped up against the limits of what is possible with the data that we currently have.
+These resources are absolutely vital to the efforts of computational biology, and are amazing feats of research and engineering, but there are some limits at present in using them for "big-picture" biology.
+As such, some of the most satisfying work has been to contribute back to some of these resources.
+Through linking them, and finding inconsistencies, I have in some small way been part of science's self-correcting mechanism, and hope that this brings us a little closer to their use for genome-wide explanatory predictions.
 
-After that, I think that testing the limits of ComBat for combining unbalanced datasets and comparing that to batch effect removal using MNN is a promising avenue for further research.
+### Future work
+[//]: # (TODO: Cross ref future work in individual chapters:)
+While I describe many possibilities for future work in the individual chapters, there some particular avenues that I would be keen to explore. 
+My immediate next steps will be to make the tissue specific gene expression data set created in {ref}`Chapter 5<>` more usable, and to apply the tissue-specific gene expression data set to the phenotype prediction filter described in {ref}`Chapter 6<>`. 
+I would like to make these contributions available as papers.
 
-These activities will help to lay further groundwork for combining different data sets in order to facilitate predicting and explaining how function and phenotype arise from genotype.
+I also look forward to seeing what the researchers now working on the `snowflake` will be able to do in terms of validation and continued development with newer and larger data sets.
 
 ### Closing remarks
+[//]: # (TODO: Mention Research Software Engineering, automation, etc)
+[//]: # (TODO: Cite Uri Alon/Turing patterns)
 
-My work has shown that bringing baseline gene expression data into protein function predictions will (with current data) slightly increase the accuracy of those predictions. The value of this work has also been the development of methods for combining datasets, as well as the errors and unexpected data features that this has uncovered.  
+I came from a background of mathematics and physics, and wanted to do a PhD in Complexity Sciences and mathematical biology in particular because I loved papers like Uri Alon's motifs in Protein-protein Interaction networks and Turing patterns that linked simple maths to complex biology that had really been measured, and because I liked programming (badly - and in Matlab).
+I hadn't worked with much data, I didn't know any software engineering best practices or much biology at all, and I wasn't aware yet of how different a challenge predicting phenotype from genotype would be compared to a "toy" mathematical modelling problem.
 
-In my attempts to make explanative genome-wide predictions about protein function, I have continuously bumped up against the limits of what is possible with the data that we currently have. This thesis describes some of these current limits are and highlighted areas where our fantastic collaborative open resources in computational biology could be improved to allow them to be used for big-picture biology. In particular it has shown the instability of gene enrichment measurements to annotation libraries.
+Before I joined the Gough group, someone had written the following famous quote{cite}`Dobzhansky2013-no` on a whiteboard in my office:
 
-Accurate protein function and phenotype prediction (particularly without leaning on “black-box” methods like deep learning) may be out of reach for now. However, progress is being made at a blistering speed in computational, biological and meta-research. Computational biology is a field that has had open data for much longer than others; it is well-placed to rise to the challenge of curating high quality research data. 
+```{epigraph}
+"Nothing in biology makes sense... <br>
+...except in the light of evolution"
+```
 
-When some of these pieces move into place, I hope that the prediction-related methods, tools and datasets that I have made available will be a useful resource for future researchers (including myself!). Until then, I hope to spend my time contributing to the discussion about reproducibility and data provenance in computational biology in order to hurry that day along. 
+By the time I arrived, however, someone had rubbed off the second line, leaving only "Nothing in biology makes sense..." and since I'd never heard the full phrase before, I didn't question this.
+In fact, as I tried to piece together the accepted model of how genotype influences phenotype, I found myself agreeing!
+Compared to maths and physics, there is so much in molecular biology that we don't know: there are so many moving parts and there is *always* an exception to the rule.
+This is true for the processes themselves, and when you look a little closer - also the data that is collected.
+Over time, my endless questions became less frustrating and more and more energising as I became more able to create the resources needed to answer them.
+
+[//]: # (TODO: Give example of snowflake not being useless)
+[//]: # (TODO: Cross-reference)
+Working on `snowflake` gave me a bird's eye view of our model of the connection between genotype and phenotype: and the data sets we have about that connection.
+It is, of course, regrettable that we could not access enough data to conclusively test `snowflake` as a phenotype predictor.
+However, I have found a small way in which to improve phenotype predictions, with a mechanistic reason behind it - and I have found value in creating and contributing to resources which I hope will lead us towards more.
+
+
+
+
 

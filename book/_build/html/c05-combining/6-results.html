@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.6. Results &#8212; Phenotype from Genotype</title>
+    <title>5.6. Results and outputs &#8212; Phenotype from Genotype</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,7 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.7. Discussion" href="7-discussion.html" />
+    <link rel="next" title="5.8. Discussion" href="7-discussion.html" />
     <link rel="prev" title="5.5. Batch correction" href="5-batch-correction.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -263,7 +263,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2-data.html">
-     5.2. Data
+     5.2. Data Acquisition
     </a>
    </li>
    <li class="toctree-l2">
@@ -289,17 +289,22 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     5.6. Results
+     5.6. Results and outputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#combined-data-set">
+     5.7. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-discussion.html">
-     5.7. Discussion
+     5.8. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="8-future-work.html">
-     5.8. Future Work
+     5.9. Future Work
     </a>
    </li>
   </ul>
@@ -420,22 +425,22 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#simulated-data">
-   5.6.1. Simulated data
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   5.6. Results and outputs
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combined-data-set">
+   5.7. Combined data set
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combat-on-simulated-data">
-     5.6.1.1. ComBat on simulated data
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-outputs">
+     5.7.1. Other outputs
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dat-aset">
-   5.6.2. Dat aset
-  </a>
  </li>
 </ul>
 
@@ -448,38 +453,29 @@
         
               <div>
                 
-  <div class="section" id="results">
-<h1><span class="section-number">5.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="simulated-data">
-<h2><span class="section-number">5.6.1. </span>Simulated data<a class="headerlink" href="#simulated-data" title="Permalink to this headline">¶</a></h2>
-<p>Box-plots (figure <code class="xref std std-numref docutils literal notranslate"><span class="pre">box-plot-sim</span></code>) shows that the simulated data has similar distributions to the true data, and PCA (figure <code class="xref std std-numref docutils literal notranslate"><span class="pre">pca-sim</span></code>) reveals that batch effects are visible in the simulated data, as they are in the real data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code for box-plots showing distributions of the real (left) and simulated (right) data.</span>
-</pre></div>
+  <div class="section" id="results-and-outputs">
+<h1><span class="section-number">5.6. </span>Results and outputs<a class="headerlink" href="#results-and-outputs" title="Permalink to this headline">¶</a></h1>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code for PCA plot showing colour by experiment and tissue group. </span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The simulated data does not simulate the mean expression that we would expect for a given tissue type or experiment, so the labels in <code class="xref std std-numref docutils literal notranslate"><span class="pre">pca-sim</span></code> instead indicate the model design rather than the expression, i.e. there are the same number of GTEx-labelled simulated samples, which have the same breakdown of tissues as those in our final combined data set.</p>
-<div class="section" id="combat-on-simulated-data">
-<h3><span class="section-number">5.6.1.1. </span>ComBat on simulated data<a class="headerlink" href="#combat-on-simulated-data" title="Permalink to this headline">¶</a></h3>
-<p>The obvious next step is to test batch effect removal such as ComBat on the simulated dataset.</p>
-</div>
-</div>
-<div class="section" id="dat-aset">
-<h2><span class="section-number">5.6.2. </span>Dat aset<a class="headerlink" href="#dat-aset" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="combined-data-set">
+<h1><span class="section-number">5.7. </span>Combined data set<a class="headerlink" href="#combined-data-set" title="Permalink to this headline">¶</a></h1>
+<!--
+```{code-cell} ipython3
+---
+render:
+  figure:
+    caption: PCA plot showing colour by experiment and tissue group.
+    name: pca-sim
+  image:
+    width: 200px
+---
+# Code for PCA plot showing colour by experiment and tissue group. 
+```
+-->
 <p>The combined data set represents 122 healthy tissues (all of which map to Uberon terms), over almost 20,000 samples, all which have consistent labelled sample information (age, development stage, sex).
 This information can now be used to increase coverage of the FilP filter of protein function predictions.</p>
-<p>The problem of batch effects for this dataset has not yet been overcome. This means that the dataset can not yet be used for the purpose of improving measurements from baseline experiments (e.g. housekeeping genes or baseline tissue-specific gene expression).</p>
-<p>However, by overcoming the data cleaning and standardisation necessary to have all datasets in the same format with the same sample metadata, the dataset can be used for analyses where batch and other sample metadata is used as covariates (e.g. differential expression of tissues).<br />
-In its current iteration, it is also suitable for use in FilP, where the data set only needs to distinguish between presence and absence.</p>
+<div class="section" id="other-outputs">
+<h2><span class="section-number">5.7.1. </span>Other outputs<a class="headerlink" href="#other-outputs" title="Permalink to this headline">¶</a></h2>
+<p>In creating the combined data set, I created the <a class="reference internal" href="4-uberon.html#uberon-py"><span class="std std-ref">uberon-py</span></a> Python package, and by combining ontologies and omics data sets, I <a class="reference internal" href="4-uberon.html#fantom5-inconsistencies-example"><span class="std std-ref">contributed towards improving these resources</span></a>.</p>
 </div>
 </div>
 
@@ -512,7 +508,7 @@ In its current iteration, it is also suitable for use in FilP, where the data se
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="5-batch-correction.html" title="previous page"><span class="section-number">5.5. </span>Batch correction</a>
-    <a class='right-next' id="next-link" href="7-discussion.html" title="next page"><span class="section-number">5.7. </span>Discussion</a>
+    <a class='right-next' id="next-link" href="7-discussion.html" title="next page"><span class="section-number">5.8. </span>Discussion</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

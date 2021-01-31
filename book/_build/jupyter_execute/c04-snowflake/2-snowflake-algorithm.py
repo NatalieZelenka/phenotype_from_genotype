@@ -166,11 +166,3 @@ Since the VCF file created in Step 1 is larger than needed by `Snowflake`, we th
 #### Outputs
 
 #### Method
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

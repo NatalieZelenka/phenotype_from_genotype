@@ -30,11 +30,3 @@ Similarly, although proteins, tissues and protein functions may be present in mu
 ```{code-cell} ipython3
 
 ```
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

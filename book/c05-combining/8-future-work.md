@@ -3,6 +3,7 @@
 ### Mapping improvements
 Firstly, there are also some mapping improvements which might improve the quality of the data set as a resource for other people. 
 
+**Multiple membership of tissues and cells** 
 It is sometimes appropriate for samples to map to two apparently distinct Uberon terms. 
 For example, leukocytes are known to be part of the immune system, but are found in the blood. 
 In the FANTOM mapping, they would be mapped by name to blood, but by ontology to immune system. 
@@ -10,12 +11,19 @@ In this case, we could imagine mapping to two Uberon terms rather than defaultin
 
 In addition, it would be preferable to map simultaneously to tissue and cell type, since this enables researchers to, for example, make queries about expression about the same cell types in different tissue locations, query the data set against scRNA-seq data, or simply find cell as well as tissue specific information.  
 This could be achieved partly with relative ease by using the ontological mapping between CL and Uberon. 
-Improvement of the CL-Uberon mapping would then allow for a complete understanding of which cell types are in a tissue, but not their relative abundances.  
+Improvement of the CL-Uberon mapping would then allow for a complete understanding of which cell types are in a tissue, but not their relative abundances. 
 
-Alternatively, a cell type deconvolution programme (e.g. CIBERSORT{cite}`Newman2015-le`, BSEQ-sc{cite}`Gaujoux_undated-ru`, or MuSiC{cite}`Wang2019-hc`) could be used, which would output percentages of cell types making up a tissue. 
-Cell type deconvolution however generally requires the input of a large scRNA-seq dataset as input, which there doesn’t exist enough diversity of at present, to deconvolve all tissue types.
+**Cell type deconvolution:**
+In order to understand the relative abundances of cell types in each sample, a cell type deconvolution programme (e.g. CIBERSORT{cite}`Newman2015-le`, BSEQ-sc{cite}`Gaujoux_undated-ru`, or MuSiC{cite}`Wang2019-hc`) could be used.
+These algorithms estimate percentages of cell types making up a tissue. 
+This would require the input of a large scRNA-seq data set as input, and there doesn’t yet exist enough diversity to deconvolve all tissue types.
+As well as improving the mapping, this is likely to improve the quality of the batch effect correction.
 
-### scRNA inclusion
+### Simulation to ensure suitability for ComBat
+[//]: # (TODO:Write: medium priority)
+The obvious next step is to test batch effect removal such as ComBat on the simulated data set. 
+
+### Alternative batch effect removal
 [//]: # (TODO: Make sure I explain somewhere what scRNA is)
 
 Since ComBat is known to suffer from unbalanced datasets, an alternative might be used: Mutual Nearest Neighbour (MNN) method for bulk RNA-Seq data. 

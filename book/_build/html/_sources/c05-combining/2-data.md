@@ -12,7 +12,7 @@ kernelspec:
   name: ir
 ---
 
-# Data
+# Data Acquisition
 
 This section describes the constituent data sets that were chosen for combination, and how they were chosen and acquired.
 

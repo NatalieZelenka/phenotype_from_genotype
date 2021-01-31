@@ -54,9 +54,61 @@ As such it is used by a wide variety of researchers.
 [//]: # (TODO: Show a snippet of code and output),
 {numref}`c05.3-data-wrangling` shows an example of how this package can be used to create a sample to tissue mapping for four different gene expression data sets.
 
+
+(tissue-group-mapping)=
+### Example 2: Grouping samples based on tissues
+[//]: # (TODO: Update data locations)
+Either using existing Uberon mappings, or after mapping to Uberon samples (as in example 1), samples can be grouped by more general Uberon terms representing groups of tissues.
+
+````{admonition} Code mapping samples to more general groups
+:class: dropdown
+
+```python
+import pandas as pd
+from uberon_py import obo
+
+tissues=pd.read_csv('data/mappings/tissue_list.csv',names=['UBERON'])
+obo = obo.Obo('data/uberonext_obo.txt',['UBERON'])
+
+names = []
+name_map = {}
+for tissue in tissues['UBERON']:
+    name = obo.ont[tissue]['name']
+    names.append(name)
+    name_map[tissue] = name
+tissues['Name'] = pd.Series(names)
+tissues.head()
+tissues.to_csv('data/mappings/tissues.csv',index=False)
+
+groups = ['brain','cardiovascular system', 'respiratory system','digestive system','skeletal system','skin of body', 'reproductive system','muscle tissue','renal system','central nervous system','connective tissue']
+groups_UBERON = []
+for group in groups:
+    for u_id in obo.ont.keys():
+        if obo.ont[u_id]['name'] == group:
+            groups_UBERON.append(u_id)
+group_name_map = dict(zip(groups_UBERON, groups))
+
+relations = obo.get_relations(['is_a','part_of'],tissues['UBERON'],groups_UBERON,obo.ont).relations
+groups = []
+for uberon, row in relations.iterrows():
+    try:
+        group = row[0].split('_')[-1]
+    except:
+        group = None
+    groups.append(group)
+relations['Group'] = pd.Series(groups,index=relations.index)
+relations['Group name'] = relations['Group'].map(group_name_map)
+relations['Name'] = relations.index.map(name_map)
+relations=relations.rename(columns={0:'Relation string'})
+relations.to_csv('../data/mappings/tissues_groups.csv')
+```
+
+````
+
+
 (FANTOM5-inconsistencies-example)=
-### Example 2: finding inconsistencies in the FANTOM5 data
-[//]: # (TODO: Add a table here of all the inconsistencies)
+### Example 3: finding inconsistencies in the FANTOM5 data
+[//]: # (TODO: Add a table here of all the inconsistencies: medium priority)
 For the FANTOM5 data, disagreements between these mappings revealed problems in the biological ontologies and experiment metadata that were provided to the package in order to create the mappings. 
 These could then be fed back to the maintainers of these ontologies and datasets in order to improve/correct them. 
 

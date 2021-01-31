@@ -18,11 +18,3 @@ In this chapter, I present work which was carried out in developing the Snowflak
 
 
 [//]: # (TODO: Explain the overall idea of the snowflake prediction method here before delving into it massively in the next section.)
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

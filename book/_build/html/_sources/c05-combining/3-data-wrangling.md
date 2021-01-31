@@ -79,7 +79,6 @@ pd.DataFrame(fantom_counts.funnel_plot_transcripts.items(), columns=['Transcript
 
 +++
 
-
 ## Obtaining raw expression per gene for healthy human tissues
 
 ### Data Acquisition
@@ -149,7 +148,7 @@ import pandas as pd
 funnel_plot_transcripts = pd.read_csv('data/experiments/fantom/funnel_plot_transcripts.tsv', sep='\t', index_col=0, header=0)
 funnel_plot_samples = pd.read_csv('data/experiments/fantom/funnel_plot_samples.tsv', sep='\t', index_col=0, header=0)
 
-fig = make_subplots(rows=1, cols=2, horizontal_spacing=0.32)
+fig = make_subplots(rows=1, cols=2, horizontal_spacing=0.3)
 
 
 transcript_y = ["<br>".join(textwrap.wrap(x, 15)) for x in list(funnel_plot_transcripts.index)]
@@ -161,7 +160,7 @@ fig.add_trace(
     col=1
 )
 
-sample_y = ["<br>".join(textwrap.wrap(x, 35)) for x in list(funnel_plot_samples.index)]
+sample_y = ["<br>".join(textwrap.wrap(x, 27)) for x in list(funnel_plot_samples.index)]
 fig.add_trace(
     go.Funnel(name='Samples', 
               y=sample_y,
@@ -170,7 +169,22 @@ fig.add_trace(
     col=2
 )
 
+fig.update_layout(showlegend=False,
+                  autosize=False,
+                  width=800,
+                  height=400,
+                  margin=dict(
+                      l=50,
+                      r=50,
+                      b=50,
+                      t=50,
+                      pad=2
+                  )
+)
+
+fig.write_image('../images/fantom_funnel.png')
 fig.write_html('../images/fantom_funnel.html')
+
 # glue('transcript-funnel', fig, display=False)
 ```
 
@@ -185,13 +199,18 @@ The amount of data that flows through the processing pipeline for the FANTOM5 da
 ## Aggregating Metadata
 To create consistent metadata for the samples (e.g. age, developmental stage, replicate status, etc), information was extracted from multiple sources (including GxA and additional data from each experiment), and sometimes manually curated or corrected. 
 
-Metadata about the experiments was collected from multiple sources, primarily the column data files accessed via ExpressionAtlas. This metadata was used to describe the the experimental design for ComBat. 
-The metadata collected includes, where available, sample identifier, individual identifier, age (exact), age (range), developmental stage, tissue type (Uberon term), sex, experiment, biological replicate identifier and technical replicate identifier. 
+**HPA, HBDR, and GTEx:**
+Metadata about the experiments was collected from multiple sources, primarily the column data files accessed via ExpressionAtlas. 
+This metadata was used to describe the the experimental design for ComBat. 
+The metadata collected includes (where available), sample identifier, individual identifier, age (exact), age (range), developmental stage, tissue type (as Uberon term), sex, experiment, biological replicate identifier and technical replicate identifier. 
 
-Both age variables are given in years and may include negative values (e.g. for a developing fetus). The age (range) variable contains uneven ranges, since this allows there to be an age-related factor that is compatible across the experiments. 
-These values had to be converted to common units manually, since they were incompatible between experiments, and age-related terms were missing in GxA for GTEx and HPA, although for GTEx it was possible to acquire via [its own website](https://storage.googleapis.com/gtex_analysis_v7/annotations/GTEx_v7_Annotations_SubjectPhenotypesDS.txt).
+Both age variables are given in years and may include negative values (e.g. for a developing fetus). 
+The age (range) variable contains uneven ranges, since this allows there to be an age-related factor that is compatible across the experiments. 
+These values had to be converted to common units, since they were incompatible between experiments, and age-related terms were missing in GxA for GTEx and HPA. 
+For GTEx it was possible to acquire this information via [its own website](https://storage.googleapis.com/gtex_analysis_v7/annotations/GTEx_v7_Annotations_SubjectPhenotypesDS.txt).
 
-FANTOM metadata was mostly taken from the human sample information file. 
+**FANTOM:**
+FANTOM metadata collection was mostly taken from the human sample information file. 
 There were discrepancies between ages and developmental stages in the FANTOM human samples file, for example, sample `FF:10027-101D9` is labelled as *thymus, adult, pool1* in the *Description* field, but as *0.5,0.5,0.83 years old infant* in the *Developmental Stage* field, and sample `FF:10209-103G2` has an age of ‘M’ and a sex of ‘28’. 
 There were also numerous typographical inconsistencies, for example, “3 year old child”, “3 years old child”, “25 year old”, “76” and “76 years old adult” all feature in the same column, amongst other errors. 
 For this reason, creating a cleaned experimental design file was laborious, but the resulting file has been sent to the FANTOM data curators so that they might make it officially available.
@@ -202,7 +221,200 @@ These were used to create the experimental design file.
 Note: there is an error in the original transcript expression file for one of these identifiers (`counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode`) such that it is missing the “tech” part of the the replicate label. 
 This was manually changed in my copy of the input file and the FANTOM data curation team was informed.
 
-While the data is in general mapped to the most specific Uberon terms possible, eleven broader tissue groups (for example brain, digestive system, connective tissue) were identified by hand.
-Individual tissues were mapped to these groups using `uberon-py`'s `Relations()` function.
+```{code-cell} ipython3
+:tags: [hide-input]
 
-[//]: # (TODO: Code for sample metadata here)
+# CREATE EXP DESIGN FILES: FANTOM
+```
+
+````{admonition} Code to harmonise meta-data for GxA data sets
+:class: dropdown
+
+```python
+
+# CREAT EXP DESIGN FILES: GXA
+import pandas as pd
+import numpy as np
+from uberon_py import obo 
+from helper_c05 import clean
+from myst_nb import glue
+
+uberon_obo_file = 'data/uberonext_obo.txt'
+uberon_obo = obo.Obo(uberon_obo_file,['UBERON','CL'])
+
+#HPA E-MTAB-2836
+col_data_hpa_file = 'data/experiments/hpa/E-MTAB-2836_colData.tsv'
+col_data_hpa = pd.read_csv(col_data_hpa_file,delimiter='\t', quotechar ='"')
+col_data_hpa[col_data_hpa=='  '] = None  # make empty elements None
+
+tissue_map_hpa = uberon_obo.map_tissue_name_to_uberon(col_data_hpa, 'organism_part')
+assert(len(tissue_map_hpa[tissue_map_hpa.UBERON.isna()]['name matched on'].unique()) == 0)
+
+# Make HPA experimental file:
+lines = []
+for index, row in col_data_hpa.iterrows():
+    lines.append([
+        index,
+        'HPA',
+        np.nan, #HPA doesn't have individual IDs
+        np.nan, #HPA doesn't have individual age
+        np.nan, #HPA doesn't have age ranges
+        row['developmental_stage'],
+        clean.clean_sex(row['sex']),
+        clean.clean_tissue(tissue_map_hpa.loc[index,'UBERON']),
+        'tissues - donor',
+        clean.clean_techrep(row['technical_replicate_group'],'HPA'),
+        np.nan, #HPA doesn't have Bio Reps or individual, so can't even try to calc
+    ])
+hpa_experimental_design = pd.DataFrame(lines,columns = experimental_design_columns)
+hpa_experimental_design.set_index('Sample ID',inplace=True)
+hpa_experimental_design.to_csv('data/experiments/hpa/hpa_experimental_design.csv')
+
+# GTEx
+col_data_gtex_file = 'data/experiments/gtex/E-MTAB-5214_colData.tsv'
+col_data_gtex = pd.read_csv(col_data_gtex_file,delimiter=',', quotechar ='"')
+col_data_gtex = col_data_gtex.rename(columns = {'Unnamed: 0':'Sample ID'})
+col_data_gtex.set_index('Sample ID',inplace=True)
+
+col_data_gtex[col_data_gtex=='  '] = None  #make empty elements None
+assert(set(col_data_gtex.disease.unique()) == set(['normal']))
+assert(set(col_data_gtex.clinical_information.unique()) == set([None,'not sun exposed', 'sun exposed']))
+
+tissue_map_gtex = uberon_obo.map_tissue_name_to_uberon(col_data_gtex,'organism_part')
+#Manually map the GTEx names that don't automatically map
+manual_mapping_gtex = {
+    'transformed skin fibroblast': None, #Alternative: ? 'UBERON:0002097',#skin of body
+    'ebv-transformed lymphocyte': None,  #Alternative: ? 'UBERON:0000178', #blood
+    'suprapubic skin': 'UBERON:0001415', #Alternative: ? 'UBERON:0002097',#skin of body
+}
+
+for index, row in tissue_map_gtex.iterrows():
+    if row['UBERON'] == None:
+        uberon_term = manual_mapping_gtex[row['name matched on']]
+        tissue_map_gtex.loc[index,'UBERON'] = uberon_term
+        
+num_excluded_samples = tissue_map_gtex[tissue_map_gtex.UBERON.isna()].shape[0]  # excluded because transformed cell 
+glue("Number of excluded GTEx samples", num_excluded_samples)
+samples_to_exclude = list(tissue_map_gtex[tissue_map_gtex.UBERON.isna()].index)
+
+#Use additional file to add age information
+gtex_additional_info = pd.read_csv('data/experiments/gtex/GTEx_v7_Annotations_SubjectPhenotypesDS.txt',sep='\t')
+gtex_additional_info = gtex_additional_info.rename(columns={'SUBJID':'individual','AGE':'age_range'})
+
+col_data_gtex = col_data_gtex.merge(gtex_additional_info[['age_range','individual']],on='individual',how="left").set_index(col_data_gtex.index)
+
+# Make gtex experimental file:
+lines = []
+for index, row in col_data_gtex.iterrows():
+    lines.append([
+        index,
+        'GTEx',
+        row['individual'],
+        np.nan,#GTEx doesn't have individual age
+        row['age_range'],
+        'adult',
+        clean_sex(row['sex']),
+        clean_tissue(tissue_map_gtex.loc[index,'UBERON']),
+        'tissues - donor',
+        clean_techrep(row['technical_replicate_group'],'GTEx'),
+        np.nan, #TODO: Try to calculate bio reps based on same individual + tissue, but different tech rep?
+    ])
+gtex_experimental_design = pd.DataFrame(lines,columns = experimental_design_columns)
+gtex_experimental_design.set_index('Sample ID',inplace=True)
+gtex_experimental_design.to_csv('data/experiments/gtex/gtex_experimental_design.csv')
+
+# HDBR
+col_data_hdbr_file = 'data/experiments/hdbr/E-MTAB-4840_colData.tsv'
+col_data_hdbr = pd.read_csv(col_data_hdbr_file, delimiter='\t')
+
+# tissue mapping:
+tissue_map_hdbr = uberon_obo.map_tissue_name_to_uberon(col_data_hdbr,'organism_part')
+for index in tissue_map_hdbr[tissue_map_hdbr.UBERON.isna()]['name matched on'].index:
+    tissue_map_hdbr.loc[index,'UBERON'] = 'UBERON:0000955' # Brain
+assert(tissue_map_hdbr[tissue_map_hdbr.UBERON.isna()].shape[0]==0)
+
+# clean age and sex metadata:
+col_data_hdbr['age'] = col_data_hdbr['developmental_stage'].map(clean.MapHDBR.age)
+col_data_hdbr['sex'] = col_data_hdbr['karyotype'].map(clean.MapHDBR.sex)
+
+# Make experimental file:
+lines = []
+for index, row in col_data_hdbr.iterrows():
+    lines.append([
+        index,
+        'HDBR',
+        'HDBR-'+str(row['individual']),
+        row['age'],
+        np.nan,#HDBR doesn't have age ranges
+        'fetus',
+        row['sex'],
+        clean_tissue(tissue_map_hdbr.loc[index,'UBERON']),
+        'tissues - donor',
+        np.nan, # TODO:? Calculate based on "block"
+        np.nan, # TODO:? Define from individual and tissue IDs different "block"
+    ])
+hdbr_experimental_design = pd.DataFrame(lines,columns = experimental_design_columns)
+hdbr_experimental_design.set_index('Sample ID',inplace=True)
+hdbr_experimental_design.to_csv('data/experiments/hdbr/hdbr_experimental_design.csv')
+```
+
+````
+
++++
+
+```{admonition} Code: combine experimental design
+:class: dropdown
+
+```python
+import pandas as pd
+from myst_nb import glue
+
+# read in experimental design files:
+hdbr_experimental_design=pd.read_csv(
+    'data/experiments/hdbr/hdbr_experimental_design.csv', 
+    index_col='Sample ID')
+fantom_experimental_design=pd.read_csv(
+    'data/experiments/fantom/fantom_experimental_design.csv', 
+    index_col='Sample ID')
+hpa_experimental_design=pd.read_csv(
+    'data/experiments/hpa/hpa_experimental_design.csv', 
+    index_col='Sample ID')
+gtex_experimental_design=pd.read_csv(
+    'data/experiments/gtex/gtex_experimental_design.csv', 
+    index_col='Sample ID')
+
+# combine:
+combined_design =  pd.concat([hdbr_experimental_design, fantom_experimental_design, hpa_experimental_design, gtex_experimental_design])
+
+# drop non-tissue-specific:
+combined_design.dropna(subset =['Tissue (UBERON)'], inplace=True)
+assert(combined_design[combined_design['Tissue (UBERON)'].isna()].shape[0] == 0)
+
+# save
+combined_design.to_csv('data/combined/combined_experimental_design.csv')
+```
+
+````
+
+```{code-cell} ipython3
+:tags: [hide-input]
+
+# # load combined_design + add tissue groups info and save/print.
+
+# # glue
+# glue('number of samples in combined data set', combined_design.shape[0])
+# glue('number of Uberon tissue types in combined data set', combined_design['Tissue (UBERON)'].unique().shape[0])
+# glue('number of individuals in combined data set', combined_design['Individual ID'].unique().shape[0]-1)
+
+# print('sex breakdown (of samples):\n',combined_design['Sex'].value_counts())
+# print('sample type breakdown:\n',combined_design['Sample Type'].value_counts())
+# print('experiment breakdown:\n',combined_design['Experiment'].value_counts())
+```
+
+### Tissue groups
+While the data is in general mapped to the most specific Uberon terms possible, eleven broader tissue groups (for example brain, digestive system, connective tissue) were identified by hand.
+Individual tissues were mapped to these groups using `uberon-py`'s `Relations()` function - the code doing this is shown in the {ref}`the second example of uberon-py usage<tissue-group-mapping>` in the next section.
+
+```{code-cell} ipython3
+# Code that adds tissue groups to the combined-design file
+```

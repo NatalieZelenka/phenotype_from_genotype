@@ -7,11 +7,3 @@ FilP’s low coverage of tissues (due to its reliance on the FANTOM dataset) lim
 Nonetheless, despite the incremental improvement, FilP met its goals in increasing the precision of DcGO predictions. Moreover, all occasions when FilP wrongly filtered out (true) predictions, appear to be explainable due to the sample condition of the gene expression data.
 
 The results show that including gene expression information does improve results of a structure-based predictor, and that this improvement is extremely unlikely to be due to chance. The overall improvement is very slight, but this might be improved by a more comprehensive coverage of gene expression data for tissues, or by an improved mapping of tissues to ontology terms.
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

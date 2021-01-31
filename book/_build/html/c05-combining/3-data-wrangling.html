@@ -58,7 +58,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5.4. The uberon-py package" href="4-uberon.html" />
-    <link rel="prev" title="5.2. Data" href="2-data.html" />
+    <link rel="prev" title="5.2. Data Acquisition" href="2-data.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -263,7 +263,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2-data.html">
-     5.2. Data
+     5.2. Data Acquisition
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -289,17 +289,22 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     5.6. Results
+     5.6. Results and outputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-results.html#combined-data-set">
+     5.7. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-discussion.html">
-     5.7. Discussion
+     5.8. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="8-future-work.html">
-     5.8. Future Work
+     5.9. Future Work
     </a>
    </li>
   </ul>
@@ -526,7 +531,7 @@ It’s functionality is described in <a class="reference internal" href="4-ubero
 <h2><span class="section-number">5.3.1. </span>Obtaining raw expression per gene for healthy human tissues<a class="headerlink" href="#obtaining-raw-expression-per-gene-for-healthy-human-tissues" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="data-acquisition">
 <h3><span class="section-number">5.3.1.1. </span>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Permalink to this headline">¶</a></h3>
-<p>As mentioned in <span class="xref std std-ref">data-aquisition</span>, for the HPA, GTeX and HDBR experiments, count data were available through the <em>ExpressionAtlas</em> R package<span class="bibtex" id="id1">[Keays2018-pg]</span>, and the FANTOM dataset was downloaded directly.</p>
+<p>As mentioned in <span class="xref std std-ref">data-aquisition</span>, for the HPA, GTeX and HDBR experiments, count data were available through the <em>ExpressionAtlas</em> R package<a class="bibtex reference internal" href="../end-matter/reference.html#keays2018-pg" id="id1">[134]</a>, and the FANTOM dataset was downloaded directly.</p>
 </div>
 <div class="section" id="mapping-from-transcript-to-gene">
 <h3><span class="section-number">5.3.1.2. </span>Mapping from transcript to gene<a class="headerlink" href="#mapping-from-transcript-to-gene" title="Permalink to this headline">¶</a></h3>
@@ -577,7 +582,7 @@ The disagreements between the two mappings revealed some inconsistencies with th
 <span class="n">funnel_plot_transcripts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/experiments/fantom/funnel_plot_transcripts.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">funnel_plot_samples</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/experiments/fantom/funnel_plot_samples.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">horizontal_spacing</span><span class="o">=</span><span class="mf">0.32</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">horizontal_spacing</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
 
 <span class="n">transcript_y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">funnel_plot_transcripts</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
@@ -589,7 +594,7 @@ The disagreements between the two mappings revealed some inconsistencies with th
     <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
 <span class="p">)</span>
 
-<span class="n">sample_y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">35</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">funnel_plot_samples</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
+<span class="n">sample_y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">27</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">funnel_plot_samples</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
     <span class="n">go</span><span class="o">.</span><span class="n">Funnel</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Samples&#39;</span><span class="p">,</span> 
               <span class="n">y</span><span class="o">=</span><span class="n">sample_y</span><span class="p">,</span>
@@ -598,7 +603,22 @@ The disagreements between the two mappings revealed some inconsistencies with th
     <span class="n">col</span><span class="o">=</span><span class="mi">2</span>
 <span class="p">)</span>
 
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">autosize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+                  <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+                  <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                      <span class="n">l</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                      <span class="n">r</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                      <span class="n">b</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                      <span class="n">t</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                      <span class="n">pad</span><span class="o">=</span><span class="mi">2</span>
+                  <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">write_image</span><span class="p">(</span><span class="s1">&#39;../images/fantom_funnel.png&#39;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s1">&#39;../images/fantom_funnel.html&#39;</span><span class="p">)</span>
+
 <span class="c1"># glue(&#39;transcript-funnel&#39;, fig, display=False)</span>
 </pre></div>
 </div>
@@ -613,11 +633,16 @@ The disagreements between the two mappings revealed some inconsistencies with th
 <div class="section" id="aggregating-metadata">
 <h2><span class="section-number">5.3.3. </span>Aggregating Metadata<a class="headerlink" href="#aggregating-metadata" title="Permalink to this headline">¶</a></h2>
 <p>To create consistent metadata for the samples (e.g. age, developmental stage, replicate status, etc), information was extracted from multiple sources (including GxA and additional data from each experiment), and sometimes manually curated or corrected.</p>
-<p>Metadata about the experiments was collected from multiple sources, primarily the column data files accessed via ExpressionAtlas. This metadata was used to describe the the experimental design for ComBat.
-The metadata collected includes, where available, sample identifier, individual identifier, age (exact), age (range), developmental stage, tissue type (Uberon term), sex, experiment, biological replicate identifier and technical replicate identifier.</p>
-<p>Both age variables are given in years and may include negative values (e.g. for a developing fetus). The age (range) variable contains uneven ranges, since this allows there to be an age-related factor that is compatible across the experiments.
-These values had to be converted to common units manually, since they were incompatible between experiments, and age-related terms were missing in GxA for GTEx and HPA, although for GTEx it was possible to acquire via <a class="reference external" href="https://storage.googleapis.com/gtex_analysis_v7/annotations/GTEx_v7_Annotations_SubjectPhenotypesDS.txt">its own website</a>.</p>
-<p>FANTOM metadata was mostly taken from the human sample information file.
+<p><strong>HPA, HBDR, and GTEx:</strong>
+Metadata about the experiments was collected from multiple sources, primarily the column data files accessed via ExpressionAtlas.
+This metadata was used to describe the the experimental design for ComBat.
+The metadata collected includes (where available), sample identifier, individual identifier, age (exact), age (range), developmental stage, tissue type (as Uberon term), sex, experiment, biological replicate identifier and technical replicate identifier.</p>
+<p>Both age variables are given in years and may include negative values (e.g. for a developing fetus).
+The age (range) variable contains uneven ranges, since this allows there to be an age-related factor that is compatible across the experiments.
+These values had to be converted to common units, since they were incompatible between experiments, and age-related terms were missing in GxA for GTEx and HPA.
+For GTEx it was possible to acquire this information via <a class="reference external" href="https://storage.googleapis.com/gtex_analysis_v7/annotations/GTEx_v7_Annotations_SubjectPhenotypesDS.txt">its own website</a>.</p>
+<p><strong>FANTOM:</strong>
+FANTOM metadata collection was mostly taken from the human sample information file.
 There were discrepancies between ages and developmental stages in the FANTOM human samples file, for example, sample <code class="docutils literal notranslate"><span class="pre">FF:10027-101D9</span></code> is labelled as <em>thymus, adult, pool1</em> in the <em>Description</em> field, but as <em>0.5,0.5,0.83 years old infant</em> in the <em>Developmental Stage</em> field, and sample <code class="docutils literal notranslate"><span class="pre">FF:10209-103G2</span></code> has an age of ‘M’ and a sex of ‘28’.
 There were also numerous typographical inconsistencies, for example, “3 year old child”, “3 years old child”, “25 year old”, “76” and “76 years old adult” all feature in the same column, amongst other errors.
 For this reason, creating a cleaned experimental design file was laborious, but the resulting file has been sent to the FANTOM data curators so that they might make it officially available.</p>
@@ -625,8 +650,199 @@ For this reason, creating a cleaned experimental design file was laborious, but 
 These were used to create the experimental design file.</p>
 <p>Note: there is an error in the original transcript expression file for one of these identifiers (<code class="docutils literal notranslate"><span class="pre">counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode</span></code>) such that it is missing the “tech” part of the the replicate label.
 This was manually changed in my copy of the input file and the FANTOM data curation team was informed.</p>
-<p>While the data is in general mapped to the most specific Uberon terms possible, eleven broader tissue groups (for example brain, digestive system, connective tissue) were identified by hand.
-Individual tissues were mapped to these groups using <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code>’s <code class="docutils literal notranslate"><span class="pre">Relations()</span></code> function.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CREATE EXP DESIGN FILES: FANTOM</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Code to harmonise meta-data for GxA data sets</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># CREAT EXP DESIGN FILES: GXA</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">uberon_py</span> <span class="kn">import</span> <span class="n">obo</span> 
+<span class="kn">from</span> <span class="nn">helper_c05</span> <span class="kn">import</span> <span class="n">clean</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">uberon_obo_file</span> <span class="o">=</span> <span class="s1">&#39;data/uberonext_obo.txt&#39;</span>
+<span class="n">uberon_obo</span> <span class="o">=</span> <span class="n">obo</span><span class="o">.</span><span class="n">Obo</span><span class="p">(</span><span class="n">uberon_obo_file</span><span class="p">,[</span><span class="s1">&#39;UBERON&#39;</span><span class="p">,</span><span class="s1">&#39;CL&#39;</span><span class="p">])</span>
+
+<span class="c1">#HPA E-MTAB-2836</span>
+<span class="n">col_data_hpa_file</span> <span class="o">=</span> <span class="s1">&#39;data/experiments/hpa/E-MTAB-2836_colData.tsv&#39;</span>
+<span class="n">col_data_hpa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">col_data_hpa_file</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">quotechar</span> <span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+<span class="n">col_data_hpa</span><span class="p">[</span><span class="n">col_data_hpa</span><span class="o">==</span><span class="s1">&#39;  &#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># make empty elements None</span>
+
+<span class="n">tissue_map_hpa</span> <span class="o">=</span> <span class="n">uberon_obo</span><span class="o">.</span><span class="n">map_tissue_name_to_uberon</span><span class="p">(</span><span class="n">col_data_hpa</span><span class="p">,</span> <span class="s1">&#39;organism_part&#39;</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tissue_map_hpa</span><span class="p">[</span><span class="n">tissue_map_hpa</span><span class="o">.</span><span class="n">UBERON</span><span class="o">.</span><span class="n">isna</span><span class="p">()][</span><span class="s1">&#39;name matched on&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Make HPA experimental file:</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">col_data_hpa</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+        <span class="n">index</span><span class="p">,</span>
+        <span class="s1">&#39;HPA&#39;</span><span class="p">,</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="c1">#HPA doesn&#39;t have individual IDs</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="c1">#HPA doesn&#39;t have individual age</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="c1">#HPA doesn&#39;t have age ranges</span>
+        <span class="n">row</span><span class="p">[</span><span class="s1">&#39;developmental_stage&#39;</span><span class="p">],</span>
+        <span class="n">clean</span><span class="o">.</span><span class="n">clean_sex</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]),</span>
+        <span class="n">clean</span><span class="o">.</span><span class="n">clean_tissue</span><span class="p">(</span><span class="n">tissue_map_hpa</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;UBERON&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;tissues - donor&#39;</span><span class="p">,</span>
+        <span class="n">clean</span><span class="o">.</span><span class="n">clean_techrep</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;technical_replicate_group&#39;</span><span class="p">],</span><span class="s1">&#39;HPA&#39;</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="c1">#HPA doesn&#39;t have Bio Reps or individual, so can&#39;t even try to calc</span>
+    <span class="p">])</span>
+<span class="n">hpa_experimental_design</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="n">experimental_design_columns</span><span class="p">)</span>
+<span class="n">hpa_experimental_design</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Sample ID&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">hpa_experimental_design</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data/experiments/hpa/hpa_experimental_design.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># GTEx</span>
+<span class="n">col_data_gtex_file</span> <span class="o">=</span> <span class="s1">&#39;data/experiments/gtex/E-MTAB-5214_colData.tsv&#39;</span>
+<span class="n">col_data_gtex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">col_data_gtex_file</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">quotechar</span> <span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+<span class="n">col_data_gtex</span> <span class="o">=</span> <span class="n">col_data_gtex</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">:</span><span class="s1">&#39;Sample ID&#39;</span><span class="p">})</span>
+<span class="n">col_data_gtex</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Sample ID&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">col_data_gtex</span><span class="p">[</span><span class="n">col_data_gtex</span><span class="o">==</span><span class="s1">&#39;  &#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1">#make empty elements None</span>
+<span class="k">assert</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">col_data_gtex</span><span class="o">.</span><span class="n">disease</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;normal&#39;</span><span class="p">]))</span>
+<span class="k">assert</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">col_data_gtex</span><span class="o">.</span><span class="n">clinical_information</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="nb">set</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="s1">&#39;not sun exposed&#39;</span><span class="p">,</span> <span class="s1">&#39;sun exposed&#39;</span><span class="p">]))</span>
+
+<span class="n">tissue_map_gtex</span> <span class="o">=</span> <span class="n">uberon_obo</span><span class="o">.</span><span class="n">map_tissue_name_to_uberon</span><span class="p">(</span><span class="n">col_data_gtex</span><span class="p">,</span><span class="s1">&#39;organism_part&#39;</span><span class="p">)</span>
+<span class="c1">#Manually map the GTEx names that don&#39;t automatically map</span>
+<span class="n">manual_mapping_gtex</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;transformed skin fibroblast&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="c1">#Alternative: ? &#39;UBERON:0002097&#39;,#skin of body</span>
+    <span class="s1">&#39;ebv-transformed lymphocyte&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1">#Alternative: ? &#39;UBERON:0000178&#39;, #blood</span>
+    <span class="s1">&#39;suprapubic skin&#39;</span><span class="p">:</span> <span class="s1">&#39;UBERON:0001415&#39;</span><span class="p">,</span> <span class="c1">#Alternative: ? &#39;UBERON:0002097&#39;,#skin of body</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tissue_map_gtex</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;UBERON&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">uberon_term</span> <span class="o">=</span> <span class="n">manual_mapping_gtex</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;name matched on&#39;</span><span class="p">]]</span>
+        <span class="n">tissue_map_gtex</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;UBERON&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uberon_term</span>
+        
+<span class="n">num_excluded_samples</span> <span class="o">=</span> <span class="n">tissue_map_gtex</span><span class="p">[</span><span class="n">tissue_map_gtex</span><span class="o">.</span><span class="n">UBERON</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># excluded because transformed cell </span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;Number of excluded GTEx samples&quot;</span><span class="p">,</span> <span class="n">num_excluded_samples</span><span class="p">)</span>
+<span class="n">samples_to_exclude</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tissue_map_gtex</span><span class="p">[</span><span class="n">tissue_map_gtex</span><span class="o">.</span><span class="n">UBERON</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1">#Use additional file to add age information</span>
+<span class="n">gtex_additional_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/experiments/gtex/GTEx_v7_Annotations_SubjectPhenotypesDS.txt&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">gtex_additional_info</span> <span class="o">=</span> <span class="n">gtex_additional_info</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;SUBJID&#39;</span><span class="p">:</span><span class="s1">&#39;individual&#39;</span><span class="p">,</span><span class="s1">&#39;AGE&#39;</span><span class="p">:</span><span class="s1">&#39;age_range&#39;</span><span class="p">})</span>
+
+<span class="n">col_data_gtex</span> <span class="o">=</span> <span class="n">col_data_gtex</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">gtex_additional_info</span><span class="p">[[</span><span class="s1">&#39;age_range&#39;</span><span class="p">,</span><span class="s1">&#39;individual&#39;</span><span class="p">]],</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;individual&#39;</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">col_data_gtex</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># Make gtex experimental file:</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">col_data_gtex</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+        <span class="n">index</span><span class="p">,</span>
+        <span class="s1">&#39;GTEx&#39;</span><span class="p">,</span>
+        <span class="n">row</span><span class="p">[</span><span class="s1">&#39;individual&#39;</span><span class="p">],</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="c1">#GTEx doesn&#39;t have individual age</span>
+        <span class="n">row</span><span class="p">[</span><span class="s1">&#39;age_range&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;adult&#39;</span><span class="p">,</span>
+        <span class="n">clean_sex</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]),</span>
+        <span class="n">clean_tissue</span><span class="p">(</span><span class="n">tissue_map_gtex</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;UBERON&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;tissues - donor&#39;</span><span class="p">,</span>
+        <span class="n">clean_techrep</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;technical_replicate_group&#39;</span><span class="p">],</span><span class="s1">&#39;GTEx&#39;</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="c1">#TODO: Try to calculate bio reps based on same individual + tissue, but different tech rep?</span>
+    <span class="p">])</span>
+<span class="n">gtex_experimental_design</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="n">experimental_design_columns</span><span class="p">)</span>
+<span class="n">gtex_experimental_design</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Sample ID&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">gtex_experimental_design</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data/experiments/gtex/gtex_experimental_design.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># HDBR</span>
+<span class="n">col_data_hdbr_file</span> <span class="o">=</span> <span class="s1">&#39;data/experiments/hdbr/E-MTAB-4840_colData.tsv&#39;</span>
+<span class="n">col_data_hdbr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">col_data_hdbr_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># tissue mapping:</span>
+<span class="n">tissue_map_hdbr</span> <span class="o">=</span> <span class="n">uberon_obo</span><span class="o">.</span><span class="n">map_tissue_name_to_uberon</span><span class="p">(</span><span class="n">col_data_hdbr</span><span class="p">,</span><span class="s1">&#39;organism_part&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">tissue_map_hdbr</span><span class="p">[</span><span class="n">tissue_map_hdbr</span><span class="o">.</span><span class="n">UBERON</span><span class="o">.</span><span class="n">isna</span><span class="p">()][</span><span class="s1">&#39;name matched on&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="n">tissue_map_hdbr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;UBERON&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;UBERON:0000955&#39;</span> <span class="c1"># Brain</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">tissue_map_hdbr</span><span class="p">[</span><span class="n">tissue_map_hdbr</span><span class="o">.</span><span class="n">UBERON</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># clean age and sex metadata:</span>
+<span class="n">col_data_hdbr</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">col_data_hdbr</span><span class="p">[</span><span class="s1">&#39;developmental_stage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">clean</span><span class="o">.</span><span class="n">MapHDBR</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+<span class="n">col_data_hdbr</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">col_data_hdbr</span><span class="p">[</span><span class="s1">&#39;karyotype&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">clean</span><span class="o">.</span><span class="n">MapHDBR</span><span class="o">.</span><span class="n">sex</span><span class="p">)</span>
+
+<span class="c1"># Make experimental file:</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">col_data_hdbr</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+        <span class="n">index</span><span class="p">,</span>
+        <span class="s1">&#39;HDBR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;HDBR-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;individual&#39;</span><span class="p">]),</span>
+        <span class="n">row</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="c1">#HDBR doesn&#39;t have age ranges</span>
+        <span class="s1">&#39;fetus&#39;</span><span class="p">,</span>
+        <span class="n">row</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">],</span>
+        <span class="n">clean_tissue</span><span class="p">(</span><span class="n">tissue_map_hdbr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;UBERON&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;tissues - donor&#39;</span><span class="p">,</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="c1"># TODO:? Calculate based on &quot;block&quot;</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="c1"># TODO:? Define from individual and tissue IDs different &quot;block&quot;</span>
+    <span class="p">])</span>
+<span class="n">hdbr_experimental_design</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="n">experimental_design_columns</span><span class="p">)</span>
+<span class="n">hdbr_experimental_design</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Sample ID&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">hdbr_experimental_design</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data/experiments/hdbr/hdbr_experimental_design.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Code: combine experimental design</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="c1"># read in experimental design files:</span>
+<span class="n">hdbr_experimental_design</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s1">&#39;data/experiments/hdbr/hdbr_experimental_design.csv&#39;</span><span class="p">,</span> 
+    <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Sample ID&#39;</span><span class="p">)</span>
+<span class="n">fantom_experimental_design</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s1">&#39;data/experiments/fantom/fantom_experimental_design.csv&#39;</span><span class="p">,</span> 
+    <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Sample ID&#39;</span><span class="p">)</span>
+<span class="n">hpa_experimental_design</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s1">&#39;data/experiments/hpa/hpa_experimental_design.csv&#39;</span><span class="p">,</span> 
+    <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Sample ID&#39;</span><span class="p">)</span>
+<span class="n">gtex_experimental_design</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s1">&#39;data/experiments/gtex/gtex_experimental_design.csv&#39;</span><span class="p">,</span> 
+    <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Sample ID&#39;</span><span class="p">)</span>
+
+<span class="c1"># combine:</span>
+<span class="n">combined_design</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">hdbr_experimental_design</span><span class="p">,</span> <span class="n">fantom_experimental_design</span><span class="p">,</span> <span class="n">hpa_experimental_design</span><span class="p">,</span> <span class="n">gtex_experimental_design</span><span class="p">])</span>
+
+<span class="c1"># drop non-tissue-specific:</span>
+<span class="n">combined_design</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;Tissue (UBERON)&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">combined_design</span><span class="p">[</span><span class="n">combined_design</span><span class="p">[</span><span class="s1">&#39;Tissue (UBERON)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># save</span>
+<span class="n">combined_design</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data/combined/combined_experimental_design.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+```{code-cell} ipython3
+:tags: [hide-input]
+
+# # load combined_design + add tissue groups info and save/print.
+
+# # glue
+# glue(&#39;number of samples in combined data set&#39;, combined_design.shape[0])
+# glue(&#39;number of Uberon tissue types in combined data set&#39;, combined_design[&#39;Tissue (UBERON)&#39;].unique().shape[0])
+# glue(&#39;number of individuals in combined data set&#39;, combined_design[&#39;Individual ID&#39;].unique().shape[0]-1)
+
+# print(&#39;sex breakdown (of samples):\n&#39;,combined_design[&#39;Sex&#39;].value_counts())
+# print(&#39;sample type breakdown:\n&#39;,combined_design[&#39;Sample Type&#39;].value_counts())
+# print(&#39;experiment breakdown:\n&#39;,combined_design[&#39;Experiment&#39;].value_counts())
+```
+
+### Tissue groups
+While the data is in general mapped to the most specific Uberon terms possible, eleven broader tissue groups (for example brain, digestive system, connective tissue) were identified by hand.
+Individual tissues were mapped to these groups using `uberon-py`&#39;s `Relations()` function - the code doing this is shown in the {ref}`the second example of uberon-py usage&lt;tissue-group-mapping&gt;` in the next section.
+
+```{code-cell} ipython3
+# Code that adds tissue groups to the combined-design file
+```
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -658,7 +874,7 @@ Individual tissues were mapped to these groups using <code class="docutils liter
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="2-data.html" title="previous page"><span class="section-number">5.2. </span>Data</a>
+    <a class='left-prev' id="prev-link" href="2-data.html" title="previous page"><span class="section-number">5.2. </span>Data Acquisition</a>
     <a class='right-next' id="next-link" href="4-uberon.html" title="next page"><span class="section-number">5.4. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
 
     </div>

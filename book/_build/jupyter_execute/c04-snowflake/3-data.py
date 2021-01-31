@@ -120,11 +120,3 @@ Implausible distributions of SNPs in the input cohort (given the background) are
 
 ##### Mapping phenotypes to CAGI measurements
 [//]: # (TODO: Write)
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

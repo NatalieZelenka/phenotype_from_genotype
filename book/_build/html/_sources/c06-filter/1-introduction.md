@@ -2,7 +2,8 @@
 [//]: # (TODO: Add cross-ref)
 [//]: # (TODO: Release mapping data separately)
 
-As previously mentioned, there are many genes/proteins for which we have sequence information, but not functional information. This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes. 
+As previously mentioned, there are many genes/proteins for which we have sequence information, but not functional information. 
+This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes. 
 
 There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information (e.g. via the CAFA competitions{cite}`Zhou2019-jk,Jiang2016-rz,Radivojac2013-wh`). If successful, this would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments. Such knowledge could be used to identify genes or proteins for future treatments. An accurate model might also be able to give us an insight into the mechanisms behind such functions, giving further insight into how an effective therapy might be designed.
 
@@ -55,11 +56,3 @@ A flow chart showing how FilP works.
 The filter is a simple rule-based model. Such models have not been very successful, as is the case for most models. This work is simply meant to show that including tissue-specific information can improve the results of protein function prediction, suggesting that it should be included in future ensemble predictors.
 
 Such a tool could be used on top of any protein function predictor, but would provide the most value for predictors that rely on structural or sequence similarity
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

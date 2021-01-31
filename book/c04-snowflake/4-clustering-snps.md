@@ -116,13 +116,3 @@ A range of clustering methods were trialled on the phenotype predictor in an att
 [//]: # (TODO: Explain meaningfulness, show DcGO prediction, where SNP is in a gene which is not expressed in the tissue)
 
 +++
-
-
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```
