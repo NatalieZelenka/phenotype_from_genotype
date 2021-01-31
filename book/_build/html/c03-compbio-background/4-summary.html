@@ -272,8 +272,18 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/3-data-wrangling.html#left-and-samples-right-along-with-the-number-which-remained-after-each-stage">
+     5.4. (left) and samples (right), along with the number which remained after each stage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/3-data-wrangling.html#of-data-cleaning">
+     5.5. of data cleaning.
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/4-uberon.html">
-     5.4. The
+     5.6. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -284,22 +294,22 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/5-batch-correction.html">
-     5.5. Batch correction
+     5.7. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/6-results.html">
-     5.6. Results
+     5.8. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/7-discussion.html">
-     5.7. Discussion
+     5.9. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/8-future-work.html">
-     5.8. Future Work
+     5.10. Future Work
     </a>
    </li>
   </ul>
@@ -424,26 +434,10 @@
                 
   <div class="section" id="summary">
 <h1><span class="section-number">3.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
-<p>The purpose of this introductory chapter was to provide an overview of how we think phenotype arises from genotype. It’s also to explain why it’s a hard problem!</p>
+<p>The purpose of this introductory chapter was to provide an overview of how we think phenotype arises from genotype.
+It’s also to explain why it’s a hard problem!</p>
 <p>To summarise, there are multiple kinds of genetic variation, and even the simplest (the SNP) can exist on multiple parts of the genome, and may or may not affect structure or function of transcribed proteins. Even if the SNP is in a coding region, and is non-synonymous (affects protein structure), it may fall in a disordered region of a protein (leaving us without structural information), we may not know where that protein is transcribed, or it may affect the transcription of multiple different proteins. Furthermore, the SNP may affect phenotype differently with homozygous or heterozygous calls, and the protein may affect phenotype by influencing a network of other proteins, or the protein may exist as a redundant part of a pathway which will only affect phenotype if three other SNPs have specific calls. Even after all this, the presentation of many phenotype depends heavily on the environment.</p>
-<p>Given all this complexity, it may seem no wonder that phenotype prediction is currently inaccurate<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id1">[1]</a>. However, diverse information about biological entities exists, for example gene and protein sequence, protein structure, variant frequencies and functions, and gene expression. Multi-omics approaches that combine these data types have been successful at elucidating mechanisms behind certain phenotypes<a class="bibtex reference internal" href="../end-matter/reference.html#hasin2017-tk" id="id2">[2]</a><a class="bibtex reference internal" href="../end-matter/reference.html#ritchie2015-ds" id="id3">[3]</a><a class="bibtex reference internal" href="../end-matter/reference.html#kristensen2014-iw" id="id4">[4]</a>. There is now the opportunity for genome-wide phenotype predictions to do the same. Obtaining an accurate prediction of phenotype and protein function, even for a subclass of variants/proteins, has the potential to greatly impact people. A method which predicts phenotype directly from the molecular biology would be desirable as it would create a model for how phenotype emerges from genotype, in addition to predictions for important genes.</p>
-<hr class="docutils" />
-<p><strong>Chapter References</strong></p>
-<p id="bibtex-bibliography-c03-compbio-background/4-summary-0"><dl class="citation">
-<dt class="bibtex label" id="zhou2019-jk"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Naihui Zhou, Yuxiang Jiang, Timothy R Bergquist, Alexandra J Lee, Balint Z Kacsoh, Alex W Crocker, Kimberley A Lewis, George Georghiou, Huy N Nguyen, Md Nafiz Hamid, Larry Davis, Tunca Dogan, Volkan Atalay, Ahmet S Rifaioglu, Alperen Dalkiran, Rengul Cetin-Atalay, Chengxin Zhang, Rebecca L Hurto, Peter L Freddolino, Yang Zhang, Prajwal Bhat, Fran Supek, José M Fernández, Branislava Gemovic, Vladimir R Perovic, Radoslav S Davidović, Neven Sumonja, Nevena Veljkovic, Ehsaneddin Asgari, Mohammad R K Mofrad, Giuseppe Profiti, Castrense Savojardo, Pier Luigi Martelli, Rita Casadio, Florian Boecker, Indika Kahanda, Natalie Thurlby, Alice C McHardy, Alexandre Renaux, Rabie Saidi, Julian Gough, Alex A Freitas, Magdalena Antczak, Fabio Fabris, Mark N Wass, Jie Hou, Jianlin Cheng, Zheng Wang, Alfonso E Romero, Alberto Paccanaro, Haixuan Yang, Tatyana Goldberg, Chenguang Zhao, Liisa Holm, Petri Törönen, Alan J Medlar, Elaine Zosa, Itamar Borukhov, Ilya Novikov, Angela Wilkins, Olivier Lichtarge, Po-Han Chi, Wei-Cheng Tseng, Michal Linial, Peter W Rose, Christophe Dessimoz, Vedrana Vidulin, Saso Dzeroski, Ian Sillitoe, Sayoni Das, Jonathan Gill Lees, David T Jones, Cen Wan, Domenico Cozzetto, Rui Fa, Mateo Torres, Alex Wiarwick Vesztrocy, Jose Manuel Rodriguez, Michael L Tress, Marco Frasca, Marco Notaro, Giuliano Grossi, Alessandro Petrini, Matteo Re, Giorgio Valentini, Marco Mesiti, Daniel B Roche, Jonas Reeb, David W Ritchie, Sabeur Aridhi, Seyed Ziaeddin Alborzi, Marie-Dominique Devignes, Koo Da Chen Emily, Richard Bonneau, Vladimir Gligorijević, Meet Barot, Hai Fang, Stefano Toppo, Enrico Lavezzo, Marco Falda, Michele Berselli, Silvio C E Tosatto, Marco Carraro, Damiano Piovesan, Hafeez Ur Rehman, Qizhong Mao, Shanshan Zhang, Slobodan Vucetic, Gage S Black, Dane Jo, Dallas J Larsen, Ashton R Omdahl, Luke W Sagers, Erica Suh, Jonathan B Dayton, Liam J McGuffin, Danielle A Brackenridge, Patricia C Babbitt, Jeffrey M Yunes, Paolo Fontana, Feng Zhang, Shanfeng Zhu, Ronghui You, Zihan Zhang, Suyang Dai, Shuwei Yao, Weidong Tian, Renzhi Cao, Caleb Chandler, Miguel Amezola, Devon Johnson, Jia-Ming Chang, Wen-Hung Liao, Yi-Wei Liu, Stefano Pascarelli, Yotam Frank, Robert Hoehndorf, Maxat Kulmanov, Imane Boudellioua, Gianfranco Politano, Stefano Di Carlo, Alfredo Benso, Kai Hakala, Filip Ginter, Farrokh Mehryary, Suwisa Kaewphan, Jari Björne, Hans Moen, Martti E E Tolvanen, Tapio Salakoski, Daisuke Kihara, Aashish Jain, Tomislav Šmuc, Adrian Altenhoff, Asa Ben-Hur, Burkhard Rost, Steven E Brenner, Christine A Orengo, Constance J Jeffery, Giovanni Bosco, Deborah A Hogan, Maria J Martin, Claire O’Donovan, Sean D Mooney, Casey S Greene, Predrag Radivojac, and Iddo Friedberg. The CAFA challenge reports improved protein function prediction and new functional annotations for hundreds of genes through experimental screens. <em>bioRxiv</em>, pages 653105, May 2019.</p>
-</dd>
-<dt class="bibtex label" id="hasin2017-tk"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Yehudit Hasin, Marcus Seldin, and Aldons Lusis. Multi-omics approaches to disease. <em>Genome Biol.</em>, 2017. URL: <a class="reference external" href="http://dx.doi.org/10.1186/s13059-017-1215-1">http://dx.doi.org/10.1186/s13059-017-1215-1</a>.</p>
-</dd>
-<dt class="bibtex label" id="ritchie2015-ds"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>Marylyn D Ritchie, Emily R Holzinger, Ruowang Li, Sarah A Pendergrass, and Dokyoon Kim. Methods of integrating data to uncover genotype-phenotype interactions. <em>Nat. Rev. Genet.</em>, 16(2):85–97, February 2015. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nrg3868">http://dx.doi.org/10.1038/nrg3868</a>.</p>
-</dd>
-<dt class="bibtex label" id="kristensen2014-iw"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p>Vessela N Kristensen, Ole Christian Lingjærde, Hege G Russnes, Hans Kristian M Vollan, Arnoldo Frigessi, and Anne-Lise Børresen-Dale. Principles and methods of integrative genomic analyses in cancer. <em>Nat. Rev. Cancer</em>, 14(5):299–313, May 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nrc3721">http://dx.doi.org/10.1038/nrc3721</a>.</p>
-</dd>
-</dl>
-</p>
+<p>Given all this complexity, it may seem no wonder that phenotype prediction is currently inaccurate<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id1">[1]</a>. However, diverse information about biological entities exists, for example gene and protein sequence, protein structure, variant frequencies and functions, and gene expression. Multi-omics approaches that combine these data types have been successful at elucidating mechanisms behind certain phenotypes<a class="bibtex reference internal" href="../end-matter/reference.html#hasin2017-tk" id="id2">[76]</a><a class="bibtex reference internal" href="../end-matter/reference.html#ritchie2015-ds" id="id3">[77]</a><a class="bibtex reference internal" href="../end-matter/reference.html#kristensen2014-iw" id="id4">[78]</a>. There is now the opportunity for genome-wide phenotype predictions to do the same. Obtaining an accurate prediction of phenotype and protein function, even for a subclass of variants/proteins, has the potential to greatly impact people. A method which predicts phenotype directly from the molecular biology would be desirable as it would create a model for how phenotype emerges from genotype, in addition to predictions for important genes.</p>
 </div>
 
     <script type="text/x-thebe-config">

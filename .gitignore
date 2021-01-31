@@ -11,3 +11,4 @@ book/_build/
 .ipynb_checkpoints
 *.ipynb
 experiments/
+data/

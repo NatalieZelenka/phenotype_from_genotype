@@ -11,7 +11,7 @@
 In order to map between Uberon tissues, CL cells, and named tissues from sample information, I created a small Open Source Python Package -  `uberon-py`, which is [available to install via the Python Package Index]([https://pypi.org/project/uberon-py/]), with code [available on GitHub](https://github.com/NatalieThurlby/uberon-py).
 
 ## Functionality
-[//]: # (TODO: Explain what can be downloaded in more detail)
+[//]: # (TODO: List what can be downloaded)
 
 This package allows users to use Python to:
 1. **Download useful Uberon ontology files** a selection of Uberon ontology `.obo` files.
@@ -46,12 +46,17 @@ When these two methods disagree, logical inconsistencies in either the mappings 
 See the {ref}`example<FANTOM5-inconsistencies-example>` of how this worked for the FANTOM5 data set.
 
 ## Example usage
- 
-### Example 1: creation of gene expression data set
+[//]: # (TODO: Add citation)
+The Uberon ontology connects many different ontologies and dictionaries, including many anatomy ontologies for different species (mouse, xenopus, fly, zebrafish) and specific structures (Neuroscience Information Framework (NIF) Gross Anatomy, Edinburgh Human Developmental Anatomy), as well as phenotype ontologies (Mammalian Phenotype Ontology, Gene Ontology){cite}`Mungall2012-nc`.
+As such it is used by a wide variety of researchers.
+
+### Example 1: Harmonisation of gene expression data
+[//]: # (TODO: Show a snippet of code and output),
 {numref}`c05.3-data-wrangling` shows an example of how this package can be used to create a sample to tissue mapping for four different gene expression data sets.
 
 (FANTOM5-inconsistencies-example)=
 ### Example 2: finding inconsistencies in the FANTOM5 data
+[//]: # (TODO: Add a table here of all the inconsistencies)
 For the FANTOM5 data, disagreements between these mappings revealed problems in the biological ontologies and experiment metadata that were provided to the package in order to create the mappings. 
 These could then be fed back to the maintainers of these ontologies and datasets in order to improve/correct them. 
 

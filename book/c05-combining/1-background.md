@@ -47,6 +47,15 @@ So, when it comes to gene expression, we have “big data” because we are meas
 Combining expression data from many different experiments has the potential to create a data set containing a more representative view of gene expression. 
 This has already been done for two experiments{cite}`Wang2018-rz`. 
 
+### Harmonising meta-data
+[//]: # (TODO: Link to earlier explanation of ontologies)
+Data about samples was recorded at different levels of specificity.
+This was a particular challenge for tissue where some samples are simply labelled "brain", while others are labelled "medulla oblongata", and yet others are identified by cell type.
+Harmonising this cell and tissue meta-data was one of the challenges of combining this data set, which was done using the Uberon cross-species anatomy ontology{cite}`Mungall2012-nc`, and the Cell Ontology{cite}`Malladi2015-iq` (CL), which is integrated with Uberon. 
+Samples were primarily assigned Uberon term identifiers by searching for matching text between sample information files and CL or Uberon term names or descriptions.
+Where existing terms did not turn up a match, samples were assigned an Uberon term by hand.
+Then using the Uberon ontology, tissues could be understood in relation to each other, being mapped to tissues and more general tissue groups.
+
 ### Batch effects
 [//]: # (TODO: Check if batch effects are mentioned previously)
 Combining gene expression data sets, however, is not trivial: a major problem is their well known susceptibility to batch effects (differences in measurements due to technical artefacts of sequencing batch){cite}`Leek2010-yw`. 

@@ -43,10 +43,11 @@ So, when it comes to gene expression, we have “big data” because we are meas
 
 [//]: # (TODO: Preliminary work: show basic coverage of one data set - for gene expression only: over UBERON. Note: coverage can be improved by mapping phenotypes: tissues as well as increasing gene expression data)
 
-## Combining data sets: batch effects
+## Challenges in combining data sets
 Combining expression data from many different experiments has the potential to create a data set containing a more representative view of gene expression. 
 This has already been done for two experiments{cite}`Wang2018-rz`. 
 
+### Batch effects
 [//]: # (TODO: Check if batch effects are mentioned previously)
 Combining gene expression data sets, however, is not trivial: a major problem is their well known susceptibility to batch effects (differences in measurements due to technical artefacts of sequencing batch){cite}`Leek2010-yw`. 
 When combining and comparing gene expression data from two (or more) experiments, it's not obvious how much of our signal comes from real biological differences in transcription, and how much comes from unwanted variation associated with the batch it was sequenced in, resulting from unknown variation during the process of sequencing for example the date, time, or location of sequencing{cite}`Irizarry2005-ie`, or the technician doing the work
@@ -60,7 +61,7 @@ At best, batch effects add random variation to expression measurements, which ob
 Often they can also add systematic differences that can lead to incorrect biological conclusions{cite}`Leek2010-yw`. 
 They are a problem for analysing the output of an individual experiment where there are multiple sequencing batches, but pose a particular problem in combining data from different experiments, as there is almost certainly more variations between analysis pipelines.
  
-### Batch effect correction
+### Batch effect correction 
 Batch effects may affect only specific subsets of genes, and may affect different genes in different ways{cite}`Leek2010-yw`. This means that {ref}`normalisation<rna-normalisation>` (e.g. TPM, FKPM) will not account for batch.
 However, when it is known, date of sequence processing is often used as a surrogate for batch, enabling researchers to check for, and then remove, batch effects if necessary. 
 
@@ -68,7 +69,7 @@ There are a number of batch correction analyses which attempt to remove batch ef
 Batch correction can be very useful for understanding baseline gene expression, but can lead to inflated p-values for downstream analysis (notably for differential gene expression, using ComBat{cite}`Johnson2007-zh`), where a more sensible approach is to include batch as a confounder for statistical tests. 
 
 (combat-description)=
-### Combat
+#### ComBat
 [//]: # (TODO: Explain need for "balanced experimental design")
 ComBat{cite}`Johnson2007-zh` is a popular batch effect removal procedure, which was first developed for use with microarray data, but continues to be a popular choice for RNA-seq data. 
 Generally, it is a well-trusted method for both of these types of gene expression data{cite}`Chen2011-ke`, although there is some evidence that it may “over-correct” batches for some RNA-seq data{cite}`Liu2016-wa`.
@@ -76,7 +77,7 @@ Generally, it is a well-trusted method for both of these types of gene expressio
 ComBat is an Empirical Bayes method, meaning that the prior distribution is estimated from the data. 
 It is designed to “borrow/share information” between genes in order to get a better estimate of batch effects, and assumes that batch effects affect many genes in similar ways.
 
-### Principal component analysis
+#### PCA to visualise batch effect removal
 Principal Components Analysis (PCA) is often used to visually inspect experimental results for batch effects; when biologically alike samples cluster together rather than those from like-batches, batch effects are often ignored. 
 In order to do this, we must also have enough meaningful information recorded per sample, access to data in raw count format, and mapping between the data that is given and similar samples in other datasets, as well as computational problems (data storage, optimisation of running operations on many or large files, etc). 
 

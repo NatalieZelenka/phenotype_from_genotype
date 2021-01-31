@@ -17,43 +17,83 @@ kernelspec:
 
 [//]: # (TODO: Cross-ref to Uberon section)
 
-Before the data sets could be combined, substantial data wrangling was necessary. The details of these processes - obtaining, checking, mapping identifiers, and excluding irrelevant data - are described in this section.
+Before the data sets could be combined, substantial data wrangling was necessary. The details of these processes - obtaining, checking, mapping identifiers, and excluding irrelevant data - are described in this section. 
 A Python package (`uberon_py`) was developed and used to do much of this mapping. 
-It's functionality is described in {numref}`uberon-py`.
+It's functionality is described in {numref}`uberon-py`. 
 
 The steps required to obtain consistently formatted and labelled data can be described as follows:
-1. Obtaining the raw expression per gene for healthy human tissues
- - a. Obtaining data
- - b. (Where required) Mapping from transcript to gene
- - c. (Where required) Filtering out disease samples
- - d. (Where required) Filtering out non-human samples
-2. Mapping from sample name to UBERON tissue
-3. Aggregating metadata
+- Obtaining the raw expression per gene for healthy human tissues
+   - Data acquisition
+   - (Where required) Mapping from transcript to gene
+   - (Where required) Filtering out disease samples
+   - (Where required) Filtering out non-human samples
+- Mapping from sample name to UBERON tissue using {ref}`uberon-py<uberon-py>`.
+- Aggregating metadata
 
-```{code-cell} ipython3
-# fig.align: center
-# fig.cap: Funnel plot showing the data cleaning pipeline for FANTOM transcripts/genes
-#   (left) and samples (right), along with the number which remained after each stage
-#   of data cleaning.
-# name: combining-data-pipeline
-# Code here for creating data wrangling pipeline image. Steps should be labelled matching 1A, 1B, etc.
++++
+
+````{admonition} FANTOM5 data pipeline code
+:class: dropdown
+
+This code makes use of the [fantom.py helper script](../helper_c05/fantom.py).
+
+```python
+
+# General:
+import pandas as pd
+import numpy as np
+import sys
+import time
+import os
+from uberon_py import obo # my package
+
+# My helper functions:
+from helper_c05 import fantom
+
+#load ontologies
+fantom_obo_file = 'data/experiments/fantom/ff-phase2-170801.obo.txt'
+uberon_obo_file = 'data/uberonext_obo.txt'
+fantom_obo_root_terms = ['FF:0000001','EFO:0000001']
+
+fantom_obo = obo.Obo(fantom_obo_file, ['FF','CL','UBERON'], fantom_obo_root_terms)
+uberon_obo = obo.Obo(uberon_obo_file, ['UBERON','CL'], fantom_obo_root_terms)
+
+#load and process fantom counts data 
+fantom_count_file_loc = 'data/experiments/fantom/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt'
+ensg_mapping_loc = 'data/experiments/fantom/biomart_ensg_hgnc.txt'
+samples_info_file = 'data/experiments/fantom/fantom_humanSamples2.0.csv'
+fantom_counts = fantom.Fantom(fantom_count_file_loc,
+                              ensg_mapping_loc, 
+                              fantom_obo, 
+                              uberon_obo, 
+                              samples_info_file)
+
+fantom_counts.gene_expression.to_csv('data/experiments/fantom/fantom_gene_expression.tsv', sep='\t')
+
+pd.DataFrame(fantom_counts.funnel_plot_samples.items(), columns=['Sample Data Stage', 'Number of samples']).to_csv('data/experiments/fantom/funnel_plot_samples.tsv', index=False, sep='\t')
+
+pd.DataFrame(fantom_counts.funnel_plot_transcripts.items(), columns=['Transcript Data Stage', 'Number of transcripts']).to_csv('data/experiments/fantom/funnel_plot_transcripts.tsv', index=False, sep='\t')
 ```
 
-{numref}`combining-data-pipeline` shows an overview of the data wrangling pipeline. Additional steps 1A, 1B, and 1C were only necessary for the FANTOM dataset.
+````
 
-**1A\. Obtaining raw expression per gene for healthy human tissues**
++++
 
-As mentioned in {ref}`data-aquisition`, for the HPA, GTeX and HDBR experiments, count data were available through the *ExpressionAtlas* R package{cite}`Keays2018-pg`, while this was not the case for the FANTOM dataset, which was downloaded directly. 
 
-**1B\. Mapping from transcript to gene** 
+## Obtaining raw expression per gene for healthy human tissues
+
+### Data Acquisition
+As mentioned in {ref}`data-aquisition`, for the HPA, GTeX and HDBR experiments, count data were available through the *ExpressionAtlas* R package{cite}`Keays2018-pg`, and the FANTOM dataset was downloaded directly. 
+
+### Mapping from transcript to gene
 
 This step was only required for the FANTOM dataset.
 
-FANTOM provides mappings to gene IDs based on proximity of genes to peaks according to Ensembl. Gene expression was then calculated by summing over transcripts mapped to genes. The transcripts were already mapped to HGNC gene identifiers in the downloaded FANTOM file and [Ensembl’s Biomart](https://www.ensembl.org/biomart) was used to obtain a mapping from HGNC gene identifiers to ENSG gene identifiers, in order to match the gene expression atlas format. 
+FANTOM provides mappings to gene IDs based on proximity of genes to peaks according to Ensembl. Gene expression was then calculated by summing over transcripts mapped to genes. The transcripts were already mapped to HGNC gene identifiers in the downloaded FANTOM file and [Ensembl’s Biomart](https://www.ensembl.org/biomart) was used to obtain a [mapping from HGNC gene identifiers to ENSG gene identifiers](data/experiments/fantom/data/experiments/fantom/biomart_ensg_hgnc.txt), in order to match the gene expression atlas format. 
 
 Any transcripts which mapped to multiple genes were discarded, as were any HGNC ids which did not map to ENSG ids.
 
-**1C\. Filtering out disease samples**
+### Filtering out disease samples
 
 The HDBR and HPA experiments contained only healthy samples.
 
@@ -69,11 +109,13 @@ The FANTOM sample ontology was used to remove samples which are models for disea
 The GTEx, HDBR, and HPA experiments contained only human samples. 
 
 **FANTOM**
-The FANTOM5 data set also contains non-human (mouse) samples. The FANTOM sample ontology (which was downloaded [from here](http://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt)) was used to look-up which FANTOM samples are human samples, i.e. have an `is_a` relationship to the term `FF:0000210` (human sample) directly or indirectly. 
+The FANTOM5 data set also contains non-human (mouse) samples. The FANTOM sample ontology (which was downloaded [from here](http://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt)) was used to look-up which FANTOM samples are human samples, i.e. have an `is_a` relationship to the term `FF:0000210` (human sample) directly or indirectly.
 
-**2\. Mapping to UBERON**
++++
 
-Mapping from samples to Uberon tissue required the development of a small Python package `uberon_py`. To create input to this package, informal tissue names (e.g. blood, kidney) were taken from the experimental design files (or the human sample information file for FANTOM) to create a map of samples to informal tissue names.
+## Mapping to UBERON
+
+Mapping from samples to Uberon tissue required the development of a small Python package `uberon-py`, which is described in detail in {ref}`the next section<uberon-py>`. To create input to this package, informal tissue names (e.g. blood, kidney) were taken from the experimental design files (or the human sample information file for FANTOM) to create a map of samples to informal tissue names.
 For FANTOM, the FANTOM ontology could also be used to create a more fine-grained mapping of samples to tissues based on FANTOM sample identifiers and/or cell type (CL) identifiers.
 
 **HPA**
@@ -85,13 +127,62 @@ I manually mapped *suprapubic skin* to `UBERON:0001415` *Skin of pelvis*, and ex
 For HDBR, tissue names from the “organism part’ column of the column data file were matched to Uberon names and synonyms from the Uberon extended ontology. The 96 unmatched terms corresponding to mixed brain tissues and brain fragments were defaulted to the more general Uberon Brain term. 
 
 **FANTOM**
-Since an experimental design file could not be obtained for FANTOM via GxA, additional sample information was obtained via the FANTOM5 website, namely the human sample information file (`HumanSamples2.0.sdrf.xlsx`) and the FANTOM5 ontology.
+Since an experimental design file could not be obtained for FANTOM via GxA, additional sample information was obtained via the FANTOM5 website, namely the [human sample information file](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/basic/HumanSamples2.0.sdrf.xlsx) and the FANTOM5 ontology.
 
 FANTOM also contains time courses of cell differentiation (cells changing from one type to another) as well measures of perturbed cells. 
 Since these samples do not have a well-defined locality in the body given by cell or tissue type, they were not used in the combined dataset. 
-Such samples were filtered out using the human sample information spreadsheet.
+Such samples were filtered out using the human sample information file.
 
-**3/. Aggregating Metadata**
+Since the FANTOM data had both an ontology file and the human sample information file, both were used to map to Uberon.
+The disagreements between the two mappings revealed some inconsistencies with the data set: these are described in {ref}`the next section<FANTOM5-inconsistencies-example>`, as they demonstrate a potential use case for the `uberon-py` package.
+
+```{code-cell} ipython3
+:tags: [hide-input]
+
+from plotly import graph_objects as go
+from plotly.subplots import make_subplots
+
+# from myst_nb import glue
+import textwrap
+import pandas as pd
+
+funnel_plot_transcripts = pd.read_csv('data/experiments/fantom/funnel_plot_transcripts.tsv', sep='\t', index_col=0, header=0)
+funnel_plot_samples = pd.read_csv('data/experiments/fantom/funnel_plot_samples.tsv', sep='\t', index_col=0, header=0)
+
+fig = make_subplots(rows=1, cols=2, horizontal_spacing=0.32)
+
+
+transcript_y = ["<br>".join(textwrap.wrap(x, 15)) for x in list(funnel_plot_transcripts.index)]
+fig.add_trace(
+    go.Funnel(name='Transcripts', 
+              y=transcript_y,
+              x=list(funnel_plot_transcripts['Number of transcripts'])),
+    row=1,
+    col=1
+)
+
+sample_y = ["<br>".join(textwrap.wrap(x, 35)) for x in list(funnel_plot_samples.index)]
+fig.add_trace(
+    go.Funnel(name='Samples', 
+              y=sample_y,
+              x=list(funnel_plot_samples['Number'])),
+    row=1,
+    col=2
+)
+
+fig.write_html('../images/fantom_funnel.html')
+# glue('transcript-funnel', fig, display=False)
+```
+
+```{figure} ../images/fantom_funnel.html
+:name: "fantom-funnel-interactive"
+
+Funnel plot showing the data cleaning pipeline for FANTOM transcripts/genes (left) and samples (right), along with the number which remained after each stage of data cleaning.
+```
+
+The amount of data that flows through the processing pipeline for the FANTOM5 dataset can be seen in {numref}`fantom-funnel-interactive`.
+
+## Aggregating Metadata
 To create consistent metadata for the samples (e.g. age, developmental stage, replicate status, etc), information was extracted from multiple sources (including GxA and additional data from each experiment), and sometimes manually curated or corrected. 
 
 Metadata about the experiments was collected from multiple sources, primarily the column data files accessed via ExpressionAtlas. This metadata was used to describe the the experimental design for ComBat. 
@@ -111,19 +202,7 @@ These were used to create the experimental design file.
 Note: there is an error in the original transcript expression file for one of these identifiers (`counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode`) such that it is missing the “tech” part of the the replicate label. 
 This was manually changed in my copy of the input file and the FANTOM data curation team was informed.
 
-##### Tissue Groups
-Eleven more general tissue groups (for example brain, digestive system, connective tissue) were identified by hand. Individual tissues were mapped to these groups using the `Relations()` function. 
+While the data is in general mapped to the most specific Uberon terms possible, eleven broader tissue groups (for example brain, digestive system, connective tissue) were identified by hand.
+Individual tissues were mapped to these groups using `uberon-py`'s `Relations()` function.
 
-```{code-cell} ipython3
-# fig.align: center
-# fig.cap: Funnel plot showing the data cleaning pipeline for FANTOM transcripts/genes
-#   (left) and samples (right), along with the number which remained after each stage
-#   of data cleaning.
-# name: combining-funnel-plot
-# Code here for creating data wrangling pipeline image. Steps should be labelled matching 1A, 1B, etc.
-```
-
-```{code-cell} ipython3
-{numref}`combining-funnel-plot` shows a funnel plot, showing how the FANTOM5 data was processed to select the final genes and samples present in the combined dataset. 
-
-```
+[//]: # (TODO: Code for sample metadata here)

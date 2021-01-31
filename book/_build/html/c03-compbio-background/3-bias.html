@@ -424,58 +424,48 @@
   <a class="reference internal nav-link" href="#why-we-care">
    3.3.1. Why we care
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-reproducibility-crisis">
+   3.3.2. The reproducibility crisis
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#we-want-to-trust-science">
-     3.3.1.1. We want to trust science
+    <a class="reference internal nav-link" href="#null-hypothesis-significance-testing">
+     3.3.2.1. Null Hypothesis Significance Testing
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-reproducibility-crisis">
-     3.3.1.2. The reproducibility crisis
+    <a class="reference internal nav-link" href="#publication-bias">
+     3.3.2.2. Publication bias
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#null-hypothesis-significance-testing">
-       3.3.1.2.1. Null Hypothesis Significance Testing
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#publication-bias">
-       3.3.1.2.2. Publication bias
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reproducibility-in-bioinformatics">
-     3.3.1.3. Reproducibility in bioinformatics
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#when-is-a-model-useful">
-     3.3.1.4. When is a model useful?
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pqi">
-       3.3.1.4.1. PQI
+      <a class="reference internal nav-link" href="#reproducibility-in-bioinformatics">
+       3.3.2.2.1. Reproducibility in bioinformatics
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#pqi-features">
-         3.3.1.4.1.1. PQI features
+        <a class="reference internal nav-link" href="#pqi">
+         3.3.2.2.1.1. PQI
         </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#the-original-pqi-metrics">
-         3.3.1.4.1.2. The original PQI metrics
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#potential-improvements">
-         3.3.1.4.1.3. Potential improvements
-        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h6 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#pqi-features">
+           3.3.2.2.1.1.1. PQI features
+          </a>
+         </li>
+         <li class="toc-h6 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#the-original-pqi-metrics">
+           3.3.2.2.1.1.2. The original PQI metrics
+          </a>
+         </li>
+         <li class="toc-h6 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#potential-improvements">
+           3.3.2.2.1.1.3. Potential improvements
+          </a>
+         </li>
+        </ul>
        </li>
       </ul>
      </li>
@@ -495,11 +485,9 @@
               <div>
                 
   <div class="section" id="sources-of-bias-in-computational-biology-datasets">
-<h1><span class="section-number">3.3. </span>Sources of bias in computational biology datasets<a class="headerlink" href="#sources-of-bias-in-computational-biology-datasets" title="Permalink to this headline">¶</a></h1>
+<span id="compbio-bias"></span><h1><span class="section-number">3.3. </span>Sources of bias in computational biology datasets<a class="headerlink" href="#sources-of-bias-in-computational-biology-datasets" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="why-we-care">
 <h2><span class="section-number">3.3.1. </span>Why we care<a class="headerlink" href="#why-we-care" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="we-want-to-trust-science">
-<h3><span class="section-number">3.3.1.1. </span>We want to trust science<a class="headerlink" href="#we-want-to-trust-science" title="Permalink to this headline">¶</a></h3>
 <blockquote class="epigraph">
 <div><p>The imposing edifice of science provides a challenging view of what can be achieved by the accumulation of many small efforts in a steady objective and dedicated search for truth.</p>
 <p class="attribution">—Charles H. Townes</p>
@@ -512,7 +500,7 @@
 <p>When scientific results are often based on statistics, it’s inevitable that some proportion of published scientific results will not be true. This isn’t a problem, as over time, researchers can double-check interesting scientific results, and the literature can be updated to reflect that. This is sciences self-correcting mechanism. If a result can be replicated in a different circumstance by a different person, it reinforces the likelihood that the result is true. A replication doesn’t have to reveal the exact same level of statistical significance  or effect size to be successful, but (usually, depending on definitions) just a similar result.</p>
 </div>
 <div class="section" id="the-reproducibility-crisis">
-<h3><span class="section-number">3.3.1.2. </span>The reproducibility crisis<a class="headerlink" href="#the-reproducibility-crisis" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">3.3.2. </span>The reproducibility crisis<a class="headerlink" href="#the-reproducibility-crisis" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
 <div><p>In science consensus is irrelevant. What is relevant is reproducible results.</p>
 <p class="attribution">—Michael Crichton</p>
@@ -520,7 +508,7 @@
 <p>The reproducibility crisis is the realisation that worryingly large proportions of research results do not reproduce. Replication studies have found that only 11% of cancer research findings<a class="bibtex reference internal" href="../end-matter/reference.html#begley2012-oc" id="id1">[3]</a>, 20-25% of drug-target findings<a class="bibtex reference internal" href="../end-matter/reference.html#begley2012-oc" id="id2">[3]</a><a class="bibtex reference internal" href="../end-matter/reference.html#prinz2011-rh" id="id3">[4]</a>, and 39% of psychology findings<a class="bibtex reference internal" href="../end-matter/reference.html#open-science-collaboration2015-vi" id="id4">[5]</a> reproduced. Surveys of researchers across disciplines reveal that more than 70% of scientists say they have failed to reproduce another paper’s result, and over 50% say they have failed to reproduce their own results<a class="bibtex reference internal" href="../end-matter/reference.html#baker2016-tb" id="id5">[6]</a>. It seems that science’s self-correcting mechanism is not working as intended.</p>
 <p>This shocking irreproducibility is thought to be due to a multitude of factors, including poor data management, lack of available materials/details of experiments, publication bias, poor statistical knowledge, and questionable research practices<a class="bibtex reference internal" href="../end-matter/reference.html#bishop2019-hg" id="id6">[7]</a>.</p>
 <div class="section" id="null-hypothesis-significance-testing">
-<h4><span class="section-number">3.3.1.2.1. </span>Null Hypothesis Significance Testing<a class="headerlink" href="#null-hypothesis-significance-testing" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">3.3.2.1. </span>Null Hypothesis Significance Testing<a class="headerlink" href="#null-hypothesis-significance-testing" title="Permalink to this headline">¶</a></h3>
 <blockquote class="epigraph">
 <div><p>Statistical significance is the least interesting thing about the results. You should describe the results in terms of measures of magnitude –not just, does a treatment affect people, but how much does it affect them.</p>
 <p class="attribution">—Gene V. Glass</p>
@@ -549,34 +537,24 @@ ppv=\frac{(1-\beta)p_{true}}{p_{true}(1-\beta-\alpha)+\alpha}
 <p>For cases where many hypotheses are being generated at once (for example in GWAS), multiple hypothesis corrections (e.g. the Bonferroni correction<a class="bibtex reference internal" href="../end-matter/reference.html#dunn1958-sj" id="id11">[11]</a> or the False Discovery Rate<a class="bibtex reference internal" href="../end-matter/reference.html#benjamini1995-me" id="id12">[12]</a>) can be employed to adjust the p-value to account for this.</p>
 </div>
 <div class="section" id="publication-bias">
-<h4><span class="section-number">3.3.1.2.2. </span>Publication bias<a class="headerlink" href="#publication-bias" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">3.3.2.2. </span>Publication bias<a class="headerlink" href="#publication-bias" title="Permalink to this headline">¶</a></h3>
 <p>Although with current standard p-value and power cut-offs, negative results are more likely to be true than positive ones, negative results are much harder to publish. This bias is likely to be responsible for the draw of questionable research practices like p-hacking. It also means that there is a lot of unpublished, negative results which are likely to be repeated, since there is no way that someone could know it has already been done. A highly powered negative result could be very interesting, for example, we know hardly anything about which genes do not appear to affect phenotypes, since these results are not published<a class="bibtex reference internal" href="../end-matter/reference.html#barbaric2007-zm" id="id13">[2]</a>, but they would help enormously with the challenge of creating a gold standard dataset for gene function prediction.</p>
 <p>Registered reports are an attempt to remove these problems associated with publication bias, by linking the concept of pre-registration with that of publishing. Essentially, authors submit their introduction and methods section to a journal and at this point they undergo peer review and the journal agrees to publish the results, regardless of the result. At the time of writing over 170 journals were accepting registered reports and the number has been growing in recent months, across disciplines, although they are currently most popular in psychology and neuroscience<a class="bibtex reference internal" href="../end-matter/reference.html#hardwicke-undated-jj" id="id14">[13]</a>. This solution also offers peer-review at a more helpful stage in the manuscript, when it’s still possible to make changes to the experiment.</p>
-</div>
-</div>
 <div class="section" id="reproducibility-in-bioinformatics">
-<h3><span class="section-number">3.3.1.3. </span>Reproducibility in bioinformatics<a class="headerlink" href="#reproducibility-in-bioinformatics" title="Permalink to this headline">¶</a></h3>
+<h4><span class="section-number">3.3.2.2.1. </span>Reproducibility in bioinformatics<a class="headerlink" href="#reproducibility-in-bioinformatics" title="Permalink to this headline">¶</a></h4>
 <p>In a field that has long had a huge number of open data repositories, and a relatively high level of statistical knowledge among researchers, in some ways bioinformatics might be expected to be ahead of the curve in terms of reproducible research. It certainly seems that as a field, it excelling at open research. At the same time, however, it is even more important for the work to be reproducible if data and software are being reused by multiple researchers.</p>
 <p>The Gene Ontology Annotations (GOA) are a combination of experimental and computational annotations. While the supporting publications for the experimental annotations are available, the GO consortium do not provide the statistical evidence that they used alongside this (e.g. p-value, effect size), etc.</p>
-</div>
-<div class="section" id="when-is-a-model-useful">
-<h3><span class="section-number">3.3.1.4. </span>When is a model useful?<a class="headerlink" href="#when-is-a-model-useful" title="Permalink to this headline">¶</a></h3>
-<blockquote class="epigraph">
-<div><p>All models are wrong, but some are useful</p>
-<p class="attribution">—George Box</p>
-</div></blockquote>
-<p>Models are most useful to us when they generate testable hypotheses about the underlying mechanisms of a process. In this way, they can help to advance science. They can also be useful to us if they generate predictions for forecasts. These predictions can be tested, which helps us to improve the model, and if they are accurate, they can also help us to generate hypotheses, or they may be useful in and of themselves.</p>
 <div class="section" id="pqi">
-<span id="id15"></span><h4><span class="section-number">3.3.1.4.1. </span>PQI<a class="headerlink" href="#pqi" title="Permalink to this headline">¶</a></h4>
+<span id="id15"></span><h5><span class="section-number">3.3.2.2.1.1. </span>PQI<a class="headerlink" href="#pqi" title="Permalink to this headline">¶</a></h5>
 <p>The Proteome Quality Index (PQI) is an attempt to provide quality metrics about completed genome sequences. It was a group effort, which resulted in a paper<a class="bibtex reference internal" href="../end-matter/reference.html#zaucha2015-ez" id="id16">[1]</a>, of which I am an author, as well as <a class="reference external" href="http://pqi-list.org/">an associated website (http://pqi-list.org/)</a>. I contributed to discussions about metrics, and paper editing.</p>
 <p>The motivation for creating the index came from problems of reproducibility in the field of genomics. In creating a daily-updated tree of life (sTOL, sequenced Tree Of Life), it was found that many sequenced genomes were missing vital proteins due to poor sequencing<a class="bibtex reference internal" href="../end-matter/reference.html#fang2013-et" id="id17">[14]</a>. Such genomes are reused by many researchers, for example in comparative genomics, and omissions of whole proteins and poor accuracy of others are likely to affect research results.</p>
 <p>The PQI website was intended to be both a way for users of past genomes to look up the quality of a genome in advance of some research and, more importantly as a talking point for quality guidelines for genomes/proteomes. While quality control and data submission guidelines were more developed in other areas of computational biology, similar guidelines for genome quality were lacking.</p>
 <div class="section" id="pqi-features">
-<h5><span class="section-number">3.3.1.4.1.1. </span>PQI features<a class="headerlink" href="#pqi-features" title="Permalink to this headline">¶</a></h5>
+<h6><span class="section-number">3.3.2.2.1.1.1. </span>PQI features<a class="headerlink" href="#pqi-features" title="Permalink to this headline">¶</a></h6>
 <p>The PQI website provides a scoring system for proteomes, bringing together numerous different metrics which are normalised before being averaged into an intuitive star-rating (1-5 stars) with equal weight given to each metric. Proteomes can be searched for, filtered by the various ratings, downloaded, user-rated and commented on. Additional proteomes and metrics can be added/suggested by users via the website and documentation describing this is provided.</p>
 </div>
 <div class="section" id="the-original-pqi-metrics">
-<h5><span class="section-number">3.3.1.4.1.2. </span>The original PQI metrics<a class="headerlink" href="#the-original-pqi-metrics" title="Permalink to this headline">¶</a></h5>
+<h6><span class="section-number">3.3.2.2.1.1.2. </span>The original PQI metrics<a class="headerlink" href="#the-original-pqi-metrics" title="Permalink to this headline">¶</a></h6>
 <p>PQI originally provided 11 measures of proteome quality, that are either local i.e. “clade-based” (in which proteomes are compared to similar organisms) or global (in which case it is compared to all other proteomes). A clade is a group of organisms that consists of a common ancestor and all its descendants, i.e. is a branch on the tree of life<a class="bibtex reference internal" href="../end-matter/reference.html#cracraft2004-ud" id="id18">[15]</a>, so an appropriate ancestor must be chosen to define the clade. For PQI, since the purpose of these clades was to compare its’ constituent proteomes, we wanted clades that had similar variability. This was achieved by choosing parent nodes that are at least 0.01 in branch length away from the proteome (leaf node), and such that the clade contains at least 10 species. Trees and branch lengths to carry out these calculations were taken from sToL<a class="bibtex reference internal" href="../end-matter/reference.html#fang2013-et" id="id19">[14]</a>. For clade-based metrics, proteomes score well if they have similar scores to the rest of the clade.</p>
 <table class="table" id="pqi-table">
 <caption><span class="caption-number">Table 3.2 </span><span class="caption-text">Description of the quality metrics in PQI</span><a class="headerlink" href="#pqi-table" title="Permalink to this table">¶</a></caption>
@@ -661,7 +639,7 @@ ppv=\frac{(1-\beta)p_{true}}{p_{true}(1-\beta-\alpha)+\alpha}
 <p>Since the publication of the PQI paper, the DOGMA metric<a class="bibtex reference internal" href="../end-matter/reference.html#dohmen2016-iv" id="id20">[16]</a>, which scores proteomes based on conserved arrangements of protein domains, has been added to the PQI website.</p>
 </div>
 <div class="section" id="potential-improvements">
-<h5><span class="section-number">3.3.1.4.1.3. </span>Potential improvements<a class="headerlink" href="#potential-improvements" title="Permalink to this headline">¶</a></h5>
+<h6><span class="section-number">3.3.2.2.1.1.3. </span>Potential improvements<a class="headerlink" href="#potential-improvements" title="Permalink to this headline">¶</a></h6>
 <p>The mapping from raw score to star rating for some metrics could be improved. For example, homo sapiens has ‘0’ X-content (the lowest/best possible value), but 4.1 stars.</p>
 <p>PQI was created with the potential to add further quality metrics by other researchers. Although the DOGMA metric was added and it is based on BUSCO<a class="bibtex reference internal" href="../end-matter/reference.html#simao2015-gc" id="id21">[17]</a>, it might be sensible to add BUSCO, since it has become very popular, and any proteome/genome quality index would probably be seen as incomplete without it. The continued inclusion of the CEG Domain Combination Homology metric may be questioned since CEGMA is no longer being updated (nor is the KEG database upon which it is based), but BUSCO and CEGMA may be complementary since BUSCO has a weaker requirement for inclusion in the set of proteins, which means that it has more proteins, and vice versa.</p>
 <p>To impact on the problem for model organisms for clade-based metrics, one solution would be to treat model-organisms differently in these circumstances, for example score clades containing model organisms against the model organism. An more subtle alternative to this would be using the NCBI’s Assembly database<a class="bibtex reference internal" href="../end-matter/reference.html#kitts2016-eo" id="id22">[18]</a>, which has been released since PQI was published. The database tracks how many assemblies there are for each species as well as how many versions of each assembly there has been. This information could be used to weight the importance of proteomes in clade-based metrics. The number of assemblies and versions could also form a separate score.</p>
@@ -733,6 +711,7 @@ ppv=\frac{(1-\beta)p_{true}}{p_{true}(1-\beta-\alpha)+\alpha}
 </dd>
 </dl>
 </p>
+</div>
 </div>
 </div>
 </div>

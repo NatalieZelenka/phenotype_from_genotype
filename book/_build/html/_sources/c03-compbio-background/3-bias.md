@@ -1,8 +1,7 @@
 (compbio-bias)=
-## Sources of bias in computational biology datasets
+# Sources of bias in computational biology datasets
 
-### Why we care
-#### We want to trust science
+## Why we care
 [//]: # (TODO: Restructure this section so that the different sources of bias are in a sensible order and that I have proof for each. Rename "why we care" and "we want to trust science")
 
 ```{epigraph}
@@ -26,7 +25,7 @@ Thirdly, many of the new publications in this field showcase novel software and 
 
 When scientific results are often based on statistics, it’s inevitable that some proportion of published scientific results will not be true. This isn’t a problem, as over time, researchers can double-check interesting scientific results, and the literature can be updated to reflect that. This is sciences self-correcting mechanism. If a result can be replicated in a different circumstance by a different person, it reinforces the likelihood that the result is true. A replication doesn’t have to reveal the exact same level of statistical significance  or effect size to be successful, but (usually, depending on definitions) just a similar result.
 
-#### The reproducibility crisis 
+## The reproducibility crisis 
 
 ```{epigraph}
 In science consensus is irrelevant. What is relevant is reproducible results.
@@ -40,7 +39,7 @@ This shocking irreproducibility is thought to be due to a multitude of factors, 
 
 [//]: # (TODO: Any time I explain any of this, I better be able to say WHY it's there: Go through and check that I can)
 
-##### Null Hypothesis Significance Testing
+### Null Hypothesis Significance Testing
 
 ```{epigraph}
 Statistical significance is the least interesting thing about the results. You should describe the results in terms of measures of magnitude –not just, does a treatment affect people, but how much does it affect them.
@@ -92,7 +91,7 @@ A more interesting solution is pre-registration, as used in clinical trials. Thi
 
 For cases where many hypotheses are being generated at once (for example in GWAS), multiple hypothesis corrections (e.g. the Bonferroni correction{cite}`Dunn1958-sj` or the False Discovery Rate{cite}`Benjamini1995-me`) can be employed to adjust the p-value to account for this.
 
-##### Publication bias
+### Publication bias
 [//]: # (TODO: Check where else Barbaric2007-zm is cited)
 Although with current standard p-value and power cut-offs, negative results are more likely to be true than positive ones, negative results are much harder to publish. This bias is likely to be responsible for the draw of questionable research practices like p-hacking. It also means that there is a lot of unpublished, negative results which are likely to be repeated, since there is no way that someone could know it has already been done. A highly powered negative result could be very interesting, for example, we know hardly anything about which genes do not appear to affect phenotypes, since these results are not published{cite}`Barbaric2007-zm`, but they would help enormously with the challenge of creating a gold standard dataset for gene function prediction.
 
@@ -102,17 +101,6 @@ Registered reports are an attempt to remove these problems associated with publi
 In a field that has long had a huge number of open data repositories, and a relatively high level of statistical knowledge among researchers, in some ways bioinformatics might be expected to be ahead of the curve in terms of reproducible research. It certainly seems that as a field, it excelling at open research. At the same time, however, it is even more important for the work to be reproducible if data and software are being reused by multiple researchers.
 
 The Gene Ontology Annotations (GOA) are a combination of experimental and computational annotations. While the supporting publications for the experimental annotations are available, the GO consortium do not provide the statistical evidence that they used alongside this (e.g. p-value, effect size), etc. 
-
-[//]: # (TODO: Delete the when is a model useful section if I don't have any thoughts about it:)
-
-#### When is a model useful? 
-```{epigraph}
-All models are wrong, but some are useful
-
--- George Box
-```
-
-Models are most useful to us when they generate testable hypotheses about the underlying mechanisms of a process. In this way, they can help to advance science. They can also be useful to us if they generate predictions for forecasts. These predictions can be tested, which helps us to improve the model, and if they are accurate, they can also help us to generate hypotheses, or they may be useful in and of themselves. 
 
 
 (pqi)=

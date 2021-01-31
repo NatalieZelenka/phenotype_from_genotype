@@ -1,2 +1,8 @@
 jupyter-book
 jupytext
+uberon_py
+numba
+numpy
+pandas
+plotly
+psutil

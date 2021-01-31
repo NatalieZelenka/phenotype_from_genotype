@@ -1,7 +1,7 @@
 (measuring-genotype-phenotype)=
-## From genotype to phenotype: what is measured
+# From genotype to phenotype: what is measured
 
-### Introduction
+## Introduction
 
 ```{figure} ../images/linneaus_ehret.png
 ---
@@ -30,17 +30,17 @@ So, the catalogued information populates freely available databases, vocabularie
 We will now delve into the details of some of these datasets, looking first at {ref}`DNA<dna-measurements>`, then {ref}`RNA<rna-measurements>`, then {ref}`proteins<protein-measurements>`, then {ref}`phenotypes<phenotype-measurements>`.
 
 (dna-measurements)=
-### DNA
+## DNA
 In the {ref}`previous Chapter<what-is-dna>`, we looked at what DNA is and how that links to phenotype. 
 Now we're going to look at the details of how this is measured and stored in computational biology. 
 Since smaller pieces of DNA are generally talked about in relation to the whole genome, we'll go from big to small, beginning with whole genomes and moving through to individual SNPs.
 
-#### Whole genome
+### Whole genome
 The whole genome is all the genetic material of an organism. In humans, this means all chromosomal and mitochondrial DNA, whether or not it is transcribed into RNA, or translated into proteins.
 No sequencing technology can read whole chromosomes end to end: all work by reading shorter lengths of DNA (*reads*).
 
 (sequencing-technology)=
-##### Sequencing
+#### Sequencing
 
 From the late 1970’s until the mid 2000s, *Sanger sequencing* was the most popular sequencing technology, although it underwent various improvements over this timescale. 
 In Sanger sequencing (and other first-generation methods), reads of around 800bp are sequenced, one at a time. 
@@ -55,7 +55,7 @@ In turn, this speed and cheapness means that more repeats can be sequenced, incr
 There are now also third generation sequencing technologies that allow much longer reads to be sequenced.
 
 (assembly-and-alignment)=
-##### Assembly
+#### Assembly
 Whichever {ref}`technology<sequencing-technology>` is used, DNA is sequenced in smalls sections, which must then be *assembled* to make the full genome, organised into chromosomes. 
 
 [//]: # (TODO: Check that aligment is referenced in the text and that the image is)
@@ -82,7 +82,7 @@ The depth (or coverage) for a nucleotide is the number of reads that overlap tha
 After assembly, even in the most complete genomes, we are still left with some sequences that could not be placed, and some parts of the genome that we still don't know about. 
 
 (human-references)=
-##### The human reference genome
+#### The human reference genome
 As {ref}`previously mentioned<genomes>`, reference genomes are designed to represent whole organisms: these genomes aim to have the most common allele at any given nucleotide, and are then annotated at positions where individuals differ. 
 
 **Builds and patches:** 
@@ -119,7 +119,7 @@ These differences including formatting differences (storing chromosome as intege
   - March 2006
 ```
 
-##### Whole Genome Sequencing of individuals
+### Whole Genome Sequencing of individuals
 When individual humans have their whole genomes sequenced, this is compared to the human reference genome. 
 The alleles at each location are commonly stored in Variant Call Format (VCF) files. 
 These describe the locations on the genome of variations between individuals, given by chromosome, position, variant identifiers, and the variation between a given number of individuals.
@@ -131,7 +131,7 @@ These describe the locations on the genome of variations between individuals, gi
 
 [//]: # (TODO: Write)
 
-#### Genes
+### Genes
 There can be disagreements about the locations of genes on the genome, and popular databases of genes fundamentally disagree on this and on the number of genes{cite}`Salzberg2018-yc`. 
 Gene names and symbols change over time, and can be difficult to map between for this reason.
 
@@ -154,7 +154,7 @@ These arrays were originally macro-sized, one of the first being 26 × 38 cm and
 Arrays were extremely popular for measuring gene expression, but this technology has largely been superseded by the more accurate and comprehensive RNA-seq. 
 However, microarrays are still commonly used by companies like 23andMe for genotyping an individual (measuring specific alleles).
 
-##### Variant databases
+#### Variant databases
 Databases like dbSNP, clinVar, and SNPedia contain information about the location of SNVs, their possible alleles, and their association to diseases. 
 These are often used as part of a variant prioritisation pipeline, as well as by individuals who are investigating their own SNVs.
 
@@ -168,7 +168,7 @@ The database gives SNVs unique identifiers (Reference SNP cluster IDs, a.k.a. RS
 [//]: # (TODO: mention snpedia?)
 
 (rna-measurements)=
-### RNA
+## RNA
 [//]: # (TODO: Rewrite this section, and maybe move it to section 1, so that it fits properly and is less wordy)
 [//]: # (TODO: Write about how transcripts map to the genes ENSEMBL)
 
@@ -180,7 +180,7 @@ In any given individual, the same DNA is present in their liver cells, skin cell
 
 Gene expression data is used to understand the function of genes, to identify housekeeping genes, to re-engineer gene regulatory networks, and more. This kind of insight can not be gained from looking at DNA alone.
 
-#### RNA-seq 
+### RNA-seq 
 NGS can be used for sequencing either DNA or RNA (known as RNA-seq when applied to the whole transcriptome).
 
 While (NGS) DNA-sequencing and RNA-seq can use the same underlying NGS technologies, there exist some notable differences. For example, RNA is reverse-transcribed into strands of complementary DNA, before being sequenced, since sequencing DNA is currently easier than sequencing RNA. RNA-seq is used much less often for de novo sequencing, and is generally mapped to a reference sequence. 
@@ -218,21 +218,21 @@ These methods adjust counts to reduce the impact of outlying expression values. 
 
 
 (protein-measurements)=
-### Proteins
+## Proteins
 [//]: # (TODO: Mention how proteins map to transcripts and to genes and variants and whole genomes)
 
-#### Protein Structures
+### Protein Structures
 [//]: # (TODO: Make sure this makes sense here I just moved it)
 
 In 1969, Margaret Dayhoff created the first bioinformatics database to store protein structures imaged using X-ray crystallography, related to her publication of Atlas of Protein Sequence and Structure{cite}`Hersh1967-ox`. 
 Soon after, in 1972, the Protein DataBank (PDB){cite}`noauthor_undated-ow` was established. 
 This continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.
 
-#### Protein classification
+### Protein classification
 Scientists are often interested in a "favourite" gene or protein, or have obtained a list of genes or proteins that they are interested in through a recent experiment. If an experiment about the specific protein has been carried out (e.g. to determine its function or structure), then a database like Uniprot (containing function and sequence information) or PDB (structure information) can be queried. However, this kind of information is not available for all proteins, so this is often necessary to make inferences about protein structure or function based on for example sequence similarity or protein classification.
 
 [//]: # (TODO: Check BLAST is in the right place. Probably makes more sense in another section: DNA?)
-##### BLAST
+#### BLAST
 BLAST, or the The Basic Local Alignment Search Tool{cite}`Altschul1990-zf`, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.
 
 ##### SCOP
@@ -305,11 +305,3 @@ Gene products in GO are assumed to carry out molecular-level process or activity
 
 
 [//]: # (TODO: Write something about "gene function" and "protein function" and their relationship to phenotypes, ontologies, etc)
-
----
-**Chapter References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

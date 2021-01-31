@@ -272,8 +272,18 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="3-data-wrangling.html#left-and-samples-right-along-with-the-number-which-remained-after-each-stage">
+     5.4. (left) and samples (right), along with the number which remained after each stage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-data-wrangling.html#of-data-cleaning">
+     5.5. of data cleaning.
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="4-uberon.html">
-     5.4. The
+     5.6. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -284,22 +294,22 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5-batch-correction.html">
-     5.5. Batch correction
+     5.7. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     5.6. Results
+     5.8. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-discussion.html">
-     5.7. Discussion
+     5.9. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="8-future-work.html">
-     5.8. Future Work
+     5.10. Future Work
     </a>
    </li>
   </ul>
@@ -431,24 +441,31 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#combining-data-sets-batch-effects">
-   5.1.3. Combining data sets: batch effects
+  <a class="reference internal nav-link" href="#challenges-in-combining-data-sets">
+   5.1.3. Challenges in combining data sets
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batch-effects">
+     5.1.3.1. Batch effects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#batch-effect-correction">
-     5.1.3.1. Batch effect correction
+     5.1.3.2. Batch effect correction
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combat">
-     5.1.3.2. Combat
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#principal-component-analysis">
-     5.1.3.3. Principal component analysis
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#combat">
+       5.1.3.2.1. ComBat
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pca-to-visualise-batch-effect-removal">
+       5.1.3.2.2. PCA to visualise batch effect removal
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -497,10 +514,12 @@ For context, the largest experiment in the Ensembl Gene Expression Atlas (GxA) i
 It is currently too expensive for one experiment to measure enough samples to give us a comprehensive understanding of how genes can behave.
 So, when it comes to gene expression, we have “big data” because we are measuring so many genes, but in any one experiment we don’t collect enough to have a deep understanding of how these genes behave in different contexts.</p>
 </div>
-<div class="section" id="combining-data-sets-batch-effects">
-<h2><span class="section-number">5.1.3. </span>Combining data sets: batch effects<a class="headerlink" href="#combining-data-sets-batch-effects" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="challenges-in-combining-data-sets">
+<h2><span class="section-number">5.1.3. </span>Challenges in combining data sets<a class="headerlink" href="#challenges-in-combining-data-sets" title="Permalink to this headline">¶</a></h2>
 <p>Combining expression data from many different experiments has the potential to create a data set containing a more representative view of gene expression.
 This has already been done for two experiments<a class="bibtex reference internal" href="../end-matter/reference.html#wang2018-rz" id="id12">[110]</a>.</p>
+<div class="section" id="batch-effects">
+<h3><span class="section-number">5.1.3.1. </span>Batch effects<a class="headerlink" href="#batch-effects" title="Permalink to this headline">¶</a></h3>
 <p>Combining gene expression data sets, however, is not trivial: a major problem is their well known susceptibility to batch effects (differences in measurements due to technical artefacts of sequencing batch)<a class="bibtex reference internal" href="../end-matter/reference.html#leek2010-yw" id="id13">[111]</a>.
 When combining and comparing gene expression data from two (or more) experiments, it’s not obvious how much of our signal comes from real biological differences in transcription, and how much comes from unwanted variation associated with the batch it was sequenced in, resulting from unknown variation during the process of sequencing for example the date, time, or location of sequencing<a class="bibtex reference internal" href="../end-matter/reference.html#irizarry2005-ie" id="id14">[112]</a>, or the technician doing the work</p>
 <p>To complicate matters, some batch effects may be due to factors that might be expected to genuinely influence expression of genes, such as temperature, time of year, humidity, diet, individual, age, etc.
@@ -510,27 +529,28 @@ As such the problem of batch effects is closely related to the problem of record
 At best, batch effects add random variation to expression measurements, which obscure signals.
 Often they can also add systematic differences that can lead to incorrect biological conclusions<a class="bibtex reference internal" href="../end-matter/reference.html#leek2010-yw" id="id15">[111]</a>.
 They are a problem for analysing the output of an individual experiment where there are multiple sequencing batches, but pose a particular problem in combining data from different experiments, as there is almost certainly more variations between analysis pipelines.</p>
+</div>
 <div class="section" id="batch-effect-correction">
-<h3><span class="section-number">5.1.3.1. </span>Batch effect correction<a class="headerlink" href="#batch-effect-correction" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.3.2. </span>Batch effect correction<a class="headerlink" href="#batch-effect-correction" title="Permalink to this headline">¶</a></h3>
 <p>Batch effects may affect only specific subsets of genes, and may affect different genes in different ways<a class="bibtex reference internal" href="../end-matter/reference.html#leek2010-yw" id="id16">[111]</a>. This means that <a class="reference internal" href="../c03-compbio-background/1-measuring-genotype-phenotype.html#rna-normalisation"><span class="std std-ref">normalisation</span></a> (e.g. TPM, FKPM) will not account for batch.
 However, when it is known, date of sequence processing is often used as a surrogate for batch, enabling researchers to check for, and then remove, batch effects if necessary.</p>
 <p>There are a number of batch correction analyses which attempt to remove batch effects from RNA-seq data, for example ComBat<a class="bibtex reference internal" href="../end-matter/reference.html#johnson2007-zh" id="id17">[113]</a> and Surrogate Variable Analysis (SVA)<a class="bibtex reference internal" href="../end-matter/reference.html#leek2007-ba" id="id18">[114]</a>
 Batch correction can be very useful for understanding baseline gene expression, but can lead to inflated p-values for downstream analysis (notably for differential gene expression, using ComBat<a class="bibtex reference internal" href="../end-matter/reference.html#johnson2007-zh" id="id19">[113]</a>), where a more sensible approach is to include batch as a confounder for statistical tests.</p>
-</div>
 <div class="section" id="combat">
-<span id="combat-description"></span><h3><span class="section-number">5.1.3.2. </span>Combat<a class="headerlink" href="#combat" title="Permalink to this headline">¶</a></h3>
+<span id="combat-description"></span><h4><span class="section-number">5.1.3.2.1. </span>ComBat<a class="headerlink" href="#combat" title="Permalink to this headline">¶</a></h4>
 <p>ComBat<a class="bibtex reference internal" href="../end-matter/reference.html#johnson2007-zh" id="id20">[113]</a> is a popular batch effect removal procedure, which was first developed for use with microarray data, but continues to be a popular choice for RNA-seq data.
 Generally, it is a well-trusted method for both of these types of gene expression data<a class="bibtex reference internal" href="../end-matter/reference.html#chen2011-ke" id="id21">[115]</a>, although there is some evidence that it may “over-correct” batches for some RNA-seq data<a class="bibtex reference internal" href="../end-matter/reference.html#liu2016-wa" id="id22">[116]</a>.</p>
 <p>ComBat is an Empirical Bayes method, meaning that the prior distribution is estimated from the data.
 It is designed to “borrow/share information” between genes in order to get a better estimate of batch effects, and assumes that batch effects affect many genes in similar ways.</p>
 </div>
-<div class="section" id="principal-component-analysis">
-<h3><span class="section-number">5.1.3.3. </span>Principal component analysis<a class="headerlink" href="#principal-component-analysis" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pca-to-visualise-batch-effect-removal">
+<h4><span class="section-number">5.1.3.2.2. </span>PCA to visualise batch effect removal<a class="headerlink" href="#pca-to-visualise-batch-effect-removal" title="Permalink to this headline">¶</a></h4>
 <p>Principal Components Analysis (PCA) is often used to visually inspect experimental results for batch effects; when biologically alike samples cluster together rather than those from like-batches, batch effects are often ignored.
 In order to do this, we must also have enough meaningful information recorded per sample, access to data in raw count format, and mapping between the data that is given and similar samples in other datasets, as well as computational problems (data storage, optimisation of running operations on many or large files, etc).</p>
 <p>Cell type is one of the better understood influences on gene expression.
 We know that the same DNA is in every cell, and yet the morphology and function of each cell is determined by its cell type, due to its gene expression.
 We can expect largely similar patterns of gene expression in similar cell types, which means that when we know cell type of samples, this information can be used to aid in visually checking the results of batch correction using PCA.</p>
+</div>
 </div>
 </div>
 </div>
