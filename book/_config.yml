@@ -43,6 +43,9 @@ search_max_words_in_content : 30  # In the search function, use at most this man
 parse:
   myst_extended_syntax: true
 
+execute:
+  execute_notebooks: 'off'
+
 #######################################################################################
 # Interact link settings
 
