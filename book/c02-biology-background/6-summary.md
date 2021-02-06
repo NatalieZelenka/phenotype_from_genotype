@@ -1,10 +1,19 @@
 (model-genotype-phenotype-summary)=
 ## Summary: how genotype and phenotype are linked
-
-[//]: # (TODO: Write or delete. If delete, remove link in c02/0-index.md)
 [//]: # (TODO: Draw the scientific model)
 
-To summarise, there are multiple kinds of genetic variation, and even the simplest (the SNP) can exist on multiple parts of the genome, and may or may not affect structure or function of transcribed proteins. 
-Even if the SNP is in a coding region, and is non-synonymous (affects protein structure), it may fall in a disordered region of a protein (leaving us without structural information), we may not know where that protein is transcribed, or it may affect the transcription of multiple different proteins. 
-Furthermore, the SNP may affect phenotype differently with homozygous or heterozygous calls, and the protein may affect phenotype by influencing a network of other proteins, or the protein may exist as a redundant part of a pathway which will only affect phenotype if three other SNPs have specific calls. 
-Even after all this, the presentation of many phenotype depends heavily on the environment.
+The purpose of this introductory chapter was to provide an overview of how we think phenotype arises from genotype. 
+It’s also to explain why it’s a hard problem! 
+
+As we've seen in this Chapter, there are many kinds of genetic variation which can influence phenotype. 
+I will summarise the link between genotype and phenotype for the simplest and smallest kind of genetic variation: the SNP.
+
+SNPs can exist anywhere on the genome: in the exome, or outside of it. 
+If the SNP is in a coding region, it may encode for multiple different proteins, and for each of them, it could change the structure of the protein at one location, cut it short at that point, or have no effect on the structure. 
+If the SNP is non-synonymous for the protein (affects protein structure), then it may fall in a disordered region of a protein (leaving us without structural - and therefore often functional information), and we may not know in what circumstances and cells that protein is transcribed. 
+In addition, the SNP may affect phenotype differently with homozygous or heterozygous calls, and the protein may affect phenotype by influencing a network of other proteins, or the protein may exist as a redundant part of a pathway which will only affect phenotype if three other SNPs have specific calls. 
+Even after all this, the presentation of many phenotypes can depend heavily on the environment, or the age of the individual.
+The mechanisms will be different for each phenotype, and we can expect some phenotypes to be impossible to predict from genotype.
+
+Given all this complexity, it may seem no wonder that phenotype prediction is currently inaccurate{cite}`Zhou2019-jk`. 
+However, the {ref}`next Chapter<c03-compbio-bg>` will reveal the diverse information about biological entities exists, for example gene and protein sequence, protein structure, variant frequencies and functions, and gene expression.

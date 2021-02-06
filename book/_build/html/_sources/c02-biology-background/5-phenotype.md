@@ -1,22 +1,25 @@
-# Linking genotype and phenotype
-[//]: # (TODO: Different types of phenotypes: environmental, copy number variations, etc)
-[//]: # (TODO: Briefly mention metabolome: https://en.wikipedia.org/wiki/Metabolome)
-[//]: # (TODO: Explain CRISPR in an aside to below if haven't mentioned already)
-## Knockouts
-Insight into gene function can be gained by “knocking out” a gene, preventing it from being translated into a working protein, for example using CRISPR. 
-Combinations of up to four genes can be knocked out in a single experiment. 
-Knocking out a gene can lead to a difference in phenotype, and differences in gene expression, which can be used to help determine gene regulatory networks. 
-There is a lot of existing data on the phenotypic results of mouse knockouts, since they are often used to create mouse models for diseases. 
-Unfortunately, it is not always well-recorded when knockouts lead to no detectable phenotypic change{cite}`Barbaric2007-zm`.
+# Phenotype
 
-## Genome Wide Association Studies
-Genome Wide Association Studies (GWAS) are large observational studies where the genotypes of a cohort with a specific phenotype (e.g. diabetes) are compared to the genotypes of a cohort lacking in that phenotype (i.e. a control group) in order to find genomic loci that are statistically associated with the phenotype. 
-This has been a popular type of scientific enquiry since the first GWAS study in 2005. 
-GWAS generally results in lists of SNPs, often in the hundreds, ordered by p-value. 
-Disentangling which of these SNPs (if any) cause the trait is a tricky, particularly since GWAS specifically interrogates common variants. 
-The process of identifying causal variants generally involving identifying regions in linkage disequilibrium, and re-sequencing regions of interest in further detail.
+## What is phenotype?
+Phenotypes are observable traits, which can range from neutral (like height or eye colour) to disabling or life-threatening (for example presence of diseases), to very specific (e.g. level of calcium in blood).
+Since phenotypes can have various levels of specificity, they can also be hierarchical, an individual could display "abnormal muscle morphology", or more specifically "facial muscle atrophy", which means we have to decide at what level to record phenotypes.
+Human phenotype information is private information, and some phenotypes are not easy to measure, so information about human phenotypes is not always easy to access.
 
-The GWAS catalog database{cite}`Buniello2019-cv,L_Emery2017-rd` was founded in 2008, to provide a consistent and accessible location for published SNP-trait associations, which extracts information about experiments from the literature (currently over 70000 associations from over 3000 publications).
+## How do proteins influence phenotype?
+The easiest phenotypes to understand genetically are {ref}`Mendelian<mendel>`.
+In Mendelian phenotypes, a single mutation is responsible for a phenotype, and we can assume that the mutation changes, reduces, or stops entirely the functionality of the protein, and that this protein is the main actor involved in the trait.
+An example of this in humans is the [OPN1MW gene](https://www.genecards.org/cgi-bin/carddisp.pl?gene=OPN1MW) which encodes for green-light absorbing pigment necessary to create green light absorbing cones in the eye: the allele that causes a non-functional OPN1MW gene therefore causes red-green colourblindness.
 
+As well as mutations, phenotypes can be caused by chromosomal abnormalities (extra or missing sections of chromosomes). 
+In this case, the mechanism is the increased or decreased gene expression of the affected section of the chromosome which is influencing phenotypic differences.
 
+[//]: # (TODO: say something about homozygous/heterozygous calls)
 
+Proteins can effect the same phenotype indirectly, through protein-protein interaction networks,  through interaction with the metabolism (the body's creation of small chemicals, like sugars, fatty acids, and vitamins), and through interaction with the environment of the cell.
+The environment of the cell is of course in turn influenced from the human-scale environment: what we eat, whether we smoke, the air we breathe, and our body's response to outside stimuli. 
+
+There are some many phenotypes which may not be linked to genetics at all, but may be entirely influenced by the environment: asbestosis is a medical example.
+There is also little evidence for a genetic basis for most phenotypes that we define socially (such as intelligence).
+
+[//]: # (TODO: Questionable traits are linked to genes sometimes, e.g. "gay gene", modern scientific racism, but it's very likely that these things have a social nature)
+[//]: # (TODO: Do an aside: https://www.wired.co.uk/article/superior-the-return-of-race-science-angela-saini)

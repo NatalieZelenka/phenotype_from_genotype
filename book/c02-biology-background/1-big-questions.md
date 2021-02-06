@@ -24,6 +24,7 @@ An example of Mendel's experimental results, for white and purple pea flowers. H
 When self-pollinated, these first generation plants created plants with purple and white flowers in a 3:1 ratio. 
 ```
 
+(mendel)=
 Gregor Mendel's famous pea experiments{cite}`Mendel1996-gi` provided the earliest scientific basis for genetics through his experiments with independently inherited traits of peas (e.g. purple or white flowers, tall or shot plants, wrinkled or round seeds...). 
 Importantly, he discovered rules of inheritance that indicated that offspring have combinations of discrete genetic material (rather than a blend), i.e. we don't see pink flowers when we cross purple and white flowered peas.
 He also showed that single traits (e.g. purple flowers) can actually be caused by different underlying genetics (see {numref}`mendel-pea`.

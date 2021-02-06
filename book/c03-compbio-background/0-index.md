@@ -1,5 +1,6 @@
 (c03-compbio-bg)=
 # Computational Biology Background
+[//]: # (TODO: Rewrite for new structure)
 
 This chapter is a second background chapter.
 While {ref}`the previous Chapter<c02-biology-bg>` introduced the biology of the molecules involved the connection between genotype and phenotype, this Chapter presents the details of how this connection is studied.

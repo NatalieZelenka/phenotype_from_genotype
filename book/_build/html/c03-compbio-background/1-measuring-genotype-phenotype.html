@@ -155,7 +155,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
-     2.5. Linking genotype and phenotype
+     2.5. Phenotype
     </a>
    </li>
    <li class="toctree-l2">
@@ -263,7 +263,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/2-data.html">
-     5.2. Data
+     5.2. Data Acquisition
     </a>
    </li>
    <li class="toctree-l2">
@@ -272,18 +272,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/3-data-wrangling.html#left-and-samples-right-along-with-the-number-which-remained-after-each-stage">
-     5.4. (left) and samples (right), along with the number which remained after each stage
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/3-data-wrangling.html#of-data-cleaning">
-     5.5. of data cleaning.
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/4-uberon.html">
-     5.6. The
+     5.4. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -294,22 +284,27 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/5-batch-correction.html">
-     5.7. Batch correction
+     5.5. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/6-results.html">
-     5.8. Results
+     5.6. Results and outputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/6-results.html#combined-data-set">
+     5.7. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/7-discussion.html">
-     5.9. Discussion
+     5.8. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/8-future-work.html">
-     5.10. Future Work
+     5.9. Future Work
     </a>
    </li>
   </ul>
@@ -577,18 +572,28 @@
     <a class="reference internal nav-link" href="#phenotypes">
      3.1.4.3. Phenotypes
     </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#knockouts">
+   3.1.5. Knockouts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#genome-wide-association-studies">
+   3.1.6. Genome Wide Association Studies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-word-on-ontologies">
+     3.1.6.1. A word on ontologies
+    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#a-word-on-ontologies">
-       3.1.4.3.1. A word on ontologies
+      <a class="reference internal nav-link" href="#gene-ontology">
+       3.1.6.1.1. Gene Ontology
       </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#gene-ontology">
-         3.1.4.3.1.1. Gene Ontology
-        </a>
-       </li>
-      </ul>
      </li>
     </ul>
    </li>
@@ -740,7 +745,7 @@ However, microarrays are still commonly used by companies like 23andMe for genot
 <h4><span class="section-number">3.1.2.3.3. </span>Variant databases<a class="headerlink" href="#variant-databases" title="Permalink to this headline">¶</a></h4>
 <p>Databases like dbSNP, clinVar, and SNPedia contain information about the location of SNVs, their possible alleles, and their association to diseases.
 These are often used as part of a variant prioritisation pipeline, as well as by individuals who are investigating their own SNVs.</p>
-<p>The NCBI’s dbSNP<a class="bibtex reference internal" href="../end-matter/reference.html#sherry2001-nm" id="id13">[1]</a> is the world’s largest database of nucleotide variations, including their locations, possible alleles, and associations to diseases.
+<p>The NCBI’s dbSNP<a class="bibtex reference internal" href="../end-matter/reference.html#sherry2001-nm" id="id13">[35]</a> is the world’s largest database of nucleotide variations, including their locations, possible alleles, and associations to diseases.
 It contains information from ten organisms (including human) and has information on indels and short tandem repeats in addition to SNVs. It was designed to store the annotations that are outputted from GWAS studies.
 Anyone can submit their findings about variants, and they must indicate what sort of evidence they have for the association.
 The database gives SNVs unique identifiers (Reference SNP cluster IDs, a.k.a. RSIDs) of the form rs###, which are used by many other resources.</p>
@@ -803,7 +808,7 @@ This continues to be well-used and updated, at the time of writing holding struc
 </div>
 <div class="section" id="superfamily">
 <h5><span class="section-number">3.1.4.2.1.2. </span>SUPERFAMILY<a class="headerlink" href="#superfamily" title="Permalink to this headline">¶</a></h5>
-<p>SUPERFAMILY<a class="bibtex reference internal" href="../end-matter/reference.html#gough2001-ct" id="id27">[2]</a> uses HMMs to assign sequences to SCOP domains, primarily at the superfamily level. This allows the functions of poorly understood proteins to be inferred based on how closely they match known superfamilies. HMMs are very successful at such assignments since pairwise correlations between proteins (or their domains) and other proteins in the family may be weak, but consistently for many proteins; this can be picked up by an HMM. The superfamily level is chosen since it is the broadest level which suggests evolutionary relationships, but SUPERFAMILY also generates assignments at the (stricter) family level.</p>
+<p>SUPERFAMILY<a class="bibtex reference internal" href="../end-matter/reference.html#gough2001-ct" id="id27">[47]</a> uses HMMs to assign sequences to SCOP domains, primarily at the superfamily level. This allows the functions of poorly understood proteins to be inferred based on how closely they match known superfamilies. HMMs are very successful at such assignments since pairwise correlations between proteins (or their domains) and other proteins in the family may be weak, but consistently for many proteins; this can be picked up by an HMM. The superfamily level is chosen since it is the broadest level which suggests evolutionary relationships, but SUPERFAMILY also generates assignments at the (stricter) family level.</p>
 <p>HMMs are created by first finding closely relating protein homologs for a given protein superfamily using BLAST, and then extending it by comparing the HMM to more distantly related homologs. The resulting HMM library is fine-tuned by some manual curation.</p>
 <p>The SUPERFAMILY website also contains other tools, including a database of all sequences (genomes) which are used to generate the HMM library.</p>
 <p>(my-supfam-contribution=)
@@ -814,37 +819,54 @@ I contributed to SUPERFAMILY’s 2014 update<a class="bibtex reference internal"
 </div>
 <div class="section" id="phenotypes">
 <span id="phenotype-measurements"></span><h3><span class="section-number">3.1.4.3. </span>Phenotypes<a class="headerlink" href="#phenotypes" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="knockouts">
+<h2><span class="section-number">3.1.5. </span>Knockouts<a class="headerlink" href="#knockouts" title="Permalink to this headline">¶</a></h2>
+<p>Insight into gene function can be gained by “knocking out” a gene, preventing it from being translated into a working protein, for example using CRISPR.
+Combinations of up to four genes can be knocked out in a single experiment.
+Knocking out a gene can lead to a difference in phenotype, and differences in gene expression, which can be used to help determine gene regulatory networks.
+There is a lot of existing data on the phenotypic results of mouse knockouts, since they are often used to create mouse models for diseases.
+Unfortunately, it is not always well-recorded when knockouts lead to no detectable phenotypic change<a class="bibtex reference internal" href="../end-matter/reference.html#barbaric2007-zm" id="id29">[21]</a>.</p>
+</div>
+<div class="section" id="genome-wide-association-studies">
+<h2><span class="section-number">3.1.6. </span>Genome Wide Association Studies<a class="headerlink" href="#genome-wide-association-studies" title="Permalink to this headline">¶</a></h2>
+<p>Genome Wide Association Studies (GWAS) are large observational studies where the genotypes of a cohort with a specific phenotype (e.g. diabetes) are compared to the genotypes of a cohort lacking in that phenotype (i.e. a control group) in order to find genomic loci that are statistically associated with the phenotype.
+This has been a popular type of scientific enquiry since the first GWAS study in 2005.
+GWAS generally results in lists of SNPs, often in the hundreds, ordered by p-value.
+Disentangling which of these SNPs (if any) cause the trait is a tricky, particularly since GWAS specifically interrogates common variants.
+The process of identifying causal variants generally involving identifying regions in linkage disequilibrium, and re-sequencing regions of interest in further detail.</p>
+<p>The GWAS catalog database<a class="bibtex reference internal" href="../end-matter/reference.html#buniello2019-cv" id="id30">[22]</a><a class="bibtex reference internal" href="../end-matter/reference.html#l-emery2017-rd" id="id31">[23]</a> was founded in 2008, to provide a consistent and accessible location for published SNP-trait associations, which extracts information about experiments from the literature (currently over 70000 associations from over 3000 publications).</p>
 <div class="section" id="a-word-on-ontologies">
-<span id="what-are-ontologies"></span><h4><span class="section-number">3.1.4.3.1. </span>A word on ontologies<a class="headerlink" href="#a-word-on-ontologies" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">3.1.6.1. </span>A word on ontologies<a class="headerlink" href="#a-word-on-ontologies" title="Permalink to this headline">¶</a></h3>
 <p>For many of different biological molecules, ontologies a a popular way of storing information about anatomical entities.
 All ontologies contain entities names and descriptions (e.g. diseases, gene functions), different classifications of those entities (e.g. immune system disorders) and relate these classifications to one another hierarchically, sometimes with multiple types of relationships (e.g “is a”, “part of”). Hierarchical ontologies can be thought of as having a tree-like structure with one, or just a few root terms which are very general terms that all other terms in the ontology are related to, for example “biological process”, and leaf terms, which are the most specific terms in the ontology (e.g “positive regulation of cardiac muscle tissue regeneration”).</p>
 <p>Relations between terms are directional, for example “positive regulation of cardiac muscle tissue regeneration” is a “regulation of cardiac muscle tissue regeneration”, but not vice versa. In such relationships the parent term is the more general term closer to the root (“positive regulation of…”) and the child term is the more specific term (“regulation of..”). It is not permitted for there to be cycles in ontologies, for example <em>term A</em> <code class="docutils literal notranslate"><span class="pre">is_a</span></code> <em>term B</em> <code class="docutils literal notranslate"><span class="pre">is_a</span></code> <em>term A</em>.</p>
 <p>Terms in ontologies are given identifiers, usually of the form: <code class="docutils literal notranslate"><span class="pre">XXX:#######</span></code>, where <code class="docutils literal notranslate"><span class="pre">XXX</span></code> is an upper-case identifier for the whole ontology, e.g. <code class="docutils literal notranslate"><span class="pre">GO</span></code> for Gene Ontology, <code class="docutils literal notranslate"><span class="pre">CL</span></code> for Cell Ontology, etc. For example, <code class="docutils literal notranslate"><span class="pre">GO:0008150</span></code> is the GO term for <em>Biological Process</em>.</p>
-<p>Ontologies are generally created through some combination of manual curation by highly skilled biocurators and logic-testing (checking for illogical relationships, for example using ROBOT<a class="bibtex reference internal" href="../end-matter/reference.html#overton2015-vo" id="id29">[48]</a>). Creating an ontology is generally a long-term project, with new suggestions and updates to the ontologies being made as new knowledge accumulates, or just as more people have time to add to them. As well as being the work of dedicated curators, contributions to ontologies can usually be crowd-sourced from the scientific community using GitHub issues, mailing list discussions, web forms, and dedicated workshops. In this way, they are similar to other bioinformatics community-driven efforts like structural and sequence databases.</p>
+<p>Ontologies are generally created through some combination of manual curation by highly skilled biocurators and logic-testing (checking for illogical relationships, for example using ROBOT<a class="bibtex reference internal" href="../end-matter/reference.html#overton2015-vo" id="id32">[48]</a>). Creating an ontology is generally a long-term project, with new suggestions and updates to the ontologies being made as new knowledge accumulates, or just as more people have time to add to them. As well as being the work of dedicated curators, contributions to ontologies can usually be crowd-sourced from the scientific community using GitHub issues, mailing list discussions, web forms, and dedicated workshops. In this way, they are similar to other bioinformatics community-driven efforts like structural and sequence databases.</p>
 <p>There are also cross-ontology mappings and annotations, where terms from one ontology are linked to those in another (e.g. relating gene functions and tissues) or to entities in a database (e.g. gene functions to genes). These also require the work of dedicated curators, who search through literature, assessing various criteria for the inclusion of an annotation (such criteria vary by ontology). Since this is a laborious process, there are also many computational methods to annotate ontology terms automatically.</p>
 <p>Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities.
 Ontologies and particularly their annotations are varying degrees of incomplete, and this will have an impact on the results of any downstream use of them.</p>
 <p id="obo-format">There are two major file formats in which ontologies are currently stored.
 he OBO format is a human-readable format, while the OWL format is more complex, but has more functionality, and for example can be queried using SPARQL (an SQL-like querying language).</p>
 <div class="section" id="gene-ontology">
-<h5><span class="section-number">3.1.4.3.1.1. </span>Gene Ontology<a class="headerlink" href="#gene-ontology" title="Permalink to this headline">¶</a></h5>
+<h4><span class="section-number">3.1.6.1.1. </span>Gene Ontology<a class="headerlink" href="#gene-ontology" title="Permalink to this headline">¶</a></h4>
 <div class="figure align-default" id="go-rilla">
 <a class="reference internal image-reference" href="../_images/go_rilla.png"><img alt="../_images/go_rilla.png" src="../_images/go_rilla.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla<a class="bibtex reference internal" href="../end-matter/reference.html#eden2009-ic" id="id30">[49]</a>)
+<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla<a class="bibtex reference internal" href="../end-matter/reference.html#eden2009-ic" id="id33">[49]</a>)
 ``` ``</span><a class="headerlink" href="#go-rilla" title="Permalink to this image">¶</a></p>
 <div class="legend">
-<p>The Gene Ontology (GO)<a class="bibtex reference internal" href="../end-matter/reference.html#ashburner2000-cr" id="id31">[3]</a> is one of the first biomedical ontologies, and continues to be one of the most popular.
-It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems<a class="bibtex reference internal" href="../end-matter/reference.html#thomas2017-vm" id="id32">[51]</a>.
+<p>The Gene Ontology (GO)<a class="bibtex reference internal" href="../end-matter/reference.html#ashburner2000-cr" id="id34">[50]</a> is one of the first biomedical ontologies, and continues to be one of the most popular.
+It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems<a class="bibtex reference internal" href="../end-matter/reference.html#thomas2017-vm" id="id35">[51]</a>.
 It includes:</p>
 <ol class="simple">
 <li><p>The standard gene ontology, which is a hierarchical set of terms describing functions.</p></li>
 <li><p>The gene ontology annotations (GOA) database, which contains manual and computationally derived mappings from gene products to gene ontology terms.</p></li>
 <li><p>Tools for using and updating these resources.</p></li>
 </ol>
-<p>The Gene Ontology defines the “universe” of possible functions a gene might have, while the functions of particular genes are captured as GO annotations<a class="bibtex reference internal" href="../end-matter/reference.html#thomas2017-vm" id="id33">[51]</a>.</p>
-<p>The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies<a class="bibtex reference internal" href="../end-matter/reference.html#ashburner2000-cr" id="id34">[3]</a>.
-Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process)<a class="bibtex reference internal" href="../end-matter/reference.html#thomas2017-vm" id="id35">[51]</a>.</p>
-</div>
+<p>The Gene Ontology defines the “universe” of possible functions a gene might have, while the functions of particular genes are captured as GO annotations<a class="bibtex reference internal" href="../end-matter/reference.html#thomas2017-vm" id="id36">[51]</a>.</p>
+<p>The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies<a class="bibtex reference internal" href="../end-matter/reference.html#ashburner2000-cr" id="id37">[50]</a>.
+Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process)<a class="bibtex reference internal" href="../end-matter/reference.html#thomas2017-vm" id="id38">[51]</a>.</p>
 </div>
 </div>
 </div>
