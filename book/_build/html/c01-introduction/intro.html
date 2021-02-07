@@ -155,7 +155,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
-     2.5. Linking genotype and phenotype
+     2.5. Phenotype
     </a>
    </li>
    <li class="toctree-l2">
@@ -173,23 +173,33 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/1-measuring-genotype-phenotype.html">
-     3.1. From genotype to phenotype: what is measured
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/2-comp-bio-methods.html">
-     3.2. How large computational biology datasets are used
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/3-bias.html">
-     3.3. Sources of bias in computational biology datasets
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/4-summary.html">
-     3.4. Summary
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. How large computational biology datasets are used
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-summary.html">
+     3.6. Summary
     </a>
    </li>
   </ul>
@@ -263,7 +273,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/2-data.html">
-     5.2. Data
+     5.2. Data Acquisition
     </a>
    </li>
    <li class="toctree-l2">
@@ -272,18 +282,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/3-data-wrangling.html#left-and-samples-right-along-with-the-number-which-remained-after-each-stage">
-     5.4. (left) and samples (right), along with the number which remained after each stage
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/3-data-wrangling.html#of-data-cleaning">
-     5.5. of data cleaning.
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/4-uberon.html">
-     5.6. The
+     5.4. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -294,22 +294,27 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/5-batch-correction.html">
-     5.7. Batch correction
+     5.5. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/6-results.html">
-     5.8. Results
+     5.6. Results and outputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/6-results.html#combined-data-set">
+     5.7. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/7-discussion.html">
-     5.9. Discussion
+     5.8. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/8-future-work.html">
-     5.10. Future Work
+     5.9. Future Work
     </a>
    </li>
   </ul>
@@ -448,10 +453,10 @@ Notes on chapters:
 <p>The central theme of this thesis is the relationship between protein function - at either a molecular or phenotypic level - and the sequence of its associated DNA and RNA. A recurring motif is impact of the provenance of related data and what that means for attempts to make genome-wide predictions about these relationships.</p>
 <p>In the spirit of trying to make my work as reproducibly and Open as possible, this thesis is available online as a Jupyter Book: the latest version is available online <span class="xref myst">here</span>.</p>
 <p><a class="reference internal" href="../c02-biology-background/0-index.html#c02-biology-bg"><span class="std std-ref">Chapter 2</span></a> contains the biological background information on which the rest of the thesis is based. It tells the story of how phenotype arises from genotype, and introduces the different biological molecules that are involved. It begins at the very basics: what are DNA, RNA, proteins, and phenotypes? How do we measure them? And how do we measure the connections between them? This background is intended to make this thesis readable to someone without a background in biology. This chapter does not contain any of my own research. In the light of Black Lives Matter, I have included asides in this book where I mention researchers who have been involved in eugenics and/or racism. I have done this as I don’t want to highlight the scientific achievements of these individuals, without also acknowledging their legacy of scientific racism.</p>
-<p><a class="reference internal" href="../c03-compbio-background/0-index.html#c03-compbio-bg"><span class="std std-ref">Chapter 3</span></a> is a second background chapter, which contains some of my own work. It follows on from the first by discussing popular resources in computational biology, their provenance, and the impact of this on the field. This includes mathematical modelling of publications of named genes and sensitivity analysis of gene enrichment analyses. I also present here my contributions to reproducibility-related collaborative projects that I have and continue to be involved with: the Proteome Quality Index paper<a class="bibtex reference internal" href="../c03-compbio-background/3-bias.html#zaucha2015-ez" id="id1">[1]</a>, my contribution to the collaborative 2014 SUPERFAMILY update paper<a class="bibtex reference internal" href="../end-matter/reference.html#oates2015-li" id="id2">[2]</a>, and the (ongoing) MAPS project.</p>
-<p>In <a class="reference internal" href="../c04-snowflake/0-index.html#c04-snowflake"><span class="std std-ref">Chapter 4</span></a>, I describe my preliminary efforts to integrate the data sources described in the background chapters into Snowflake, a phenotype predictor<a class="bibtex reference internal" href="../end-matter/reference.html#gough2017-ik" id="id3">[1]</a>. I discuss potential reasons for the poor performance of the predictor.</p>
+<p><a class="reference internal" href="../c03-compbio-background/0-index.html#c03-compbio-bg"><span class="std std-ref">Chapter 3</span></a> is a second background chapter, which contains some of my own work. It follows on from the first by discussing popular resources in computational biology, their provenance, and the impact of this on the field. This includes mathematical modelling of publications of named genes and sensitivity analysis of gene enrichment analyses. I also present here my contributions to reproducibility-related collaborative projects that I have and continue to be involved with: the Proteome Quality Index paper<a class="bibtex reference internal" href="../end-matter/reference.html#zaucha2015-ez" id="id1">[1]</a>, my contribution to the collaborative 2014 SUPERFAMILY update paper<a class="bibtex reference internal" href="../end-matter/reference.html#oates2015-li" id="id2">[2]</a>, and the (ongoing) MAPS project.</p>
+<p>In <a class="reference internal" href="../c04-snowflake/0-index.html#c04-snowflake"><span class="std std-ref">Chapter 4</span></a>, I describe my preliminary efforts to integrate the data sources described in the background chapters into Snowflake, a phenotype predictor<a class="bibtex reference internal" href="../end-matter/reference.html#gough2017-ik" id="id3">[3]</a>. I discuss potential reasons for the poor performance of the predictor.</p>
 <p><a class="reference internal" href="../c05-combining/0-index.html#c05-combining"><span class="std std-ref">Chapter 5</span></a> discusses a combined tissue-specific RNA-Seq data sets from four experiments. I present this data set as a resource, alongside a Python package that I created in order to do this: uberon-py.</p>
-<p>In <a class="reference internal" href="../c06-filter/0-index.html#c06-filter"><span class="std std-ref">Chapter 6</span></a>, I discuss a filter-based gene function predictor that I entered in the CAFA3 competition<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id4">[1]</a>.</p>
+<p>In <a class="reference internal" href="../c06-filter/0-index.html#c06-filter"><span class="std std-ref">Chapter 6</span></a>, I discuss a filter-based gene function predictor that I entered in the CAFA3 competition<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id4">[4]</a>.</p>
 <p>Finally, I discuss my conclusions in <a class="reference internal" href="../c07-conclusion/0-conclusion.html#c07-conclusion"><span class="std std-ref">Chapter 7</span></a>.</p>
 </div>
 

@@ -155,7 +155,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
-     2.5. Linking genotype and phenotype
+     2.5. Phenotype
     </a>
    </li>
    <li class="toctree-l2">
@@ -173,23 +173,33 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/1-measuring-genotype-phenotype.html">
-     3.1. From genotype to phenotype: what is measured
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/2-comp-bio-methods.html">
-     3.2. How large computational biology datasets are used
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/3-bias.html">
-     3.3. Sources of bias in computational biology datasets
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/4-summary.html">
-     3.4. Summary
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. How large computational biology datasets are used
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-summary.html">
+     3.6. Summary
     </a>
    </li>
   </ul>
@@ -474,28 +484,37 @@
 <h1><span class="section-number">6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>As previously mentioned, there are many genes/proteins for which we have sequence information, but not functional information.
 This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes.</p>
-<p>There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information (e.g. via the CAFA competitions<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id1">[4]</a><a class="bibtex reference internal" href="../end-matter/reference.html#jiang2016-rz" id="id2">[139]</a><a class="bibtex reference internal" href="../end-matter/reference.html#radivojac2013-wh" id="id3">[140]</a>). If successful, this would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments. Such knowledge could be used to identify genes or proteins for future treatments. An accurate model might also be able to give us an insight into the mechanisms behind such functions, giving further insight into how an effective therapy might be designed.</p>
+<p>There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information (e.g. via the CAFA competitions<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id1">[4]</a><a class="bibtex reference internal" href="../end-matter/reference.html#jiang2016-rz" id="id2">[139]</a><a class="bibtex reference internal" href="../end-matter/reference.html#radivojac2013-wh" id="id3">[140]</a>).
+If successful, this would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments. Such knowledge could be used to identify genes or proteins for future treatments. An accurate model might also be able to give us an insight into the mechanisms behind such functions, giving further insight into how an effective therapy might be designed.</p>
 <p>Machine learning methods are currently the most successful class of protein function predictors. While this is promising for answering one aspect of the problem (“what are the functions of a given protein?”), they do not always attempt to answer how or why.</p>
-<p>Structural or sequence methods that estimate protein function based on for example conservation or structure counter this problem. However, they are generally less accurate. One reason for this might be that they can predict that a protein affects a phenotype in a context that it would never encounter. For example, that a protein which is only ever transcribed in skin cells is associated with lung cancer. Such predictions are at odds with our understanding of how proteins function, and gene expression data could be used to filter out such predictions.</p>
-<p>Disease-associated genes are generally overexpressed in the tissue they cause symptoms in, with the exception of cancer-associated genes<a class="bibtex reference internal" href="../end-matter/reference.html#lage2008-gq" id="id4">[141]</a><a class="bibtex reference internal" href="../end-matter/reference.html#winter2004-rr" id="id5">[129]</a>. This can and has already been leveraged effectively as part of gene and variant prioritisation methods <a class="bibtex reference internal" href="../end-matter/reference.html#rackham2015-jp" id="id6">[142]</a><a class="bibtex reference internal" href="../end-matter/reference.html#antanaviciute2015-ke" id="id7">[143]</a>. Despite this, issue-specific gene expression data was completely missing from entries to CAFA1 or CAFA2.</p>
+<p>Structural or sequence methods that estimate protein function based on for example conservation or structure counter this problem. However, they are generally less accurate.
+One reason for this might be that they can predict that a protein affects a phenotype in a context that it would never encounter.
+For example, that a protein which is only ever transcribed in skin cells is associated with lung cancer. Such predictions are at odds with our understanding of how proteins function, and gene expression data could be used to filter out such predictions.</p>
+<p>Disease-associated genes are generally over-expressed in the tissue they cause symptoms in, with the exception of cancer-associated genes<a class="bibtex reference internal" href="../end-matter/reference.html#lage2008-gq" id="id4">[141]</a><a class="bibtex reference internal" href="../end-matter/reference.html#winter2004-rr" id="id5">[129]</a>.
+This can and has already been leveraged effectively as part of gene and variant prioritisation methods <a class="bibtex reference internal" href="../end-matter/reference.html#rackham2015-jp" id="id6">[142]</a><a class="bibtex reference internal" href="../end-matter/reference.html#antanaviciute2015-ke" id="id7">[143]</a>.
+Despite this, tissue-specific gene expression data was completely missing from entries to CAFA1 or CAFA2.</p>
 <p>For this reason, I developed a filter to be used on top of any protein function prediction method (FilP), which removes predictions where the protein is not transcribed in the tissue that the phenotype relates to.</p>
 <div class="section" id="critical-assessment-of-functional-annotation">
 <h2><span class="section-number">6.1.1. </span>Critical Assessment of Functional Annotation<a class="headerlink" href="#critical-assessment-of-functional-annotation" title="Permalink to this headline">¶</a></h2>
-<p>Critical Assessment of Functional Annotation (CAFA) is an international community-wide competition for the prediction of protein function. It has been running approximately every 2-3 years since 2013. CAFA aims both to stimulate research in the field of protein function prediction, and to measure progress in the field.</p>
+<p>Critical Assessment of Functional Annotation (CAFA) is an international community-wide competition for the prediction of protein function.
+It has been running approximately every 2-3 years since 2013. CAFA aims both to stimulate research in the field of protein function prediction, and to measure progress in the field.</p>
 <div class="section" id="challenge">
 <h3><span class="section-number">6.1.1.1. </span>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h3>
-<p>Each CAFA challenge begins by the organisers releasing a large number of target sequences about which participants must make predictions. Participants can use any additional data they see fit to make predictions, which must be triples containing a sequence ID, ontology term ID (e.g. a GO/HP identifier), and a confidence score between 0 and 1. A score of 1 indicates a very confidence predictor, while a score of 0 is equivalent to not returning the prediction. Each team may submit up to three models, the best of which is ranked.</p>
+<p>Each CAFA challenge begins by the organisers releasing a large number of target sequences about which participants must make predictions.
+Participants can use any additional data they see fit to make predictions, which must be triples containing a sequence ID, ontology term ID (e.g. a GO/HP identifier), and a confidence score between 0 and 1.
+A score of 1 indicates a very confidence predictor, while a score of 0 is equivalent to not returning the prediction. Each team may submit up to three models, the best of which is ranked.</p>
 </div>
 <div class="section" id="cafa-validation">
 <h3><span class="section-number">6.1.1.2. </span>CAFA Validation<a class="headerlink" href="#cafa-validation" title="Permalink to this headline">¶</a></h3>
-<p>This confidence score allows for a range of possible sets of predictions, depending on the threshold parameter \tau. Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined as:</p>
+<p>This confidence score allows for a range of possible sets of predictions, depending on the threshold parameter <span class="math notranslate nohighlight">\(\tau\)</span>.
+Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined as:</p>
 <div class="math notranslate nohighlight">
 \[$ precision = p = \frac{t_p}{t_p + f_p} $\]</div>
 <div class="math notranslate nohighlight">
 \[$ recall = r = \frac{t_p}{t_p + f_n} $\]</div>
 <p>Precision-recall curves are generally used to validate a predictors performance, but the <span class="math notranslate nohighlight">\(F_1\)</span> measure gives a one-number overview of the performance:</p>
 <div class="math notranslate nohighlight">
-\[$F_1 =2/frac{precision \cdot recall}{precision + recall}$\]</div>
+\[$F_1 =2/ \frac{precision \cdot recall}{precision + recall}$\]</div>
 <p>Since the precision and recall will be different for any <span class="math notranslate nohighlight">\(\tau\)</span>, the <span class="math notranslate nohighlight">\(F_{max}\)</span> score is the maximum possible <span class="math notranslate nohighlight">\(F_1\)</span> for any value of <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
 <p>CAFA validation can either be term-centric or protein-centric. For each option, submissions are assessed per species and for wholly unknown and partially known genes separately.</p>
 <div class="section" id="limitations-of-validation-method">

@@ -57,7 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.1. From genotype to phenotype: what is measured" href="1-measuring-genotype-phenotype.html" />
+    <link rel="next" title="3.1. Sequencing and microarrays" href="1-sequencing-technology.html" />
     <link rel="prev" title="2.6. Summary: how genotype and phenotype are linked" href="../c02-biology-background/6-summary.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -173,23 +173,33 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="1-measuring-genotype-phenotype.html">
-     3.1. From genotype to phenotype: what is measured
+    <a class="reference internal" href="1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2-comp-bio-methods.html">
-     3.2. How large computational biology datasets are used
+    <a class="reference internal" href="2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3-bias.html">
-     3.3. Sources of bias in computational biology datasets
+    <a class="reference internal" href="3-ontologies.html">
+     3.3. Ontologies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4-summary.html">
-     3.4. Summary
+    <a class="reference internal" href="4-comp-bio-methods.html">
+     3.4. How large computational biology datasets are used
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-bias.html">
+     3.5. Sources of bias in computational biology datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-summary.html">
+     3.6. Summary
     </a>
    </li>
   </ul>
@@ -430,13 +440,17 @@
   <div class="section" id="computational-biology-background">
 <span id="c03-compbio-bg"></span><h1><span class="section-number">3. </span>Computational Biology Background<a class="headerlink" href="#computational-biology-background" title="Permalink to this headline">¶</a></h1>
 <p>This chapter is a second background chapter.
-While <a class="reference internal" href="../c02-biology-background/0-index.html#c02-biology-bg"><span class="std std-ref">the previous Chapter</span></a> introduced the biology of the molecules involved the connection between genotype and phenotype, this Chapter presents the details of how this connection is studied.</p>
-<p>In the <a class="reference internal" href="1-measuring-genotype-phenotype.html#measuring-genotype-phenotype"><span class="std std-ref">first Section</span></a> of this Chapter, we will retrace our steps, looking at the connections between DNA, RNA, proteins, and phenotypes, but this time considering the data gathered about each of these stages, and the data gathered about the connections between them.
+We have <a class="reference internal" href="../c02-biology-background/0-index.html#c02-biology-bg"><span class="std std-ref">just introduced</span></a> the biology of the molecules involved the connection between genotype and phenotype, and now we will discuss the details of how this connection is studied.</p>
+<p>This Chapter begins with a short <a class="reference internal" href="1-sequencing-technology.html#sequencing-technology"><span class="std std-ref">description of popular sequencing technologies</span></a>, as this is relevant to both DNA and RNA.</p>
+<p>Then in the <a class="reference internal" href="2-measuring-genotype-phenotype.html#measuring-genotype-phenotype"><span class="std std-ref">second Section</span></a>, we will retrace the steps we took in <a class="reference internal" href="../c02-biology-background/0-index.html#c02-biology-bg"><span class="std std-ref">the previous Chapter</span></a>, looking again at DNA, RNA, proteins, and phenotypes in turn, but this time considering the data gathered about each of these entities, and the data gathered about the connections between them.
 When I reach certain data (particularly RNA-Seq data), it will be also necessary to talk about some of the data processing pipeline.
 As we look at these different data types, I will describe some specific examples of resources and tools used in bioinformatics and computational biology, particularly those which are important in later chapters.
-This includes <a class="reference internal" href="1-measuring-genotype-phenotype.html#what-are-ontologies"><span class="std std-ref">biological ontologies</span></a>, tools for variant prioritisation, and databases of protein structure, sequence and domain assignments. In this part of the chapter, I will explain <span class="xref std std-ref">my contribution to the update to the SUPERFAMILY resource</span>.</p>
-<p>The <a class="reference internal" href="2-comp-bio-methods.html#compbio-methods"><span class="std std-ref">second Section</span></a> will then touch upon how some of these datasets are used.</p>
-<p>Finally, in the <a class="reference internal" href="3-bias.html#compbio-bias"><span class="std std-ref">third Section</span></a> of this chapter, I will consider what potential sources of bias this data contains. Here I mention my contributions to two collaborative projects: PQI and MAPS (ongoing).</p>
+In this part of the Chapter, I will explain <span class="xref std std-ref">my contribution to the update to the SUPERFAMILY resource</span>.
+I then mention <a class="reference internal" href="3-ontologies.html#what-are-ontologies"><span class="std std-ref">biological ontologies</span></a>, which are efforts to unify some of the information gained in the experiments just described in <a class="reference internal" href="2-measuring-genotype-phenotype.html#measuring-genotype-phenotype"><span class="std std-numref">Section 3.2</span></a>.</p>
+<p>To contextualise this information, I then touch upon how some of these datasets <a class="reference internal" href="4-comp-bio-methods.html#compbio-methods"><span class="std std-ref">are applied</span></a>.</p>
+<p>In the <a class="reference internal" href="5-bias.html#compbio-bias"><span class="std std-ref">penultimate Section</span></a>, I will consider some of the potential sources of bias in this data.
+Here I mention my contributions to two collaborative projects: PQI and MAPS (ongoing).</p>
+<p>Finally, I summarise the data we currently have (and don’t have) on the link between genotype and phenotype.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -470,7 +484,7 @@ This includes <a class="reference internal" href="1-measuring-genotype-phenotype
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../c02-biology-background/6-summary.html" title="previous page"><span class="section-number">2.6. </span>Summary: how genotype and phenotype are linked</a>
-    <a class='right-next' id="next-link" href="1-measuring-genotype-phenotype.html" title="next page"><span class="section-number">3.1. </span>From genotype to phenotype: what is measured</a>
+    <a class='right-next' id="next-link" href="1-sequencing-technology.html" title="next page"><span class="section-number">3.1. </span>Sequencing and microarrays</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

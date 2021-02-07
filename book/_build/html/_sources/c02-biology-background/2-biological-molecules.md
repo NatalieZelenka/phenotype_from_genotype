@@ -32,7 +32,9 @@ The central dogma of molecular biology can be paraphrased as "DNA makes RNA make
 Proteins make up a lot of molecular machinery in the body as well as structures, however there are other actors, too, for example, functional RNA molecules (some of which are explained further down this page). Fats (which may or may not be synthesised using proteins) can also make up structural parts of the body such as cell membranes.
 ``` 
 
-The central dogma describes the process of gene expression. Gene expression has two parts: transcription (“DNA makes RNA”) and translation (“RNA makes proteins”).
+(gene-expression)=
+The central dogma describes the process of gene expression.
+Gene exp ression has two parts: transcription (“DNA makes RNA”) and translation (“RNA makes proteins”).
 
 ### "DNA makes RNA", a.k.a, transcription
 

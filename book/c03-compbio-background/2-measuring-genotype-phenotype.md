@@ -1,105 +1,36 @@
 (measuring-genotype-phenotype)=
 # From genotype to phenotype: what is measured
-
-## Introduction
-
-```{figure} ../images/linneaus_ehret.png
----
-height: 220px
-name: linneaus_ehret
----
-Carl Linneaus developed a system of classifying plants, animals and minerals, including plant classification based on their number of stamens{cite}`Blunt2001-wr`. The left image is a key to this classification system taken from his book, while the right image is a depiction of how the system works, drawn by botanist George Ehret{cite}`Ehret1748-bx`. 
-``` 
-
-(linneus-racist)=
-```{margin} Linneus and scientific racism
-Linneus' classifications included a racist hierarchical classification of human beings{cite}`Charmantier_undated-wy`.
-```
-
-Cataloguing and classifying has been a successful scientific endeavour in other disciplines (e.g. the periodic table), but it’s a cornerstone of biology. 
-Biological classification dates back to the Linnaean taxonomy from the mid 1700s (see {numref}`linneaus_ehret`), which described species, their features, and the relationships between them{cite}`Jensen2010-fk`. 
-The work contains some {ref}`unforgivable, hateful ideas<linneus-racist>`.
-Nonetheless the idea of measuring and connecting the biological world also birthed an enduring tradition of classification in biology.
- 
-[//]: # (TODO: Cite data inaccessibility)
-[//]: # (TODO: Cite proteindatabank Margaret Dayhoff)
-[//]: # (TODO: Cross ref RNA, proteins, and phenotypes)
-Modern biology continues in this tradition of classification, cataloguing biology in ever more (molecular) detail: cells, genes, transcripts, proteins, and pathways. 
-While in other fields, data inaccessibility is a major barrier to reproducible research, this is the field that had an online database system that remote computers could access in the 1960s!
-So, the catalogued information populates freely available databases, vocabularies, and annotations, creating controlled and shared vocabularies that fuel computational methodologies.
 We will now delve into the details of some of these datasets, looking first at {ref}`DNA<dna-measurements>`, then {ref}`RNA<rna-measurements>`, then {ref}`proteins<protein-measurements>`, then {ref}`phenotypes<phenotype-measurements>`.
 
 (dna-measurements)=
 ## DNA
 In the {ref}`previous Chapter<what-is-dna>`, we looked at what DNA is and how that links to phenotype. 
-Now we're going to look at the details of how this is measured and stored in computational biology. 
-Since smaller pieces of DNA are generally talked about in relation to the whole genome, we'll go from big to small, beginning with whole genomes and moving through to individual SNPs.
+Now we're going to look at the details of how this is measured and stored: and how these details impact computational biology research. 
+We'll once again go from big to small, beginning with whole genomes and moving through to individual SNPs.
 
 ### Whole genome
-The whole genome is all the genetic material of an organism. In humans, this means all chromosomal and mitochondrial DNA, whether or not it is transcribed into RNA, or translated into proteins.
-No sequencing technology can read whole chromosomes end to end: all work by reading shorter lengths of DNA (*reads*).
+The whole genome is all the genetic material of an organism, whether or not it is transcribed into RNA, or translated into protein.
+In humans, this includes all chromosomal and mitochondrial DNAs.
+Whole genomes for different organisms can be compared to one another to give us insight about the organisms, or within an organism, individuals can be compared to understand the importance of sections of DNA for that organism.
 
-(sequencing-technology)=
-#### Sequencing
-
-From the late 1970’s until the mid 2000s, *Sanger sequencing* was the most popular sequencing technology, although it underwent various improvements over this timescale. 
-In Sanger sequencing (and other first-generation methods), reads of around 800bp are sequenced, one at a time. 
-The human genome project sequenced the first human genome using this method{cite}`Venter2001-wn`, and it’s still used in some circumstances, for example validating next generation sequencing. 
-
-Second, or *next generation sequencing* (NGS), also referred to as high-throughput sequencing, is a catch-all term for the faster and cheaper sequencing technologies which replaced the previously used Sanger sequencing. 
-A feature that is common to NGS methods is that many shorter reads (around 100bp, exact numbers depending on the specific technology) are sequenced in parallel. 
-The process is massively parallel: millions to billions of short sequences can be read at a time. 
-This is a huge factor in making NGS much faster (and therefore cheaper) than Sanger sequencing. 
-In turn, this speed and cheapness means that more repeats can be sequenced, increasing the overall accuracy of NGS over Sanger (despite the accuracy of each individual read being generally lower).
-
-There are now also third generation sequencing technologies that allow much longer reads to be sequenced.
-
-(assembly-and-alignment)=
-#### Assembly
-Whichever {ref}`technology<sequencing-technology>` is used, DNA is sequenced in smalls sections, which must then be *assembled* to make the full genome, organised into chromosomes. 
-
-[//]: # (TODO: Check that aligment is referenced in the text and that the image is)
-[//]: # (TODO: Replace with better more DNA-centric image)
-
-```{figure} ../images/alignment.png
----
-height: 240px
-name: alignment
----
-Image showing how RNA-Seq reads are mapped to the genome (image from Advancing RNA-Seq Analysis {cite}`Haas2010-lm`). A similar process is followed for DNA.
-``` ``
-
-[//]: # (TODO: delete extra backticks)
-
-The short reads that are the output of initial sequencing must be assembled to create longer sequences of DNA, whether that's genes or whole genomes. 
-This is done by aligning reads to one another and (if available) to an existing reference sequence. 
-This of course requires the reads to overlap, so longer and more numerous reads make this task easier.
-
-The current estimate for raw sequencing accuracy of an individual NGS read is around 0.24%{cite}`Pfeiffer2018-kt`, meaning that on average one base pair will be incorrect for a 500pb read.
-Multiple repeats are therefore required to obtain a more accurate measurement of the assembled sequence, which is further necessary since there are many repeated sequences (perhaps over two thirds of the human genome{cite}`De_Koning2011-ac`).
-The depth (or coverage) for a nucleotide is the number of reads that overlap that nucleotide. Similarly, the average depth of a sequence can be calculated. 
-
-After assembly, even in the most complete genomes, we are still left with some sequences that could not be placed, and some parts of the genome that we still don't know about. 
-
-(human-references)=
 #### The human reference genome
 As {ref}`previously mentioned<genomes>`, reference genomes are designed to represent whole organisms: these genomes aim to have the most common allele at any given nucleotide, and are then annotated at positions where individuals differ. 
 
+(different-builds)=
 **Builds and patches:** 
-As more genomes are sequenced, more information comes to light about the nature of the human genome. 
+Reference genomes are {ref}`assembled<assembly-and-alignment>` as previously described.
+Then as more genomes are sequenced, more information comes to light about the nature of the human genome. 
 For example, some locations are revealed to be likely sequencing artifacts. 
 New major versions of genomes are released every few years to fix these changes. 
 These versions are called *builds*. 
 Between builds and patches, sequences may be added, removed, or moved to different locations on chromosomes.
 
-(different-builds)=
 **Differences between GRC and UCSC builds:**
 Different versions of the builds are released by the Genome Reference Consortium (GRC) and the University of California Santa Cruz (UCSC) Genomics Institute. 
-Table {numref}`build-table` shows information about the most recent human reference builds, taken from the UCSC website{cite}`noauthor_undated-ci`.
+{numref}`build-table` shows information about the most recent human reference builds, taken from the UCSC website{cite}`noauthor_undated-ci`.
 For example, `hg19` (**h**uman **g**enome build **19**), is largely equivalent to `GRCh37` (**G**enome **R**eference **C**onsortium **h**uman build **37**).
 These are generally used interchangeably by researchers, but there are some differences between them. 
-These differences including formatting differences (storing chromosome as integers rather than strings like `chr1`), the inclusion of mitochondrial DNA, as well as small numbers of differences of the locations of some variants on some chromosomes {cite}`GATK_Team2020-au`.
-
+This includes formatting differences (storing chromosome as integers rather than strings like `chr1`), the inclusion of mitochondrial DNA, as well as small numbers of differences of the locations of some variants on some chromosomes {cite}`GATK_Team2020-au`.
 
 ```{list-table} Table showing human reference genome builds
 :header-rows: 1
@@ -119,19 +50,9 @@ These differences including formatting differences (storing chromosome as intege
   - March 2006
 ```
 
-### Whole Genome Sequencing of individuals
-When individual humans have their whole genomes sequenced, this is compared to the human reference genome. 
-The alleles at each location are commonly stored in Variant Call Format (VCF) files. 
-These describe the locations on the genome of variations between individuals, given by chromosome, position, variant identifiers, and the variation between a given number of individuals.
-
-[//]: # (TODO: Include sample of VCF to break up text?)
-
-**Position and BED formats**
-
-
-[//]: # (TODO: Write)
-
 ### Genes
+Once we have an {ref}`assembled` genome 
+
 There can be disagreements about the locations of genes on the genome, and popular databases of genes fundamentally disagree on this and on the number of genes{cite}`Salzberg2018-yc`. 
 Gene names and symbols change over time, and can be difficult to map between for this reason.
 
@@ -143,16 +64,7 @@ Gene names and symbols change over time, and can be difficult to map between for
 #### Variants
 [//]: # (TODO: Sentence about variants)
 
-[//]: # (TODO: Rewrite microarrays section below to be more about genotyping)
-##### Microarrays
-Through the 1970s into the early 2000s, DNA arrays/microarrays developed alongside sequencing as a way of measuring the presence of previously sequenced DNA in new samples. 
-These arrays contain pre-chosen fragments of DNA (probes) arranged in spots, with each spot containing many copies of the probe, on a solid surface, e.g. glass, silicon or plastic. 
-The probes consist of single strands of DNA, and arrays operate on the principle that the complementary DNA from the sample will bind tightly to it.
 
-These arrays were originally macro-sized, one of the first being 26 × 38 cm and containing 144 probes{cite}`Bumgarner2013-hg`, but are now on small chips, which can contain up to millions of probes.
-
-Arrays were extremely popular for measuring gene expression, but this technology has largely been superseded by the more accurate and comprehensive RNA-seq. 
-However, microarrays are still commonly used by companies like 23andMe for genotyping an individual (measuring specific alleles).
 
 #### Variant databases
 Databases like dbSNP, clinVar, and SNPedia contain information about the location of SNVs, their possible alleles, and their association to diseases. 
@@ -171,8 +83,10 @@ The database gives SNVs unique identifiers (Reference SNP cluster IDs, a.k.a. RS
 ## RNA
 [//]: # (TODO: Rewrite this section, and maybe move it to section 1, so that it fits properly and is less wordy)
 [//]: # (TODO: Write about how transcripts map to the genes ENSEMBL)
+One of the most popular measures of gene expression, is the measure of how much RNA is in a cell at a given time. 
 
-DNA can’t tell us the whole story. On it's own it can’t tell us what we’d like to know about a gene’s function or a person’s traits. Nonetheless, I’d like to spell out why that is for those who do not have that background. The central dogma of molecular biology can be paraphrased as “DNA makes RNA makes proteins”. So, if we know what a person’s DNA is, then why would we also want to know about their RNA?
+DNA can’t tell us the whole story.
+ On it's own it can’t tell us what we’d like to know about a gene’s function or a person’s traits. Nonetheless, I’d like to spell out why that is for those who do not have that background. The central dogma of molecular biology can be paraphrased as “DNA makes RNA makes proteins”. So, if we know what a person’s DNA is, then why would we also want to know about their RNA?
 
 The answer boils down to the effect of the environment. “DNA makes RNA makes proteins” is shorthand for “DNA interacts with the environment to make RNA, and RNA interacts with the environment to make proteins”. The environment, of the cell, and of the individual, and even of modifications to the DNA molecules, is the reason why DNA alone is not enough to explain how we function. DNA is the collection of blueprints for what can be made, but the environment decides what goes into production; which RNA and proteins are made and how much. 
 
@@ -181,15 +95,7 @@ In any given individual, the same DNA is present in their liver cells, skin cell
 Gene expression data is used to understand the function of genes, to identify housekeeping genes, to re-engineer gene regulatory networks, and more. This kind of insight can not be gained from looking at DNA alone.
 
 ### RNA-seq 
-NGS can be used for sequencing either DNA or RNA (known as RNA-seq when applied to the whole transcriptome).
-
-While (NGS) DNA-sequencing and RNA-seq can use the same underlying NGS technologies, there exist some notable differences. For example, RNA is reverse-transcribed into strands of complementary DNA, before being sequenced, since sequencing DNA is currently easier than sequencing RNA. RNA-seq is used much less often for de novo sequencing, and is generally mapped to a reference sequence. 
-
 Since transcription is dependent on time, tissue, location, cell, etc, RNA-seq experiments are also dependent on all of these conditions. Furthermore, they are sensitive to differences in laboratory conditions and experimental design, creating artefacts in the resulting data known as batch effects. 
-
-[//]: # (TODO: Write something breif reminding what gene expression is and why it is measured, referring back to Ch1)
-
-One of the most popular measures of gene expression, is the measure of how much RNA is in a cell at a given time. 
 
 #### Differential expression versus baseline
 [//]: # (TODO: Write)
@@ -229,6 +135,7 @@ Soon after, in 1972, the Protein DataBank (PDB){cite}`noauthor_undated-ow` was e
 This continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.
 
 ### Protein classification
+[//]: # (TODO: Check not duplucated from earlier:)
 Scientists are often interested in a "favourite" gene or protein, or have obtained a list of genes or proteins that they are interested in through a recent experiment. If an experiment about the specific protein has been carried out (e.g. to determine its function or structure), then a database like Uniprot (containing function and sequence information) or PDB (structure information) can be queried. However, this kind of information is not available for all proteins, so this is often necessary to make inferences about protein structure or function based on for example sequence similarity or protein classification.
 
 [//]: # (TODO: Check BLAST is in the right place. Probably makes more sense in another section: DNA?)
@@ -275,51 +182,3 @@ The process of identifying causal variants generally involving identifying regio
 
 The GWAS catalog database{cite}`Buniello2019-cv,L_Emery2017-rd` was founded in 2008, to provide a consistent and accessible location for published SNP-trait associations, which extracts information about experiments from the literature (currently over 70000 associations from over 3000 publications).
 
-
-(what-are-ontologies)=
-#### A word on ontologies
-[//]: # (TODO: Maybe move this to the first mention of ontologies?)
-For many of different biological molecules, ontologies a a popular way of storing information about anatomical entities. 
-All ontologies contain entities names and descriptions (e.g. diseases, gene functions), different classifications of those entities (e.g. immune system disorders) and relate these classifications to one another hierarchically, sometimes with multiple types of relationships (e.g “is a”, “part of”). Hierarchical ontologies can be thought of as having a tree-like structure with one, or just a few root terms which are very general terms that all other terms in the ontology are related to, for example “biological process”, and leaf terms, which are the most specific terms in the ontology (e.g “positive regulation of cardiac muscle tissue regeneration”). 
-
-Relations between terms are directional, for example “positive regulation of cardiac muscle tissue regeneration” is a “regulation of cardiac muscle tissue regeneration”, but not vice versa. In such relationships the parent term is the more general term closer to the root (“positive regulation of…”) and the child term is the more specific term (“regulation of..”). It is not permitted for there to be cycles in ontologies, for example *term A* `is_a` *term B* `is_a` *term A*. 
-
-Terms in ontologies are given identifiers, usually of the form: `XXX:#######`, where `XXX` is an upper-case identifier for the whole ontology, e.g. `GO` for Gene Ontology, `CL` for Cell Ontology, etc. For example, `GO:0008150` is the GO term for *Biological Process*.
-
-Ontologies are generally created through some combination of manual curation by highly skilled biocurators and logic-testing (checking for illogical relationships, for example using ROBOT{cite}`Overton2015-vo`). Creating an ontology is generally a long-term project, with new suggestions and updates to the ontologies being made as new knowledge accumulates, or just as more people have time to add to them. As well as being the work of dedicated curators, contributions to ontologies can usually be crowd-sourced from the scientific community using GitHub issues, mailing list discussions, web forms, and dedicated workshops. In this way, they are similar to other bioinformatics community-driven efforts like structural and sequence databases. 
-
-There are also cross-ontology mappings and annotations, where terms from one ontology are linked to those in another (e.g. relating gene functions and tissues) or to entities in a database (e.g. gene functions to genes). These also require the work of dedicated curators, who search through literature, assessing various criteria for the inclusion of an annotation (such criteria vary by ontology). Since this is a laborious process, there are also many computational methods to annotate ontology terms automatically. 
-
-Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities.
-Ontologies and particularly their annotations are varying degrees of incomplete, and this will have an impact on the results of any downstream use of them. 
- 
-(obo-format)=
-There are two major file formats in which ontologies are currently stored. 
-he OBO format is a human-readable format, while the OWL format is more complex, but has more functionality, and for example can be queried using SPARQL (an SQL-like querying language).  
-
-##### Gene Ontology
-[//]: # (TODO: Citations in GO section)
-```{figure} ../images/go_rilla.png
----
-height: 220px
-name: go_rilla
----
-A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla{cite}`Eden2009-ic`)
-``` ``
-
-[//]: # (TODO: delete ``` above)
-
-The Gene Ontology (GO){cite}`Ashburner2000-cr` is one of the first biomedical ontologies, and continues to be one of the most popular. 
-It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems{cite}`Thomas2017-vm`. 
-It includes:
-1. The standard gene ontology, which is a hierarchical set of terms describing functions.
-2. The gene ontology annotations (GOA) database, which contains manual and computationally derived mappings from gene products to gene ontology terms.
-3. Tools for using and updating these resources.
-
-The Gene Ontology defines the “universe” of possible functions a gene might have, while the functions of particular genes are captured as GO annotations{cite}`Thomas2017-vm`.
-
-The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies{cite}`Ashburner2000-cr`. 
-Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process){cite}`Thomas2017-vm`.
-
-
-[//]: # (TODO: Write something about "gene function" and "protein function" and their relationship to phenotypes, ontologies, etc)

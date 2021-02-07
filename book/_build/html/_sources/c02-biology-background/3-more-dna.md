@@ -22,6 +22,12 @@ Both of these refer to locations across the whole genome, but missing stretches 
 The exome describes the set of all exons (protein-coding nucleotides) across the genome. 
 The proteome is generally used to mean the set of all proteins in in an organism (which can be much larger than the set of genes due to {ref}`alternate splicing<alternative-splicing>`), but it can also be used to describe the part of the genome with relating to the set of protein sequences.
 
+(omics)=
+```{margin} Omics
+As well as genomics (the science of genomes) and proteomics (proteins), there is also transcriptomics (transcripts),  metabolomics (metabolites, e.g. sugars, lipids, etc). 
+Together these research areas are known as *omics* and research which combines these fields is known as mutliomics.
+```
+
 ## Genes
 DNA is often considered at the level of the gene.
 Genes have been so central to the historical study of dna (hence the name *gene*tics), and the gene-centric view of molecular biology continues to this day.
