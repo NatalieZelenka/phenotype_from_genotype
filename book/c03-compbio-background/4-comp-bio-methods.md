@@ -1,7 +1,7 @@
 (compbio-methods)=
-## How large computational biology datasets are used
-[//]: # (TODO: rename title)
+## A few tasks in computational biology
 [//]: # (TODO: Include?? As the amount of data from high-throughput sequencing experiments has piled up, computational approaches have been ever-more necessary to make sense of the data.)
+This section describes a small number of the ways in which these big collaborative data sets are used, and mentions some tools that are relied on in this thesis.
 
 ### Making sense of lists
 The output of high throughput sequencing experiments can often be a long list of variants or genes (e.g. the outputs of GWAS studies or differential expression). 

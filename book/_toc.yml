@@ -27,7 +27,8 @@
       - file: c03-compbio-background/3-ontologies
       - file: c03-compbio-background/4-comp-bio-methods
       - file: c03-compbio-background/5-bias
-      - file: c03-compbio-background/6-summary
+      - file: c03-compbio-background/6-error
+      - file: c03-compbio-background/7-summary
   - file: c04-snowflake/0-index
     sections:
       - file: c04-snowflake/1-introduction

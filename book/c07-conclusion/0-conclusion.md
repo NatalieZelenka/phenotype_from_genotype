@@ -1,6 +1,6 @@
 (c07-conclusion)=
 ## Conclusion
-[//]: # (TODO: cross-ref this section)
+[//]: # (TODO: cross-ref this section, add in all publications incl. PQI, SUPERFAMILY)
 
 To conclude:
 - I present my contribution towards the `snowflake` phenotype prediction method, and it's use for finding unusual combinations of SNPs with possible explanatory mechanisms for phenotype.
@@ -17,7 +17,7 @@ Through linking them, and finding inconsistencies, I have in some small way been
 
 ### Future work
 [//]: # (TODO: Cross ref future work in individual chapters:)
-While I describe many possibilities for future work in the individual chapters, there some particular avenues that I would be keen to explore. 
+While I describe many possibilities for future work in the individual chapters, there are some particular avenues that I would be keen to explore. 
 My immediate next steps will be to make the tissue specific gene expression data set created in {ref}`Chapter 5<>` more usable, and to apply the tissue-specific gene expression data set to the phenotype prediction filter described in {ref}`Chapter 6<>`. 
 I would like to make these contributions available as papers.
 
@@ -41,15 +41,10 @@ By the time I arrived, however, someone had rubbed off the second line, leaving 
 In fact, as I tried to piece together the accepted model of how genotype influences phenotype, I found myself agreeing!
 Compared to maths and physics, there is so much in molecular biology that we don't know: there are so many moving parts and there is *always* an exception to the rule.
 This is true for the processes themselves, and when you look a little closer - also the data that is collected.
-Over time, my endless questions became less frustrating and more and more energising as I became more able to create the resources needed to answer them.
+Over time, my endless questions became less frustrating and more and more energising as I became a better judge of what questions it was possible to answer, and more able to create the resources needed to answer them.
 
 [//]: # (TODO: Give example of snowflake not being useless)
 [//]: # (TODO: Cross-reference)
 Working on `snowflake` gave me a bird's eye view of our model of the connection between genotype and phenotype: and the data sets we have about that connection.
-It is, of course, regrettable that we could not access enough data to conclusively test `snowflake` as a phenotype predictor.
+It is, of course, regrettable that we could not access enough data to conclusively test it as a phenotype predictor.
 However, I have found a small way in which to improve phenotype predictions, with a mechanistic reason behind it - and I have found value in creating and contributing to resources which I hope will lead us towards more.
-
-
-
-
-

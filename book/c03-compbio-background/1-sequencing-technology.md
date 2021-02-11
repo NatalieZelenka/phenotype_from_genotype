@@ -2,6 +2,11 @@
 # Sequencing and microarrays
 Sequencing are microarrays are how we get measurements of DNA and RNA.
 
+We measure DNA so that we can understand what organisms genetic material is capable of doing: and understand what the differences between different species and individuals is.
+
+These measures of DNA can tell us (among other things) what proteins it is possible to make. 
+If we think of genes as a collection of blueprints, then one major reason that we measure RNA to tell us how much each blue print is in production.
+
 ## Sequencing overview
 Sequencing technologies are used to read strings of DNA or RNA: this can be done *de novo*, i.e. even when we don't know the sequences ahead of time.
 No sequencing technology can read whole chromosomes end to end, however, all work by reading shorter lengths of DNA (called *reads*).
@@ -16,13 +21,13 @@ The process is massively parallel: millions to billions of short sequences can b
 This is a huge factor in making NGS much faster (and therefore cheaper) than Sanger sequencing. 
 In turn, this speed and cheapness means that more repeats can be sequenced, increasing the overall accuracy of NGS over Sanger (despite the accuracy of each individual read being generally lower).
 
-[//]: # (TODO: Have I mentioned transcriptome/omics yet?)
-
 (rna-seq-ngs)=
 NGS can be used for sequencing either DNA or RNA (known as RNA-seq when applied to the whole transcriptome).
 While (NGS) DNA-sequencing and RNA-seq can use the same underlying NGS technologies, there exist some differences, e.g. RNA is reverse-transcribed into strands of complementary DNA, before being sequenced, since sequencing DNA is currently easier than sequencing RNA. 
 
 There are now also third generation sequencing technologies that allow much longer reads to be sequenced, e.g. nanopore technology.
+
+[//]: # (TODO: Mention CAGE here?)
 
 (assembly-and-alignment)=
 ## Alignment and assembly

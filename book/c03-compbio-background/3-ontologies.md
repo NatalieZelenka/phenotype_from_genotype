@@ -49,7 +49,7 @@ Some ontologies also include *annotations*: these relate the terms to other type
 In the Gene Ontology, there are *annotations* which relate gene functionality to genes, for example.
 There can also be annotations linking to publications from which the knowledge about the term was obtained. 
 
-```{note} Ontologies summary
+```{admonition} Ontologies summary
 Ontologies:
 - Organise information about *terms* into a framework, with relationships between them.
 - Organise terms hierarchically, into Directed Acyclic Graphs, such that there are more specific *child* terms which are subclasses of more general *parent* terms. 
@@ -80,15 +80,14 @@ he OBO format is a human-readable format, while the OWL format is more complex, 
 ## Examples of ontologies
 ### Gene Ontology
 [//]: # (TODO: Citations in GO section)
+
 ```{figure} ../images/go_rilla.png
 ---
 height: 220px
 name: go_rilla
 ---
 A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla{cite}`Eden2009-ic`)
-``` ``
-
-[//]: # (TODO: delete ``` above)
+```
 
 The Gene Ontology (GO){cite}`Ashburner2000-cr` is one of the first biomedical ontologies, and continues to be one of the most popular. 
 It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems{cite}`Thomas2017-vm`. 
