@@ -1,7 +1,7 @@
 (measuring-genotype-phenotype)=
 # From genotype to phenotype: what is measured
 [//]: # (TODO: Image of bioinformatics landscape?)
-We will now delve into the details of some of these datasets, looking first at {ref}`DNA<dna-measurements>`, then {ref}`RNA<rna-measurements>`, then {ref}`proteins<protein-measurements>`, then {ref}`phenotypes<phenotype-measurements>`.
+We will now delve into the details of some of these data sets, looking first at {ref}`DNA<dna-measurements>`, then {ref}`RNA<rna-measurements>`, then {ref}`proteins<protein-measurements>`, then {ref}`phenotypes<phenotype-measurements>`.
 This is to give us a sense of the data that exists within the databases of the bioinformatics landscape, as well as some of the subtle issues that arise when using and linking them.
 
 (dna-measurements)=
@@ -76,18 +76,8 @@ They can sometimes disagree on fundamental details such as locations of genes or
 Each of these databases also have their own identifiers and these names and symbols can change over time. 
 For this reason, it can sometimes be difficult to map between identifiers.
 
-[//]: # (TODO: cite KEGG + reactome)
-In part, due to the amount of information that researchers have collected through {ref}`gene knockouts<gene-knockouts>` and gene expression experiments, it is at the level of the gene that a lot of mappings about function take place.
-This includes, for example, information about a gene's involvement in a gene regulatory network or in a biological pathway (for example through the Reactome or KEGG databases), and information about gene function according to {ref}`observational studies<observational-studies>`.
-
-```{margin} Gene Knockouts
-:name: gene-knockouts
-Insight into gene function can be gained by “knocking out” a gene, preventing it from being translated into a working protein, for example using CRISPR. 
-Combinations of up to four genes can be knocked out in a single experiment. 
-Knocking out a gene can lead to a difference in phenotype, and differences in gene expression, which can be used to help determine gene regulatory networks. 
-There is a lot of existing data on the phenotypic results of mouse knockouts, since they are often used to create mouse models for diseases. 
-Unfortunately, it is not always well-recorded when knockouts lead to no detectable phenotypic change{cite}`Barbaric2007-zm`.
-```
+In part, due to the amount of information that researchers have collected through through {ref}`gene knockouts<gene-knockouts>` and gene expression experiments, it is at the level of the gene that a lot of mappings about function take place.
+This includes, for example, information about a gene's involvement in a gene regulatory network or in a {ref}`biological pathway<biological-pathway>`, and information about gene function according to {ref}`observational studies<observational-studies>`.
 
 #### Variants
 [//]: # (TODO: Cite databases)
@@ -214,20 +204,53 @@ The update paper described this development, as well as highlighting SUPERFAMILY
 Although SUPERFAMILY’s primary resource is it’s HMM library, it also integrates a range of other tools for sequence analysis, for example protein disorder prediction (D2P2) and GO annotation (dcGO), as well as a domain-based phylogenetic tree. 
 
 (phenotype-measurements)=
-### Phenotypes
-[//]: # (TODO: Also explain that phenotypes can be ass ociated with biological molecules at any level, e.g. SNPs, Genes, Populations)
-[//]: # (TODO: Phenotype data is fairly well protected: people don't like to share it)
-[//]: # (TODO: Mention ALSPAC, Biobank + signpost ontologies - diseases, etc)
+## Phenotypes
+As described in {numref}`what-is-phenotype`, most phenotypes that are studied today are based in medicine: this can range from the results of a blood test, to presence of a disease diagnosis. 
+Neutral like height, eye colour, baldness, etc, are also measured.
+
+Phenotypic traits can be measured in a variety of ways, depending on the phenotype.
+One important type is data collected via survey or interview, where participants self-identify as having certain illnesses, or symptoms.
+This type of data can suffer from biases due to what people feel comfortable answering{cite}`Furnham1986-yt,Knauper1994-wl`.
+
+Phenotype data must be connected to genotype data in order to be useful for validating genotype-to-phenotype predictions, and due to the sensitivity of this kind of information, there are a limited number of these kinds of data sets.
+Some data sets focus on particular phenotypes, while others are cohort studies that record everything about a cohort (for example the the Avon Longitudinal Study of Parents and Children, ALSPAC{cite}`Golding2001-oj`, and the UK Biobank{cite}`Bycroft2018-mw`). 
+In the latter case, it is not easy for researchers to access the whole data set, due to concerns about de-anonymisation{cite}`Powell2021-vc`.
+
+Knowledge about how phenotypes are related to each other (e.g. liver cancer is a type of cancer that is found in the liver) is organised in {ref}`ontologies<what-are-ontologies>`, which are described in their own section. 
+These ontologies also form a defined vocabulary for terms, with identifiers, definitions, and links to other information.
+
+## Measuring the connection between genotype and phenotype
+[//]: # (TODO: Example biological pathway illustration here)
+[//]: # (TODO: Mention state of computational prediction here, too)
+[//]: # (TODO: Mention information at level of genes is in gene ontology annotation database, signposting to next section)
+There are many different methods of investigating the connection between genotype and phenotype.
+Some methods focus solely on the "what", seeking to answer the question "*what phenotypes(s)* does this gene have an effect on?", while some focus also on the how, i.e. "*what phenotype(s)* does this gene have an effect on, and *what are the mechanisms* by which this takes place?".
+{ref}`Genome Wide Association Studies (GWAS)<observational-studies>` and {ref}`gene knockouts<gene-knockouts>` are two methods of finding potential or actual "what" connections, while building {ref}`biological pathways<biological-pathways>` is currently the main way of finding "why" connections.
+There are also many experiments which can contribute pieces of the puzzle, for example elucidating an indirect link in a biological pathway.
+
+Connections to phenotype can be made with different scales and types of genetic features, from SNPs, genes, transcripts, and proteins to populations.
 
 (observational-studies)=
-## Genome Wide Association Studies
-[//]: # (TODO: Have I mentioned p-value?)
+### Genome Wide Association Studies
+[//]: # (TODO: Have I mentioned p-value? Margin? Margin Graph?)
 Genome Wide Association Studies (GWAS) are large observational studies where the genotypes of a cohort with a specific phenotype (e.g. diabetes) are compared to the genotypes of a cohort lacking in that phenotype (i.e. a control group) in order to find genomic loci that are statistically associated with the phenotype. 
 This has been a popular type of scientific enquiry since the first GWAS study in 2005. 
 GWAS generally results in lists of SNPs, often in the hundreds, ordered by p-value. 
-Disentangling which of these SNPs (if any) cause the trait is a tricky, particularly since GWAS specifically interrogates common variants. 
+Disentangling which of these SNPs (if any) *cause* the trait (in addition to correlating with it) is a tricky, particularly since GWAS specifically interrogates common variants. 
 The process of identifying causal variants generally involving identifying regions in linkage disequilibrium, and re-sequencing regions of interest in further detail.
 
 The GWAS catalog database{cite}`Buniello2019-cv,L_Emery2017-rd` was founded in 2008, to provide a consistent and accessible location for published SNP-trait associations, which extracts information about experiments from the literature (currently over 70000 associations from over 3000 publications).
 
+(gene-knockouts)=
+## Gene Knockouts
+Insight into gene function can be gained by “knocking out” a gene, preventing it from being translated into a working protein, for example using CRISPR. 
+Combinations of up to four genes can be knocked out in a single experiment. 
+Knocking out a gene can lead to a difference in phenotype, and differences in gene expression, which can be used to help determine gene regulatory networks. 
+There is a lot of existing data on the phenotypic results of mouse knockouts, since they are often used to create mouse models for diseases. 
+Unfortunately, it is not always well-recorded when knockouts lead to no detectable phenotypic change{cite}`Barbaric2007-zm`.
 
+(biological-pathways)=
+### Biological Pathways
+Biological pathways are generally built either through a data-centric method, i.e. beginning with {ref}`gene expression<rna-measurements>` or mass spectrometry data{cite}`Zhang2016-ty`, or through a knowledge-centric method, by beginning with a graph based on knowledge from publications and domain experts{cite}`Viswanathan2008-tn`.
+There are a number of popular databases which store pathways, for example Reactome{cite}`Fabregat2018-na` and KEGG{cite}`Kanehisa2008-wz`. 
+These resources are well-linked to other sources of information, for example gene, rna, protein and chemical databases.

@@ -1,5 +1,5 @@
 # Phenotype
-
+(what-is-phenotype)=
 ## What is phenotype?
 Phenotypes are observable traits, which can range from neutral (like height, skin colour, or eye colour) to disabling (e.g. chronic fatigue syndrome) or life-threatening (e.g. cancers), to very specific measurements (e.g. level of calcium in blood).
 Since phenotypes can have various levels of specificity, they can also be hierarchical, an individual could display "abnormal muscle morphology", or more specifically "facial muscle atrophy", which means we have to decide at what level to record phenotypes.
@@ -54,5 +54,3 @@ Facial recognition technology{cite}`Wu2016-ic` is often criticised on this basis
 It is for these reasons, that the majority of modern concepts of phenotype are based in medical concepts, where looking for a link between genotype and phenotype can have a potential life-saving or life-improving benefit.
 This scenario still comes with serious ethical considerations, however.
 Many disabled people do not want cures for their disabilities{cite}`Pulrang2019-gj`, and people are also worried that the development of genetic screenings for disabilities will effectively result in a genocide of disabled people{cite}`Miller2013-ws`.
-
-

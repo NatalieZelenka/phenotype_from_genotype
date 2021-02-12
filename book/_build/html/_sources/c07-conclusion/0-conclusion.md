@@ -1,6 +1,6 @@
 (c07-conclusion)=
 ## Conclusion
-[//]: # (TODO: cross-ref this section, add in all publications)
+[//]: # (TODO: cross-ref this section, add in all publications incl. PQI, SUPERFAMILY)
 
 To conclude:
 - I present my contribution towards the `snowflake` phenotype prediction method, and it's use for finding unusual combinations of SNPs with possible explanatory mechanisms for phenotype.

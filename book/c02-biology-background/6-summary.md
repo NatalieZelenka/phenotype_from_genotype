@@ -13,7 +13,7 @@ If the SNP is in a coding region, it may encode for multiple different proteins,
 If the SNP is non-synonymous for the protein (affects protein structure), then it may fall in a disordered region of a protein (leaving us without structural - and therefore often functional information), and we may not know in what circumstances and cells that protein is transcribed. 
 In addition, the SNP may affect phenotype differently with homozygous or heterozygous calls, and the protein may affect phenotype by influencing a network of other proteins, or the protein may exist as a redundant part of a pathway which will only affect phenotype if three other SNPs have specific calls. 
 Even after all this, the presentation of many phenotypes can depend heavily on the environment, or the age of the individual.
-The mechanisms will be different for each phenotype, and we can expect some phenotypes to be impossible to predict from genotype.
+The mechanisms will be different for each phenotype, and we can expect some phenotypes to be impossible to predict from genotype .
 
 Given all this complexity, it may seem no wonder that phenotype prediction is currently inaccurate{cite}`Zhou2019-jk`. 
 However, the {ref}`next Chapter<c03-compbio-bg>` will reveal the diverse information about biological entities exists, for example gene and protein sequence, protein structure, variant frequencies and functions, and gene expression.
