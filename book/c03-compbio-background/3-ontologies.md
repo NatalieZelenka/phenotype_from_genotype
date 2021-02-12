@@ -87,7 +87,9 @@ height: 220px
 name: go_rilla
 ---
 A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla{cite}`Eden2009-ic`)
-```
+``` ``
+
+[//]: # (TODO: Remove extra backticks)
 
 The Gene Ontology (GO){cite}`Ashburner2000-cr` is one of the first biomedical ontologies, and continues to be one of the most popular. 
 It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems{cite}`Thomas2017-vm`. 
@@ -101,5 +103,5 @@ The Gene Ontology defines the “universe” of possible functions a gene might 
 The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies{cite}`Ashburner2000-cr`. 
 Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process){cite}`Thomas2017-vm`.
 
-
+[//]: # (TODO: gene ontology annotation here gene-ontology-annotation)
 [//]: # (TODO: Write something about "gene function" and "protein function" and their relationship to phenotypes, ontologies, etc)

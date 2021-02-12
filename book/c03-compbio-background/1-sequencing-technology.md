@@ -7,6 +7,7 @@ We measure DNA so that we can understand what organisms genetic material is capa
 These measures of DNA can tell us (among other things) what proteins it is possible to make. 
 If we think of genes as a collection of blueprints, then one major reason that we measure RNA to tell us how much each blue print is in production.
 
+(sequencing)=
 ## Sequencing overview
 Sequencing technologies are used to read strings of DNA or RNA: this can be done *de novo*, i.e. even when we don't know the sequences ahead of time.
 No sequencing technology can read whole chromosomes end to end, however, all work by reading shorter lengths of DNA (called *reads*).
@@ -66,12 +67,17 @@ RNA-seq is used much less often for de novo sequencing, and is generally mapped 
 
 ## Microarrays
 Through the 1970s into the early 2000s, DNA arrays/microarrays developed alongside sequencing as a way of measuring the presence of previously sequenced DNA in new samples. 
-These arrays contain pre-chosen fragments of DNA (probes) arranged in spots, with each spot containing many copies of the probe, on a solid surface, e.g. glass, silicon or plastic. 
+These arrays contain pre-chosen fragments of DNA (probes) arranged in spots, with each spot containing many copies of the probe, on a solid surface, e.g. a glass, silicon or plastic chip. 
 The probes consist of single strands of DNA, and arrays operate on the principle that the complementary DNA from the sample will bind tightly to it.
 
-These arrays were originally macro-sized, one of the first being 26 × 38 cm and containing 144 probes{cite}`Bumgarner2013-hg`, but are now on small chips, which can contain up to millions of probes.
+These arrays were originally macro-sized, one of the first being 26 × 38 cm and containing 144 probes{cite}`Bumgarner2013-hg`, but are now on small chips, which can contain up to millions of probes. 
+Different chips will contain different probes and therefore measure the presence of different sequences.
+
+```{margin} Genotyping
+:name: genotyping
+Genotyping is determining DNA alleles at specific locations. 
+This is usually done using DNA microarrays.
+```
 
 Arrays were extremely popular for measuring {ref}`gene expression<gene-expression>`, but this technology has largely been superseded by the more accurate and comprehensive RNA-seq. 
-However, microarrays are still commonly used by companies like 23andMe for genotyping an individual (measuring specific alleles).
-
-Microarrays were also extremely popular for measuring gene expression through RNA microarrays before the advent of RNA-Seq (next generation sequencing for RNA).
+DNA Microarrays are still commonly used by companies like 23andMe for {ref}`genotyping<genotyping>` an individual.
