@@ -8,12 +8,25 @@ These measures of DNA can tell us (among other things) what proteins it is possi
 If we think of genes as a collection of blueprints, then one major reason that we measure RNA to tell us how much each blue print is in production.
 
 (sequencing)=
-## Sequencing overview
+## Sequencing 
 Sequencing technologies are used to read strings of DNA or RNA: this can be done *de novo*, i.e. even when we don't know the sequences ahead of time.
 No sequencing technology can read whole chromosomes end to end, however, all work by reading shorter lengths of DNA (called *reads*).
 
+In most sequencing technologies (e.g. Sanger, Illumina), in order for the different nucleotides to be detected (by human sight or using a sensor), DNA is first prepared such that different nucleotides bond to different visible markers, e.g. different coloured dyes or fluorescent markers.
+
+[//]: # (TODO: Make image for electrophoresis)
+
+```{margin} Elecrophoresis
+:name:electrophoresis
+Eectrophoresis is a laboratory technique in which molecules are separated based on their size and electrical by applying an electric current to molecules.
+This forces them to travel through a small capillary tube, or through a gel matrix.
+In DNA capillary electrophoresis, DNA is read via exciting flurescent markers with lasers and detecting the produced light (this is how automated Sanger sequencing works).
+In manual gel electrophoresis, the DNA is prepared in advance so that there are four samples of DNA each containing pieces of DNA of varying length, such that each sample has a different nucleotide at the end of each piece.
+The length of those pieces of DNA in nucleotides is determined by how far the DNA lengths can move through the gel.
+```
+
 From the late 1970’s until the mid 2000s, *Sanger sequencing* was the most popular sequencing technology, although it underwent various improvements over this timescale. 
-In Sanger sequencing (and other first-generation methods), reads of around 800bp are sequenced, one at a time. 
+In Sanger sequencing (and other first-generation methods), reads of around 800bp are sequenced, one at a time, using {ref}`electrophoresis<electrophoresis>`.
 The human genome project sequenced the first human genome using this method{cite}`Venter2001-wn`, and it’s still used in some circumstances, for example validating next generation sequencing. 
 
 Second, or *next generation sequencing* (NGS), also referred to as high-throughput sequencing, is a catch-all term for the faster and cheaper sequencing technologies which replaced the previously used Sanger sequencing. 

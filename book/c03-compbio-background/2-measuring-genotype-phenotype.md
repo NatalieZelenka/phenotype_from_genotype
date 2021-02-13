@@ -113,16 +113,23 @@ dbSNP gives SNPs unique identifiers (Reference SNP cluster IDs, a.k.a. RSIDs) of
 
 (rna-measurements)=
 ## RNA
-[//]: # (TODO: Mention Gene Expression Atlas here)
+For RNA there are three main types of data: sequence (and mappings), structure, and gene expression data.
+
+### RNA Sequence
+The sequences of RNA (including miRNAs, tRNAs, rRNAs, etc), and their locations relative to reference geneomes are stored in databases such as Ensembl.
+For mRNAs, this also enables mappings between transcript IDs, gene IDs, and protein IDs, and again these are integrated with previously mentioned gene databases. 
+
+### RNA Structure
+Functional RNA has structure with recurring motifs similar to those of proteins. 
+There are also databases of functional RNA structure{cite}`Andrews2017-tr,Richardson2020-wa` (similar to {ref}`those for proteins<protein-stucture-measurements>`), but those for RNA are at an earlier stage.
+
+### Gene Expression
 [//]: # (TODO: Mention different types of RNA-Seq, e.g. scRNA versus tissues versus)
-
+[//]: # (TODO: Put CAGE here?)
 As I've already explained RNA abundance in samples can be measured through RNA microarrays and RNA-Seq, and that recently, RNA-Seq has been much more popular.
-Measures of RNA are generally the best measures of gene expression, and this is important because it tells us about how DNA is used in different {ref}`scenarios<gene-expression-scenarios>`.
-The location of transcripts, and which genes they map to is also available through databases.
-Together, this information is used to understand the function of genes, to identify housekeeping genes, to re-engineer gene regulatory networks, and more - knowledge about DNA function that wouldn't be possible to glean without measuring RNA.
-
+Measures of mRNA abundance (i.e. gene expression data) are generally considered the best measures of translation (compared to {ref}`protein abundance<protein-abundance>` for example), and therefore the best data to tell us how DNA's blueprints are being used in different {ref}`scenarios<gene-expression-scenarios>`.
+Together with mappings, this data is used to understand the function of genes, to identify housekeeping genes, to re-engineer gene regulatory networks, and more - knowledge about DNA function that wouldn't be possible to glean without measuring RNA.
 Like other bioinformatics data, gene expression data is also available in databases such as the EBI's Gene Expression Atlas (GxA){cite}`Petryszak2016-je` and Single Cell Expression Atlas{cite}`Papatheodorou2020-ib`.
-There are also databases of functional RNA structure (similar to {ref}`those for proteins<protein-stucture-measurements>`), but those for RNA are at an earlier stage.
 
 ```{margin} Gene expression = DNA + cellular environment
 :name: gene-expression-scenarios
@@ -137,6 +144,8 @@ In contrast, a *baseline* experiment would measure the amount of expression in a
 
 ### RNA-Seq bioinformatics pipeline
 [//]: # (TODO: Cite what transcription depends on - mentioned in combining)
+[//]: # (TODO: add TPM/FKPM formula?)
+
 RNA-Seq data *counts* the number of times a sequence matching that gene or transcript that has been sequenced.
 The amount of RNA from a particular transcript that is found in a sample in a given experiment is dependent on the sequencing depth and the transcript length.
 The rate of transcription is dependent on time of, tissue, location, cell, etc, measures of RNA are also dependent on all of these conditions: this can make RNA difficult to compare between experiments.
@@ -153,8 +162,6 @@ This involves comparing sequencing parameters to a data set of known accuracy{ci
 Within-sample normalisation methods are designed to account for sequencing depth and transcript length so that gene expression values from the same sample (e.g. different replicates) can be more easily compared. 
 Longer genes will have more reads mapped to them for an equal level of expression, so RNA-seq will report more counts. 
 Similarly, without normalising, samples with greater sequencing depth will have higher counts for an equal level of expression. 
-
-[//]: # (TODO: add TPM/FKPM formula?)
 
 RPKM/FPKM (Reads/Fragments Per Kilobase Million) and TPM (Tags Per Million) are the three major normalisation techniques used for this purpose. 
 In RPKM and FPKM, counts are first normalised for sequencing depth, and then for gene length. This means that they are suitable for comparing within a sample (e.g. between replicates. 
@@ -173,12 +180,29 @@ Examples include scale normalisation methods like TMM (used in edgeR{cite}`Robin
 
 (protein-measurements)=
 ## Proteins
-[//]: # (TODO: Write overview - totally different data type... protein sequencing, protein structure, protein abundance)
-[//]: # (TODO: Mention how proteins map to transcripts and to genes and variants and whole genomes)
-[//]: # (TODO: Move protein abundance here: margin?)
+Similar to RNA, proteins also have (amino acid) sequence data, mappings to genes and transcripts, structure data and protein abundance data. 
+While for RNA, abundance (gene expression) data is the most popular type, for proteins, it is structure data, and from this structural information, there is a very detailed system of protein classification.
+
+### Protein Sequence
+Just as DNA and RNA can be {ref}`sequenced<sequencing>` in nucleic acids, proteins can be sequenced by their amino acids, although the technology behind doing this is quite different (e.g. using mass spectrometry is the most common way).
+This is often done for a small part of a protein, to allow it to be matched to a the expected amino acid sequence based on gene or transcript sequences.
+This is how mappings from protein IDs to gene IDs and transcript IDs are available through databases (e.g. Ensembl).
+
+Protein sequencing is also used to characterise protein's {ref}`post-translational modifications<post-translational-modifications>`.
+
+### Protein Abundance 
+[//]: # (TODO: Move protein abundance here)
+The abundance of proteins in a sample can be measured through various quantitative proteomics techniques. 
+These are carried out using electrophoresis, or mass spectrometry, for example.
+Similar to gene expression, this technique is often used to compare between two different samples (e.g. disease and control groups).
+Data from such experiments are also available in databases{cite}`Wang2012-pv,Samaras2020-mg`.
+
+(gene-expression-protein-abundance)=
+It's interesting to note that gene expression levels (from RNA-Seq and microarray data) are not necessarily strongly correlated with protein abundance; this has been found in mice{cite}`Schwanhausser2011-tm`, yeast{cite}`Gygi1999-lr`, and human{cite}`Kosti2016-gt`. 
+In human, Spearman correlations between protein abundance and gene expression levels vary between 0.36 and 0.50, depending on tissue, meaning that they are only weakly or moderately correlated{cite}`Kosti2016-gt`.
 
 (protein-stucture-measurements)=
-### Protein Structures
+### Protein Structure
 [//]: # (TODO: rewrite)
 [//]: # (TODO: Picture of a protein structure)
 [//]: # (TODO: mention molecular dynamics)
@@ -187,7 +211,7 @@ In 1969, Margaret Dayhoff created the first bioinformatics database to store pro
 Soon after, in 1972, the Protein DataBank (PDB){cite}`noauthor_undated-ow` was established. 
 This continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.
 
-### Protein classification
+### Protein Classification
 [//]: # (TODO: Check not duplucated from earlier:)
 [//]: # (TODO: Cite Uniprot + PDB)
 Scientists are often interested in a "favourite" gene or protein, or have obtained a list of genes or proteins that they are interested in through a recent experiment. 
@@ -205,7 +229,8 @@ SCOP was updated until 2009, but has been succeeded by SCOP2{cite}`Andreeva2014-
 However, SCOP2 has a different underlying classification system, based on a complex graph, rather than a hierarchy. 
 The CATH (Class, Architecture, Topology, Homologous superfamily){cite}`Orengo1997-vf` database provides another classification system, (also operating hierarchically), but created mostly via automation, which leads to major differences between the classifications{cite}`Csaba2009-of`.
 
-#### SUPERFAMILY 
+(superfamily-update)=
+**SUPERFAMILY**
 SUPERFAMILY{cite}`Gough2001-ct` uses HMMs to assign sequences to SCOP domains, primarily at the superfamily level. 
 This allows the functions of poorly understood proteins to be inferred based on how closely they match known superfamilies. 
 HMMs are very successful at such assignments since pairwise correlations between proteins (or their domains) and other proteins in the family may be weak, but consistently for many proteins; this can be picked up by an HMM. 
@@ -263,7 +288,7 @@ Computational biology links these resources well, so that knowledge at these dif
 
 (observational-studies)=
 ### Genome Wide Association Studies
-[//]: # (TODO: Have I mentioned p-value? Margin? Margin Graph?)
+[//]: # (TODO: Have I mentioned p-value? Margin? Margin Graph? Move from bias)
 Genome Wide Association Studies (GWAS) are large observational studies where the genotypes of a cohort with a specific phenotype (e.g. diabetes) are compared to the genotypes of a cohort lacking in that phenotype (i.e. a control group) in order to find genomic loci that are statistically associated with the phenotype. 
 This has been a popular type of scientific enquiry since the first GWAS study in 2005. 
 GWAS generally results in lists of SNPs, often in the hundreds, ordered by p-value. 

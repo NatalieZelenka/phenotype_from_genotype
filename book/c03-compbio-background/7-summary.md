@@ -4,6 +4,7 @@
 [//]: # (TODO: Summarise approaches to knowledge-finding: computational prediction, comparative studies - genomics, GWAS, DE exp - baseline/descriptive and linking datasets - big collaborative efforts)
 [//]: # (TODO: Summarise challenges, including sources of bias, and difficulty, and error)
 [//]: # (TODO: Bring it back to the big questions and the opportunities)
+[//]: # (TODO: Mention different model organisms that we can gain insight from)
 
 Multi omics approaches that combine data types have been successful at elucidating mechanisms behind certain phenotypes{cite}`Hasin2017-tk,Ritchie2015-ds,Kristensen2014-iw`. 
 There is now the opportunity for genome-wide phenotype predictions to do the same. 

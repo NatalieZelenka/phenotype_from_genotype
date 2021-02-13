@@ -38,10 +38,9 @@ Here, I justify my choices of measures to include in the combined dataset.
 [//]: # (TODO: Explain lack of microarrays)
 
 #### Gene expression vs protein abundance
-Gene expression levels are not necessarily strongly correlated with protein abundance; this has been found in mice{cite}`Schwanhausser2011-tm`, yeast{cite}`Gygi1999-lr`, and human{cite}`Kosti2016-gt`. 
-In human, Spearman correlations between protein abundance and gene expression levels vary between 0.36 and 0.50, depending on tissue, meaning that they are only weakly or moderately correlated{cite}`Kosti2016-gt`.
+As I {ref}`mentioned earlier<gene-expression-protein-abundance>`, gene expression is only weakly correlated to protein abundance.
+So, what are the potential reasons for this, and which makes a better measure of the process of translation?
 
-There are many interacting reasons why this is the case. 
 One reason is that there is something preventing the mRNA from being translated, such as slow codons, the temperature, ribosome occupancy, or regulatory RNAs and proteins{cite}`Maier2009-vw`. 
 In these cases, the DNA is transcribed into mRNA, but the protein is never produced, meaning that using gene expression data as a measure of how much protein is produced would be overestimating the protein abundance. 
 If these factors were a large contribution to the weak correlation, it could provide better results to use protein abundance data instead of mRNA abundance data to make predictions about how proteins are affecting human phenotypes.

@@ -77,6 +77,7 @@ This can happen, for example, by skipping some of the exons during splicing.
 So, "DNA makes RNA(*s*)".
 This means that there's not a one-to-one relationship between genes and transcripts, and therefore between genes and proteins.
 
+[//]: # (TODO: aside histone modifications/epigenetics)
 What is transcribed and how quickly is affected by many different kinds of proteins, as well as other molecules, for example histone modifications. 
 Transcription factors are of particular note, which are proteins that bind to DNA close to or in the promoter region, and either *activate* the gene (increasing it’s rate of transcription), by for example recruiting RNA polymerase, or *repress* it (decrease it’s rate of transcription).
 These transcription factors are in turn regulated by other transcription factors, which creates a network of gene regulation; a gene regulatory network (GRN).
@@ -102,7 +103,7 @@ alt: The lefthand figure shows an amino acid chart. It consists of three concent
 ---
 Left: An amino acid wheel chart showing the mapping between nucleotide codons of RNA and amino acids. The chart is read from the inside out, for example UGA is a stop codon and UUG encodes for leucine "Leu").
 Right: An illustration of the translation process, showing tRNAs delivering amino acids to the ribosome in order to build the polypeptide chain which makes up proteins.
-```
+``` ```
 
 Translation is mostly carried out by a large and complex piece of molecular machinery called the ribosome, which is made up of proteins and ribosomal RNA (rRNA). 
 The ribosome reads and processes RNA in sets of three nucleotides at a time - these are called codons. 
@@ -111,6 +112,11 @@ Transfer RNA (tRNA) transports the amino acids to the ribosome where the polypep
 
 Although we would expect $4^3=64$ permutations of nucleotides, there are only 21 different amino acids which can be incorporated into proteins in humans, so there is redundancy: multiple codons can encode for the same amino acids. 
 We can see this clearly in the left part of {numref}`translation`, for example, UAA, UGA, and UAG are all read as stop codons.
+
+(post-translational-modifications)=
+**Post-translational modifications:** 
+Post translational modifications are changes to proteins which occur after translation, but they may happen before or after folding{cite}`Uversky2013-bt`.
+These changes consist of chemicals bonding to the protein, which can change its function or structure, assist in folding, or target them for degradation, for example.
 
 ### "... and proteins do everything."
 The unwritten addendum implied by “DNA makes RNA makes proteins” is “...and proteins do ({ref}`almost<almost-everything>`) everything”. 
