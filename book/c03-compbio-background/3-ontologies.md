@@ -20,12 +20,8 @@ Biological classification dates back to the Linnaean taxonomy from the mid 1700s
  t also contained some {ref}`hateful racist ideas<linneus-racist>`.
 Nonetheless the idea of measuring and categorising the biological world also birthed an enduring tradition of classification in biology.
  
-[//]: # (TODO: Cite data inaccessibility)
-[//]: # (TODO: Cite proteindatabank Margaret Dayhoff)
-[//]: # (TODO: Cross ref RNA, proteins, and phenotypes)
 Modern biology continues in this tradition of classification, cataloguing biology in ever more (molecular) detail: cells, genes, transcripts, proteins, and pathways. 
-While in other fields, data inaccessibility is a major barrier to reproducible research, this is the field that had an online database system that remote computers could access in the 1960s!
-So, the catalogued information populates freely available databases, vocabularies, and annotations, creating controlled and shared vocabularies that fuel computational methodologies.
+One major way in which this data is synthesised is through the use of ontologies.
 
 ## What are ontologies?
 [//]: # (TODO: Draw a tree and refer to image in text)
@@ -67,15 +63,7 @@ Since they are time-consuming to produce and require such expertise, successful 
 However, there are also cross-ontology mappings and annotations, where terms from one ontology are linked to those in another (e.g. relating gene functions and tissues) or to entities in a database (e.g. gene functions to genes). 
 These also require the work of dedicated curators, who search through literature, assessing various criteria for the inclusion of an annotation (such criteria vary by ontology). 
 Since this is a laborious process, there are also many computational methods to annotate ontology terms automatically. 
- 
-## Why are ontologies useful?
-Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities.
-Ontologies and particularly their annotations are varying degrees of incomplete, and this will have an impact on the results of any downstream use of them. 
 
-## File formats
-(obo-format)=
-There are two major file formats in which ontologies are currently stored. 
-he OBO format is a human-readable format, while the OWL format is more complex, but has more functionality, and for example can be queried using SPARQL (an SQL-like querying language).  
 
 ## Examples of ontologies
 ### Gene Ontology
@@ -103,5 +91,20 @@ The Gene Ontology defines the “universe” of possible functions a gene might 
 The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies{cite}`Ashburner2000-cr`. 
 Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process){cite}`Thomas2017-vm`.
 
-[//]: # (TODO: gene ontology annotation here gene-ontology-annotation)
-[//]: # (TODO: Write something about "gene function" and "protein function" and their relationship to phenotypes, ontologies, etc)
+[//]: # (TODO: gene ontology annotation here gene-ontology-annotation, including evidence codes,nothing about quality, i.e. something about "gene function" and "protein function" and their relationship to phenotypes, ontologies, etc)
+
+ 
+## Why are ontologies useful?
+[//]: # (TODO: Example of query of insight you woudln't have usually,  signpost to DCGO, mention usefulness of controlled vocabulary and agreed upon definitions)
+Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities.
+Ontologies and particularly their annotations are varying degrees of incomplete, and this will have an impact on the results of any downstream use of them. 
+
+(term-enrichment)=
+### Term enrichment
+Ontologies are often used to try to make sense of a list of genes that are found to be differentially expressed across different experimental conditions, or as outputs from GWAS. 
+In the context of GO, a term enrichment analysis can be carried out to see which GO terms are overrepresented (aka enriched) for a given group of genes, thus saying something about the function of the list of genes. 
+
+## File formats
+(obo-format)=
+There are two major file formats in which ontologies are currently stored. 
+he OBO format is a human-readable format, while the OWL format is more complex, but has more functionality, and for example can be queried using SPARQL (an SQL-like querying language).  

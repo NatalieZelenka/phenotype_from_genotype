@@ -188,23 +188,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
-     3.4. A few tasks in computational biology
+    <a class="reference internal" href="../c03-compbio-background/4-bias.html">
+     3.4. Sources of bias in computational biology datasets
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
-     3.5. Sources of bias in computational biology datasets
+    <a class="reference internal" href="../c03-compbio-background/5-error.html">
+     3.5. Sources of error in computational biology
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/6-error.html">
-     3.6. Sources of error in computational biology
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/7-summary.html">
-     3.7. Summary
+    <a class="reference internal" href="../c03-compbio-background/6-summary.html">
+     3.6. Summary
     </a>
    </li>
   </ul>
@@ -489,14 +484,14 @@
 <h1><span class="section-number">6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>As previously mentioned, there are many genes/proteins for which we have sequence information, but not functional information.
 This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes.</p>
-<p>There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information (e.g. via the CAFA competitions<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id1">[4]</a><a class="bibtex reference internal" href="../end-matter/reference.html#jiang2016-rz" id="id2">[169]</a><a class="bibtex reference internal" href="../end-matter/reference.html#radivojac2013-wh" id="id3">[170]</a>).
+<p>There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information (e.g. via the CAFA competitions<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id1">[4]</a><a class="bibtex reference internal" href="../end-matter/reference.html#jiang2016-rz" id="id2">[170]</a><a class="bibtex reference internal" href="../end-matter/reference.html#radivojac2013-wh" id="id3">[171]</a>).
 If successful, this would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments. Such knowledge could be used to identify genes or proteins for future treatments. An accurate model might also be able to give us an insight into the mechanisms behind such functions, giving further insight into how an effective therapy might be designed.</p>
 <p>Machine learning methods are currently the most successful class of protein function predictors. While this is promising for answering one aspect of the problem (“what are the functions of a given protein?”), they do not always attempt to answer how or why.</p>
 <p>Structural or sequence methods that estimate protein function based on for example conservation or structure counter this problem. However, they are generally less accurate.
 One reason for this might be that they can predict that a protein affects a phenotype in a context that it would never encounter.
 For example, that a protein which is only ever transcribed in skin cells is associated with lung cancer. Such predictions are at odds with our understanding of how proteins function, and gene expression data could be used to filter out such predictions.</p>
-<p>Disease-associated genes are generally over-expressed in the tissue they cause symptoms in, with the exception of cancer-associated genes<a class="bibtex reference internal" href="../end-matter/reference.html#lage2008-gq" id="id4">[171]</a><a class="bibtex reference internal" href="../end-matter/reference.html#winter2004-rr" id="id5">[159]</a>.
-This can and has already been leveraged effectively as part of gene and variant prioritisation methods <a class="bibtex reference internal" href="../end-matter/reference.html#rackham2015-jp" id="id6">[172]</a><a class="bibtex reference internal" href="../end-matter/reference.html#antanaviciute2015-ke" id="id7">[173]</a>.
+<p>Disease-associated genes are generally over-expressed in the tissue they cause symptoms in, with the exception of cancer-associated genes<a class="bibtex reference internal" href="../end-matter/reference.html#lage2008-gq" id="id4">[172]</a><a class="bibtex reference internal" href="../end-matter/reference.html#winter2004-rr" id="id5">[160]</a>.
+This can and has already been leveraged effectively as part of gene and variant prioritisation methods <a class="bibtex reference internal" href="../end-matter/reference.html#rackham2015-jp" id="id6">[173]</a><a class="bibtex reference internal" href="../end-matter/reference.html#antanaviciute2015-ke" id="id7">[174]</a>.
 Despite this, tissue-specific gene expression data was completely missing from entries to CAFA1 or CAFA2.</p>
 <p>For this reason, I developed a filter to be used on top of any protein function prediction method (FilP), which removes predictions where the protein is not transcribed in the tissue that the phenotype relates to.</p>
 <div class="section" id="critical-assessment-of-functional-annotation">

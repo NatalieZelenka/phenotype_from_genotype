@@ -6,6 +6,10 @@
 [//]: # (TODO: Bring it back to the big questions and the opportunities)
 [//]: # (TODO: Mention different model organisms that we can gain insight from)
 
+[//]: # (TODO: Cite data inaccessibility)
+While in other fields, data inaccessibility is a major barrier to reproducible research, this is the field that had an online database system that remote computers could access in the 1960s!
+So, the catalogued information populates freely available databases, vocabularies, and annotations, creating controlled and shared vocabularies that fuel computational methodologies.
+
 Multi omics approaches that combine data types have been successful at elucidating mechanisms behind certain phenotypes{cite}`Hasin2017-tk,Ritchie2015-ds,Kristensen2014-iw`. 
 There is now the opportunity for genome-wide phenotype predictions to do the same. 
 Obtaining an accurate prediction of phenotype and protein function, even for a subclass of variants/proteins, has the potential to greatly impact people. 
