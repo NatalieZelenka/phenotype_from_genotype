@@ -103,7 +103,7 @@ alt: The lefthand figure shows an amino acid chart. It consists of three concent
 ---
 Left: An amino acid wheel chart showing the mapping between nucleotide codons of RNA and amino acids. The chart is read from the inside out, for example UGA is a stop codon and UUG encodes for leucine "Leu").
 Right: An illustration of the translation process, showing tRNAs delivering amino acids to the ribosome in order to build the polypeptide chain which makes up proteins.
-``` ```
+```
 
 Translation is mostly carried out by a large and complex piece of molecular machinery called the ribosome, which is made up of proteins and ribosomal RNA (rRNA). 
 The ribosome reads and processes RNA in sets of three nucleotides at a time - these are called codons. 

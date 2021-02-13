@@ -17,10 +17,12 @@ In most sequencing technologies (e.g. Sanger, Illumina), in order for the differ
 [//]: # (TODO: Make image for electrophoresis)
 
 ```{margin} Elecrophoresis
-:name:electrophoresis
+:name: electrophoresis
 Eectrophoresis is a laboratory technique in which molecules are separated based on their size and electrical by applying an electric current to molecules.
 This forces them to travel through a small capillary tube, or through a gel matrix.
+
 In DNA capillary electrophoresis, DNA is read via exciting flurescent markers with lasers and detecting the produced light (this is how automated Sanger sequencing works).
+
 In manual gel electrophoresis, the DNA is prepared in advance so that there are four samples of DNA each containing pieces of DNA of varying length, such that each sample has a different nucleotide at the end of each piece.
 The length of those pieces of DNA in nucleotides is determined by how far the DNA lengths can move through the gel.
 ```

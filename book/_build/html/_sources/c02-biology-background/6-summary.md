@@ -1,6 +1,7 @@
 (model-genotype-phenotype-summary)=
 ## Summary: how genotype and phenotype are linked
 [//]: # (TODO: Draw the scientific model)
+[//]: # (TODO: Do I mention epigenetics, e.g. DNA methylation/histone modifications in the dna section?)
 
 The purpose of this introductory chapter was to provide an overview of how we think phenotype arises from genotype. 
 It’s also to explain why it’s a hard problem! 

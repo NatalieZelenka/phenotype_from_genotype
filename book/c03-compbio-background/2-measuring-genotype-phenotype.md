@@ -3,6 +3,7 @@
 [//]: # (TODO: Image representing bioinformatics landscape: bubbles with all the different resources and links between them and data types and linked with image map https://www.image-map.net/ as a html image)
 [//]: # (TODO: Check through and signpost where resources are just humans or model organisms or loads of things)
 [//]: # (TODO: Have an aside about model organisms)
+[//]: # (TODO: Mass spectrometry aside at relevant point)
 We will now delve into the details of some of these data sets, looking first at {ref}`DNA<dna-measurements>`, then {ref}`RNA<rna-measurements>`, then {ref}`proteins<protein-measurements>`, then {ref}`phenotypes<phenotype-measurements>`.
 This is to give us a sense of the data that exists within the databases of the bioinformatics landscape, as well as some of the subtle issues that arise when using and linking them.
 
@@ -24,7 +25,7 @@ Whole genomes are {ref}`sequenced<sequencing>` and {ref}`assembled<assembly-and-
 ```{margin} The *whole* genome?
 :name: really-wgs
 In practice, almost complete genomes are also referred to as whole genomes, particularly for more complex genomes.
-Even the human genome still a small outstanding amount of unassembled DNA{cite}`` - satellite DNA which is thought to be part of the structure of chromosomes.
+Even the human genome still a small outstanding amount of unassembled DNA{cite}`Miga2015-zl` - satellite DNA which is thought to be part of the structure of chromosomes.
 ```
 
 [//]: # (TODO: Sample of VCF format here? Mention 1000Genomes?)
@@ -36,7 +37,7 @@ When cohorts have their whole genomes sequenced, this allows information from WG
 Whole genomes for different organisms can be compared to one another to give us insight about the organisms, or within an organism, individuals can be compared to understand the importance of sections of DNA for that organism.
 Genomes from different species are stored in databases such as the University of California Santa Cruz (UCSC) Genome Browser database{cite}`Kent2002-jg`, the US National Centre for Biotechnology Information (NCBI) Genome Sequence database{cite}`Harger2000-vr`, or the European Bioinformatics Institute's (EBI) Ensembl Genome database{cite}`Hubbard2002-oi`.
 
-(human-reference-genome=)
+(human-reference-genome)=
 ### The human reference genome
 As {ref}`previously mentioned<genomes>`, reference genomes are designed to represent whole organisms: these genomes aim to have the most common allele at any given nucleotide, and are then annotated at positions where individuals differ. 
 
@@ -183,6 +184,10 @@ Examples include scale normalisation methods like TMM (used in edgeR{cite}`Robin
 Similar to RNA, proteins also have (amino acid) sequence data, mappings to genes and transcripts, structure data and protein abundance data. 
 While for RNA, abundance (gene expression) data is the most popular type, for proteins, it is structure data, and from this structural information, there is a very detailed system of protein classification.
 
+Proteins are where the history of bioinformatics databases that any researcher can contribute to began.
+Margaret Dayhoff created the first bioinformatics database in 1969, to store protein structures imaged using X-ray crystallography, related to her publication of Atlas of Protein Sequence and Structure{cite}`Hersh1967-ox`. 
+The Uniprot{cite}`Pundir2016-ya` database of protein sequence and functional information is the heir to this early database, it contains information about protein sequence, domain architecture, and function.
+
 ### Protein Sequence
 Just as DNA and RNA can be {ref}`sequenced<sequencing>` in nucleic acids, proteins can be sequenced by their amino acids, although the technology behind doing this is quite different (e.g. using mass spectrometry is the most common way).
 This is often done for a small part of a protein, to allow it to be matched to a the expected amino acid sequence based on gene or transcript sequences.
@@ -191,43 +196,57 @@ This is how mappings from protein IDs to gene IDs and transcript IDs are availab
 Protein sequencing is also used to characterise protein's {ref}`post-translational modifications<post-translational-modifications>`.
 
 ### Protein Abundance 
-[//]: # (TODO: Move protein abundance here)
 The abundance of proteins in a sample can be measured through various quantitative proteomics techniques. 
 These are carried out using electrophoresis, or mass spectrometry, for example.
 Similar to gene expression, this technique is often used to compare between two different samples (e.g. disease and control groups).
 Data from such experiments are also available in databases{cite}`Wang2012-pv,Samaras2020-mg`.
 
-(gene-expression-protein-abundance)=
+```{margin} Gene Expression and Protein Abundance data
+:name: gene-expression-protein-abundance
 It's interesting to note that gene expression levels (from RNA-Seq and microarray data) are not necessarily strongly correlated with protein abundance; this has been found in mice{cite}`Schwanhausser2011-tm`, yeast{cite}`Gygi1999-lr`, and human{cite}`Kosti2016-gt`. 
+
 In human, Spearman correlations between protein abundance and gene expression levels vary between 0.36 and 0.50, depending on tissue, meaning that they are only weakly or moderately correlated{cite}`Kosti2016-gt`.
+```
 
 (protein-stucture-measurements)=
 ### Protein Structure
-[//]: # (TODO: rewrite)
 [//]: # (TODO: Picture of a protein structure)
-[//]: # (TODO: mention molecular dynamics)
 
-In 1969, Margaret Dayhoff created the first bioinformatics database to store protein structures imaged using X-ray crystallography, related to her publication of Atlas of Protein Sequence and Structure{cite}`Hersh1967-ox`. 
-Soon after, in 1972, the Protein DataBank (PDB){cite}`noauthor_undated-ow` was established. 
-This continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.
+The Protein DataBank (PDB){cite}`noauthor_undated-ow` was established not long after Dayhoff's database, it contains three dimensional protein structures, typically obtained using X-ray Crystallography or NMR spectroscopy. 
+The PDB continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.
+These structures are used for {ref}`protein classification<protein-classification>`, and for Molecular Dynamics simulations (simulating the physical interactions of molecules).
 
+(protein-classification)=
 ### Protein Classification
-[//]: # (TODO: Check not duplucated from earlier:)
-[//]: # (TODO: Cite Uniprot + PDB)
-Scientists are often interested in a "favourite" gene or protein, or have obtained a list of genes or proteins that they are interested in through a recent experiment. 
-If an experiment about the specific protein has been carried out (e.g. to determine its function or structure), then a database like Uniprot (containing function and sequence information) or PDB (structure information) can be queried. 
-However, this kind of information is not available for all proteins, so this is often necessary to make inferences about protein structure or function based on for example sequence similarity or protein classification.
+[//]: # (TODO: Cite low sequence similarity, high homology: https://www.mrc-lmb.cam.ac.uk/rlw/text/bioinfo_tuto/structure.html)
+[//]: # (TODO: Mention PFAM?)
 
-[//]: # (TODO: Rewrite below based on section 2.4)
+```{margin} Homology
+:name: homology
+Homology is similarity based on a shared evolutionary ancestor.
+```
+
+As {ref}`previously mentioned<protein-classification>`, proteins are classified by structural similarities. 
+This information is often used because researchers identify a gene or protein of interest, but information about it's function or sequence (in Uniprot) or structure (PDB) has not yet been captured and stored.
+In such cases, it's often necessary to make inferences about protein structure or function based on their similarity to known proteins.
+This is sometimes done using sequence similarity (e.g. {ref}`BLAST<blast>`, but sequence similarity can vary considerably between proteins with the same underlying structure. 
+This is why structural similarity searches based on protein classification are preferred.
+
+```{margin} BLAST
+:name: blast
+The Basic Local Alignment Search Tool{cite}`Altschul1990-zf`, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.
+```
 
 **SCOP:** 
 The Structural Classification of Proteins (SCOP) database{cite}`Murzin1995-se` classifies all proteins with known structure based on their structural similarities, based on the consideration of the protein’s constituent domains. 
 The classification is mostly done at the level of families, superfamilies, and folds arranged in a tree structure. 
 Families represent the most similar proteins, which share a “clear evolutionary relationship”, while superfamilies represent less close evolutionary relationships, and folds represent the same secondary structure. This protein classification task, while aided by automation, was carried out largely by manual visual inspection.
 
+[//]: # (TODO: image of homology, e.g. bat wings/hands)
+
 SCOP was updated until 2009, but has been succeeded by SCOP2{cite}`Andreeva2014-om`. 
 However, SCOP2 has a different underlying classification system, based on a complex graph, rather than a hierarchy. 
-The CATH (Class, Architecture, Topology, Homologous superfamily){cite}`Orengo1997-vf` database provides another classification system, (also operating hierarchically), but created mostly via automation, which leads to major differences between the classifications{cite}`Csaba2009-of`.
+The CATH (Class, Architecture, Topology, Homologous superfamily){cite}`Orengo1997-vf` database provides another classification system, which operates hierarchically, but is created mostly via automation, which leads to major differences between the classifications{cite}`Csaba2009-of`.
 
 (superfamily-update)=
 **SUPERFAMILY**
@@ -236,19 +255,12 @@ This allows the functions of poorly understood proteins to be inferred based on 
 HMMs are very successful at such assignments since pairwise correlations between proteins (or their domains) and other proteins in the family may be weak, but consistently for many proteins; this can be picked up by an HMM. 
 The superfamily level is chosen since it is the broadest level which suggests evolutionary relationships, but SUPERFAMILY also generates assignments at the (stricter) family level.
 
-[//]: # (TODO: Margin/parenthesis homologs?)
-
-```{margin} BLAST
-:name: blast
-The Basic Local Alignment Search Tool{cite}`Altschul1990-zf`, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.
-```
-
 HMMs are created by first finding closely relating protein homologs for a given protein superfamily using {ref}`BLAST<blast>`, and then extending it by comparing the HMM to more distantly related homologs. 
 The resulting HMM library is fine-tuned by some manual curation. 
 
 The SUPERFAMILY website also contains other tools, including a database of all sequences (genomes) which are used to generate the HMM library.
 
-(my-supfam-contribution=)
+(my-superfamily-contribution)=
 **SUPERFAMILY update**
 I contributed to SUPERFAMILY’s 2014 update{cite}`Oates2015-li` by editing the paper, and adding a small number of proteomes. 
 The SUPERFAMILY database of proteomes doubled from 1400 to over 3200 from 2010 to 2014. 
