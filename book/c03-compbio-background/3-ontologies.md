@@ -17,7 +17,7 @@ Linneus' classifications included a racist hierarchical classification of human 
 
 Cataloguing and classifying has been a successful scientific endeavour in other disciplines (e.g. the periodic table), but it’s a cornerstone of biology. 
 Biological classification dates back to the Linnaean taxonomy from the mid 1700s (see {numref}`linneaus_ehret`), which described species, their features, and the relationships between them{cite}`Jensen2010-fk`.
- t also contained some {ref}`hateful racist ideas<linneus-racist>`.
+It also contained some {ref}`hateful racist ideas<linneus-racist>`.
 Nonetheless the idea of measuring and categorising the biological world also birthed an enduring tradition of classification in biology.
  
 Modern biology continues in this tradition of classification, cataloguing biology in ever more (molecular) detail: cells, genes, transcripts, proteins, and pathways. 
@@ -83,20 +83,39 @@ The Gene Ontology (GO){cite}`Ashburner2000-cr` is one of the first biomedical on
 It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems{cite}`Thomas2017-vm`. 
 It includes:
 1. The standard gene ontology, which is a hierarchical set of terms describing functions.
-2. The gene ontology annotations (GOA) database, which contains manual and computationally derived mappings from gene products to gene ontology terms.
+2. The {ref}`gene ontology annotations<gene-ontology-annotation>` (GOA) database{cite}`Camon2004-ks`, which contains manual and computationally derived mappings from gene products to gene ontology terms.
 3. Tools for using and updating these resources.
 
-The Gene Ontology defines the “universe” of possible functions a gene might have, while the functions of particular genes are captured as GO annotations{cite}`Thomas2017-vm`.
+**Gene Ontology terms:** 
+The Gene Ontology defines the “universe” of possible functions a gene might have (in any species), while the functions of particular genes are captured as GOA database{cite}`Thomas2017-vm`.
 
 The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies{cite}`Ashburner2000-cr`. 
 Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process){cite}`Thomas2017-vm`.
 
-[//]: # (TODO: gene ontology annotation here gene-ontology-annotation, including evidence codes,nothing about quality, i.e. something about "gene function" and "protein function" and their relationship to phenotypes, ontologies, etc)
+Molecular functions terms describe activities at the molecular level (i.e. that can be undertaken by individual gene product molecules) such as catalysis, transport, and binding.
+Biological processes terms represent larger scale functions (requiring several molecules), such as regulation, or even behaviour - these stop short of representing biological pathways (GO does not include the types of relationships that would facilitate this).  
+Cellular component terms describe what part of the cellular anatomy a gene product is part of, e.g. intracellular organelle, ribosome, or cell surface.
 
- 
+The terms in these three sub-ontologies are related to one another by relations, the most common are `is_a` (i.e. is a subtype of); `part_of`; `has_part`; `regulates`, `negatively_regulates` and `positively_regulates`. 
+
+[//]: # (TODO: biocurator margin)
+[//]: # (TODO: Do I mention protein complexes before?)
+(gene-ontology-annotation)=
+**Gene Ontology Annotations:**
+Annotations in the GOA database are annotations between GO terms and gene products (proteins, protein complexes or RNA).
+The annotations include integration to the Uniprot protein function annotations across many species, which have been connected to the controlled vocabulary of GO by skilled biocurators, as well as electronically generated annotations.
+Evidence codes are provided for annotations which label whether annotations were verified by experts, as well as what type of experimental or computational evidence there is for an annotation.
+
+[//]: # (TODO: Disease Ontology...)
+
 ## Why are ontologies useful?
 [//]: # (TODO: Example of query of insight you woudln't have usually,  signpost to DCGO, mention usefulness of controlled vocabulary and agreed upon definitions)
+[//]: # (TODO: Add picture describing logic http://geneontology.org/docs/ontology-relations/)
+
 Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities.
+With logical reasoning, we can generate inferred relationships between distantly related terms in  ontologies, for example $is\_a \cdot part\_of \implies part\_of$. 
+This allows us to find and check relationships that are not in the ontology automatically.
+
 Ontologies and particularly their annotations are varying degrees of incomplete, and this will have an impact on the results of any downstream use of them. 
 
 (term-enrichment)=
