@@ -20,7 +20,7 @@ Humans share 50% of their *protein-coding* dna with bananas, but only 1% of thei
 Still thinking big, we have the *exome* and the *proteome*. 
 Both of these refer to locations across the whole genome, but missing stretches in between.
 The exome describes the set of all exons (protein-coding nucleotides) across the genome. 
-The proteome is generally used to mean the set of all proteins in in an organism (which can be much larger than the set of genes due to {ref}`alternate splicing<alternative-splicing>`), but it can also be used to describe the part of the genome with relating to the set of protein sequences.
+The proteome is generally used to mean the set of all proteins in in an organism (which can be much larger than the set of genes due to {ref}`alternate splicing<alternative-splicing>`), but it can also be used to describe the part of the genome relating to the set of protein sequences.
 
 (omics)=
 ```{margin} Omics

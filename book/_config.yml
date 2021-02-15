@@ -46,6 +46,8 @@ parse:
 execute:
   execute_notebooks: 'off'
 
+only_build_toc_files: true
+
 #######################################################################################
 # Interact link settings
 

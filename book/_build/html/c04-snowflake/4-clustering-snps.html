@@ -189,12 +189,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c03-compbio-background/4-bias.html">
-     3.4. Sources of bias in computational biology datasets
+     3.4. Bias
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/5-error.html">
-     3.5. Sources of error in computational biology
+    <a class="reference internal" href="../c03-compbio-background/5-pqi.html">
+     3.5. PQI
     </a>
    </li>
    <li class="toctree-l2">
@@ -497,7 +497,7 @@
 </div>
 <div class="section" id="choice-of-clustering-methodology">
 <h2><span class="section-number">4.4.2. </span>Choice of clustering methodology<a class="headerlink" href="#choice-of-clustering-methodology" title="Permalink to this headline">¶</a></h2>
-<p>The original implementation of the phenotype predictor used k-means clustering<a class="bibtex reference internal" href="../end-matter/reference.html#le-cam1967-ku" id="id1">[125]</a>. This wasn’t suitable for the predictor, since we expect combinations of SNPs to form non-spherical shapes (see <a class="reference internal" href="#non-spherical"><span class="std std-numref">Fig. 4.4</span></a>), and k-means cannot achieve this (see <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.5</span></a>).</p>
+<p>The original implementation of the phenotype predictor used k-means clustering<a class="bibtex reference internal" href="../end-matter/reference.html#le-cam1967-ku" id="id1">[126]</a>. This wasn’t suitable for the predictor, since we expect combinations of SNPs to form non-spherical shapes (see <a class="reference internal" href="#non-spherical"><span class="std std-numref">Fig. 4.4</span></a>), and k-means cannot achieve this (see <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.5</span></a>).</p>
 <p>Spectral clustering, DBSCAN (Density-Based Spatial Clustering of Applications with Noise), OPTICS and LOF (Local Outlier Factor) were also implemented. This involved automation of parameter selection, to enable clustering to be performed automatically on thousands of phenotype terms. These methods have theoretical pros and cons with respect to the predictor. For example, OPTICS and DBSCAN do not need the number of clusters as an input, but instead require the minimum number of points required to form a cluster and a radius from each point to consider as part of a cluster, which has more meaning in this context. They also automatically output outliers to clusters, which will affect the resulting phenotype score, potentially in unseen ways - particularly as it is difficult to visualise high-dimensional data. OPTICS is the default setting, as in addition to not requiring a number of clusters, it can identify clusters of differing densities (a quality that DBSCAN lacks - as can be seen in the second row of <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.5</span></a>). A final informed choice between these options requires a large benchmarking set.</p>
 </div>
 <div class="section" id="choice-of-distance-metric">
@@ -518,7 +518,7 @@
 </div>
 <div class="figure align-default" id="clustering-comparison">
 <a class="reference internal image-reference" href="../_images/clustering_comparison.png"><img alt="../_images/clustering_comparison.png" src="../_images/clustering_comparison.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Comparison illustrating differences between the implemented clustering methods. Image adapted from sklearn documentation<a class="bibtex reference internal" href="../end-matter/reference.html#noauthor-undated-nc" id="id2">[126]</a>.</span><a class="headerlink" href="#clustering-comparison" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Comparison illustrating differences between the implemented clustering methods. Image adapted from sklearn documentation<a class="bibtex reference internal" href="../end-matter/reference.html#noauthor-undated-nc" id="id2">[127]</a>.</span><a class="headerlink" href="#clustering-comparison" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="input-individuals">
@@ -526,7 +526,7 @@
 </div>
 <div class="section" id="the-curse-of-dimensionality">
 <h2><span class="section-number">4.4.5. </span>The curse of dimensionality<a class="headerlink" href="#the-curse-of-dimensionality" title="Permalink to this headline">¶</a></h2>
-<p>The “curse of dimensionality” is a phrase coined by Richard E Bellman, during his work on dynamic programming<a class="bibtex reference internal" href="../end-matter/reference.html#bellman1957-dc" id="id3">[127]</a>, but has since proved relevant in many different mathematical and data-driven fields. In addition to it’s more colloquial use as a catch-all complaint about high-dimensional data, the “curse” refers to the sparsity of data that occurs exponentially with an increase in dimensions. This leads to various problems in different fields<a class="bibtex reference internal" href="../end-matter/reference.html#zimek2012-fg" id="id4">[128]</a> and of which we run into two in this chapter; general difficulty in reaching statistical significance and reduced usefulness of clustering, distance, and outlier metrics.</p>
+<p>The “curse of dimensionality” is a phrase coined by Richard E Bellman, during his work on dynamic programming<a class="bibtex reference internal" href="../end-matter/reference.html#bellman1957-dc" id="id3">[128]</a>, but has since proved relevant in many different mathematical and data-driven fields. In addition to it’s more colloquial use as a catch-all complaint about high-dimensional data, the “curse” refers to the sparsity of data that occurs exponentially with an increase in dimensions. This leads to various problems in different fields<a class="bibtex reference internal" href="../end-matter/reference.html#zimek2012-fg" id="id4">[129]</a> and of which we run into two in this chapter; general difficulty in reaching statistical significance and reduced usefulness of clustering, distance, and outlier metrics.</p>
 <p>This problem can be reduced by choosing a clustering/outlier detection method which is more robust to the number of dimensions. It is also helpful to reduce the number of dimensions in some way (feature selection), or to project the data into a different coordinate system (feature projection) and then discard some of the newly calculated coordinates/dimensions.</p>
 <p>A range of clustering methods were trialled on the phenotype predictor in an attempt to overcome the curse of dimensionality and increase the phenotype predictor’s accuracy. Jan mostly implemented the Spectral Clustering, while I implemented the other methods.</p>
 <div class="section" id="dimensionality-reduction">

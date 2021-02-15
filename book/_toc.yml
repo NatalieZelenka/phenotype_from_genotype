@@ -26,7 +26,7 @@
       - file: c03-compbio-background/2-measuring-genotype-phenotype
       - file: c03-compbio-background/3-ontologies
       - file: c03-compbio-background/4-bias
-      - file: c03-compbio-background/5-error
+      - file: c03-compbio-background/5-pqi
       - file: c03-compbio-background/6-summary
   - file: c04-snowflake/0-index
     sections:

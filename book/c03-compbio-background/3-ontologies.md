@@ -75,9 +75,7 @@ height: 220px
 name: go_rilla
 ---
 A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla{cite}`Eden2009-ic`)
-``` ``
-
-[//]: # (TODO: Remove extra backticks)
+``` 
 
 The Gene Ontology (GO){cite}`Ashburner2000-cr` is one of the first biomedical ontologies, and continues to be one of the most popular. 
 It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems{cite}`Thomas2017-vm`. 
@@ -105,6 +103,9 @@ The terms in these three sub-ontologies are related to one another by relations,
 Annotations in the GOA database are annotations between GO terms and gene products (proteins, protein complexes or RNA).
 The annotations include integration to the Uniprot protein function annotations across many species, which have been connected to the controlled vocabulary of GO by skilled biocurators, as well as electronically generated annotations.
 Evidence codes are provided for annotations which label whether annotations were verified by experts, as well as what type of experimental or computational evidence there is for an annotation.
+GOA also link to the supporting publications for the experimental annotations.
+
+[//]: # (TODO: but the GO do not provide the statistical evidence that they used alongside this - e.g. p-value, effect size-, etc)
 
 [//]: # (TODO: Disease Ontology...)
 
