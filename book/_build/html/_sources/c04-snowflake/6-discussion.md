@@ -22,8 +22,11 @@ For example, non-coding variants could be included by extending DcGO annotations
 Another example is that DcGO does not take account of the environment of the cell (e.g. tissue-specific gene expression) in its' predictions. 
 Although domains which are statistically associated with phenotype can be present in a protein, there is no guarantee that the protein will have the opportunity to impact the phenotype (be transcribed).
 
+[//]: # (TODO: Cross-ref next Chapter)
+[//]: # (TODO: Give actual example)
+
 In investigating some of the ALSPAC phenotype predictions, I identified that some of the predicted dcGO relations between proteins and ontology terms may not be expressed in the tissue of interest. 
-Improving dcGO or FATHMM may be a good route for improving the predictor, and this is the focus of the next Chapter.
+Improving dcGO or FATHMM may be a good route for improving the predictor, and this is the focus of the next Chapter. 
 
 The phenotype predictor was also entered into the CAGI competition{cite}`McInnes2019-ov` (work by Jan Zaucha){cite}`Zaucha2018-dg`, where it had some success. 
 The phenotype predictor placed fourth in a challenge matching trait profiles to genotypes, but this result was not statistically significant (p>0.05).
