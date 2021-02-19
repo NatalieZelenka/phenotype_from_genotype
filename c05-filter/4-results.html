@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.6. Results &#8212; Phenotype from Genotype</title>
+    <title>5.8. Results &#8212; Phenotype from Genotype</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.7. Discussion" href="5-discussion.html" />
-    <link rel="prev" title="5.5. Methods" href="3-methods.html" />
+    <link rel="next" title="5.9. Discussion" href="5-discussion.html" />
+    <link rel="prev" title="5.7. Methods" href="3-methods.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -270,37 +270,52 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking Genotype and phenotype
+     5.2. Motivation: linking genotype and phenotype
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="1-introduction.html#cafa">
-     5.3. CAFA
+    <a class="reference internal" href="1-introduction.html#motivation-protein-function-prediction">
+     5.3. Motivation: protein function prediction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-introduction.html#id5">
+     5.4. CAFA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-introduction.html#filip">
+     5.5.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       filip
+      </span>
+     </code>
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2-data.html">
-     5.4. Data
+     5.6. Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-methods.html">
-     5.5. Methods
+     5.7. Methods
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     5.6. Results
+     5.8. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5-discussion.html">
-     5.7. Discussion
+     5.9. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-future-work.html">
-     5.8. Future work
+     5.10. Future work
     </a>
    </li>
   </ul>
@@ -444,17 +459,17 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cafa3-results">
-   5.6.1. CAFA3 Results
+   5.8.1. CAFA3 Results
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#validation">
-   5.6.2. Validation
+   5.8.2. Validation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#combined-data-set-results">
-   5.6.3. Combined data-set results
+   5.8.3. Combined data-set results
   </a>
  </li>
 </ul>
@@ -469,9 +484,9 @@
               <div>
                 
   <div class="section" id="results">
-<h1><span class="section-number">5.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5.8. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="cafa3-results">
-<h2><span class="section-number">5.6.1. </span>CAFA3 Results<a class="headerlink" href="#cafa3-results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.8.1. </span>CAFA3 Results<a class="headerlink" href="#cafa3-results" title="Permalink to this headline">¶</a></h2>
 <p>I entered two models into CAFA3: DcGO only and DcGO plus FilP. Due to time constraints, I only entered CAFA3 with predictions for Human, and for Gene Ontology Biological Process terms.</p>
 <p>In all categories, FilP improved DcGO by 0.02 f-max (Table 1). This was not enough to be a competitive model (ranked between 33 and 38/67 for this category).</p>
 <p>Type (known/
@@ -499,7 +514,7 @@ mode1
 Table 1: CAFA3 f-max results for DcGO and FilP.</p>
 </div>
 <div class="section" id="validation">
-<h2><span class="section-number">5.6.2. </span>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.8.2. </span>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h2>
 <p>The approach of the filter was validated using the CAFA2 data. In order to do this, the original DcGO CAFA2 submission was run on the CAFA2 targets, and FilP was applied to these DcGO results.</p>
 <p>The F-max score was calculated for human BPO, combining both type 1 and type2. The results (Table 2) show that FilP provides a small benefit to the F-max score.</p>
 <p>F-max
@@ -517,7 +532,7 @@ This may be due to the lack of developing tissues in the dataset used by FilP.</
 This was repeated 100,000 times to create the histogram in Figure 16.</p>
 </div>
 <div class="section" id="combined-data-set-results">
-<h2><span class="section-number">5.6.3. </span>Combined data-set results<a class="headerlink" href="#combined-data-set-results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.8.3. </span>Combined data-set results<a class="headerlink" href="#combined-data-set-results" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -549,8 +564,8 @@ This was repeated 100,000 times to create the histogram in Figure 16.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="3-methods.html" title="previous page"><span class="section-number">5.5. </span>Methods</a>
-    <a class='right-next' id="next-link" href="5-discussion.html" title="next page"><span class="section-number">5.7. </span>Discussion</a>
+    <a class='left-prev' id="prev-link" href="3-methods.html" title="previous page"><span class="section-number">5.7. </span>Methods</a>
+    <a class='right-next' id="next-link" href="5-discussion.html" title="next page"><span class="section-number">5.9. </span>Discussion</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

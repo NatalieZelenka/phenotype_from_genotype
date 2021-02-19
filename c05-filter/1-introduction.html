@@ -56,7 +56,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.4. Data" href="2-data.html" />
+    <link rel="next" title="5.6. Data" href="2-data.html" />
     <link rel="prev" title="5. Filtering computational predictions with tissue-specific expression information" href="0-index.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -272,37 +272,52 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking Genotype and phenotype
+     5.2. Motivation: linking genotype and phenotype
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="#cafa">
-     5.3. CAFA
+    <a class="reference internal" href="#motivation-protein-function-prediction">
+     5.3. Motivation: protein function prediction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#id5">
+     5.4. CAFA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#filip">
+     5.5.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       filip
+      </span>
+     </code>
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2-data.html">
-     5.4. Data
+     5.6. Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-methods.html">
-     5.5. Methods
+     5.7. Methods
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4-results.html">
-     5.6. Results
+     5.8. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5-discussion.html">
-     5.7. Discussion
+     5.9. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-future-work.html">
-     5.8. Future work
+     5.10. Future work
     </a>
    </li>
   </ul>
@@ -451,49 +466,40 @@
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#motivation-linking-genotype-and-phenotype">
-   5.2. Motivation: linking Genotype and phenotype
+   5.2. Motivation: linking genotype and phenotype
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cafa">
-   5.3. CAFA
+  <a class="reference internal nav-link" href="#motivation-protein-function-prediction">
+   5.3. Motivation: protein function prediction
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   5.4. CAFA
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#critical-assessment-of-functional-annotation">
-     5.3.1. Critical Assessment of Functional Annotation
+    <a class="reference internal nav-link" href="#cafa-validation">
+     5.4.1. CAFA Validation
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#challenge">
-       5.3.1.1. Challenge
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cafa-validation">
-       5.3.1.2. CAFA Validation
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#limitations-of-validation-method">
-         5.3.1.2.1. Limitations of validation method
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#past-cafas">
-       5.3.1.3. Past CAFAs
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#overview">
-     5.3.2. Overview
+    <a class="reference internal nav-link" href="#limitations-of-validation-method">
+     5.4.2. Limitations of validation method
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filip">
+   5.5.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     filip
+    </span>
+   </code>
+  </a>
  </li>
 </ul>
 
@@ -508,74 +514,84 @@
                 
   <div class="section" id="introduction">
 <h1><span class="section-number">5.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>As we explored in <a class="reference internal" href="../c02-biology-background/0-index.html#c02-biology-bg"><span class="std std-ref">Chapter 2</span></a>, there is a complex web of interactions between proteins and other molecular machinery that lead to phenotype.
+Our <a class="reference internal" href="../c02-biology-background/6-summary.html#model-genotype-phenotype-summary"><span class="std std-ref">current understanding of how phenotype arises from genotype</span></a> tells us that knowing what proteins <em>can</em> be produced isn’t necessarily enough of a clue to tell us about phenotype.
+Liver cells and heart cells have the same DNA, but it’s how that DNA is used (what genes are expressed in the cell) that leads to the difference between those cell types.
+Since larger scale phenotypes will follow from cellular differences, we expect gene expression data to be a useful measure for phenotype prediction.</p>
+<p>This is backed-up by data: disease-associated genes are generally over-expressed in the tissue they cause symptoms in, with the exception of cancer-associated genes<a href="#id1"><span class="problematic" id="id2">:cite:`Lage2008-gq,Winter2004-rr`</span></a>.
+This can and has already been leveraged effectively as part of gene and variant prioritisation methods <a href="#id3"><span class="problematic" id="id4">:cite:`Rackham2015-jp,Antanaviciute2015-ke`</span></a>.</p>
 </div>
 <div class="section" id="motivation-linking-genotype-and-phenotype">
-<h1><span class="section-number">5.2. </span>Motivation: linking Genotype and phenotype<a class="headerlink" href="#motivation-linking-genotype-and-phenotype" title="Permalink to this headline">¶</a></h1>
-<p>As we explored in <a class="reference internal" href="../c02-biology-background/0-index.html#c02-biology-bg"><span class="std std-ref">Chapter 2</span></a>, there is a complex web of interactions between proteins and other molecular machinery that lead to phenotype.</p>
-<p>The <a class="reference internal" href="../c04-snowflake/5-results.html#snowflake-results"><span class="std std-ref">inconclusive results of the `Snowflake`</span></a> led me to pursue an answer to a much smaller piece of the genotype-to-phenotype puzzle.
+<h1><span class="section-number">5.2. </span>Motivation: linking genotype and phenotype<a class="headerlink" href="#motivation-linking-genotype-and-phenotype" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="../c04-snowflake/5-results.html#snowflake-results"><span class="std std-ref">inconclusive results of the snowflake predictor</span></a> led me to focus my efforts on finding answer to a much smaller piece of the genotype-to-phenotype puzzle.
 As mentioned in <a class="reference internal" href="../c04-snowflake/6-discussion.html#dcgo-expression-problem"><span class="std std-ref">the previous Chapter’s discussion</span></a>, some predictions of a protein’s phenotype are incorrect because the protein is not produced, even though they do have a structure that means that they could be involved in the pathway if they were present.
 To understand if this is the case, we need to know as a minimum if a gene is <em>ever</em> expressed a relevant context.
 This would rule out, for example, proteins that are predicted to be associated with eye health, but are only ever produced in the developing limbs.</p>
-<p>And if we could apply this approach to <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code>, then we could also apply it to other phenotype prediction and variant prioritisation methods.</p>
+<p>And if we could apply this approach to <code class="docutils literal notranslate"><span class="pre">snowflake</span></code>, then we could also apply it to other phenotype prediction and variant prioritisation methods.</p>
 </div>
-<div class="section" id="cafa">
-<h1><span class="section-number">5.3. </span>CAFA<a class="headerlink" href="#cafa" title="Permalink to this headline">¶</a></h1>
-<p>As previously mentioned, there are many genes/proteins for which we have sequence information, but not functional information.</p>
-<p>There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information (e.g. via the CAFA competitions<a href="#id1"><span class="problematic" id="id2">:cite:`Zhou2019-jk,Jiang2016-rz,Radivojac2013-wh`</span></a>).
-If successful, this would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments.
-Such knowledge could be used to identify genes or proteins for future treatments. An accurate model might also be able to give us an insight into the mechanisms behind such functions, giving further insight into how an effective therapy might be designed.</p>
-<p>Machine learning methods are currently the most successful class of protein function predictors. While this is promising for answering one aspect of the problem (“what are the functions of a given protein?”), they do not always attempt to answer how or why.</p>
-<p>Structural or sequence methods that estimate protein function based on for example conservation or structure counter this problem.
-However, they are generally less accurate.
-One reason for this might be that they can predict that a protein affects a phenotype in a context that it would never encounter.
-For example, that a protein which is only ever transcribed in skin cells is associated with lung cancer.
-Such predictions are at odds with our understanding of how proteins function, and gene expression data could be used to filter out such predictions.</p>
-<p>Disease-associated genes are generally over-expressed in the tissue they cause symptoms in, with the exception of cancer-associated genes<a href="#id3"><span class="problematic" id="id4">:cite:`Lage2008-gq,Winter2004-rr`</span></a>.
-This can and has already been leveraged effectively as part of gene and variant prioritisation methods <a href="#id5"><span class="problematic" id="id6">:cite:`Rackham2015-jp,Antanaviciute2015-ke`</span></a>.
-Despite this, tissue-specific gene expression data was completely missing from entries to CAFA1 or CAFA2.</p>
-<p>For this reason, I developed a filter to be used on top of any protein function prediction method (FilP), which removes predictions where the protein is not transcribed in the tissue that the phenotype relates to.</p>
-<div class="section" id="critical-assessment-of-functional-annotation">
-<h2><span class="section-number">5.3.1. </span>Critical Assessment of Functional Annotation<a class="headerlink" href="#critical-assessment-of-functional-annotation" title="Permalink to this headline">¶</a></h2>
-<p>Critical Assessment of Functional Annotation (CAFA) is an international community-wide competition for the prediction of protein function.
-It has been running approximately every 2-3 years since 2013. CAFA aims both to stimulate research in the field of protein function prediction, and to measure progress in the field.</p>
-<div class="section" id="challenge">
-<h3><span class="section-number">5.3.1.1. </span>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="motivation-protein-function-prediction">
+<h1><span class="section-number">5.3. </span>Motivation: protein function prediction<a class="headerlink" href="#motivation-protein-function-prediction" title="Permalink to this headline">¶</a></h1>
+<p>As previously mentioned, there are many genes/proteins for which we have sequence information, but not functional information.
+There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information.
+Accurate protein function prediction would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments to test non-existent functions.
+Such knowledge could be used to identify genes or proteins for future treatments.
+An accurate model might also be able to give us an insight into the mechanisms behind such functions, giving further insight into how an effective therapy might be designed.</p>
+<p>Machine learning methods are currently the most successful class of protein function predictors.
+While this is promising for answering one aspect of the problem (“what are the functions of a given protein?”), they do not always attempt to answer how or why.
+Structural or sequence methods that estimate protein function based on for example conservation or structure counter this problem, but they are currently less accurate.
+Few of these methods include tissue-specific gene expression information (such data was completely missing in the first and second <a class="reference internal" href="#cafa"><span class="std std-ref">CAFA competitions</span></a>).
+Filtering out predictions where genes are never expressed in a relevant tissue, may help in protein function prediction, just as in phenotype prediction.</p>
+</div>
+<div class="section" id="id5">
+<h1><span class="section-number">5.4. </span>CAFA<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
+<p>Critical Assessment of Functional Annotation<a href="#id6"><span class="problematic" id="id7">:cite:`Zhou2019-jk,Jiang2016-rz,Radivojac2013-wh`</span></a> (CAFA) is an international community-wide competition for the prediction of protein function, which aims both to stimulate research in the field of protein function prediction, and to measure progress in the field.
+It has been running approximately every 2-3 years since 2013.</p>
+<p>The CAFA competitions consist of a number of different challenges.</p>
 <p>Each CAFA challenge begins by the organisers releasing a large number of target sequences about which participants must make predictions.
 Participants can use any additional data they see fit to make predictions, which must be triples containing a sequence ID, ontology term ID (e.g. a GO/HP identifier), and a confidence score between 0 and 1.
 A score of 1 indicates a very confidence predictor, while a score of 0 is equivalent to not returning the prediction. Each team may submit up to three models, the best of which is ranked.</p>
-</div>
 <div class="section" id="cafa-validation">
-<h3><span class="section-number">5.3.1.2. </span>CAFA Validation<a class="headerlink" href="#cafa-validation" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">5.4.1. </span>CAFA Validation<a class="headerlink" href="#cafa-validation" title="Permalink to this headline">¶</a></h2>
 <p>This confidence score allows for a range of possible sets of predictions, depending on the threshold parameter <span class="math notranslate nohighlight">\(\tau\)</span>.
 Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined as:</p>
-<div class="math notranslate nohighlight">
-\[$ precision = p = \frac{t_p}{t_p + f_p} $\]</div>
-<div class="math notranslate nohighlight">
-\[$ recall = r = \frac{t_p}{t_p + f_n} $\]</div>
+<p><span class="math notranslate nohighlight">\( precision = p = \frac{t_p}{t_p + f_p} \)</span>
+<span class="math notranslate nohighlight">\( recall = r = \frac{t_p}{t_p + f_n} \)</span></p>
 <p>Precision-recall curves are generally used to validate a predictors performance, but the <span class="math notranslate nohighlight">\(F_1\)</span> measure gives a one-number overview of the performance:</p>
-<div class="math notranslate nohighlight">
-\[$F_1 =2/ \frac{precision \cdot recall}{precision + recall}$\]</div>
+<p><span class="math notranslate nohighlight">\(F_1 =2/ \frac{precision \cdot recall}{precision + recall}\)</span></p>
 <p>Since the precision and recall will be different for any <span class="math notranslate nohighlight">\(\tau\)</span>, the <span class="math notranslate nohighlight">\(F_{max}\)</span> score is the maximum possible <span class="math notranslate nohighlight">\(F_1\)</span> for any value of <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
 <p>CAFA validation can either be term-centric or protein-centric. For each option, submissions are assessed per species and for wholly unknown and partially known genes separately.</p>
+</div>
 <div class="section" id="limitations-of-validation-method">
-<h4><span class="section-number">5.3.1.2.1. </span>Limitations of validation method<a class="headerlink" href="#limitations-of-validation-method" title="Permalink to this headline">¶</a></h4>
+<h2><span class="section-number">5.4.2. </span>Limitations of validation method<a class="headerlink" href="#limitations-of-validation-method" title="Permalink to this headline">¶</a></h2>
 <p>There is no penalty for making a broad guess, or reward for making a precise one. This is one of the reasons that the naive method does so well: for example it is not penalised for guessing that the root term of the GO BPO ontology Biological Process is related to every gene.</p>
 <p>Due to the nature of the validation set, it’s possible that the best-scoring CAFA methods simply predict which associations are likely to be discovered soon (i.e. associations to genes people are currently studying).</p>
+<!--
+### Past CAFAs
+In 2014, the CAFA2 experiment began: 100,8216 target sequences from 27 different species were released to participants. 
+In addition to the GO Biological Process and Molecular Function ontologies used in CAFA1, predictions were also requested for the Human Phenotype Ontology and GO Cellular Component ontology. 
+-->
 </div>
 </div>
-<div class="section" id="past-cafas">
-<h3><span class="section-number">5.3.1.3. </span>Past CAFAs<a class="headerlink" href="#past-cafas" title="Permalink to this headline">¶</a></h3>
-<p>In 2014, the CAFA2 experiment began: 100,8216 target sequences from 27 different species were released to participants. In addition to the GO Biological Process and Molecular Function ontologies used in CAFA1, predictions were also requested for the Human Phenotype Ontology and GO Cellular Component ontology.</p>
+<div class="section" id="filip">
+<h1><span class="section-number">5.5. </span><code class="docutils literal notranslate"><span class="pre">filip</span></code><a class="headerlink" href="#filip" title="Permalink to this headline">¶</a></h1>
+<p>In order to overcome the problem of predictors containing erroneous predictions due to a lack of gene expression information, I have created a lightweight tool which allows researchers to filter their phenotype or protein function predictions using tissue-specific gene expression information.</p>
+<div class="margin sidebar" id="naming-things">
+<p class="sidebar-title">Naming things</p>
+<blockquote>
+<div><p>There are only two hard things in Computer Science: cache invalidation and naming things</p>
+<p>– Phil Karlton</p>
+</div></blockquote>
+<p>Aside from the above joke (and my anecdotal experience), there is also evidence in the literature<a href="#id8"><span class="problematic" id="id9">:cite:`Pottegard2014-yc`</span></a> to suggest that strained acronyms exist across scientific disciplines.</p>
 </div>
-</div>
-<div class="section" id="overview">
-<h2><span class="section-number">5.3.2. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-default" id="filp-overview">
-<a class="reference internal image-reference" href="../_images/filp-overview.png"><img alt="../_images/filp-overview.png" src="../_images/filp-overview.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">A flow chart showing how FilP works.</span><a class="headerlink" href="#filp-overview" title="Permalink to this image">¶</a></p>
-</div>
-<p>The filter is a simple rule-based model. Such models have not been very successful, as is the case for most models. This work is simply meant to show that including tissue-specific information can improve the results of protein function prediction, suggesting that it should be included in future ensemble predictors.</p>
-<p>Such a tool could be used on top of any protein function predictor, but would provide the most value for predictors that rely on structural or sequence similarity</p>
+<p>Drawing on the noble tradition of scientists <a class="reference internal" href="#naming-things"><span class="std std-ref">naming things badly</span></a>, I call this <code class="docutils literal notranslate"><span class="pre">filip</span></code> as it is for <code class="docutils literal notranslate"><span class="pre">fil</span></code>ter<code class="docutils literal notranslate"><span class="pre">i</span></code>ng <code class="docutils literal notranslate"><span class="pre">p</span></code>redictions.
+<a class="reference internal" href="#filip-overview"><span class="std std-numref">Fig. 5.1</span></a> illustrates filip’s two-step approach, which aims to filter out predictions for proteins which are not created in the tissue of interest (related to the predicted phenotype).
+The filter is a simple rule-based tool, which is designed to be used on top of any protein function predictor, but would provide the most value for predictors that rely on structural or sequence similarity.</p>
+<div class="figure align-default" id="filip-overview">
+<img alt="../_images/filip.png" src="../_images/filip.png" />
+<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">An illustration showing how filip works.
+It’s a two-step process where protein-phenotype predictions are expected as input.
+In step 1, proteins are mapped to genes, and phenotypes are mapped to tissues.
+In step 2, <code class="docutils literal notranslate"><span class="pre">filip</span></code> filters out any predictions where for which the gene is not expressed in the tissue.</span><a class="headerlink" href="#filip-overview" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 
@@ -608,7 +624,7 @@ Precision (the proportion of selected items that are relevant), and recall (the 
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="0-index.html" title="previous page"><span class="section-number">5. </span>Filtering computational predictions with tissue-specific expression information</a>
-    <a class='right-next' id="next-link" href="2-data.html" title="next page"><span class="section-number">5.4. </span>Data</a>
+    <a class='right-next' id="next-link" href="2-data.html" title="next page"><span class="section-number">5.6. </span>Data</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

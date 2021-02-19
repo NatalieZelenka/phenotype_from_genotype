@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.5. Methods &#8212; Phenotype from Genotype</title>
+    <title>5.7. Methods &#8212; Phenotype from Genotype</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.6. Results" href="4-results.html" />
-    <link rel="prev" title="5.4. Data" href="2-data.html" />
+    <link rel="next" title="5.8. Results" href="4-results.html" />
+    <link rel="prev" title="5.6. Data" href="2-data.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -270,37 +270,52 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking Genotype and phenotype
+     5.2. Motivation: linking genotype and phenotype
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="1-introduction.html#cafa">
-     5.3. CAFA
+    <a class="reference internal" href="1-introduction.html#motivation-protein-function-prediction">
+     5.3. Motivation: protein function prediction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-introduction.html#id5">
+     5.4. CAFA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-introduction.html#filip">
+     5.5.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       filip
+      </span>
+     </code>
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2-data.html">
-     5.4. Data
+     5.6. Data
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     5.5. Methods
+     5.7. Methods
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4-results.html">
-     5.6. Results
+     5.8. Results
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5-discussion.html">
-     5.7. Discussion
+     5.9. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-future-work.html">
-     5.8. Future work
+     5.10. Future work
     </a>
    </li>
   </ul>
@@ -444,17 +459,17 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#choosing-an-expression-cut-off">
-   5.5.1. Choosing an expression cut-off
+   5.7.1. Choosing an expression cut-off
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mapping-multi-species-phenotype-terms-to-tissue">
-   5.5.2. Mapping multi-species phenotype terms to tissue
+   5.7.2. Mapping multi-species phenotype terms to tissue
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#limitations">
-   5.5.3. Limitations
+   5.7.3. Limitations
   </a>
  </li>
 </ul>
@@ -469,16 +484,16 @@
               <div>
                 
   <div class="section" id="methods">
-<h1><span class="section-number">5.5. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5.7. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="choosing-an-expression-cut-off">
-<h2><span class="section-number">5.5.1. </span>Choosing an expression cut-off<a class="headerlink" href="#choosing-an-expression-cut-off" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.7.1. </span>Choosing an expression cut-off<a class="headerlink" href="#choosing-an-expression-cut-off" title="Permalink to this headline">¶</a></h2>
 <p>FilP filters out predictions which are not expressed in the tissue relating to the prediction. Deciding whether a gene is or isn’t expressed in a tissue is not trivial with gene expression data, since it can be noisy.
 Therefore a cut-off must be chosen.<br />
 This cut-off was chosen for TPM-normalised data was chosen as this best allows for comparing between different samples.
 The cut-off was chosen by plotting the distribution of TPM expression and choosing a value below which there appeared to be little noise (10 TPM).</p>
 </div>
 <div class="section" id="mapping-multi-species-phenotype-terms-to-tissue">
-<h2><span class="section-number">5.5.2. </span>Mapping multi-species phenotype terms to tissue<a class="headerlink" href="#mapping-multi-species-phenotype-terms-to-tissue" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.7.2. </span>Mapping multi-species phenotype terms to tissue<a class="headerlink" href="#mapping-multi-species-phenotype-terms-to-tissue" title="Permalink to this headline">¶</a></h2>
 <p>Figure 14: A diagram illustrating parts of the UBERON and GO ontologies, with a fictional example of an UBERON-GO relationship. In this example, Regulation of lung development would be related to Left lung, but not to Bronchiole (as regulation of lung development could refer to a regulation of a different part of the lung).</p>
 <p>The extended uberon ontology is first interrogated for any existing relation to the term in the ontology.
 Failing this, text-mining is used to map based on phenotype term names. After removing regular (<code class="docutils literal notranslate"><span class="pre">nltk</span></code>) stopwords (e.g. “and”,”the”) and a small number of manually curated phenotypic stopwords (e.g. “phenotype”, “abnormality”), an exact match between an UBERON term’s name or synonyms and phenotype term’s name is searched for.
@@ -489,7 +504,7 @@ The similarity measures are based on the term descriptions in both ontologies.
 There were a small number of outstanding phenotype terms, which were manually mapped to relevant phenotype terms where one existed.</p>
 </div>
 <div class="section" id="limitations">
-<h2><span class="section-number">5.5.3. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.7.3. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
 <!--TODO: Rewrite since FANTOM5 is not the data set any more)-->
 <p>Although the FANTOM5 data set has a good coverage of tissue types and number of samples, the filter is nonetheless limited to the tissues it contains.
 It is also limited by the coverage and accuracy of the mapping from phenotype to tissue.</p>
@@ -526,8 +541,8 @@ This means that where there are differences in expression between species, FilP 
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="2-data.html" title="previous page"><span class="section-number">5.4. </span>Data</a>
-    <a class='right-next' id="next-link" href="4-results.html" title="next page"><span class="section-number">5.6. </span>Results</a>
+    <a class='left-prev' id="prev-link" href="2-data.html" title="previous page"><span class="section-number">5.6. </span>Data</a>
+    <a class='right-next' id="next-link" href="4-results.html" title="next page"><span class="section-number">5.8. </span>Results</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
