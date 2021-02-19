@@ -1,23 +1,18 @@
 # Background
 [//]: # (TODO: Make sure I have already mentioned "omics" - or put it in a margin)
+[//]: # (TODO: Rewrite due to be after Filter and some stuff has been moved there)
 
 There is general agreement that integrating omics datasets is one of the primary challenges to overcome if we wish to harness the full information contained within them{cite}`Gomez-Cabrero2014-gk`. 
 Combining gene expression data sets is a challenge in terms of data management, statistics, and harmonisation of meta-data for interoperability.
+
+## Motivation: genotype to phenotype predictions
+
+[//]: # (TODO: Write about relevence to filter)
 The latter is crucial for downstream use as we'll see in {ref}`the next Chapter<c06-filter>`. 
 
-## Motivation: linking Genotype and phenotype
-As we explored in {ref}`Chapter 2<c02-biology-bg>`, there is a complex web of interactions between proteins and other molecular machinery that lead to phenotype. 
-
-[//]: # (TODO: Check: Have I mentioned pathways before?)
-The {ref}``inconclusive results of the `Snowflake`<snowflake-results>`` led me to pursue an answer to a much smaller piece of the genotype-to-phenotype puzzle. 
-As mentioned in {ref}`the previous Chapter's discussion<dcgo-expression-problem>`, it could be possible that some predictions of a protein's phenotype are incorrect because the protein is not produced, even though they do have a structure that means that they could be involved in the pathway if they were present.
-To understand if this is the case, we need to know as a minimum if a gene is *ever* expressed a relevant context. 
-This would rule out, for example, proteins that are predicted to be associated with eye health, but are only ever produced in the developing limbs.
-
-[//]: # (TODO: Cross-ref to descriptions of other phenotype prediction and variant prioritisation methods)
-And if we could apply this approach to `Snowflake`, then we could also apply it to other phenotype prediction and variant prioritisation methods.
 Furthermore, having access to a (combined) data set with more repeated measurements, and more variation in samples would allow researchers to apply additional statistical techniques, and ask additional questions, by increasing the statistical power. 
 For example, tissue-specific data sets are often used to identify housekeeping genes, and to build models of gene regulatory networks. 
+
 
 ## Tissue-specific gene expression data
 [//]: # (TODO: Check: Have I mentioned EMBL before? Don't have to write long name)

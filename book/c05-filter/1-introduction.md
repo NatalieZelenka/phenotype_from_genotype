@@ -3,10 +3,19 @@
 [//]: # (TODO: Release mapping data separately)
 [//]: # (TODO: Rewrite - make relevant to Snowflake)
 
-## CAFA
+## Motivation: linking Genotype and phenotype
+As we explored in {ref}`Chapter 2<c02-biology-bg>`, there is a complex web of interactions between proteins and other molecular machinery that lead to phenotype. 
 
+The {ref}``inconclusive results of the `Snowflake`<snowflake-results>`` led me to pursue an answer to a much smaller piece of the genotype-to-phenotype puzzle. 
+As mentioned in {ref}`the previous Chapter's discussion<dcgo-expression-problem>`, some predictions of a protein's phenotype are incorrect because the protein is not produced, even though they do have a structure that means that they could be involved in the pathway if they were present.
+To understand if this is the case, we need to know as a minimum if a gene is *ever* expressed a relevant context. 
+This would rule out, for example, proteins that are predicted to be associated with eye health, but are only ever produced in the developing limbs.
+
+[//]: # (TODO: Cross-ref to descriptions of other phenotype prediction and variant prioritisation methods)
+And if we could apply this approach to `Snowflake`, then we could also apply it to other phenotype prediction and variant prioritisation methods.
+
+## CAFA
 As previously mentioned, there are many genes/proteins for which we have sequence information, but not functional information. 
-This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes. 
 
 There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information (e.g. via the CAFA competitions{cite}`Zhou2019-jk,Jiang2016-rz,Radivojac2013-wh`). 
 If successful, this would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments. 
