@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3.2. How large computational biology datasets are used &#8212; Phenotype from Genotype</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
     
   <link rel="stylesheet"
@@ -34,12 +34,13 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -82,56 +83,38 @@
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter_book_intro.html">
-   Start Here
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
+    <p class="caption collapsible-parent">
  <span class="caption-text">
   Front Matter
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../front-matter/title-page.html">
-   Title Page
+   Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/list-of-figures.html">
-   List of Figures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/list-of-tables.html">
-   List of Tables
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/full-table-of-contents.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/acknowledgements.html">
-   Acknowledgements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/abstract.html">
-   Abstract
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/declaration.html">
-   Declaration
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/acknowledgements.html">
+     Acknowledgements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/abstract.html">
+     Abstract
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/declaration.html">
+     Declaration
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -250,13 +233,18 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-results.html">
+     4.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/6-discussion.html">
-     4.5. Discussion
+     4.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/7-future-work.html">
-     4.6. Future Work
+     4.7. Future Work
     </a>
    </li>
   </ul>
@@ -284,8 +272,18 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/3-data-wrangling.html#left-and-samples-right-along-with-the-number-which-remained-after-each-stage">
+     5.4. (left) and samples (right), along with the number which remained after each stage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/3-data-wrangling.html#of-data-cleaning">
+     5.5. of data cleaning.
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/4-uberon.html">
-     5.4. The
+     5.6. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -295,18 +293,23 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/4-uberon.html#functionality">
-     5.5. Functionality
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/5-batch-correction.html">
-     5.6. Batch correction
+     5.7. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-combining/6-results.html">
-     5.7. Results
+     5.8. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/7-discussion.html">
+     5.9. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-combining/8-future-work.html">
+     5.10. Future Work
     </a>
    </li>
   </ul>
@@ -379,7 +382,7 @@
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
 </div>
 
 </div>
@@ -406,23 +409,6 @@
         </button>
         
         
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/c03-compbio-background/2-comp-bio-methods.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
         <!-- Source interaction buttons -->
 
 
@@ -492,43 +478,20 @@
 <h2><span class="section-number">3.2.1. </span>Making sense of lists<a class="headerlink" href="#making-sense-of-lists" title="Permalink to this headline">¶</a></h2>
 <p>The output of high throughput sequencing experiments can often be a long list of variants or genes (e.g. the outputs of GWAS studies or differential expression).</p>
 <div class="section" id="term-enrichment">
-<h3><span class="section-number">3.2.1.1. </span>Term enrichment<a class="headerlink" href="#term-enrichment" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3><span class="section-number">3.2.1.1. </span>Term enrichment<a class="headerlink" href="#term-enrichment" title="Permalink to this headline">¶</a></h3>
 <p>Ontologies are often used to try to make sense of a list of genes that are found to be differentially expressed across different experimental conditions. In the context of GO, a term enrichment analysis can be carried out to see which GO terms are overrepresented (aka enriched) for a given group of genes, thus saying something about the function of the list of genes.</p>
 <div class="section" id="dcgo">
-<h4><span class="section-number">3.2.1.1.1. </span>DcGO<a class="headerlink" href="#dcgo" title="Permalink to this headline">¶</a></h4>
-<p>The aim of the Domain-centric Gene Ontology (DcGO)<a class="bibtex reference internal" href="../end-matter/reference.html#fang2013-ms" id="id1">[1]</a><a class="bibtex reference internal" href="../end-matter/reference.html#fang2013-ix" id="id2">[2]</a> tool is to give insight into uncharacterised or poorly characterised proteins by leveraging information about the content of their constituent protein domains. It annotates domains and combinations of domains (supradomains) to phenotype terms from a variety of ontologies, including the Gene Ontology (GO), Mammalian Phenotype ontology (MP), Disease Ontology (DOID), Zebrafish ontology (ZFA). Domain information comes from SUPERFAMILY, and annotations between (supra)domains and phenotype terms are made below a cut-off of FDR-adjusted statistical associations between the entities. Using phenotypes from a range of species serves to make use of greater numbers of experiments, and therefore increases the number of little-known proteins across species that DcGO can make predictions about.</p>
+<span id="id2"></span><h4><span class="section-number">3.2.1.1.1. </span>DcGO<a class="headerlink" href="#dcgo" title="Permalink to this headline">¶</a></h4>
+<p>The aim of the Domain-centric Gene Ontology (DcGO)<a class="bibtex reference internal" href="../end-matter/reference.html#fang2013-ms" id="id3">[1]</a><a class="bibtex reference internal" href="../end-matter/reference.html#fang2013-ix" id="id4">[53]</a> tool is to give insight into uncharacterised or poorly characterised proteins by leveraging information about the content of their constituent protein domains. It annotates domains and combinations of domains (supradomains) to phenotype terms from a variety of ontologies, including the Gene Ontology (GO), Mammalian Phenotype ontology (MP), Disease Ontology (DOID), Zebrafish ontology (ZFA). Domain information comes from SUPERFAMILY, and annotations between (supra)domains and phenotype terms are made below a cut-off of FDR-adjusted statistical associations between the entities. Using phenotypes from a range of species serves to make use of greater numbers of experiments, and therefore increases the number of little-known proteins across species that DcGO can make predictions about.</p>
 </div>
 </div>
 <div class="section" id="variant-prioritisation">
-<h3><span class="section-number">3.2.1.2. </span>Variant prioritisation<a class="headerlink" href="#variant-prioritisation" title="Permalink to this headline">¶</a></h3>
+<span id="variant-prioritisaton"></span><h3><span class="section-number">3.2.1.2. </span>Variant prioritisation<a class="headerlink" href="#variant-prioritisation" title="Permalink to this headline">¶</a></h3>
 <p>To narrow down a long list of genes or variants to a shorter list of variants or genes which is more likely to be causal, variant prioritisation is used.</p>
 <div class="section" id="fathmm">
-<h4><span class="section-number">3.2.1.2.1. </span>FATHMM<a class="headerlink" href="#fathmm" title="Permalink to this headline">¶</a></h4>
-<p>Functional Analysis through Hidden Markov Models (FATHMM)<a class="bibtex reference internal" href="../end-matter/reference.html#shihab2013-pk" id="id3">[3]</a> is a tool for predicting the functional effects of protein missense mutations using sequence conservation information (via HMMs), which can be (optionally) weighted by how likely a mutation in a protein/domain would be to lead to disease. Weightings are calculated from the frequency of disease-associated and functionally neutral amino acid substitutions in protein domains from human variation databases (the Human Gene Mutation Database<a class="bibtex reference internal" href="../end-matter/reference.html#stenson2009-jc" id="id4">[4]</a> and Uniprot-KB/Swiss-prot<a class="bibtex reference internal" href="../end-matter/reference.html#pundir2016-ya" id="id5">[5]</a>).</p>
-<p>Consequence files describing whether an amino acid results in a missense, nonsense or synonymous SNP must first be obtained by using Ensembl’s Variant Effect Predictor<a class="bibtex reference internal" href="../end-matter/reference.html#mclaren2016-di" id="id6">[6]</a> in order to create input to FATHMM. FATHMM then calculates conservation scores which are a measure of the difference in amino acid probabilities for a SNP according to the HMM, i.e. between a wild type amino acid and it’s substitution. A reduction in amino acid probabilities is interpreted as a prediction of deleteriousness, and the larger the reduction the greater the predicted harm.</p>
-<hr class="docutils" />
-<p><strong>Chapter References</strong></p>
-<p id="bibtex-bibliography-c03-compbio-background/2-comp-bio-methods-0"><dl class="citation">
-<dt class="bibtex label" id="fang2013-ms"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Hai Fang and Julian Gough. DcGO: database of domain-centric ontologies on functions, phenotypes, diseases and more. <em>Nucleic Acids Res.</em>, 41(Database issue):D536–44, January 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1093/nar/gks1080">http://dx.doi.org/10.1093/nar/gks1080</a>.</p>
-</dd>
-<dt class="bibtex label" id="fang2013-ix"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Hai Fang and Julian Gough. A domain-centric solution to functional genomics via dcGO predictor. <em>BMC Bioinformatics</em>, 14 Suppl 3:S9, February 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1186/1471-2105-14-S3-S9">http://dx.doi.org/10.1186/1471-2105-14-S3-S9</a>.</p>
-</dd>
-<dt class="bibtex label" id="shihab2013-pk"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>Hashem A Shihab, Julian Gough, David N Cooper, Peter D Stenson, Gary L A Barker, Keith J Edwards, Ian N M Day, and Tom R Gaunt. Predicting the functional, molecular, and phenotypic consequences of amino acid substitutions using hidden markov models. <em>Hum. Mutat.</em>, 34(1):57–65, January 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1002/humu.22225">http://dx.doi.org/10.1002/humu.22225</a>.</p>
-</dd>
-<dt class="bibtex label" id="stenson2009-jc"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p>Peter D Stenson, Matthew Mort, Edward V Ball, Katy Howells, Andrew D Phillips, Nick St Thomas, and David N Cooper. The human gene mutation database: 2008 update. <em>Genome Med.</em>, 1(1):13, January 2009. URL: <a class="reference external" href="http://dx.doi.org/10.1186/gm13">http://dx.doi.org/10.1186/gm13</a>.</p>
-</dd>
-<dt class="bibtex label" id="pundir2016-ya"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
-<dd><p>Sangya Pundir, Maria J Martin, Claire O’Donovan, and The UniProt Consortium. UniProt tools. <em>Curr. Protoc. Bioinformatics</em>, pages 1.29.1–1.29.15, 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1002/0471250953.bi0129s53">http://dx.doi.org/10.1002/0471250953.bi0129s53</a>.</p>
-</dd>
-<dt class="bibtex label" id="mclaren2016-di"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
-<dd><p>William McLaren, Laurent Gil, Sarah E Hunt, Harpreet Singh Riat, Graham R S Ritchie, Anja Thormann, Paul Flicek, and Fiona Cunningham. The ensembl variant effect predictor. <em>Genome Biol.</em>, 17(1):122, June 2016. URL: <a class="reference external" href="http://dx.doi.org/10.1186/s13059-016-0974-4">http://dx.doi.org/10.1186/s13059-016-0974-4</a>.</p>
-</dd>
-</dl>
-</p>
+<span id="id5"></span><h4><span class="section-number">3.2.1.2.1. </span>FATHMM<a class="headerlink" href="#fathmm" title="Permalink to this headline">¶</a></h4>
+<p>Functional Analysis through Hidden Markov Models (FATHMM)<a class="bibtex reference internal" href="../end-matter/reference.html#shihab2013-pk" id="id6">[2]</a> is a tool for predicting the functional effects of protein missense mutations using sequence conservation information (via HMMs), which can be (optionally) weighted by how likely a mutation in a protein/domain would be to lead to disease. Weightings are calculated from the frequency of disease-associated and functionally neutral amino acid substitutions in protein domains from human variation databases (the Human Gene Mutation Database<a class="bibtex reference internal" href="../end-matter/reference.html#stenson2009-jc" id="id7">[55]</a> and Uniprot-KB/Swiss-prot<a class="bibtex reference internal" href="../end-matter/reference.html#pundir2016-ya" id="id8">[56]</a>).</p>
+<p>Consequence files describing whether an amino acid results in a missense, nonsense or synonymous SNP must first be obtained by using Ensembl’s Variant Effect Predictor<a class="bibtex reference internal" href="../end-matter/reference.html#mclaren2016-di" id="id9">[57]</a> in order to create input to FATHMM. FATHMM then calculates conservation scores which are a measure of the difference in amino acid probabilities for a SNP according to the HMM, i.e. between a wild type amino acid and it’s substitution. A reduction in amino acid probabilities is interpreted as a prediction of deleteriousness, and the larger the reduction the greater the predicted harm.</p>
 </div>
 </div>
 </div>
@@ -583,7 +546,7 @@
     </div>
 
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
 
     

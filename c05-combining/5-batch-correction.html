@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.6. Batch correction &#8212; Phenotype from Genotype</title>
+    <title>5.5. Batch correction &#8212; Phenotype from Genotype</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
     
   <link rel="stylesheet"
@@ -34,12 +34,13 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -56,7 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.7. Results" href="6-results.html" />
+    <link rel="next" title="5.6. Results and outputs" href="6-results.html" />
     <link rel="prev" title="5.4. The uberon-py package" href="4-uberon.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -82,56 +83,38 @@
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter_book_intro.html">
-   Start Here
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
+    <p class="caption collapsible-parent">
  <span class="caption-text">
   Front Matter
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../front-matter/title-page.html">
-   Title Page
+   Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/list-of-figures.html">
-   List of Figures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/list-of-tables.html">
-   List of Tables
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/full-table-of-contents.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/acknowledgements.html">
-   Acknowledgements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/abstract.html">
-   Abstract
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/declaration.html">
-   Declaration
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/acknowledgements.html">
+     Acknowledgements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/abstract.html">
+     Abstract
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/declaration.html">
+     Declaration
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -172,7 +155,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
-     2.5. Linking genotype and phenotype
+     2.5. Phenotype
     </a>
    </li>
    <li class="toctree-l2">
@@ -190,23 +173,33 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/1-measuring-genotype-phenotype.html">
-     3.1. From genotype to phenotype: what is measured
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/2-comp-bio-methods.html">
-     3.2. How large computational biology datasets are used
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/3-bias.html">
-     3.3. Sources of bias in computational biology datasets
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/4-summary.html">
-     3.4. Summary
+    <a class="reference internal" href="../c03-compbio-background/4-bias.html">
+     3.4. Bias
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-pqi.html">
+     3.5. PQI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-summary.html">
+     3.6. Summary
     </a>
    </li>
   </ul>
@@ -250,13 +243,18 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-results.html">
+     4.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/6-discussion.html">
-     4.5. Discussion
+     4.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/7-future-work.html">
-     4.6. Future Work
+     4.7. Future Work
     </a>
    </li>
   </ul>
@@ -275,7 +273,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2-data.html">
-     5.2. Data
+     5.2. Data Acquisition
     </a>
    </li>
    <li class="toctree-l2">
@@ -294,19 +292,29 @@
      package
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4-uberon.html#functionality">
-     5.5. Functionality
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     5.6. Batch correction
+     5.5. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     5.7. Results
+     5.6. Results and outputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-results.html#combined-data-set">
+     5.7. Combined data set
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-discussion.html">
+     5.8. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8-future-work.html">
+     5.9. Future Work
     </a>
    </li>
   </ul>
@@ -379,7 +387,7 @@
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
 </div>
 
 </div>
@@ -406,26 +414,6 @@
         </button>
         
         
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/c05-combining/5-batch-correction.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/c05-combining/5-batch-correction.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
         <!-- Source interaction buttons -->
 
 
@@ -436,23 +424,6 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/c05-combining/5-batch-correction.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
 
     </div>
 
@@ -465,60 +436,26 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-are-batch-effects">
-   5.6.1. What are batch effects?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#batch-effect-removal-methodologies">
-   5.6.2. Batch-effect removal methodologies
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surrogate-variable-analysis">
-     5.6.2.1. Surrogate Variable Analysis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combat">
-     5.6.2.2. ComBat
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pre-batch-corrected-data">
-   5.6.3. Pre-batch-corrected data
+   5.5.1. Pre-batch-corrected data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method">
-   5.6.4. Method
+  <a class="reference internal nav-link" href="#correcting-batch-with-combat">
+   5.5.2. Correcting batch with ComBat
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simulating-tissue-specific-gene-expression-count-data-with-batch-effects">
-     5.6.4.1. Simulating tissue-specific gene expression count data with batch effects
+    <a class="reference internal nav-link" href="#experimental-design">
+     5.5.2.1. Experimental design
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#measures-of-tissue-specificity">
-       5.6.4.1.1. Measures of tissue specificity
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#simulation-method">
-       5.6.4.1.2. Simulation Method
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#limitations">
-       5.6.4.1.3. Limitations
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#post-batch-correction">
+   5.5.3. Post batch-correction
+  </a>
  </li>
 </ul>
 
@@ -532,67 +469,52 @@
               <div>
                 
   <div class="section" id="batch-correction">
-<h1><span class="section-number">5.6. </span>Batch correction<a class="headerlink" href="#batch-correction" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-are-batch-effects">
-<h2><span class="section-number">5.6.1. </span>What are batch effects?<a class="headerlink" href="#what-are-batch-effects" title="Permalink to this headline">¶</a></h2>
-<!--TODO: What are batch effects: borrow from relevant part of thesis-->
-</div>
-<div class="section" id="batch-effect-removal-methodologies">
-<h2><span class="section-number">5.6.2. </span>Batch-effect removal methodologies<a class="headerlink" href="#batch-effect-removal-methodologies" title="Permalink to this headline">¶</a></h2>
-<p>There are a number of batch correction analyses which attempt to remove batch effects from RNA-seq data. Batch correction can be very useful for understanding baseline gene expression, but can lead to inflated p-values for downstream analysis (notably for differential gene expression, using ComBat<a class="bibtex reference internal" href="../end-matter/reference.html#johnson2007-zh" id="id1">[127]</a>), where a more sensible approach is to include batch as a confounder for statistical tests.</p>
-<div class="section" id="surrogate-variable-analysis">
-<h3><span class="section-number">5.6.2.1. </span>Surrogate Variable Analysis<a class="headerlink" href="#surrogate-variable-analysis" title="Permalink to this headline">¶</a></h3>
-<p>Surrogate Variable Analysis (SVA)<a class="bibtex reference internal" href="../end-matter/reference.html#leek2007-ba" id="id2">[128]</a> is used in cases where you do not have a covariate that drives batch effect (i.e. you do not have information about processing date, technicians, processing centres, etc), but you expect that batch effects will be present. SVA estimates which samples belong to which batches, before using ComBat to remove the effect due to those batches.</p>
-</div>
-<div class="section" id="combat">
-<h3><span class="section-number">5.6.2.2. </span>ComBat<a class="headerlink" href="#combat" title="Permalink to this headline">¶</a></h3>
-<p>ComBat<a class="bibtex reference internal" href="../end-matter/reference.html#johnson2007-zh" id="id3">[127]</a> is a popular batch effect removal procedure, which was first developed for use with microarray data, but continues to be a popular choice for RNA-seq data. Generally, it is a well-trusted method for both of these types of gene expression data<a class="bibtex reference internal" href="../end-matter/reference.html#chen2011-ke" id="id4">[129]</a>, but more recently has been shown to “over-correct” batches for RNA-seq data<a class="bibtex reference internal" href="../end-matter/reference.html#liu2016-wa" id="id5">[130]</a>.</p>
-<p>ComBat is an Empirical Bayes method, meaning that the prior distribution is estimated from the data. It is designed to “borrow/share information” between genes in order to get a better estimate of batch effects, and assumes that batch effects affect many genes in similar ways.</p>
-</div>
-</div>
+<span id="batch-correction-section"></span><h1><span class="section-number">5.5. </span>Batch correction<a class="headerlink" href="#batch-correction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="pre-batch-corrected-data">
-<h2><span class="section-number">5.6.3. </span>Pre-batch-corrected data<a class="headerlink" href="#pre-batch-corrected-data" title="Permalink to this headline">¶</a></h2>
-<p>Visual inspection of <code class="xref std std-numref docutils literal notranslate"><span class="pre">combine-pca-before</span></code> shows that data appears to cluster by experiment more strongly than by tissue group, meaning that batch correction is necessary to compare across experiment samples.</p>
-<div class="cell docutils container">
+<h2><span class="section-number">5.5.1. </span>Pre-batch-corrected data<a class="headerlink" href="#pre-batch-corrected-data" title="Permalink to this headline">¶</a></h2>
+<p>Visual inspection of the PCA plot in <code class="xref std std-numref docutils literal notranslate"><span class="pre">combine-pca-before</span></code> shows that data clusters by experiment more strongly than by tissue group, meaning that batch correction is necessary to compare across experiment samples.</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to create combine-pca-before</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to create combine-pca-before</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="id2">
+<img alt="c05-combining/../images/combine-pca-before.png" src="c05-combining/../images/combine-pca-before.png" />
+<p class="caption"><span class="caption-number">Fig. 5.4 </span><span class="caption-text">name: combine-pca-before
+PCA plots without batch correction coloured by experiment (left) and tissue group (right).
+This PCA was carried out on a subset of 1000 randomly selected genes, after quantile normalisation and filtering of absent genes.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="correcting-batch-with-combat">
+<h2><span class="section-number">5.5.2. </span>Correcting batch with ComBat<a class="headerlink" href="#correcting-batch-with-combat" title="Permalink to this headline">¶</a></h2>
+<p>The batch effects that can be seen in <code class="xref std std-numref docutils literal notranslate"><span class="pre">combine-pca-before</span></code> were corrected using <a class="reference internal" href="1-background.html#combat-description"><span class="std std-ref">ComBat</span></a><a class="bibtex reference internal" href="../end-matter/reference.html#johnson2007-zh" id="id1">[150]</a>.</p>
+<div class="section" id="experimental-design">
+<h3><span class="section-number">5.5.2.1. </span>Experimental design<a class="headerlink" href="#experimental-design" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># code to create experimental design table (tissue groups by experiments?)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="method">
-<h2><span class="section-number">5.6.4. </span>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h2>
-<!--TODO: write method overview, e.g. simulate data, and apply batch correction to show it would work on this kind of thing, then apply it to our actual data-->
-<div class="section" id="simulating-tissue-specific-gene-expression-count-data-with-batch-effects">
-<h3><span class="section-number">5.6.4.1. </span>Simulating tissue-specific gene expression count data with batch effects<a class="headerlink" href="#simulating-tissue-specific-gene-expression-count-data-with-batch-effects" title="Permalink to this headline">¶</a></h3>
-<p>Simulated data can be used to test that methodologies are applicable to new data types. Since simulated data has a well-defined ground truth, we can test the performance and accuracy of a methodology using it. If the real data is similar to the simulated data, we can assume that methodologies will perform similarly on the real data.</p>
-<p>Data can be simulated based on its expected distribution. For gene expression data, a negative binomial distribution is chosen to represent the underlying gene expression counts because the distribution is always positive, and does not assume mean and variance are equal. The parameters for the simulated distribution for each gene can be chosen based on estimates from existing data sets. This allows for any number of samples to be simulated. Additional effects (e.g. noise) can be added to this base level of gene expression and pre-decided fold changes for differences between samples (e.g. differential expression of tissue-specific genes, or batch effects) can be achieved by multiplying the simulated data.</p>
-<p>In order to test whether ComBat can be used to deal with combining the experiments chosen (considering the unbalanced design), a simulated data set of tissue-specific batch-affected gene expression data was created. In order to do this, decisions had to be made about the scale and distribution of the batch effect and tissue-specific effects. These were estimated from a subset of the FANTOM5 and GTEx datasets.</p>
-<div class="section" id="measures-of-tissue-specificity">
-<h4><span class="section-number">5.6.4.1.1. </span>Measures of tissue specificity<a class="headerlink" href="#measures-of-tissue-specificity" title="Permalink to this headline">¶</a></h4>
-<p>The expected fold-change due to tissue-specific effects must be pre-decided in order to simulate the dataset. The size of the effect and number genes affected were estimated using data from the Human Protein Atlas (available at https://www.proteinatlas.org/download/proteinatlas.tsv.zip), which contains for each tissue-specific gene, the transcripts per million (TPM) for tissues that were found to be tissue-enriched (at least a 5 fold change, compared to all other tissues), group-enriched (at least a 5 fold change between the group of 2-7 tissues compared to all other tissues) or tissue enhanced (at least a 5 fold change between the tissue and the average of all other tissues), and the transcripts per million of the most highly expressed tissues that were not. Taken together (tissue-enriched, group-enriched and tissue-enhanced), we here refer to these genes/tissues as tissue-specific.</p>
-<div class="cell docutils container">
+</div>
+<div class="section" id="post-batch-correction">
+<h2><span class="section-number">5.5.3. </span>Post batch-correction<a class="headerlink" href="#post-batch-correction" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id3">
+<img alt="c05-combining/../images/combine-pca-after.png" src="c05-combining/../images/combine-pca-after.png" />
+<p class="caption"><span class="caption-number">Fig. 5.5 </span><span class="caption-text">name: combine-pca-after
+PCA plots with batch correction coloured by experiment (left) and tissue group (right).
+This PCA was carried out on a subset of 1000 randomly selected genes, after quantile normalisation and filtering of absent genes.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>Visual inspection of the PCA plots in <code class="xref std std-numref docutils literal notranslate"><span class="pre">combine-pca-after</span></code> shows that ComBat has been successful in removing batch effects: samples no longer cluster by experiment, but by tissue group.</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to make: The HPA data and data simulated by a log-normal fitted to the data, for both the distribution of tissue-specific fold-change over all tissue-specific gene-sample pairs (left) and the number of tissue-specific genes per tissue over the 37 HPA tissues (right)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to create combine-pca-after</span>
 </pre></div>
 </div>
-</div>
-</div>
-<p>For any of these tissue-specific genes/tissues, the fold change per tissue per gene was calculated. The distribution of fold changes was compared to an exponential, log-normal and power-law distribution using the python <code class="docutils literal notranslate"><span class="pre">powerlaw</span></code> package. The log-normal distribution was the best fit (<span class="math notranslate nohighlight">\(D=0.11\)</span>), and the parameters fitting the fold changes to the log-normal distribution were estimated as <span class="math notranslate nohighlight">\(\mu=1.57, \sigma=1.66\)</span>. Visually inspecting the graph reveals that the data simulated from these parameters appears to fit the data well (orange line, left-hand plot, <code class="xref std std-numref docutils literal notranslate"><span class="pre">dist-tissue-specific</span></code>).</p>
-<p>The number of genes that were found to be in some sense tissue-specific was also extracted from the HPA data, and compared to log-normal, exponential and power-law distributions. Again, the log-normal distribution fitted best (<span class="math notranslate nohighlight">\(D=0.10\)</span>). It was parameterised by <span class="math notranslate nohighlight">\(\mu=5.44, \sigma=0.70\)</span>. The small number of tissues (37) makes it hard to assess the accuracy of this fit, but visual inspection of the graph (orange line, right-hand plot, <code class="xref std std-numref docutils literal notranslate"><span class="pre">dist-tissue-specific</span></code>) reveals it to be reasonable.</p>
-</div>
-<div class="section" id="simulation-method">
-<h4><span class="section-number">5.6.4.1.2. </span>Simulation Method<a class="headerlink" href="#simulation-method" title="Permalink to this headline">¶</a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">polyester</span></code> R package<a class="bibtex reference internal" href="../end-matter/reference.html#frazee2015-kg" id="id6">[131]</a> was used to simulate RNA-seq count data with the same design of tissues, samples, and experiments as in the combined data set. To make the data set more manageable, the data set was simulated for 1000 genes. The <code class="docutils literal notranslate"><span class="pre">create_read_numbers</span></code> function is used to simulate base reads based on the FANTOM5 data set, and add tissue-specific effects (as calculated earlier) and batch effects.</p>
-<p>The simulated data set is <span class="math notranslate nohighlight">\(Y_{ijk}\propto Negative Binomal (mean=\mu_{jk},size=r_{jk})\)</span> for replicate <span class="math notranslate nohighlight">\(i\)</span>, gene <span class="math notranslate nohighlight">\(j\)</span>, and sample <span class="math notranslate nohighlight">\(k\)</span>. The means are given by <span class="math notranslate nohighlight">\(\mu_{jk}=\mu'_j+\lambda+{jk} \cdot mod\)</span> where <span class="math notranslate nohighlight">\(\mu'_j\)</span> are the estimated base means per gene, <span class="math notranslate nohighlight">\(\lambda_{jk}\)</span> are the generated log-fold changes in matrix format, including both batch and tissue effects (<code class="docutils literal notranslate"><span class="pre">coeffs_batch.csv</span></code>), and <span class="math notranslate nohighlight">\(mod\)</span> is the model design matrix. The dispersion parameter (size), <span class="math notranslate nohighlight">\(r_{jk}\)</span> is calculated based on <span class="math notranslate nohighlight">\(\mu_{jk}\)</span> and the fit between mean and size (estimated from the FANTOM5 data).</p>
-<p>In order to do this, the FANTOM5 data was cleaned to contain only the set of genes present in all experiments (<code class="docutils literal notranslate"><span class="pre">common_genes.csv</span></code>) and <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values for expression counts were set to 0. This data was then used as input to polyester to parameterize the negative binomial distributions for the simulated base expression counts. Parameters calculated by polyester include means per gene and size, and probability of a zero count per gene.</p>
-<p>Tissue effects were calculated as previously described, and included in the coefficient matrix.  Batch effects were assumed to affect 50% of the 1000 simulated genes. In all cases, each affected gene all had a log-fold change randomly generated normally distributed (<span class="math notranslate nohighlight">\(\mu=0,\sigma=1\)</span>) effect due to batch, which was persistent across samples.</p>
-</div>
-<div class="section" id="limitations">
-<h4><span class="section-number">5.6.4.1.3. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h4>
-<p>A good indication of the size or extent of batch effects was not readily available. Batch effects (log-fold changes - and proportion of genes affected by them) were chosen such that the simulated distributions most closely (according to visual inspection of PCA and box-plots).</p>
-<p>The simulated data set is read counts and the fold changes are calculated from TPM data, however the simulated data does not include effects due to gene length or library size.</p>
 </div>
 </div>
 </div>
@@ -627,7 +549,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="4-uberon.html" title="previous page"><span class="section-number">5.4. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
-    <a class='right-next' id="next-link" href="6-results.html" title="next page"><span class="section-number">5.7. </span>Results</a>
+    <a class='right-next' id="next-link" href="6-results.html" title="next page"><span class="section-number">5.6. </span>Results and outputs</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -647,7 +569,7 @@
     </div>
 
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
 
     

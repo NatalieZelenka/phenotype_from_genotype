@@ -5,10 +5,3 @@ This chapter describes a protein function prediction method that I created as an
 
 [//]: # (TODO: Explain the structure of this chapter here)
 
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

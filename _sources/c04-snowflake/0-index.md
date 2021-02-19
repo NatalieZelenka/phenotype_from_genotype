@@ -18,11 +18,3 @@ This Chapter describes:
  - Attempts to validate the algorithm with it's application to the ALSPAC data set.
 
 The development of the  `Snowflake` algorithm resulted in a patent{cite}`Gough2017-ik`, on which I am an author.
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

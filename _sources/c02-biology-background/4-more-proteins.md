@@ -3,7 +3,7 @@
 Just as DNA has been classified at different levels (SNP, gene, genome), so too have proteins. In contrast to DNA, what's interesting (and useful!) to know about proteins is their structure.
 
 {ref}`As mentioned earlier<what-is-translation>`, translated strings of amino acids fold automatically (or sometimes with the help of other proteins) into the 3D structure of proteins. 
-{ref}`We still don't understand how this happens<protein-folding-problem> very well.`
+{ref}`We still don't understand how this happens very well.<protein-folding-problem>`
 
 [//]: # (TODO: Mention deep mind? Complain it's not science if no one can see it)
 
@@ -57,6 +57,7 @@ Proteins can be constituted entirely of disordered regions, or may have large di
 Such *intrinsically disordered* proteins can exist in a number of conformations, rather than one fixed structure. 
 On some occasions, the disordered regions are known to be functional, while on others, proteins may be non-functional until they bind with another macromolecule which forces them into a fixed conformation.
 
+(protein-classification)=
 ### Classifying proteins by domain: families and superfamilies
 Proteins with known domain structure can be grouped together based on their structural similarities, based on the consideration of the protein’s constituent domains into *familes*, *superfamilies* and *folds*. 
 Proteins are classified into *families* representing the most similar proteins, which share a clear evolutionary relationship, while *superfamilies* represent less close evolutionary relationships, and *folds* represent the same secondary structure. 

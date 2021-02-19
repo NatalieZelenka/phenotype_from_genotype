@@ -1,7 +1,7 @@
 (measuring-genotype-phenotype)=
-## From genotype to phenotype: what is measured
+# From genotype to phenotype: what is measured
 
-### Introduction
+## Introduction
 
 ```{figure} ../images/linneaus_ehret.png
 ---
@@ -30,17 +30,17 @@ So, the catalogued information populates freely available databases, vocabularie
 We will now delve into the details of some of these datasets, looking first at {ref}`DNA<dna-measurements>`, then {ref}`RNA<rna-measurements>`, then {ref}`proteins<protein-measurements>`, then {ref}`phenotypes<phenotype-measurements>`.
 
 (dna-measurements)=
-### DNA
+## DNA
 In the {ref}`previous Chapter<what-is-dna>`, we looked at what DNA is and how that links to phenotype. 
 Now we're going to look at the details of how this is measured and stored in computational biology. 
 Since smaller pieces of DNA are generally talked about in relation to the whole genome, we'll go from big to small, beginning with whole genomes and moving through to individual SNPs.
 
-#### Whole genome
+### Whole genome
 The whole genome is all the genetic material of an organism. In humans, this means all chromosomal and mitochondrial DNA, whether or not it is transcribed into RNA, or translated into proteins.
 No sequencing technology can read whole chromosomes end to end: all work by reading shorter lengths of DNA (*reads*).
 
 (sequencing-technology)=
-##### Sequencing
+#### Sequencing
 
 From the late 1970’s until the mid 2000s, *Sanger sequencing* was the most popular sequencing technology, although it underwent various improvements over this timescale. 
 In Sanger sequencing (and other first-generation methods), reads of around 800bp are sequenced, one at a time. 
@@ -55,7 +55,7 @@ In turn, this speed and cheapness means that more repeats can be sequenced, incr
 There are now also third generation sequencing technologies that allow much longer reads to be sequenced.
 
 (assembly-and-alignment)=
-##### Assembly
+#### Assembly
 Whichever {ref}`technology<sequencing-technology>` is used, DNA is sequenced in smalls sections, which must then be *assembled* to make the full genome, organised into chromosomes. 
 
 [//]: # (TODO: Check that aligment is referenced in the text and that the image is)
@@ -82,7 +82,7 @@ The depth (or coverage) for a nucleotide is the number of reads that overlap tha
 After assembly, even in the most complete genomes, we are still left with some sequences that could not be placed, and some parts of the genome that we still don't know about. 
 
 (human-references)=
-##### The human reference genome
+#### The human reference genome
 As {ref}`previously mentioned<genomes>`, reference genomes are designed to represent whole organisms: these genomes aim to have the most common allele at any given nucleotide, and are then annotated at positions where individuals differ. 
 
 **Builds and patches:** 
@@ -119,7 +119,7 @@ These differences including formatting differences (storing chromosome as intege
   - March 2006
 ```
 
-##### Whole Genome Sequencing of individuals
+### Whole Genome Sequencing of individuals
 When individual humans have their whole genomes sequenced, this is compared to the human reference genome. 
 The alleles at each location are commonly stored in Variant Call Format (VCF) files. 
 These describe the locations on the genome of variations between individuals, given by chromosome, position, variant identifiers, and the variation between a given number of individuals.
@@ -131,12 +131,15 @@ These describe the locations on the genome of variations between individuals, gi
 
 [//]: # (TODO: Write)
 
-#### Genes
+### Genes
 There can be disagreements about the locations of genes on the genome, and popular databases of genes fundamentally disagree on this and on the number of genes{cite}`Salzberg2018-yc`. 
 Gene names and symbols change over time, and can be difficult to map between for this reason.
 
 [//]: # (TODO: Write: sequenced the same way, persistent identifiers, which map to genomes)
+#### Regulatory features
 [//]: # (TODO: Explain that regulatory features are not as well defined yet, i.e. with IDs, etc.)
+[//]: # (TODO: Mention http://www.ensembl.org/info/genome/funcgen/regulatory_features.html)
+
 #### Variants
 [//]: # (TODO: Sentence about variants)
 
@@ -151,7 +154,7 @@ These arrays were originally macro-sized, one of the first being 26 × 38 cm and
 Arrays were extremely popular for measuring gene expression, but this technology has largely been superseded by the more accurate and comprehensive RNA-seq. 
 However, microarrays are still commonly used by companies like 23andMe for genotyping an individual (measuring specific alleles).
 
-##### Variant databases
+#### Variant databases
 Databases like dbSNP, clinVar, and SNPedia contain information about the location of SNVs, their possible alleles, and their association to diseases. 
 These are often used as part of a variant prioritisation pipeline, as well as by individuals who are investigating their own SNVs.
 
@@ -165,7 +168,7 @@ The database gives SNVs unique identifiers (Reference SNP cluster IDs, a.k.a. RS
 [//]: # (TODO: mention snpedia?)
 
 (rna-measurements)=
-### RNA
+## RNA
 [//]: # (TODO: Rewrite this section, and maybe move it to section 1, so that it fits properly and is less wordy)
 [//]: # (TODO: Write about how transcripts map to the genes ENSEMBL)
 
@@ -177,7 +180,7 @@ In any given individual, the same DNA is present in their liver cells, skin cell
 
 Gene expression data is used to understand the function of genes, to identify housekeeping genes, to re-engineer gene regulatory networks, and more. This kind of insight can not be gained from looking at DNA alone.
 
-#### RNA-seq 
+### RNA-seq 
 NGS can be used for sequencing either DNA or RNA (known as RNA-seq when applied to the whole transcriptome).
 
 While (NGS) DNA-sequencing and RNA-seq can use the same underlying NGS technologies, there exist some notable differences. For example, RNA is reverse-transcribed into strands of complementary DNA, before being sequenced, since sequencing DNA is currently easier than sequencing RNA. RNA-seq is used much less often for de novo sequencing, and is generally mapped to a reference sequence. 
@@ -188,15 +191,8 @@ Since transcription is dependent on time, tissue, location, cell, etc, RNA-seq e
 
 One of the most popular measures of gene expression, is the measure of how much RNA is in a cell at a given time. 
 
-#### FANTOM Consortium
-[//]: # (TODO: ADd Fantom5 citation, move this bit to somewhere sensible.)
-As the human genome project was nearing completion, researchers had a parts list of human biology, but few of the functions of these parts (genes) were known. A consortium of scientists formed, named after the challenge they were addressing: the Functional ANnoTation Of the MAmmalian genome (FANTOM). 
-
-[//]: # (TODO: Fix FANTOM5 citation)
-The consortium has run a range of large scale collaborative projects in five rounds to further this goal. The first FANTOM project used only the mouse genome, but later versions also included human. The latest project, FANTOM5[80] represents one of the most comprehensive collections of gene expression data. It contains a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations
-
-#### The Gene Expression Atlas
-The Gene Expression Atlas{cite}`Petryszak2016-je` (GxA) is the European Bioinformatics Institutes’ open source gene and protein expression database, and the largest of its type. At the time of writing, it contains over 3,000 gene expression and protein abundance experiments across many organisms, organism parts (tissues), diseases, and sequencing technologies. There is a separate atlas for scRNA-seq experiments. 
+#### Differential expression versus baseline
+[//]: # (TODO: Write)
 
 #### Gene expression data pipeline
 [//]: # (TODO: This section needs more work)
@@ -212,34 +208,31 @@ Within-sample normalisation methods are designed to account for sequencing depth
 
 RPKM/FPKM (Reads/Fragments Per Kilobase Million) and TPM (Tags Per Million) are the three major normalisation techniques used for this purpose. In RPKM and FPKM, counts are first normalised for sequencing depth, and then for gene length. This means that they are suitable for comparing within a sample (e.g. between replicates. TPM, however performs the same steps in the opposite order, which has the desirable effect of ensuring that columns corresponding to TPM normalised samples sum to the same number. This means that TPM gives us a measure of relative abundance; we can compare across samples which proportion of counts are from each gene. For this reason, TPM is now generally preferred over RPKM/FPKM{cite}`Wagner2012-ac,Pimentel2014-xm`.
 
+(rna-normalisation)=
 ##### Normalisation - between-sample
 While TPM gives us a measure of relative abundance, it does not give us a measure of absolute abundance. One outlying gene which is highly expressed will have the effect of making all other genes look relatively less expressed. We might expect this to occur, particularly when samples are under different conditions (e.g. disease/treatment). Between-sample normalisation methods are designed to counter this issue, and enable researchers to compare different samples.
 
 These methods adjust counts to reduce the impact of outlying expression values. Examples include scale normalisation methods like TMM (used in edgeR{cite}`Robinson2010-kl`), the Log Geometric Mean (used in DESeq2{cite}`Robinson2010-kl,Love2014-vx`), and quantile normalisation (giving samples the same distribution of counts).
 
-##### Batch correction
-Even after all this normalising, systematic effects can be present in gene expression data, due to sequencing batch, or some correlated condition. All types of gene expression data are known to suffer from these batch effects{cite}`Leek2010-yw`; unwanted variation associated with the batch it was sequenced in, resulting from unknown variation during the process of sequencing for example the date, time, or location of sequencing{cite}`Irizarry2005-ie`, or the technician doing the work. Some of these effects may be due to factors that might be expected to genuinely influence expression of genes, such as temperature, time of year, humidity, diet, individual, age, etc. Covariates such as these are often unrecorded and/or not reported, so it is not easy to distinguish these from those due to protocol differences, such as reagents, personnel doing the sequencing, hardware, processing pipeline, etc. 
+[//]: # (TODO: Explain batch effects here?)
 
-Batch effects can often confound and obscure the biological differences of interest between samples (e.g. tumour versus healthy tissue). At best, batch effects add random variation to expression measurements, which obscure signals. Often they can also add systematic differences that can lead to incorrect biological conclusions{cite}`Leek2010-yw`. They are a problem for analysing the output of an individual experiment where there are multiple sequencing batches, but pose a particular problem in combining data from different experiments, as there is almost certainly more variations between analysis pipelines.
-
-When it is known, date of sequence processing is often used as a surrogate for batch, enabling researchers to check for, and then remove, batch effects if necessary. Principal components analysis is often used to visually inspect experimental results for batch effects; when biologically alike samples cluster together rather than those from like-batches, batch effects are often ignored. Batch effects may affect only specific subsets of genes, and may affect different genes in different ways{cite}`Leek2010-yw`. This means that normalisation (e.g. TPM, FKPM) will not account for batch.
 
 (protein-measurements)=
-### Proteins
+## Proteins
 [//]: # (TODO: Mention how proteins map to transcripts and to genes and variants and whole genomes)
 
-#### Protein Structures
+### Protein Structures
 [//]: # (TODO: Make sure this makes sense here I just moved it)
 
 In 1969, Margaret Dayhoff created the first bioinformatics database to store protein structures imaged using X-ray crystallography, related to her publication of Atlas of Protein Sequence and Structure{cite}`Hersh1967-ox`. 
 Soon after, in 1972, the Protein DataBank (PDB){cite}`noauthor_undated-ow` was established. 
 This continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.
 
-#### Protein classification
+### Protein classification
 Scientists are often interested in a "favourite" gene or protein, or have obtained a list of genes or proteins that they are interested in through a recent experiment. If an experiment about the specific protein has been carried out (e.g. to determine its function or structure), then a database like Uniprot (containing function and sequence information) or PDB (structure information) can be queried. However, this kind of information is not available for all proteins, so this is often necessary to make inferences about protein structure or function based on for example sequence similarity or protein classification.
 
 [//]: # (TODO: Check BLAST is in the right place. Probably makes more sense in another section: DNA?)
-##### BLAST
+#### BLAST
 BLAST, or the The Basic Local Alignment Search Tool{cite}`Altschul1990-zf`, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.
 
 ##### SCOP
@@ -262,8 +255,26 @@ I contributed to SUPERFAMILY’s 2014 update{cite}`Oates2015-li` by editing the 
 (phenotype-measurements)=
 ### Phenotypes
 
-[//]: # (TODO: Explain that phenotypes can be at any "level", i.e. calcium level in blood, or height.)
 [//]: # (TODO: Also explain that phenotypes can be associated with biological molecules at any level, e.g. SNPs, Genes, Populations)
+[//]: # (TODO: Explain CRISPR in an aside to below if haven't mentioned already)
+[//]: # (TODO: Phenotype data is fairly well protected: people don't like to share it)
+
+## Knockouts
+Insight into gene function can be gained by “knocking out” a gene, preventing it from being translated into a working protein, for example using CRISPR. 
+Combinations of up to four genes can be knocked out in a single experiment. 
+Knocking out a gene can lead to a difference in phenotype, and differences in gene expression, which can be used to help determine gene regulatory networks. 
+There is a lot of existing data on the phenotypic results of mouse knockouts, since they are often used to create mouse models for diseases. 
+Unfortunately, it is not always well-recorded when knockouts lead to no detectable phenotypic change{cite}`Barbaric2007-zm`.
+
+## Genome Wide Association Studies
+Genome Wide Association Studies (GWAS) are large observational studies where the genotypes of a cohort with a specific phenotype (e.g. diabetes) are compared to the genotypes of a cohort lacking in that phenotype (i.e. a control group) in order to find genomic loci that are statistically associated with the phenotype. 
+This has been a popular type of scientific enquiry since the first GWAS study in 2005. 
+GWAS generally results in lists of SNPs, often in the hundreds, ordered by p-value. 
+Disentangling which of these SNPs (if any) cause the trait is a tricky, particularly since GWAS specifically interrogates common variants. 
+The process of identifying causal variants generally involving identifying regions in linkage disequilibrium, and re-sequencing regions of interest in further detail.
+
+The GWAS catalog database{cite}`Buniello2019-cv,L_Emery2017-rd` was founded in 2008, to provide a consistent and accessible location for published SNP-trait associations, which extracts information about experiments from the literature (currently over 70000 associations from over 3000 publications).
+
 
 (what-are-ontologies)=
 #### A word on ontologies
@@ -278,11 +289,13 @@ Terms in ontologies are given identifiers, usually of the form: `XXX:#######`, w
 Ontologies are generally created through some combination of manual curation by highly skilled biocurators and logic-testing (checking for illogical relationships, for example using ROBOT{cite}`Overton2015-vo`). Creating an ontology is generally a long-term project, with new suggestions and updates to the ontologies being made as new knowledge accumulates, or just as more people have time to add to them. As well as being the work of dedicated curators, contributions to ontologies can usually be crowd-sourced from the scientific community using GitHub issues, mailing list discussions, web forms, and dedicated workshops. In this way, they are similar to other bioinformatics community-driven efforts like structural and sequence databases. 
 
 There are also cross-ontology mappings and annotations, where terms from one ontology are linked to those in another (e.g. relating gene functions and tissues) or to entities in a database (e.g. gene functions to genes). These also require the work of dedicated curators, who search through literature, assessing various criteria for the inclusion of an annotation (such criteria vary by ontology). Since this is a laborious process, there are also many computational methods to annotate ontology terms automatically. 
+
+Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities.
+Ontologies and particularly their annotations are varying degrees of incomplete, and this will have an impact on the results of any downstream use of them. 
  
-There are two major file formats in which ontologies are currently stored. The OBO format is a human-readable format, while the OWL format is more complex, but has more functionality. The OWL format can be queried using querying languages, for example SPARQL (an SQL-like querying language).  
-
-Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities. Ontologies and particularly their annotations are varying degrees of incomplete, and this will have an impact on the results of any downstream use of them. 
-
+(obo-format)=
+There are two major file formats in which ontologies are currently stored. 
+he OBO format is a human-readable format, while the OWL format is more complex, but has more functionality, and for example can be queried using SPARQL (an SQL-like querying language).  
 
 ##### Gene Ontology
 [//]: # (TODO: Citations in GO section)
@@ -310,11 +323,3 @@ Gene products in GO are assumed to carry out molecular-level process or activity
 
 
 [//]: # (TODO: Write something about "gene function" and "protein function" and their relationship to phenotypes, ontologies, etc)
-
----
-**Chapter References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

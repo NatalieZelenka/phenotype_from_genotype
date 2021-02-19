@@ -1,0 +1,894 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.2. Data Acquisition &#8212; Phenotype from Genotype</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.3. Data Wrangling" href="3-data-wrangling.html" />
+    <link rel="prev" title="6.1. Background" href="1-background.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../front-matter/title-page.html">
+   Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/acknowledgements.html">
+     Acknowledgements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/abstract.html">
+     Abstract
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/declaration.html">
+     Declaration
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Main book
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
+   2. Biology Background
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: function, structure and classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c03-compbio-background/0-index.html">
+   3. Computational Biology Background
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/4-bias.html">
+     3.4. Bias
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-pqi.html">
+     3.5. PQI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-summary.html">
+     3.6. Summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c04-snowflake/0-index.html">
+   4. Phenotype prediction with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Snowflake
+    </span>
+   </code>
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/3-data.html">
+     4.3. Snowflake input data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/4-clustering-snps.html">
+     4.4. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-results.html">
+     4.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/6-discussion.html">
+     4.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/7-future-work.html">
+     4.7. Future Work
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c05-filter/0-index.html">
+   5. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-filter/1-introduction.html">
+     5.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
+     5.2. Motivation: linking Genotype and phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-filter/1-introduction.html#cafa">
+     5.3. CAFA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-filter/2-data.html">
+     5.4. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-filter/3-methods.html">
+     5.5. Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-filter/4-results.html">
+     5.6. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-filter/5-discussion.html">
+     5.7. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-filter/6-future-work.html">
+     5.8. Future work
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="0-index.html">
+   6. Combining RNA-seq datasets
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-background.html">
+     6.1. Background
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-data-wrangling.html">
+     6.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-uberon.html">
+     6.4. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       uberon-py
+      </span>
+     </code>
+     package
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-batch-correction.html">
+     6.5. Batch correction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-results.html">
+     6.6. Results and outputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-results.html#combined-data-set">
+     6.7. Combined data set
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-discussion.html">
+     6.8. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8-future-work.html">
+     6.9. Future Work
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
+   7. Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#criteria-for-choosing-datasets">
+   6.2.1. Criteria for choosing datasets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#next-generation-sequencing">
+     6.2.1.1. Next Generation Sequencing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gene-expression-vs-protein-abundance">
+       6.2.1.1.1. Gene expression vs protein abundance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gene-expression-vs-transcript-expression">
+       6.2.1.1.2. Gene expression vs Transcript expression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tissue-specificity-versus-cell-specificity">
+       6.2.1.1.3. Tissue-specificity versus cell-specificity
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inclusion-of-cage-data">
+       6.2.1.1.4. Inclusion of CAGE data
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#excluding-disease-focused-experiments">
+     6.2.1.2. Excluding disease-focused experiments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#method-of-searching">
+   6.2.2. Method of searching
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eligible-data-sets">
+   6.2.3. Eligible data sets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fantom5">
+     6.2.3.1. FANTOM5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#human-protein-atlas">
+     6.2.3.2. Human Protein Atlas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#genotype-tissue-expression">
+     6.2.3.3. Genotype Tissue Expression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#human-developmental-biology-resource">
+     6.2.3.4. Human Developmental Biology Resource
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id25">
+   6.2.4. Data acquisition
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-acquisition">
+<h1><span class="section-number">6.2. </span>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Permalink to this headline">¶</a></h1>
+<p>This section describes the constituent data sets that were chosen for combination, and how they were chosen and acquired.</p>
+<div class="section" id="criteria-for-choosing-datasets">
+<h2><span class="section-number">6.2.1. </span>Criteria for choosing datasets<a class="headerlink" href="#criteria-for-choosing-datasets" title="Permalink to this headline">¶</a></h2>
+<p>Datasets were chosen from the EBI’s Gene Expression Atlas (GxA)<a href="#id1"><span class="problematic" id="id2">:cite:`Petryszak2016-je`</span></a>: the European Bioinformatics Institutes’ Open Source gene and protein expression database, and the largest of its type.
+At the time of writing, it contains over 3,000 gene expression and protein abundance experiments across many organisms, organism parts (tissues), diseases, and sequencing technologies.
+There is a separate database for scRNA-seq experiments.</p>
+<p>A major benefit of the GxA is that raw data using the same sequencing technology are re-analysed by GxA using the same data analysis pipeline (iRAP<a href="#id3"><span class="problematic" id="id4">:cite:`Fonseca2014-hp`</span></a> for RNA-Seq).
+In addition to ensuring the quality of each data set included, and running it through the same pipeline, the GxA adds additional metadata for the experiments by using the literature to biologically and technically annotate each sample.</p>
+<p>Data sets were chosen based on the following requirements.</p>
+<ul class="simple">
+<li><p><strong>Inclusion in the GxA</strong>.</p></li>
+<li><p><strong>Experiments must be measuring baseline, rather than differential gene expression</strong>.</p></li>
+<li><p><strong>Samples must be sequenced using Next Generation Sequencing</strong>, i.e. including RNA-Seq and CAGE, and excluding microarrays.</p></li>
+<li><p><strong>Data sets must contain a breadth of tissues and genes</strong>. This is to aid batch correction by facilitating the most balanced data set design in terms of batch (experiment) to group (tissue), and in order to have good coverage of genes and tissues, which is necessary for downstream use. i.e. experiments must include “organism part” as an experimental factor (otherwise tissue would not be recorded) and must have at least 80 assays (samples).</p></li>
+<li><p><strong>Samples must not be disease-focused</strong>. In practice, excluding cancer datasets was enough to exclude disease-focused datasets.</p></li>
+</ul>
+<div class="section" id="next-generation-sequencing">
+<h3><span class="section-number">6.2.1.1. </span>Next Generation Sequencing<a class="headerlink" href="#next-generation-sequencing" title="Permalink to this headline">¶</a></h3>
+<p>As described in the introduction chapter, there are many ways to measure which proteins are being created.
+Here, I justify my choices of measures to include in the combined dataset.</p>
+<div class="section" id="gene-expression-vs-protein-abundance">
+<h4><span class="section-number">6.2.1.1.1. </span>Gene expression vs protein abundance<a class="headerlink" href="#gene-expression-vs-protein-abundance" title="Permalink to this headline">¶</a></h4>
+<p>As I <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html#gene-expression-protein-abundance"><span class="std std-ref">mentioned earlier</span></a>, gene expression is only weakly correlated to protein abundance.
+So, what are the potential reasons for this, and which makes a better measure of the process of translation?</p>
+<p>One reason is that there is something preventing the mRNA from being translated, such as slow codons, the temperature, ribosome occupancy, or regulatory RNAs and proteins<a href="#id5"><span class="problematic" id="id6">:cite:`Maier2009-vw`</span></a>.
+In these cases, the DNA is transcribed into mRNA, but the protein is never produced, meaning that using gene expression data as a measure of how much protein is produced would be overestimating the protein abundance.
+If these factors were a large contribution to the weak correlation, it could provide better results to use protein abundance data instead of mRNA abundance data to make predictions about how proteins are affecting human phenotypes.
+On the other hand, it could equally be possible that proteins are being produced, but not measured by protein abundance techniques.
+Protein half-lives range over orders of magnitude from seconds to days<a href="#id7"><span class="problematic" id="id8">:cite:`Maier2009-vw,Beyer2004-ws`</span></a>.
+In this case, gene expression data may be a more reliable measure of protein production than protein abundance, since proteins may degrade before being measured.
+In yeast, protein degradation was shown to be the largest contribution to the protein-mRNA correlation compared to codon and amino acid usage (the two other factors estimated in the study), and more influential than those other two factors combined<a href="#id9"><span class="problematic" id="id10">:cite:`Wu2008-hb`</span></a>.</p>
+<p>In summary, there’s no perfect measure of translation, but since gene expression data is more readily available, and protein degradation appears to account for most of the differences between correlations, gene expression data presents the best proxy for translation for the downstream uses discussed here.</p>
+</div>
+<div class="section" id="gene-expression-vs-transcript-expression">
+<h4><span class="section-number">6.2.1.1.2. </span>Gene expression vs Transcript expression<a class="headerlink" href="#gene-expression-vs-transcript-expression" title="Permalink to this headline">¶</a></h4>
+<p>It’s likely that transcript expression data would provide more insight than gene expression data if it were available, since it is likely that there are tissue-specific transcripts which do not correspond to tissue-specific genes, e.g. where different transcripts from the same gene are expressed in different tissues.
+Transcript expression data, however, is harder to come by and this approach relies on a wealth of available data.
+Furthermore, transcript expression data can be straightforwardly converted to gene expression data (by summing over the transcripts), while the conversion of gene to transcript expression data is decidedly less accurate.
+When transcript-expression (CAGE) measurements are aggregated at the gene/protein level, measures of tissue-specificity have been found to largely (75-93%) match up with measures of tissue-specificity resulting from gene-expression measurements, as found in a comparison between the HPA and FANTOM5 experiments<a href="#id11"><span class="problematic" id="id12">:cite:`Yu2015-uf`</span></a>.</p>
+<p>For these reasons, I have taken a gene-centric approach here.
+It may be important, however, to consider whether a gene has multiple transcripts in downstream analysis, for example, if including tissue-specific gene expression information when predicting the function of a protein-coding SNP (since it may not be in the relevant transcript).</p>
+</div>
+<div class="section" id="tissue-specificity-versus-cell-specificity">
+<h4><span class="section-number">6.2.1.1.3. </span>Tissue-specificity versus cell-specificity<a class="headerlink" href="#tissue-specificity-versus-cell-specificity" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-default" id="homogenous-tissues">
+<a class="reference internal image-reference" href="../_images/tissues_HPA.png"><img alt="../_images/tissues_HPA.png" src="../_images/tissues_HPA.png" style="height: 220px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Images of smooth muscle tissue from the stomach wall (left) and lung tissue (right), examples of homogeneous and heterogeneous tissue types respectively, taken from the Human Tissue Atlas website<a href="#id13"><span class="problematic" id="id14">:cite:`noauthor_undated-gi`</span></a>.</span><a class="headerlink" href="#homogenous-tissues" title="Permalink to this image">¶</a></p>
+</div>
+<p>Tissues can be made up of various cell types.
+Some tissue types (e.g. smooth muscle) are quite homogeneous, comprising of predominantly one cell type and/or lacking structural features.
+Other tissues (e.g. lung) are heterogeneous, consisting of multiple cell types and features.
+<a class="reference internal" href="#homogenous-tissues"><span class="std std-numref">Fig. 6.1</span></a> shows the different structure of two example tissue types.
+The bronchioles of the lung alone consist of six different cell types (basal cells, neuroendocrine cells, ciliated cells, serous cells, Clara cells and goblet cells), while smooth muscle tissue consists almost exclusively of tightly packed smooth muscle cells.
+The varying proportions of constituent cell types in heterogeneous tissues can influence tissue function.</p>
+<p>While we may prefer to look at the gene expression of a cell type, we currently have much less scRNA-seq data than bulk RNA-seq data.
+Bulk RNA-seq also gives us the ability to measure the gene expression of tissues as they appear in humans.
+The average supply of a protein to a tissue (averaged over multiple cell types) may well influence a tissue’s phenotype, in these circumstances gene expression at the level of a tissue may give us information that we can’t retrieve from cell-line cells alone.</p>
+</div>
+<div class="section" id="inclusion-of-cage-data">
+<h4><span class="section-number">6.2.1.1.4. </span>Inclusion of CAGE data<a class="headerlink" href="#inclusion-of-cage-data" title="Permalink to this headline">¶</a></h4>
+<p>CAGE is transcript expression, rather than gene expression, and there are likely to be different transcripts measured by CAGE than by RNA-Seq.
+As mentioned above, however, it is possible to calculate gene expression from transcript expression.
+It’s also possible to map between CAGE transcription start sites and existing transcript IDs that may be featured in RNA-Seq arrays.
+When this is done, it has been observed that the results of CAGE are comparable to those of RNA-seq<a href="#id15"><span class="problematic" id="id16">:cite:`Kawaji2014-tl`</span></a>, so the inclusion of CAGE data in a combined data set is reasonable.</p>
+</div>
+</div>
+<div class="section" id="excluding-disease-focused-experiments">
+<h3><span class="section-number">6.2.1.2. </span>Excluding disease-focused experiments<a class="headerlink" href="#excluding-disease-focused-experiments" title="Permalink to this headline">¶</a></h3>
+<p>The decision to exclude disease-focused experiments was made primarily to reduce the complexity of the analysis and the resulting data set.
+The data set can now be interpreted as representing gene expression of healthy tissues.
+This was also a practical choice since most disease data sets (with the exception of cancer datasets) tended to have a narrow breadth of tissues.
+For example, experiments interested in heart disease would naturally contain measurements of healthy and non-healthy heart tissues, and not other tissues, so would be difficult to combine with existing data sets due to the “missing” data.
+This would not have been a problem for cancer experiments, however cancer is known to be tissue-non-specific<a href="#id17"><span class="problematic" id="id18">:cite:`Love2014-vx,Winter2004-rr`</span></a>.</p>
+</div>
+</div>
+<div class="section" id="method-of-searching">
+<h2><span class="section-number">6.2.2. </span>Method of searching<a class="headerlink" href="#method-of-searching" title="Permalink to this headline">¶</a></h2>
+<p>It would have been preferable to interrogate the GxA for datasets using the ExpressionAtlas R package, or the <a class="reference external" href="https://www.ebi.ac.uk/arrayexpress/help/programmatic_access.html">AtlasExpress API</a> which it is built on.
+However, it was necessary to do so via the <a class="reference external" href="https://www.ebi.ac.uk/gxa/experiments">website</a> since searches to the AtlasExpress API cannot differentiate between baseline and differential gene expression.</p>
+<p>For reproducibility, this was done by downloading <span class="xref myst">the json file</span> used by the GxA experiment browser webservice and by choosing experiments with:</p>
+<ul class="simple">
+<li><p>baseline (rather than differential) expression measurements</p></li>
+<li><p>homo sapiens species</p></li>
+<li><p>RNA-Seq mRNA technology</p></li>
+<li><p><em>organism part</em> as an experimental factor</p></li>
+<li><p>at least 80 assays.</p></li>
+<li><p>no mention of “cancer” in the description</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>libraries &lt;- function(){
+    library(httr)
+    library(jsonlite)
+    library(tidyverse)
+    library(plotly)
+    library(IRdisplay)
+    library(ExpressionAtlas) 
+    library(htmlwidgets)
+}
+suppressMessages(libraries())
+
+analysis_date &lt;- &quot;2019-06-01&quot;  #YYYY-mm-dd
+min_assays &lt;- 80
+
+# Get information about experiments
+gxa_json &lt;- &#39;https://www.ebi.ac.uk/gxa/json/experiments&#39;
+req &lt;- httr::GET(gxa_json)
+text &lt;- httr::content(req, &quot;text&quot;, encoding=&quot;UTF-8&quot;)
+gxa_experiment_info &lt;- as_tibble(jsonlite::fromJSON(text)$experiments)
+
+# All data at time of analysis:
+gxa_experiment_info$loadDate &lt;- as.Date(gxa_experiment_info$loadDate, &quot;%d-%m-%Y&quot;)
+gxa_experiment_info &lt;- gxa_experiment_info %&gt;% filter(loadDate&lt;analysis_date)
+funnel_info &lt;- tibble(name=&quot;All experiments&quot;,
+                      num_experiments=nrow(gxa_experiment_info))
+
+# All next-gen sequencing experiments:
+gxa_experiment_info&lt;- gxa_experiment_info %&gt;% 
+  filter(technologyType==&#39;RNA-Seq mRNA&#39;)
+funnel_info &lt;- funnel_info %&gt;%
+  add_row(name=&quot;RNA-Seq technology&quot;,
+          num_experiments=nrow(gxa_experiment_info))
+
+# All baseline expression experiments
+gxa_experiment_info&lt;- gxa_experiment_info %&gt;%
+  filter(experimentType==&#39;Baseline&#39;)
+baseline &lt;- nrow(gxa_experiment_info)
+funnel_info &lt;- funnel_info %&gt;%
+  add_row(name=&quot;Baseline experiments&quot;,
+          num_experiments=nrow(gxa_experiment_info))
+
+# All human experiments
+gxa_experiment_info&lt;- gxa_experiment_info %&gt;% 
+  filter(species==&#39;Homo sapiens&#39;)
+funnel_info &lt;- funnel_info %&gt;%
+  add_row(name=&quot;Human&quot;,
+          num_experiments=nrow(gxa_experiment_info))
+
+# All &quot;organism part&quot; experiments with &gt; 80 assays:
+gxa_experiment_info$experimentalFactors &lt;- as.character(gxa_experiment_info$experimentalFactors)
+gxa_experiment_info &lt;- gxa_experiment_info %&gt;% 
+  filter(numberOfAssays&gt;min_assays, 
+         str_detect(experimentalFactors, &#39;organism part&#39;))
+funnel_info &lt;- funnel_info %&gt;%
+  add_row(name=&quot;Contains tissues and &gt;80 samples&quot;,
+          num_experiments=nrow(gxa_experiment_info))
+
+# Excluding cancer experiments:
+gxa_experiment_info$experimentDescription &lt;- as.character(gxa_experiment_info$experimentDescription)
+gxa_experiment_info &lt;- gxa_experiment_info %&gt;% 
+  filter(str_detect(experimentDescription,&#39;[cC]ancer&#39;, negate=TRUE))
+funnel_info &lt;- funnel_info %&gt;%
+  add_row(name=&quot;Not cancer experiments&quot;,
+          num_experiments=nrow(gxa_experiment_info))
+
+
+create_fig &lt;- function(){
+    fig &lt;- plot_ly()
+    fig &lt;- fig %&gt;% add_trace(
+        type = &quot;funnel&quot;,
+        y = as.character(funnel_info$name),
+        x = as.integer(funnel_info$num_experiments))
+    fig &lt;- fig %&gt;% layout(yaxis = list(categoryarray = as.character(funnel_info$name)))
+
+    orca(fig, &#39;../images/combining_funnel_static.png&#39;, width=800)
+    # IRdisplay::display_png(file=&#39;figs/funnel.png&#39;)
+    saveWidget(fig, &quot;../images/combining_funnel_interactive.html&quot;, selfcontained = TRUE)
+}
+
+suppressWarnings(create_fig())
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="funnel-combine-gxa">
+<a class="reference internal image-reference" href="../_images/combining_funnel_interactive.html"><img alt="../_images/combining_funnel_interactive.html" src="../_images/combining_funnel_interactive.html" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Our requirements for a dataset reduce the number of elligible datasets to four.</span><a class="headerlink" href="#funnel-combine-gxa" title="Permalink to this image">¶</a></p>
+</div>
+<p>As <a class="reference internal" href="#funnel-combine-gxa"><span class="std std-numref">Fig. 6.2</span></a> shows, at the time of writing, there are over 3000 experiments in the GxA, and of these 27 are human baseline RNA-Seq experiments. Of these there are 4 which offer a good coverage of non-disease organism parts.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+</div>
+<div class="section" id="eligible-data-sets">
+<h2><span class="section-number">6.2.3. </span>Eligible data sets<a class="headerlink" href="#eligible-data-sets" title="Permalink to this headline">¶</a></h2>
+<p>The four eligible data sets are summarised in <a class="reference internal" href="#table-chosen-combine-gxa"><span class="std std-numref">Table 6.1</span></a>, and they are described in further detail below.</p>
+<table class="table" id="table-chosen-combine-gxa">
+<caption><span class="caption-number">Table 6.1 </span><span class="caption-text">Table showing the GxA datasets that meet the criteria</span><a class="headerlink" href="#table-chosen-combine-gxa" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">shortName</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">experimentAccession</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">experimentDescription</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">numberOfAssays</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">experimentalFactors</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HPA</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">E-MTAB-2836</span></code></p></td>
+<td><p>RNA-seq of coding RNA from tissue samples of 122 human individuals representing 32 different tissues</p></td>
+<td><p>200</p></td>
+<td><p>organism part</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">FANTOM5</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">E-MTAB-3358</span></code></p></td>
+<td><p>RNA-Seq CAGE (Cap Analysis of Gene Expression) analysis of human tissues in RIKEN FANTOM5 project</p></td>
+<td><p>96</p></td>
+<td><p>developmental stage, organism part</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GTEx</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">E-MTAB-5214</span></code></p></td>
+<td><p>RNA-seq from 53 human tissue samples from the Genotype-Tissue Expression (GTEx) Project</p></td>
+<td><p>18736</p></td>
+<td><p>organism part</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">HDBR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">E-MTAB-4840</span></code></p></td>
+<td><p>RNA-seq of coding RNA: Human Developmental Biology Resource (HDBR) expression resource of prenatal human brain development</p></td>
+<td><p>613</p></td>
+<td><p>developmental stage, organism part</p></td>
+</tr>
+</tbody>
+</table>
+<div class="margin sidebar" id="fantom-consortium">
+<p class="sidebar-title">The FANTOM Consortium</p>
+<p>The Functional ANnoTation Of the MAmmalian genome (FANTOM) consortium was established as the human genome project was nearing completion when researchers had a parts list of human biology, but few of the functions of these parts (genes) were known. The consortium has run a range of large scale collaborative projects in five rounds to further this goal. The first FANTOM project used only the mouse genome, but later versions also included human.</p>
+</div>
+<div class="section" id="fantom5">
+<h3><span class="section-number">6.2.3.1. </span>FANTOM5<a class="headerlink" href="#fantom5" title="Permalink to this headline">¶</a></h3>
+<p>The latest <a class="reference internal" href="#fantom-consortium"><span class="std std-ref">FANTOM consortium</span></a> project, FANTOM5 represents one of the most comprehensive collections of gene expression data. It contains a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations</p>
+</div>
+<div class="section" id="human-protein-atlas">
+<h3><span class="section-number">6.2.3.2. </span>Human Protein Atlas<a class="headerlink" href="#human-protein-atlas" title="Permalink to this headline">¶</a></h3>
+<p>The Human Protein Atlas (HPA) project<a href="#id19"><span class="problematic" id="id20">:cite:`Uhlen2010-mx,Uhlen2015-at`</span></a> aims to map all human proteins in cells (including subcellular locations), tissues and organs. The HPA project’s data is not limited to the gene expression data that can be found in GxA, but that is the only part of the data that is used here. The gene expression data that was used (E-MTAB-2836 in GxA) excludes cell lines and includes tissue samples of 122 individuals and 32 different non-diseased tissue types.</p>
+</div>
+<div class="section" id="genotype-tissue-expression">
+<h3><span class="section-number">6.2.3.3. </span>Genotype Tissue Expression<a class="headerlink" href="#genotype-tissue-expression" title="Permalink to this headline">¶</a></h3>
+<p>The Genotype Tissue Expression (GTEx) project<a href="#id21"><span class="problematic" id="id22">:cite:`GTEx_Consortium2013-gl`</span></a> was developed specifically for the purpose of studying tissue-specific gene expression in humans and gene expression data from over 18,000 samples, including 53 non-diseased tissue types and 550 individuals (ranging in age from 20s to 70s).</p>
+</div>
+<div class="section" id="human-developmental-biology-resource">
+<h3><span class="section-number">6.2.3.4. </span>Human Developmental Biology Resource<a class="headerlink" href="#human-developmental-biology-resource" title="Permalink to this headline">¶</a></h3>
+<p>The Human Developmental Biology Resource (HDBR) Expression data<a href="#id23"><span class="problematic" id="id24">:cite:`Lindsay2016-en`</span></a> is slightly different from the other data sets in that contains a much narrower range of sample types. All HDBR samples are human brain samples at different stages of development, ranging from 3 to 20 weeks after conception.</p>
+</div>
+</div>
+<div class="section" id="id25">
+<span id="id26"></span><h2><span class="section-number">6.2.4. </span>Data acquisition<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<p>Data was obtained, where possible via the <em>ExpressionAtlas</em> R package<a href="#id27"><span class="problematic" id="id28">:cite:`Keays2018-pg`</span></a>, which gives gene expression counts identified by ENSG IDs, metadata (containing pipeline, filtering, mapping and quantification information), and details of experimental design (containing for example organism part name, individual demographics, and replicate information, depending on the experiment).</p>
+<p>For the FANTOM experiment counts for transcript expression were downloaded directly <a class="reference external" href="http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz">from the FANTOM website</a>.  The downloaded FANTOM5 file has already undergone some quality control by FANTOM, it is limited to peaks which meet a “robust” threshold (&gt;10 read counts and 1TPM for at least one sample).</p>
+<p>The code for data acquisition can be viewed below:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Data acquisition code</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">exp_dir</span> <span class="o">&lt;-</span> <span class="s">&#39;data/experiments/&#39;</span>
+<span class="n">fantom_url</span> <span class="o">&lt;-</span> <span class="s">&#39;http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz&#39;</span>
+<span class="n">folder_names</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;E-MTAB-2836&#39;</span><span class="o">=</span><span class="s">&#39;hpa/&#39;</span><span class="p">,</span><span class="s">&#39;E-MTAB-3358&#39;</span><span class="o">=</span><span class="s">&#39;fantom/&#39;</span><span class="p">,</span><span class="s">&#39;E-MTAB-5214&#39;</span><span class="o">=</span><span class="s">&#39;gtex/&#39;</span><span class="p">,</span><span class="s">&#39;E-MTAB-4840&#39;</span><span class="o">=</span><span class="s">&#39;hdbr/&#39;</span><span class="p">)</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">accession_number</span> <span class="n">in</span> <span class="n">gxa_experiment_info</span><span class="o">$</span><span class="n">experimentAccession</span><span class="p">){</span>
+    <span class="c1"># Create the directories:</span>
+    <span class="nf">ifelse</span><span class="p">(</span><span class="o">!</span><span class="nf">dir.exists</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">exp_dir</span><span class="p">,</span> <span class="n">folder_names</span><span class="p">[</span><span class="n">accession_number</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)),</span> 
+           <span class="nf">dir.create</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">exp_dir</span><span class="p">,</span> <span class="n">folder_names</span><span class="p">[</span><span class="n">accession_number</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)),</span> <span class="kc">FALSE</span><span class="p">)</span>
+    <span class="nf">if</span><span class="p">(</span><span class="n">accession_number</span> <span class="o">==</span> <span class="s">&#39;E-MTAB-3358&#39;</span><span class="p">){</span>
+        <span class="c1"># FANTOM is downloaded directly:</span>
+        <span class="n">fantom_path</span> <span class="o">&lt;-</span> <span class="nf">paste</span><span class="p">(</span><span class="n">exp_dir</span><span class="p">,</span> 
+                             <span class="n">folder_names</span><span class="p">[</span><span class="n">accession_number</span><span class="p">],</span>
+                             <span class="nf">basename</span><span class="p">(</span><span class="n">fantom_url</span><span class="p">),</span>
+                             <span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="nf">download.file</span><span class="p">(</span><span class="n">fantom_url</span><span class="p">,</span> <span class="n">fantom_path</span><span class="p">)</span>
+        <span class="c1"># TODO: download other FANTOM files</span>
+    <span class="p">}</span>
+    <span class="n">else</span><span class="p">{</span>
+        <span class="c1"># Other experiments are downloaded using `ExpressionAtlas`</span>
+        <span class="n">summary</span> <span class="o">&lt;-</span> <span class="nf">getAtlasExperiment</span><span class="p">(</span><span class="n">accession_number</span><span class="p">)</span>
+        <span class="nf">write.table</span><span class="p">(</span><span class="nf">assays</span><span class="p">(</span><span class="n">summary</span><span class="o">$</span><span class="n">rnaseq</span><span class="p">)</span><span class="o">$</span><span class="n">counts</span><span class="p">,</span> 
+                    <span class="n">sep</span><span class="o">=</span><span class="s">&#39;\t&#39;</span><span class="p">,</span>
+                    <span class="n">file</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="n">exp_dir</span><span class="p">,</span>
+                                 <span class="n">folder_names</span><span class="p">[</span><span class="n">accession_number</span><span class="p">],</span>
+                                 <span class="n">accession_number</span><span class="p">,</span>
+                                 <span class="s">&quot;_counts.tsv&quot;</span><span class="p">,</span>
+                                 <span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">))</span>
+        <span class="nf">write.table</span><span class="p">(</span><span class="nf">colData</span><span class="p">(</span><span class="n">summary</span><span class="o">$</span><span class="n">rnaseq</span><span class="p">),</span> 
+                    <span class="n">sep</span><span class="o">=</span><span class="s">&#39;\t&#39;</span><span class="p">,</span> 
+                    <span class="n">file</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="n">exp_dir</span><span class="p">,</span>
+                                 <span class="n">folder_names</span><span class="p">[</span><span class="n">accession_number</span><span class="p">],</span>
+                                 <span class="n">accession_number</span><span class="p">,</span>
+                                 <span class="s">&quot;_colData.tsv&quot;</span><span class="p">,</span>
+                                 <span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">))</span>
+    
+    <span class="c1"># A messy way of saving the metadata because it&#39;s a list of different length lists:</span>
+        <span class="nf">sink</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">exp_dir</span><span class="p">,</span>
+                   <span class="n">folder_names</span><span class="p">[</span><span class="n">accession_number</span><span class="p">],</span>
+                   <span class="n">accession_number</span><span class="p">,</span>
+                   <span class="s">&quot;_metadata.txt&quot;</span><span class="p">,</span>
+                   <span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">));</span> <span class="nf">print</span><span class="p">(</span><span class="nf">metadata</span><span class="p">(</span><span class="n">summary</span><span class="o">$</span><span class="n">rnaseq</span><span class="p">));</span> <span class="nf">sink</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="n">``</span>`
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./c06-combining"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="1-background.html" title="previous page"><span class="section-number">6.1. </span>Background</a>
+    <a class='right-next' id="next-link" href="3-data-wrangling.html" title="next page"><span class="section-number">6.3. </span>Data Wrangling</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

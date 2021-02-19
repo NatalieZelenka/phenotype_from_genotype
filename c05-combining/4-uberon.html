@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>5.4. The uberon-py package &#8212; Phenotype from Genotype</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
     
   <link rel="stylesheet"
@@ -34,12 +34,13 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -56,7 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.6. Batch correction" href="5-batch-correction.html" />
+    <link rel="next" title="5.5. Batch correction" href="5-batch-correction.html" />
     <link rel="prev" title="5.3. Data Wrangling" href="3-data-wrangling.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -82,56 +83,38 @@
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter_book_intro.html">
-   Start Here
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
+    <p class="caption collapsible-parent">
  <span class="caption-text">
   Front Matter
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../front-matter/title-page.html">
-   Title Page
+   Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/list-of-figures.html">
-   List of Figures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/list-of-tables.html">
-   List of Tables
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/full-table-of-contents.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/acknowledgements.html">
-   Acknowledgements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/abstract.html">
-   Abstract
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/declaration.html">
-   Declaration
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/acknowledgements.html">
+     Acknowledgements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/abstract.html">
+     Abstract
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/declaration.html">
+     Declaration
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -172,7 +155,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
-     2.5. Linking genotype and phenotype
+     2.5. Phenotype
     </a>
    </li>
    <li class="toctree-l2">
@@ -190,23 +173,33 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/1-measuring-genotype-phenotype.html">
-     3.1. From genotype to phenotype: what is measured
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/2-comp-bio-methods.html">
-     3.2. How large computational biology datasets are used
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/3-bias.html">
-     3.3. Sources of bias in computational biology datasets
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/4-summary.html">
-     3.4. Summary
+    <a class="reference internal" href="../c03-compbio-background/4-bias.html">
+     3.4. Bias
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-pqi.html">
+     3.5. PQI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-summary.html">
+     3.6. Summary
     </a>
    </li>
   </ul>
@@ -250,13 +243,18 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-results.html">
+     4.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/6-discussion.html">
-     4.5. Discussion
+     4.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/7-future-work.html">
-     4.6. Future Work
+     4.7. Future Work
     </a>
    </li>
   </ul>
@@ -275,7 +273,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2-data.html">
-     5.2. Data
+     5.2. Data Acquisition
     </a>
    </li>
    <li class="toctree-l2">
@@ -295,18 +293,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="#functionality">
-     5.5. Functionality
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="5-batch-correction.html">
-     5.6. Batch correction
+     5.5. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     5.7. Results
+     5.6. Results and outputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-results.html#combined-data-set">
+     5.7. Combined data set
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-discussion.html">
+     5.8. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8-future-work.html">
+     5.9. Future Work
     </a>
    </li>
   </ul>
@@ -379,7 +387,7 @@
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
 </div>
 
 </div>
@@ -406,23 +414,6 @@
         </button>
         
         
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/c05-combining/4-uberon.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
         <!-- Source interaction buttons -->
 
 
@@ -444,77 +435,44 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   5.4. The
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     uberon-py
-    </span>
-   </code>
-   package
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functionality">
+   5.4.1. Functionality
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#functionality">
-   5.5. Functionality
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-usage">
+   5.4.2. Example usage
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mapping-by-name">
-     5.5.1. Mapping by name
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1-harmonisation-of-gene-expression-data">
+     5.4.2.1. Example 1: Harmonisation of gene expression data
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mapping-by-term">
-     5.5.2. Mapping by term
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2-grouping-samples-based-on-tissues">
+     5.4.2.2. Example 2: Grouping samples based on tissues
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-disagreements-between-mappings-to-improve-biological-ontologies">
-     5.5.3. Using disagreements between mappings to improve biological ontologies
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-finding-inconsistencies-in-the-fantom5-data">
+     5.4.2.3. Example 3: finding inconsistencies in the FANTOM5 data
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#missing-uberon-annotation-bronchus-part-of-some-lung">
-       5.5.3.1. Missing Uberon annotation:
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         Bronchus
-        </span>
-        <span class="pre">
-         part_of
-        </span>
-        <span class="pre">
-         some
-        </span>
-        <span class="pre">
-         Lung
-        </span>
-       </code>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#missing-uberon-annotation">
+       5.4.2.3.1. Missing Uberon annotation
       </a>
      </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mislabelled-fantom-sample-ff-11590-120g6-should-be-labelled-alveolar-epithelial-cells-not-renal-glomerular-endothelial-cells">
-       5.5.3.2. Mislabelled FANTOM sample:
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         FF:11590-120G6
-        </span>
-       </code>
-       should be labelled
-       <em>
-        Alveolar Epithelial Cells
-       </em>
-       not
-       <em>
-        Renal Glomerular Endothelial Cells
-       </em>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mislabelled-sample">
+       5.4.2.3.2. Mislabelled sample
       </a>
      </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#imprecise-fantom-annotation-to-tissue">
-       5.5.3.3. Imprecise FANTOM annotation to tissue
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#imprecise-annotation-to-tissue">
+       5.4.2.3.3. Imprecise annotation to tissue
       </a>
      </li>
     </ul>
@@ -533,50 +491,121 @@
               <div>
                 
   <div class="section" id="the-uberon-py-package">
-<h1><span class="section-number">5.4. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package<a class="headerlink" href="#the-uberon-py-package" title="Permalink to this headline">¶</a></h1>
-<p>In order to map between Uberon tissues, CL cells, and named tissues from sample information, I created a small Python Package -  <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code>, which is <span class="xref myst">available to install</span> via the Python Package Index, with code <a class="reference external" href="https://github.com/NatalieThurlby/uberon-py">available on GitHub</a>.</p>
-</div>
+<span id="uberon-py"></span><h1><span class="section-number">5.4. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package<a class="headerlink" href="#the-uberon-py-package" title="Permalink to this headline">¶</a></h1>
+<p>In order to map between Uberon tissues, CL cells, and named tissues from sample information, I created a small Open Source Python Package -  <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code>, which is <span class="xref myst">available to install via the Python Package Index</span>, with code <a class="reference external" href="https://github.com/NatalieThurlby/uberon-py">available on GitHub</a>.</p>
 <div class="section" id="functionality">
-<h1><span class="section-number">5.5. </span>Functionality<a class="headerlink" href="#functionality" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">5.4.1. </span>Functionality<a class="headerlink" href="#functionality" title="Permalink to this headline">¶</a></h2>
 <p>This package allows users to use Python to:</p>
 <ol class="simple">
 <li><p><strong>Download useful Uberon ontology files</strong> a selection of Uberon ontology <code class="docutils literal notranslate"><span class="pre">.obo</span></code> files.</p></li>
 <li><p><strong>Load <code class="docutils literal notranslate"><span class="pre">.obo</span></code> ontology files</strong>, either your own, separately downloaded, or those obtained in (1).</p></li>
-<li><p><strong>Mapping via name:</strong> Map from sample-to-tissue via informal tissue names given in experimental design information (e.g. “eye stalk”) to an Uberon term (UBERON:0010326, Optic Pedicel).</p></li>
-<li><p><strong>Mapping via ontology:</strong> Map from CL cell types (e.g. <code class="docutils literal notranslate"><span class="pre">CL:0000235</span></code>, Macrophage), sample ontology term to Uberon tissues (e.g. <code class="docutils literal notranslate"><span class="pre">UBERON:0002405</span></code>, Immune system). Or from sample ontology terms (like FANTOM terms, such as FF:10048-101G3, Smooth Muscle, Adult, Pool1) to Uberon terms (<code class="docutils literal notranslate"><span class="pre">UBERON:0001135</span></code>, Smooth Muscle Tissue). Returns relationships between source term and Uberon term.</p></li>
+<li><p><strong><a class="reference internal" href="#mapping-by-name"><span class="std std-ref">Mapping via name</span></a>:</strong> Map from sample-to-tissue via informal tissue names given in experimental design information (e.g. “eye stalk”) to an Uberon term (<code class="docutils literal notranslate"><span class="pre">UBERON:0010326</span></code>, Optic Pedicel).</p></li>
+<li><p><strong><a class="reference internal" href="#mapping-by-term"><span class="std std-ref">Mapping via ontology term</span></a>:</strong> Map from CL cell types (e.g. <code class="docutils literal notranslate"><span class="pre">CL:0000235</span></code>, Macrophage), sample ontology term to Uberon tissues (e.g. <code class="docutils literal notranslate"><span class="pre">UBERON:0002405</span></code>, Immune system). Or from sample ontology terms (like FANTOM terms, such as FF:10048-101G3, Smooth Muscle, Adult, Pool1) to Uberon terms (<code class="docutils literal notranslate"><span class="pre">UBERON:0001135</span></code>, Smooth Muscle Tissue). Returns relationships between source term and Uberon term.</p></li>
 <li><p><strong>Create sample-to-tissue mappings</strong> based on (3) and (4)</p></li>
-<li><p><strong>Find disagreements in mappings</strong> based on (3) and (4), which my indicate errors in sample metadata or ontologies.</p></li>
+<li><p><strong><a class="reference internal" href="#disagreement-finding"><span class="std std-ref">Find disagreements in mappings</span></a></strong> based on (3) and (4), which my indicate errors in sample metadata or ontologies.</p></li>
 </ol>
-<div class="section" id="mapping-by-name">
-<h2><span class="section-number">5.5.1. </span>Mapping by name<a class="headerlink" href="#mapping-by-name" title="Permalink to this headline">¶</a></h2>
+<p>The less self-explanatory aspects of this functionality are explained below:</p>
+<p id="mapping-by-name"><strong>Mapping by name:</strong></p>
 <p>Informal tissue names are mapped Uberon term identifiers by checking for exact name matches to Uberon term names and their synonyms in the extended Uberon ontology.</p>
-</div>
-<div class="section" id="mapping-by-term">
-<h2><span class="section-number">5.5.2. </span>Mapping by term<a class="headerlink" href="#mapping-by-term" title="Permalink to this headline">¶</a></h2>
+<p id="mapping-by-term"><strong>Mapping by term:</strong></p>
 <p>A mapping between a provided term (e.g. a FANTOM sample identifier or CL identifier) associated with a sample and an Uberon term is created by:</p>
 <ul class="simple">
 <li><p>Finding all relationships of interest (e.g. <code class="docutils literal notranslate"><span class="pre">is_a</span></code>, <code class="docutils literal notranslate"><span class="pre">related_to</span></code>, <code class="docutils literal notranslate"><span class="pre">part_of</span></code>, <code class="docutils literal notranslate"><span class="pre">derives_from</span></code>, <code class="docutils literal notranslate"><span class="pre">intersection_of</span></code>, <code class="docutils literal notranslate"><span class="pre">union_of</span></code>) to any other sample, cell or Uberon term.</p></li>
 <li><p>Propagate any relationships found using the same list of relationships, until either an Uberon term is found, or no new relationships are found, or you reach the root terms of the ontology.</p></li>
 </ul>
 <p>In this way, some mappings can be made via the cell ontology, which cannot be made through Uberon alone, for example: Macrophage - monocyte derived, donor3 <code class="docutils literal notranslate"><span class="pre">is_a</span></code> Human macrophage sample <code class="docutils literal notranslate"><span class="pre">derives_from</span></code> Macrophage <code class="docutils literal notranslate"><span class="pre">is_a</span></code> Monocyte <code class="docutils literal notranslate"><span class="pre">is_a</span></code> Leukocyte <code class="docutils literal notranslate"><span class="pre">part_of</span></code> Immune System, e.g. this sample is related to the immune system.</p>
+<p id="disagreement-finding"><strong>Using disagreements between mappings to improve biological ontologies:</strong></p>
+<p>As described, the <code class="docutils literal notranslate"><span class="pre">uberon_py</span></code> package has two methods of mapping to tissues.
+Where both can be ran, disagreements between these mappings can be checked.
+When these two methods disagree, logical inconsistencies in either the mappings or the ontologies is revealed.
+See the <a class="reference internal" href="#fantom5-inconsistencies-example"><span class="std std-ref">example</span></a> of how this worked for the FANTOM5 data set.</p>
 </div>
-<div class="section" id="using-disagreements-between-mappings-to-improve-biological-ontologies">
-<h2><span class="section-number">5.5.3. </span>Using disagreements between mappings to improve biological ontologies<a class="headerlink" href="#using-disagreements-between-mappings-to-improve-biological-ontologies" title="Permalink to this headline">¶</a></h2>
-<p>The uberon_py package has two methods of mapping to tissues. Where both can be ran, disagreements between these mappings can be checked. For the FANTOM5 data, this was possible, and disagreements between these mappings revealed problems in the biological ontologies and experiment metadata that were provided to the package in order to create the mappings. These could then be fed back to the maintainers of these ontologies and datasets in order to improve/correct them.</p>
-<p>Disagreements between the tissue-sample mappings created through the (FANTOM, CL and Uberon) ontologies and those created using human annotation illuminates what may be a lack of specificity, incompleteness in, or disagreement between FANTOM, CL, or Uberon annotations, either in creating ontologies or annotating tissues to samples. The process of mapping FANTOM to Uberon tissues found twenty-two such disagreements, of which FANTOM, Uberon, and CL where appropriate have been informed via GitHub issues, some of which have already sparked changes in the ontologies.</p>
+<div class="section" id="example-usage">
+<h2><span class="section-number">5.4.2. </span>Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
+<p>The Uberon ontology connects many different ontologies and dictionaries, including many anatomy ontologies for different species (mouse, xenopus, fly, zebrafish) and specific structures (Neuroscience Information Framework (NIF) Gross Anatomy, Edinburgh Human Developmental Anatomy), as well as phenotype ontologies (Mammalian Phenotype Ontology, Gene Ontology)<a class="bibtex reference internal" href="../end-matter/reference.html#mungall2012-nc" id="id1">[146]</a>.
+As such it is used by a wide variety of researchers.</p>
+<div class="section" id="example-1-harmonisation-of-gene-expression-data">
+<h3><span class="section-number">5.4.2.1. </span>Example 1: Harmonisation of gene expression data<a class="headerlink" href="#example-1-harmonisation-of-gene-expression-data" title="Permalink to this headline">¶</a></h3>
+<p><span class="xref myst">//</span>: # (TODO: Show a snippet of code and output),
+<a class="reference internal" href="3-data-wrangling.html#c05-3-data-wrangling"><span class="std std-numref">Section 5.3</span></a> shows an example of how this package can be used to create a sample to tissue mapping for four different gene expression data sets.</p>
+</div>
+<div class="section" id="example-2-grouping-samples-based-on-tissues">
+<span id="tissue-group-mapping"></span><h3><span class="section-number">5.4.2.2. </span>Example 2: Grouping samples based on tissues<a class="headerlink" href="#example-2-grouping-samples-based-on-tissues" title="Permalink to this headline">¶</a></h3>
+<p>Either using existing Uberon mappings, or after mapping to Uberon samples (as in example 1), samples can be grouped by more general Uberon terms representing groups of tissues.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Code mapping samples to more general groups</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">uberon_py</span> <span class="kn">import</span> <span class="n">obo</span>
+
+<span class="n">tissues</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/mappings/tissue_list.csv&#39;</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;UBERON&#39;</span><span class="p">])</span>
+<span class="n">obo</span> <span class="o">=</span> <span class="n">obo</span><span class="o">.</span><span class="n">Obo</span><span class="p">(</span><span class="s1">&#39;data/uberonext_obo.txt&#39;</span><span class="p">,[</span><span class="s1">&#39;UBERON&#39;</span><span class="p">])</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">name_map</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="n">tissues</span><span class="p">[</span><span class="s1">&#39;UBERON&#39;</span><span class="p">]:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">obo</span><span class="o">.</span><span class="n">ont</span><span class="p">[</span><span class="n">tissue</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+    <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">name_map</span><span class="p">[</span><span class="n">tissue</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+<span class="n">tissues</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+<span class="n">tissues</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">tissues</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data/mappings/tissues.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">groups</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;brain&#39;</span><span class="p">,</span><span class="s1">&#39;cardiovascular system&#39;</span><span class="p">,</span> <span class="s1">&#39;respiratory system&#39;</span><span class="p">,</span><span class="s1">&#39;digestive system&#39;</span><span class="p">,</span><span class="s1">&#39;skeletal system&#39;</span><span class="p">,</span><span class="s1">&#39;skin of body&#39;</span><span class="p">,</span> <span class="s1">&#39;reproductive system&#39;</span><span class="p">,</span><span class="s1">&#39;muscle tissue&#39;</span><span class="p">,</span><span class="s1">&#39;renal system&#39;</span><span class="p">,</span><span class="s1">&#39;central nervous system&#39;</span><span class="p">,</span><span class="s1">&#39;connective tissue&#39;</span><span class="p">]</span>
+<span class="n">groups_UBERON</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">u_id</span> <span class="ow">in</span> <span class="n">obo</span><span class="o">.</span><span class="n">ont</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">obo</span><span class="o">.</span><span class="n">ont</span><span class="p">[</span><span class="n">u_id</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">group</span><span class="p">:</span>
+            <span class="n">groups_UBERON</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u_id</span><span class="p">)</span>
+<span class="n">group_name_map</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">groups_UBERON</span><span class="p">,</span> <span class="n">groups</span><span class="p">))</span>
+
+<span class="n">relations</span> <span class="o">=</span> <span class="n">obo</span><span class="o">.</span><span class="n">get_relations</span><span class="p">([</span><span class="s1">&#39;is_a&#39;</span><span class="p">,</span><span class="s1">&#39;part_of&#39;</span><span class="p">],</span><span class="n">tissues</span><span class="p">[</span><span class="s1">&#39;UBERON&#39;</span><span class="p">],</span><span class="n">groups_UBERON</span><span class="p">,</span><span class="n">obo</span><span class="o">.</span><span class="n">ont</span><span class="p">)</span><span class="o">.</span><span class="n">relations</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">uberon</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">relations</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">groups</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+<span class="n">relations</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">relations</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">relations</span><span class="p">[</span><span class="s1">&#39;Group name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">relations</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">group_name_map</span><span class="p">)</span>
+<span class="n">relations</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">relations</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">name_map</span><span class="p">)</span>
+<span class="n">relations</span><span class="o">=</span><span class="n">relations</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;Relation string&#39;</span><span class="p">})</span>
+<span class="n">relations</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../data/mappings/tissues_groups.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="example-3-finding-inconsistencies-in-the-fantom5-data">
+<span id="fantom5-inconsistencies-example"></span><h3><span class="section-number">5.4.2.3. </span>Example 3: finding inconsistencies in the FANTOM5 data<a class="headerlink" href="#example-3-finding-inconsistencies-in-the-fantom5-data" title="Permalink to this headline">¶</a></h3>
+<p>For the FANTOM5 data, disagreements between these mappings revealed problems in the biological ontologies and experiment metadata that were provided to the package in order to create the mappings.
+These could then be fed back to the maintainers of these ontologies and datasets in order to improve/correct them.</p>
+<p>Disagreements between the tissue-sample mappings created through the (FANTOM, CL and Uberon) ontologies and those created using human annotation illuminates what may be a lack of specificity, incompleteness in, or disagreement between FANTOM, CL, or Uberon annotations, either in creating ontologies or annotating tissues to samples.
+The process of mapping FANTOM to Uberon tissues found twenty-two such disagreements, of which FANTOM, Uberon, and CL where appropriate have been informed via GitHub issues, some of which have already sparked changes in the ontologies.</p>
 <p>Three different types of example are described below, to give an idea of how multiple mappings may be used to improve annotation.</p>
-<div class="section" id="missing-uberon-annotation-bronchus-part-of-some-lung">
-<h3><span class="section-number">5.5.3.1. </span>Missing Uberon annotation: <code class="docutils literal notranslate"><span class="pre">Bronchus</span> <span class="pre">part_of</span> <span class="pre">some</span> <span class="pre">Lung</span></code><a class="headerlink" href="#missing-uberon-annotation-bronchus-part-of-some-lung" title="Permalink to this headline">¶</a></h3>
-<p>For example, sample <code class="docutils literal notranslate"><span class="pre">FF:11511-119G8</span></code> (Bronchial Epithelial Cell, donor1) is mapped by name to <code class="docutils literal notranslate"><span class="pre">UBERON:0002048</span></code> Lung, but by ontology to <code class="docutils literal notranslate"><span class="pre">UBERON:0002185</span></code> Bronchus, and these two Uberon terms are not straightforwardly related by any formal relation in the Uberon ontology although the description text for Bronchus says “the upper conducting airways of the lung”.</p>
+<div class="section" id="missing-uberon-annotation">
+<h4><span class="section-number">5.4.2.3.1. </span>Missing Uberon annotation<a class="headerlink" href="#missing-uberon-annotation" title="Permalink to this headline">¶</a></h4>
+<p><strong>Example: <code class="docutils literal notranslate"><span class="pre">Bronchus</span> <span class="pre">part_of</span> <span class="pre">some</span> <span class="pre">Lung</span></code></strong></p>
+<p>One type of problem that can be revealed is a missing link in an ontology.</p>
+<p>An example of this that was found using the FANTOM data set was that there was no formal relationin the Uberon ontology between <em>Bronchus</em> and <em>Lung</em>, despite the fact that the description text for Bronchus says “the upper conducting airways of the lung”.</p>
+<p>This was found because the sample <code class="docutils literal notranslate"><span class="pre">FF:11511-119G8</span></code> (Bronchial Epithelial Cell, donor1) is mapped by name to <code class="docutils literal notranslate"><span class="pre">UBERON:0002048</span></code> Lung, but by ontology to <code class="docutils literal notranslate"><span class="pre">UBERON:0002185</span></code> Bronchus.
+This was flagged as inconsistent because there are no relation in the Uberon ontology between these terms.</p>
 <p>Similar missing annotations were discovered between Aorta and Artery, and Hair follicle and Dermal papilla.</p>
 </div>
-<div class="section" id="mislabelled-fantom-sample-ff-11590-120g6-should-be-labelled-alveolar-epithelial-cells-not-renal-glomerular-endothelial-cells">
-<h3><span class="section-number">5.5.3.2. </span>Mislabelled FANTOM sample: <code class="docutils literal notranslate"><span class="pre">FF:11590-120G6</span></code> should be labelled <em>Alveolar Epithelial Cells</em> not <em>Renal Glomerular Endothelial Cells</em><a class="headerlink" href="#mislabelled-fantom-sample-ff-11590-120g6-should-be-labelled-alveolar-epithelial-cells-not-renal-glomerular-endothelial-cells" title="Permalink to this headline">¶</a></h3>
-<p>The FANTOM sample ontology contains two samples named Renal Glomerular Endothelial Cells, donor2; <code class="docutils literal notranslate"><span class="pre">FF:11590-120G6</span></code> and <code class="docutils literal notranslate"><span class="pre">FF:11594-120H1</span></code>. One of these is a mislabelled sample, which is actually an Alveolar Epithelial Cell sample.</p>
+<div class="section" id="mislabelled-sample">
+<h4><span class="section-number">5.4.2.3.2. </span>Mislabelled sample<a class="headerlink" href="#mislabelled-sample" title="Permalink to this headline">¶</a></h4>
+<p><strong>Example: <code class="docutils literal notranslate"><span class="pre">FF:11590-120G6</span></code> should be labelled <em>Alveolar Epithelial Cells</em> not <em>Renal Glomerular Endothelial Cells</em></strong></p>
+<p>Sometimes samples are simply mislabelled.
+In this case the mistake was revealed by testing the agreement between annotations because the mistake is only for the name, but not tissue annotation.</p>
+<p>The FANTOM sample ontology contains two samples named Renal Glomerular Endothelial Cells, donor2: <code class="docutils literal notranslate"><span class="pre">FF:11590-120G6</span></code> and <code class="docutils literal notranslate"><span class="pre">FF:11594-120H1</span></code>.
+One of these is a mislabelled sample, and it is actually an Alveolar Epithelial Cell sample.</p>
 </div>
-<div class="section" id="imprecise-fantom-annotation-to-tissue">
-<h3><span class="section-number">5.5.3.3. </span>Imprecise FANTOM annotation to tissue<a class="headerlink" href="#imprecise-fantom-annotation-to-tissue" title="Permalink to this headline">¶</a></h3>
-<p>Several FANTOM tissues are labelled by name colloquially, rather than precisely. For example, both Nucleus pulpopus and Vertebra are labelled Spinal cord (although the spinal cord itself is considered disjoint from these entities, both by definition, and in the Uberon ontology). It’s for this reason that the ontology mapping is preferred over the labelled sample name in creating the overall FANTOM sample-to-tissue mapping.</p>
+<div class="section" id="imprecise-annotation-to-tissue">
+<h4><span class="section-number">5.4.2.3.3. </span>Imprecise annotation to tissue<a class="headerlink" href="#imprecise-annotation-to-tissue" title="Permalink to this headline">¶</a></h4>
+<p><strong>Example: <em>Nucleus pulpopus</em> as <em>Spinal cord</em></strong></p>
+<p>Several FANTOM tissues are labelled by name colloquially, rather than precisely.
+For example, both <em>Nucleus pulpopus</em> and <em>Vertebra</em> are labelled <em>Spinal cord</em> (although the spinal cord itself is considered disjoint from these entities, both by definition, and in the Uberon ontology).
+It’s for this reason that the ontology mapping is preferred over the labelled sample name in creating the overall FANTOM sample-to-tissue mapping.</p>
+</div>
 </div>
 </div>
 </div>
@@ -610,7 +639,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="3-data-wrangling.html" title="previous page"><span class="section-number">5.3. </span>Data Wrangling</a>
-    <a class='right-next' id="next-link" href="5-batch-correction.html" title="next page"><span class="section-number">5.6. </span>Batch correction</a>
+    <a class='right-next' id="next-link" href="5-batch-correction.html" title="next page"><span class="section-number">5.5. </span>Batch correction</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -630,7 +659,7 @@
     </div>
 
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
 
     

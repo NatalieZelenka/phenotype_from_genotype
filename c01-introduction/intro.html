@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -82,56 +80,38 @@
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter_book_intro.html">
-   Start Here
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
+    <p class="caption collapsible-parent">
  <span class="caption-text">
   Front Matter
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../front-matter/title-page.html">
-   Title Page
+   Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/list-of-figures.html">
-   List of Figures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/list-of-tables.html">
-   List of Tables
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/full-table-of-contents.html">
-   Table of Contents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/acknowledgements.html">
-   Acknowledgements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/abstract.html">
-   Abstract
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../front-matter/declaration.html">
-   Declaration
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/acknowledgements.html">
+     Acknowledgements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/abstract.html">
+     Abstract
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../front-matter/declaration.html">
+     Declaration
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -172,7 +152,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
-     2.5. Linking genotype and phenotype
+     2.5. Phenotype
     </a>
    </li>
    <li class="toctree-l2">
@@ -190,23 +170,33 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/1-measuring-genotype-phenotype.html">
-     3.1. From genotype to phenotype: what is measured
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/2-comp-bio-methods.html">
-     3.2. How large computational biology datasets are used
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/3-bias.html">
-     3.3. Sources of bias in computational biology datasets
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/4-summary.html">
-     3.4. Summary
+    <a class="reference internal" href="../c03-compbio-background/4-bias.html">
+     3.4. Bias
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-pqi.html">
+     3.5. PQI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-summary.html">
+     3.6. Summary
     </a>
    </li>
   </ul>
@@ -250,13 +240,18 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-results.html">
+     4.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/6-discussion.html">
-     4.5. Discussion
+     4.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/7-future-work.html">
-     4.6. Future Work
+     4.7. Future Work
     </a>
    </li>
   </ul>
@@ -264,28 +259,77 @@
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c05-combining/0-index.html">
-   5. Combining RNA-seq datasets
+  <a class="reference internal" href="../c05-filter/0-index.html">
+   5. Filtering computational predictions with tissue-specific expression information
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/1-background.html">
-     5.1. Background
+    <a class="reference internal" href="../c05-filter/1-introduction.html">
+     5.1. Introduction
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/2-data.html">
-     5.2. Data
+    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
+     5.2. Motivation: linking Genotype and phenotype
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/3-data-wrangling.html">
-     5.3. Data Wrangling
+    <a class="reference internal" href="../c05-filter/1-introduction.html#cafa">
+     5.3. CAFA
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/4-uberon.html">
-     5.4. The
+    <a class="reference internal" href="../c05-filter/2-data.html">
+     5.4. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-filter/3-methods.html">
+     5.5. Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-filter/4-results.html">
+     5.6. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-filter/5-discussion.html">
+     5.7. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-filter/6-future-work.html">
+     5.8. Future work
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c06-combining/0-index.html">
+   6. Combining RNA-seq datasets
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-combining/1-background.html">
+     6.1. Background
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-combining/2-data.html">
+     6.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-combining/3-data-wrangling.html">
+     6.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-combining/4-uberon.html">
+     6.4. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -295,57 +339,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/4-uberon.html#functionality">
-     5.5. Functionality
+    <a class="reference internal" href="../c06-combining/5-batch-correction.html">
+     6.5. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/5-batch-correction.html">
-     5.6. Batch correction
+    <a class="reference internal" href="../c06-combining/6-results.html">
+     6.6. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/6-results.html">
-     5.7. Results
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c06-filter/0-index.html">
-   6. Filtering computational predictions with tissue-specific expression information
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-filter/1-introduction.html">
-     6.1. Introduction
+    <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
+     6.7. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-filter/2-data.html">
-     6.2. Data
+    <a class="reference internal" href="../c06-combining/7-discussion.html">
+     6.8. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-filter/3-methods.html">
-     6.3. Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-filter/4-results.html">
-     6.4. Results
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-filter/5-discussion.html">
-     6.5. Discussion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-filter/6-future-work.html">
-     6.6. Future work
+    <a class="reference internal" href="../c06-combining/8-future-work.html">
+     6.9. Future Work
     </a>
    </li>
   </ul>
@@ -379,7 +394,7 @@
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
 </div>
 
 </div>
@@ -406,23 +421,6 @@
         </button>
         
         
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/c01-introduction/intro.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
         <!-- Source interaction buttons -->
 
 
@@ -462,10 +460,10 @@ Notes on chapters:
 <p>The central theme of this thesis is the relationship between protein function - at either a molecular or phenotypic level - and the sequence of its associated DNA and RNA. A recurring motif is impact of the provenance of related data and what that means for attempts to make genome-wide predictions about these relationships.</p>
 <p>In the spirit of trying to make my work as reproducibly and Open as possible, this thesis is available online as a Jupyter Book: the latest version is available online <span class="xref myst">here</span>.</p>
 <p><a class="reference internal" href="../c02-biology-background/0-index.html#c02-biology-bg"><span class="std std-ref">Chapter 2</span></a> contains the biological background information on which the rest of the thesis is based. It tells the story of how phenotype arises from genotype, and introduces the different biological molecules that are involved. It begins at the very basics: what are DNA, RNA, proteins, and phenotypes? How do we measure them? And how do we measure the connections between them? This background is intended to make this thesis readable to someone without a background in biology. This chapter does not contain any of my own research. In the light of Black Lives Matter, I have included asides in this book where I mention researchers who have been involved in eugenics and/or racism. I have done this as I don’t want to highlight the scientific achievements of these individuals, without also acknowledging their legacy of scientific racism.</p>
-<p><a class="reference internal" href="../c03-compbio-background/0-index.html#c03-compbio-bg"><span class="std std-ref">Chapter 3</span></a> is a second background chapter, which contains some of my own work. It follows on from the first by discussing popular resources in computational biology, their provenance, and the impact of this on the field. This includes mathematical modelling of publications of named genes and sensitivity analysis of gene enrichment analyses. I also present here my contributions to reproducibility-related collaborative projects that I have and continue to be involved with: the Proteome Quality Index paper<a class="bibtex reference internal" href="../end-matter/reference.html#zaucha2015-ez" id="id1">[1]</a>, my contribution to the collaborative 2014 SUPERFAMILY update paper<a class="bibtex reference internal" href="../end-matter/reference.html#oates2015-li" id="id2">[1]</a>, and the (ongoing) MAPS project.</p>
-<p>In <a class="reference internal" href="../c04-snowflake/0-index.html#c04-snowflake"><span class="std std-ref">Chapter 4</span></a>, I describe my preliminary efforts to integrate the data sources described in the background chapters into Snowflake, a phenotype predictor<a class="bibtex reference internal" href="../end-matter/reference.html#gough2017-ik" id="id3">[1]</a>. I discuss potential reasons for the poor performance of the predictor.</p>
-<p><a class="reference internal" href="../c05-combining/0-index.html#c05-combining"><span class="std std-ref">Chapter 5</span></a> discusses a combined tissue-specific RNA-Seq data sets from four experiments. I present this alongside two resources that I created in order to create this: a Python package for mapping samples to tissues, and a set of simulated tissue-specific data-sets.</p>
-<p>In <a class="reference internal" href="../c06-filter/0-index.html#c06-filter"><span class="std std-ref">Chapter 6</span></a>, I discuss a filter-based gene function predictor that I entered in the CAFA3 competition<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id4">[1]</a>.</p>
+<p><a class="reference internal" href="../c03-compbio-background/0-index.html#c03-compbio-bg"><span class="std std-ref">Chapter 3</span></a> is a second background chapter, which contains some of my own work. It follows on from the first by discussing popular resources in computational biology, their provenance, and the impact of this on the field. This includes mathematical modelling of publications of named genes and sensitivity analysis of gene enrichment analyses. I also present here my contributions to reproducibility-related collaborative projects that I have and continue to be involved with: the Proteome Quality Index paper<a href="#id1"><span class="problematic" id="id2">:cite:`Zaucha2015-ez`</span></a>, my contribution to the collaborative 2014 SUPERFAMILY update paper<a href="#id3"><span class="problematic" id="id4">:cite:`Oates2015-li`</span></a>, and the (ongoing) MAPS project.</p>
+<p>In <a class="reference internal" href="../c04-snowflake/0-index.html#c04-snowflake"><span class="std std-ref">Chapter 4</span></a>, I describe my preliminary efforts to integrate the data sources described in the background chapters into Snowflake, a phenotype predictor<a href="#id5"><span class="problematic" id="id6">:cite:`Gough2017-ik`</span></a>. I discuss potential reasons for the poor performance of the predictor.</p>
+<p><a class="reference internal" href="../c06-combining/0-index.html#c05-combining"><span class="std std-ref">Chapter 5</span></a> discusses a combined tissue-specific RNA-Seq data sets from four experiments. I present this data set as a resource, alongside a Python package that I created in order to do this: uberon-py.</p>
+<p>In <a class="reference internal" href="../c05-filter/0-index.html#c06-filter"><span class="std std-ref">Chapter 6</span></a>, I discuss a filter-based gene function predictor that I entered in the CAFA3 competition<a href="#id7"><span class="problematic" id="id8">:cite:`Zhou2019-jk`</span></a>.</p>
 <p>Finally, I discuss my conclusions in <a class="reference internal" href="../c07-conclusion/0-conclusion.html#c07-conclusion"><span class="std std-ref">Chapter 7</span></a>.</p>
 </div>
 

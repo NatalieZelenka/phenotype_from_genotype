@@ -34,7 +34,23 @@ Due to the personal and private nature of the data, we were granted access to th
 
 [//]: # (TODO: link ethics approval docs (put on OSF?)
 
-Although the ALSPAC dataset is large, it is not very diverse, therefore the 1000 genomes project (Phase 1) genomes were used as a background set.
+Although the ALSPAC data set is large, it is not very diverse, therefore the 1000 genomes project (Phase 1) genomes were used as a background set.
+
+[//]: # (TODO: cross ref VCF to first metion)
+[//]: # (TODO: include a sample of VCF - not real maybe or no labels)
+[//]: # (TODO: cross ref position/bed to where I describe the data cleaning pipeline {cite}`Tyner2016-er`)
+
+```{margin} VCF
+:name: vcf-format
+When individual humans have their whole genomes sequenced, this is compared to the human reference genome. 
+The alleles at each location are commonly stored in Variant Call Format (VCF) files. 
+These describe the locations on the genome of variations between individuals, given by chromosome, position, variant identifiers, and the variation between a given number of individuals.
+```
+
+```{margin} Position and BED formats
+:name: position-bed-format
+The positions of the variants (SNPs) that are recorded can vary in format: essentially this comes down to a change in formatting, the fact that sometimes counting starts at 0, and sometimes it starts at 1, and sometimes ranges are closed on one side e.g. `chr1 127140000 127140001` in BED format is equivalent to `chr1:127140001-127140001` in "Position" format{cite}``.
+```
 
 ##### Genotypes
 [//]: # (TODO: Write)
@@ -160,11 +176,3 @@ Implausible distributions of SNPs in the input cohort (given the background) are
 [//]: # (TODO: Write)
 
 +++
-
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
-```

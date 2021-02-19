@@ -32,7 +32,9 @@ The central dogma of molecular biology can be paraphrased as "DNA makes RNA make
 Proteins make up a lot of molecular machinery in the body as well as structures, however there are other actors, too, for example, functional RNA molecules (some of which are explained further down this page). Fats (which may or may not be synthesised using proteins) can also make up structural parts of the body such as cell membranes.
 ``` 
 
-The central dogma describes the process of gene expression. Gene expression has two parts: transcription (“DNA makes RNA”) and translation (“RNA makes proteins”).
+(gene-expression)=
+The central dogma describes the process of gene expression.
+Gene exp ression has two parts: transcription (“DNA makes RNA”) and translation (“RNA makes proteins”).
 
 ### "DNA makes RNA", a.k.a, transcription
 
@@ -75,6 +77,7 @@ This can happen, for example, by skipping some of the exons during splicing.
 So, "DNA makes RNA(*s*)".
 This means that there's not a one-to-one relationship between genes and transcripts, and therefore between genes and proteins.
 
+[//]: # (TODO: aside histone modifications/epigenetics)
 What is transcribed and how quickly is affected by many different kinds of proteins, as well as other molecules, for example histone modifications. 
 Transcription factors are of particular note, which are proteins that bind to DNA close to or in the promoter region, and either *activate* the gene (increasing it’s rate of transcription), by for example recruiting RNA polymerase, or *repress* it (decrease it’s rate of transcription).
 These transcription factors are in turn regulated by other transcription factors, which creates a network of gene regulation; a gene regulatory network (GRN).
@@ -109,6 +112,11 @@ Transfer RNA (tRNA) transports the amino acids to the ribosome where the polypep
 
 Although we would expect $4^3=64$ permutations of nucleotides, there are only 21 different amino acids which can be incorporated into proteins in humans, so there is redundancy: multiple codons can encode for the same amino acids. 
 We can see this clearly in the left part of {numref}`translation`, for example, UAA, UGA, and UAG are all read as stop codons.
+
+(post-translational-modifications)=
+**Post-translational modifications:** 
+Post translational modifications are changes to proteins which occur after translation, but they may happen before or after folding{cite}`Uversky2013-bt`.
+These changes consist of chemicals bonding to the protein, which can change its function or structure, assist in folding, or target them for degradation, for example.
 
 ### "... and proteins do everything."
 The unwritten addendum implied by “DNA makes RNA makes proteins” is “...and proteins do ({ref}`almost<almost-everything>`) everything”. 
