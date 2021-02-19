@@ -95,6 +95,8 @@ For this reason, it can sometimes be difficult to map between identifiers from d
 In part, due to the amount of information that researchers have collected through through {ref}`gene knockouts<gene-knockouts>` and gene expression experiments, it is at the level of the gene that a lot of mappings about function take place.
 This includes, for example, information about a gene's involvement in a gene regulatory network or in a {ref}`biological pathway<biological-pathway>`, and information about gene function according to {ref}`observational studies<observational-studies>`.
 
+[//]: # (TODO: Write here about how there are still many genes for which we do not have functional information and how that's not likely to change any time soon.)
+
 #### Variants
 [//]: # (TODO: mention more data sources e.g. 1000 genomes + ALSPAC + OpenSNP)
 

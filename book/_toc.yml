@@ -37,24 +37,24 @@
       - file: c04-snowflake/5-results
       - file: c04-snowflake/6-discussion
       - file: c04-snowflake/7-future-work
-  - file: c05-combining/0-index
+  - file: c05-filter/0-index
     sections:
-      - file: c05-combining/1-background
-      - file: c05-combining/2-data
-      - file: c05-combining/3-data-wrangling
-      - file: c05-combining/4-uberon
-      - file: c05-combining/5-batch-correction
-      - file: c05-combining/6-results
-      - file: c05-combining/7-discussion
-      - file: c05-combining/8-future-work
-  - file: c06-filter/0-index
+      - file: c05-filter/1-introduction
+      - file: c05-filter/2-data
+      - file: c05-filter/3-methods
+      - file: c05-filter/4-results
+      - file: c05-filter/5-discussion
+      - file: c05-filter/6-future-work
+  - file: c06-combining/0-index
     sections:
-      - file: c06-filter/1-introduction
-      - file: c06-filter/2-data
-      - file: c06-filter/3-methods
-      - file: c06-filter/4-results
-      - file: c06-filter/5-discussion
-      - file: c06-filter/6-future-work
+      - file: c06-combining/1-background
+      - file: c06-combining/2-data
+      - file: c06-combining/3-data-wrangling
+      - file: c06-combining/4-uberon
+      - file: c06-combining/5-batch-correction
+      - file: c06-combining/6-results
+      - file: c06-combining/7-discussion
+      - file: c06-combining/8-future-work
   - file: c07-conclusion/0-conclusion
 
 - part: End Matter

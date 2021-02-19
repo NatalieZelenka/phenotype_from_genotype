@@ -9,6 +9,8 @@ This Chapter highlighted the important of considering issues of data provenance,
 While in other fields, data inaccessibility is a major barrier to reproducible research, this is the field that had an online database system that remote computers could access in the 1960s!
 All of this catalogued information collected by researchers around the world populates freely available databases, vocabularies, and annotations, creating controlled and shared vocabularies that fuel computational methodologies.
 
+[//]: # (TODO: Write about the existing tradition of using sequence/structure similarity/homology to predict function on a smaller scale - individual genes/proteins)
+
 With such a treasure trove of data, from model organisms as well as humans, there is now the opportunity for this data to be used to make genome-wide phenotype predictions.
 Multi-omics approaches that combine data types have already been successful at elucidating mechanisms behind certain phenotypes{cite}`Hasin2017-tk,Ritchie2015-ds,Kristensen2014-iw`. 
 We only expect this to work for a subclass of variants and proteins, given the complexity of the biological relationship between genotype and phenotype, as well as the complexity of the data.

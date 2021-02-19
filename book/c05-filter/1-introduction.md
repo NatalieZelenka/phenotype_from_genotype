@@ -1,18 +1,24 @@
 ## Introduction
 [//]: # (TODO: Add cross-ref)
 [//]: # (TODO: Release mapping data separately)
+[//]: # (TODO: Rewrite - make relevant to Snowflake)
+
+## CAFA
 
 As previously mentioned, there are many genes/proteins for which we have sequence information, but not functional information. 
 This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes. 
 
 There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information (e.g. via the CAFA competitions{cite}`Zhou2019-jk,Jiang2016-rz,Radivojac2013-wh`). 
-If successful, this would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments. Such knowledge could be used to identify genes or proteins for future treatments. An accurate model might also be able to give us an insight into the mechanisms behind such functions, giving further insight into how an effective therapy might be designed.
+If successful, this would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments. 
+Such knowledge could be used to identify genes or proteins for future treatments. An accurate model might also be able to give us an insight into the mechanisms behind such functions, giving further insight into how an effective therapy might be designed.
 
 Machine learning methods are currently the most successful class of protein function predictors. While this is promising for answering one aspect of the problem (“what are the functions of a given protein?”), they do not always attempt to answer how or why. 
 
-Structural or sequence methods that estimate protein function based on for example conservation or structure counter this problem. However, they are generally less accurate. 
+Structural or sequence methods that estimate protein function based on for example conservation or structure counter this problem. 
+However, they are generally less accurate. 
 One reason for this might be that they can predict that a protein affects a phenotype in a context that it would never encounter. 
-For example, that a protein which is only ever transcribed in skin cells is associated with lung cancer. Such predictions are at odds with our understanding of how proteins function, and gene expression data could be used to filter out such predictions. 
+For example, that a protein which is only ever transcribed in skin cells is associated with lung cancer. 
+Such predictions are at odds with our understanding of how proteins function, and gene expression data could be used to filter out such predictions. 
 
 Disease-associated genes are generally over-expressed in the tissue they cause symptoms in, with the exception of cancer-associated genes{cite}`Lage2008-gq,Winter2004-rr`. 
 This can and has already been leveraged effectively as part of gene and variant prioritisation methods {cite}`Rackham2015-jp,Antanaviciute2015-ke`.
