@@ -55,6 +55,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4.5. Results" href="5-results.html" />
@@ -76,6 +77,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -272,53 +275,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="../c05-filter/2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-data.html">
-     5.6. Data
+    <a class="reference internal" href="../c05-filter/4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="../c05-filter/5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-results.html">
-     5.8. Results
+    <a class="reference internal" href="../c05-filter/6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="../c05-filter/7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="../c05-filter/8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -346,39 +335,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -522,7 +500,7 @@
 </div>
 <div class="section" id="choice-of-clustering-methodology">
 <h2><span class="section-number">4.4.2. </span>Choice of clustering methodology<a class="headerlink" href="#choice-of-clustering-methodology" title="Permalink to this headline">¶</a></h2>
-<p>The original implementation of the phenotype predictor used k-means clustering<a class="bibtex reference internal" href="../end-matter/reference.html#le-cam1967-ku" id="id1">[126]</a>. This wasn’t suitable for the predictor, since we expect combinations of SNPs to form non-spherical shapes (see <a class="reference internal" href="#non-spherical"><span class="std std-numref">Fig. 4.4</span></a>), and k-means cannot achieve this (see <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.5</span></a>).</p>
+<p>The original implementation of the phenotype predictor used k-means clustering<a class="bibtex reference internal" href="../end-matter/reference.html#le-cam1967-ku" id="id1">[125]</a>. This wasn’t suitable for the predictor, since we expect combinations of SNPs to form non-spherical shapes (see <a class="reference internal" href="#non-spherical"><span class="std std-numref">Fig. 4.4</span></a>), and k-means cannot achieve this (see <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.5</span></a>).</p>
 <p>Spectral clustering, DBSCAN (Density-Based Spatial Clustering of Applications with Noise), OPTICS and LOF (Local Outlier Factor) were also implemented. This involved automation of parameter selection, to enable clustering to be performed automatically on thousands of phenotype terms. These methods have theoretical pros and cons with respect to the predictor. For example, OPTICS and DBSCAN do not need the number of clusters as an input, but instead require the minimum number of points required to form a cluster and a radius from each point to consider as part of a cluster, which has more meaning in this context. They also automatically output outliers to clusters, which will affect the resulting phenotype score, potentially in unseen ways - particularly as it is difficult to visualise high-dimensional data. OPTICS is the default setting, as in addition to not requiring a number of clusters, it can identify clusters of differing densities (a quality that DBSCAN lacks - as can be seen in the second row of <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.5</span></a>). A final informed choice between these options requires a large benchmarking set.</p>
 </div>
 <div class="section" id="choice-of-distance-metric">
@@ -543,7 +521,7 @@
 </div>
 <div class="figure align-default" id="clustering-comparison">
 <a class="reference internal image-reference" href="../_images/clustering_comparison.png"><img alt="../_images/clustering_comparison.png" src="../_images/clustering_comparison.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Comparison illustrating differences between the implemented clustering methods. Image adapted from sklearn documentation<a class="bibtex reference internal" href="../end-matter/reference.html#noauthor-undated-nc" id="id2">[127]</a>.</span><a class="headerlink" href="#clustering-comparison" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Comparison illustrating differences between the implemented clustering methods. Image adapted from sklearn documentation<a class="bibtex reference internal" href="../end-matter/reference.html#noauthor-undated-nc" id="id2">[126]</a>.</span><a class="headerlink" href="#clustering-comparison" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="input-individuals">
@@ -551,7 +529,7 @@
 </div>
 <div class="section" id="the-curse-of-dimensionality">
 <h2><span class="section-number">4.4.5. </span>The curse of dimensionality<a class="headerlink" href="#the-curse-of-dimensionality" title="Permalink to this headline">¶</a></h2>
-<p>The “curse of dimensionality” is a phrase coined by Richard E Bellman, during his work on dynamic programming<a class="bibtex reference internal" href="../end-matter/reference.html#bellman1957-dc" id="id3">[128]</a>, but has since proved relevant in many different mathematical and data-driven fields. In addition to it’s more colloquial use as a catch-all complaint about high-dimensional data, the “curse” refers to the sparsity of data that occurs exponentially with an increase in dimensions. This leads to various problems in different fields<a class="bibtex reference internal" href="../end-matter/reference.html#zimek2012-fg" id="id4">[129]</a> and of which we run into two in this chapter; general difficulty in reaching statistical significance and reduced usefulness of clustering, distance, and outlier metrics.</p>
+<p>The “curse of dimensionality” is a phrase coined by Richard E Bellman, during his work on dynamic programming<a class="bibtex reference internal" href="../end-matter/reference.html#bellman1957-dc" id="id3">[127]</a>, but has since proved relevant in many different mathematical and data-driven fields. In addition to it’s more colloquial use as a catch-all complaint about high-dimensional data, the “curse” refers to the sparsity of data that occurs exponentially with an increase in dimensions. This leads to various problems in different fields<a class="bibtex reference internal" href="../end-matter/reference.html#zimek2012-fg" id="id4">[128]</a> and of which we run into two in this chapter; general difficulty in reaching statistical significance and reduced usefulness of clustering, distance, and outlier metrics.</p>
 <p>This problem can be reduced by choosing a clustering/outlier detection method which is more robust to the number of dimensions. It is also helpful to reduce the number of dimensions in some way (feature selection), or to project the data into a different coordinate system (feature projection) and then discard some of the newly calculated coordinates/dimensions.</p>
 <p>A range of clustering methods were trialled on the phenotype predictor in an attempt to overcome the curse of dimensionality and increase the phenotype predictor’s accuracy. Jan mostly implemented the Spectral Clustering, while I implemented the other methods.</p>
 <div class="section" id="dimensionality-reduction">

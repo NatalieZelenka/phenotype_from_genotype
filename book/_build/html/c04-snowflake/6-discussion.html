@@ -55,6 +55,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4.7. Future Work" href="7-future-work.html" />
@@ -76,6 +77,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -272,53 +275,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="../c05-filter/2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-data.html">
-     5.6. Data
+    <a class="reference internal" href="../c05-filter/4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="../c05-filter/5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-results.html">
-     5.8. Results
+    <a class="reference internal" href="../c05-filter/6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="../c05-filter/7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="../c05-filter/8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -346,39 +335,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -465,19 +443,19 @@
   <div class="section" id="discussion">
 <h1><span class="section-number">4.6. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h1>
 <p>It is disappointing that the phenotype predictor does not produce statistically significant results.
-However, the phenotype predictor may yet be useful for revealing candidate SNPs for certain kinds of diseases, and when a suitable data set becomes available (e.g. through the growing number of publicly available genotypes on platforms such as OpenSNP<a class="bibtex reference internal" href="../end-matter/reference.html#greshake2014-mp" id="id1">[130]</a>), this method will still be ready to be tested.
+However, the phenotype predictor may yet be useful for revealing candidate SNPs for certain kinds of diseases, and when a suitable data set becomes available (e.g. through the growing number of publicly available genotypes on platforms such as OpenSNP<a class="bibtex reference internal" href="../end-matter/reference.html#greshake2014-mp" id="id1">[129]</a>), this method will still be ready to be tested.
 An alternative validation would be experimentally testing a prediction (e.g. with knockouts) of a phenotype with a highly interesting distribution of scores.</p>
 <p>Despite much development effort, there remain some idiosyncrasies to the predictor.
 For example, DcGO can map multiple terms to the same set of SNPs. This can sometimes be a diverse group of phenotypes which do not tend to co-occur in individuals and when this occurs, it is likely that we cannot make a good prediction.
-A semantic similarity measure, such as GOGO<a class="bibtex reference internal" href="../end-matter/reference.html#zhao2018-rw" id="id2">[131]</a> or Wang’s method<a class="bibtex reference internal" href="../end-matter/reference.html#wang2007-yc" id="id3">[132]</a> could be used to check this, and update the confidence score accordingly.</p>
+A semantic similarity measure, such as GOGO<a class="bibtex reference internal" href="../end-matter/reference.html#zhao2018-rw" id="id2">[130]</a> or Wang’s method<a class="bibtex reference internal" href="../end-matter/reference.html#wang2007-yc" id="id3">[131]</a> could be used to check this, and update the confidence score accordingly.</p>
 <p>There are also clearly many aspects of the molecular biology mentioned in chapter 1 that are not represented in the model used by the phenotype predictor. For example, nonsense mutations, regulatory networks.
 Updating the predictor to include these things could potentially give the predictor enough power to be validated on existing data sets.
-For example, non-coding variants could be included by extending DcGO annotations to SNPs in linkage disequilibrium, and using the non-coding version of FATHMM (FATHMM-XF<a class="bibtex reference internal" href="../end-matter/reference.html#rogers2018-rc" id="id4">[133]</a>).</p>
+For example, non-coding variants could be included by extending DcGO annotations to SNPs in linkage disequilibrium, and using the non-coding version of FATHMM (FATHMM-XF<a class="bibtex reference internal" href="../end-matter/reference.html#rogers2018-rc" id="id4">[132]</a>).</p>
 <p id="dcgo-expression-problem">Another example is that DcGO does not take account of the environment of the cell (e.g. tissue-specific gene expression) in its’ predictions.
 Although domains which are statistically associated with phenotype can be present in a protein, there is no guarantee that the protein will have the opportunity to impact the phenotype (be transcribed).</p>
 <p>In investigating some of the ALSPAC phenotype predictions, I identified that some of the predicted dcGO relations between proteins and ontology terms may not be expressed in the tissue of interest.
 Improving dcGO or FATHMM may be a good route for improving the predictor, and this is the focus of the next Chapter.</p>
-<p>The phenotype predictor was also entered into the CAGI competition<a class="bibtex reference internal" href="../end-matter/reference.html#mcinnes2019-ov" id="id5">[134]</a> (work by Jan Zaucha)<a class="bibtex reference internal" href="../end-matter/reference.html#zaucha2018-dg" id="id6">[135]</a>, where it had some success.
+<p>The phenotype predictor was also entered into the CAGI competition<a class="bibtex reference internal" href="../end-matter/reference.html#mcinnes2019-ov" id="id5">[133]</a> (work by Jan Zaucha)<a class="bibtex reference internal" href="../end-matter/reference.html#zaucha2018-dg" id="id6">[134]</a>, where it had some success.
 The phenotype predictor placed fourth in a challenge matching trait profiles to genotypes, but this result was not statistically significant (p&gt;0.05).</p>
 </div>
 

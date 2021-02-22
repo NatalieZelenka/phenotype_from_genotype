@@ -40,17 +40,18 @@
   - file: c05-filter/0-index
     sections:
       - file: c05-filter/1-introduction
-      - file: c05-filter/2-data
-      - file: c05-filter/3-methods
-      - file: c05-filter/4-results
-      - file: c05-filter/5-discussion
-      - file: c05-filter/6-future-work
+      - file: c05-filter/2-uberon
+      - file: c05-filter/3-functionality
+      - file: c05-filter/4-data
+      - file: c05-filter/5-methods
+      - file: c05-filter/6-results
+      - file: c05-filter/7-discussion
+      - file: c05-filter/8-future-work
   - file: c06-combining/0-index
     sections:
       - file: c06-combining/1-background
       - file: c06-combining/2-data
       - file: c06-combining/3-data-wrangling
-      - file: c06-combining/4-uberon
       - file: c06-combining/5-batch-correction
       - file: c06-combining/6-results
       - file: c06-combining/7-discussion

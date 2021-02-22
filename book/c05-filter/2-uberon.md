@@ -1,0 +1,164 @@
+(uberon-py)=
+# The `uberon-py` package
+[//]: # (TODO: Make Uberon-py a website and link to it)
+[//]: # (TODO: Make a Zenodo for uberon-py and reference it here)
+[//]: # (TODO: Explain Research Software Engineering approach)
+[//]: # (TODO: Signpost this section)
+[//]: # (TODO: make sure I am consistent about uberon-py/uberon_py)
+[//]: # (TODO: Write roadmap/future work for this section, e.g. make the example public)
+[//]: # (TODO: Link to documentation)
+
+[//]: # (TODO: Rewrite intro)
+
+The biggest challenge in creating `filip` was to create a high-coverage mapping between phenotype and gene expression sample name. 
+This was done by:
+1. Mapping between phenotype term (GO, HP, or DO term) and related tissue (Uberon term) or cell type (CL term).
+2. Mapping between gene expression sample name (text) or sample ontology term and tissue (Uberon term) or cell type (CL term).
+3. Matching on the tissue or cell type.
+
+As this was quite an involved process, I created a small Open Source Python Package -  `uberon-py`, which is [available to install via the Python Package Index]([https://pypi.org/project/uberon-py/]), with code [available on GitHub](https://github.com/NatalieThurlby/uberon-py).
+
+## Methodology
+[//]: # (TODO: Figure 14:)
+<!--
+Figure 14: A diagram illustrating parts of the UBERON and GO ontologies, with a fictional example of an UBERON-GO relationship. In this example, Regulation of lung development would be related to Left lung, but not to Bronchiole (as regulation of lung development could refer to a regulation of a different part of the lung).
+-->
+
+[//]: # (TODO: Write explain how mapping works: what is prioritised, etc)
+
+## Functionality
+[//]: # (TODO: List what can be downloaded)
+
+This package allows users to use Python to:
+1. **Download useful Uberon ontology files** a selection of Uberon ontology `.obo` files.
+2. **Load `.obo` ontology files**, either your own, separately downloaded, or those obtained in (1).
+3. **{ref}`Mapping via name<mapping-by-name>`:** Map from sample-to-tissue via informal tissue names given in experimental design information (e.g. “eye stalk”) to an Uberon term (`UBERON:0010326`, Optic Pedicel).
+4. **{ref}`Mapping via ontology term<mapping-by-term>`:** Map from CL cell types (e.g. `CL:0000235`, Macrophage), sample ontology term to Uberon tissues (e.g. `UBERON:0002405`, Immune system). Or from sample ontology terms (like FANTOM terms, such as FF:10048-101G3, Smooth Muscle, Adult, Pool1) to Uberon terms (`UBERON:0001135`, Smooth Muscle Tissue). Returns relationships between source term and Uberon term.
+5. **Create sample-to-tissue mappings** based on (3) and (4)
+6. **{ref}`Find disagreements in mappings<disagreement-finding>`** based on (3) and (4), which my indicate errors in sample metadata or ontologies.
+
+The less self-explanatory aspects of this functionality are explained below:
+
+(mapping-by-name)=
+**Mapping by name:**
+
+Informal tissue names are mapped Uberon term identifiers by checking for exact name matches to Uberon term names and their synonyms in the extended Uberon ontology.
+
+(mapping-by-term)=
+**Mapping by term:**
+
+A mapping between a provided term (e.g. a FANTOM sample identifier or CL identifier) associated with a sample and an Uberon term is created by:
+* Finding all relationships of interest (e.g. `is_a`, `related_to`, `part_of`, `derives_from`, `intersection_of`, `union_of`) to any other sample, cell or Uberon term.
+* Propagate any relationships found using the same list of relationships, until either an Uberon term is found, or no new relationships are found, or you reach the root terms of the ontology. 
+
+In this way, some mappings can be made via the cell ontology, which cannot be made through Uberon alone, for example: Macrophage - monocyte derived, donor3 `is_a` Human macrophage sample `derives_from` Macrophage `is_a` Monocyte `is_a` Leukocyte `part_of` Immune System, e.g. this sample is related to the immune system.
+
+(disagreement-finding)=
+**Using disagreements between mappings to improve biological ontologies:**
+
+As described, the `uberon_py` package has two methods of mapping to tissues. 
+Where both can be ran, disagreements between these mappings can be checked. 
+When these two methods disagree, logical inconsistencies in either the mappings or the ontologies is revealed. 
+See the {ref}`example<FANTOM5-inconsistencies-example>` of how this worked for the FANTOM5 data set.
+
+## Example usage
+[//]: # (TODO: Add citation)
+The Uberon ontology connects many different ontologies and dictionaries, including many anatomy ontologies for different species (mouse, xenopus, fly, zebrafish) and specific structures (Neuroscience Information Framework (NIF) Gross Anatomy, Edinburgh Human Developmental Anatomy), as well as phenotype ontologies (Mammalian Phenotype Ontology, Gene Ontology){cite}`Mungall2012-nc`.
+As such it is used by a wide variety of researchers.
+
+### Example 1: Harmonisation of gene expression data
+[//]: # (TODO: Show a snippet of code and output)
+
+{numref}`c05.3-data-wrangling` shows an example of how this package can be used to create a sample to tissue mapping for four different gene expression data sets.
+
+
+(tissue-group-mapping)=
+### Example 2: Grouping samples based on tissues
+[//]: # (TODO: Update data locations)
+Either using existing Uberon mappings, or after mapping to Uberon samples (as in example 1), samples can be grouped by more general Uberon terms representing groups of tissues.
+
+````{admonition} Code mapping samples to more general groups
+:class: dropdown
+
+```python
+import pandas as pd
+from uberon_py import obo
+
+tissues=pd.read_csv('data/mappings/tissue_list.csv',names=['UBERON'])
+obo = obo.Obo('data/uberonext_obo.txt',['UBERON'])
+
+names = []
+name_map = {}
+for tissue in tissues['UBERON']:
+    name = obo.ont[tissue]['name']
+    names.append(name)
+    name_map[tissue] = name
+tissues['Name'] = pd.Series(names)
+tissues.head()
+tissues.to_csv('data/mappings/tissues.csv',index=False)
+
+groups = ['brain','cardiovascular system', 'respiratory system','digestive system','skeletal system','skin of body', 'reproductive system','muscle tissue','renal system','central nervous system','connective tissue']
+groups_UBERON = []
+for group in groups:
+    for u_id in obo.ont.keys():
+        if obo.ont[u_id]['name'] == group:
+            groups_UBERON.append(u_id)
+group_name_map = dict(zip(groups_UBERON, groups))
+
+relations = obo.get_relations(['is_a','part_of'],tissues['UBERON'],groups_UBERON,obo.ont).relations
+groups = []
+for uberon, row in relations.iterrows():
+    try:
+        group = row[0].split('_')[-1]
+    except:
+        group = None
+    groups.append(group)
+relations['Group'] = pd.Series(groups,index=relations.index)
+relations['Group name'] = relations['Group'].map(group_name_map)
+relations['Name'] = relations.index.map(name_map)
+relations=relations.rename(columns={0:'Relation string'})
+relations.to_csv('../data/mappings/tissues_groups.csv')
+```
+
+````
+
+
+(FANTOM5-inconsistencies-example)=
+### Example 3: finding inconsistencies in the FANTOM5 data
+[//]: # (TODO: Add a table here of all the inconsistencies: medium priority)
+For the FANTOM5 data, disagreements between these mappings revealed problems in the biological ontologies and experiment metadata that were provided to the package in order to create the mappings. 
+These could then be fed back to the maintainers of these ontologies and datasets in order to improve/correct them. 
+
+Disagreements between the tissue-sample mappings created through the (FANTOM, CL and Uberon) ontologies and those created using human annotation illuminates what may be a lack of specificity, incompleteness in, or disagreement between FANTOM, CL, or Uberon annotations, either in creating ontologies or annotating tissues to samples. 
+The process of mapping FANTOM to Uberon tissues found twenty-two such disagreements, of which FANTOM, Uberon, and CL where appropriate have been informed via GitHub issues, some of which have already sparked changes in the ontologies. 
+
+Three different types of example are described below, to give an idea of how multiple mappings may be used to improve annotation.
+
+#### Missing Uberon annotation
+**Example: `Bronchus part_of some Lung`**
+
+One type of problem that can be revealed is a missing link in an ontology.
+
+An example of this that was found using the FANTOM data set was that there was no formal relationin the Uberon ontology between *Bronchus* and *Lung*, despite the fact that the description text for Bronchus says “the upper conducting airways of the lung”.
+
+This was found because the sample `FF:11511-119G8` (Bronchial Epithelial Cell, donor1) is mapped by name to `UBERON:0002048` Lung, but by ontology to `UBERON:0002185` Bronchus. 
+This was flagged as inconsistent because there are no relation in the Uberon ontology between these terms.
+
+Similar missing annotations were discovered between Aorta and Artery, and Hair follicle and Dermal papilla.
+
+#### Mislabelled sample
+**Example: `FF:11590-120G6` should be labelled _Alveolar Epithelial Cells_ not _Renal Glomerular Endothelial Cells_**
+
+Sometimes samples are simply mislabelled.
+In this case the mistake was revealed by testing the agreement between annotations because the mistake is only for the name, but not tissue annotation.
+
+[//]: # (TODO: Link to other person who found this on researchgate/wherever)
+The FANTOM sample ontology contains two samples named Renal Glomerular Endothelial Cells, donor2: `FF:11590-120G6` and `FF:11594-120H1`. 
+One of these is a mislabelled sample, and it is actually an Alveolar Epithelial Cell sample.
+
+#### Imprecise annotation to tissue
+__Example: *Nucleus pulpopus* as *Spinal cord*__
+
+Several FANTOM tissues are labelled by name colloquially, rather than precisely. 
+For example, both *Nucleus pulpopus* and *Vertebra* are labelled *Spinal cord* (although the spinal cord itself is considered disjoint from these entities, both by definition, and in the Uberon ontology).
+It’s for this reason that the ontology mapping is preferred over the labelled sample name in creating the overall FANTOM sample-to-tissue mapping.

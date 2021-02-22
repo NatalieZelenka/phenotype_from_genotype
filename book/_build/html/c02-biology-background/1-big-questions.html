@@ -55,6 +55,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology." href="2-biological-molecules.html" />
@@ -76,6 +77,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -272,53 +275,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="../c05-filter/2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-data.html">
-     5.6. Data
+    <a class="reference internal" href="../c05-filter/4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="../c05-filter/5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-results.html">
-     5.8. Results
+    <a class="reference internal" href="../c05-filter/6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="../c05-filter/7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="../c05-filter/8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -346,39 +335,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -493,44 +471,44 @@ By understanding how our bodies work, researchers seek to develop new, more effe
 <div class="section" id="history-of-inheritable-traits">
 <h2><span class="section-number">2.1.1. </span>History of inheritable traits<a class="headerlink" href="#history-of-inheritable-traits" title="Permalink to this headline">¶</a></h2>
 <p>Humanity has been trying to answer the big questions long before we discovered DNA.
-The ancient theory of soft inheritance<a class="bibtex reference internal" href="../end-matter/reference.html#zirkle1935-sb" id="id1">[5]</a> said that people can pass on traits they gained during their lives, while 16th-century alchemists theorised that sperm contains tiny fully formed humans<a class="bibtex reference internal" href="../end-matter/reference.html#grafton-undated-af" id="id2">[6]</a> (i.e. women didn’t pass down anything).</p>
+The ancient theory of soft inheritance<a class="bibtex reference internal" href="../end-matter/reference.html#zirkle1935-sb" id="id1">[6]</a> said that people can pass on traits they gained during their lives, while 16th-century alchemists theorised that sperm contains tiny fully formed humans<a class="bibtex reference internal" href="../end-matter/reference.html#grafton-undated-af" id="id2">[7]</a> (i.e. women didn’t pass down anything).</p>
 <div class="figure align-default" id="mendel-pea">
 <a class="reference internal image-reference" href="../_images/mendel.png"><img alt="../_images/mendel.png" src="../_images/mendel.png" style="height: 220px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">An example of Mendel’s experimental results, for white and purple pea flowers. He began with “pure line” pea plants (which always produced self-identical plants when self-pollinated). Crossing the “pure line” plants resulted in first generation offspring which always had purple flowers.
 When self-pollinated, these first generation plants created plants with purple and white flowers in a 3:1 ratio.</span><a class="headerlink" href="#mendel-pea" title="Permalink to this image">¶</a></p>
 </div>
-<p id="mendel">Gregor Mendel’s famous pea experiments<a class="bibtex reference internal" href="../end-matter/reference.html#mendel1996-gi" id="id3">[7]</a> provided the earliest scientific basis for genetics through his experiments with independently inherited traits of peas (e.g. purple or white flowers, tall or shot plants, wrinkled or round seeds…).
+<p id="mendel">Gregor Mendel’s famous pea experiments<a class="bibtex reference internal" href="../end-matter/reference.html#mendel1996-gi" id="id3">[8]</a> provided the earliest scientific basis for genetics through his experiments with independently inherited traits of peas (e.g. purple or white flowers, tall or shot plants, wrinkled or round seeds…).
 Importantly, he discovered rules of inheritance that indicated that offspring have combinations of discrete genetic material (rather than a blend), i.e. we don’t see pink flowers when we cross purple and white flowered peas.
 He also showed that single traits (e.g. purple flowers) can actually be caused by different underlying genetics (see <a class="reference internal" href="#mendel-pea"><span class="std std-numref">Fig. 2.1</span></a>.</p>
 <p>This concept was expanded by Wilhelm Johannsen, who coined the term “gene” as the name for the hidden material that caused the traits.
-Johnannsen’s work also distinguished between “genotype” and “phenotype”: <em>genotype</em> being the hidden (genetic) material that organisms have, and <em>phenotype</em> being the measurable trait<a class="bibtex reference internal" href="../end-matter/reference.html#johannsen1911-rh" id="id4">[8]</a>.
+Johnannsen’s work also distinguished between “genotype” and “phenotype”: <em>genotype</em> being the hidden (genetic) material that organisms have, and <em>phenotype</em> being the measurable trait<a class="bibtex reference internal" href="../end-matter/reference.html#johannsen1911-rh" id="id4">[9]</a>.
 His research showed that some phenotypes (e.g. seed size) could vary considerably even with genetically identical plants, due to their environment.</p>
 <p>Phenotypes are not only strictly Mendelian, with a fixed number of “types”, or continuous and without a genetic basis.
 <a class="reference internal" href="../c03-compbio-background/4-bias.html#fischer-racism"><span class="std std-ref">Ronald Fischer</span></a> showed that variation in continuous traits (such as height in humans) can be consistent with Mendelian inheritance if multiple genes contributed additively to the trait.
 Many traits are <em>complex</em> in this way, meaning that they are influenced by many different genetic factors, as well as the environment.</p>
 <div class="margin sidebar" id="fischer-racism">
 <p class="sidebar-title">Ronald Fischer, racism and eugenics</p>
-<p>Fischer has a legacy of scientific racism. For example, actively campaigning for the forced sterilisation of a tenth of the population in the name of eugenics <a class="bibtex reference internal" href="../end-matter/reference.html#evans2020-dq" id="id5">[9]</a>.</p>
+<p>Fischer has a legacy of scientific racism. For example, actively campaigning for the forced sterilisation of a tenth of the population in the name of eugenics <a class="bibtex reference internal" href="../end-matter/reference.html#evans2020-dq" id="id5">[10]</a>.</p>
 </div>
-<p>When <a class="reference internal" href="#watson-racism"><span class="std std-ref">Watson</span></a> and Crick discovered the now familiar structure of DNA in 1953<a class="bibtex reference internal" href="../end-matter/reference.html#watson1953-np" id="id6">[10]</a>, we took a huge step towards being able to answer our big questions.
+<p>When <a class="reference internal" href="#watson-racism"><span class="std std-ref">Watson</span></a> and Crick discovered the now familiar structure of DNA in 1953<a class="bibtex reference internal" href="../end-matter/reference.html#watson1953-np" id="id6">[11]</a>, we took a huge step towards being able to answer our big questions.
 We finally understood the molecular structure that underlies inherent traits.
-Then in 2003, with the completion of the Human Genome Project<a class="bibtex reference internal" href="../end-matter/reference.html#venter2001-wn" id="id7">[11]</a>, it was possible to read the human version of this “code of life”.
-Once researchers had access to the whole genetic code for a person, they could set about trying to decode it, with the world hoping that this landmark would aid the search for treatments for diseases like cancers and Alzheimer’s<a class="bibtex reference internal" href="../end-matter/reference.html#meek2000-ec" id="id8">[12]</a>.</p>
+Then in 2003, with the completion of the Human Genome Project<a class="bibtex reference internal" href="../end-matter/reference.html#venter2001-wn" id="id7">[12]</a>, it was possible to read the human version of this “code of life”.
+Once researchers had access to the whole genetic code for a person, they could set about trying to decode it, with the world hoping that this landmark would aid the search for treatments for diseases like cancers and Alzheimer’s<a class="bibtex reference internal" href="../end-matter/reference.html#meek2000-ec" id="id8">[13]</a>.</p>
 <div class="margin sidebar" id="watson-racism">
 <p class="sidebar-title">James Watson and racism</p>
-<p>Watson’s has publicly asserted that he believes differences in average measured IQ between blacks and whites are due to genetic differences<a class="bibtex reference internal" href="../end-matter/reference.html#harmon2019-na" id="id9">[13]</a>.</p>
+<p>Watson’s has publicly asserted that he believes differences in average measured IQ between blacks and whites are due to genetic differences<a class="bibtex reference internal" href="../end-matter/reference.html#harmon2019-na" id="id9">[14]</a>.</p>
 </div>
 <p>We now have thousands of human genomes to investigate, and the promises of gene therapies and personalised medicine are now beginning to become reality.
-At the time of writing, there are eleven cell and gene therapies approved by the European Medicines Agency<a class="bibtex reference internal" href="../end-matter/reference.html#cynober2020-rx" id="id10">[14]</a>, which treat a variety of cancers, as well as Crohn’s disease, and eye and cartilage problems.
-In addition, the first personalised genomic medicine chemotherapy treatment is now available on the NHS, for cancer patients with the allele of the <a class="reference external" href="https://www.genecards.org/cgi-bin/carddisp.pl?gene=DPYD">DYPD</a> gene that cause slower breakdown of chemotherapy toxins<a class="bibtex reference internal" href="../end-matter/reference.html#guardian-staff-reporter2020-lb" id="id11">[15]</a>.</p>
+At the time of writing, there are eleven cell and gene therapies approved by the European Medicines Agency<a class="bibtex reference internal" href="../end-matter/reference.html#cynober2020-rx" id="id10">[15]</a>, which treat a variety of cancers, as well as Crohn’s disease, and eye and cartilage problems.
+In addition, the first personalised genomic medicine chemotherapy treatment is now available on the NHS, for cancer patients with the allele of the <a class="reference external" href="https://www.genecards.org/cgi-bin/carddisp.pl?gene=DPYD">DYPD</a> gene that cause slower breakdown of chemotherapy toxins<a class="bibtex reference internal" href="../end-matter/reference.html#guardian-staff-reporter2020-lb" id="id11">[16]</a>.</p>
 </div>
 <div class="section" id="the-future">
 <h2><span class="section-number">2.1.2. </span>The future<a class="headerlink" href="#the-future" title="Permalink to this headline">¶</a></h2>
 <p>The eventual destination of this field is a full understanding of how our individual genomes and their interaction with the environment affects us.
 With this understanding, we would anticipate a much wider application of both personalised medicine and gene therapies.
-These therapies are not yet a common occurrence: the eleven approved cell and gene therapies come from a pool of such 500 clinical trials<a class="bibtex reference internal" href="../end-matter/reference.html#cynober2020-rx" id="id12">[14]</a>.</p>
+These therapies are not yet a common occurrence: the eleven approved cell and gene therapies come from a pool of such 500 clinical trials<a class="bibtex reference internal" href="../end-matter/reference.html#cynober2020-rx" id="id12">[15]</a>.</p>
 <p>Perhaps it makes sense that we are not finding drug targets quickly, as we still don’t know the functionality of approximately 20% of human genes.
-And genes are only a small part (1-2%) of our DNA<a class="bibtex reference internal" href="../end-matter/reference.html#pennisi2007-yv" id="id13">[16]</a>, and the part we understand best.
+And genes are only a small part (1-2%) of our DNA<a class="bibtex reference internal" href="../end-matter/reference.html#pennisi2007-yv" id="id13">[17]</a>, and the part we understand best.
 Beyond our DNA, there are many other aspects of our cellular and social environments that will have an effect on which parts of our genes are being actively used, and how much.
 This section provides an overview of our scientific current model for how DNA affects phenotype, so that we can identify the sources of information that we do have and can make use of.</p>
 <p>Despite what we don’t know, this is also the moment where when we have the fullest understanding of our genetics so far.

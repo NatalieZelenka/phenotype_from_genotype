@@ -55,6 +55,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Biology Background" href="../c02-biology-background/0-index.html" />
@@ -76,6 +77,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -272,53 +275,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="../c05-filter/2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-data.html">
-     5.6. Data
+    <a class="reference internal" href="../c05-filter/4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="../c05-filter/5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-results.html">
-     5.8. Results
+    <a class="reference internal" href="../c05-filter/6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="../c05-filter/7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="../c05-filter/8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -346,39 +335,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -455,6 +433,25 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weird-stuff">
+   1.1. Weird stuff
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-structure">
+   1.2. Chapter Structure
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -475,14 +472,50 @@ Short, so can probably be a bit more fussy about style, e.g.:
 
 Notes on chapters:
 -->
-<p>The central theme of this thesis is the relationship between protein function - at either a molecular or phenotypic level - and the sequence of its associated DNA and RNA. A recurring motif is impact of the provenance of related data and what that means for attempts to make genome-wide predictions about these relationships.</p>
-<p>In the spirit of trying to make my work as reproducibly and Open as possible, this thesis is available online as a Jupyter Book: the latest version is available online <span class="xref myst">here</span>.</p>
-<p><a class="reference internal" href="../c02-biology-background/0-index.html#c02-biology-bg"><span class="std std-ref">Chapter 2</span></a> contains the biological background information on which the rest of the thesis is based. It tells the story of how phenotype arises from genotype, and introduces the different biological molecules that are involved. It begins at the very basics: what are DNA, RNA, proteins, and phenotypes? How do we measure them? And how do we measure the connections between them? This background is intended to make this thesis readable to someone without a background in biology. This chapter does not contain any of my own research. In the light of Black Lives Matter, I have included asides in this book where I mention researchers who have been involved in eugenics and/or racism. I have done this as I don’t want to highlight the scientific achievements of these individuals, without also acknowledging their legacy of scientific racism.</p>
-<p><a class="reference internal" href="../c03-compbio-background/0-index.html#c03-compbio-bg"><span class="std std-ref">Chapter 3</span></a> is a second background chapter, which contains some of my own work. It follows on from the first by discussing popular resources in computational biology, their provenance, and the impact of this on the field. This includes mathematical modelling of publications of named genes and sensitivity analysis of gene enrichment analyses. I also present here my contributions to reproducibility-related collaborative projects that I have and continue to be involved with: the Proteome Quality Index paper<a class="bibtex reference internal" href="../end-matter/reference.html#zaucha2015-ez" id="id1">[1]</a>, my contribution to the collaborative 2014 SUPERFAMILY update paper<a class="bibtex reference internal" href="../end-matter/reference.html#oates2015-li" id="id2">[2]</a>, and the (ongoing) MAPS project.</p>
-<p>In <a class="reference internal" href="../c04-snowflake/0-index.html#c04-snowflake"><span class="std std-ref">Chapter 4</span></a>, I describe my preliminary efforts to integrate the data sources described in the background chapters into Snowflake, a phenotype predictor<a class="bibtex reference internal" href="../end-matter/reference.html#gough2017-ik" id="id3">[3]</a>. I discuss potential reasons for the poor performance of the predictor.</p>
-<p><a class="reference internal" href="../c06-combining/0-index.html#c05-combining"><span class="std std-ref">Chapter 5</span></a> discusses a combined tissue-specific RNA-Seq data sets from four experiments. I present this data set as a resource, alongside a Python package that I created in order to do this: uberon-py.</p>
-<p>In <a class="reference internal" href="../c05-filter/0-index.html#c06-filter"><span class="std std-ref">Chapter 6</span></a>, I discuss a filter-based gene function predictor that I entered in the CAFA3 competition<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id4">[4]</a>.</p>
-<p>Finally, I discuss my conclusions in <a class="reference internal" href="../c07-conclusion/0-conclusion.html#c07-conclusion"><span class="std std-ref">Chapter 7</span></a>.</p>
+<p>The central theme of this thesis is the relationship between protein function - at either a molecular or phenotypic level - and the sequence of its associated DNA and RNA.
+A recurring motif is impact of the provenance of related data and what that means for attempts to make genome-wide predictions about these relationships.</p>
+<div class="section" id="weird-stuff">
+<h2><span class="section-number">1.1. </span>Weird stuff<a class="headerlink" href="#weird-stuff" title="Permalink to this headline">¶</a></h2>
+<p>There are a few unusual things about the format of this thesis.
+They are some extras that made it easier for me to push through and finish this thesis, and they also represent some of the things I like most about research: making it trustworthy and transparent, inclusive, and accessible.</p>
+<p>First, in the spirit of trying to make my work as reproducibly and Open as possible, this thesis is available online as a Jupyter Book.
+This means that the book is written in markdown documents and Jupyter Notebooks - which means that some of the (later) graphs are created directly from these notebooks.
+The latest version is available online <a class="reference external" href="https://nataliethurlby.github.io/phenotype_from_genotype/">here</a> - which is where it is best to view it (as html rather than a pdf).</p>
+<div class="margin sidebar" id="bristol-crest">
+<p class="sidebar-title">Bristol Crest</p>
+<p>The original crest has symbols for the Wills, Fry, and Colston families.
+These families made their wealth in industries built on slavery and used some of that wealth to found the University of Bristol.
+The alternative crest has symbols for three of my favourite Bristol festivals: Upfest, the Balloon Fiesta, and St Paul’s Carnival.</p>
+</div>
+<p>This brings me to the second unusual thing about this thesis, which is that I have mentioned as asides in this thesis researchers who have been involved in eugenics and/or racism.
+I did this because I don’t want to highlight the scientific achievements of these individuals, without also acknowledging their legacy of scientific racism, particularly in the light of the Black Lives Matter movement.</p>
+<p>The Black Lives Matter movement also inspired my alternative University of Bristol crest, which you can see on the title page and in this margin comment.
+This is an example of the third weird thing about this thesis, which is that I drew some <span class="xref std std-ref">illustrations</span> for it (using Krita<a class="bibtex reference internal" href="../end-matter/reference.html#noauthor-undated-ns" id="id1">[1]</a>), particularly in the background Chapters.
+My aim in including the majority of these drawings was to illustrate concepts, and help the reader (and myself) imagine some of the amazing stuff that is going on in the body.</p>
+<div class="margin sidebar" id="illustrations">
+<p class="sidebar-title">Illustrations</p>
+<p>The illustrations are CC-BY licensed (use freely, with attribution) in case they are useful to anyone.</p>
+</div>
+</div>
+<div class="section" id="chapter-structure">
+<h2><span class="section-number">1.2. </span>Chapter Structure<a class="headerlink" href="#chapter-structure" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../c02-biology-background/0-index.html#c02-biology-bg"><span class="std std-ref">Chapter 2</span></a> contains the biological background information on which the rest of the thesis is based.
+It tells the story of how phenotype arises from genotype, and introduces the different biological molecules that are involved.
+It begins at the very basics: what are DNA, RNA, proteins, and phenotypes?
+How are they related?
+How do we categorise them?
+This background is intended to make this thesis readable to someone without a background in biology.
+It does not contain any of my own research.</p>
+<p><a class="reference internal" href="../c03-compbio-background/0-index.html#c03-compbio-bg"><span class="std std-ref">Chapter 3</span></a> is a second background chapter, which contains some of my own work.
+It follows on from the first by discussing popular resources in computational biology, their provenance, and the impact of this on the field.
+This includes mathematical modelling of publications of named genes and sensitivity analysis of gene enrichment analyses.
+I also present here my contributions to reproducibility-related collaborative projects that I have and continue to be involved with: the Proteome Quality Index paper<a class="bibtex reference internal" href="../end-matter/reference.html#zaucha2015-ez" id="id2">[2]</a>, my contribution to the collaborative 2014 SUPERFAMILY update paper<a class="bibtex reference internal" href="../end-matter/reference.html#oates2015-li" id="id3">[3]</a>, and the (ongoing) MAPS project.</p>
+<p>In <a class="reference internal" href="../c04-snowflake/0-index.html#c04-snowflake"><span class="std std-ref">Chapter 4</span></a>, I describe my preliminary efforts to integrate the data sources described in the background chapters into Snowflake, a phenotype predictor<a class="bibtex reference internal" href="../end-matter/reference.html#gough2017-ik" id="id4">[4]</a>. I discuss potential reasons for the poor performance of the predictor.</p>
+<p>In <a class="reference internal" href="../c05-filter/0-index.html#c06-filter"><span class="std std-ref">Chapter 5</span></a>, I discuss a filter-based gene function predictor that I entered in the CAFA3 competition<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id5">[5]</a>.</p>
+<p><a class="reference internal" href="../c06-combining/0-index.html#c05-combining"><span class="std std-ref">Chapter 6</span></a> discusses a combined tissue-specific RNA-Seq data sets from four experiments.
+I present this data set as a resource, alongside a Python package that I created in order to do this: <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code>.</p>
+<p>Finally, I discuss my overall conclusions in <a class="reference internal" href="../c07-conclusion/0-conclusion.html#c07-conclusion"><span class="std std-ref">Chapter 7</span></a>.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

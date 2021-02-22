@@ -55,6 +55,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.5. Phenotype" href="5-phenotype.html" />
@@ -76,6 +77,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -272,53 +275,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="../c05-filter/2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-data.html">
-     5.6. Data
+    <a class="reference internal" href="../c05-filter/4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="../c05-filter/5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-results.html">
-     5.8. Results
+    <a class="reference internal" href="../c05-filter/6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="../c05-filter/7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="../c05-filter/8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -346,39 +335,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -516,7 +494,7 @@ At this level, similar structures do not imply an evolutionary or functional sim
 <h3><span class="section-number">2.4.1.1. </span>Quaternary structures: protein domains<a class="headerlink" href="#quaternary-structures-protein-domains" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="lego">
 <a class="reference internal image-reference" href="../_images/lego.png"><img alt="The figure shows a red lego block linked to a yellow lego block, which is then linked to another yellow lego block. The links are thin grey lego blocks." src="../_images/lego.png" style="height: 100px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.5 </span><span class="caption-text">An illustration of the lego analogy for protein domains. Coloured bricks represent protein domains - colour represents a specific protein domain type, while thin grey bricks represent polypeptide linkers which link domains. Image created using mecabricks<a class="bibtex reference internal" href="../end-matter/reference.html#jarraud2019-jj" id="id1">[20]</a></span><a class="headerlink" href="#lego" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.5 </span><span class="caption-text">An illustration of the lego analogy for protein domains. Coloured bricks represent protein domains - colour represents a specific protein domain type, while thin grey bricks represent polypeptide linkers which link domains. Image created using mecabricks<a class="bibtex reference internal" href="../end-matter/reference.html#jarraud2019-jj" id="id1">[21]</a></span><a class="headerlink" href="#lego" title="Permalink to this image">¶</a></p>
 </div>
 <p>The quaternary structures of proteins - protein domains - have proved particularly interesting for research.
 A simple and oft-used metaphor is to think of protein domains as lego building blocks (<a class="reference internal" href="#lego"><span class="std std-numref">Fig. 2.5</span></a>) which can be linked by polypeptide chains to make up a protein.
@@ -541,7 +519,7 @@ On some occasions, the disordered regions are known to be functional, while on o
 <span id="protein-classification"></span><h3><span class="section-number">2.4.1.3. </span>Classifying proteins by domain: families and superfamilies<a class="headerlink" href="#classifying-proteins-by-domain-families-and-superfamilies" title="Permalink to this headline">¶</a></h3>
 <p>Proteins with known domain structure can be grouped together based on their structural similarities, based on the consideration of the protein’s constituent domains into <em>familes</em>, <em>superfamilies</em> and <em>folds</em>.
 Proteins are classified into <em>families</em> representing the most similar proteins, which share a clear evolutionary relationship, while <em>superfamilies</em> represent less close evolutionary relationships, and <em>folds</em> represent the same secondary structure.
-This protein classification task, while aided by automation, were carried out largely by manual visual inspection<a class="bibtex reference internal" href="../end-matter/reference.html#murzin1995-se" id="id2">[21]</a>.</p>
+This protein classification task, while aided by automation, were carried out largely by manual visual inspection<a class="bibtex reference internal" href="../end-matter/reference.html#murzin1995-se" id="id2">[22]</a>.</p>
 </div>
 </div>
 </div>

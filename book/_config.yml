@@ -19,6 +19,7 @@
 title: Phenotype from Genotype
 author: Natalie Thurlby
 email: natalie.thurlby@bristol.ac.uk
+logo: images/thesis_logo_with_text.png
 description: >- # this means to ignore newlines until "baseurl:"
   Phenotype from Genotype: combining datasets to make explanatory predictions.
 
@@ -149,6 +150,7 @@ latex:
 
 sphinx:
   config:
+    html_favicon: images/favicon.png
     html_theme_options:
       use_download_button: false
   latex_elements:

@@ -55,6 +55,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.6. Summary: how genotype and phenotype are linked" href="6-summary.html" />
@@ -76,6 +77,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -272,53 +275,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="../c05-filter/2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-data.html">
-     5.6. Data
+    <a class="reference internal" href="../c05-filter/4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="../c05-filter/5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-results.html">
-     5.8. Results
+    <a class="reference internal" href="../c05-filter/6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="../c05-filter/7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="../c05-filter/8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -346,39 +335,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -523,24 +501,24 @@ In these cases, we might imagine that there is a mutation that humans could have
 <p>A social construct is an idea or concept that exists because it has been created and agreed upon by society.</p>
 </div>
 <p>To get a little philosophical (metaphysical) for just a paragraph, some phenotypes may not even exist (as we usually mean the word).
-That is, they might not be <em>natural</em> categories such that there is a straight-forward and physical thing that decides membership to the category<a class="bibtex reference internal" href="../end-matter/reference.html#fried2017-zu" id="id2">[22]</a>.
+That is, they might not be <em>natural</em> categories such that there is a straight-forward and physical thing that decides membership to the category<a class="bibtex reference internal" href="../end-matter/reference.html#fried2017-zu" id="id2">[23]</a>.
 As an example, consider an imaginary poorly-understood syndrome, it might be diagnosed if you have some of a list of symptoms, but the syndrome might actually four separate diseases with four totally separate causes and the treatments might only work for one of these diseases.
-Some phenotypes might be <em><a class="reference internal" href="#social-constructs"><span class="std std-ref">social constructs</span></a></em>; there is a long-running debate among psychologists about whether some mental health conditions and other psychological and behavioural concepts are socially constructed<a class="bibtex reference internal" href="../end-matter/reference.html#hacking1999-gh" id="id3">[23]</a><a class="bibtex reference internal" href="../end-matter/reference.html#szasz1976-ee" id="id4">[24]</a>.
+Some phenotypes might be <em><a class="reference internal" href="#social-constructs"><span class="std std-ref">social constructs</span></a></em>; there is a long-running debate among psychologists about whether some mental health conditions and other psychological and behavioural concepts are socially constructed<a class="bibtex reference internal" href="../end-matter/reference.html#hacking1999-gh" id="id3">[24]</a><a class="bibtex reference internal" href="../end-matter/reference.html#szasz1976-ee" id="id4">[25]</a>.
 If phenotypes are not based in the physical, then we may have difficulty accurately predicting them from genetics.</p>
 </div>
 <div class="section" id="ethical-considerations">
 <h3><span class="section-number">2.5.2.2. </span>Ethical considerations<a class="headerlink" href="#ethical-considerations" title="Permalink to this headline">¶</a></h3>
 <p>Aside from the fact that predicting non-physical concepts is difficult, there are also ethical considerations in trying to predict socially constructed phenotypes.
-If we try to predict sexual orientation from genetics <a class="bibtex reference internal" href="../end-matter/reference.html#kaiser2019-tu" id="id5">[25]</a>, then we might turn out to be measuring something else which indirectly influences sexual orientation, for example a protein that influences how open people are to new experiences, or something that in turn influences that.
-And in trying to predict intelligence from genetics, for example, we are likely finding associations between variables like how much you have practiced IQ tests or whether you are in the same cultural group as those that created them<a class="bibtex reference internal" href="../end-matter/reference.html#richardson2002-nx" id="id6">[26]</a>, reinforcing racist ideas<a class="bibtex reference internal" href="../end-matter/reference.html#saini-undated-ng" id="id7">[27]</a>.</p>
-<p>Even if all phenotypes were natural concepts, predicting the genetic basis of some phenotypes could be harmful<a class="bibtex reference internal" href="../end-matter/reference.html#schuklenk1997-ag" id="id8">[28]</a>, for example finding a gay gene could be motivated by, or lead to a search for “treatments” to “cure” homosexuality even if it did have a physical basis.</p>
+If we try to predict sexual orientation from genetics <a class="bibtex reference internal" href="../end-matter/reference.html#kaiser2019-tu" id="id5">[26]</a>, then we might turn out to be measuring something else which indirectly influences sexual orientation, for example a protein that influences how open people are to new experiences, or something that in turn influences that.
+And in trying to predict intelligence from genetics, for example, we are likely finding associations between variables like how much you have practiced IQ tests or whether you are in the same cultural group as those that created them<a class="bibtex reference internal" href="../end-matter/reference.html#richardson2002-nx" id="id6">[27]</a>, reinforcing racist ideas<a class="bibtex reference internal" href="../end-matter/reference.html#saini-undated-ng" id="id7">[28]</a>.</p>
+<p>Even if all phenotypes were natural concepts, predicting the genetic basis of some phenotypes could be harmful<a class="bibtex reference internal" href="../end-matter/reference.html#schuklenk1997-ag" id="id8">[29]</a>, for example finding a gay gene could be motivated by, or lead to a search for “treatments” to “cure” homosexuality even if it did have a physical basis.</p>
 <p>Physical measurements can also be problematic for similar reasons.
 Take measurements of facial features for example: this brings to mind image of nazis measuring skulls.
 Where physical measurements are proxies for measuring the social construct of race, these kinds of phenotypes can be similarly worrying.
-Facial recognition technology<a class="bibtex reference internal" href="../end-matter/reference.html#wu2016-ic" id="id9">[29]</a> is often criticised on this basis<a class="bibtex reference internal" href="../end-matter/reference.html#stark2018-lk" id="id10">[30]</a>.</p>
+Facial recognition technology<a class="bibtex reference internal" href="../end-matter/reference.html#wu2016-ic" id="id9">[30]</a> is often criticised on this basis<a class="bibtex reference internal" href="../end-matter/reference.html#stark2018-lk" id="id10">[31]</a>.</p>
 <p>It is for these reasons, that the majority of modern concepts of phenotype are based in medical concepts, where looking for a link between genotype and phenotype can have a potential life-saving or life-improving benefit.
 This scenario still comes with serious ethical considerations, however.
-Many disabled people do not want cures for their disabilities<a class="bibtex reference internal" href="../end-matter/reference.html#pulrang2019-gj" id="id11">[31]</a>, and people are also worried that the development of genetic screenings for disabilities will effectively result in a genocide of disabled people<a class="bibtex reference internal" href="../end-matter/reference.html#miller2013-ws" id="id12">[32]</a>.</p>
+Many disabled people do not want cures for their disabilities<a class="bibtex reference internal" href="../end-matter/reference.html#pulrang2019-gj" id="id11">[32]</a>, and people are also worried that the development of genetic screenings for disabilities will effectively result in a genocide of disabled people<a class="bibtex reference internal" href="../end-matter/reference.html#miller2013-ws" id="id12">[33]</a>.</p>
 </div>
 </div>
 </div>

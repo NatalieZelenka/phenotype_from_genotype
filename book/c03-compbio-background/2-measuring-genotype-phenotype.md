@@ -98,7 +98,7 @@ This includes, for example, information about a gene's involvement in a gene reg
 [//]: # (TODO: Write here about how there are still many genes for which we do not have functional information and how that's not likely to change any time soon.)
 Even in the most-studied genomes, there are many genes for which we have sequence, but no functional information.
 This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes. 
-This missing functional information is not likely to appear soon, without some sort of revolution in 
+This missing functional information is not likely to appear soon, without some sort of revolution in funding priorities or technology.
 
 
 #### Variants
