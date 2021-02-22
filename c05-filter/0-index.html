@@ -52,6 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5.1. Introduction" href="1-introduction.html" />
@@ -73,6 +74,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -269,53 +272,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2-data.html">
-     5.6. Data
+    <a class="reference internal" href="4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4-results.html">
-     5.8. Results
+    <a class="reference internal" href="6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -343,39 +332,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -461,7 +439,16 @@
                 
   <div class="section" id="filtering-computational-predictions-with-tissue-specific-expression-information">
 <span id="c06-filter"></span><h1><span class="section-number">5. </span>Filtering computational predictions with tissue-specific expression information<a class="headerlink" href="#filtering-computational-predictions-with-tissue-specific-expression-information" title="Permalink to this headline">¶</a></h1>
-<p>This chapter describes a prototype filter of protein function prediction methods <code class="docutils literal notranslate"><span class="pre">flip</span></code>, that I created as an entry to the CAFA3<a href="#id1"><span class="problematic" id="id2">:cite:`Zhou2019-jk`</span></a> protein function competition.</p>
+<p>This Chapter presents a more focused approach to improving phenotype and protein function predictions.
+I present a prototype filter for protein function prediction methods (<code class="docutils literal notranslate"><span class="pre">filip</span></code>) which I developed for the CAFA3 competition, which filters out predictions where the gene is not expressed in the tissue relating to the phenotype.
+This approach was prompted by the discovery that this is one of the sources of noise in <code class="docutils literal notranslate"><span class="pre">snowflake</span></code>, as described in <a class="reference internal" href="../c04-snowflake/6-discussion.html#dcgo-expression-problem"><span class="std std-ref">the previous Chapter</span></a>,</p>
+<p>The research outputs in this chapter include:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">filip</span></code> method for filtering protein function prediction based on tissue-specific gene expression.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> Python package for mapping biological samples to the Uberon tissue ontology, which was necessary to create for <code class="docutils literal notranslate"><span class="pre">filip</span></code>.</p></li>
+<li><p>Contributions to improve the FANTOM5 and Uberon ontologies, based on inconsistencies discovered using the <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package.</p></li>
+<li><p>The CAFA3 paper<a href="#id1"><span class="problematic" id="id2">:cite:`Zhou2019-jk`</span></a>, in which I entered predictors using <code class="docutils literal notranslate"><span class="pre">filip</span></code>.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 </div>
 </div>

@@ -77,6 +77,10 @@ name: go_rilla
 A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla{cite}`Eden2009-ic`)
 ``` 
 
+```
+
+[//]: # (TODO: Remove backticks)
+
 The Gene Ontology (GO){cite}`Ashburner2000-cr` is one of the first biomedical ontologies, and continues to be one of the most popular. 
 It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems{cite}`Thomas2017-vm`. 
 It includes:
@@ -107,7 +111,18 @@ GOA also link to the supporting publications for the experimental annotations.
 
 [//]: # (TODO: but the GO do not provide the statistical evidence that they used alongside this - e.g. p-value, effect size-, etc)
 
-[//]: # (TODO: Disease Ontology...)
+### Uberon Ontology
+Uberon is a cross-species anatomy ontology{cite}`Mungall2012-nc`, whose terms represent body parts, organs, and tissues in a variety of animal species. 
+It is particularly strong in it's integration to other ontologies, including anatomy ontologies for individual species, the Gene Ontology, Cell Ontology, phenotype ontologies, the Experimental Factor Ontology (EFO), etc. 
+
+### Other Ontologies
+[//]: # (TODO: Other ontologies, cite + descriptions)
+There are many other ontologies which aim to catalogue other aspects of biological experiments and knowledge.
+Other ontologies which are used in this thesis include:
+- The Cell Ontology{cite}`Malladi2015-iq` (`CL`) describes cross-species cell types (from prokaryotes to mammals, but excluding plants). Example relationship: Osteocyte `is_a` Bone Cell `is_a` Animal Cell.
+- The Disease Ontology{cite}`Schriml2019-uv` (`DO`) describes human disease. Example relationship: Blastoma `is_a` Cell-type Cancer `is_a` Cancer.
+- Human Phenotype Ontology{cite}`Kohler2021-oy` (`HP`) describes "human phenotypic abnormalities encountered in human disease". Example relationship: Motor Seizure `is_a` Seizure `is_a` Abnormal Motor System Physiology.
+- The Experimental Factor Ontology{cite}`Malone2010-es` (`EFO`) describes experimental setups common to the EBI databases. It is well-integrated with CL, Uberon, and ChEBI (chemical compound ontology). Example relationship: RNA Extraction Protocol `is_a` Nucleic Acid Extraction Protocol `is_a` Extraction protocol.
 
 ## Why are ontologies useful?
 [//]: # (TODO: Example of query of insight you woudln't have usually,  signpost to DCGO, mention usefulness of controlled vocabulary and agreed upon definitions)

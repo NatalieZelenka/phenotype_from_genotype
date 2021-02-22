@@ -52,6 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3.3. Ontologies" href="3-ontologies.html" />
@@ -73,6 +74,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -269,53 +272,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="../c05-filter/2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-data.html">
-     5.6. Data
+    <a class="reference internal" href="../c05-filter/4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="../c05-filter/5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-results.html">
-     5.8. Results
+    <a class="reference internal" href="../c05-filter/6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="../c05-filter/7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="../c05-filter/8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -343,39 +332,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -669,7 +647,7 @@ For this reason, it can sometimes be difficult to map between identifiers from d
 This includes, for example, information about a gene’s involvement in a gene regulatory network or in a <span class="xref std std-ref">biological pathway</span>, and information about gene function according to <a class="reference internal" href="#observational-studies"><span class="std std-ref">observational studies</span></a>.</p>
 <p>Even in the most-studied genomes, there are many genes for which we have sequence, but no functional information.
 This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes.
-This missing functional information is not likely to appear soon, without some sort of revolution in</p>
+This missing functional information is not likely to appear soon, without some sort of revolution in funding priorities or technology.</p>
 <div class="section" id="variants">
 <h4><span class="section-number">3.2.1.3.1. </span>Variants<a class="headerlink" href="#variants" title="Permalink to this headline">¶</a></h4>
 <p>Information about what variants individuals have comes from either <a class="reference internal" href="1-sequencing-technology.html#genotyping"><span class="std std-ref">genotype</span></a> or <a class="reference internal" href="#individual-wgs"><span class="std std-ref">whole genome sequencing</span></a> data.
@@ -830,7 +808,7 @@ There are also many experiments which can contribute pieces of the puzzle, for e
 The majority of the most successful methods rely on statistical associations between phenotypes and features of interest, for example using deep learning methods.
 For this reason the majority of computational methods are focused on predicting the “what”, rather thn the “how”.</p>
 <p>Connections to phenotype can be made with different scales and types of genetic features, from SNPs, genes, transcripts, and proteins to populations.
-Computational biology links these resources well, so that knowledge at these different scales can be investigated, the <a class="reference internal" href="3-ontologies.html#gene-ontology-annotation"><span class="std std-ref">Gene Ontology Annottion</span></a> resource for example, connects information from many of these computational and experimental sources at the level of the gene.</p>
+Computational biology links these resources well, so that knowledge at these different scales can be investigated, the <span class="xref std std-ref">Gene Ontology Annottion</span> resource for example, connects information from many of these computational and experimental sources at the level of the gene.</p>
 <div class="section" id="genome-wide-association-studies">
 <span id="observational-studies"></span><h3><span class="section-number">3.2.5.1. </span>Genome Wide Association Studies<a class="headerlink" href="#genome-wide-association-studies" title="Permalink to this headline">¶</a></h3>
 <p>Genome Wide Association Studies (GWAS) are large observational studies where the genotypes of a cohort with a specific phenotype (e.g. diabetes) are compared to the genotypes of a cohort lacking in that phenotype (i.e. a control group) in order to find genomic loci that are statistically associated with the phenotype.

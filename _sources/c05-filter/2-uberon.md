@@ -8,7 +8,23 @@
 [//]: # (TODO: Write roadmap/future work for this section, e.g. make the example public)
 [//]: # (TODO: Link to documentation)
 
-In order to map between Uberon tissues, CL cells, and named tissues from sample information, I created a small Open Source Python Package -  `uberon-py`, which is [available to install via the Python Package Index]([https://pypi.org/project/uberon-py/]), with code [available on GitHub](https://github.com/NatalieThurlby/uberon-py).
+[//]: # (TODO: Rewrite intro)
+
+The biggest challenge in creating `filip` was to create a high-coverage mapping between phenotype and gene expression sample name. 
+This was done by:
+1. Mapping between phenotype term (GO, HP, or DO term) and related tissue (Uberon term) or cell type (CL term).
+2. Mapping between gene expression sample name (text) or sample ontology term and tissue (Uberon term) or cell type (CL term).
+3. Matching on the tissue or cell type.
+
+As this was quite an involved process, I created a small Open Source Python Package -  `uberon-py`, which is [available to install via the Python Package Index]([https://pypi.org/project/uberon-py/]), with code [available on GitHub](https://github.com/NatalieThurlby/uberon-py).
+
+## Methodology
+[//]: # (TODO: Figure 14:)
+<!--
+Figure 14: A diagram illustrating parts of the UBERON and GO ontologies, with a fictional example of an UBERON-GO relationship. In this example, Regulation of lung development would be related to Left lung, but not to Bronchiole (as regulation of lung development could refer to a regulation of a different part of the lung).
+-->
+
+[//]: # (TODO: Write explain how mapping works: what is prioritised, etc)
 
 ## Functionality
 [//]: # (TODO: List what can be downloaded)
@@ -51,7 +67,8 @@ The Uberon ontology connects many different ontologies and dictionaries, includi
 As such it is used by a wide variety of researchers.
 
 ### Example 1: Harmonisation of gene expression data
-[//]: # (TODO: Show a snippet of code and output),
+[//]: # (TODO: Show a snippet of code and output)
+
 {numref}`c05.3-data-wrangling` shows an example of how this package can be used to create a sample to tissue mapping for four different gene expression data sets.
 
 

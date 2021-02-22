@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 [//]: # (TODO: Release mapping data separately)
 
 As we explored in {ref}`Chapter 2<c02-biology-bg>`, there is a complex web of interactions between proteins and other molecular machinery that lead to phenotype.
@@ -40,30 +40,13 @@ It has been running approximately every 2-3 years since 2013.
 [//]: # (TODO: Write about CAFA challenges)
 The CAFA competitions consist of a number of different challenges.
 
-Each CAFA challenge begins by the organisers releasing a large number of target sequences about which participants must make predictions. 
+Each CAFA challenge begins by the organisers releasing a large number of target sequences  (over one hundred thousand) about which participants must make predictions. 
 Participants can use any additional data they see fit to make predictions, which must be triples containing a sequence ID, ontology term ID (e.g. a GO/HP identifier), and a confidence score between 0 and 1. 
 A score of 1 indicates a very confidence predictor, while a score of 0 is equivalent to not returning the prediction. Each team may submit up to three models, the best of which is ranked.
 
-### CAFA Validation 
-This confidence score allows for a range of possible sets of predictions, depending on the threshold parameter $\tau$. 
-Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined as:
-
-$ precision = p = \frac{t_p}{t_p + f_p} $
-$ recall = r = \frac{t_p}{t_p + f_n} $
-
-Precision-recall curves are generally used to validate a predictors performance, but the $F_1$ measure gives a one-number overview of the performance:
-
-$F_1 =2/ \frac{precision \cdot recall}{precision + recall}$
-
-Since the precision and recall will be different for any $\tau$, the $F_{max}$ score is the maximum possible $F_1$ for any value of $\tau$.
-
-[//]: # (TODO: explain the below a little more: how many measures does that make? 2 x2 = 4?)
-CAFA validation can either be term-centric or protein-centric. For each option, submissions are assessed per species and for wholly unknown and partially known genes separately.
-
-### Limitations of validation method
-There is no penalty for making a broad guess, or reward for making a precise one. This is one of the reasons that the naive method does so well: for example it is not penalised for guessing that the root term of the GO BPO ontology Biological Process is related to every gene. 
-
-Due to the nature of the validation set, it’s possible that the best-scoring CAFA methods simply predict which associations are likely to be discovered soon (i.e. associations to genes people are currently studying).
+The target sequences consist of a mixture of "no-knowledge" and "limited-knowledge" sequences. 
+No-knowledge sequences are sequences which upon release have zero experimentally-validated GO annotations to any of GO's three constituent ontologies (biological process, cellular component, and molecular function).
+Limited-knowledge sequences are sequences with one or more annotations in one or two GO ontologies, but not all three.
 
 [//]: # (TODO: delete below)
 
@@ -100,4 +83,18 @@ It's a two-step process where protein-phenotype predictions are expected as inpu
 In step 1, proteins are mapped to genes, and phenotypes are mapped to tissues. 
 In step 2, `filip` filters out any predictions where for which the gene is not expressed in the tissue.
 ```
+```
 
+[//]: # (TODO: delete backticks)
+[//]: # (TODO: cross-ref to previous mention of FANTOM5, or include as margin comment)
+[//]: # (TODO: Cite FANTOM5)
+[//]: # (TODO: cross-ref to UBERON, and make sure it is included in ontology section)
+[//]: # (TODO: cross-ref next section)
+
+The user can supply any tissue-specific gene expression data set as input for `filip`. 
+The FANTOM5 data set was chosen as the default gene expression data, due to it's existing mapping to UBERON tissues, through the FANTOM5 sample ontology.
+For other data sets (and as a secondary data mapping for the FANTOM5 data set), simple text-mining is used to match samples to UBERON tissues. 
+A separate Python package was developed to facilitate this: `uberon-py`, which is described in the next section.
+
+[//]: # (TODO: describe expression cut off further)
+The user can also choose a cut-off for expression.

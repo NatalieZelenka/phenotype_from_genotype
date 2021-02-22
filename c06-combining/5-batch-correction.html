@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.5. Batch correction &#8212; Phenotype from Genotype</title>
+    <title>6.4. Batch correction &#8212; Phenotype from Genotype</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,10 +52,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.6. Results and outputs" href="6-results.html" />
-    <link rel="prev" title="6.4. The uberon-py package" href="4-uberon.html" />
+    <link rel="next" title="6.5. Results and outputs" href="6-results.html" />
+    <link rel="prev" title="6.3. Data Wrangling" href="3-data-wrangling.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -73,6 +74,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -269,53 +272,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="../c05-filter/2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-data.html">
-     5.6. Data
+    <a class="reference internal" href="../c05-filter/4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="../c05-filter/5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-results.html">
-     5.8. Results
+    <a class="reference internal" href="../c05-filter/6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="../c05-filter/7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="../c05-filter/8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -342,40 +331,29 @@
      6.3. Data Wrangling
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -459,24 +437,24 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pre-batch-corrected-data">
-   6.5.1. Pre-batch-corrected data
+   6.4.1. Pre-batch-corrected data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#correcting-batch-with-combat">
-   6.5.2. Correcting batch with ComBat
+   6.4.2. Correcting batch with ComBat
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#experimental-design">
-     6.5.2.1. Experimental design
+     6.4.2.1. Experimental design
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#post-batch-correction">
-   6.5.3. Post batch-correction
+   6.4.3. Post batch-correction
   </a>
  </li>
 </ul>
@@ -491,9 +469,9 @@
               <div>
                 
   <div class="section" id="batch-correction">
-<span id="batch-correction-section"></span><h1><span class="section-number">6.5. </span>Batch correction<a class="headerlink" href="#batch-correction" title="Permalink to this headline">¶</a></h1>
+<span id="batch-correction-section"></span><h1><span class="section-number">6.4. </span>Batch correction<a class="headerlink" href="#batch-correction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="pre-batch-corrected-data">
-<h2><span class="section-number">6.5.1. </span>Pre-batch-corrected data<a class="headerlink" href="#pre-batch-corrected-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4.1. </span>Pre-batch-corrected data<a class="headerlink" href="#pre-batch-corrected-data" title="Permalink to this headline">¶</a></h2>
 <p>Visual inspection of the PCA plot in <code class="xref std std-numref docutils literal notranslate"><span class="pre">combine-pca-before</span></code> shows that data clusters by experiment more strongly than by tissue group, meaning that batch correction is necessary to compare across experiment samples.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -510,10 +488,10 @@ This PCA was carried out on a subset of 1000 randomly selected genes, after quan
 </div>
 </div>
 <div class="section" id="correcting-batch-with-combat">
-<h2><span class="section-number">6.5.2. </span>Correcting batch with ComBat<a class="headerlink" href="#correcting-batch-with-combat" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4.2. </span>Correcting batch with ComBat<a class="headerlink" href="#correcting-batch-with-combat" title="Permalink to this headline">¶</a></h2>
 <p>The batch effects that can be seen in <code class="xref std std-numref docutils literal notranslate"><span class="pre">combine-pca-before</span></code> were corrected using <a class="reference internal" href="1-background.html#combat-description"><span class="std std-ref">ComBat</span></a><a href="#id1"><span class="problematic" id="id2">:cite:`Johnson2007-zh`</span></a>.</p>
 <div class="section" id="experimental-design">
-<h3><span class="section-number">6.5.2.1. </span>Experimental design<a class="headerlink" href="#experimental-design" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.2.1. </span>Experimental design<a class="headerlink" href="#experimental-design" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># code to create experimental design table (tissue groups by experiments?)</span>
@@ -524,7 +502,7 @@ This PCA was carried out on a subset of 1000 randomly selected genes, after quan
 </div>
 </div>
 <div class="section" id="post-batch-correction">
-<h2><span class="section-number">6.5.3. </span>Post batch-correction<a class="headerlink" href="#post-batch-correction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4.3. </span>Post batch-correction<a class="headerlink" href="#post-batch-correction" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="id4">
 <img alt="images/combine-pca-after.png" src="images/combine-pca-after.png" />
 <p class="caption"><span class="caption-number">Fig. 6.5 </span><span class="caption-text">name: combine-pca-after
@@ -570,8 +548,8 @@ This PCA was carried out on a subset of 1000 randomly selected genes, after quan
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="4-uberon.html" title="previous page"><span class="section-number">6.4. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
-    <a class='right-next' id="next-link" href="6-results.html" title="next page"><span class="section-number">6.6. </span>Results and outputs</a>
+    <a class='left-prev' id="prev-link" href="3-data-wrangling.html" title="previous page"><span class="section-number">6.3. </span>Data Wrangling</a>
+    <a class='right-next' id="next-link" href="6-results.html" title="next page"><span class="section-number">6.5. </span>Results and outputs</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

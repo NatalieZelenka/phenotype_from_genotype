@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.1. Introduction &#8212; Phenotype from Genotype</title>
+    <title>5.5. Results &#8212; Phenotype from Genotype</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -34,20 +34,17 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -55,10 +52,13 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.2. Data" href="2-data.html" />
-    <link rel="prev" title="6. Filtering computational predictions with tissue-specific expression information" href="0-index.html" />
+    <link rel="next" title="5.6. Discussion" href="7-discussion.html" />
+    <link rel="prev" title="5.4. Methods" href="5-methods.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -76,6 +76,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -261,29 +263,19 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c05-combining/0-index.html">
-   5. Combining RNA-seq datasets
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="0-index.html">
+   5. Filtering computational predictions with tissue-specific expression information
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/1-background.html">
-     5.1. Background
+    <a class="reference internal" href="1-introduction.html">
+     5.1. Introduction
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/2-data.html">
-     5.2. Data Acquisition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/3-data-wrangling.html">
-     5.3. Data Wrangling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/4-uberon.html">
-     5.4. The
+    <a class="reference internal" href="2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -293,67 +285,77 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/5-batch-correction.html">
-     5.5. Batch correction
+    <a class="reference internal" href="4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/6-results.html">
-     5.6. Results and outputs
+    <a class="reference internal" href="5-methods.html">
+     5.4. Methods
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/6-results.html#combined-data-set">
-     5.7. Combined data set
+    <a class="reference internal" href="7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/7-discussion.html">
-     5.8. Discussion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/8-future-work.html">
-     5.9. Future Work
+    <a class="reference internal" href="8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
-  <a class="reference internal" href="0-index.html">
-   6. Filtering computational predictions with tissue-specific expression information
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../c06-combining/0-index.html">
+   6. Combining RNA-seq datasets
   </a>
-  <ul class="current collapse-ul">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     6.1. Introduction
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-combining/1-background.html">
+     6.1. Background
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2-data.html">
-     6.2. Data
+    <a class="reference internal" href="../c06-combining/2-data.html">
+     6.2. Data Acquisition
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3-methods.html">
-     6.3. Methods
+    <a class="reference internal" href="../c06-combining/3-data-wrangling.html">
+     6.3. Data Wrangling
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4-results.html">
-     6.4. Results
+    <a class="reference internal" href="../c06-combining/5-batch-correction.html">
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="5-discussion.html">
-     6.5. Discussion
+    <a class="reference internal" href="../c06-combining/6-results.html">
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6-future-work.html">
-     6.6. Future work
+    <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
+     6.6. Combined data set
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-combining/7-discussion.html">
+     6.7. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-combining/8-future-work.html">
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -436,38 +438,26 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#critical-assessment-of-functional-annotation">
-   6.1.1. Critical Assessment of Functional Annotation
+  <a class="reference internal nav-link" href="#validation-of-prototype-filip">
+   5.5.1. Validation of prototype
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     filip
+    </span>
+   </code>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#challenge">
-     6.1.1.1. Challenge
+    <a class="reference internal nav-link" href="#cafa-2">
+     5.5.1.1. CAFA 2
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cafa-validation">
-     6.1.1.2. CAFA Validation
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#limitations-of-validation-method">
-       6.1.1.2.1. Limitations of validation method
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#past-cafas">
-     6.1.1.3. Past CAFAs
+    <a class="reference internal nav-link" href="#cafa-3">
+     5.5.1.2. CAFA 3
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   6.1.2. Overview
-  </a>
  </li>
 </ul>
 
@@ -480,62 +470,108 @@
         
               <div>
                 
-  <div class="section" id="introduction">
-<h1><span class="section-number">6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>As previously mentioned, there are many genes/proteins for which we have sequence information, but not functional information.
-This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes.</p>
-<p>There is a community of researchers who seek to overcome this problem by developing computational methods that predict protein function from sequence, structure, or additional information (e.g. via the CAFA competitions<a class="bibtex reference internal" href="../end-matter/reference.html#zhou2019-jk" id="id1">[4]</a><a class="bibtex reference internal" href="../end-matter/reference.html#jiang2016-rz" id="id2">[170]</a><a class="bibtex reference internal" href="../end-matter/reference.html#radivojac2013-wh" id="id3">[171]</a>).
-If successful, this would give the practical benefit of discovering the function of many proteins without having to carry out hundreds of thousands of expensive and time-consuming wet lab experiments. Such knowledge could be used to identify genes or proteins for future treatments. An accurate model might also be able to give us an insight into the mechanisms behind such functions, giving further insight into how an effective therapy might be designed.</p>
-<p>Machine learning methods are currently the most successful class of protein function predictors. While this is promising for answering one aspect of the problem (“what are the functions of a given protein?”), they do not always attempt to answer how or why.</p>
-<p>Structural or sequence methods that estimate protein function based on for example conservation or structure counter this problem. However, they are generally less accurate.
-One reason for this might be that they can predict that a protein affects a phenotype in a context that it would never encounter.
-For example, that a protein which is only ever transcribed in skin cells is associated with lung cancer. Such predictions are at odds with our understanding of how proteins function, and gene expression data could be used to filter out such predictions.</p>
-<p>Disease-associated genes are generally over-expressed in the tissue they cause symptoms in, with the exception of cancer-associated genes<a class="bibtex reference internal" href="../end-matter/reference.html#lage2008-gq" id="id4">[172]</a><a class="bibtex reference internal" href="../end-matter/reference.html#winter2004-rr" id="id5">[161]</a>.
-This can and has already been leveraged effectively as part of gene and variant prioritisation methods <a class="bibtex reference internal" href="../end-matter/reference.html#rackham2015-jp" id="id6">[173]</a><a class="bibtex reference internal" href="../end-matter/reference.html#antanaviciute2015-ke" id="id7">[174]</a>.
-Despite this, tissue-specific gene expression data was completely missing from entries to CAFA1 or CAFA2.</p>
-<p>For this reason, I developed a filter to be used on top of any protein function prediction method (FilP), which removes predictions where the protein is not transcribed in the tissue that the phenotype relates to.</p>
-<div class="section" id="critical-assessment-of-functional-annotation">
-<h2><span class="section-number">6.1.1. </span>Critical Assessment of Functional Annotation<a class="headerlink" href="#critical-assessment-of-functional-annotation" title="Permalink to this headline">¶</a></h2>
-<p>Critical Assessment of Functional Annotation (CAFA) is an international community-wide competition for the prediction of protein function.
-It has been running approximately every 2-3 years since 2013. CAFA aims both to stimulate research in the field of protein function prediction, and to measure progress in the field.</p>
-<div class="section" id="challenge">
-<h3><span class="section-number">6.1.1.1. </span>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h3>
-<p>Each CAFA challenge begins by the organisers releasing a large number of target sequences about which participants must make predictions.
-Participants can use any additional data they see fit to make predictions, which must be triples containing a sequence ID, ontology term ID (e.g. a GO/HP identifier), and a confidence score between 0 and 1.
-A score of 1 indicates a very confidence predictor, while a score of 0 is equivalent to not returning the prediction. Each team may submit up to three models, the best of which is ranked.</p>
+  <div class="section" id="results">
+<h1><span class="section-number">5.5. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="validation-of-prototype-filip">
+<h2><span class="section-number">5.5.1. </span>Validation of prototype <code class="docutils literal notranslate"><span class="pre">filip</span></code><a class="headerlink" href="#validation-of-prototype-filip" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cafa-2">
+<h3><span class="section-number">5.5.1.1. </span>CAFA 2<a class="headerlink" href="#cafa-2" title="Permalink to this headline">¶</a></h3>
+<p><strong><span class="math notranslate nohighlight">\(F_{max}\)</span> Improvement:</strong></p>
+<table class="table" id="cafa2-results">
+<caption><span class="caption-number">Table 5.1 </span><span class="caption-text">CAFA2 data f-max results for DcGO and filip</span><a class="headerlink" href="#cafa2-results" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(F_{max}\)</span> DcGO</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(F_{max}\)</span> DcGO + <code class="docutils literal notranslate"><span class="pre">filip</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.408</p></td>
+<td><p>0.409</p></td>
+</tr>
+</tbody>
+</table>
+<p>During development, I validated <code class="docutils literal notranslate"><span class="pre">filip</span></code> using the original DcGO CAFA2 submission, using the CAFA2 targets.
+The <span class="math notranslate nohighlight">\(F_{max}\)</span> score was calculated for human BPO, combining both <em>No Knowledge</em> and <em>Limited Knowledge</em> targets.
+<a class="reference internal" href="#cafa2-results"><span class="std std-numref">Table 5.1</span></a> shows that <code class="docutils literal notranslate"><span class="pre">filip</span></code> provides a small benefit to the <span class="math notranslate nohighlight">\(F_{max}\)</span> score.
+``
+<strong>Bootstrapping:</strong></p>
+<div class="figure align-default" id="filip-bootstrap">
+<a class="reference internal image-reference" href="../_images/filip_bootstrap.png"><img alt="../_images/filip_bootstrap.png" src="../_images/filip_bootstrap.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.2 </span><span class="caption-text">This bootstrapping histogram shows the distribution of the number of correct predictions found when deleting a random selection of DcGO predictions (the same number as are discarded by the filter). The dotted lines shows the number of correct predictions found by the filter. The low p-value (<span class="math notranslate nohighlight">\(9.99 \times 10^{-5}\)</span>) shows the low probability of the filter performing at least as well as it has (in terms of the number of correct predictions) by random chance.</span><a class="headerlink" href="#filip-bootstrap" title="Permalink to this image">¶</a></p>
 </div>
-<div class="section" id="cafa-validation">
-<h3><span class="section-number">6.1.1.2. </span>CAFA Validation<a class="headerlink" href="#cafa-validation" title="Permalink to this headline">¶</a></h3>
-<p>This confidence score allows for a range of possible sets of predictions, depending on the threshold parameter <span class="math notranslate nohighlight">\(\tau\)</span>.
-Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined as:</p>
-<div class="math notranslate nohighlight">
-\[$ precision = p = \frac{t_p}{t_p + f_p} $\]</div>
-<div class="math notranslate nohighlight">
-\[$ recall = r = \frac{t_p}{t_p + f_n} $\]</div>
-<p>Precision-recall curves are generally used to validate a predictors performance, but the <span class="math notranslate nohighlight">\(F_1\)</span> measure gives a one-number overview of the performance:</p>
-<div class="math notranslate nohighlight">
-\[$F_1 =2/ \frac{precision \cdot recall}{precision + recall}$\]</div>
-<p>Since the precision and recall will be different for any <span class="math notranslate nohighlight">\(\tau\)</span>, the <span class="math notranslate nohighlight">\(F_{max}\)</span> score is the maximum possible <span class="math notranslate nohighlight">\(F_1\)</span> for any value of <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
-<p>CAFA validation can either be term-centric or protein-centric. For each option, submissions are assessed per species and for wholly unknown and partially known genes separately.</p>
-<div class="section" id="limitations-of-validation-method">
-<h4><span class="section-number">6.1.1.2.1. </span>Limitations of validation method<a class="headerlink" href="#limitations-of-validation-method" title="Permalink to this headline">¶</a></h4>
-<p>There is no penalty for making a broad guess, or reward for making a precise one. This is one of the reasons that the naive method does so well: for example it is not penalised for guessing that the root term of the GO BPO ontology Biological Process is related to every gene.</p>
-<p>Due to the nature of the validation set, it’s possible that the best-scoring CAFA methods simply predict which associations are likely to be discovered soon (i.e. associations to genes people are currently studying).</p>
+<p>The small improvement is due to <code class="docutils literal notranslate"><span class="pre">filip</span></code> filtering out 85,637 GOBP human protein predictions, only 23 of which were true according to the CAFA2 ground truth, meaning that 99.973% of filip’s predictions (on what to filter in or out) were correct.</p>
+<p>To ensure that this is a better success rate than we would expect by chance, I performed a bootstrapping test by taking out random sets of 85,637 predictions from the DcGO set and measuring the number of true positives remaining in the set.
+This was repeated 100,000 times to create <a class="reference internal" href="#filip-bootstrap"><span class="std std-numref">Fig. 5.2</span></a>, and calculate the p-value <span class="math notranslate nohighlight">\(p &lt; 0.001\)</span>, meaning that the filter performed far better than chance.</p>
+<p><strong>Relationship between incorrect terms:</strong></p>
+<div class="figure align-default" id="filip-go-wrong">
+<a class="reference internal image-reference" href="../_images/revigo_filip_wrong_cafa2.png"><img alt="../_images/revigo_filip_wrong_cafa2.png" src="../_images/revigo_filip_wrong_cafa2.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.3 </span><span class="caption-text">A grouping/summary of the incorrectly excluded predictions. Larger circles represent terms which are parents to more of the input terms.</span><a class="headerlink" href="#filip-go-wrong" title="Permalink to this image">¶</a></p>
 </div>
+<p>I also looked to see whether there was any relationship between the 23 incorrectly removed predictions.
+Interestingly, all of these incorrectly filtered out predictions were for GOBP terms which were related to development (e.g. tissue development, anatomical structure development, epithelium development, organ morphogenesis).
+<a class="reference internal" href="#filip-go-wrong"><span class="std std-numref">Fig. 5.3</span></a> shows a summarises the incorrectly mapped GO terms, created using ReviGO<a href="#id1"><span class="problematic" id="id2">:cite:`Supek2011-ii`</span></a>.
+The fact that the incorrectly filtered out terms are all related to development implies there may be due to a bias in the developing tissues in the FANTOM5 data-set used by <code class="docutils literal notranslate"><span class="pre">filip</span></code>.</p>
 </div>
-<div class="section" id="past-cafas">
-<h3><span class="section-number">6.1.1.3. </span>Past CAFAs<a class="headerlink" href="#past-cafas" title="Permalink to this headline">¶</a></h3>
-<p>In 2014, the CAFA2 experiment began: 100,8216 target sequences from 27 different species were released to participants. In addition to the GO Biological Process and Molecular Function ontologies used in CAFA1, predictions were also requested for the Human Phenotype Ontology and GO Cellular Component ontology.</p>
-</div>
-</div>
-<div class="section" id="overview">
-<h2><span class="section-number">6.1.2. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-default" id="filp-overview">
-<a class="reference internal image-reference" href="../_images/filp-overview.png"><img alt="../_images/filp-overview.png" src="../_images/filp-overview.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">A flow chart showing how FilP works.</span><a class="headerlink" href="#filp-overview" title="Permalink to this image">¶</a></p>
-</div>
-<p>The filter is a simple rule-based model. Such models have not been very successful, as is the case for most models. This work is simply meant to show that including tissue-specific information can improve the results of protein function prediction, suggesting that it should be included in future ensemble predictors.</p>
-<p>Such a tool could be used on top of any protein function predictor, but would provide the most value for predictors that rely on structural or sequence similarity</p>
+<div class="section" id="cafa-3">
+<h3><span class="section-number">5.5.1.2. </span>CAFA 3<a class="headerlink" href="#cafa-3" title="Permalink to this headline">¶</a></h3>
+<p>The same kind of improvement is seen by the independently calculated CAFA3 results (validated by the CAFA3 team).
+I entered two models into CAFA3: DcGO only and DcGO plus <code class="docutils literal notranslate"><span class="pre">filip</span></code>, for Human and for Gene Ontology Biological Process terms only.</p>
+<p>In all categories, <code class="docutils literal notranslate"><span class="pre">filip</span></code> improved DcGO by 0.02 <span class="math notranslate nohighlight">\(F_{max}\)</span> (see <a class="reference internal" href="#cafa3-results"><span class="std std-numref">Table 5.2</span></a>.
+This was not enough to be a competitive model (ranked between 33 and 38 out of 67 for this category).
+Despite this, this result does show that the improvement was reproduced in another data set, carried out by other researchers.</p>
+<table class="table" id="cafa3-results">
+<caption><span class="caption-number">Table 5.2 </span><span class="caption-text">CAFA3 f-max results for DcGO and filip</span><a class="headerlink" href="#cafa3-results" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Mode</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(F_{max}\)</span> DcGO</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(F_{max}\)</span> DcGO + <code class="docutils literal notranslate"><span class="pre">filip</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>No Knowledge</p></td>
+<td><p>Partial Assessment</p></td>
+<td><p>0.326</p></td>
+<td><p>0.328</p></td>
+</tr>
+<tr class="row-odd"><td><p>No Knowledge</p></td>
+<td><p>Full Assessment</p></td>
+<td><p>0.326</p></td>
+<td><p>0.328</p></td>
+</tr>
+<tr class="row-even"><td><p>Limited Knowledge</p></td>
+<td><p>Partial Assessment</p></td>
+<td><p>0.503</p></td>
+<td><p>0.505</p></td>
+</tr>
+<tr class="row-odd"><td><p>Limited Knowledge</p></td>
+<td><p>Full Assessment</p></td>
+<td><p>0.503</p></td>
+<td><p>0.505</p></td>
+</tr>
+</tbody>
+</table>
+<!--
+
+## Coverage
+
+We have seen that `filip` was successful for 99.973% of it's "choices", but that the number of decisions it could make were not enough to usefully boost the performance of the predictor it was tested on.
+This reveals that the limited success of `filip` on the CAFA data is due to it's poor mapping coverage. 
+
+### Using `uberon-py`
+
+### Overall
+--></div>
 </div>
 </div>
 
@@ -552,7 +588,7 @@ Precision (the proportion of selected items that are relevant), and recall (the 
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./c06-filter"
+            path: "./c05-filter"
         },
         predefinedOutput: true
     }
@@ -567,8 +603,8 @@ Precision (the proportion of selected items that are relevant), and recall (the 
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="0-index.html" title="previous page"><span class="section-number">6. </span>Filtering computational predictions with tissue-specific expression information</a>
-    <a class='right-next' id="next-link" href="2-data.html" title="next page"><span class="section-number">6.2. </span>Data</a>
+    <a class='left-prev' id="prev-link" href="5-methods.html" title="previous page"><span class="section-number">5.4. </span>Methods</a>
+    <a class='right-next' id="next-link" href="7-discussion.html" title="next page"><span class="section-number">5.6. </span>Discussion</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -588,7 +624,7 @@ Precision (the proportion of selected items that are relevant), and recall (the 
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

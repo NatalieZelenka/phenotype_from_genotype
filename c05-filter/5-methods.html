@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.8. Results &#8212; Phenotype from Genotype</title>
+    <title>5.4. Methods &#8212; Phenotype from Genotype</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,10 +52,13 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.9. Discussion" href="5-discussion.html" />
-    <link rel="prev" title="5.7. Methods" href="3-methods.html" />
+    <link rel="next" title="5.5. Results" href="6-results.html" />
+    <link rel="prev" title="5.3. Data" href="4-data.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -73,6 +76,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -269,53 +274,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2-data.html">
-     5.6. Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     5.8. Results
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="7-discussion.html">
+     5.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -343,39 +334,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -458,19 +438,38 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cafa3-results">
-   5.8.1. CAFA3 Results
+  <a class="reference internal nav-link" href="#expression-cut-off">
+   5.4.1. Expression cut-off
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mapping-multi-species-phenotype-terms-to-tissue">
+     5.4.1.1. Mapping multi-species phenotype terms to tissue
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#validation">
-   5.8.2. Validation
+   5.4.2. Validation
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#combined-data-set-results">
-   5.8.3. Combined data-set results
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cafa-validation">
+     5.4.2.1. CAFA Validation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limitations-of-validation-method">
+     5.4.2.2. Limitations of validation method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation">
+     5.4.2.3. Implementation
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -483,56 +482,66 @@
         
               <div>
                 
-  <div class="section" id="results">
-<h1><span class="section-number">5.8. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="cafa3-results">
-<h2><span class="section-number">5.8.1. </span>CAFA3 Results<a class="headerlink" href="#cafa3-results" title="Permalink to this headline">¶</a></h2>
-<p>I entered two models into CAFA3: DcGO only and DcGO plus FilP. Due to time constraints, I only entered CAFA3 with predictions for Human, and for Gene Ontology Biological Process terms.</p>
-<p>In all categories, FilP improved DcGO by 0.02 f-max (Table 1). This was not enough to be a competitive model (ranked between 33 and 38/67 for this category).</p>
-<p>Type (known/
-unknown)
-Mode (protein/
-term)
-F-max (DcGO)
-F-max (DcGO + FilP)
-type1
-mode2
-0.326
-0.328
-type1
-mode1
-0.326
-0.328
-type2
-mode2
-0.503
-0.505
-type2
-mode1
-0.503
-0.505
-Table 1: CAFA3 f-max results for DcGO and FilP.</p>
+  <div class="section" id="methods">
+<h1><span class="section-number">5.4. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="expression-cut-off">
+<h2><span class="section-number">5.4.1. </span>Expression cut-off<a class="headerlink" href="#expression-cut-off" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">filip</span></code> filters out predictions which are not expressed in the tissue relating to the prediction. Deciding whether a gene is or isn’t expressed in a tissue is not trivial with gene expression data, since it can be noisy.
+Therefore a cut-off must be chosen.<br />
+This cut-off was chosen for TPM-normalised data was chosen as this best allows for comparing between different samples.
+The cut-off was chosen by plotting the distribution of TPM expression and choosing a value below which there appeared to be little noise (10 TPM).</p>
+<div class="section" id="mapping-multi-species-phenotype-terms-to-tissue">
+<h3><span class="section-number">5.4.1.1. </span>Mapping multi-species phenotype terms to tissue<a class="headerlink" href="#mapping-multi-species-phenotype-terms-to-tissue" title="Permalink to this headline">¶</a></h3>
+<div class="margin sidebar" id="stop-words">
+<p class="sidebar-title">Stop words</p>
+<p>Stop words are words that are filtered out before processing text using Natural Language Processing (NLP) methods.
+These are usually very common words (e.g. “and”, ”the”), or word which are meaningless in the context of the analysis.</p>
+</div>
+<p>The extended Uberon ontology is first interrogated for any existing relation to the term in the ontology using <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code>.</p>
+<p>Failing this, text-mining is used to assist in mapping based on phenotype term names:</p>
+<ul class="simple">
+<li><p>First <a class="reference internal" href="#stop-words"><span class="std std-ref">stop words</span></a> are removed, using the base list in the Natural Language Toolkit (<code class="docutils literal notranslate"><span class="pre">nltk</span></code>) Python Package<a href="#id1"><span class="problematic" id="id2">:cite:`Bird2006-xu`</span></a>, and a small number of manually curated phenotypic stopwords (e.g. “phenotype”, “abnormality”).</p></li>
+<li><p>Then, an exact match between an UBERON term’s name or synonyms and phenotype term’s name is searched for.</p></li>
+<li><p>If such a match does not exist, individual words from the phenotype term name or synonyms are then searched for exactly, such that the HP term “abnormality of the head and neck” would be mapped to UBERON’s “head” and “neck” terms (but never “neck of radius”).</p></li>
+<li><p>In cases where multiple terms are found, a common parent would be searched for, in the case of this example, “craniocervical region”.</p></li>
+<li><p>Failing that, a similarity measure is used to search a list of related words. This finds important words in the document using <a class="reference internal" href="#tf-idf"><span class="std std-ref">TF-IDF</span></a>, and then creates a similarity measure based on co-occurance, e.g. “mental” and “brain” have high similarity since they often appear in the same document  (documents are term descriptions).</p></li>
+<li><p>This list was then used to aid in manually mapping to relevant phenotype terms where one existed.</p></li>
+</ul>
+<div class="margin sidebar" id="tf-idf">
+<p class="sidebar-title">TF-IDF</p>
+<p>Term Frequency, Inverse Document Frequency is a common and basic measure in NLP which attempts to measure how representative a term (word) is of a document.
+It is defined by <span class="math notranslate nohighlight">\(tfidf=tf(t,d) \cdot idf(t,D) = (f_{t,d}) \cdot (\frac{N}{abs{d \in D : t \in d}) \)</span> where <span class="math notranslate nohighlight">\(f_{t,d}\)</span> is the frequency of a term <span class="math notranslate nohighlight">\(t\)</span> in a document <span class="math notranslate nohighlight">\(d\)</span>, <span class="math notranslate nohighlight">\(N\)</span> is the number of documents, and <span class="math notranslate nohighlight">\({abs{d \in D : t \in d}\)</span> is the number of documents containing the term.</p>
+</div>
+</div>
 </div>
 <div class="section" id="validation">
-<h2><span class="section-number">5.8.2. </span>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h2>
-<p>The approach of the filter was validated using the CAFA2 data. In order to do this, the original DcGO CAFA2 submission was run on the CAFA2 targets, and FilP was applied to these DcGO results.</p>
-<p>The F-max score was calculated for human BPO, combining both type 1 and type2. The results (Table 2) show that FilP provides a small benefit to the F-max score.</p>
-<p>F-max
-DcGO only
-F-max
-DcGO + FilP
-F-max score
-0.408
-0.409
-Table 2: F-max score with and without FilP</p>
-<p>FilP filtered out 85,637 GOBP human protein predictions, only 23 of which were true according to the CAFA2 ground truth. I
-nterestingly, of these incorrectly filtered out predictions contained GO terms which were related to development (Figure 15).
-This may be due to the lack of developing tissues in the dataset used by FilP.</p>
-<p>To check that the improvement due to FilP was not just due to the fact that there are more false positives in dcGO’s prediction than there are true positives, I performed a bootstrapping test by taking out random sets of 85,637 predictions (the number removed by FilP) from the dcGO set and measuring the number of true positives remaining in the set.
-This was repeated 100,000 times to create the histogram in Figure 16.</p>
+<h2><span class="section-number">5.4.2. </span>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cafa-validation">
+<h3><span class="section-number">5.4.2.1. </span>CAFA Validation<a class="headerlink" href="#cafa-validation" title="Permalink to this headline">¶</a></h3>
+<p>This confidence score allows for a range of possible sets of predictions, depending on the threshold parameter <span class="math notranslate nohighlight">\(\tau\)</span>.
+Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined as:</p>
+<p><span class="math notranslate nohighlight">\(precision = p = \frac{t_p}{t_p + f_p}\)</span>
+<span class="math notranslate nohighlight">\(recall = r = \frac{t_p}{t_p + f_n}\)</span></p>
+<p>Precision-recall curves are generally used to validate a predictors performance, but the <span class="math notranslate nohighlight">\(F_1\)</span> measure combines these into a single measure of performance:</p>
+<p><span class="math notranslate nohighlight">\(F_1 =2/ \frac{precision \cdot recall}{precision + recall}\)</span></p>
+<p>Since the precision and recall will be different for any <span class="math notranslate nohighlight">\(\tau\)</span>, the <span class="math notranslate nohighlight">\(F_{max}\)</span> score is the maximum possible {math{<code class="docutils literal notranslate"><span class="pre">F_1</span></code>} for any value of <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<p>CAFA validation can either be term-centric or protein-centric. For each option, submissions are assessed per species and for wholly unknown and partially known genes separately.</p>
 </div>
-<div class="section" id="combined-data-set-results">
-<h2><span class="section-number">5.8.3. </span>Combined data-set results<a class="headerlink" href="#combined-data-set-results" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="limitations-of-validation-method">
+<h3><span class="section-number">5.4.2.2. </span>Limitations of validation method<a class="headerlink" href="#limitations-of-validation-method" title="Permalink to this headline">¶</a></h3>
+<p>There is no penalty for making a broad guess, or reward for making a precise one. This is one of the reasons that the naive method does so well: for example it is not penalised for guessing that the root term of the GO BPO ontology Biological Process is related to every gene.</p>
+<p>Due to the nature of the validation set, it’s possible that the best-scoring CAFA methods simply predict which associations are likely to be discovered soon (i.e. associations to genes people are currently studying).</p>
+</div>
+<div class="section" id="implementation">
+<h3><span class="section-number">5.4.2.3. </span>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h3>
+<p>To create the input to DcGO, I used:</p>
+<ul class="simple">
+<li><p>BioPython<a href="#id3"><span class="problematic" id="id4">:cite:`Cock2009-py`</span></a>’s <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO</span></code> interface for reading CAFA FASTA files.</p></li>
+<li><p>SUPERFAMILY<a href="#id5"><span class="problematic" id="id6">:cite:`Gough2001-ct`</span></a> <a class="reference external" href="https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/cgi-bin/save.cgi?var=ht%3Btype=ass">domain assignments for Homo Sapiens</a>.</p></li>
+<li><p>UniprotKB<a href="#id7"><span class="problematic" id="id8">:cite:`Pundir2016-vv`</span></a>’s <a class="reference external" href="https://www.uniprot.org/uploadlists/">mapping tool</a> to create a mapping between the UniprotKB id’s provided by CAFA and the ENSP ID’s used by SUPERFAMILY.</p></li>
+</ul>
+<p>Then, to create the DcGO only entry, I used the <code class="docutils literal notranslate"><span class="pre">DcGOR</span></code> library<a href="#id9"><span class="problematic" id="id10">:cite:`Fang2014-hx`</span></a> (the <code class="docutils literal notranslate"><span class="pre">dcAlgoPredictMain</span></code> function).</p>
+</div>
 </div>
 </div>
 
@@ -564,8 +573,8 @@ This was repeated 100,000 times to create the histogram in Figure 16.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="3-methods.html" title="previous page"><span class="section-number">5.7. </span>Methods</a>
-    <a class='right-next' id="next-link" href="5-discussion.html" title="next page"><span class="section-number">5.9. </span>Discussion</a>
+    <a class='left-prev' id="prev-link" href="4-data.html" title="previous page"><span class="section-number">5.3. </span>Data</a>
+    <a class='right-next' id="next-link" href="6-results.html" title="next page"><span class="section-number">5.5. </span>Results</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

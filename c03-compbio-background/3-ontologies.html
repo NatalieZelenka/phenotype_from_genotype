@@ -52,8 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3.4. Bias" href="4-bias.html" />
@@ -75,6 +74,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -271,53 +272,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="../c05-filter/2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-data.html">
-     5.6. Data
+    <a class="reference internal" href="../c05-filter/4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="../c05-filter/5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-results.html">
-     5.8. Results
+    <a class="reference internal" href="../c05-filter/6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="../c05-filter/7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="../c05-filter/8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -345,39 +332,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -481,23 +457,6 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-are-ontologies-useful">
-   3.3.4. Why are ontologies useful?
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#term-enrichment">
-     3.3.4.1. Term enrichment
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#file-formats">
-   3.3.5. File formats
-  </a>
- </li>
 </ul>
 
         </nav>
@@ -572,45 +531,74 @@ Since this is a laborious process, there are also many computational methods to 
 <a class="reference internal image-reference" href="../_images/go_rilla.png"><img alt="../_images/go_rilla.png" src="../_images/go_rilla.png" style="height: 220px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3.4 </span><span class="caption-text">A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla<a href="#id12"><span class="problematic" id="id13">:cite:`Eden2009-ic`</span></a>)</span><a class="headerlink" href="#go-rilla" title="Permalink to this image">¶</a></p>
 </div>
-<p>The Gene Ontology (GO)<a href="#id14"><span class="problematic" id="id15">:cite:`Ashburner2000-cr`</span></a> is one of the first biomedical ontologies, and continues to be one of the most popular.
-It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems<a href="#id16"><span class="problematic" id="id17">:cite:`Thomas2017-vm`</span></a>.
-It includes:</p>
-<ol class="simple">
-<li><p>The standard gene ontology, which is a hierarchical set of terms describing functions.</p></li>
-<li><p>The <a class="reference internal" href="#gene-ontology-annotation"><span class="std std-ref">gene ontology annotations</span></a> (GOA) database<a href="#id18"><span class="problematic" id="id19">:cite:`Camon2004-ks`</span></a>, which contains manual and computationally derived mappings from gene products to gene ontology terms.</p></li>
-<li><p>Tools for using and updating these resources.</p></li>
-</ol>
-<p><strong>Gene Ontology terms:</strong>
-The Gene Ontology defines the “universe” of possible functions a gene might have (in any species), while the functions of particular genes are captured as GOA database<a href="#id20"><span class="problematic" id="id21">:cite:`Thomas2017-vm`</span></a>.</p>
-<p>The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies<a href="#id22"><span class="problematic" id="id23">:cite:`Ashburner2000-cr`</span></a>.
-Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process)<a href="#id24"><span class="problematic" id="id25">:cite:`Thomas2017-vm`</span></a>.</p>
-<p>Molecular functions terms describe activities at the molecular level (i.e. that can be undertaken by individual gene product molecules) such as catalysis, transport, and binding.
-Biological processes terms represent larger scale functions (requiring several molecules), such as regulation, or even behaviour - these stop short of representing biological pathways (GO does not include the types of relationships that would facilitate this).<br />
-Cellular component terms describe what part of the cellular anatomy a gene product is part of, e.g. intracellular organelle, ribosome, or cell surface.</p>
-<p>The terms in these three sub-ontologies are related to one another by relations, the most common are <code class="docutils literal notranslate"><span class="pre">is_a</span></code> (i.e. is a subtype of); <code class="docutils literal notranslate"><span class="pre">part_of</span></code>; <code class="docutils literal notranslate"><span class="pre">has_part</span></code>; <code class="docutils literal notranslate"><span class="pre">regulates</span></code>, <code class="docutils literal notranslate"><span class="pre">negatively_regulates</span></code> and <code class="docutils literal notranslate"><span class="pre">positively_regulates</span></code>.</p>
-<p id="gene-ontology-annotation"><strong>Gene Ontology Annotations:</strong>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+[//]: # (TODO: Remove backticks)
+
+The Gene Ontology (GO){cite}`Ashburner2000-cr` is one of the first biomedical ontologies, and continues to be one of the most popular. 
+It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems{cite}`Thomas2017-vm`. 
+It includes:
+1. The standard gene ontology, which is a hierarchical set of terms describing functions.
+2. The {ref}`gene ontology annotations&lt;gene-ontology-annotation&gt;` (GOA) database{cite}`Camon2004-ks`, which contains manual and computationally derived mappings from gene products to gene ontology terms.
+3. Tools for using and updating these resources.
+
+**Gene Ontology terms:** 
+The Gene Ontology defines the “universe” of possible functions a gene might have (in any species), while the functions of particular genes are captured as GOA database{cite}`Thomas2017-vm`.
+
+The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies{cite}`Ashburner2000-cr`. 
+Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process){cite}`Thomas2017-vm`.
+
+Molecular functions terms describe activities at the molecular level (i.e. that can be undertaken by individual gene product molecules) such as catalysis, transport, and binding.
+Biological processes terms represent larger scale functions (requiring several molecules), such as regulation, or even behaviour - these stop short of representing biological pathways (GO does not include the types of relationships that would facilitate this).  
+Cellular component terms describe what part of the cellular anatomy a gene product is part of, e.g. intracellular organelle, ribosome, or cell surface.
+
+The terms in these three sub-ontologies are related to one another by relations, the most common are `is_a` (i.e. is a subtype of); `part_of`; `has_part`; `regulates`, `negatively_regulates` and `positively_regulates`. 
+
+[//]: # (TODO: biocurator margin)
+[//]: # (TODO: Do I mention protein complexes before?)
+(gene-ontology-annotation)=
+**Gene Ontology Annotations:**
 Annotations in the GOA database are annotations between GO terms and gene products (proteins, protein complexes or RNA).
 The annotations include integration to the Uniprot protein function annotations across many species, which have been connected to the controlled vocabulary of GO by skilled biocurators, as well as electronically generated annotations.
 Evidence codes are provided for annotations which label whether annotations were verified by experts, as well as what type of experimental or computational evidence there is for an annotation.
-GOA also link to the supporting publications for the experimental annotations.</p>
+GOA also link to the supporting publications for the experimental annotations.
+
+[//]: # (TODO: but the GO do not provide the statistical evidence that they used alongside this - e.g. p-value, effect size-, etc)
+
+### Uberon Ontology
+Uberon is a cross-species anatomy ontology{cite}`Mungall2012-nc`, whose terms represent body parts, organs, and tissues in a variety of animal species. 
+It is particularly strong in it&#39;s integration to other ontologies, including anatomy ontologies for individual species, the Gene Ontology, Cell Ontology, phenotype ontologies, the Experimental Factor Ontology (EFO), etc. 
+
+### Other Ontologies
+[//]: # (TODO: Other ontologies, cite + descriptions)
+There are many other ontologies which aim to catalogue other aspects of biological experiments and knowledge.
+Other ontologies which are used in this thesis include:
+- The Cell Ontology{cite}`Malladi2015-iq` (`CL`) describes cross-species cell types (from prokaryotes to mammals, but excluding plants). Example relationship: Osteocyte `is_a` Bone Cell `is_a` Animal Cell.
+- The Disease Ontology{cite}`Schriml2019-uv` (`DO`) describes human disease. Example relationship: Blastoma `is_a` Cell-type Cancer `is_a` Cancer.
+- Human Phenotype Ontology{cite}`Kohler2021-oy` (`HP`) describes &quot;human phenotypic abnormalities encountered in human disease&quot;. Example relationship: Motor Seizure `is_a` Seizure `is_a` Abnormal Motor System Physiology.
+- The Experimental Factor Ontology{cite}`Malone2010-es` (`EFO`) describes experimental setups common to the EBI databases. It is well-integrated with CL, Uberon, and ChEBI (chemical compound ontology). Example relationship: RNA Extraction Protocol `is_a` Nucleic Acid Extraction Protocol `is_a` Extraction protocol.
+
+## Why are ontologies useful?
+[//]: # (TODO: Example of query of insight you woudln&#39;t have usually,  signpost to DCGO, mention usefulness of controlled vocabulary and agreed upon definitions)
+[//]: # (TODO: Add picture describing logic http://geneontology.org/docs/ontology-relations/)
+
+Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities.
+With logical reasoning, we can generate inferred relationships between distantly related terms in  ontologies, for example $is\_a \cdot part\_of \implies part\_of$. 
+This allows us to find and check relationships that are not in the ontology automatically.
+
+Ontologies and particularly their annotations are varying degrees of incomplete, and this will have an impact on the results of any downstream use of them. 
+
+(term-enrichment)=
+### Term enrichment
+Ontologies are often used to try to make sense of a list of genes that are found to be differentially expressed across different experimental conditions, or as outputs from GWAS. 
+In the context of GO, a term enrichment analysis can be carried out to see which GO terms are overrepresented (aka enriched) for a given group of genes, thus saying something about the function of the list of genes. 
+
+## File formats
+(obo-format)=
+There are two major file formats in which ontologies are currently stored. 
+he OBO format is a human-readable format, while the OWL format is more complex, but has more functionality, and for example can be queried using SPARQL (an SQL-like querying language).  
+</pre></div>
 </div>
 </div>
-<div class="section" id="why-are-ontologies-useful">
-<h2><span class="section-number">3.3.4. </span>Why are ontologies useful?<a class="headerlink" href="#why-are-ontologies-useful" title="Permalink to this headline">¶</a></h2>
-<p>Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities.
-With logical reasoning, we can generate inferred relationships between distantly related terms in  ontologies, for example <span class="math notranslate nohighlight">\(is\_a \cdot part\_of \implies part\_of\)</span>.
-This allows us to find and check relationships that are not in the ontology automatically.</p>
-<p>Ontologies and particularly their annotations are varying degrees of incomplete, and this will have an impact on the results of any downstream use of them.</p>
-<div class="section" id="term-enrichment">
-<span id="id26"></span><h3><span class="section-number">3.3.4.1. </span>Term enrichment<a class="headerlink" href="#term-enrichment" title="Permalink to this headline">¶</a></h3>
-<p>Ontologies are often used to try to make sense of a list of genes that are found to be differentially expressed across different experimental conditions, or as outputs from GWAS.
-In the context of GO, a term enrichment analysis can be carried out to see which GO terms are overrepresented (aka enriched) for a given group of genes, thus saying something about the function of the list of genes.</p>
-</div>
-</div>
-<div class="section" id="file-formats">
-<h2><span class="section-number">3.3.5. </span>File formats<a class="headerlink" href="#file-formats" title="Permalink to this headline">¶</a></h2>
-<p id="obo-format">There are two major file formats in which ontologies are currently stored.
-he OBO format is a human-readable format, while the OWL format is more complex, but has more functionality, and for example can be queried using SPARQL (an SQL-like querying language).</p>
 </div>
 </div>
 

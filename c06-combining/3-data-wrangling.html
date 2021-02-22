@@ -52,9 +52,10 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.4. The uberon-py package" href="4-uberon.html" />
+    <link rel="next" title="6.4. Batch correction" href="5-batch-correction.html" />
     <link rel="prev" title="6.2. Data Acquisition" href="2-data.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,6 +74,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -269,53 +272,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="../c05-filter/2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-data.html">
-     5.6. Data
+    <a class="reference internal" href="../c05-filter/4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="../c05-filter/5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-results.html">
-     5.8. Results
+    <a class="reference internal" href="../c05-filter/6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="../c05-filter/7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="../c05-filter/8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -343,39 +332,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -504,7 +482,7 @@
 <span id="c05-3-data-wrangling"></span><h1><span class="section-number">6.3. </span>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">¶</a></h1>
 <p>Before the data sets could be combined, substantial data wrangling was necessary. The details of these processes - obtaining, checking, mapping identifiers, and excluding irrelevant data - are described in this section.
 A Python package (<code class="docutils literal notranslate"><span class="pre">uberon_py</span></code>) was developed and used to do much of this mapping.
-It’s functionality is described in <a class="reference internal" href="4-uberon.html#uberon-py"><span class="std std-numref">Section 6.4</span></a>.</p>
+It’s functionality is described in <a class="reference internal" href="../c05-filter/2-uberon.html#uberon-py"><span class="std std-numref">Section 5.2</span></a>.</p>
 <p>The steps required to obtain consistently formatted and labelled data can be described as follows:</p>
 <ul class="simple">
 <li><p>Obtaining the raw expression per gene for healthy human tissues</p>
@@ -515,7 +493,7 @@ It’s functionality is described in <a class="reference internal" href="4-ubero
 <li><p>(Where required) Filtering out non-human samples</p></li>
 </ul>
 </li>
-<li><p>Mapping from sample name to UBERON tissue using <a class="reference internal" href="4-uberon.html#uberon-py"><span class="std std-ref">uberon-py</span></a>.</p></li>
+<li><p>Mapping from sample name to UBERON tissue using <a class="reference internal" href="../c05-filter/2-uberon.html#uberon-py"><span class="std std-ref">uberon-py</span></a>.</p></li>
 <li><p>Aggregating metadata</p></li>
 </ul>
 <div class="dropdown admonition">
@@ -587,7 +565,7 @@ The FANTOM5 data set also contains non-human (mouse) samples. The FANTOM sample 
 </div>
 <div class="section" id="mapping-to-uberon">
 <h2><span class="section-number">6.3.2. </span>Mapping to UBERON<a class="headerlink" href="#mapping-to-uberon" title="Permalink to this headline">¶</a></h2>
-<p>Mapping from samples to Uberon tissue required the development of a small Python package <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code>, which is described in detail in <a class="reference internal" href="4-uberon.html#uberon-py"><span class="std std-ref">the next section</span></a>. To create input to this package, informal tissue names (e.g. blood, kidney) were taken from the experimental design files (or the human sample information file for FANTOM) to create a map of samples to informal tissue names.
+<p>Mapping from samples to Uberon tissue required the development of a small Python package <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code>, which is described in detail in <a class="reference internal" href="../c05-filter/2-uberon.html#uberon-py"><span class="std std-ref">the next section</span></a>. To create input to this package, informal tissue names (e.g. blood, kidney) were taken from the experimental design files (or the human sample information file for FANTOM) to create a map of samples to informal tissue names.
 For FANTOM, the FANTOM ontology could also be used to create a more fine-grained mapping of samples to tissues based on FANTOM sample identifiers and/or cell type (CL) identifiers.</p>
 <p><strong>HPA</strong>
 The HPA samples were mapped using exact matches to Uberon names.
@@ -601,7 +579,7 @@ Since an experimental design file could not be obtained for FANTOM via GxA, addi
 Since these samples do not have a well-defined locality in the body given by cell or tissue type, they were not used in the combined dataset.
 Such samples were filtered out using the human sample information file.</p>
 <p>Since the FANTOM data had both an ontology file and the human sample information file, both were used to map to Uberon.
-The disagreements between the two mappings revealed some inconsistencies with the data set: these are described in <a class="reference internal" href="4-uberon.html#fantom5-inconsistencies-example"><span class="std std-ref">the next section</span></a>, as they demonstrate a potential use case for the <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package.</p>
+The disagreements between the two mappings revealed some inconsistencies with the data set: these are described in <a class="reference internal" href="../c05-filter/2-uberon.html#fantom5-inconsistencies-example"><span class="std std-ref">the next section</span></a>, as they demonstrate a potential use case for the <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotly</span> <span class="kn">import</span> <span class="n">graph_objects</span> <span class="k">as</span> <span class="n">go</span>
@@ -907,7 +885,7 @@ Individual tissues were mapped to these groups using `uberon-py`&#39;s `Relation
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="2-data.html" title="previous page"><span class="section-number">6.2. </span>Data Acquisition</a>
-    <a class='right-next' id="next-link" href="4-uberon.html" title="next page"><span class="section-number">6.4. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
+    <a class='right-next' id="next-link" href="5-batch-correction.html" title="next page"><span class="section-number">6.4. </span>Batch correction</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

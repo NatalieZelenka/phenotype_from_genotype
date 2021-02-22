@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.8. Discussion &#8212; Phenotype from Genotype</title>
+    <title>6.7. Discussion &#8212; Phenotype from Genotype</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,10 +52,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.9. Future Work" href="8-future-work.html" />
-    <link rel="prev" title="6.6. Results and outputs" href="6-results.html" />
+    <link rel="next" title="6.8. Future Work" href="8-future-work.html" />
+    <link rel="prev" title="6.5. Results and outputs" href="6-results.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -73,6 +74,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -269,53 +272,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="../c05-filter/2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-data.html">
-     5.6. Data
+    <a class="reference internal" href="../c05-filter/4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="../c05-filter/5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-results.html">
-     5.8. Results
+    <a class="reference internal" href="../c05-filter/6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="../c05-filter/7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="../c05-filter/8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -343,39 +332,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -459,12 +437,12 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#combining-omics-data-sets-is-an-opportunity-to-improve-existing-resources">
-   6.8.1. Combining omics data sets is an opportunity to improve existing resources
+   6.7.1. Combining omics data sets is an opportunity to improve existing resources
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#batch-effect-clearly-exist-but-are-hard-to-estimate">
-   6.8.2. Batch effect clearly exist but are hard to estimate
+   6.7.2. Batch effect clearly exist but are hard to estimate
   </a>
  </li>
 </ul>
@@ -479,16 +457,16 @@
               <div>
                 
   <div class="section" id="discussion">
-<h1><span class="section-number">6.8. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.7. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="combining-omics-data-sets-is-an-opportunity-to-improve-existing-resources">
-<h2><span class="section-number">6.8.1. </span>Combining omics data sets is an opportunity to improve existing resources<a class="headerlink" href="#combining-omics-data-sets-is-an-opportunity-to-improve-existing-resources" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.7.1. </span>Combining omics data sets is an opportunity to improve existing resources<a class="headerlink" href="#combining-omics-data-sets-is-an-opportunity-to-improve-existing-resources" title="Permalink to this headline">¶</a></h2>
 <p>While a great deal of careful work has clearly been spent on making the datasets used in this analysis available and useful to researchers such as myself, there were still many barriers to their use in this circumstance.
 This ranged from mislabelled samples, to missing information, to having to seek data about the same experiment from multiple different sources.
 In particular, I think it’s important that key information that we know affects gene expression such as age, developmental stage, and sex are made available with the data set and preferably in a format which is easy to compare across experiments.
 It is reassuring that the data issues that were discovered had clear pathways for reporting, and that some of them have already resulted in changes to the files used.</p>
 </div>
 <div class="section" id="batch-effect-clearly-exist-but-are-hard-to-estimate">
-<h2><span class="section-number">6.8.2. </span>Batch effect clearly exist but are hard to estimate<a class="headerlink" href="#batch-effect-clearly-exist-but-are-hard-to-estimate" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.7.2. </span>Batch effect clearly exist but are hard to estimate<a class="headerlink" href="#batch-effect-clearly-exist-but-are-hard-to-estimate" title="Permalink to this headline">¶</a></h2>
 <p>The problem of batch effects for this data set has not yet been overcome.
 This means that the data set can not yet be used for the purpose of improving measurements from baseline experiments (e.g. housekeeping genes or baseline tissue-specific gene expression).</p>
 <p>However, by overcoming the data cleaning and standardisation necessary to have all datasets in the same format with the same sample metadata, the data can be used for analyses where batch and other sample metadata is used as covariates (e.g. differential expression of tissues).<br />
@@ -524,8 +502,8 @@ In its current iteration, it is also suitable for use in FilP, where the data se
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="6-results.html" title="previous page"><span class="section-number">6.6. </span>Results and outputs</a>
-    <a class='right-next' id="next-link" href="8-future-work.html" title="next page"><span class="section-number">6.9. </span>Future Work</a>
+    <a class='left-prev' id="prev-link" href="6-results.html" title="previous page"><span class="section-number">6.5. </span>Results and outputs</a>
+    <a class='right-next' id="next-link" href="8-future-work.html" title="next page"><span class="section-number">6.8. </span>Future Work</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

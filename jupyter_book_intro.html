@@ -52,6 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions" href="front-matter/title-page.html" />
@@ -72,6 +73,8 @@
     
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/thesis_logo_with_text.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
@@ -268,53 +271,39 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="c05-filter/1-introduction.html#motivation-linking-genotype-and-phenotype">
-     5.2. Motivation: linking genotype and phenotype
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="c05-filter/1-introduction.html#motivation-protein-function-prediction">
-     5.3. Motivation: protein function prediction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="c05-filter/1-introduction.html#id5">
-     5.4. CAFA
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="c05-filter/1-introduction.html#filip">
-     5.5.
+    <a class="reference internal" href="c05-filter/2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
-       filip
+       uberon-py
       </span>
      </code>
+     package
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="c05-filter/2-data.html">
-     5.6. Data
+    <a class="reference internal" href="c05-filter/4-data.html">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="c05-filter/3-methods.html">
-     5.7. Methods
+    <a class="reference internal" href="c05-filter/5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="c05-filter/4-results.html">
-     5.8. Results
+    <a class="reference internal" href="c05-filter/6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="c05-filter/5-discussion.html">
-     5.9. Discussion
+    <a class="reference internal" href="c05-filter/7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="c05-filter/6-future-work.html">
-     5.10. Future work
+    <a class="reference internal" href="c05-filter/8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -342,39 +331,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="c06-combining/4-uberon.html">
-     6.4. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="c06-combining/5-batch-correction.html">
-     6.5. Batch correction
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="c06-combining/6-results.html">
-     6.6. Results and outputs
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="c06-combining/6-results.html#combined-data-set">
-     6.7. Combined data set
+     6.6. Combined data set
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="c06-combining/7-discussion.html">
-     6.8. Discussion
+     6.7. Discussion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="c06-combining/8-future-work.html">
-     6.9. Future Work
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -460,9 +438,11 @@
                 
   <div class="section" id="start-here">
 <h1>Start here<a class="headerlink" href="#start-here" title="Permalink to this headline">¶</a></h1>
-<p>You’re looking at Natalie Thurlby’s thesis <em>Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions</em> as a <a class="reference external" href="https://jupyterbook.org/intro.html">jupyter book</a>.</p>
-<p>This jupyter book thesis is made up of markdown files and jupyter notebooks, which are kept in <span class="xref myst">this</span> GitHub repo. The code for all graphs in <!--chapters X, Y and Z of--> this thesis are available there (as jupyter notebooks), which you can run for yourself using <span class="xref myst">binder</span> if you like. This jupyter book thesis is therefore as up-to-date and as reproducible as possible.</p>
-<p>You can use the sidebar on the left to navigate to a chapter or section, or if you need a more fine-grained look at what’s inside, you can look at <span class="xref myst">the table of contents</span>.</p>
+<p>You’re looking at Natalie Thurlby’s thesis <em>Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions</em> as a <a class="reference external" href="https://jupyterbook.org/intro.html">jupyter book</a>.
+You will always be able to find the most up-to-date version of this book <a class="reference external" href="https://nataliethurlby.github.io/phenotype_from_genotype/">at this link</a>.</p>
+<p>This jupyter book thesis is made up of markdown files and jupyter notebooks: the idea behind this was to make this thesis as reproducible as I could.
+For some figures and tables (mostly in <a class="reference internal" href="c06-combining/0-index.html#c05-combining"><span class="std std-ref">Chapter 6</span></a>), I’ve achieved this - with the code being visible and the graphs being the output from that code.</p>
+<p>You can use the sidebar on the left to navigate to a chapter or section, and within those sections, you can navigate to specific subsections using the right navbar.</p>
 <p>Alternatively, you can download the thesis as a PDF <span class="xref myst">here</span>.</p>
 <div class="toctree-wrapper compound">
 </div>

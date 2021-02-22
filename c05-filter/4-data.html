@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Table of Contents &#8212; Phenotype from Genotype</title>
+    <title>5.3. Data &#8212; Phenotype from Genotype</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -34,20 +34,17 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -55,8 +52,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.4. Methods" href="5-methods.html" />
+    <link rel="prev" title="5.2. The uberon-py package" href="2-uberon.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -75,6 +75,8 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
+  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+  
   
   <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
   
@@ -91,22 +93,22 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="title-page.html">
+  <a class="reference internal" href="../front-matter/title-page.html">
    Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="acknowledgements.html">
+    <a class="reference internal" href="../front-matter/acknowledgements.html">
      Acknowledgements
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="abstract.html">
+    <a class="reference internal" href="../front-matter/abstract.html">
      Abstract
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="declaration.html">
+    <a class="reference internal" href="../front-matter/declaration.html">
      Declaration
     </a>
    </li>
@@ -120,7 +122,7 @@
   Main book
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../c01-introduction/intro.html">
    1. Introduction
@@ -187,12 +189,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c03-compbio-background/4-bias.html">
-     3.4. Sources of bias in computational biology datasets
+     3.4. Bias
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/5-error.html">
-     3.5. Sources of error in computational biology
+    <a class="reference internal" href="../c03-compbio-background/5-pqi.html">
+     3.5. PQI
     </a>
    </li>
    <li class="toctree-l2">
@@ -259,29 +261,19 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c05-combining/0-index.html">
-   5. Combining RNA-seq datasets
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="0-index.html">
+   5. Filtering computational predictions with tissue-specific expression information
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/1-background.html">
-     5.1. Background
+    <a class="reference internal" href="1-introduction.html">
+     5.1. Introduction
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/2-data.html">
-     5.2. Data Acquisition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/3-data-wrangling.html">
-     5.3. Data Wrangling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/4-uberon.html">
-     5.4. The
+    <a class="reference internal" href="2-uberon.html">
+     5.2. The
      <code class="docutils literal notranslate">
       <span class="pre">
        uberon-py
@@ -290,29 +282,29 @@
      package
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/5-batch-correction.html">
-     5.5. Batch correction
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5.3. Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/6-results.html">
-     5.6. Results and outputs
+    <a class="reference internal" href="5-methods.html">
+     5.4. Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/6-results.html#combined-data-set">
-     5.7. Combined data set
+    <a class="reference internal" href="6-results.html">
+     5.5. Results
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/7-discussion.html">
-     5.8. Discussion
+    <a class="reference internal" href="7-discussion.html">
+     5.6. Discussion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-combining/8-future-work.html">
-     5.9. Future Work
+    <a class="reference internal" href="8-future-work.html">
+     5.7. Future work
     </a>
    </li>
   </ul>
@@ -320,38 +312,48 @@
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c06-filter/0-index.html">
-   6. Filtering computational predictions with tissue-specific expression information
+  <a class="reference internal" href="../c06-combining/0-index.html">
+   6. Combining RNA-seq datasets
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-filter/1-introduction.html">
-     6.1. Introduction
+    <a class="reference internal" href="../c06-combining/1-background.html">
+     6.1. Background
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-filter/2-data.html">
-     6.2. Data
+    <a class="reference internal" href="../c06-combining/2-data.html">
+     6.2. Data Acquisition
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-filter/3-methods.html">
-     6.3. Methods
+    <a class="reference internal" href="../c06-combining/3-data-wrangling.html">
+     6.3. Data Wrangling
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-filter/4-results.html">
-     6.4. Results
+    <a class="reference internal" href="../c06-combining/5-batch-correction.html">
+     6.4. Batch correction
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-filter/5-discussion.html">
-     6.5. Discussion
+    <a class="reference internal" href="../c06-combining/6-results.html">
+     6.5. Results and outputs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c06-filter/6-future-work.html">
-     6.6. Future work
+    <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
+     6.6. Combined data set
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-combining/7-discussion.html">
+     6.7. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-combining/8-future-work.html">
+     6.8. Future Work
     </a>
    </li>
   </ul>
@@ -428,6 +430,35 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gene-expression-data">
+   5.3.1. Gene expression data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validation-cafa-data">
+   5.3.2. Validation: CAFA data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cafa2-during-development">
+   5.3.3. CAFA2 - During Development
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cafa3">
+   5.3.4. CAFA3
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -435,8 +466,32 @@
         
               <div>
                 
-  <div class="section" id="table-of-contents">
-<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="data">
+<h1><span class="section-number">5.3. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="gene-expression-data">
+<h2><span class="section-number">5.3.1. </span>Gene expression data<a class="headerlink" href="#gene-expression-data" title="Permalink to this headline">¶</a></h2>
+<p>I chose the FANTOM5 data (at the time the latest data output of the <a class="reference internal" href="#fantom-consortium"><span class="std std-ref">FANTOM consortium</span></a>) as the input gene expression data for <code class="docutils literal notranslate"><span class="pre">filip</span></code>, for the following reasons:</p>
+<ul class="simple">
+<li><p>The data set has a good coverage of different tissue types, meaning that <code class="docutils literal notranslate"><span class="pre">filip</span></code> should be able to turn this into a good coverage of predictions.</p></li>
+<li><p>The data set uses Capped Analysis Gene Expression (CAGE) technology, meaning that it has information per transcript (i.e. per protein, rather than per gene).</p></li>
+<li><p>The data set has an ontology of samples, which is already linked to Uberon tissue terms and CL cell terms, making the mapping process much easier.</p></li>
+</ul>
+<div class="margin sidebar" id="fantom-consortium">
+<p class="sidebar-title">The FANTOM Consortium</p>
+<p>The Functional ANnoTation Of the MAmmalian genome (FANTOM) consortium was established as the human genome project was nearing completion when researchers had a parts list of human biology, but few of the functions of these parts (genes) were known. The consortium has run a range of large scale collaborative projects in five rounds to further this goal. The first FANTOM project used only the mouse genome, but later versions also included human.</p>
+</div>
+</div>
+<div class="section" id="validation-cafa-data">
+<h2><span class="section-number">5.3.2. </span>Validation: CAFA data<a class="headerlink" href="#validation-cafa-data" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cafa2-during-development">
+<h2><span class="section-number">5.3.3. </span>CAFA2 - During Development<a class="headerlink" href="#cafa2-during-development" title="Permalink to this headline">¶</a></h2>
+<p>During development, I tested <code class="docutils literal notranslate"><span class="pre">filip</span></code> by comparing DcGO only and <code class="docutils literal notranslate"><span class="pre">filip</span></code> + DcGO on data from the 2nd round of the CAFA competition: CAFA2.</p>
+</div>
+<div class="section" id="cafa3">
+<h2><span class="section-number">5.3.4. </span>CAFA3<a class="headerlink" href="#cafa3" title="Permalink to this headline">¶</a></h2>
+<p>I entered DcGO only, and <code class="docutils literal notranslate"><span class="pre">filip</span></code> + DcGO into the CAFA3 competition in order to test <code class="docutils literal notranslate"><span class="pre">filip</span></code> on a new dataset, and have the validation independently reproduced by an unaffilated researcher.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -452,7 +507,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./front-matter"
+            path: "./c05-filter"
         },
         predefinedOutput: true
     }
@@ -467,6 +522,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="2-uberon.html" title="previous page"><span class="section-number">5.2. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
+    <a class='right-next' id="next-link" href="5-methods.html" title="next page"><span class="section-number">5.4. </span>Methods</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -486,7 +543,7 @@
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
