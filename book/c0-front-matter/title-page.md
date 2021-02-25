@@ -10,9 +10,9 @@ University of Bristol<br>
 <br><br>
 </div>
 
-```{figure} ../images/bristol-crest.png
+```{figure} ../images/bristol-alt-crest-red.png
 ---
-height: 150px
+height: 300px
 name: my-figure
 ---
 ```

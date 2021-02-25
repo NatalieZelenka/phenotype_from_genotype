@@ -3,11 +3,11 @@
 - part: Front Matter
   numbered: false
   chapters:
-  - file: front-matter/title-page
+  - file: c0-front-matter/title-page
     sections:
-    - file: front-matter/acknowledgements
-    - file: front-matter/abstract
-    - file: front-matter/declaration
+    - file: c0-front-matter/acknowledgements
+    - file: c0-front-matter/abstract
+    - file: c0-front-matter/declaration
 - part: Main book
   numbered: true
   chapters:

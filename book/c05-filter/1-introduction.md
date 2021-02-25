@@ -37,12 +37,12 @@ Filtering out predictions where genes are never expressed in a relevant tissue, 
 Critical Assessment of Functional Annotation{cite}`Zhou2019-jk,Jiang2016-rz,Radivojac2013-wh` (CAFA) is an international community-wide competition for the prediction of protein function, which aims both to stimulate research in the field of protein function prediction, and to measure progress in the field.
 It has been running approximately every 2-3 years since 2013. 
 
-[//]: # (TODO: Write about CAFA challenges)
-The CAFA competitions consist of a number of different challenges.
+Each CAFA challenge begins by the organisers releasing a large number of target sequences (over one hundred thousand) across multiple species, about which participant teams must make predictions. 
+After the competition closes, the organisers wait 3 months, by which time, new experimentally verified protein functions will be found (representing ~3% of sequences in past competitions) and these are the data set against which the predictors are measured. 
 
-Each CAFA challenge begins by the organisers releasing a large number of target sequences  (over one hundred thousand) about which participants must make predictions. 
 Participants can use any additional data they see fit to make predictions, which must be triples containing a sequence ID, ontology term ID (e.g. a GO/HP identifier), and a confidence score between 0 and 1. 
-A score of 1 indicates a very confidence predictor, while a score of 0 is equivalent to not returning the prediction. Each team may submit up to three models, the best of which is ranked.
+A score of 1 indicates a very confidence predictor, while a score of 0 is equivalent to not returning the prediction. 
+Each team may submit up to three models, the best of which is ranked.
 
 The target sequences consist of a mixture of "no-knowledge" and "limited-knowledge" sequences. 
 No-knowledge sequences are sequences which upon release have zero experimentally-validated GO annotations to any of GO's three constituent ontologies (biological process, cellular component, and molecular function).
