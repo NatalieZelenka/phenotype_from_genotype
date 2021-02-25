@@ -93,22 +93,22 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../front-matter/title-page.html">
+  <a class="reference internal" href="../c0-front-matter/title-page.html">
    Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../front-matter/acknowledgements.html">
+    <a class="reference internal" href="../c0-front-matter/acknowledgements.html">
      Acknowledgements
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../front-matter/abstract.html">
+    <a class="reference internal" href="../c0-front-matter/abstract.html">
      Abstract
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../front-matter/declaration.html">
+    <a class="reference internal" href="../c0-front-matter/declaration.html">
      Declaration
     </a>
    </li>
@@ -504,10 +504,11 @@ Filtering out predictions where genes are never expressed in a relevant tissue, 
 <span id="id5"></span><h2><span class="section-number">5.1.3. </span>CAFA<a class="headerlink" href="#cafa" title="Permalink to this headline">¶</a></h2>
 <p>Critical Assessment of Functional Annotation<a href="#id6"><span class="problematic" id="id7">:cite:`Zhou2019-jk,Jiang2016-rz,Radivojac2013-wh`</span></a> (CAFA) is an international community-wide competition for the prediction of protein function, which aims both to stimulate research in the field of protein function prediction, and to measure progress in the field.
 It has been running approximately every 2-3 years since 2013.</p>
-<p>The CAFA competitions consist of a number of different challenges.</p>
-<p>Each CAFA challenge begins by the organisers releasing a large number of target sequences  (over one hundred thousand) about which participants must make predictions.
-Participants can use any additional data they see fit to make predictions, which must be triples containing a sequence ID, ontology term ID (e.g. a GO/HP identifier), and a confidence score between 0 and 1.
-A score of 1 indicates a very confidence predictor, while a score of 0 is equivalent to not returning the prediction. Each team may submit up to three models, the best of which is ranked.</p>
+<p>Each CAFA challenge begins by the organisers releasing a large number of target sequences (over one hundred thousand) across multiple species, about which participant teams must make predictions.
+After the competition closes, the organisers wait 3 months, by which time, new experimentally verified protein functions will be found (representing ~3% of sequences in past competitions) and these are the data set against which the predictors are measured.</p>
+<p>Participants can use any additional data they see fit to make predictions, which must be triples containing a sequence ID, ontology term ID (e.g. a GO/HP identifier), and a confidence score between 0 and 1.
+A score of 1 indicates a very confidence predictor, while a score of 0 is equivalent to not returning the prediction.
+Each team may submit up to three models, the best of which is ranked.</p>
 <p>The target sequences consist of a mixture of “no-knowledge” and “limited-knowledge” sequences.
 No-knowledge sequences are sequences which upon release have zero experimentally-validated GO annotations to any of GO’s three constituent ontologies (biological process, cellular component, and molecular function).
 Limited-knowledge sequences are sequences with one or more annotations in one or two GO ontologies, but not all three.</p>

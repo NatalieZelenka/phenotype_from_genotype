@@ -24,18 +24,28 @@ They are some extras that made it easier for me to push through and finish this 
 
 [//]: # (TODO: Cite Jupyter Book)
 
+````{margin} Bristol Crest
+:name: bristol-crest
+
+```{image} ../images/bristol-crest.png
+:width: 185px
+:align: center
+```
+
+The official University of Bristol crest (above) has symbols for the Wills, Fry, and Colston families. These families made their wealth in industries built on slavery and used some of that wealth to found the University of Bristol.
+
+```{image} ../images/bristol-alt-crest-red.png
+:width: 185px
+:align: center
+```
+
+I drew an alternative crest which has symbols for three of my favourite Bristol festivals instead: Upfest, the Balloon Fiesta, and St Paul's Carnival.
+````
+
 First, in the spirit of trying to make my work as reproducibly and Open as possible, this thesis is available online as a Jupyter Book.
 This means that the book is written in markdown documents and Jupyter Notebooks - which means that some of the (later) graphs are created directly from these notebooks.
 The latest version is available online [here](https://nataliethurlby.github.io/phenotype_from_genotype/) - which is where it is best to view it (as html rather than a pdf). 
 
-[//]: # (TODO: Crest compare)
-
-```{margin} Bristol Crest
-:name: bristol-crest
-The original crest has symbols for the Wills, Fry, and Colston families. 
-These families made their wealth in industries built on slavery and used some of that wealth to found the University of Bristol.
-The alternative crest has symbols for three of my favourite Bristol festivals: Upfest, the Balloon Fiesta, and St Paul's Carnival.
-```
 
 This brings me to the second unusual thing about this thesis, which is that I have mentioned as asides in this thesis researchers who have been involved in eugenics and/or racism. 
 I did this because I don't want to highlight the scientific achievements of these individuals, without also acknowledging their legacy of scientific racism, particularly in the light of the Black Lives Matter movement.

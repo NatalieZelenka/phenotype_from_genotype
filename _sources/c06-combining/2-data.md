@@ -256,8 +256,8 @@ The four eligible data sets are summarised in {numref}`table-chosen-combine-gxa`
 +++
 
 #### FANTOM5 
-The latest FANTOM consortium project, FANTOM5 represents one of the most comprehensive collections of gene expression data. 
-It contains a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations
+
+[//]: # (TODO: Link to previous mention of FANTOM5)
 
 #### Human Protein Atlas
 The Human Protein Atlas (HPA) project{cite}`Uhlen2010-mx,Uhlen2015-at` aims to map all human proteins in cells (including subcellular locations), tissues and organs. The HPA project’s data is not limited to the gene expression data that can be found in GxA, but that is the only part of the data that is used here. The gene expression data that was used (E-MTAB-2836 in GxA) excludes cell lines and includes tissue samples of 122 individuals and 32 different non-diseased tissue types. 

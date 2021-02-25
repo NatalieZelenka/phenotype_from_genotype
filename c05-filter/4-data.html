@@ -93,22 +93,22 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../front-matter/title-page.html">
+  <a class="reference internal" href="../c0-front-matter/title-page.html">
    Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../front-matter/acknowledgements.html">
+    <a class="reference internal" href="../c0-front-matter/acknowledgements.html">
      Acknowledgements
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../front-matter/abstract.html">
+    <a class="reference internal" href="../c0-front-matter/abstract.html">
      Abstract
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../front-matter/declaration.html">
+    <a class="reference internal" href="../c0-front-matter/declaration.html">
      Declaration
     </a>
    </li>
@@ -439,6 +439,23 @@
   <a class="reference internal nav-link" href="#gene-expression-data">
    5.3.1. Gene expression data
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what">
+     5.3.1.1. What?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why">
+     5.3.1.2. Why?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-data-acquisition">
+     5.3.1.3. How? Data Acquisition
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#validation-cafa-data">
@@ -449,6 +466,23 @@
   <a class="reference internal nav-link" href="#cafa2-during-development">
    5.3.3. CAFA2 - During Development
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     5.3.3.1. What?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     5.3.3.2. Why?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how">
+     5.3.3.3. How?
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cafa3">
@@ -470,15 +504,27 @@
 <h1><span class="section-number">5.3. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="gene-expression-data">
 <h2><span class="section-number">5.3.1. </span>Gene expression data<a class="headerlink" href="#gene-expression-data" title="Permalink to this headline">¶</a></h2>
-<p>I chose the FANTOM5 data (at the time the latest data output of the <a class="reference internal" href="#fantom-consortium"><span class="std std-ref">FANTOM consortium</span></a>) as the input gene expression data for <code class="docutils literal notranslate"><span class="pre">filip</span></code>, for the following reasons:</p>
+<div class="section" id="what">
+<h3><span class="section-number">5.3.1.1. </span>What?<a class="headerlink" href="#what" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">filip</span></code> requires gene expression data to inform whether or not predictions should be filtered out. The FANTOM5 data set was chosen for this purpose (at the time this was the latest data output of the <a class="reference internal" href="#fantom-consortium"><span class="std std-ref">FANTOM consortium</span></a>).</p>
+<p>FANTOM5 represents one of the most comprehensive collections of gene expression data.
+It contains a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations.</p>
+<div class="margin sidebar" id="fantom-consortium">
+<p class="sidebar-title">The FANTOM Consortium</p>
+<p>The Functional ANnoTation Of the MAmmalian genome (FANTOM) consortium was established as the human genome project was nearing completion when researchers had a parts list of human biology, but few of the functions of these parts (genes) were known. The consortium has run a range of large scale collaborative projects in five rounds to further this goal. The first FANTOM project used only the mouse genome, but later versions also included human.</p>
+</div>
+</div>
+<div class="section" id="why">
+<h3><span class="section-number">5.3.1.2. </span>Why?<a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h3>
+<p>I chose the FANTOM5 data as the input gene expression data for <code class="docutils literal notranslate"><span class="pre">filip</span></code>, for the following reasons:</p>
 <ul class="simple">
 <li><p>The data set has a good coverage of different tissue types, meaning that <code class="docutils literal notranslate"><span class="pre">filip</span></code> should be able to turn this into a good coverage of predictions.</p></li>
 <li><p>The data set uses Capped Analysis Gene Expression (CAGE) technology, meaning that it has information per transcript (i.e. per protein, rather than per gene).</p></li>
 <li><p>The data set has an ontology of samples, which is already linked to Uberon tissue terms and CL cell terms, making the mapping process much easier.</p></li>
 </ul>
-<div class="margin sidebar" id="fantom-consortium">
-<p class="sidebar-title">The FANTOM Consortium</p>
-<p>The Functional ANnoTation Of the MAmmalian genome (FANTOM) consortium was established as the human genome project was nearing completion when researchers had a parts list of human biology, but few of the functions of these parts (genes) were known. The consortium has run a range of large scale collaborative projects in five rounds to further this goal. The first FANTOM project used only the mouse genome, but later versions also included human.</p>
+</div>
+<div class="section" id="how-data-acquisition">
+<h3><span class="section-number">5.3.1.3. </span>How? Data Acquisition<a class="headerlink" href="#how-data-acquisition" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="validation-cafa-data">
@@ -486,11 +532,28 @@
 </div>
 <div class="section" id="cafa2-during-development">
 <h2><span class="section-number">5.3.3. </span>CAFA2 - During Development<a class="headerlink" href="#cafa2-during-development" title="Permalink to this headline">¶</a></h2>
-<p>During development, I tested <code class="docutils literal notranslate"><span class="pre">filip</span></code> by comparing DcGO only and <code class="docutils literal notranslate"><span class="pre">filip</span></code> + DcGO on data from the 2nd round of the CAFA competition: CAFA2.</p>
+<div class="section" id="id1">
+<h3><span class="section-number">5.3.3.1. </span>What?<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>During development, I tested <code class="docutils literal notranslate"><span class="pre">filip</span></code> by comparing DcGO only and <code class="docutils literal notranslate"><span class="pre">filip</span></code> + DcGO on data from the 2nd round of the CAFA competition: CAFA2.
+This was the most recent round of CAFA for which there were “groundtruth” data available at the time of development.
+The data consisted of CAFA2 targets and the CAFA2 ground truth data.</p>
+<p><strong>CAFA2 targets</strong>:</p>
+<p><strong>CAFA2 groundtruth</strong>:</p>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">5.3.3.2. </span>Why?<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>I chose to use the CAFA2 data because rather than a larger set of annotations (such as those available from SwissProt-KB or GOA) because it provided a way of validating on unknown targets.
+I.e. if I made predictions with DcgO using the version of GO from the time the challenge was launched, and I use the groundtruth data provided by CAFA2, then I could compare my results with those in the CAFA2 competition and I could look at my results on unknown targets.</p>
+</div>
+<div class="section" id="how">
+<h3><span class="section-number">5.3.3.3. </span>How?<a class="headerlink" href="#how" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 <div class="section" id="cafa3">
 <h2><span class="section-number">5.3.4. </span>CAFA3<a class="headerlink" href="#cafa3" title="Permalink to this headline">¶</a></h2>
-<p>I entered DcGO only, and <code class="docutils literal notranslate"><span class="pre">filip</span></code> + DcGO into the CAFA3 competition in order to test <code class="docutils literal notranslate"><span class="pre">filip</span></code> on a new dataset, and have the validation independently reproduced by an unaffilated researcher.</p>
+<p>After initial development, I entered DcGO only, and <code class="docutils literal notranslate"><span class="pre">filip</span></code> plus DcGO into the CAFA3 competition in order to test <code class="docutils literal notranslate"><span class="pre">filip</span></code> on a new dataset.</p>
+<p>This meant that I did not download the CAFA3 groundtruth, as this analysis was done by the CAFA3 team, but only the CAFA3 targets.</p>
+<p><strong>CAFA3 targets</strong>:</p>
 </div>
 </div>
 
