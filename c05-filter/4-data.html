@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -44,7 +44,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -399,100 +399,126 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
-        <!-- Source interaction buttons -->
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gene-expression-data">
-   5.3.1. Gene expression data
+  <a class="reference internal nav-link" href="#expression-data">
+   5.3.1. Expression data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fantom5-data">
+     5.3.1.1. FANTOM5 data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reasoning">
+       5.3.1.1.1. Reasoning
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#additional-mapping-data">
+     5.3.1.2. Additional mapping data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-acquisition">
+     5.3.1.3. Data Acquisition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-cleaning">
+     5.3.1.4. Data Cleaning
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exploratory-data-analysis">
+     5.3.1.5. Exploratory Data Analysis
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tpm">
+       5.3.1.5.1. TPM
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#counts">
+       5.3.1.5.2. Counts
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-set-cafa2">
+   5.3.2. Test set: CAFA2
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#what">
-     5.3.1.1. What?
+     5.3.2.1. What?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#why">
-     5.3.1.2. Why?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-data-acquisition">
-     5.3.1.3. How? Data Acquisition
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#validation-cafa-data">
-   5.3.2. Validation: CAFA data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cafa2-during-development">
-   5.3.3. CAFA2 - During Development
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     5.3.3.1. What?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     5.3.3.2. Why?
+     5.3.2.2. Why?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how">
-     5.3.3.3. How?
+     5.3.2.3. How?
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cafa3">
-   5.3.4. CAFA3
+  <a class="reference internal nav-link" href="#test-set-cafa3">
+   5.3.3. Test set: CAFA3
   </a>
  </li>
 </ul>
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -500,57 +526,281 @@
         
               <div>
                 
-  <div class="section" id="data">
+  <!-- #region -->
+<div class="section" id="data">
 <h1><span class="section-number">5.3. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="gene-expression-data">
-<h2><span class="section-number">5.3.1. </span>Gene expression data<a class="headerlink" href="#gene-expression-data" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="what">
-<h3><span class="section-number">5.3.1.1. </span>What?<a class="headerlink" href="#what" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">filip</span></code> requires gene expression data to inform whether or not predictions should be filtered out. The FANTOM5 data set was chosen for this purpose (at the time this was the latest data output of the <a class="reference internal" href="#fantom-consortium"><span class="std std-ref">FANTOM consortium</span></a>).</p>
-<p>FANTOM5 represents one of the most comprehensive collections of gene expression data.
+<div class="section" id="expression-data">
+<h2><span class="section-number">5.3.1. </span>Expression data<a class="headerlink" href="#expression-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fantom5-data">
+<h3><span class="section-number">5.3.1.1. </span>FANTOM5 data<a class="headerlink" href="#fantom5-data" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">filip</span></code> requires expression data to inform whether or not predictions should be filtered out. The FANTOM5 data set was chosen for this purpose (at the time this was the latest data output of the <a class="reference internal" href="#fantom-consortium"><span class="std std-ref">FANTOM consortium</span></a>).</p>
+<p>FANTOM5 represents one of the most comprehensive collections of expression data, in this case transcript rather than gene expression.
 It contains a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations.</p>
 <div class="margin sidebar" id="fantom-consortium">
 <p class="sidebar-title">The FANTOM Consortium</p>
 <p>The Functional ANnoTation Of the MAmmalian genome (FANTOM) consortium was established as the human genome project was nearing completion when researchers had a parts list of human biology, but few of the functions of these parts (genes) were known. The consortium has run a range of large scale collaborative projects in five rounds to further this goal. The first FANTOM project used only the mouse genome, but later versions also included human.</p>
 </div>
-</div>
-<div class="section" id="why">
-<h3><span class="section-number">5.3.1.2. </span>Why?<a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="reasoning">
+<h4><span class="section-number">5.3.1.1.1. </span>Reasoning<a class="headerlink" href="#reasoning" title="Permalink to this headline">¶</a></h4>
 <p>I chose the FANTOM5 data as the input gene expression data for <code class="docutils literal notranslate"><span class="pre">filip</span></code>, for the following reasons:</p>
 <ul class="simple">
 <li><p>The data set has a good coverage of different tissue types, meaning that <code class="docutils literal notranslate"><span class="pre">filip</span></code> should be able to turn this into a good coverage of predictions.</p></li>
-<li><p>The data set uses Capped Analysis Gene Expression (CAGE) technology, meaning that it has information per transcript (i.e. per protein, rather than per gene).</p></li>
 <li><p>The data set has an ontology of samples, which is already linked to Uberon tissue terms and CL cell terms, making the mapping process much easier.</p></li>
 </ul>
+<p>I chose the version of the FANTOM5 data that:</p>
+<ul class="simple">
+<li><p>had been reprocessed using the hg38 reference genome (the original FANTOM5 data was processed using hg19).</p></li>
+<li><p>contained annotated information about the samples, as this information could be used to aid in mapping</p></li>
+<li><p>was in TPM format</p></li>
+</ul>
 </div>
-<div class="section" id="how-data-acquisition">
-<h3><span class="section-number">5.3.1.3. </span>How? Data Acquisition<a class="headerlink" href="#how-data-acquisition" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="additional-mapping-data">
+<h3><span class="section-number">5.3.1.2. </span>Additional mapping data<a class="headerlink" href="#additional-mapping-data" title="Permalink to this headline">¶</a></h3>
+<p>I also used the following datasets to aid in mapping to a common set of identifiers:</p>
+<ul class="simple">
+<li><p>the <a class="reference external" href="http://purl.obolibrary.org/obo/uberon/ext.obo">uberon extended ontology OBO file</a> from <span class="xref myst">the uberon website</span> to assist in mapping cells and tissues.</p></li>
+</ul>
+</div>
+<div class="section" id="data-acquisition">
+<h3><span class="section-number">5.3.1.3. </span>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Permalink to this headline">¶</a></h3>
+<p>I downloaded the following files from the FANTOM website:</p>
+<ul class="simple">
+<li><p>the <a class="reference external" href="http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz">FANTOM5 CAGE peaks expression data</a> containing expression in counts per transcript, and mappings to HGNC id and entrez gene ID.</p></li>
+<li><p>the <a class="reference external" href="https://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt">FANTOM5 ontology</a> containing an obo file mapping between FANTOM sample IDs, Uberon and cell ontology (CL) terms.</p></li>
+<li><p>FANTOM’s <a class="reference external" href="https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/basic/HumanSamples2.0.sdrf.xlsx">human sample information file</a> containing text descriptions about sample, for example tissue, age, sex, disease, etc, which is necessary for data cleaning.</p></li>
+</ul>
+<!-- #endregion -->
+</div>
+<div class="section" id="data-cleaning">
+<h3><span class="section-number">5.3.1.4. </span>Data Cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this headline">¶</a></h3>
+<p>In order to clean the FANTOM data for use in <code class="docutils literal notranslate"><span class="pre">filip</span></code>, transcripts that didn’t match to proteins were removed, and the following samples were removed:</p>
+<ul class="simple">
+<li><p>Disease samples</p></li>
+<li><p>Non tissue-specific samples</p></li>
+<li><p>Non human samples</p></li>
+</ul>
+</div>
+<div class="section" id="exploratory-data-analysis">
+<h3><span class="section-number">5.3.1.5. </span>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="tpm">
+<h4><span class="section-number">5.3.1.5.1. </span>TPM<a class="headerlink" href="#tpm" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">transcript_tpm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../c06-combining/data/experiments/fantom/hg38_fair+new_CAGE_peaks_phase1and2_tpm_ann.osc.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;entrezgene_id&#39;</span><span class="p">:</span> <span class="nb">object</span><span class="p">})</span>
+<span class="n">transcript_tpm</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">transcript_tpm</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;00Annotation&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">sep_in_col</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>  <span class="c1"># In the transcript expression file, genes and proteins ids with multiple values in a column are separated by a space.</span>
+
+<span class="n">n_peaks</span> <span class="o">=</span> <span class="n">transcript_tpm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Total number of CAGE peaks in FANTOM5 data set</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;total_F5_peaks&quot;</span><span class="p">,</span> <span class="n">n_peaks</span><span class="p">)</span>
+
+<span class="n">transcript_tpm</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;uniprot_id&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">n_peaks_protein</span> <span class="o">=</span> <span class="n">transcript_tpm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Number of peaks which are protein-coding (as mapped by FANTOM)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;has_protein_F5_peaks&quot;</span><span class="p">,</span> <span class="n">n_peaks_protein</span><span class="p">)</span>
+
+<span class="n">transcript_tpm</span><span class="p">[</span><span class="s1">&#39;uniprot_list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">transcript_tpm</span><span class="p">[</span><span class="s1">&#39;uniprot_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">sep_in_col</span><span class="p">)</span>  
+<span class="n">transcript_tpm</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The CAGE peaks represent all kinds of transcripts, not only those which map to protein-coding genes.
+The FANTOM file provides mappings to Uniprot IDs (<code class="docutils literal notranslate"><span class="pre">uniprot_id</span></code>), and these are used to discard the CAGE peaks that do not map to protein-coding genes: this takes us from  to   rows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># How many CAGE peaks map to multiple HGNC id genes?</span>
+<span class="n">hgnc_id_duplicates</span> <span class="o">=</span> <span class="n">transcript_tpm</span><span class="p">[</span><span class="n">transcript_tpm</span><span class="p">[</span><span class="s1">&#39;hgnc_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">hgnc_id_duplicates</span><span class="si">}</span><span class="s2"> CAGE peaks that map to multiple HGNC ids (genes)&quot;</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;hgnc_id_duplicates&quot;</span><span class="p">,</span> <span class="n">hgnc_id_duplicates</span><span class="p">)</span>
+
+<span class="n">entrezgene_id_duplicates</span> <span class="o">=</span> <span class="n">transcript_tpm</span><span class="p">[</span><span class="n">transcript_tpm</span><span class="p">[</span><span class="s1">&#39;entrezgene_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">entrezgene_id_duplicates</span><span class="si">}</span><span class="s2"> CAGE peaks that map to multiple Entrezgene ids&quot;</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;entrezgene_id_duplicates&quot;</span><span class="p">,</span> <span class="n">entrezgene_id_duplicates</span><span class="p">)</span>
+
+<span class="n">total_gene_id_duplicates</span> <span class="o">=</span> <span class="n">transcript_tpm</span><span class="p">[(</span><span class="n">transcript_tpm</span><span class="p">[</span><span class="s1">&#39;hgnc_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">|</span> <span class="n">transcript_tpm</span><span class="p">[</span><span class="s1">&#39;entrezgene_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">))]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">total_gene_id_duplicates</span><span class="si">}</span><span class="s2"> CAGE peaks that map to multiple genes (HGNC or entrezgene IDs)&quot;</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;total_gene_id_duplicates&quot;</span><span class="p">,</span> <span class="n">total_gene_id_duplicates</span><span class="p">)</span>
+
+<span class="c1"># Remove gene duplicates per CAGE TSS (due to overlapping CAGE TSS)</span>
+<span class="n">transcript_tpm</span> <span class="o">=</span> <span class="n">transcript_tpm</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">transcript_tpm</span><span class="p">[</span><span class="s1">&#39;hgnc_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">|</span> <span class="n">transcript_tpm</span><span class="p">[</span><span class="s1">&#39;entrezgene_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">))]</span>
+
+<span class="n">n_peaks_single_gene</span> <span class="o">=</span> <span class="n">transcript_tpm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Number of peaks which are protein-coding (as mapped by FANTOM)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;single_gene_F5_peaks&quot;</span><span class="p">,</span> <span class="n">n_peaks_single_gene</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>CAGE peaks are mapped to genes based on overlap with the gene, so it is not always clear which gene a CAGE peak maps to.
+Protein-coding CAGE peaks (map to at least one <code class="docutils literal notranslate"><span class="pre">uniprot_id</span></code>), that map to multiple genes are removed for simplicity.
+These can be found by looking at either the <code class="docutils literal notranslate"><span class="pre">hgnc_id</span></code> or <code class="docutils literal notranslate"><span class="pre">entrezgene_id</span></code> gene identifier columns: the mapping to <code class="docutils literal notranslate"><span class="pre">hgnc_id</span></code> contains all those found in <code class="docutils literal notranslate"><span class="pre">entrezgene_id</span></code>, so these are removed.
+This represents a total of  CAGE peaks that map to multiple genes according to the given identifers.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create expression by protein (uniprot ID), rather than by transcript</span>
+<span class="n">protein_tpm</span> <span class="o">=</span> <span class="n">transcript_tpm</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">&#39;uniprot_list&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;uniprot_list&#39;</span><span class="p">,</span> <span class="s1">&#39;entrezgene_id&#39;</span><span class="p">,</span> <span class="s1">&#39;hgnc_id&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">protein_tpm</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hgnc_id&#39;</span><span class="p">,</span> <span class="s1">&#39;entrezgene_id&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">protein_tpm</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;uniprot_id&#39;</span><span class="p">)</span>
+<span class="c1"># Every protein ID should have at least one gene ID</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">protein_tpm</span><span class="p">[</span><span class="n">protein_tpm</span><span class="p">[</span><span class="s1">&#39;entrezgene_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> 
+<span class="k">assert</span><span class="p">(</span><span class="n">protein_tpm</span><span class="p">[</span><span class="n">protein_tpm</span><span class="p">[</span><span class="s1">&#39;hgnc_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;protein_expression_total&quot;</span><span class="p">,</span> <span class="n">protein_tpm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">protein_tpm</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rows_left_multiple_genes</span> <span class="o">=</span> <span class="n">protein_tpm</span><span class="p">[</span><span class="n">protein_tpm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of remaining rows that map to multiple genes: </span><span class="si">{</span><span class="n">rows_left_multiple_genes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;rows_left_multiple_genes&quot;</span><span class="p">,</span> <span class="n">rows_left_multiple_genes</span><span class="p">)</span>
+
+<span class="n">proteins_multiple_genes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">protein_tpm</span><span class="p">[</span><span class="n">protein_tpm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of proteins that map to multiple genes: </span><span class="si">{</span><span class="n">proteins_multiple_genes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;proteins_multiple_genes&quot;</span><span class="p">,</span> <span class="n">proteins_multiple_genes</span><span class="p">)</span>
+
+<span class="n">protein_tpm</span><span class="p">[</span><span class="n">protein_tpm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="n">protein_tpm</span> <span class="o">=</span> <span class="n">protein_tpm</span><span class="p">[</span><span class="o">~</span><span class="n">protein_tpm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">protein_tpm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">protein_tpm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;unique_proteins&quot;</span><span class="p">,</span> <span class="n">protein_tpm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>For <code class="docutils literal notranslate"><span class="pre">filip</span></code>, the expression was calculated per protein (since it is protein function predictions that it is filtering), rather than per CAGE peak (summing the TPMs of all CAGE peaks mapped to a protein to get the total for that protein) as in the original data, or as is often presented per gene.
+This gave  rows of “protein expression” data.</p>
+<p>Of these, however, there were  rows of data (corresponding to  proteins) for which the proteins map to multiple genes.
+This happens when different genes are translated to make identical protein products.
+It used to be the case that Uniprot would map these genes to the same Uniprot ID, but more recently different Uniprot IDs are used to capture where the proteins came from.
+These rows were also removed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">transcript_tpm</span><span class="p">[</span><span class="n">transcript_tpm</span><span class="p">[</span><span class="s1">&#39;uniprot_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;B2R4R0&#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)])</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># CAGE PEAKS ARE TOO SMALL TO SEE ON A STATIC PLOT, WOULD NEED AN INTERACTIVE PLOT.</span>
+
+<span class="c1"># from Bio.SeqFeature import SeqFeature, FeatureLocation</span>
+<span class="c1"># from Bio.Graphics import GenomeDiagram</span>
+<span class="c1"># from IPython.core.display import Image</span>
+
+<span class="c1"># gdd = GenomeDiagram.Diagram(&#39;Test Diagram&#39;)</span>
+<span class="c1"># gdt_features = gdd.new_track(1, name=&quot;CAGE Peaks&quot;, greytrack=True)</span>
+<span class="c1"># gds_features = gdt_features.new_set()</span>
+
+<span class="c1"># #Add three features to show the strand options,</span>
+<span class="c1"># p13_HIST1H4B = SeqFeature(FeatureLocation(26027058,26027076))</span>
+<span class="c1"># gds_features.add_feature(p13_HIST1H4B, name=&quot;p13@HIST1H4B&quot;, label=True)</span>
+
+<span class="c1"># p12_HIST1H4B = SeqFeature(FeatureLocation(26027093, 26027119))</span>
+<span class="c1"># gds_features.add_feature(p12_HIST1H4B, name=&quot;p12@HIST1H4B&quot;, label=True)</span>
+
+<span class="c1"># p12_HIST1H4B = SeqFeature(FeatureLocation(26189331, 26189346))</span>
+<span class="c1"># gds_features.add_feature(p12_HIST1H4B, name=&quot;p3@HIST1H4D&quot;, label=True)</span>
+
+<span class="c1"># p12_HIST1H4B = SeqFeature(FeatureLocation(26285754, 26285769))</span>
+<span class="c1"># gds_features.add_feature(p12_HIST1H4B, name=&quot;p4@HIST1H4H&quot;, label=True)</span>
+
+<span class="c1"># p12_HIST1H4B = SeqFeature(FeatureLocation(27841151, 27841161))</span>
+<span class="c1"># gds_features.add_feature(p12_HIST1H4B, name=&quot;p12@HIST1H4L&quot;, label=True)</span>
+
+<span class="c1"># gdd.draw(format=&#39;linear&#39;, fragments=1,</span>
+<span class="c1">#          start=25900000, end=28100000)</span>
+<span class="c1"># gdd.write(&quot;GD_labels_default.png&quot;, &quot;png&quot;)</span>
+<span class="c1"># Image(&quot;GD_labels_default.png&quot;)</span>
+
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># DNA FEATURES VIEWER IS NOT YET READY TO USE.</span>
+
+<span class="c1"># from bokeh.plotting import figure, show</span>
+
+<span class="c1"># from dna_features_viewer import GraphicFeature, GraphicRecord</span>
+<span class="c1"># features=[</span>
+<span class="c1">#     GraphicFeature(start=0, end=20, strand=+1, color=&quot;#ffd700&quot;,</span>
+<span class="c1">#                    label=&quot;Small feature&quot;),</span>
+<span class="c1">#     GraphicFeature(start=20, end=500, strand=+1, color=&quot;#ffcccc&quot;,</span>
+<span class="c1">#                    label=&quot;Gene 1 with a very long name&quot;),</span>
+<span class="c1">#     GraphicFeature(start=400, end=700, strand=-1, color=&quot;#cffccc&quot;,</span>
+<span class="c1">#                    label=&quot;Gene 2&quot;),</span>
+<span class="c1">#     GraphicFeature(start=600, end=900, strand=+1, color=&quot;#ccccff&quot;,</span>
+<span class="c1">#                    label=&quot;Gene 3&quot;)</span>
+<span class="c1"># ]</span>
+<span class="c1"># record = GraphicRecord(sequence_length=1000, features=features)</span>
+<span class="c1"># p = record.plot_with_bokeh(figure_width=5)</span>
+<span class="c1"># show(p)</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="validation-cafa-data">
-<h2><span class="section-number">5.3.2. </span>Validation: CAFA data<a class="headerlink" href="#validation-cafa-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="counts">
+<h4><span class="section-number">5.3.1.5.2. </span>Counts<a class="headerlink" href="#counts" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># # DON&#39;T WANT COUNTS</span>
+
+<span class="c1"># import pandas as pd</span>
+<span class="c1"># from myst_nb import glue</span>
+
+<span class="c1"># transcript_counts = pd.read_csv(&#39;../c06-combining/data/experiments/fantom/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt&#39;, delimiter=&#39;\t&#39;, comment=&#39;#&#39;, dtype={&#39;entrezgene_id&#39;: object})</span>
+<span class="c1"># transcript_counts.drop([0], axis=&#39;index&#39;, inplace=True)</span>
+<span class="c1"># transcript_counts.set_index(&#39;00Annotation&#39;, inplace=True)</span>
+
+<span class="c1"># # In the transcript expression file, genes and proteins ids with multiple values per transcript are separated by a space.</span>
+<span class="c1"># sep_in_col = &#39; &#39;</span>
+
+<span class="c1"># n_transcripts = transcript_counts.shape[0] # Total number of transcripts in FANTOM5 data set</span>
+<span class="c1"># glue(&quot;total_F5_transcripts&quot;, n_transcripts)</span>
+
+<span class="c1"># transcript_counts.dropna(axis=0, subset=[&#39;uniprot_id&#39;], inplace=True)</span>
+<span class="c1"># n_transcripts_protein = transcript_counts.shape[0]  # Number of transcripts which are protein-coding (as mapped by FANTOM)</span>
+<span class="c1"># glue(&quot;has_protein_F5_transcripts&quot;, n_transcripts_protein)</span>
+
+<span class="c1"># # Create expression by protein (uniprot ID), rather than by transcript</span>
+<span class="c1"># transcript_counts[&#39;uniprot_id&#39;] = transcript_counts[&#39;uniprot_id&#39;].str.split(sep_in_col)  </span>
+<span class="c1"># protein_counts = transcript_counts.explode(&#39;uniprot_id&#39;).groupby([&#39;uniprot_id&#39;, &#39;entrezgene_id&#39;, &#39;hgnc_id&#39;]).mean()</span>
+<span class="c1"># protein_counts.reset_index(level=[&#39;hgnc_id&#39;, &#39;entrezgene_id&#39;], inplace=True)</span>
+
+<span class="c1"># # Every protein ID should have at least one gene ID</span>
+<span class="c1"># assert(protein_counts[protein_counts[&#39;entrezgene_id&#39;].isna()].shape[0]==0) </span>
+<span class="c1"># assert(protein_counts[protein_counts[&#39;hgnc_id&#39;].isna()].shape[0]==0)</span>
+
+<span class="c1"># print(f&quot;Number of rows that map to multiple genes: {protein_counts[protein_counts.index.duplicated(keep=False)].shape[0]}&quot;)</span>
+<span class="c1"># print(f&quot;Number of proteins that map to multiple genes: {protein_counts[protein_counts.index.duplicated(keep=&#39;first&#39;)].shape[0]}&quot;)</span>
+
+<span class="c1"># display(protein_counts[protein_counts.index.duplicated(keep=False)])</span>
+<span class="c1"># display(protein_counts.loc[&#39;A0A024QZ90&#39;])  # example duplicate</span>
+
+<span class="c1"># # Ideally, if we&#39;re doing a protein centric, thing, then we would like to average over the two protein averages (this should be done AFTER conversion to TPM).</span>
+<span class="c1"># # Or if we&#39;re doing a gene centric thing, then obviously we&#39;d do it gene centric.</span>
+
+<span class="c1"># protein_counts[&#39;hgnc_id&#39;] = protein_counts[&#39;hgnc_id&#39;].str.split(&#39; &#39;)</span>
+<span class="c1"># protein_counts[&#39;entrezgene_id&#39;] = protein_counts[&#39;entrezgene_id&#39;].str.split(&#39; &#39;)</span>
+<span class="c1"># hgnc_counts = protein_counts.explode(&#39;hgnc_id&#39;)</span>
+<span class="c1"># entrez_counts = protein_counts.explode(&#39;entrezgene_id&#39;)</span>
+<span class="c1"># print(&#39;hgnc&#39;,len(hgnc_counts[&#39;hgnc_id&#39;].unique()))</span>
+<span class="c1"># print(&#39;entrezgene_id&#39;,len(entrez_counts[&#39;entrezgene_id&#39;].unique()))</span>
+
+<span class="c1"># print(f&quot;Rows with multiple hgnc IDs, but only one entrezID: {protein_counts[protein_counts[&#39;hgnc_id&#39;].str.contains(&#39; &#39;, na=False) &amp; ~protein_counts[&#39;entrezgene_id&#39;].str.contains(&#39; &#39;, na=False)].shape[0]}&quot;) # two or more hgncids and only one entrez id</span>
+
+<span class="c1"># print(f&quot;Rows with multiple entrez IDs, but only one hgnc ID: {protein_counts[protein_counts[&#39;entrezgene_id&#39;].str.contains(&#39; &#39;, na=False) &amp; ~protein_counts[&#39;hgnc_id&#39;].str.contains(&#39; &#39;, na=False)].shape[0]}&quot;) # two or more entrez ids and only one hgnc id</span>
+
+<span class="c1"># print(transcript_counts[transcript_counts[&#39;hgnc_id&#39;].str.contains(&#39;HGNC:17992&#39;,na=False)][&#39;entrezgene_id&#39;].unique())</span>
+
+<span class="c1"># print(&#39;hgnc&#39;,len(protein_counts[&#39;hgnc_id&#39;].unique()))</span>
+<span class="c1"># print(&#39;entrezgene_id&#39;,len(protein_counts[&#39;entrezgene_id&#39;].unique()))</span>
+</pre></div>
 </div>
-<div class="section" id="cafa2-during-development">
-<h2><span class="section-number">5.3.3. </span>CAFA2 - During Development<a class="headerlink" href="#cafa2-during-development" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3><span class="section-number">5.3.3.1. </span>What?<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="section" id="test-set-cafa2">
+<h2><span class="section-number">5.3.2. </span>Test set: CAFA2<a class="headerlink" href="#test-set-cafa2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what">
+<h3><span class="section-number">5.3.2.1. </span>What?<a class="headerlink" href="#what" title="Permalink to this headline">¶</a></h3>
 <p>During development, I tested <code class="docutils literal notranslate"><span class="pre">filip</span></code> by comparing DcGO only and <code class="docutils literal notranslate"><span class="pre">filip</span></code> + DcGO on data from the 2nd round of the CAFA competition: CAFA2.
 This was the most recent round of CAFA for which there were “groundtruth” data available at the time of development.
 The data consisted of CAFA2 targets and the CAFA2 ground truth data.</p>
 <p><strong>CAFA2 targets</strong>:</p>
 <p><strong>CAFA2 groundtruth</strong>:</p>
 </div>
-<div class="section" id="id2">
-<h3><span class="section-number">5.3.3.2. </span>Why?<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="why">
+<h3><span class="section-number">5.3.2.2. </span>Why?<a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h3>
 <p>I chose to use the CAFA2 data because rather than a larger set of annotations (such as those available from SwissProt-KB or GOA) because it provided a way of validating on unknown targets.
 I.e. if I made predictions with DcgO using the version of GO from the time the challenge was launched, and I use the groundtruth data provided by CAFA2, then I could compare my results with those in the CAFA2 competition and I could look at my results on unknown targets.</p>
 </div>
 <div class="section" id="how">
-<h3><span class="section-number">5.3.3.3. </span>How?<a class="headerlink" href="#how" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.3.2.3. </span>How?<a class="headerlink" href="#how" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
-<div class="section" id="cafa3">
-<h2><span class="section-number">5.3.4. </span>CAFA3<a class="headerlink" href="#cafa3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="test-set-cafa3">
+<h2><span class="section-number">5.3.3. </span>Test set: CAFA3<a class="headerlink" href="#test-set-cafa3" title="Permalink to this headline">¶</a></h2>
 <p>After initial development, I entered DcGO only, and <code class="docutils literal notranslate"><span class="pre">filip</span></code> plus DcGO into the CAFA3 competition in order to test <code class="docutils literal notranslate"><span class="pre">filip</span></code> on a new dataset.</p>
 <p>This meant that I did not download the CAFA3 groundtruth, as this analysis was done by the CAFA3 team, but only the CAFA3 targets.</p>
 <p><strong>CAFA3 targets</strong>:</p>
@@ -579,15 +829,15 @@ I.e. if I made predictions with DcgO using the version of GO from the time the c
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="2-uberon.html" title="previous page"><span class="section-number">5.2. </span>The <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package</a>
     <a class='right-next' id="next-link" href="5-methods.html" title="next page"><span class="section-number">5.4. </span>Methods</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">

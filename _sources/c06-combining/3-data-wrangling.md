@@ -17,7 +17,8 @@ kernelspec:
 
 [//]: # (TODO: Cross-ref to Uberon section)
 
-Before the data sets could be combined, substantial data wrangling was necessary. The details of these processes - obtaining, checking, mapping identifiers, and excluding irrelevant data - are described in this section. 
+Before the data sets could be combined, substantial data wrangling was necessary. 
+The details of these processes - obtaining, checking, mapping identifiers, and excluding irrelevant data - are described in this section. 
 A Python package (`uberon_py`) was developed and used to do much of this mapping. 
 It's functionality is described in {numref}`uberon-py`. 
 

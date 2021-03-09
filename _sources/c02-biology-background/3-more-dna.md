@@ -47,7 +47,8 @@ The word gene is often used as shorthand for "DNA that causes phenotypic differe
 However, there are multiple reasons why this is an incomplete and in some ways outdated understanding. 
 Single gene diseases do exist, however most of the time {ref}`the same gene can make multiple different proteins<alternative-splicing>`) which may not all cause phenotypic differences, the same protein can be involved in multiple different pathways and have multiple functions, and multiple proteins can contribute to one function. 
 Genes are also not guaranteed to cause phenotypic differences, and are not the only sections of DNA which can influence phenotype. 
-To add one more complication, genes can overlap, meaning that a single nucleotide mutation could impact on multiple genes.
+Another complication is that genes can overlap, meaning that a single nucleotide mutation could impact on multiple genes.
+And finally, sometimes entirely different genes can create identical proteins after translation.
 
 The interaction between DNA, RNA and proteins, and the environment is also important to consider. 
 Although DNA makes RNA makes proteins and proteins do pretty much everything in our bodies, which proteins are made and how they behave is highly dependent on the environment. 
