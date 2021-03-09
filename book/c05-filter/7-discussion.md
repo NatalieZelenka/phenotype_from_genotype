@@ -13,6 +13,8 @@ This means that where there are differences in expression between species, FilP 
 FilP’s low coverage of tissues (due to its reliance on the FANTOM dataset) limits the number of predictions that can be filtered out. 
 However, by combining baseline gene expression sets from multiple sources (the focus of the next chapter), this coverage of tissues (and therefore phenotype terms) may be improved. 
 
+[//]: # (TODO: Explain that mapping is difficult - so the approach is limited by the expression data set)
+
 ### Coverage
 
 ## Wrong-ly filtered out tissues

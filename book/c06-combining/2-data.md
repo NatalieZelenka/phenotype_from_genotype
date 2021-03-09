@@ -16,6 +16,10 @@ kernelspec:
 
 This section describes the constituent data sets that were chosen for combination, and how they were chosen and acquired.
 
+[//]: # (TODO: Check that they are all on the same hg38 ref genome)
+[//]: # (TODO: Check how I get them in TPM -> or HOW TO get them in TPM)
+
+
 ## Criteria for choosing datasets
 Datasets were chosen from the EBI’s Gene Expression Atlas (GxA){cite}`Petryszak2016-je`: the European Bioinformatics Institutes’ Open Source gene and protein expression database, and the largest of its type. 
 At the time of writing, it contains over 3,000 gene expression and protein abundance experiments across many organisms, organism parts (tissues), diseases, and sequencing technologies. 
