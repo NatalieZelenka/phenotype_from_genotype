@@ -12,3 +12,4 @@ book/_build/
 *.ipynb
 experiments/
 data/
+__pycache__/

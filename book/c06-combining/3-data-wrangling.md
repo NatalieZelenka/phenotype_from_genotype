@@ -31,6 +31,8 @@ The steps required to obtain consistently formatted and labelled data can be des
 - Mapping from sample name to UBERON tissue using {ref}`uberon-py<uberon-py>`.
 - Aggregating metadata
 
+[//]: # (TODO: rename helper_c05 to helper_c06)
+
 +++
 
 ````{admonition} FANTOM5 data pipeline code
@@ -211,16 +213,6 @@ These values had to be converted to common units, since they were incompatible b
 For GTEx it was possible to acquire this information via [its own website](https://storage.googleapis.com/gtex_analysis_v7/annotations/GTEx_v7_Annotations_SubjectPhenotypesDS.txt).
 
 **FANTOM:**
-FANTOM metadata collection was mostly taken from the human sample information file. 
-There were discrepancies between ages and developmental stages in the FANTOM human samples file, for example, sample `FF:10027-101D9` is labelled as *thymus, adult, pool1* in the *Description* field, but as *0.5,0.5,0.83 years old infant* in the *Developmental Stage* field, and sample `FF:10209-103G2` has an age of ‘M’ and a sex of ‘28’. 
-There were also numerous typographical inconsistencies, for example, “3 year old child”, “3 years old child”, “25 year old”, “76” and “76 years old adult” all feature in the same column, amongst other errors. 
-For this reason, creating a cleaned experimental design file was laborious, but the resulting file has been sent to the FANTOM data curators so that they might make it officially available.
-
-FANTOM technical and biological replicates are indicated in the annotated gene expression FANTOM file, by the inclusion of “tech_rep” or “biol_rep” in the long sample labels e.g. `counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20tech_rep1.CNhs10855.11227-116C3.hg38.nobarcode`. 
-These were used to create the experimental design file. 
-
-Note: there is an error in the original transcript expression file for one of these identifiers (`counts.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode`) such that it is missing the “tech” part of the the replicate label. 
-This was manually changed in my copy of the input file and the FANTOM data curation team was informed.
 
 ```{code-cell} ipython3
 :tags: [hide-input]

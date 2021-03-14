@@ -2,16 +2,17 @@
 
 # Data
 
-##  Expression data
+[//]: # (TODO: explain overall types of data and how they will fit together for `filip` with cross references to each part of this page, Expression, samples info, obo, etc )
 
-### FANTOM5 data
+##  Expression data: FANTOM5
 
+[//]: # (TODO: Check where I say sample, but mean measurement, ie. where I am talking about the columns of the CAGE data FF accessions are the same for technical replicates)
 [//]: # (TODO: Mention CAGE - ?relevant because mapping to proteins..)
 [//]: # (TODO: Data given as TPM per CAGE peak - CAGE peaks map to multiple genes when the CAGE peak overlaps multiple genes, also CAGE peaks that map to the same protein, could map to different sets of genes because CAGE peaks map to different genes: don't map via CAGE peaks because you lose information) 
 
 `filip` requires expression data to inform whether or not predictions should be filtered out. The FANTOM5 data set was chosen for this purpose (at the time this was the latest data output of the {ref}`FANTOM consortium<fantom-consortium>`).
 
-FANTOM5 represents one of the most comprehensive collections of expression data, in this case transcript rather than gene expression. 
+FANTOM5 represents one of the most comprehensive collections of expression data, in this case transcript expression. 
 It contains a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations.
 
 ```{margin} The FANTOM Consortium
@@ -21,7 +22,7 @@ The Functional ANnoTation Of the MAmmalian genome (FANTOM) consortium was establ
 
 [//]: # (TODO: What does the data contain, how many samples, etc)
 
-#### Reasoning
+### Reasoning
 
 I chose the FANTOM5 data as the input gene expression data for `filip`, for the following reasons:
 - The data set has a good coverage of different tissue types, meaning that `filip` should be able to turn this into a good coverage of predictions.
@@ -30,248 +31,255 @@ I chose the FANTOM5 data as the input gene expression data for `filip`, for the 
 I chose the version of the FANTOM5 data that:
 - had been reprocessed using the hg38 reference genome (the original FANTOM5 data was processed using hg19).
 - contained annotated information about the samples, as this information could be used to aid in mapping
-- was in TPM format
+- available in TPM format
 
 [//]: # (TODO: Aside about TPM/link to before)
 
-### Additional mapping data
 
-I also used the following datasets to aid in mapping to a common set of identifiers:
-- the [uberon extended ontology OBO file](http://purl.obolibrary.org/obo/uberon/ext.obo) from [the uberon website](uberon.github.io/downloads.html) to assist in mapping cells and tissues.
-
-[//]: # (TODO: Describe mapping data here, e.g. biomart/uniprot)
-
-
-### Data Acquisition
+### Data files and acquisition
+[//]: # (TODO: Signpost that I don't use the FANTOM OBO yet)
 
 I downloaded the following files from the FANTOM website:
-- the [FANTOM5 CAGE peaks expression data](http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz) containing expression in counts per transcript, and mappings to HGNC id and entrez gene ID.
+- the [FANTOM5 CAGE peaks expression data](http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz) containing expression in counts per transcript, and mappings to HGNC id and entrez gene ID. The long sample labels in this file are also a source of metadata.
 - the [FANTOM5 ontology](https://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt) containing an obo file mapping between FANTOM sample IDs, Uberon and cell ontology (CL) terms.
 - FANTOM's [human sample information file](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/basic/HumanSamples2.0.sdrf.xlsx) containing text descriptions about sample, for example tissue, age, sex, disease, etc, which is necessary for data cleaning.
 
-[//]: # (TODO: if time, update so that data aquisition code is here)
+[//]: # (TODO: Where do I first explain sample accession numbers?)
+[//]: # (TODO: if time, update so that data aquisition code is here/above)
+[//]: # (TODO: Explain FANTOM Accession numbers here)
 <!-- #endregion -->
 
-### Data Cleaning
-In order to clean the FANTOM data for use in `filip`, transcripts that didn't match to proteins were removed, and the following samples were removed:
-- Disease samples
-- Non tissue-specific samples
-- Non human samples
+```python
+%load_ext autoreload
+%autoreload 2
+
+# TODO: Add cell metadata to prevent output + hide
+```
+
+```python
+import helper_c05.fantom_sample_clean as fsc
+# TODO: Add cell metadata to prevent output + make code dropdown
+
+# read in CAGE header and samples info files:
+expression_header = fsc.read_CAGE_header()
+samples_info = fsc.read_samples_info()
+
+# calculate replicates information:
+rep_info = fsc.get_tech_bio_reps(expression_header, samples_info)
+
+# clean samples info files:
+samples_info = fsc.restrict_samples(samples_info)
+samples_info = fsc.update_sample_info_labels(samples_info, rep_info)
+samples_info = fsc.clean_samples_info(samples_info, rep_info)
+```
+
+<!-- #region -->
+### Initial FANTOM5 data cleaning: sample info file
+
+(fantom-sample-categories)=
+#### Sample categories
+[//]: # (TODO: Add HeLa image)
+
+```{margin} HeLa cell line
+The FANTOM5 experiment contains HeLa cell lines samples (e.g. sample `FF:10815-111B5`).
+
+HeLa is short for Henrietta Lacks, the woman whose cells were the source of this first immortal cell line.
+Henrietta was a black woman who lived in Baltimore, Maryland.
+Her cells were taken without consent during a hospital biopsy for an aggressive cervical cancer, which she died from at age 31 in 1951. 
+
+Companies continue to profit from the sale of these lines of cells, since such cell lines have several practical advantages over primary cells, notably their immortality, low variability (compared to primary cells, which vary depending on cell donor characteristics such as age and sex), and easiness to keep alive (without the need for e.g. additional nutrients). 
+```
+
+The human FANTOM5 sample information file contains four categories of samples (in the `Characteristics [Category]` field): 
+- __time courses__: RNA extraced from samples being measured over time as cells change types during cell development and differentiation ({glue:}`time-course-num-samps` samples), e.g. {glue:}`time-course-ex-id` - {glue:}`time-course-ex-desc`.
+- __primary cells__: RNA extracted from cultures of cells recently isolated from tissues, before undergoing proliferation with nutrients specific to the cell type ({glue:}`primary-num-samps` samples), e.g. {glue:}`primary-ex-id` - {glue:}`primary-ex-desc`.
+- __cell lines__: RNA extracted from immortal cell lines (which unlike primary cells) can keep undergoing division indefinitely ({glue:}`cell-line-num-samps` samples), e.g. {glue:}`cell-line-ex-id` - {glue:}`cell-line-ex-desc`.
+- __tissues__: RNA extracted from post-mortem tissues, which may be pooled or individual donors ({glue:}`tissue-num-samps` samples), e.g. {glue:}`tissue-ex-id` - {glue:}`tissue-ex-desc`.
+- __fractionations__: RNA extracted from parts of cells (fractionations) ({glue:}`frac-per-num-samps` samples), e.g. {glue:}`frac-per-ex-id` - {glue:}`frac-per-ex-desc`.
+
+I restricted the data set to only **tissues** and **primary cells**, as these represent the closest approximations to *in vivo* biology.
+Immortal cell lines are often expressed differently than their primary counterparts{cite}`Pastor2010-hk,Kaur2012-en`, and time courses and fractionations and perturbations do not represent any particular tissue.
+
+[//]: # (TODO: discuss difference between tissue and primary cell samples here)
+
+__Sample Type__:
+As mentioned tissues can come from a pool, or individual donor. This information can be found in the `Charateristics [description]` field.
+[//]: # (TODO: Write about tissue pool versus tissue donor here)
+
+
+#### Technical and biological replicates
+[//]: # (TODO: Rewrite)
+[//]: # (TODO: Add glues of how many are left in/explanations of why)
+[//]: # (TODO: Aside for difference between biological and technilogical replicates)
+[//]: # (TODO: Cross-ref to where I explain FANTOM accession numbers)
+
+Note that the FANTOM accession numbers are per sample, not per measurement, so there are some columns of the expression file which correspond to the same accession number. 
+These represent technical replicates. 
+FANTOM technical and biological replicates are indicated in long labels of the annotated expression FANTOM file, by the inclusion of “tech_rep” or “biol_rep” in the long sample labels e.g. `tpm.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20tech_rep1.CNhs10855.11227-116C3.hg38.nobarcode`. 
+These were used to create additional fields for the human samples table.
+
+Note: there is an error in the original transcript expression file for one of these identifiers (`tpm.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode`) such that it is missing the “tech” part of the the replicate label. 
+There is a hard-coded fix when I read in the input file and the FANTOM data curation team was informed.
+
+After restricting the dataset to *primary cell* and *tissue* type samples, there are {glue:}`num_bio_rep_samples` remaning samples which have biological replicates, and {glue:}`num_tech_rep_samples` sets of samples with technological replicates (2 replicates each).
+<!-- #endregion -->
+
+#### Age and age range
+[//]: # (TODO: Check how I format human sample information file, maybe italicise it and make sure that the capitalisation lines up)
+
+The age of the sample source donor(s) is available through two fields in the human sample information file: `Characteristics [Developmental stage]`, and `Characteristics [Age]`.
+These fields contain description-like text, which are somewhat inconsistent, for example, “3 year old child”, “3 years old child”, “25 year old”, “76” and “76 years old adult” all feature in the same column, amongst other errors. 
+These were standardised into a new field (`Age (years)`).
+This field does not seek to include multiple ages (i.e. when the sample comes from a pool of donors).
+There is a complementary (i.e. no overlap) field (`Age range (years)`), which contains age ranges for the {glue:}`age_diranged` samples that contain multiple ages.
+In both columns, some samples contain fetal samples, in which caset age (range) is given as a negative decimal (converted to years before birth).
+
+There file also contained some discrepancies between ages and developmental stages in the FANTOM human samples file.
+For example, sample `FF:10027-101D9` is labelled as *thymus, adult, pool1* in the *Description* field, but as *0.5,0.5,0.83 years old infant* in the *Developmental Stage* field. 
+Sample `FF:10209-103G2` had an age of ‘M’ and a sex of ‘28’. 
+I reported both these discrepencies: and the latter has since been fixed in the FANTOM file, and for the former, I hardcode the age to `NaN`.
+
+#### Sex
+The `Characteristics [Sex]` field contains information about the sex of the sample source donor(s). 
+Similarly to age, due to the consortium nature of FANTOM5, the entries of this field are not consistently labelled.
+They undergo data cleaning into 4 categories: male, female, mixed (pool with both male and female samples), and unlabelled.
+
+#### Disease and tissue mapping
+The disease status of samples (e.g. healthy/non-healthy) is not straight-forwardly labelled in the human sample file, so requires some basic text-mining (and cross-referencing with ontology terms).
+Similarly, there is a `Characteristics[Tissue]` field in the human samples file containing some manually mapped tissue types, but as I point out with an example in {ref}`the exploratory data analysis<eda-sample-tissues>`, these do not contain ideal mappings for `filip`. 
+
+The continued data processing of these components is described in {ref}`the methdology section <filter-methods>`, after the introduction of `uberon-py` (the package developed to do this).
+
+[//]: # (TODO: Add link to FANTOM exp download)
+
+```{admonition, note} FANTOM5 cleaned experimental design file
+:class: dropdown
+:name: cleaned-fantom-exp
+The cleaned FANTOM5 experimental design file (which has undergone the cleaning mentioned in this section, and in {ref}`the methodology section<filter-methods>`) is available [here](link). 
+```
+
+```python
+# TODO: Create list of allowed primary + tissue samples (in sample_header)
+
+```
+
+```python
+from helper_c05 import fantom_tpm_clean as tpm_clean
+
+tpm_file = '../c06-combining/data/experiments/fantom/hg38_fair+new_CAGE_peaks_phase1and2_tpm_ann.osc.txt'
+cage_tpm = tpm_clean.read_and_clean_tpm(tpm_file)
+cage_tpm
+```
+
+```python
+protein_tpm = tpm_clean.get_protein_tpm(cage_tpm)
+protein_tpm
+```
+
+### Initial FANTOM5 data cleaning: expression file
+[//]: # (TODO: Choose output of these code cells: make some invisible, show some data snippets)
+[//]: # (TODO: mention the file we're talking about and restriction to existing samples)
+[//]: # (TODO: Structure section... first explain that/why want protein-centric expression... etc)
+
+#### CAGE peaks with associated proteins
+[//]: # (TODO: Check what type of uniprot ID these are)
+The CAGE peaks represent all kinds of transcripts, not only those which map to protein-coding genes. 
+The FANTOM file provides mappings to Uniprot IDs (`uniprot_id`), and these are used to discard the CAGE peaks that do not map to protein-coding genes: this takes us from {glue:}`total_F5_peaks` to  {glue:}`has_protein_F5_peaks` rows (CAGE peaks).
+
+#### CAGE peaks mapped to one gene only
+[//]: # (TODO: Do I want to do this? What about overlapping genes?)
+[//]: # (TODO: cross-ref discrepencies between gene ID databases)
+CAGE peaks are mapped to genes based on overlap with the gene, so it is not always clear which gene a CAGE peak maps to.
+For simplicity, and to remove the potential of wrongly mapped genes being used in `filip`, protein-coding CAGE peaks (those which are mapped to at least one `uniprot_id` by FANTOM) that map to multiple genes are removed.
+These can be found by looking at either the `hgnc_id` or `entrezgene_id` gene identifier columns.
+The choice of gene ID matters, since there are discrepencies between gene ID databases: in this case, choosing `hgnc_id` finds all those CAGE peaks found by using `entrezgene_id`, and more, so these are removed.
+This represents a total of {glue:}`total_gene_id_duplicates` CAGE peaks that map to multiple genes according to the given identifers.
+
+#### Proteins that map to multiple genes
+For `filip`, the expression was calculated per protein (since it is protein function predictions that it is filtering), rather than per CAGE peak (summing the TPMs of all CAGE peaks mapped to a protein to get the total for that protein) as in the original data, or as is often presented per gene.
+This gave {glue:}`protein_expression_total` rows of "protein expression" data.
+
+Of these, there were then {glue:}`rows_left_multiple_genes` rows of data (corresponding to {glue:}`proteins_multiple_genes` proteins) for which each protein maps to multiple genes.
+This happens when different genes are translated to make identical protein products, for example the [H4 human histone protein](https://www.uniprot.org/uniprot/P62805) is encoded by 14 different genes at different loci, across three different chromosomes.
+It used to be the case that Uniprot would map these genes to the same Uniprot ID, but more recently different Uniprot IDs are used to capture where the proteins came from.
+These rows were also removed.
+
 
 
 ### Exploratory Data Analysis
 
-[//]: # (TODO: Number of transcripts, proteins, genes)
+#### Samples
 [//]: # (TODO: Number of samples, biological and technical replicates)
+
+After {ref}`restricting the samples to those which are primary cells or tissues<fantom-sample-categories>`, there were {glue:}`fantom-primary-tissue-samples` remaining samples. 
+
+
+```python
+from helper_c05 import fantom_sample_eda as f_eda
+sex_donut, tissues_samples, nan_age_count, collaborators_providers = f_eda.create_plot_dfs(samples_info)
+fig = f_eda.create_plotly_plots(samples_info, sex_donut, tissues_samples, nan_age_count, collaborators_providers)
+fig
+```
+
+```python
+anatomical_system_samples = f_eda.anat_system_tbl(samples_info, chosen_samples = [2, 10, 15, 20])
+anatomical_system_samples
+```
+
+```{figure} ../../images/fantom_eda.png
+:name: fantom-eda
+width: 1000px
+---
+(a) sex: a donut plot showing the sex labels of samples, (b) collaborators and providers: a stacked histogram showing the {glue:}`num_collaborators` most common collaborators, and {glue:}`num_providers` most common providers. (c) age: a histogram of age of sample donors (this does not include the {glue:}`age_ranged` samples which have age ranges due to pooled donors of various ages). (d) tissues and sample types: a histogram showing the {glue:}`num_common_tissues` most common tissues, spread across the different types of samples (primary cells, tissue donors, and tissue pools).
+```
+
+__Sample metadata:__ 
+Looking at the FANTOM5 data (see {numref}`fantom-eda`), overall we see that there the samples are very varied, across ages, sex, sample providers, and collaborators, although (d) shows that the majority of samples are *primary cell* samples, and very few are *tissue - pool* samples.
+Secondly, we can see that after careful cleaning, some metadata is missing, i.e. 38.4% of samples have unknown sex (a), most collaborators did not label the sample provider (b), and most samples do not have a labelled age (c).
+
+(eda-sample-tissues)=
+__Sample Tissues:__ 
+In {numref}`fantom-eda` subplot (d), we can also note some interesting things about the tissue types provided by the Fantom Human Samples file. {glue:}`anatomical-system` primary cell samples are labeled *ANATOMICAL SYSTEM*. If we look closer at these samples, we can see that it is theoretically possible to map some of these samples to tissues (see {numref}`anatomical-system-sample-table`). 
+
+[//]: # (TODO: cross-ref to where discussed in methodology, and vice versa) 
+(fantom-tissues-how-general)=
+There is also the question of how general or specific the human sample categories are. There are {glue:}`blood-samples` samples which are mapped to "blood" ({numref}`tbl:anatomical-system` (d)), but when we come to map the FANTOM5 tissues to phenotypes, this may be too broad a category. Similarly, there are {glue:}`tissues-less-three` with less than three samples each (unpictured) that may be too narrow to map to phenotypes, and a more accurate picture of that phenotype would come from taking a more general tissue.
+
+```{glue:figure} anatomical-system-sample-table
+:figwidth: 300px
+:name: "tbl:anatomical-system"
+
+An example of four *ANANTOMICAL SYSTEM* tissues, with tissue-specific cells, indicating that they could be mapped to tissues. For example sample `FF:11922-125H5` is a gingival fibroblast, which are one of the main constituent cells of gum tissue.
+```
+
+[//]: # (TODO: Cross ref to uberon-py)
+[//]: # (TODO: Cross ref to use of uberon-py for removal of disease samples)
+
+We can also see in {numref}`tbl:anatomical-system` that this dataset, though having undergone some data cleaning, still contains disease samples (e.g. "aggressive periodontitis"). 
+
+
+#### Protein-centric TPM
+
+[//]: # (TODO: Number of CAGE peaks, transcripts, proteins, genes)
 [//]: # (TODO: Expression distribution)
 
-#### TPM
-
-```python
-import pandas as pd
-from myst_nb import glue
-
-transcript_tpm = pd.read_csv('../c06-combining/data/experiments/fantom/hg38_fair+new_CAGE_peaks_phase1and2_tpm_ann.osc.txt', delimiter='\t', comment='#', dtype={'entrezgene_id': object})
-transcript_tpm.drop([0], axis='index', inplace=True)
-transcript_tpm.set_index('00Annotation', inplace=True)
-
-sep_in_col = ' '  # In the transcript expression file, genes and proteins ids with multiple values in a column are separated by a space.
-
-n_peaks = transcript_tpm.shape[0] # Total number of CAGE peaks in FANTOM5 data set
-glue("total_F5_peaks", n_peaks)
-
-transcript_tpm.dropna(axis=0, subset=['uniprot_id'], inplace=True)
-n_peaks_protein = transcript_tpm.shape[0]  # Number of peaks which are protein-coding (as mapped by FANTOM)
-glue("has_protein_F5_peaks", n_peaks_protein)
-
-transcript_tpm['uniprot_list'] = transcript_tpm['uniprot_id'].str.split(sep_in_col)  
-transcript_tpm.head()
-```
-
-[//]: # (TODO: Check what type of uniprot ID these are)
-[//]: # (TODO: Choose output of these code cells: make some invisible, show some data snippets)
-
-The CAGE peaks represent all kinds of transcripts, not only those which map to protein-coding genes. 
-The FANTOM file provides mappings to Uniprot IDs (`uniprot_id`), and these are used to discard the CAGE peaks that do not map to protein-coding genes: this takes us from {glue:}`total_F5_peaks` to  {glue:}`has_protein_F5_peaks` rows.
-
-```python
-# How many CAGE peaks map to multiple HGNC id genes?
-hgnc_id_duplicates = transcript_tpm[transcript_tpm['hgnc_id'].str.contains(' ', na=False)].shape[0]
-print(f"There are {hgnc_id_duplicates} CAGE peaks that map to multiple HGNC ids (genes)")
-glue("hgnc_id_duplicates", hgnc_id_duplicates)
-
-entrezgene_id_duplicates = transcript_tpm[transcript_tpm['entrezgene_id'].str.contains(' ', na=False)].shape[0]
-print(f"There are {entrezgene_id_duplicates} CAGE peaks that map to multiple Entrezgene ids")
-glue("entrezgene_id_duplicates", entrezgene_id_duplicates)
-
-total_gene_id_duplicates = transcript_tpm[(transcript_tpm['hgnc_id'].str.contains(' ', na=False) | transcript_tpm['entrezgene_id'].str.contains(' ', na=False))].shape[0]
-print(f"There are {total_gene_id_duplicates} CAGE peaks that map to multiple genes (HGNC or entrezgene IDs)")
-glue("total_gene_id_duplicates", total_gene_id_duplicates)
-
-# Remove gene duplicates per CAGE TSS (due to overlapping CAGE TSS)
-transcript_tpm = transcript_tpm[~(transcript_tpm['hgnc_id'].str.contains(' ', na=False) | transcript_tpm['entrezgene_id'].str.contains(' ', na=False))]
-
-n_peaks_single_gene = transcript_tpm.shape[0]  # Number of peaks which are protein-coding (as mapped by FANTOM)
-glue("single_gene_F5_peaks", n_peaks_single_gene)
-```
-
-CAGE peaks are mapped to genes based on overlap with the gene, so it is not always clear which gene a CAGE peak maps to.
-Protein-coding CAGE peaks (map to at least one `uniprot_id`), that map to multiple genes are removed for simplicity. 
-These can be found by looking at either the `hgnc_id` or `entrezgene_id` gene identifier columns: the mapping to `hgnc_id` contains all those found in `entrezgene_id`, so these are removed.
-This represents a total of {glue:}`total_gene_id_duplicates` CAGE peaks that map to multiple genes according to the given identifers.
-
-```python
-# Create expression by protein (uniprot ID), rather than by transcript
-protein_tpm = transcript_tpm.explode('uniprot_list').groupby(['uniprot_list', 'entrezgene_id', 'hgnc_id']).sum()
-protein_tpm.reset_index(level=['hgnc_id', 'entrezgene_id'], inplace=True)
-protein_tpm.rename_axis(index='uniprot_id')
-# Every protein ID should have at least one gene ID
-assert(protein_tpm[protein_tpm['entrezgene_id'].isna()].shape[0]==0) 
-assert(protein_tpm[protein_tpm['hgnc_id'].isna()].shape[0]==0)
-
-glue("protein_expression_total", protein_tpm.shape[0])
-protein_tpm.head()
-```
-
-```python
-rows_left_multiple_genes = protein_tpm[protein_tpm.index.duplicated(keep=False)].shape[0]
-print(f"Number of remaining rows that map to multiple genes: {rows_left_multiple_genes}")
-glue("rows_left_multiple_genes", rows_left_multiple_genes)
-
-proteins_multiple_genes = len(protein_tpm[protein_tpm.index.duplicated(keep=False)].index.unique())
-print(f"Number of proteins that map to multiple genes: {proteins_multiple_genes}")
-glue("proteins_multiple_genes", proteins_multiple_genes)
-
-protein_tpm[protein_tpm.index.duplicated(keep=False)].head()
-
-protein_tpm = protein_tpm[~protein_tpm.index.duplicated(keep=False)]
-assert(protein_tpm.shape[0]==len(protein_tpm.index.unique()))
-glue("unique_proteins", protein_tpm.shape[0])
-```
-
-For `filip`, the expression was calculated per protein (since it is protein function predictions that it is filtering), rather than per CAGE peak (summing the TPMs of all CAGE peaks mapped to a protein to get the total for that protein) as in the original data, or as is often presented per gene.
-This gave {glue:}`protein_expression_total` rows of "protein expression" data.
-
-Of these, however, there were {glue:}`rows_left_multiple_genes` rows of data (corresponding to {glue:}`proteins_multiple_genes` proteins) for which the proteins map to multiple genes.
-This happens when different genes are translated to make identical protein products.
-It used to be the case that Uniprot would map these genes to the same Uniprot ID, but more recently different Uniprot IDs are used to capture where the proteins came from.
-These rows were also removed.
 
 ```python
 display(transcript_tpm[transcript_tpm['uniprot_id'].str.contains('B2R4R0', na=False)])
 ```
 
 ```python
-# CAGE PEAKS ARE TOO SMALL TO SEE ON A STATIC PLOT, WOULD NEED AN INTERACTIVE PLOT.
-
-# from Bio.SeqFeature import SeqFeature, FeatureLocation
-# from Bio.Graphics import GenomeDiagram
-# from IPython.core.display import Image
-
-# gdd = GenomeDiagram.Diagram('Test Diagram')
-# gdt_features = gdd.new_track(1, name="CAGE Peaks", greytrack=True)
-# gds_features = gdt_features.new_set()
-
-# #Add three features to show the strand options,
-# p13_HIST1H4B = SeqFeature(FeatureLocation(26027058,26027076))
-# gds_features.add_feature(p13_HIST1H4B, name="p13@HIST1H4B", label=True)
-
-# p12_HIST1H4B = SeqFeature(FeatureLocation(26027093, 26027119))
-# gds_features.add_feature(p12_HIST1H4B, name="p12@HIST1H4B", label=True)
-
-# p12_HIST1H4B = SeqFeature(FeatureLocation(26189331, 26189346))
-# gds_features.add_feature(p12_HIST1H4B, name="p3@HIST1H4D", label=True)
-
-# p12_HIST1H4B = SeqFeature(FeatureLocation(26285754, 26285769))
-# gds_features.add_feature(p12_HIST1H4B, name="p4@HIST1H4H", label=True)
-
-# p12_HIST1H4B = SeqFeature(FeatureLocation(27841151, 27841161))
-# gds_features.add_feature(p12_HIST1H4B, name="p12@HIST1H4L", label=True)
-
-# gdd.draw(format='linear', fragments=1,
-#          start=25900000, end=28100000)
-# gdd.write("GD_labels_default.png", "png")
-# Image("GD_labels_default.png")
-
+# TODO: Plotly Gannt for CAGE peaks overlapping with multiple transcripts/genes (check association with transcript to check whether it's multiple transcripts or just muktiple genes with same TSS)
 ```
 
-```python
-# DNA FEATURES VIEWER IS NOT YET READY TO USE.
+## Supplementary mapping data
+[//]: # (TODO: Cross ref to methodology)
 
-# from bokeh.plotting import figure, show
+I also used the following datasets to aid in mapping to a common set of identifiers:
+- the [uberon extended ontology OBO file](http://purl.obolibrary.org/obo/uberon/ext.obo) from [the uberon website](uberon.github.io/downloads.html) to assist in mapping cells and tissues.
 
-# from dna_features_viewer import GraphicFeature, GraphicRecord
-# features=[
-#     GraphicFeature(start=0, end=20, strand=+1, color="#ffd700",
-#                    label="Small feature"),
-#     GraphicFeature(start=20, end=500, strand=+1, color="#ffcccc",
-#                    label="Gene 1 with a very long name"),
-#     GraphicFeature(start=400, end=700, strand=-1, color="#cffccc",
-#                    label="Gene 2"),
-#     GraphicFeature(start=600, end=900, strand=+1, color="#ccccff",
-#                    label="Gene 3")
-# ]
-# record = GraphicRecord(sequence_length=1000, features=features)
-# p = record.plot_with_bokeh(figure_width=5)
-# show(p)
-```
+[//]: # (TODO: Describe mapping data here, e.g. biomart/uniprot)
 
-#### Counts
-
-```python
-# # DON'T WANT COUNTS
-
-# import pandas as pd
-# from myst_nb import glue
-
-# transcript_counts = pd.read_csv('../c06-combining/data/experiments/fantom/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt', delimiter='\t', comment='#', dtype={'entrezgene_id': object})
-# transcript_counts.drop([0], axis='index', inplace=True)
-# transcript_counts.set_index('00Annotation', inplace=True)
-
-# # In the transcript expression file, genes and proteins ids with multiple values per transcript are separated by a space.
-# sep_in_col = ' '
-
-# n_transcripts = transcript_counts.shape[0] # Total number of transcripts in FANTOM5 data set
-# glue("total_F5_transcripts", n_transcripts)
-
-# transcript_counts.dropna(axis=0, subset=['uniprot_id'], inplace=True)
-# n_transcripts_protein = transcript_counts.shape[0]  # Number of transcripts which are protein-coding (as mapped by FANTOM)
-# glue("has_protein_F5_transcripts", n_transcripts_protein)
-
-# # Create expression by protein (uniprot ID), rather than by transcript
-# transcript_counts['uniprot_id'] = transcript_counts['uniprot_id'].str.split(sep_in_col)  
-# protein_counts = transcript_counts.explode('uniprot_id').groupby(['uniprot_id', 'entrezgene_id', 'hgnc_id']).mean()
-# protein_counts.reset_index(level=['hgnc_id', 'entrezgene_id'], inplace=True)
-
-# # Every protein ID should have at least one gene ID
-# assert(protein_counts[protein_counts['entrezgene_id'].isna()].shape[0]==0) 
-# assert(protein_counts[protein_counts['hgnc_id'].isna()].shape[0]==0)
-
-# print(f"Number of rows that map to multiple genes: {protein_counts[protein_counts.index.duplicated(keep=False)].shape[0]}")
-# print(f"Number of proteins that map to multiple genes: {protein_counts[protein_counts.index.duplicated(keep='first')].shape[0]}")
-
-# display(protein_counts[protein_counts.index.duplicated(keep=False)])
-# display(protein_counts.loc['A0A024QZ90'])  # example duplicate
-
-# # Ideally, if we're doing a protein centric, thing, then we would like to average over the two protein averages (this should be done AFTER conversion to TPM).
-# # Or if we're doing a gene centric thing, then obviously we'd do it gene centric.
-
-# protein_counts['hgnc_id'] = protein_counts['hgnc_id'].str.split(' ')
-# protein_counts['entrezgene_id'] = protein_counts['entrezgene_id'].str.split(' ')
-# hgnc_counts = protein_counts.explode('hgnc_id')
-# entrez_counts = protein_counts.explode('entrezgene_id')
-# print('hgnc',len(hgnc_counts['hgnc_id'].unique()))
-# print('entrezgene_id',len(entrez_counts['entrezgene_id'].unique()))
-
-# print(f"Rows with multiple hgnc IDs, but only one entrezID: {protein_counts[protein_counts['hgnc_id'].str.contains(' ', na=False) & ~protein_counts['entrezgene_id'].str.contains(' ', na=False)].shape[0]}") # two or more hgncids and only one entrez id
-
-# print(f"Rows with multiple entrez IDs, but only one hgnc ID: {protein_counts[protein_counts['entrezgene_id'].str.contains(' ', na=False) & ~protein_counts['hgnc_id'].str.contains(' ', na=False)].shape[0]}") # two or more entrez ids and only one hgnc id
-
-# print(transcript_counts[transcript_counts['hgnc_id'].str.contains('HGNC:17992',na=False)]['entrezgene_id'].unique())
-
-# print('hgnc',len(protein_counts['hgnc_id'].unique()))
-# print('entrezgene_id',len(protein_counts['entrezgene_id'].unique()))
-```
 
 ## Test set: CAFA2
 

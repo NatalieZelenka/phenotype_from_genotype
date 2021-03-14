@@ -4,6 +4,8 @@ This chapter is a second background chapter.
 We have {ref}`just introduced<c02-biology-bg>` the biology of the molecules involved the connection between genotype and phenotype, and now we will discuss the details of how this connection is studied.
 
 [//]: # (TODO: Put my contributions in this chapter here)
+
+[//]: # (TODO: Make an aside for in vivo, ex vivo, in vitro, in silico)
 This Chapter begins with a short {ref}`description of popular sequencing technologies<sequencing-technology>`, as this is relevant to both DNA and RNA.
 
 Then in the {ref}`second Section<measuring-genotype-phenotype>`, we will retrace the steps we took in {ref}`the previous Chapter<c02-biology-bg>`, looking again at DNA, RNA, proteins, and phenotypes in turn, but this time considering the data gathered about each of these entities, and the data gathered about the connections between them. 
