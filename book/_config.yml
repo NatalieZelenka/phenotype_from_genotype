@@ -42,10 +42,14 @@ number_toc_chapters       : true  # Whether to add numbers to chapterse in your 
 search_max_words_in_content : 30  # In the search function, use at most this many words (too many words will make search slow)
 
 parse:
-  myst_extended_syntax: true
+  myst_enable_extensions:
+    - colon_fence
+    - dollarmath
 
 execute:
-  execute_notebooks: 'off'
+  execute_notebooks: 'cache'
+  allow_errors: true
+
 
 only_build_toc_files: true
 
@@ -74,6 +78,9 @@ use_download_button              : false  # If 'true', display a button to downl
 
 #######################################################################################
 # Jupyter book extensions and additional features
+
+bibtex_bibfiles:
+  - _bibliography/references.bib
 
 # Bibliography and citation settings. See https://github.com/inukshuk/jekyll-scholar#configuration for options
 scholar:
@@ -150,6 +157,8 @@ latex:
 
 sphinx:
   config:
+    html_js_files:
+      - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     html_favicon: images/favicon.png
     html_theme_options:
       use_download_button: false

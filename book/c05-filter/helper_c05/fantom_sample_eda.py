@@ -124,11 +124,10 @@ def create_plotly_plots(samples_info, sex_donut, tissues_samples, nan_age_count,
         fig.update_yaxes(tickfont={'size': 8}, title_text="Frequency", row=2, col=2, title_standoff=0)
 
     # Save images:
-    fig.update_layout(barmode="stack", showlegend=False, template='seaborn', width=1000)
+    fig.update_layout(barmode="stack", showlegend=False, template='seaborn', width=800)
     fig_name = 'fantom_eda'
     fig.write_html(f"../images/{fig_name}.html")
     fig.write_image(f"../images/{fig_name}.png")
-
     return fig
 
 

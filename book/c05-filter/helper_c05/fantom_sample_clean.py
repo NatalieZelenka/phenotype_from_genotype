@@ -161,6 +161,9 @@ def get_tech_bio_reps(header, samples_info):
     """
     Extract information about which samples are technical and biological reps from TPM header
     """
+    category = 'Characteristics [Category]'
+    wrong_accession = '11227-116C3'
+
     rep_info = []
     tech_rep_counter = 0
     bio_rep_counter = 0
@@ -181,13 +184,20 @@ def get_tech_bio_reps(header, samples_info):
         else:
             tech_rep_id = None
 
-        if 'biol_rep' in col_name:
-            number = col_name.split('biol_rep')[-1][0]  # first character after 'bio_rep' (e.g. "1" or "2")
+        if ('biol_rep' in col_name) or ('biol_%20rep' in col_name) or ('donor' in col_name):
+            number = re.search(r"(donor)*(biol_rep)*(\d)", col_name).group(3)
+            # number = col_name.split('biol_rep')[-1][0]  # first character after 'bio_rep' (e.g. "1" or "2")
             if number == '1':  # new sample with a bio rep
                 bio_rep_counter += 1
             bio_rep_id = 'FANTOM-B' + str(bio_rep_counter).zfill(3)
         else:
             bio_rep_id = None
+
+        # Check for any other 'reps' - for some reason regex was not working as expected.
+        type_ = samples_info.loc[fantom_sample_accession.split('_')[0], category]
+        if ('tech' not in col_name) and ('biol' not in col_name) \
+                and ('rep' in col_name) and not ('strep' in col_name) and (type_ in ['primary cells', 'tissues']):
+            assert(wrong_accession in fantom_sample_accession)
 
         rep_info.append([fantom_sample_accession, tech_rep_id, bio_rep_id])
 
@@ -290,8 +300,8 @@ def get_category_info(samples_info):
     categories = samples_info['Characteristics [Category]'].value_counts()
     for category, freq in categories.iteritems():
         name_num_samps = category.replace(' ', '-') + '-num-samps'
-        name_ex_id = category.replace(' ', '-') + '-num-ex-id'
-        name_ex_desc = category.replace(' ', '-') + '-num-ex-desc'
+        name_ex_id = category.replace(' ', '-') + '-ex-id'
+        name_ex_desc = category.replace(' ', '-') + '-ex-desc'
 
         example = samples_info[samples_info['Characteristics [Category]'] == category].iloc[
             5]  # examples chosen (row 5) so that they contain anything too weird/not yet explained.

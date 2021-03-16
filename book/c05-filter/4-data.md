@@ -1,19 +1,39 @@
-<!-- #region -->
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.12
+    jupytext_version: 1.9.1
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
 
-# Data
+# Input Data
 
-[//]: # (TODO: explain overall types of data and how they will fit together for `filip` with cross references to each part of this page, Expression, samples info, obo, etc )
+There are several types of input data that are needed to run `filip`. These include:
+- {ref}`Expression Data<fantom5-expression-data>` (and related sample metadata)
+- {ref}`Cell, tissue, and phenotype mapping data<cell-tissue-phen-map-data>`
+- {ref}`Training data<cafa2-training-set>` (ground-truth data for use in developing `filip`)
+- {ref}`Test data<cafa3-test-set>` (ground-truth data for testing `filip`)
 
+In addition to this, `filip` requires the input of a protein function or phenotype prediction method, but this (and the data required for this) is described in {ref}`filter-methods`.
+
+(fantom5-expression-data)=
 ##  Expression data: FANTOM5
 
 [//]: # (TODO: Check where I say sample, but mean measurement, ie. where I am talking about the columns of the CAGE data FF accessions are the same for technical replicates)
-[//]: # (TODO: Mention CAGE - ?relevant because mapping to proteins..)
-[//]: # (TODO: Data given as TPM per CAGE peak - CAGE peaks map to multiple genes when the CAGE peak overlaps multiple genes, also CAGE peaks that map to the same protein, could map to different sets of genes because CAGE peaks map to different genes: don't map via CAGE peaks because you lose information) 
+[//]: # (TODO: Write: Data given as TPM per CAGE peak - CAGE peaks map to multiple genes when the CAGE peak overlaps multiple genes, also CAGE peaks that map to the same protein, could map to different sets of genes because CAGE peaks map to different genes: don't map via CAGE peaks because you lose information) 
 
-`filip` requires expression data to inform whether or not predictions should be filtered out. The FANTOM5 data set was chosen for this purpose (at the time this was the latest data output of the {ref}`FANTOM consortium<fantom-consortium>`).
-
-FANTOM5 represents one of the most comprehensive collections of expression data, in this case transcript expression. 
-It contains a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations.
+The `filip` method requires expression data to inform whether or not predictions should be filtered out.
+The FANTOM5 data set was chosen for this purpose.
+FANTOM5 represents one of the most comprehensive collections of expression data in terms of tissue and cell type. 
+It consists of transcript expression data, captured using the {ref}`CAGE technique<cage-method>`. 
+FANTOM5 collected a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations.
+At the time of developing it was the latest data output of the {ref}`FANTOM consortium<fantom-consortium>`.
 
 ```{margin} The FANTOM Consortium
 :name: fantom-consortium
@@ -22,9 +42,7 @@ The Functional ANnoTation Of the MAmmalian genome (FANTOM) consortium was establ
 
 [//]: # (TODO: What does the data contain, how many samples, etc)
 
-### Reasoning
-
-I chose the FANTOM5 data as the input gene expression data for `filip`, for the following reasons:
+My reasoning for choosing FANTOM5 data as the input gene expression data to test `filip` was:
 - The data set has a good coverage of different tissue types, meaning that `filip` should be able to turn this into a good coverage of predictions.
 - The data set has an ontology of samples, which is already linked to Uberon tissue terms and CL cell terms, making the mapping process much easier.
 
@@ -35,28 +53,37 @@ I chose the version of the FANTOM5 data that:
 
 [//]: # (TODO: Aside about TPM/link to before)
 
-
 ### Data files and acquisition
 [//]: # (TODO: Signpost that I don't use the FANTOM OBO yet)
+[//]: # (TODO: Check that counts are per transcript)
+
+```{margin} FANTOM5 Accession numbers
+:name: fantom-accession
+Each FANTOM *sample* has an accession number of the form `FF:#####-#####`. These numbers are used in all three of the FANTOM5 data files.
+Note: some samples have repeat measurements per sample.
+```
 
 I downloaded the following files from the FANTOM website:
-- the [FANTOM5 CAGE peaks expression data](http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz) containing expression in counts per transcript, and mappings to HGNC id and entrez gene ID. The long sample labels in this file are also a source of metadata.
-- the [FANTOM5 ontology](https://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt) containing an obo file mapping between FANTOM sample IDs, Uberon and cell ontology (CL) terms.
-- FANTOM's [human sample information file](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/basic/HumanSamples2.0.sdrf.xlsx) containing text descriptions about sample, for example tissue, age, sex, disease, etc, which is necessary for data cleaning.
+- the [FANTOM5 CAGE peaks expression data](http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz) containing expression in counts per transcript, and mappings to HGNC id and entrez gene ID. The long sample labels in this file are also a source of metadata (including {ref}`sample identifiers (FANTOM accession numbers)<fantom-accession>`).
+- FANTOM's [human sample information file](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/basic/HumanSamples2.0.sdrf.xlsx) containing text descriptions about sample, for example FANTOM accession numbers, tissue, age, sex, disease, etc, which is necessary for data cleaning.
+- the [FANTOM5 ontology](https://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt) containing an obo file mapping between FANTOM accession numbers, Uberon and cell ontology (CL) terms.
 
-[//]: # (TODO: Where do I first explain sample accession numbers?)
 [//]: # (TODO: if time, update so that data aquisition code is here/above)
-[//]: # (TODO: Explain FANTOM Accession numbers here)
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
+:tags: [remove-cell]
+
 %load_ext autoreload
 %autoreload 2
 
-# TODO: Add cell metadata to prevent output + hide
+from myst_nb import glue
 ```
 
-```python
+### Initial FANTOM5 data cleaning: sample info file
+
+```{code-cell} ipython3
+:tags: [hide-input, remove-output]
+
 import helper_c05.fantom_sample_clean as fsc
 # TODO: Add cell metadata to prevent output + make code dropdown
 
@@ -73,12 +100,10 @@ samples_info = fsc.update_sample_info_labels(samples_info, rep_info)
 samples_info = fsc.clean_samples_info(samples_info, rep_info)
 ```
 
-<!-- #region -->
-### Initial FANTOM5 data cleaning: sample info file
-
 (fantom-sample-categories)=
 #### Sample categories
 [//]: # (TODO: Add HeLa image)
+
 
 ```{margin} HeLa cell line
 The FANTOM5 experiment contains HeLa cell lines samples (e.g. sample `FF:10815-111B5`).
@@ -88,41 +113,53 @@ Henrietta was a black woman who lived in Baltimore, Maryland.
 Her cells were taken without consent during a hospital biopsy for an aggressive cervical cancer, which she died from at age 31 in 1951. 
 
 Companies continue to profit from the sale of these lines of cells, since such cell lines have several practical advantages over primary cells, notably their immortality, low variability (compared to primary cells, which vary depending on cell donor characteristics such as age and sex), and easiness to keep alive (without the need for e.g. additional nutrients). 
+
+Some companies have recently begun to pay reparations for this injustice{cite}`Witze2020-vr`.
 ```
 
-The human FANTOM5 sample information file contains four categories of samples (in the `Characteristics [Category]` field): 
-- __time courses__: RNA extraced from samples being measured over time as cells change types during cell development and differentiation ({glue:}`time-course-num-samps` samples), e.g. {glue:}`time-course-ex-id` - {glue:}`time-course-ex-desc`.
-- __primary cells__: RNA extracted from cultures of cells recently isolated from tissues, before undergoing proliferation with nutrients specific to the cell type ({glue:}`primary-num-samps` samples), e.g. {glue:}`primary-ex-id` - {glue:}`primary-ex-desc`.
-- __cell lines__: RNA extracted from immortal cell lines (which unlike primary cells) can keep undergoing division indefinitely ({glue:}`cell-line-num-samps` samples), e.g. {glue:}`cell-line-ex-id` - {glue:}`cell-line-ex-desc`.
-- __tissues__: RNA extracted from post-mortem tissues, which may be pooled or individual donors ({glue:}`tissue-num-samps` samples), e.g. {glue:}`tissue-ex-id` - {glue:}`tissue-ex-desc`.
-- __fractionations__: RNA extracted from parts of cells (fractionations) ({glue:}`frac-per-num-samps` samples), e.g. {glue:}`frac-per-ex-id` - {glue:}`frac-per-ex-desc`.
+__Restriction to  primary cell and tissue samples__:
 
-I restricted the data set to only **tissues** and **primary cells**, as these represent the closest approximations to *in vivo* biology.
-Immortal cell lines are often expressed differently than their primary counterparts{cite}`Pastor2010-hk,Kaur2012-en`, and time courses and fractionations and perturbations do not represent any particular tissue.
+The human FANTOM5 sample information file contains four categories of samples (in the `Characteristics [Category]` field): 
+- __time courses__: RNA extracted from samples being measured over time as cells change types during cell development and differentiation ({glue:}`time-courses-num-samps` samples), e.g. {glue:}`time-courses-ex-id` - *{glue:text}`time-courses-ex-desc`*.
+- __primary cells__: RNA extracted from cultures of cells recently isolated from tissues, before undergoing proliferation with nutrients specific to the cell type ({glue:}`primary-cells-num-samps` samples), e.g. {glue:}`primary-cells-ex-id` - *{glue:text}`primary-cells-ex-desc`*.
+- __cell lines__: RNA extracted from immortal cell lines (which unlike primary cells) can keep undergoing division indefinitely ({glue:text}`cell-lines-num-samps` samples), e.g. {glue:}`cell-line-ex-id` - *{glue:text}`cell-line-ex-desc`*.
+- __tissues__: RNA extracted from post-mortem tissues, which may be pooled or individual donors ({glue:}`tissues-num-samps` samples), e.g. {glue:}`tissues-ex-id` - *{glue:text}`tissues-ex-desc`*.
+- __fractionations__: RNA extracted from parts of cells (fractionations) ({glue:}`fractionations-and-perturbations-num-samps` samples), e.g. {glue:}`fractionations-and-perturbations-ex-id` - {glue:}`fractionations-and-perturbations-ex-desc`.
+
+I restricted the data set to only *tissues* and *primary cells*, as these represent the closest approximations to *in vivo* biology.
+Immortal cell lines are often expressed differently than their primary counterparts{cite}`Pastor2010-hk,Kaur2012-en`, and time courses and fractionations do not represent any particular tissue.
 
 [//]: # (TODO: discuss difference between tissue and primary cell samples here)
 
 __Sample Type__:
-As mentioned tissues can come from a pool, or individual donor. This information can be found in the `Charateristics [description]` field.
-[//]: # (TODO: Write about tissue pool versus tissue donor here)
 
+As mentioned tissues can come from a pool, or individual donor. 
+This information can be found in the `Charateristics [description]` field.
+I combined this information with information from the `Characteristics [Category]` field to create an additional `Sample Type` field that describes whether a sample is a `tissue - pool`, `tissue - donor` or `primary cells` sample.
 
 #### Technical and biological replicates
 [//]: # (TODO: Rewrite)
 [//]: # (TODO: Add glues of how many are left in/explanations of why)
 [//]: # (TODO: Aside for difference between biological and technilogical replicates)
-[//]: # (TODO: Cross-ref to where I explain FANTOM accession numbers)
 
-Note that the FANTOM accession numbers are per sample, not per measurement, so there are some columns of the expression file which correspond to the same accession number. 
-These represent technical replicates. 
+[//]: # (TODO: Check technical/bio replicates info)
+
+```{margin} Technical and biological replicates
+:name: tech-biol-replicates
+Usually *technical replicates* refer to repeated measures of the same sample, while *biological replicates* refer to separate samples which have been treated in the same way (e.g. different donors){cite}`Bell2016-dm`.
+
+In FANTOM, the "biol_rep" and "donor" label are both used to denote biological replicates.
+```
+
+The {ref}`FANTOM accession numbers<fantom-accession>` are per sample, not per measurement. 
+Samples for which there are repeat measurements (technical replicates) will show up multiple times in the expression file. 
 FANTOM technical and biological replicates are indicated in long labels of the annotated expression FANTOM file, by the inclusion of “tech_rep” or “biol_rep” in the long sample labels e.g. `tpm.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20tech_rep1.CNhs10855.11227-116C3.hg38.nobarcode`. 
 These were used to create additional fields for the human samples table.
 
 Note: there is an error in the original transcript expression file for one of these identifiers (`tpm.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode`) such that it is missing the “tech” part of the the replicate label. 
 There is a hard-coded fix when I read in the input file and the FANTOM data curation team was informed.
 
-After restricting the dataset to *primary cell* and *tissue* type samples, there are {glue:}`num_bio_rep_samples` remaning samples which have biological replicates, and {glue:}`num_tech_rep_samples` sets of samples with technological replicates (2 replicates each).
-<!-- #endregion -->
+After restricting the dataset to *primary cell* and *tissue* type samples, there are {glue:}`num_bio_rep_samples` remaining samples which have biological replicates, and {glue:}`num_tech_rep_samples` sets of samples with technological replicates (2 replicates each).
 
 #### Age and age range
 [//]: # (TODO: Check how I format human sample information file, maybe italicise it and make sure that the capitalisation lines up)
@@ -152,28 +189,30 @@ The continued data processing of these components is described in {ref}`the meth
 
 [//]: # (TODO: Add link to FANTOM exp download)
 
-```{admonition, note} FANTOM5 cleaned experimental design file
-:class: dropdown
+
+```{admonition} FANTOM5 cleaned experimental design file
 :name: cleaned-fantom-exp
 The cleaned FANTOM5 experimental design file (which has undergone the cleaning mentioned in this section, and in {ref}`the methodology section<filter-methods>`) is available [here](link). 
 ```
 
-```python
+```{code-cell} ipython3
+:tags: [hide-input]
 # TODO: Create list of allowed primary + tissue samples (in sample_header)
-
 ```
 
-```python
+```{code-cell} ipython3
+:tags: [hide-input]
 from helper_c05 import fantom_tpm_clean as tpm_clean
 
-tpm_file = '../c06-combining/data/experiments/fantom/hg38_fair+new_CAGE_peaks_phase1and2_tpm_ann.osc.txt'
-cage_tpm = tpm_clean.read_and_clean_tpm(tpm_file)
-cage_tpm
+#tpm_file = '../c06-combining/data/experiments/fantom/hg38_fair+new_CAGE_peaks_phase1and2_tpm_ann.osc.txt'
+#cage_tpm = tpm_clean.read_and_clean_tpm(tpm_file)
+#cage_tpm
 ```
 
-```python
-protein_tpm = tpm_clean.get_protein_tpm(cage_tpm)
-protein_tpm
+```{code-cell} ipython3
+:tags: [hide-input]
+#protein_tpm = tpm_clean.get_protein_tpm(cage_tpm)
+#protein_tpm
 ```
 
 ### Initial FANTOM5 data cleaning: expression file
@@ -192,8 +231,8 @@ The FANTOM file provides mappings to Uniprot IDs (`uniprot_id`), and these are u
 CAGE peaks are mapped to genes based on overlap with the gene, so it is not always clear which gene a CAGE peak maps to.
 For simplicity, and to remove the potential of wrongly mapped genes being used in `filip`, protein-coding CAGE peaks (those which are mapped to at least one `uniprot_id` by FANTOM) that map to multiple genes are removed.
 These can be found by looking at either the `hgnc_id` or `entrezgene_id` gene identifier columns.
-The choice of gene ID matters, since there are discrepencies between gene ID databases: in this case, choosing `hgnc_id` finds all those CAGE peaks found by using `entrezgene_id`, and more, so these are removed.
-This represents a total of {glue:}`total_gene_id_duplicates` CAGE peaks that map to multiple genes according to the given identifers.
+The choice of gene ID matters, since there are discrepancies between gene ID databases: in this case, choosing `hgnc_id` finds all those CAGE peaks found by using `entrezgene_id`, and more, so these are removed.
+This represents a total of {glue:}`total_gene_id_duplicates` CAGE peaks that map to multiple genes according to the given identifiers.
 
 #### Proteins that map to multiple genes
 For `filip`, the expression was calculated per protein (since it is protein function predictions that it is filtering), rather than per CAGE peak (summing the TPMs of all CAGE peaks mapped to a protein to get the total for that protein) as in the original data, or as is often presented per gene.
@@ -204,34 +243,34 @@ This happens when different genes are translated to make identical protein produ
 It used to be the case that Uniprot would map these genes to the same Uniprot ID, but more recently different Uniprot IDs are used to capture where the proteins came from.
 These rows were also removed.
 
-
-
 ### Exploratory Data Analysis
 
 #### Samples
 [//]: # (TODO: Number of samples, biological and technical replicates)
 
-After {ref}`restricting the samples to those which are primary cells or tissues<fantom-sample-categories>`, there were {glue:}`fantom-primary-tissue-samples` remaining samples. 
+After {ref}`restricting the samples to those which are primary cells or tissues<fantom-sample-categories>`, there were {glue:}`fantom-primary-tissue-samples` remaining samples.
 
+```{code-cell} ipython3
+:tags: [hide-input]
 
-```python
 from helper_c05 import fantom_sample_eda as f_eda
 sex_donut, tissues_samples, nan_age_count, collaborators_providers = f_eda.create_plot_dfs(samples_info)
 fig = f_eda.create_plotly_plots(samples_info, sex_donut, tissues_samples, nan_age_count, collaborators_providers)
-fig
+fig.show('notebook')
 ```
 
-```python
-anatomical_system_samples = f_eda.anat_system_tbl(samples_info, chosen_samples = [2, 10, 15, 20])
-anatomical_system_samples
-```
-
-```{figure} ../../images/fantom_eda.png
-:name: fantom-eda
-width: 1000px
+```{figure} ../images/blank.png
 ---
-(a) sex: a donut plot showing the sex labels of samples, (b) collaborators and providers: a stacked histogram showing the {glue:}`num_collaborators` most common collaborators, and {glue:}`num_providers` most common providers. (c) age: a histogram of age of sample donors (this does not include the {glue:}`age_ranged` samples which have age ranges due to pooled donors of various ages). (d) tissues and sample types: a histogram showing the {glue:}`num_common_tissues` most common tissues, spread across the different types of samples (primary cells, tissue donors, and tissue pools).
+name: fantom-eda
+---
+(a) sex: a donut plot showing the sex labels of samples. 
+(b) collaborators and providers: a stacked histogram showing the {glue:}`num_collaborators` most common collaborators, and {glue:}`num_providers` most common providers. 
+(c) age: a histogram of age of sample donors (this does not include the {glue:}`age_ranged` samples which have age ranges due to pooled donors of various ages). 
+(d) tissues and sample types: a histogram showing the {glue:}`num_common_tissues` most common tissues, spread across the different types of samples (primary cells, tissue donors, and tissue pools).
+
 ```
+
+<!-- ../images/blank.png This is a workaround to put a 1x1px blank image after an interactive image so that it appears to have a figure label -->
 
 __Sample metadata:__ 
 Looking at the FANTOM5 data (see {numref}`fantom-eda`), overall we see that there the samples are very varied, across ages, sex, sample providers, and collaborators, although (d) shows that the majority of samples are *primary cell* samples, and very few are *tissue - pool* samples.
@@ -239,15 +278,21 @@ Secondly, we can see that after careful cleaning, some metadata is missing, i.e.
 
 (eda-sample-tissues)=
 __Sample Tissues:__ 
-In {numref}`fantom-eda` subplot (d), we can also note some interesting things about the tissue types provided by the Fantom Human Samples file. {glue:}`anatomical-system` primary cell samples are labeled *ANATOMICAL SYSTEM*. If we look closer at these samples, we can see that it is theoretically possible to map some of these samples to tissues (see {numref}`anatomical-system-sample-table`). 
+In {numref}`fantom-eda` subplot (d), we can also note some interesting things about the tissue types provided by the Fantom Human Samples file. {glue:}`anatomical-system` primary cell samples are labeled *ANATOMICAL SYSTEM*. If we look closer at these samples, we can see that it is theoretically possible to map some of these samples to tissues (see {numref}`anatomical-system-table`). 
 
 [//]: # (TODO: cross-ref to where discussed in methodology, and vice versa) 
+
 (fantom-tissues-how-general)=
-There is also the question of how general or specific the human sample categories are. There are {glue:}`blood-samples` samples which are mapped to "blood" ({numref}`tbl:anatomical-system` (d)), but when we come to map the FANTOM5 tissues to phenotypes, this may be too broad a category. Similarly, there are {glue:}`tissues-less-three` with less than three samples each (unpictured) that may be too narrow to map to phenotypes, and a more accurate picture of that phenotype would come from taking a more general tissue.
+There is also the question of how general or specific the human sample categories are. There are {glue:}`blood-samples` samples which are mapped to *blood* ({numref}`anatomical-system-table` (d)), but when we come to map the FANTOM5 tissues to phenotypes, this may be too broad a category. Similarly, there are {glue:}`tissues-less-three` with less than three samples each (not pictured) that may be too narrow to map to phenotypes, and a more accurate picture of that phenotype would come from taking a more general tissue.
+
+```{code-cell} ipython3
+:tags: [hide-input]
+anatomical_system_samples = f_eda.anat_system_tbl(samples_info, chosen_samples = [2, 10, 15, 20])
+```
 
 ```{glue:figure} anatomical-system-sample-table
-:figwidth: 300px
-:name: "tbl:anatomical-system"
+:figwidth: 800px
+:name: anatomical-system-table
 
 An example of four *ANANTOMICAL SYSTEM* tissues, with tissue-specific cells, indicating that they could be mapped to tissues. For example sample `FF:11922-125H5` is a gingival fibroblast, which are one of the main constituent cells of gum tissue.
 ```
@@ -255,7 +300,7 @@ An example of four *ANANTOMICAL SYSTEM* tissues, with tissue-specific cells, ind
 [//]: # (TODO: Cross ref to uberon-py)
 [//]: # (TODO: Cross ref to use of uberon-py for removal of disease samples)
 
-We can also see in {numref}`tbl:anatomical-system` that this dataset, though having undergone some data cleaning, still contains disease samples (e.g. "aggressive periodontitis"). 
+We can also see in {numref}`anatomical-system-table` that this data set, though having undergone some data cleaning, still contains disease samples (e.g. "aggressive periodontitis"). 
 
 
 #### Protein-centric TPM
@@ -263,16 +308,18 @@ We can also see in {numref}`tbl:anatomical-system` that this dataset, though hav
 [//]: # (TODO: Number of CAGE peaks, transcripts, proteins, genes)
 [//]: # (TODO: Expression distribution)
 
-
-```python
-display(transcript_tpm[transcript_tpm['uniprot_id'].str.contains('B2R4R0', na=False)])
+```{code-cell} ipython3
+:tags: [hide-input]
+#display(transcript_tpm[transcript_tpm['uniprot_id'].str.contains('B2R4R0', na=False)])
 ```
 
-```python
+```{code-cell} ipython3
+:tags: [hide-input]
 # TODO: Plotly Gannt for CAGE peaks overlapping with multiple transcripts/genes (check association with transcript to check whether it's multiple transcripts or just muktiple genes with same TSS)
 ```
 
-## Supplementary mapping data
+(cell-tissue-phen-map-data)=
+## Cell, tissue, and phenotype mapping data
 [//]: # (TODO: Cross ref to methodology)
 
 I also used the following datasets to aid in mapping to a common set of identifiers:
@@ -280,8 +327,10 @@ I also used the following datasets to aid in mapping to a common set of identifi
 
 [//]: # (TODO: Describe mapping data here, e.g. biomart/uniprot)
 
+(cafa2-training-set)=
+## "Training"" set: CAFA2
 
-## Test set: CAFA2
+[//]: # (TODO: describe not literally a ML training set)
 
 ### What?
 During development, I tested `filip` by comparing DcGO only and `filip` + DcGO on data from the 2nd round of the CAFA competition: CAFA2. 
@@ -308,11 +357,13 @@ I.e. if I made predictions with DcgO using the version of GO from the time the c
 
 +++
 
+(cafa3-test-set)=
 ## Test set: CAFA3 
 After initial development, I entered DcGO only, and `filip` plus DcGO into the CAFA3 competition in order to test `filip` on a new dataset.
 
-This meant that I did not download the CAFA3 groundtruth, as this analysis was done by the CAFA3 team, but only the CAFA3 targets.
+This meant that I did not download the CAFA3 ground-truth, as this analysis was done by the CAFA3 team, but only the CAFA3 targets.
 
 **CAFA3 targets**: 
 
 [//]: # (TODO: describe data format)
+
