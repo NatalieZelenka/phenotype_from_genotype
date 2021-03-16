@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -54,11 +54,12 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5.5. Results" href="6-results.html" />
-    <link rel="prev" title="5.3. Data" href="4-data.html" />
+    <link rel="prev" title="5.3. Input Data" href="4-data.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -286,7 +287,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4-data.html">
-     5.3. Data
+     5.3. Input Data
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -444,8 +445,13 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-cleaning">
+     5.4.1.1. Data cleaning
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#mapping-multi-species-phenotype-terms-to-tissue">
-     5.4.1.1. Mapping multi-species phenotype terms to tissue
+     5.4.1.2. Mapping multi-species phenotype terms to tissue
     </a>
    </li>
   </ul>
@@ -485,15 +491,18 @@
               <div>
                 
   <div class="section" id="methods">
-<h1><span class="section-number">5.4. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
+<span id="filter-methods"></span><h1><span class="section-number">5.4. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="expression-cut-off">
 <h2><span class="section-number">5.4.1. </span>Expression cut-off<a class="headerlink" href="#expression-cut-off" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">filip</span></code> filters out predictions which are not expressed in the tissue relating to the prediction. Deciding whether a gene is or isn’t expressed in a tissue is not trivial with gene expression data, since it can be noisy.
 Therefore a cut-off must be chosen.<br />
 This cut-off was chosen for TPM-normalised data was chosen as this best allows for comparing between different samples.
 The cut-off was chosen by plotting the distribution of TPM expression and choosing a value below which there appeared to be little noise (10 TPM).</p>
+<div class="section" id="data-cleaning">
+<h3><span class="section-number">5.4.1.1. </span>Data cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this headline">¶</a></h3>
+</div>
 <div class="section" id="mapping-multi-species-phenotype-terms-to-tissue">
-<h3><span class="section-number">5.4.1.1. </span>Mapping multi-species phenotype terms to tissue<a class="headerlink" href="#mapping-multi-species-phenotype-terms-to-tissue" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.1.2. </span>Mapping multi-species phenotype terms to tissue<a class="headerlink" href="#mapping-multi-species-phenotype-terms-to-tissue" title="Permalink to this headline">¶</a></h3>
 <div class="margin sidebar" id="stop-words">
 <p class="sidebar-title">Stop words</p>
 <p>Stop words are words that are filtered out before processing text using Natural Language Processing (NLP) methods.
@@ -502,7 +511,7 @@ These are usually very common words (e.g. “and”, ”the”), or word which a
 <p>The extended Uberon ontology is first interrogated for any existing relation to the term in the ontology using <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code>.</p>
 <p>Failing this, text-mining is used to assist in mapping based on phenotype term names:</p>
 <ul class="simple">
-<li><p>First <a class="reference internal" href="#stop-words"><span class="std std-ref">stop words</span></a> are removed, using the base list in the Natural Language Toolkit (<code class="docutils literal notranslate"><span class="pre">nltk</span></code>) Python Package<a href="#id1"><span class="problematic" id="id2">:cite:`Bird2006-xu`</span></a>, and a small number of manually curated phenotypic stopwords (e.g. “phenotype”, “abnormality”).</p></li>
+<li><p>First <a class="reference internal" href="#stop-words"><span class="std std-ref">stop words</span></a> are removed, using the base list in the Natural Language Toolkit (<code class="docutils literal notranslate"><span class="pre">nltk</span></code>) Python Package<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id189"><span>147</span></a>]</span>, and a small number of manually curated phenotypic stopwords (e.g. “phenotype”, “abnormality”).</p></li>
 <li><p>Then, an exact match between an UBERON term’s name or synonyms and phenotype term’s name is searched for.</p></li>
 <li><p>If such a match does not exist, individual words from the phenotype term name or synonyms are then searched for exactly, such that the HP term “abnormality of the head and neck” would be mapped to UBERON’s “head” and “neck” terms (but never “neck of radius”).</p></li>
 <li><p>In cases where multiple terms are found, a common parent would be searched for, in the case of this example, “craniocervical region”.</p></li>
@@ -538,11 +547,11 @@ Precision (the proportion of selected items that are relevant), and recall (the 
 <h3><span class="section-number">5.4.2.3. </span>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h3>
 <p>To create the input to DcGO, I used:</p>
 <ul class="simple">
-<li><p>BioPython<a href="#id3"><span class="problematic" id="id4">:cite:`Cock2009-py`</span></a>’s <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO</span></code> interface for reading CAFA FASTA files.</p></li>
-<li><p>SUPERFAMILY<a href="#id5"><span class="problematic" id="id6">:cite:`Gough2001-ct`</span></a> <a class="reference external" href="https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/cgi-bin/save.cgi?var=ht%3Btype=ass">domain assignments for Homo Sapiens</a>.</p></li>
-<li><p>UniprotKB<a href="#id7"><span class="problematic" id="id8">:cite:`Pundir2016-vv`</span></a>’s <a class="reference external" href="https://www.uniprot.org/uploadlists/">mapping tool</a> to create a mapping between the UniprotKB id’s provided by CAFA and the ENSP ID’s used by SUPERFAMILY.</p></li>
+<li><p>BioPython<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id190"><span>148</span></a>]</span>’s <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO</span></code> interface for reading CAFA FASTA files.</p></li>
+<li><p>SUPERFAMILY<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id47"><span>69</span></a>]</span> <a class="reference external" href="https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/cgi-bin/save.cgi?var=ht%3Btype=ass">domain assignments for Homo Sapiens</a>.</p></li>
+<li><p>UniprotKB<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id191"><span>149</span></a>]</span>’s <a class="reference external" href="https://www.uniprot.org/uploadlists/">mapping tool</a> to create a mapping between the UniprotKB id’s provided by CAFA and the ENSP ID’s used by SUPERFAMILY.</p></li>
 </ul>
-<p>Then, to create the DcGO only entry, I used the <code class="docutils literal notranslate"><span class="pre">DcGOR</span></code> library<a href="#id9"><span class="problematic" id="id10">:cite:`Fang2014-hx`</span></a> (the <code class="docutils literal notranslate"><span class="pre">dcAlgoPredictMain</span></code> function).</p>
+<p>Then, to create the DcGO only entry, I used the <code class="docutils literal notranslate"><span class="pre">DcGOR</span></code> library<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id192"><span>150</span></a>]</span> (the <code class="docutils literal notranslate"><span class="pre">dcAlgoPredictMain</span></code> function).</p>
 </div>
 </div>
 </div>
@@ -572,7 +581,7 @@ Precision (the proportion of selected items that are relevant), and recall (the 
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="4-data.html" title="previous page"><span class="section-number">5.3. </span>Data</a>
+    <a class='left-prev' id="prev-link" href="4-data.html" title="previous page"><span class="section-number">5.3. </span>Input Data</a>
     <a class='right-next' id="next-link" href="6-results.html" title="next page"><span class="section-number">5.5. </span>Results</a>
 
         </div>

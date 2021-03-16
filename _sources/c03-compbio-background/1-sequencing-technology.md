@@ -43,7 +43,14 @@ While (NGS) DNA-sequencing and RNA-seq can use the same underlying NGS technolog
 
 There are now also third generation sequencing technologies that allow much longer reads to be sequenced, e.g. nanopore technology.
 
-[//]: # (TODO: Mention CAGE here?)
+(cage-method)=
+### Capped Analysis of Gene Expression
+[//]: # (TODO: finish writing... add picture?...CAGE only works for mRNA... are so many mRNA not transcribed)
+Capped Analysis of Gene Expression (CAGE) is a NGS transcript expression technique which measures very small (27 nucleotide) segments (called *tags*) from the start (5' end) of mRNA. 
+These tags are mapped to genes based on their distance to the gene in bp.
+The upside of this approach is that these short tags can be used to identify the transcription start sites (TSS) of RNA transcripts.
+The downside is that it can only be used to measure mRNA (mature messenger RNA).
+CAGE is used extensively in the FANTOM research projects, such as FANTOM5 whose data is used in {numref}`c06-filter` and {numref}`c05-combining`.
 
 (assembly-and-alignment)=
 ## Alignment and assembly

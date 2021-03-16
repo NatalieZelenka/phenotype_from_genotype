@@ -41,7 +41,7 @@ Each CAFA challenge begins by the organisers releasing a large number of target 
 After the competition closes, the organisers wait 3 months, by which time, new experimentally verified protein functions will be found (representing ~3% of sequences in past competitions) and these are the data set against which the predictors are measured. 
 
 Participants can use any additional data they see fit to make predictions, which must be triples containing a sequence ID, ontology term ID (e.g. a GO/HP identifier), and a confidence score between 0 and 1. 
-A score of 1 indicates a very confidence predictor, while a score of 0 is equivalent to not returning the prediction. 
+A score of 1 indicates a completely confident prediction, while a score of 0 is equivalent to not returning the prediction. 
 Each team may submit up to three models, the best of which is ranked.
 
 The target sequences consist of a mixture of "no-knowledge" and "limited-knowledge" sequences. 
@@ -77,15 +77,14 @@ The filter is a simple rule-based tool, which is designed to be used on top of a
 ```{figure} ../images/filip.png
 ---
 name: filip-overview
+width: 300px
 ---
 An illustration showing how filip works. 
 It's a two-step process where protein-phenotype predictions are expected as input. 
 In step 1, proteins are mapped to genes, and phenotypes are mapped to tissues. 
 In step 2, `filip` filters out any predictions where for which the gene is not expressed in the tissue.
 ```
-```
 
-[//]: # (TODO: delete backticks)
 [//]: # (TODO: cross-ref to previous mention of FANTOM5, or include as margin comment)
 [//]: # (TODO: Cite FANTOM5)
 [//]: # (TODO: cross-ref to UBERON, and make sure it is included in ontology section)

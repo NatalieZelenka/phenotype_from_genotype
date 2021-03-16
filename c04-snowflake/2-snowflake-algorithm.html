@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -54,6 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -286,7 +287,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Data
+     5.3. Input Data
     </a>
    </li>
    <li class="toctree-l2">
@@ -567,7 +568,7 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id38">
+    <a class="reference internal nav-link" href="#id20">
      4.2.5.2. Outputs
     </a>
    </li>
@@ -622,7 +623,7 @@
 <a class="reference internal image-reference" href="../_images/snowflake-overview.png"><img alt="../_images/snowflake-overview.png" src="../_images/snowflake-overview.png" style="height: 220px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Flowchart showing an overview of the phenotype predictor. Scores are generated per allele using SUPERFAMILY, FATHMM and dcGO for both the input genotype(s), and the background genotypes. These data points are then combined into a matrix, which is then clustered..</span><a class="headerlink" href="#snowflake-overview" title="Permalink to this image">¶</a></p>
 </div>
-<p><a class="reference internal" href="#snowflake-overview"><span class="std std-numref">Fig. 4.1</span></a> shows how an overview of how <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> operates. One or more genotypes (in VCF format) are needed: this is the <em>input cohort</em>. Each genotype will be compared against all others, including (optionally) a diverse background set from the 1000 Genomes Project<a href="#id1"><span class="problematic" id="id2">:cite:`Consortium2015-ci`</span></a>.</p>
+<p><a class="reference internal" href="#snowflake-overview"><span class="std std-numref">Fig. 4.1</span></a> shows how an overview of how <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> operates. One or more genotypes (in VCF format) are needed: this is the <em>input cohort</em>. Each genotype will be compared against all others, including (optionally) a diverse background set from the 1000 Genomes Project<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id117"><span>111</span></a>]</span>.</p>
 <ol class="simple">
 <li><p>For each phenotype <span class="math notranslate nohighlight">\(i\)</span>, a list of SNPs is generated such that the SNPs are associated with the phenotype (according to DcGO), and the SNPs are present in the input individuals.</p></li>
 <li><p>The input SNPs are given deleterious scores (using FATHMM), and this us used to construct an <span class="math notranslate nohighlight">\(N_{i}\times M\)</span> matrix of scores is created based on the individual’s alleles for each of these SNPs, (where <span class="math notranslate nohighlight">\(N\)</span>=number of SNPs and <span class="math notranslate nohighlight">\(M\)</span>=number of individuals).</p></li>
@@ -633,29 +634,29 @@
 </div>
 <div class="section" id="snps-are-mapped-to-phenotype-terms-using-dcgo-and-dbsnp">
 <h3><span class="section-number">4.2.1.2. </span>SNPs are mapped to phenotype terms using DcGO and dbSNP<a class="headerlink" href="#snps-are-mapped-to-phenotype-terms-using-dcgo-and-dbsnp" title="Permalink to this headline">¶</a></h3>
-<p>DcGO<a href="#id3"><span class="problematic" id="id4">:cite:`Fang2013-ms`</span></a> is used to map combinations of protein domains to their associated phenotype terms, using a false discovery rate cut-off of <span class="math notranslate nohighlight">\(10^{-3}\)</span> or less. SNPs are therefore mapped to phenotype terms by whether they fall in a gene whose protein contains domains or combinations of domains that are statistically associated with a phenotype. In order to do this, DcGO makes use of SUPERFAMILY<a href="#id5"><span class="problematic" id="id6">:cite:`Gough2001-ct`</span></a> domain assignments, and a variety of ontology annotations (GO<a href="#id7"><span class="problematic" id="id8">:cite:`Ashburner2000-cr`</span></a>, MPO<a href="#id9"><span class="problematic" id="id10">:cite:`Smith2005-uh`</span></a>, HP<a href="#id11"><span class="problematic" id="id12">:cite:`Robinson2010-ga`</span></a>, DOID<a href="#id13"><span class="problematic" id="id14">:cite:`Schriml2012-dz`</span></a> and others).</p>
-<p>Using DcGO means that phenotypes are only mapped to protein if the link is statistically significant due to the protein’s contingent domains. This leaves out some known protein-phenotype links, where the function may be due to disorder for example rather than protein domain structure. Known phenotype-associated variants are therefore added back in using dbSNP<a href="#id15"><span class="problematic" id="id16">:cite:`Sherry2001-nm`</span></a>.</p>
+<p>DcGO<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id50"><span>110</span></a>]</span> is used to map combinations of protein domains to their associated phenotype terms, using a false discovery rate cut-off of <span class="math notranslate nohighlight">\(10^{-3}\)</span> or less. SNPs are therefore mapped to phenotype terms by whether they fall in a gene whose protein contains domains or combinations of domains that are statistically associated with a phenotype. In order to do this, DcGO makes use of SUPERFAMILY<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id47"><span>69</span></a>]</span> domain assignments, and a variety of ontology annotations (GO<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id69"><span>112</span></a>]</span>, MPO<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id118"><span>113</span></a>]</span>, HP<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id119"><span>114</span></a>]</span>, DOID<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id120"><span>115</span></a>]</span> and others).</p>
+<p>Using DcGO means that phenotypes are only mapped to protein if the link is statistically significant due to the protein’s contingent domains. This leaves out some known protein-phenotype links, where the function may be due to disorder for example rather than protein domain structure. Known phenotype-associated variants are therefore added back in using dbSNP<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id33"><span>47</span></a>]</span>.</p>
 </div>
 <div class="section" id="snps-are-given-deleteriousness-scores-using-fathmm">
 <h3><span class="section-number">4.2.1.3. </span>SNPs are given deleteriousness scores using FATHMM<a class="headerlink" href="#snps-are-given-deleteriousness-scores-using-fathmm" title="Permalink to this headline">¶</a></h3>
-<p>The phenotype predictor uses the unweighted FATHMM scores<a href="#id17"><span class="problematic" id="id18">:cite:`Shihab2013-pk`</span></a> to get scores per SNP for the likelihood of it causing a deleterious mutation. This is based on conservation of protein domains across all life, according to data from SUPERFAMILY<a href="#id19"><span class="problematic" id="id20">:cite:`Gough2001-ct`</span></a> and Pfam<a href="#id21"><span class="problematic" id="id22">:cite:`Bateman2002-bz`</span></a>.</p>
+<p>The phenotype predictor uses the unweighted FATHMM scores<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id52"><span>109</span></a>]</span> to get scores per SNP for the likelihood of it causing a deleterious mutation. This is based on conservation of protein domains across all life, according to data from SUPERFAMILY<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id47"><span>69</span></a>]</span> and Pfam<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id121"><span>116</span></a>]</span>.</p>
 <p>This method gives SNPs the same base FATHMM score for being deleterious, no matter which phenotype we are predicting them for. It is therefore the combination of SNPs per phenotype, and their rarity in the population that determines the phenotype prediction score.</p>
 </div>
 <div class="section" id="comparison-to-a-background-via-clustering">
 <h3><span class="section-number">4.2.1.4. </span>Comparison to a background via clustering<a class="headerlink" href="#comparison-to-a-background-via-clustering" title="Permalink to this headline">¶</a></h3>
-<p>Individuals are compared to all others through clustering. This usually includes comparing each individual to the genetically diverse background of the 2500 genomes project<a href="#id23"><span class="problematic" id="id24">:cite:`Consortium2015-ci`</span></a>.</p>
+<p>Individuals are compared to all others through clustering. This usually includes comparing each individual to the genetically diverse background of the 2500 genomes project<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id117"><span>111</span></a>]</span>.</p>
 <p>Clustering is the task of grouping objects into a number of groups (clusters) so that items in the same cluster are similar to each other by some measure. There are many clustering algorithms, but most are unsupervised learning algorithms which iterate while looking to minimise dissimilarity in the same cluster. A number of options were implemented for the predictor, but for the time being at least, OPTICS is used as a default.</p>
 </div>
 <div class="section" id="background-data-sets-the-1000-genomes-project">
 <h3><span class="section-number">4.2.1.5. </span>Background data sets: The 1000 Genomes Project<a class="headerlink" href="#background-data-sets-the-1000-genomes-project" title="Permalink to this headline">¶</a></h3>
 <p>As described in the overview, <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> requires a genetic “background” data set, so that meaningful clustering can take place. Snowflake has the functionality to be run with any background data set, but few datasets are available that contain genetic data from a wide range of populations.</p>
-<p>The 1000 Genomes project<a href="#id25"><span class="problematic" id="id26">:cite:`Consortium2015-ci,1000_Genomes_Project_Consortium2012-ek`</span></a> ran from 2008 to 2015, with the aim of comprehensively mapping human genetic variation across diverse populations. The project sequenced whole genomes, and released data in two main phases:</p>
+<p>The 1000 Genomes project<span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id117"><span>111</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id136"><span>117</span></a>]</span> ran from 2008 to 2015, with the aim of comprehensively mapping human genetic variation across diverse populations. The project sequenced whole genomes, and released data in two main phases:</p>
 <ul class="simple">
 <li><p>Phase 1: 37.9 million variants, in 1092 individuals, across 14 populations</p></li>
 <li><p>Phase 3: 84.4 million, in 2504 individuals, across 26 populations</p></li>
 </ul>
-<p>Data from the 1000 Genomes project are always used for the background cohort to <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> in this thesis, with data from the 1000 Genomes project Phase 3<a href="#id27"><span class="problematic" id="id28">:cite:`Consortium2015-ci`</span></a> used as a default, and earlier experiments using data from Phase 1<a href="#id29"><span class="problematic" id="id30">:cite:`1000_Genomes_Project_Consortium2012-ek`</span></a>.</p>
-<p>For both phases of the 1000 Genomes project, data are provided as VCF files for each Chromosome. Both data sets are available through the <a class="reference external" href="https://www.internationalgenome.org/data">International Genome Sequencing Resource</a><a href="#id31"><span class="problematic" id="id32">:cite:`Fairley2020-hp`</span></a> (IGSR); phase 1 VCFs can be downloaded <a class="reference external" href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/">here</a>, and phase 3 VCFs can be downloaded <a class="reference external" href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/">here</a>.</p>
+<p>Data from the 1000 Genomes project are always used for the background cohort to <code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> in this thesis, with data from the 1000 Genomes project Phase 3<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id117"><span>111</span></a>]</span> used as a default, and earlier experiments using data from Phase 1<span id="id15">[<a class="reference internal" href="../cz-end-matter/reference.html#id136"><span>117</span></a>]</span>.</p>
+<p>For both phases of the 1000 Genomes project, data are provided as VCF files for each Chromosome. Both data sets are available through the <a class="reference external" href="https://www.internationalgenome.org/data">International Genome Sequencing Resource</a><span id="id16">[<a class="reference internal" href="../cz-end-matter/reference.html#id137"><span>118</span></a>]</span> (IGSR); phase 1 VCFs can be downloaded <span class="xref myst">here</span>, and phase 3 VCFs can be downloaded <span class="xref myst">here</span>.</p>
 </div>
 <div class="section" id="phenotype-score">
 <h3><span class="section-number">4.2.1.6. </span>Phenotype score<a class="headerlink" href="#phenotype-score" title="Permalink to this headline">¶</a></h3>
@@ -684,13 +685,13 @@ $<span class="math notranslate nohighlight">\(score_{ij}=L_{ij}+\mu_{\gamma} \cd
 </div>
 <div class="section" id="adding-snp-phenotype-associations-from-dbsnp">
 <h3><span class="section-number">4.2.2.2. </span>Adding SNP-phenotype associations from dbSNP<a class="headerlink" href="#adding-snp-phenotype-associations-from-dbsnp" title="Permalink to this headline">¶</a></h3>
-<p>As mentioned in the overview, using DcGO as the only SNP-phenotype mapping leaves out some known associations that are not due to protein domain structure. Adding dbSNP<a href="#id33"><span class="problematic" id="id34">:cite:`Sherry2001-nm`</span></a> associations to the predictor was one of my contributions to this software.</p>
+<p>As mentioned in the overview, using DcGO as the only SNP-phenotype mapping leaves out some known associations that are not due to protein domain structure. Adding dbSNP<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id33"><span>47</span></a>]</span> associations to the predictor was one of my contributions to this software.</p>
 </div>
 <div class="section" id="dealing-with-missing-calls">
 <h3><span class="section-number">4.2.2.3. </span>Dealing with missing calls<a class="headerlink" href="#dealing-with-missing-calls" title="Permalink to this headline">¶</a></h3>
 <p>Genotyping SNP arrays often contain missing calls, where the call can not be accurately determined. This is an obstacle to the phenotype predictor if left unchecked as it can appear that an individual has a very unusual call when it is really just unknown. Sincce most people have a call, the missing call is unusual, and this is flagged.</p>
 <p>The most sensible solution to this problem is to assign the most common call for the individual’s cluster (i.e. combination of SNPs). This prevents a new cluster being formed or an individual appearing to be more unusual than they are. However, there is a downside to this approach when there are many missing calls. Adding all missing calls to a cluster that was only slightly more common than the alternatives can lead to the new cluster containing the missing data dwarfing the others. To fix this, SNPs with many missing calls were discarded. This implementation of missing calls was one of my personal contributions.</p>
-<p>Alternatives such as assigning the most common call for that SNP only, or assigning an average score for that SNP dimension by carrying out a “normalised cut”<a href="#id35"><span class="problematic" id="id36">:cite:`Poland2006-gd`</span></a> are untenable since they can create the same problem we are trying to overcome: the appearance of an individual having an unusual combination of calls.</p>
+<p>Alternatives such as assigning the most common call for that SNP only, or assigning an average score for that SNP dimension by carrying out a “normalised cut”<span id="id18">[<a class="reference internal" href="../cz-end-matter/reference.html#id122"><span>119</span></a>]</span> are untenable since they can create the same problem we are trying to overcome: the appearance of an individual having an unusual combination of calls.</p>
 </div>
 <div class="section" id="confidence-score-per-phenotype">
 <h3><span class="section-number">4.2.2.4. </span>Confidence score per phenotype<a class="headerlink" href="#confidence-score-per-phenotype" title="Permalink to this headline">¶</a></h3>
@@ -699,14 +700,14 @@ $<span class="math notranslate nohighlight">\(score_{ij}=L_{ij}+\mu_{\gamma} \cd
 <p><code class="xref std std-numref docutils literal notranslate"><span class="pre">ranked-scores</span></code> shows an example of an interesting and uninteresting distribution. These distributions mostly depend on the number, population frequency, and FATHMM score of the SNPs associated with the phenotype term.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code for: An illustration of how the confidence score is calculated (shaded area).  - `shaded-score`</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code for: An illustration of how the confidence score is calculated (shaded area).  - `shaded-score`</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code for: Ranked scores for `DOID:1324` - the disease ontology term Lung Cancer (left) and HP:0008518 - the human phenotype ontology term for Absent/underdeveloped sacral bone (right). These represent an interesting and uninteresting distribution of scores, respectively.  - `ranked-scores`</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code for: Ranked scores for `DOID:1324` - the disease ontology term Lung Cancer (left) and HP:0008518 - the human phenotype ontology term for Absent/underdeveloped sacral bone (right). These represent an interesting and uninteresting distribution of scores, respectively.  - `ranked-scores`</span>
 </pre></div>
 </div>
 </div>
@@ -751,21 +752,21 @@ Since the VCF file created in Step 1 is larger than needed by <code class="docut
 </div>
 </div>
 <div class="section" id="snowflake-create-input">
-<span id="id37"></span><h2><span class="section-number">4.2.4. </span><code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">create_input</span></code><a class="headerlink" href="#snowflake-create-input" title="Permalink to this headline">¶</a></h2>
+<span id="id19"></span><h2><span class="section-number">4.2.4. </span><code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">create_input</span></code><a class="headerlink" href="#snowflake-create-input" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="snowflake-preprocessing">
 <h2><span class="section-number">4.2.5. </span><code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">preprocessing</span></code><a class="headerlink" href="#snowflake-preprocessing" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="inputs">
 <h3><span class="section-number">4.2.5.1. </span>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="id38">
-<h3><span class="section-number">4.2.5.2. </span>Outputs<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id20">
+<h3><span class="section-number">4.2.5.2. </span>Outputs<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="method">
 <h3><span class="section-number">4.2.5.3. </span>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="dcgo">
-<span id="id39"></span><h4><span class="section-number">4.2.5.3.1. </span>DcGO<a class="headerlink" href="#dcgo" title="Permalink to this headline">¶</a></h4>
-<p>The aim of the Domain-centric Gene Ontology (DcGO)<a href="#id40"><span class="problematic" id="id41">:cite:`Fang2013-ms,Fang2013-ix`</span></a> tool is to give insight into uncharacterised or poorly characterised proteins by leveraging information about the content of their constituent protein domains.
+<span id="id21"></span><h4><span class="section-number">4.2.5.3.1. </span>DcGO<a class="headerlink" href="#dcgo" title="Permalink to this headline">¶</a></h4>
+<p>The aim of the Domain-centric Gene Ontology (DcGO)<span id="id22">[<a class="reference internal" href="../cz-end-matter/reference.html#id50"><span>110</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id51"><span>120</span></a>]</span> tool is to give insight into uncharacterised or poorly characterised proteins by leveraging information about the content of their constituent protein domains.
 It annotates domains and combinations of domains (supradomains) to phenotype terms from a variety of ontologies, including the Gene Ontology (GO), Mammalian Phenotype ontology (MP), Disease Ontology (DOID), Zebrafish ontology (ZFA).
 Domain information comes from SUPERFAMILY, and annotations between (supra)domains and phenotype terms are made below a cut-off of FDR-adjusted statistical associations between the entities.
 Using phenotypes from a range of species serves to make use of greater numbers of experiments, and therefore increases the number of little-known proteins across species that DcGO can make predictions about.</p>
@@ -775,10 +776,10 @@ Using phenotypes from a range of species serves to make use of greater numbers o
 <span id="variant-prioritisaton"></span><h3><span class="section-number">4.2.5.4. </span>Variant prioritisation<a class="headerlink" href="#variant-prioritisation" title="Permalink to this headline">¶</a></h3>
 <p>To narrow down a long list of genes or variants to a shorter list of variants or genes which is more likely to be causal, variant prioritisation is used.</p>
 <div class="section" id="fathmm">
-<span id="id42"></span><h4><span class="section-number">4.2.5.4.1. </span>FATHMM<a class="headerlink" href="#fathmm" title="Permalink to this headline">¶</a></h4>
-<p>Functional Analysis through Hidden Markov Models (FATHMM)<a href="#id43"><span class="problematic" id="id44">:cite:`Shihab2013-pk`</span></a> is a tool for predicting the functional effects of protein missense mutations using sequence conservation information (via HMMs), which can be (optionally) weighted by how likely a mutation in a protein/domain would be to lead to disease.
-Weightings are calculated from the frequency of disease-associated and functionally neutral amino acid substitutions in protein domains from human variation databases (the Human Gene Mutation Database<a href="#id45"><span class="problematic" id="id46">:cite:`Stenson2009-jc`</span></a> and Uniprot-KB/Swiss-prot<a href="#id47"><span class="problematic" id="id48">:cite:`Pundir2016-ya`</span></a>).</p>
-<p>Consequence files describing whether an amino acid results in a missense, nonsense or synonymous SNP must first be obtained by using Ensembl’s Variant Effect Predictor<a href="#id49"><span class="problematic" id="id50">:cite:`McLaren2016-di`</span></a> in order to create input to FATHMM.
+<span id="id23"></span><h4><span class="section-number">4.2.5.4.1. </span>FATHMM<a class="headerlink" href="#fathmm" title="Permalink to this headline">¶</a></h4>
+<p>Functional Analysis through Hidden Markov Models (FATHMM)<span id="id24">[<a class="reference internal" href="../cz-end-matter/reference.html#id52"><span>109</span></a>]</span> is a tool for predicting the functional effects of protein missense mutations using sequence conservation information (via HMMs), which can be (optionally) weighted by how likely a mutation in a protein/domain would be to lead to disease.
+Weightings are calculated from the frequency of disease-associated and functionally neutral amino acid substitutions in protein domains from human variation databases (the Human Gene Mutation Database<span id="id25">[<a class="reference internal" href="../cz-end-matter/reference.html#id53"><span>121</span></a>]</span> and Uniprot-KB/Swiss-prot<span id="id26">[<a class="reference internal" href="../cz-end-matter/reference.html#id54"><span>58</span></a>]</span>).</p>
+<p>Consequence files describing whether an amino acid results in a missense, nonsense or synonymous SNP must first be obtained by using Ensembl’s Variant Effect Predictor<span id="id27">[<a class="reference internal" href="../cz-end-matter/reference.html#id55"><span>122</span></a>]</span> in order to create input to FATHMM.
 FATHMM then calculates conservation scores which are a measure of the difference in amino acid probabilities for a SNP according to the HMM, i.e. between a wild type amino acid and it’s substitution.
 A reduction in amino acid probabilities is interpreted as a prediction of deleteriousness, and the larger the reduction the greater the predicted harm.</p>
 </div>

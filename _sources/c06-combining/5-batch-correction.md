@@ -34,7 +34,7 @@ This PCA was carried out on a subset of 1000 randomly selected genes, after quan
 +++
 
 ## Correcting batch with ComBat
-The batch effects that can be seen in {numref}`combine-pca-before` were corrected using {ref}`ComBat<combat-description>`{cite}`Johnson2007-zh`.
+The batch effects that can be seen in {numref}`combine-pca-before` were corrected using {ref}`ComBat<combat-description>` {cite}`Johnson2007-zh`.
 
 ### Experimental design
 [//]: # (TODO: table showing unbalanced experimental design over 11 tissue groups, + 4 experiments - lower priority)

@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -52,6 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -284,7 +285,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Data
+     5.3. Input Data
     </a>
    </li>
    <li class="toctree-l2">
@@ -577,13 +578,13 @@ Whole genomes are <a class="reference internal" href="1-sequencing-technology.ht
 <div class="margin sidebar" id="really-wgs">
 <p class="sidebar-title">The <em>whole</em> genome?</p>
 <p>In practice, almost complete genomes are also referred to as whole genomes, particularly for more complex genomes.
-Even the human genome still a small outstanding amount of unassembled DNA<a href="#id1"><span class="problematic" id="id2">:cite:`Miga2015-zl`</span></a> - satellite DNA which is thought to be part of the structure of chromosomes.</p>
+Even the human genome still a small outstanding amount of unassembled DNA<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id181"><span>38</span></a>]</span> - satellite DNA which is thought to be part of the structure of chromosomes.</p>
 </div>
 <p id="individual-wgs">When WGS is carried out for an organism that has already been sequenced, the sequence data is mapped to the organism’s <a class="reference internal" href="#human-reference-genome"><span class="std std-ref">reference genome</span></a>.
 This provides a more detailed and more accurate alternative to <a class="reference internal" href="1-sequencing-technology.html#genotyping"><span class="std std-ref">genotyping</span></a> data.
 When cohorts have their whole genomes sequenced, this allows information from WGS data to be compressed into Variant Call Format (VCF) files, which stores only the allele calls for locations where there is variation in the population.</p>
 <p>Whole genomes for different organisms can be compared to one another to give us insight about the organisms, or within an organism, individuals can be compared to understand the importance of sections of DNA for that organism.
-Genomes from different species are stored in databases such as the University of California Santa Cruz (UCSC) Genome Browser database<a href="#id3"><span class="problematic" id="id4">:cite:`Kent2002-jg`</span></a>, the US National Centre for Biotechnology Information (NCBI) Genome Sequence database<a href="#id5"><span class="problematic" id="id6">:cite:`Harger2000-vr`</span></a>, or the European Bioinformatics Institute’s (EBI) Ensembl Genome database<a href="#id7"><span class="problematic" id="id8">:cite:`Hubbard2002-oi`</span></a>.</p>
+Genomes from different species are stored in databases such as the University of California Santa Cruz (UCSC) Genome Browser database<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id81"><span>39</span></a>]</span>, the US National Centre for Biotechnology Information (NCBI) Genome Sequence database<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id80"><span>40</span></a>]</span>, or the European Bioinformatics Institute’s (EBI) Ensembl Genome database<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id82"><span>41</span></a>]</span>.</p>
 </div>
 <div class="section" id="the-human-reference-genome">
 <span id="human-reference-genome"></span><h3><span class="section-number">3.2.1.2. </span>The human reference genome<a class="headerlink" href="#the-human-reference-genome" title="Permalink to this headline">¶</a></h3>
@@ -595,10 +596,10 @@ New major versions of genomes are released every few years to fix these changes.
 These versions are called <em>builds</em>.
 Between builds and patches, sequences may be added, removed, or moved to different locations on chromosomes.</p>
 <p>Different versions of the builds are released by the Genome Reference Consortium (GRC) and the University of California Santa Cruz (UCSC) Genomics Institute.
-<a class="reference internal" href="#build-table"><span class="std std-numref">Table 3.1</span></a> shows information about the most recent human reference builds, taken from the UCSC website<a href="#id9"><span class="problematic" id="id10">:cite:`noauthor_undated-ci`</span></a>.
+<a class="reference internal" href="#build-table"><span class="std std-numref">Table 3.1</span></a> shows information about the most recent human reference builds, taken from the UCSC website<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id141"><span>42</span></a>]</span>.
 For example, <code class="docutils literal notranslate"><span class="pre">hg19</span></code> (<strong>h</strong>uman <strong>g</strong>enome build <strong>19</strong>), is largely equivalent to <code class="docutils literal notranslate"><span class="pre">GRCh37</span></code> (<strong>G</strong>enome <strong>R</strong>eference <strong>C</strong>onsortium <strong>h</strong>uman build <strong>37</strong>).
 These are generally used interchangeably by researchers, but there are some differences between them.
-This includes formatting differences (storing chromosome as integers rather than strings like <code class="docutils literal notranslate"><span class="pre">chr1</span></code>), the inclusion of mitochondrial DNA, as well as small numbers of differences of the locations of some variants on some chromosomes <a href="#id11"><span class="problematic" id="id12">:cite:`GATK_Team2020-au`</span></a>.</p>
+This includes formatting differences (storing chromosome as integers rather than strings like <code class="docutils literal notranslate"><span class="pre">chr1</span></code>), the inclusion of mitochondrial DNA, as well as small numbers of differences of the locations of some variants on some chromosomes <span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id142"><span>43</span></a>]</span>.</p>
 <table class="table" id="build-table">
 <caption><span class="caption-number">Table 3.1 </span><span class="caption-text">Table showing human reference genome builds</span><a class="headerlink" href="#build-table" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -635,14 +636,14 @@ The first step in this process is to look for nucleotides that code for the star
 The potential genes found through this search are then checked in the lab, e.g. through sequencing transcripts.</p>
 <div class="margin sidebar">
 <p class="sidebar-title">Persistent identifiers</p>
-<p>Persistent identifiers are long-lasting digital reference to entities<a href="#id13"><span class="problematic" id="id14">:cite:`Meadows2019-zy`</span></a>.
-Gene names can change; we might agree to change gs because Excel keeps converting them to dates<a href="#id15"><span class="problematic" id="id16">:cite:`Vincent2020-ih`</span></a> or because two genes turn out to be one.
+<p>Persistent identifiers are long-lasting digital reference to entities<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id151"><span>44</span></a>]</span>.
+Gene names can change; we might agree to change gs because Excel keeps converting them to dates<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id153"><span>45</span></a>]</span> or because two genes turn out to be one.
 Gene identifiers should be unique, and persistent over time, for example between genome builds, and as we learn more about their function, but they can still be merged or retired.</p>
 </div>
 <p>Like whole genomes, the sequences and positions of genes relative to the reference genome are stored in databases.
 Again these are part of the UCSC, NCBI and EMBL-EBI ecosystem and these resources are vital to bioinformatics.
 However, having multiple sources of gene information does cause some ambiguities when there are disagreements between databases.
-They can sometimes disagree on fundamental details such as locations of genes or the number of genes in an organism<a href="#id17"><span class="problematic" id="id18">:cite:`Salzberg2018-yc`</span></a> since the different databases take different decisions about how to store information.</p>
+They can sometimes disagree on fundamental details such as locations of genes or the number of genes in an organism<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id10"><span>46</span></a>]</span> since the different databases take different decisions about how to store information.</p>
 <p>Each of these databases also have their own identifiers and these names and symbols can change over time.
 For this reason, it can sometimes be difficult to map between identifiers from different sources.</p>
 <p>In part, due to the amount of information that researchers have collected through through <a class="reference internal" href="#gene-knockouts"><span class="std std-ref">gene knockouts</span></a> and gene expression experiments, it is at the level of the gene that a lot of mappings about function take place.
@@ -654,8 +655,8 @@ This missing functional information is not likely to appear soon, without some s
 <h4><span class="section-number">3.2.1.3.1. </span>Variants<a class="headerlink" href="#variants" title="Permalink to this headline">¶</a></h4>
 <p>Information about what variants individuals have comes from either <a class="reference internal" href="1-sequencing-technology.html#genotyping"><span class="std std-ref">genotype</span></a> or <a class="reference internal" href="#individual-wgs"><span class="std std-ref">whole genome sequencing</span></a> data.
 Some of this data is owned by private companies, such as 23andMe.</p>
-<p>Databases like dbSNP<a href="#id19"><span class="problematic" id="id20">:cite:`Sherry2001-nm`</span></a>, clinVar, and SNPedia contain information about the location of these variants, their possible alleles, their frequency in populations, their functions, and associated phenotypes.</p>
-<p>The largest SNP database - NCBI’s dbSNP<a href="#id21"><span class="problematic" id="id22">:cite:`Sherry2001-nm`</span></a> - contains information from ten organisms (including human) and has information on indels and short tandem repeats in addition to SNPs.
+<p>Databases like dbSNP<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id33"><span>47</span></a>]</span>, clinVar, and SNPedia contain information about the location of these variants, their possible alleles, their frequency in populations, their functions, and associated phenotypes.</p>
+<p>The largest SNP database - NCBI’s dbSNP<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id33"><span>47</span></a>]</span> - contains information from ten organisms (including human) and has information on indels and short tandem repeats in addition to SNPs.
 Anyone can submit their findings about variants to dbSNP, and they must indicate what sort of evidence they have for the association.
 dbSNP gives SNPs unique identifiers (Reference SNP cluster IDs, a.k.a. RSIDs) of the form <code class="docutils literal notranslate"><span class="pre">rs###</span></code>, which are used by many other resources.</p>
 </div>
@@ -672,14 +673,14 @@ For mRNAs, this also enables mappings between transcript IDs, gene IDs, and prot
 <div class="section" id="rna-structure">
 <h3><span class="section-number">3.2.2.2. </span>RNA Structure<a class="headerlink" href="#rna-structure" title="Permalink to this headline">¶</a></h3>
 <p>Functional RNA has structure with recurring motifs similar to those of proteins.
-There are also databases of functional RNA structure<a href="#id23"><span class="problematic" id="id24">:cite:`Andrews2017-tr,Richardson2020-wa`</span></a> (similar to <a class="reference internal" href="#protein-stucture-measurements"><span class="std std-ref">those for proteins</span></a>), but those for RNA are at an earlier stage.</p>
+There are also databases of functional RNA structure<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id176"><span>48</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id177"><span>49</span></a>]</span> (similar to <a class="reference internal" href="#protein-stucture-measurements"><span class="std std-ref">those for proteins</span></a>), but those for RNA are at an earlier stage.</p>
 </div>
 <div class="section" id="gene-expression">
 <h3><span class="section-number">3.2.2.3. </span>Gene Expression<a class="headerlink" href="#gene-expression" title="Permalink to this headline">¶</a></h3>
 <p>As I’ve already explained RNA abundance in samples can be measured through RNA microarrays and RNA-Seq, and that recently, RNA-Seq has been much more popular.
 Measures of mRNA abundance (i.e. gene expression data) are generally considered the best measures of translation (compared to <span class="xref std std-ref">protein abundance</span> for example), and therefore the best data to tell us how DNA’s blueprints are being used in different <a class="reference internal" href="#gene-expression-scenarios"><span class="std std-ref">scenarios</span></a>.
 Together with mappings, this data is used to understand the function of genes, to identify housekeeping genes, to re-engineer gene regulatory networks, and more - knowledge about DNA function that wouldn’t be possible to glean without measuring RNA.
-Like other bioinformatics data, gene expression data is also available in databases such as the EBI’s Gene Expression Atlas (GxA)<a href="#id25"><span class="problematic" id="id26">:cite:`Petryszak2016-je`</span></a> and Single Cell Expression Atlas<a href="#id27"><span class="problematic" id="id28">:cite:`Papatheodorou2020-ib`</span></a>.</p>
+Like other bioinformatics data, gene expression data is also available in databases such as the EBI’s Gene Expression Atlas (GxA)<span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id34"><span>50</span></a>]</span> and Single Cell Expression Atlas<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id175"><span>51</span></a>]</span>.</p>
 <div class="margin sidebar" id="gene-expression-scenarios">
 <p class="sidebar-title">Gene expression = DNA + cellular environment</p>
 <p>The environment, of the cell, and of the individual, and even of modifications to the DNA molecules, can affect the rate of gene expression.
@@ -699,7 +700,7 @@ To make matters worse, RNA-Seq and RNA microarray measurements are also sensitiv
 Taken together, these things mean that there is a substantial data preparation pipeline for RNA-Seq data.</p>
 <p id="quality-control"><strong>Quality Control</strong>:
 Before RNA-Seq data undergoes <a class="reference internal" href="1-sequencing-technology.html#assembly-and-alignment"><span class="std std-ref">alignment</span></a>, it undergoes quality control.
-This involves comparing sequencing parameters to a data set of known accuracy<a href="#id29"><span class="problematic" id="id30">:cite:`Illumina2014-nd`</span></a> and is usually done as part of the sequencing.</p>
+This involves comparing sequencing parameters to a data set of known accuracy<span id="id15">[<a class="reference internal" href="../cz-end-matter/reference.html#id35"><span>52</span></a>]</span> and is usually done as part of the sequencing.</p>
 <p id="rna-normalisation"><strong>Normalisation - within-sample normalisation: TPM and FPKM</strong>:
 Within-sample normalisation methods are designed to account for sequencing depth and transcript length so that gene expression values from the same sample (e.g. different replicates) can be more easily compared.
 Longer genes will have more reads mapped to them for an equal level of expression, so RNA-seq will report more counts.
@@ -708,14 +709,14 @@ Similarly, without normalising, samples with greater sequencing depth will have 
 In RPKM and FPKM, counts are first normalised for sequencing depth, and then for gene length. This means that they are suitable for comparing within a sample (e.g. between replicates.
 TPM, however performs the same steps in the opposite order, which has the desirable effect of ensuring that columns corresponding to TPM normalised samples sum to the same number.
 This means that TPM gives us a measure of relative abundance; we can compare across samples which proportion of counts are from each gene.
-For this reason, TPM is now generally preferred over RPKM/FPKM<a href="#id31"><span class="problematic" id="id32">:cite:`Wagner2012-ac,Pimentel2014-xm`</span></a>.</p>
+For this reason, TPM is now generally preferred over RPKM/FPKM<span id="id16">[<a class="reference internal" href="../cz-end-matter/reference.html#id36"><span>53</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id37"><span>54</span></a>]</span>.</p>
 <p><strong>Normalisation - between-sample</strong>:
 While TPM gives us a measure of relative abundance, it does not give us a measure of absolute abundance.
 One outlying gene which is highly expressed will have the effect of making all other genes look relatively less expressed.
 We might expect this to occur, particularly when samples are under different conditions (e.g. disease/treatment).
 Between-sample normalisation methods are designed to counter this issue, and enable researchers to compare different samples.</p>
 <p>These methods adjust counts to reduce the impact of outlying expression values.
-Examples include scale normalisation methods like TMM (used in edgeR<a href="#id33"><span class="problematic" id="id34">:cite:`Robinson2010-kl`</span></a>), the Log Geometric Mean (used in DESeq2<a href="#id35"><span class="problematic" id="id36">:cite:`Robinson2010-kl,Love2014-vx`</span></a>), and quantile normalisation (giving samples the same distribution of counts).</p>
+Examples include scale normalisation methods like TMM (used in edgeR<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id38"><span>55</span></a>]</span>), the Log Geometric Mean (used in DESeq2<span id="id18">[<a class="reference internal" href="../cz-end-matter/reference.html#id38"><span>55</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id39"><span>56</span></a>]</span>), and quantile normalisation (giving samples the same distribution of counts).</p>
 </div>
 </div>
 <div class="section" id="proteins">
@@ -723,8 +724,8 @@ Examples include scale normalisation methods like TMM (used in edgeR<a href="#id
 <p>Similar to RNA, proteins also have (amino acid) sequence data, mappings to genes and transcripts, structure data and protein abundance data.
 While for RNA, abundance (gene expression) data is the most popular type, for proteins, it is structure data, and from this structural information, there is a very detailed system of protein classification.</p>
 <p>Proteins are where the history of bioinformatics databases that any researcher can contribute to began.
-Margaret Dayhoff created the first bioinformatics database in 1969, to store protein structures imaged using X-ray crystallography, related to her publication of Atlas of Protein Sequence and Structure<a href="#id37"><span class="problematic" id="id38">:cite:`Hersh1967-ox`</span></a>.
-The Uniprot<a href="#id39"><span class="problematic" id="id40">:cite:`Pundir2016-ya`</span></a> database of protein sequence and functional information is the heir to this early database, it contains information about protein sequence, domain architecture, and function.</p>
+Margaret Dayhoff created the first bioinformatics database in 1969, to store protein structures imaged using X-ray crystallography, related to her publication of Atlas of Protein Sequence and Structure<span id="id19">[<a class="reference internal" href="../cz-end-matter/reference.html#id12"><span>57</span></a>]</span>.
+The Uniprot<span id="id20">[<a class="reference internal" href="../cz-end-matter/reference.html#id54"><span>58</span></a>]</span> database of protein sequence and functional information is the heir to this early database, it contains information about protein sequence, domain architecture, and function.</p>
 <div class="section" id="protein-sequence">
 <h3><span class="section-number">3.2.3.1. </span>Protein Sequence<a class="headerlink" href="#protein-sequence" title="Permalink to this headline">¶</a></h3>
 <p>Just as DNA and RNA can be <a class="reference internal" href="1-sequencing-technology.html#sequencing"><span class="std std-ref">sequenced</span></a> in nucleic acids, proteins can be sequenced by their amino acids, although the technology behind doing this is quite different (e.g. using mass spectrometry is the most common way).
@@ -737,21 +738,21 @@ This is how mappings from protein IDs to gene IDs and transcript IDs are availab
 <p>The abundance of proteins in a sample can be measured through various quantitative proteomics techniques.
 These are carried out using electrophoresis, or mass spectrometry, for example.
 Similar to gene expression, this technique is often used to compare between two different samples (e.g. disease and control groups).
-Data from such experiments are also available in databases<a href="#id41"><span class="problematic" id="id42">:cite:`Wang2012-pv,Samaras2020-mg`</span></a>.</p>
+Data from such experiments are also available in databases<span id="id21">[<a class="reference internal" href="../cz-end-matter/reference.html#id179"><span>59</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id180"><span>60</span></a>]</span>.</p>
 <div class="margin sidebar" id="gene-expression-protein-abundance">
 <p class="sidebar-title">Gene Expression and Protein Abundance data</p>
-<p>It’s interesting to note that gene expression levels (from RNA-Seq and microarray data) are not necessarily strongly correlated with protein abundance; this has been found in mice<a href="#id43"><span class="problematic" id="id44">:cite:`Schwanhausser2011-tm`</span></a>, yeast<a href="#id45"><span class="problematic" id="id46">:cite:`Gygi1999-lr`</span></a>, and human<a href="#id47"><span class="problematic" id="id48">:cite:`Kosti2016-gt`</span></a>.</p>
-<p>In human, Spearman correlations between protein abundance and gene expression levels vary between 0.36 and 0.50, depending on tissue, meaning that they are only weakly or moderately correlated<a href="#id49"><span class="problematic" id="id50">:cite:`Kosti2016-gt`</span></a>.</p>
+<p>It’s interesting to note that gene expression levels (from RNA-Seq and microarray data) are not necessarily strongly correlated with protein abundance; this has been found in mice<span id="id22">[<a class="reference internal" href="../cz-end-matter/reference.html#id90"><span>61</span></a>]</span>, yeast<span id="id23">[<a class="reference internal" href="../cz-end-matter/reference.html#id91"><span>62</span></a>]</span>, and human<span id="id24">[<a class="reference internal" href="../cz-end-matter/reference.html#id92"><span>63</span></a>]</span>.</p>
+<p>In human, Spearman correlations between protein abundance and gene expression levels vary between 0.36 and 0.50, depending on tissue, meaning that they are only weakly or moderately correlated<span id="id25">[<a class="reference internal" href="../cz-end-matter/reference.html#id92"><span>63</span></a>]</span>.</p>
 </div>
 </div>
 <div class="section" id="protein-structure">
 <span id="protein-stucture-measurements"></span><h3><span class="section-number">3.2.3.3. </span>Protein Structure<a class="headerlink" href="#protein-structure" title="Permalink to this headline">¶</a></h3>
-<p>The Protein DataBank (PDB)<a href="#id51"><span class="problematic" id="id52">:cite:`noauthor_undated-ow`</span></a> was established not long after Dayhoff’s database, it contains three dimensional protein structures, typically obtained using X-ray Crystallography or NMR spectroscopy.
+<p>The Protein DataBank (PDB)<span id="id26">[<a class="reference internal" href="../cz-end-matter/reference.html#id13"><span>64</span></a>]</span> was established not long after Dayhoff’s database, it contains three dimensional protein structures, typically obtained using X-ray Crystallography or NMR spectroscopy.
 The PDB continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.
 These structures are used for <a class="reference internal" href="#protein-classification"><span class="std std-ref">protein classification</span></a>, and for Molecular Dynamics simulations (simulating the physical interactions of molecules).</p>
 </div>
 <div class="section" id="protein-classification">
-<span id="id53"></span><h3><span class="section-number">3.2.3.4. </span>Protein Classification<a class="headerlink" href="#protein-classification" title="Permalink to this headline">¶</a></h3>
+<span id="id27"></span><h3><span class="section-number">3.2.3.4. </span>Protein Classification<a class="headerlink" href="#protein-classification" title="Permalink to this headline">¶</a></h3>
 <div class="margin sidebar" id="homology">
 <p class="sidebar-title">Homology</p>
 <p>Homology is similarity based on a shared evolutionary ancestor.</p>
@@ -763,17 +764,17 @@ This is sometimes done using sequence similarity (e.g. <a class="reference inter
 This is why structural similarity searches based on protein classification are preferred.</p>
 <div class="margin sidebar" id="blast">
 <p class="sidebar-title">BLAST</p>
-<p>The Basic Local Alignment Search Tool<a href="#id54"><span class="problematic" id="id55">:cite:`Altschul1990-zf`</span></a>, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.</p>
+<p>The Basic Local Alignment Search Tool<span id="id28">[<a class="reference internal" href="../cz-end-matter/reference.html#id42"><span>65</span></a>]</span>, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.</p>
 </div>
 <p><strong>SCOP:</strong>
-The Structural Classification of Proteins (SCOP) database<a href="#id56"><span class="problematic" id="id57">:cite:`Murzin1995-se`</span></a> classifies all proteins with known structure based on their structural similarities, based on the consideration of the protein’s constituent domains.
+The Structural Classification of Proteins (SCOP) database<span id="id29">[<a class="reference internal" href="../cz-end-matter/reference.html#id43"><span>22</span></a>]</span> classifies all proteins with known structure based on their structural similarities, based on the consideration of the protein’s constituent domains.
 The classification is mostly done at the level of families, superfamilies, and folds arranged in a tree structure.
 Families represent the most similar proteins, which share a “clear evolutionary relationship”, while superfamilies represent less close evolutionary relationships, and folds represent the same secondary structure. This protein classification task, while aided by automation, was carried out largely by manual visual inspection.</p>
-<p>SCOP was updated until 2009, but has been succeeded by SCOP2<a href="#id58"><span class="problematic" id="id59">:cite:`Andreeva2014-om`</span></a>.
+<p>SCOP was updated until 2009, but has been succeeded by SCOP2<span id="id30">[<a class="reference internal" href="../cz-end-matter/reference.html#id44"><span>66</span></a>]</span>.
 However, SCOP2 has a different underlying classification system, based on a complex graph, rather than a hierarchy.
-The CATH (Class, Architecture, Topology, Homologous superfamily)<a href="#id60"><span class="problematic" id="id61">:cite:`Orengo1997-vf`</span></a> database provides another classification system, which operates hierarchically, but is created mostly via automation, which leads to major differences between the classifications<a href="#id62"><span class="problematic" id="id63">:cite:`Csaba2009-of`</span></a>.</p>
+The CATH (Class, Architecture, Topology, Homologous superfamily)<span id="id31">[<a class="reference internal" href="../cz-end-matter/reference.html#id45"><span>67</span></a>]</span> database provides another classification system, which operates hierarchically, but is created mostly via automation, which leads to major differences between the classifications<span id="id32">[<a class="reference internal" href="../cz-end-matter/reference.html#id46"><span>68</span></a>]</span>.</p>
 <p id="superfamily-update"><strong>SUPERFAMILY</strong>
-SUPERFAMILY<a href="#id64"><span class="problematic" id="id65">:cite:`Gough2001-ct`</span></a> uses HMMs to assign sequences to SCOP domains, primarily at the superfamily level.
+SUPERFAMILY<span id="id33">[<a class="reference internal" href="../cz-end-matter/reference.html#id47"><span>69</span></a>]</span> uses HMMs to assign sequences to SCOP domains, primarily at the superfamily level.
 This allows the functions of poorly understood proteins to be inferred based on how closely they match known superfamilies.
 HMMs are very successful at such assignments since pairwise correlations between proteins (or their domains) and other proteins in the family may be weak, but consistently for many proteins; this can be picked up by an HMM.
 The superfamily level is chosen since it is the broadest level which suggests evolutionary relationships, but SUPERFAMILY also generates assignments at the (stricter) family level.</p>
@@ -781,7 +782,7 @@ The superfamily level is chosen since it is the broadest level which suggests ev
 The resulting HMM library is fine-tuned by some manual curation.</p>
 <p>The SUPERFAMILY website also contains other tools, including a database of all sequences (genomes) which are used to generate the HMM library.</p>
 <p id="my-superfamily-contribution"><strong>SUPERFAMILY update</strong>
-I contributed to SUPERFAMILY’s 2014 update<a href="#id66"><span class="problematic" id="id67">:cite:`Oates2015-li`</span></a> by editing the paper, and adding a small number of proteomes.
+I contributed to SUPERFAMILY’s 2014 update<span id="id34">[<a class="reference internal" href="../cz-end-matter/reference.html#id2"><span>3</span></a>]</span> by editing the paper, and adding a small number of proteomes.
 The SUPERFAMILY database of proteomes doubled from 1400 to over 3200 from 2010 to 2014.
 The update paper described this development, as well as highlighting SUPERFAMILY as a resource for unique proteomes that are not found elsewhere (e.g. Uniprot).
 Although SUPERFAMILY’s primary resource is it’s HMM library, it also integrates a range of other tools for sequence analysis, for example protein disorder prediction (D2P2) and GO annotation (dcGO), as well as a domain-based phylogenetic tree.</p>
@@ -793,10 +794,10 @@ Although SUPERFAMILY’s primary resource is it’s HMM library, it also integra
 Neutral like height, eye colour, baldness, etc, are also measured.</p>
 <p>Phenotypic traits can be measured in a variety of ways, depending on the phenotype.
 One important type is data collected via survey or interview, where participants self-identify as having certain illnesses, or symptoms.
-This type of data can suffer from biases due to what people feel comfortable answering<a href="#id68"><span class="problematic" id="id69">:cite:`Furnham1986-yt,Knauper1994-wl`</span></a>.</p>
+This type of data can suffer from biases due to what people feel comfortable answering<span id="id35">[<a class="reference internal" href="../cz-end-matter/reference.html#id167"><span>70</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id168"><span>71</span></a>]</span>.</p>
 <p>Phenotype data must be connected to genotype data in order to be useful for validating genotype-to-phenotype predictions, and due to the sensitivity of this kind of information, there are a limited number of these kinds of data sets.
-Some data sets focus on particular phenotypes, while others are cohort studies that record everything about a cohort (for example the the Avon Longitudinal Study of Parents and Children, ALSPAC<a href="#id70"><span class="problematic" id="id71">:cite:`Golding2001-oj`</span></a>, and the UK Biobank<a href="#id72"><span class="problematic" id="id73">:cite:`Bycroft2018-mw`</span></a>).
-In the latter case, it is not easy for researchers to access the whole data set, due to concerns about de-anonymisation<a href="#id74"><span class="problematic" id="id75">:cite:`Powell2021-vc`</span></a>.</p>
+Some data sets focus on particular phenotypes, while others are cohort studies that record everything about a cohort (for example the the Avon Longitudinal Study of Parents and Children, ALSPAC<span id="id36">[<a class="reference internal" href="../cz-end-matter/reference.html#id129"><span>72</span></a>]</span>, and the UK Biobank<span id="id37">[<a class="reference internal" href="../cz-end-matter/reference.html#id169"><span>73</span></a>]</span>).
+In the latter case, it is not easy for researchers to access the whole data set, due to concerns about de-anonymisation<span id="id38">[<a class="reference internal" href="../cz-end-matter/reference.html#id170"><span>74</span></a>]</span>.</p>
 <p>Knowledge about how phenotypes are related to each other (e.g. liver cancer is a type of cancer that is found in the liver) is organised in <a class="reference internal" href="3-ontologies.html#what-are-ontologies"><span class="std std-ref">ontologies</span></a>, which are described in their own section.
 These ontologies also form a defined vocabulary for terms, with identifiers, definitions, and links to other information.</p>
 </div>
@@ -818,20 +819,20 @@ This has been a popular type of scientific enquiry since the first GWAS study in
 GWAS generally results in lists of SNPs, often in the hundreds, ordered by p-value.
 Disentangling which of these SNPs (if any) <em>cause</em> the trait (in addition to correlating with it) is a tricky, particularly since GWAS specifically interrogates common variants.
 The process of identifying causal variants generally involving identifying regions in linkage disequilibrium, and re-sequencing regions of interest in further detail.</p>
-<p>The GWAS catalog database<a href="#id76"><span class="problematic" id="id77">:cite:`Buniello2019-cv,L_Emery2017-rd`</span></a> was founded in 2008, to provide a consistent and accessible location for published SNP-trait associations, which extracts information about experiments from the literature (currently over 70000 associations from over 3000 publications).</p>
+<p>The GWAS catalog database<span id="id39">[<a class="reference internal" href="../cz-end-matter/reference.html#id21"><span>75</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id22"><span>76</span></a>]</span> was founded in 2008, to provide a consistent and accessible location for published SNP-trait associations, which extracts information about experiments from the literature (currently over 70000 associations from over 3000 publications).</p>
 </div>
 </div>
 <div class="section" id="gene-knockouts">
-<span id="id78"></span><h2><span class="section-number">3.2.6. </span>Gene Knockouts<a class="headerlink" href="#gene-knockouts" title="Permalink to this headline">¶</a></h2>
+<span id="id40"></span><h2><span class="section-number">3.2.6. </span>Gene Knockouts<a class="headerlink" href="#gene-knockouts" title="Permalink to this headline">¶</a></h2>
 <p>Insight into gene function can be gained by “knocking out” a gene, preventing it from being translated into a working protein, for example using CRISPR.
 Combinations of up to four genes can be knocked out in a single experiment.
 Knocking out a gene can lead to a difference in phenotype, and differences in gene expression, which can be used to help determine gene regulatory networks.
 There is a lot of existing data on the phenotypic results of mouse knockouts, since they are often used to create mouse models for diseases.
-Unfortunately, it is not always well-recorded when knockouts lead to no detectable phenotypic change<a href="#id79"><span class="problematic" id="id80">:cite:`Barbaric2007-zm`</span></a>.</p>
+Unfortunately, it is not always well-recorded when knockouts lead to no detectable phenotypic change<span id="id41">[<a class="reference internal" href="../cz-end-matter/reference.html#id20"><span>77</span></a>]</span>.</p>
 <div class="section" id="biological-pathways">
-<span id="id81"></span><h3><span class="section-number">3.2.6.1. </span>Biological Pathways<a class="headerlink" href="#biological-pathways" title="Permalink to this headline">¶</a></h3>
-<p>Biological pathways are generally built either through a data-centric method, i.e. beginning with <a class="reference internal" href="#rna-measurements"><span class="std std-ref">gene expression</span></a> or mass spectrometry data<a href="#id82"><span class="problematic" id="id83">:cite:`Zhang2016-ty`</span></a>, or through a knowledge-centric method, by beginning with a graph based on knowledge from publications and domain experts<a href="#id84"><span class="problematic" id="id85">:cite:`Viswanathan2008-tn`</span></a>.
-There are a number of popular databases which store pathways, for example Reactome<a href="#id86"><span class="problematic" id="id87">:cite:`Fabregat2018-na`</span></a> and KEGG<a href="#id88"><span class="problematic" id="id89">:cite:`Kanehisa2008-wz`</span></a>.
+<span id="id42"></span><h3><span class="section-number">3.2.6.1. </span>Biological Pathways<a class="headerlink" href="#biological-pathways" title="Permalink to this headline">¶</a></h3>
+<p>Biological pathways are generally built either through a data-centric method, i.e. beginning with <a class="reference internal" href="#rna-measurements"><span class="std std-ref">gene expression</span></a> or mass spectrometry data<span id="id43">[<a class="reference internal" href="../cz-end-matter/reference.html#id171"><span>78</span></a>]</span>, or through a knowledge-centric method, by beginning with a graph based on knowledge from publications and domain experts<span id="id44">[<a class="reference internal" href="../cz-end-matter/reference.html#id172"><span>79</span></a>]</span>.
+There are a number of popular databases which store pathways, for example Reactome<span id="id45">[<a class="reference internal" href="../cz-end-matter/reference.html#id173"><span>80</span></a>]</span> and KEGG<span id="id46">[<a class="reference internal" href="../cz-end-matter/reference.html#id174"><span>81</span></a>]</span>.
 These resources are well-linked to other sources of information, for example gene, rna, protein and chemical databases.</p>
 </div>
 </div>

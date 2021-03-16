@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -54,6 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -286,7 +287,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Data
+     5.3. Input Data
     </a>
    </li>
    <li class="toctree-l2">
@@ -484,7 +485,7 @@
 <span id="what-is-dna"></span><h2><span class="section-number">2.2.1. </span>DNA<a class="headerlink" href="#dna" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="dna-both">
 <a class="reference internal image-reference" href="../_images/dna-both.png"><img alt="../_images/dna-both.png" src="../_images/dna-both.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Left: A photo of the original six-foot tall metal model of DNA made by Watson and Crick in 1953, alongside their discovery<a href="#id1"><span class="problematic" id="id2">:cite:`Watson1953-np`</span></a>. Image from the Cold Spring Harbor Archives<a href="#id3"><span class="problematic" id="id4">:cite:`noauthor_undated-ih`</span></a>.
+<p class="caption"><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Left: A photo of the original six-foot tall metal model of DNA made by Watson and Crick in 1953, alongside their discovery<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id147"><span>11</span></a>]</span>. Image from the Cold Spring Harbor Archives<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id8"><span>18</span></a>]</span>.
 Right: A cartoon representation of DNA, showing the concept of the complementary strand.</span><a class="headerlink" href="#dna-both" title="Permalink to this image">¶</a></p>
 </div>
 <p>Most people recognise the double helix of deoxyribonucleic acid (DNA) shown in <a class="reference internal" href="#dna-both"><span class="std std-numref">Fig. 2.2</span></a>, it’s a twisted ladder consisting of four nucleotides; adenine, cytosine, thymine, and guanine (A, C, T, G).
@@ -537,7 +538,7 @@ These transcription factors are in turn regulated by other transcription factors
 <h3><span class="section-number">2.2.1.3. </span>“RNA makes Proteins”, a.k.a. Translation<a class="headerlink" href="#rna-makes-proteins-a-k-a-translation" title="Permalink to this headline">¶</a></h3>
 <p>The second part of the central dogma is “RNA makes proteins” a.k.a. translation.</p>
 <p id="what-are-proteins">Proteins have been investigated independently from DNA and RNA.
-They were named by Dutch chemist Gerardus Mulder in his 1839 paper<a href="#id5"><span class="problematic" id="id6">:cite:`Mulder1839-rf`</span></a>, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>.
+They were named by Dutch chemist Gerardus Mulder in his 1839 paper<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id11"><span>19</span></a>]</span>, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>.
 This intriguing result bolstered research in this area, eventually resulting in our current understanding of proteins as biological macromolecules composed of amino acids.</p>
 <p id="what-is-translation">Translation describes the process in which a string of amino acids is created based on the RNA sequence.
 Proteins are made of these amino acid strings (called <em>polypeptides</em>), and after translation, they will fold (potentially with the assistence of <em>chaperone</em> proteins) into the proteins usual globular three dimensional conformation.</p>
@@ -553,7 +554,7 @@ Transfer RNA (tRNA) transports the amino acids to the ribosome where the polypep
 <p>Although we would expect <span class="math notranslate nohighlight">\(4^3=64\)</span> permutations of nucleotides, there are only 21 different amino acids which can be incorporated into proteins in humans, so there is redundancy: multiple codons can encode for the same amino acids.
 We can see this clearly in the left part of <a class="reference internal" href="#translation"><span class="std std-numref">Fig. 2.4</span></a>, for example, UAA, UGA, and UAG are all read as stop codons.</p>
 <p id="post-translational-modifications"><strong>Post-translational modifications:</strong>
-Post translational modifications are changes to proteins which occur after translation, but they may happen before or after folding<a href="#id7"><span class="problematic" id="id8">:cite:`Uversky2013-bt`</span></a>.
+Post translational modifications are changes to proteins which occur after translation, but they may happen before or after folding<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id178"><span>20</span></a>]</span>.
 These changes consist of chemicals bonding to the protein, which can change its function or structure, assist in folding, or target them for degradation, for example.</p>
 </div>
 <div class="section" id="and-proteins-do-everything">

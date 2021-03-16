@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -52,6 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -284,7 +285,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Data
+     5.3. Input Data
     </a>
    </li>
    <li class="toctree-l2">
@@ -477,7 +478,7 @@ In this case, we could imagine mapping to two Uberon terms rather than defaultin
 This could be achieved partly with relative ease by using the ontological mapping between CL and Uberon.
 Improvement of the CL-Uberon mapping would then allow for a complete understanding of which cell types are in a tissue, but not their relative abundances.</p>
 <p><strong>Cell type deconvolution:</strong>
-In order to understand the relative abundances of cell types in each sample, a cell type deconvolution programme (e.g. CIBERSORT<a href="#id1"><span class="problematic" id="id2">:cite:`Newman2015-le`</span></a>, BSEQ-sc<a href="#id3"><span class="problematic" id="id4">:cite:`Gaujoux_undated-ru`</span></a>, or MuSiC<a href="#id5"><span class="problematic" id="id6">:cite:`Wang2019-hc`</span></a>) could be used.
+In order to understand the relative abundances of cell types in each sample, a cell type deconvolution programme (e.g. CIBERSORT<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id75"><span>181</span></a>]</span>, BSEQ-sc<span id="id2">[<span>Gaujoux_undated-ru</span>]</span>, or MuSiC<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id77"><span>182</span></a>]</span>) could be used.
 These algorithms estimate percentages of cell types making up a tissue.
 This would require the input of a large scRNA-seq data set as input, and there doesn’t yet exist enough diversity to deconvolve all tissue types.
 As well as improving the mapping, this is likely to improve the quality of the batch effect correction.</p>
@@ -489,7 +490,7 @@ As well as improving the mapping, this is likely to improve the quality of the b
 <div class="section" id="alternative-batch-effect-removal">
 <h2><span class="section-number">6.8.3. </span>Alternative batch effect removal<a class="headerlink" href="#alternative-batch-effect-removal" title="Permalink to this headline">¶</a></h2>
 <p>Since ComBat is known to suffer from unbalanced datasets, an alternative might be used: Mutual Nearest Neighbour (MNN) method for bulk RNA-Seq data.
-MNN is a batch effect removal methodology for scRNA-seq data which was recently developed by Haghverdi et al<a href="#id7"><span class="problematic" id="id8">:cite:`Haghverdi2018-ig`</span></a>.
+MNN is a batch effect removal methodology for scRNA-seq data which was recently developed by Haghverdi et al<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id78"><span>183</span></a>]</span>.
 The benefit of this methodology (in addition to its superior batch effect removal) is its ability to cope with unbalanced sample compositions.<br />
 Despite being developed for scRNA-seq, it works well on heterogeneous tissues like the pancreas, so it may be possible to use or extend it to bulk RNA-seq, especially if cell type deconvolution can be employed on the bulk RNA-seq.
 If this was possible, using an MNN-based method would allow us to overcome ComBat’s requirement for a balanced experimental design since it requires only one cell in common between, although more cells in common will increase the accuracy.</p>

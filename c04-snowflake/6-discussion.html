@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -52,6 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -284,7 +285,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Data
+     5.3. Input Data
     </a>
    </li>
    <li class="toctree-l2">
@@ -441,19 +442,19 @@
   <div class="section" id="discussion">
 <h1><span class="section-number">4.6. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h1>
 <p>It is disappointing that the phenotype predictor does not produce statistically significant results.
-However, the phenotype predictor may yet be useful for revealing candidate SNPs for certain kinds of diseases, and when a suitable data set becomes available (e.g. through the growing number of publicly available genotypes on platforms such as OpenSNP<a href="#id1"><span class="problematic" id="id2">:cite:`Greshake2014-mp`</span></a>), this method will still be ready to be tested.
+However, the phenotype predictor may yet be useful for revealing candidate SNPs for certain kinds of diseases, and when a suitable data set becomes available (e.g. through the growing number of publicly available genotypes on platforms such as OpenSNP<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id132"><span>129</span></a>]</span>), this method will still be ready to be tested.
 An alternative validation would be experimentally testing a prediction (e.g. with knockouts) of a phenotype with a highly interesting distribution of scores.</p>
 <p>Despite much development effort, there remain some idiosyncrasies to the predictor.
 For example, DcGO can map multiple terms to the same set of SNPs. This can sometimes be a diverse group of phenotypes which do not tend to co-occur in individuals and when this occurs, it is likely that we cannot make a good prediction.
-A semantic similarity measure, such as GOGO<a href="#id3"><span class="problematic" id="id4">:cite:`Zhao2018-rw`</span></a> or Wang’s method<a href="#id5"><span class="problematic" id="id6">:cite:`Wang2007-yc`</span></a> could be used to check this, and update the confidence score accordingly.</p>
+A semantic similarity measure, such as GOGO<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id133"><span>130</span></a>]</span> or Wang’s method<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id134"><span>131</span></a>]</span> could be used to check this, and update the confidence score accordingly.</p>
 <p>There are also clearly many aspects of the molecular biology mentioned in chapter 1 that are not represented in the model used by the phenotype predictor. For example, nonsense mutations, regulatory networks.
 Updating the predictor to include these things could potentially give the predictor enough power to be validated on existing data sets.
-For example, non-coding variants could be included by extending DcGO annotations to SNPs in linkage disequilibrium, and using the non-coding version of FATHMM (FATHMM-XF<a href="#id7"><span class="problematic" id="id8">:cite:`Rogers2018-rc`</span></a>).</p>
+For example, non-coding variants could be included by extending DcGO annotations to SNPs in linkage disequilibrium, and using the non-coding version of FATHMM (FATHMM-XF<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id135"><span>132</span></a>]</span>).</p>
 <p id="dcgo-expression-problem">Another example is that DcGO does not take account of the environment of the cell (e.g. tissue-specific gene expression) in its’ predictions.
 Although domains which are statistically associated with phenotype can be present in a protein, there is no guarantee that the protein will have the opportunity to impact the phenotype (be transcribed).</p>
 <p>In investigating some of the ALSPAC phenotype predictions, I identified that some of the predicted dcGO relations between proteins and ontology terms may not be expressed in the tissue of interest.
 Improving dcGO or FATHMM may be a good route for improving the predictor, and this is the focus of the next Chapter.</p>
-<p>The phenotype predictor was also entered into the CAGI competition<a href="#id9"><span class="problematic" id="id10">:cite:`McInnes2019-ov`</span></a> (work by Jan Zaucha)<a href="#id11"><span class="problematic" id="id12">:cite:`Zaucha2018-dg`</span></a>, where it had some success.
+<p>The phenotype predictor was also entered into the CAGI competition<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id130"><span>133</span></a>]</span> (work by Jan Zaucha)<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id131"><span>134</span></a>]</span>, where it had some success.
 The phenotype predictor placed fourth in a challenge matching trait profiles to genotypes, but this result was not statistically significant (p&gt;0.05).</p>
 </div>
 

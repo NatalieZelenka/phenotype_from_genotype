@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -52,6 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -284,7 +285,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Data
+     5.3. Input Data
     </a>
    </li>
    <li class="toctree-l2">
@@ -477,26 +478,26 @@
 <p>Visual inspection of the PCA plot in <code class="xref std std-numref docutils literal notranslate"><span class="pre">combine-pca-before</span></code> shows that data clusters by experiment more strongly than by tissue group, meaning that batch correction is necessary to compare across experiment samples.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to create combine-pca-before</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to create combine-pca-before</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="figure align-default" id="id3">
+<div class="figure align-default" id="id2">
 <img alt="images/combine-pca-before.png" src="images/combine-pca-before.png" />
 <p class="caption"><span class="caption-number">Fig. 6.4 </span><span class="caption-text">name: combine-pca-before
 PCA plots without batch correction coloured by experiment (left) and tissue group (right).
-This PCA was carried out on a subset of 1000 randomly selected genes, after quantile normalisation and filtering of absent genes.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+This PCA was carried out on a subset of 1000 randomly selected genes, after quantile normalisation and filtering of absent genes.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="correcting-batch-with-combat">
 <h2><span class="section-number">6.4.2. </span>Correcting batch with ComBat<a class="headerlink" href="#correcting-batch-with-combat" title="Permalink to this headline">¶</a></h2>
-<p>The batch effects that can be seen in <code class="xref std std-numref docutils literal notranslate"><span class="pre">combine-pca-before</span></code> were corrected using <a class="reference internal" href="1-background.html#combat-description"><span class="std std-ref">ComBat</span></a><a href="#id1"><span class="problematic" id="id2">:cite:`Johnson2007-zh`</span></a>.</p>
+<p>The batch effects that can be seen in <code class="xref std std-numref docutils literal notranslate"><span class="pre">combine-pca-before</span></code> were corrected using <a class="reference internal" href="1-background.html#combat-description"><span class="std std-ref">ComBat</span></a> <span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id68"><span>165</span></a>]</span>.</p>
 <div class="section" id="experimental-design">
 <h3><span class="section-number">6.4.2.1. </span>Experimental design<a class="headerlink" href="#experimental-design" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># code to create experimental design table (tissue groups by experiments?)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># code to create experimental design table (tissue groups by experiments?)</span>
 </pre></div>
 </div>
 </div>
@@ -505,16 +506,16 @@ This PCA was carried out on a subset of 1000 randomly selected genes, after quan
 </div>
 <div class="section" id="post-batch-correction">
 <h2><span class="section-number">6.4.3. </span>Post batch-correction<a class="headerlink" href="#post-batch-correction" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-default" id="id4">
+<div class="figure align-default" id="id3">
 <img alt="images/combine-pca-after.png" src="images/combine-pca-after.png" />
 <p class="caption"><span class="caption-number">Fig. 6.5 </span><span class="caption-text">name: combine-pca-after
 PCA plots with batch correction coloured by experiment (left) and tissue group (right).
-This PCA was carried out on a subset of 1000 randomly selected genes, after quantile normalisation and filtering of absent genes.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+This PCA was carried out on a subset of 1000 randomly selected genes, after quantile normalisation and filtering of absent genes.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>Visual inspection of the PCA plots in <code class="xref std std-numref docutils literal notranslate"><span class="pre">combine-pca-after</span></code> shows that ComBat has been successful in removing batch effects: samples no longer cluster by experiment, but by tissue group.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to create combine-pca-after</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to create combine-pca-after</span>
 </pre></div>
 </div>
 </div>

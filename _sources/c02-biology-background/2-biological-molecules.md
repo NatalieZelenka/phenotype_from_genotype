@@ -2,6 +2,9 @@
 # Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
 Here I introduce the classes of biological molecules that are vital in our understanding of genetics: the nucleic acids (DNA and RNA), and their product: proteins.
 
+[//]: # (TODO: mention -somwhere- that DNA has a 3' and a 5' end and that nucleic acids can only be created from 5' to 3')
+[//]: # (TODO: mention coding=sense=positive sense =nontemplate, noncoding=antisense=negative=template)
+
 (what-is-dna)=
 ## DNA
 

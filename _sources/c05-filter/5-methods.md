@@ -1,3 +1,4 @@
+(filter-methods)=
 # Methods
 [//]: # (TODO: Overview here?)
 [//]: # (TODO: Code here)
@@ -14,6 +15,9 @@ This cut-off was chosen for TPM-normalised data was chosen as this best allows f
 The cut-off was chosen by plotting the distribution of TPM expression and choosing a value below which there appeared to be little noise (10 TPM).
 
 +++
+
+### Data cleaning
+[//]: # (TODO: Write: removal of disease and non-tissue-specific sampels)
 
 ### Mapping multi-species phenotype terms to tissue
 

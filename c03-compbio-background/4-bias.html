@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -54,6 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -286,7 +287,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Data
+     5.3. Input Data
     </a>
    </li>
    <li class="toctree-l2">
@@ -521,10 +522,10 @@ A replication doesn’t have to reveal the exact same level of statistical signi
 <p class="attribution">—Michael Crichton</p>
 </div></blockquote>
 <p>The reproducibility crisis is the realisation that worryingly large proportions of research results do not reproduce.
-Replication studies have found that only 11% of cancer research findings<a href="#id1"><span class="problematic" id="id2">:cite:`Begley2012-oc`</span></a>, 20-25% of drug-target findings<a href="#id3"><span class="problematic" id="id4">:cite:`Begley2012-oc,Prinz2011-rh`</span></a>, and 39% of psychology findings<a href="#id5"><span class="problematic" id="id6">:cite:`Open_Science_Collaboration2015-vi`</span></a> reproduced.
-Surveys of researchers across disciplines reveal that more than 70% of scientists say they have failed to reproduce another paper’s result, and over 50% say they have failed to reproduce their own results<a href="#id7"><span class="problematic" id="id8">:cite:`Baker2016-tb`</span></a>.
+Replication studies have found that only 11% of cancer research findings<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id56"><span>88</span></a>]</span>, 20-25% of drug-target findings<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id56"><span>88</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id57"><span>89</span></a>]</span>, and 39% of psychology findings<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id58"><span>90</span></a>]</span> reproduced.
+Surveys of researchers across disciplines reveal that more than 70% of scientists say they have failed to reproduce another paper’s result, and over 50% say they have failed to reproduce their own results<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id59"><span>91</span></a>]</span>.
 It seems that science’s self-correcting mechanism is not working as intended.</p>
-<p>This surprising irreproducibility is thought to be due to a multitude of factors, including poor data management, lack of available materials/details of experiments, publication bias, poor statistical knowledge, and questionable research practices<a href="#id9"><span class="problematic" id="id10">:cite:`Bishop2019-hg`</span></a>.</p>
+<p>This surprising irreproducibility is thought to be due to a multitude of factors, including poor data management, lack of available materials/details of experiments, publication bias, poor statistical knowledge, and questionable research practices<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id60"><span>92</span></a>]</span>.</p>
 <div class="section" id="null-hypothesis-significance-testing">
 <h3><span class="section-number">3.4.2.1. </span>Null Hypothesis Significance Testing<a class="headerlink" href="#null-hypothesis-significance-testing" title="Permalink to this headline">¶</a></h3>
 <blockquote class="epigraph">
@@ -543,12 +544,12 @@ Sometimes the p-value is not even reported, but only whether or not it crossed t
 </div>
 <div class="section" id="p-hacking">
 <h3><span class="section-number">3.4.2.2. </span>P-hacking<a class="headerlink" href="#p-hacking" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id11">
+<div class="figure align-default" id="id6">
 <a class="reference internal image-reference" href="../_images/p_hacking.png"><img alt="../_images/p_hacking.png" src="../_images/p_hacking.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Images that are illustrative of researchers approaches to p-values and p-hacking. The left image is <a class="reference external" href="https://twitter.com/FaustoBustos/status/1103435523777978368">a popular tweet</a>, while the right image is <a class="reference external" href="https://xkcd.com/1478/">an xkcd comic</a>).</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Images that are illustrative of researchers approaches to p-values and p-hacking. The left image is <a class="reference external" href="https://twitter.com/FaustoBustos/status/1103435523777978368">a popular tweet</a>, while the right image is <a class="reference external" href="https://xkcd.com/1478/">an xkcd comic</a>).</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <p>The pressure on scientists to publish means that researchers may be tempted to (or may accidentally, due to statistical ignorance) employ data-mining tactics in order to harvest significant p-values.
-This practice is known as “p-hacking”, and evidence for its existence can be found in distributions of p-values in scientific literature<a href="#id12"><span class="problematic" id="id13">:cite:`Head2015-ns`</span></a>, as well as popular culture (<a class="reference internal" href="#id11"><span class="std std-numref">Fig. 3.5</span></a>).
+This practice is known as “p-hacking”, and evidence for its existence can be found in distributions of p-values in scientific literature<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id62"><span>93</span></a>]</span>, as well as popular culture (<a class="reference internal" href="#id6"><span class="std std-numref">Fig. 3.5</span></a>).
 This can include rerunning analysis with different models/covariates, collecting data until a significant p-value is reached, or performing 20 experiments and only publishing the results of one.</p>
 <blockquote class="epigraph">
 <div><p>The first principle is that you must not fool yourself – and you are the easiest person to fool.
@@ -557,15 +558,15 @@ This can include rerunning analysis with different models/covariates, collecting
 <p>There are several suggested tonics to the problem of uninformative and ubiquitous p-values.
 Reporting p-values as numbers rather than in relation to a threshold (e.g. p&lt;0.05) is starting point.
 Information about statistical power and effect size should also be provided.
-In addition to giving researchers reading a paper a better idea of the quality of it, this also allows science to self-correct a little easier, since individual p-values can then be combined into more reliable p-values, using for example Fischer’s method<a href="#id14"><span class="problematic" id="id15">:cite:`Fisher1990-ro`</span></a>.</p>
-<p>For cases where many hypotheses are being generated at once (for example in GWAS), multiple hypothesis corrections (e.g. the Bonferroni correction<a href="#id16"><span class="problematic" id="id17">:cite:`Dunn1958-sj`</span></a> or the False Discovery Rate<a href="#id18"><span class="problematic" id="id19">:cite:`Benjamini1995-me`</span></a>) can be employed to adjust the p-value to account for this.</p>
+In addition to giving researchers reading a paper a better idea of the quality of it, this also allows science to self-correct a little easier, since individual p-values can then be combined into more reliable p-values, using for example Fischer’s method<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id63"><span>94</span></a>]</span>.</p>
+<p>For cases where many hypotheses are being generated at once (for example in GWAS), multiple hypothesis corrections (e.g. the Bonferroni correction<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id64"><span>95</span></a>]</span> or the False Discovery Rate<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id65"><span>96</span></a>]</span>) can be employed to adjust the p-value to account for this.</p>
 </div>
 <div class="section" id="publication-bias-against-negative-results">
 <h3><span class="section-number">3.4.2.3. </span>Publication bias against negative results<a class="headerlink" href="#publication-bias-against-negative-results" title="Permalink to this headline">¶</a></h3>
-<p>Although with standard p-value and statistical power cut-offs, negative results are more likely to be true than positive ones<a href="#id20"><span class="problematic" id="id21">:cite:`Ioannidis2005-mo`</span></a>, negative results are much harder to publish.
+<p>Although with standard p-value and statistical power cut-offs, negative results are more likely to be true than positive ones<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id61"><span>97</span></a>]</span>, negative results are much harder to publish.
 This bias is likely to be responsible for the draw of questionable research practices like p-hacking.
 It also means that there is a lot of unpublished, negative results which are likely to be repeated, since there is no way that someone could know it has already been done.
-A highly powered negative result could be very interesting, for example, we know hardly anything about which genes do not appear to affect phenotypes, since these results are not published<a href="#id22"><span class="problematic" id="id23">:cite:`Barbaric2007-zm`</span></a>, but they would help enormously with the challenge of creating a gold standard data set for gene function prediction.</p>
+A highly powered negative result could be very interesting, for example, we know hardly anything about which genes do not appear to affect phenotypes, since these results are not published<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id20"><span>77</span></a>]</span>, but they would help enormously with the challenge of creating a gold standard data set for gene function prediction.</p>
 </div>
 </div>
 <div class="section" id="other-types-of-bias">
@@ -582,7 +583,7 @@ This means that there are many functions of genes which will be missing from the
 <p><strong>3. Incentives for speed over quality:</strong>
 In research, there are strong incentives to publish often (“publish or perish”).
 This incentivises doing the minimum possible to publish, and disincentivises spending time on quality control or providing useful metadata wherever you can publish without it.
-There are movements (like the <a class="reference external" href="http://slow-science.org/">slow science manifesto</a><a href="#id24"><span class="problematic" id="id25">:cite:`noauthor_undated-lr`</span></a>) to combat this, but it remains the default.
+There are movements (like the <a class="reference external" href="http://slow-science.org/">slow science manifesto</a><span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id183"><span>98</span></a>]</span>) to combat this, but it remains the default.
 Clearly this impacts on the quality of entries in databases, which is important when these have such strong</p>
 </div>
 </div>

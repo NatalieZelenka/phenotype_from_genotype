@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -52,6 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -284,7 +285,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Data
+     5.3. Input Data
     </a>
    </li>
    <li class="toctree-l2">
@@ -440,6 +441,13 @@
   <a class="reference internal nav-link" href="#sequencing">
    3.1.1. Sequencing
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#capped-analysis-of-gene-expression">
+     3.1.1.1. Capped Analysis of Gene Expression
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#alignment-and-assembly">
@@ -484,7 +492,7 @@ The length of those pieces of DNA in nucleotides is determined by how far the DN
 </div>
 <p>From the late 1970’s until the mid 2000s, <em>Sanger sequencing</em> was the most popular sequencing technology, although it underwent various improvements over this timescale.
 In Sanger sequencing (and other first-generation methods), reads of around 800bp are sequenced, one at a time, using <a class="reference internal" href="#electrophoresis"><span class="std std-ref">electrophoresis</span></a>.
-The human genome project sequenced the first human genome using this method<a href="#id2"><span class="problematic" id="id3">:cite:`Venter2001-wn`</span></a>, and it’s still used in some circumstances, for example validating next generation sequencing.</p>
+The human genome project sequenced the first human genome using this method<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id15"><span>12</span></a>]</span>, and it’s still used in some circumstances, for example validating next generation sequencing.</p>
 <p>Second, or <em>next generation sequencing</em> (NGS), also referred to as high-throughput sequencing, is a catch-all term for the faster and cheaper sequencing technologies which replaced the previously used Sanger sequencing.
 A feature that is common to NGS methods is that many shorter reads (around 100bp, exact numbers depending on the specific technology) are sequenced in parallel.
 The process is massively parallel: millions to billions of short sequences can be read at a time.
@@ -493,6 +501,14 @@ In turn, this speed and cheapness means that more repeats can be sequenced, incr
 <p id="rna-seq-ngs">NGS can be used for sequencing either DNA or RNA (known as RNA-seq when applied to the whole transcriptome).
 While (NGS) DNA-sequencing and RNA-seq can use the same underlying NGS technologies, there exist some differences, e.g. RNA is reverse-transcribed into strands of complementary DNA, before being sequenced, since sequencing DNA is currently easier than sequencing RNA.</p>
 <p>There are now also third generation sequencing technologies that allow much longer reads to be sequenced, e.g. nanopore technology.</p>
+<div class="section" id="capped-analysis-of-gene-expression">
+<span id="cage-method"></span><h3><span class="section-number">3.1.1.1. </span>Capped Analysis of Gene Expression<a class="headerlink" href="#capped-analysis-of-gene-expression" title="Permalink to this headline">¶</a></h3>
+<p>Capped Analysis of Gene Expression (CAGE) is a NGS transcript expression technique which measures very small (27 nucleotide) segments (called <em>tags</em>) from the start (5’ end) of mRNA.
+These tags are mapped to genes based on their distance to the gene in bp.
+The upside of this approach is that these short tags can be used to identify the transcription start sites (TSS) of RNA transcripts.
+The downside is that it can only be used to measure mRNA (mature messenger RNA).
+CAGE is used extensively in the FANTOM research projects, such as FANTOM5 whose data is used in <a class="reference internal" href="../c05-filter/0-index.html#c06-filter"><span class="std std-numref">Section 5</span></a> and <a class="reference internal" href="../c06-combining/0-index.html#c05-combining"><span class="std std-numref">Section 6</span></a>.</p>
+</div>
 </div>
 <div class="section" id="alignment-and-assembly">
 <span id="assembly-and-alignment"></span><h2><span class="section-number">3.1.2. </span>Alignment and assembly<a class="headerlink" href="#alignment-and-assembly" title="Permalink to this headline">¶</a></h2>
@@ -505,14 +521,14 @@ In this case, reads are aligned with one another, as illustrated in <a class="re
 <a class="reference internal image-reference" href="../_images/de_novo_assembly.png"><img alt="../_images/de_novo_assembly.png" src="../_images/de_novo_assembly.png" style="height: 140px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Image illustrating how reads of DNA are aligned with one anther to assemble genomes <em>de novo</em>.</span><a class="headerlink" href="#assembly" title="Permalink to this image">¶</a></p>
 </div>
-<p>The current estimate for raw sequencing inaccuracy of an individual NGS read is around 0.24%<a href="#id4"><span class="problematic" id="id5">:cite:`Pfeiffer2018-kt`</span></a>, meaning that on average one base pair will be incorrect for a 500pb read.
-Multiple repeats are therefore required to obtain a more accurate measurement of the assembled sequence, which is further necessary since there are many repeated sequences (perhaps over two thirds of the human genome<a href="#id6"><span class="problematic" id="id7">:cite:`De_Koning2011-ac`</span></a>).
+<p>The current estimate for raw sequencing inaccuracy of an individual NGS read is around 0.24%<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id18"><span>34</span></a>]</span>, meaning that on average one base pair will be incorrect for a 500pb read.
+Multiple repeats are therefore required to obtain a more accurate measurement of the assembled sequence, which is further necessary since there are many repeated sequences (perhaps over two thirds of the human genome<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id19"><span>35</span></a>]</span>).
 The depth for a nucleotide is the number of reads that overlap that nucleotide.
 Similarly, the average depth of a sequence can be calculated.</p>
 <p>After assembly, even in the most complete genomes, we are still left with some sequences that could not be placed, and some parts of the genome that we still don’t know about.</p>
 <div class="figure align-default" id="alignment">
 <a class="reference internal image-reference" href="../_images/alignment.png"><img alt="../_images/alignment.png" src="../_images/alignment.png" style="height: 240px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Image showing how RNA-Seq reads are mapped to the genome (image from Advancing RNA-Seq Analysis <a href="#id8"><span class="problematic" id="id9">:cite:`Haas2010-lm`</span></a>).
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Image showing how RNA-Seq reads are mapped to the genome (image from Advancing RNA-Seq Analysis <span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id17"><span>36</span></a>]</span>).
 RNA-seq is used much less often for de novo sequencing, and is generally mapped to a reference sequence.</span><a class="headerlink" href="#alignment" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference internal" href="#alignment"><span class="std std-numref">Fig. 3.2</span></a> shows how alignment and assembly are used in the context of RNA sequencing.</p>
@@ -522,7 +538,7 @@ RNA-seq is used much less often for de novo sequencing, and is generally mapped 
 <p>Through the 1970s into the early 2000s, DNA arrays/microarrays developed alongside sequencing as a way of measuring the presence of previously sequenced DNA in new samples.
 These arrays contain pre-chosen fragments of DNA (probes) arranged in spots, with each spot containing many copies of the probe, on a solid surface, e.g. a glass, silicon or plastic chip.
 The probes consist of single strands of DNA, and arrays operate on the principle that the complementary DNA from the sample will bind tightly to it.</p>
-<p>These arrays were originally macro-sized, one of the first being 26 × 38 cm and containing 144 probes<a href="#id10"><span class="problematic" id="id11">:cite:`Bumgarner2013-hg`</span></a>, but are now on small chips, which can contain up to millions of probes.
+<p>These arrays were originally macro-sized, one of the first being 26 × 38 cm and containing 144 probes<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id16"><span>37</span></a>]</span>, but are now on small chips, which can contain up to millions of probes.
 Different chips will contain different probes and therefore measure the presence of different sequences.</p>
 <div class="margin sidebar" id="genotyping">
 <p class="sidebar-title">Genotyping</p>

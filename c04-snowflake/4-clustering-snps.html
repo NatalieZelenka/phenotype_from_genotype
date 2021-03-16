@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -54,6 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -286,7 +287,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Data
+     5.3. Input Data
     </a>
    </li>
    <li class="toctree-l2">
@@ -501,7 +502,7 @@
 </div>
 <div class="section" id="choice-of-clustering-methodology">
 <h2><span class="section-number">4.4.2. </span>Choice of clustering methodology<a class="headerlink" href="#choice-of-clustering-methodology" title="Permalink to this headline">¶</a></h2>
-<p>The original implementation of the phenotype predictor used k-means clustering<a href="#id1"><span class="problematic" id="id2">:cite:`Le_Cam1967-ku`</span></a>. This wasn’t suitable for the predictor, since we expect combinations of SNPs to form non-spherical shapes (see <a class="reference internal" href="#non-spherical"><span class="std std-numref">Fig. 4.4</span></a>), and k-means cannot achieve this (see <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.5</span></a>).</p>
+<p>The original implementation of the phenotype predictor used k-means clustering<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id125"><span>125</span></a>]</span>. This wasn’t suitable for the predictor, since we expect combinations of SNPs to form non-spherical shapes (see <a class="reference internal" href="#non-spherical"><span class="std std-numref">Fig. 4.4</span></a>), and k-means cannot achieve this (see <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.5</span></a>).</p>
 <p>Spectral clustering, DBSCAN (Density-Based Spatial Clustering of Applications with Noise), OPTICS and LOF (Local Outlier Factor) were also implemented. This involved automation of parameter selection, to enable clustering to be performed automatically on thousands of phenotype terms. These methods have theoretical pros and cons with respect to the predictor. For example, OPTICS and DBSCAN do not need the number of clusters as an input, but instead require the minimum number of points required to form a cluster and a radius from each point to consider as part of a cluster, which has more meaning in this context. They also automatically output outliers to clusters, which will affect the resulting phenotype score, potentially in unseen ways - particularly as it is difficult to visualise high-dimensional data. OPTICS is the default setting, as in addition to not requiring a number of clusters, it can identify clusters of differing densities (a quality that DBSCAN lacks - as can be seen in the second row of <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.5</span></a>). A final informed choice between these options requires a large benchmarking set.</p>
 </div>
 <div class="section" id="choice-of-distance-metric">
@@ -522,7 +523,7 @@
 </div>
 <div class="figure align-default" id="clustering-comparison">
 <a class="reference internal image-reference" href="../_images/clustering_comparison.png"><img alt="../_images/clustering_comparison.png" src="../_images/clustering_comparison.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Comparison illustrating differences between the implemented clustering methods. Image adapted from sklearn documentation<a href="#id3"><span class="problematic" id="id4">:cite:`noauthor_undated-nc`</span></a>.</span><a class="headerlink" href="#clustering-comparison" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Comparison illustrating differences between the implemented clustering methods. Image adapted from sklearn documentation<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id126"><span>126</span></a>]</span>.</span><a class="headerlink" href="#clustering-comparison" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="input-individuals">
@@ -530,7 +531,7 @@
 </div>
 <div class="section" id="the-curse-of-dimensionality">
 <h2><span class="section-number">4.4.5. </span>The curse of dimensionality<a class="headerlink" href="#the-curse-of-dimensionality" title="Permalink to this headline">¶</a></h2>
-<p>The “curse of dimensionality” is a phrase coined by Richard E Bellman, during his work on dynamic programming<a href="#id5"><span class="problematic" id="id6">:cite:`Bellman1957-dc`</span></a>, but has since proved relevant in many different mathematical and data-driven fields. In addition to it’s more colloquial use as a catch-all complaint about high-dimensional data, the “curse” refers to the sparsity of data that occurs exponentially with an increase in dimensions. This leads to various problems in different fields<a href="#id7"><span class="problematic" id="id8">:cite:`Zimek2012-fg`</span></a> and of which we run into two in this chapter; general difficulty in reaching statistical significance and reduced usefulness of clustering, distance, and outlier metrics.</p>
+<p>The “curse of dimensionality” is a phrase coined by Richard E Bellman, during his work on dynamic programming<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id123"><span>127</span></a>]</span>, but has since proved relevant in many different mathematical and data-driven fields. In addition to it’s more colloquial use as a catch-all complaint about high-dimensional data, the “curse” refers to the sparsity of data that occurs exponentially with an increase in dimensions. This leads to various problems in different fields<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id124"><span>128</span></a>]</span> and of which we run into two in this chapter; general difficulty in reaching statistical significance and reduced usefulness of clustering, distance, and outlier metrics.</p>
 <p>This problem can be reduced by choosing a clustering/outlier detection method which is more robust to the number of dimensions. It is also helpful to reduce the number of dimensions in some way (feature selection), or to project the data into a different coordinate system (feature projection) and then discard some of the newly calculated coordinates/dimensions.</p>
 <p>A range of clustering methods were trialled on the phenotype predictor in an attempt to overcome the curse of dimensionality and increase the phenotype predictor’s accuracy. Jan mostly implemented the Spectral Clustering, while I implemented the other methods.</p>
 <div class="section" id="dimensionality-reduction">

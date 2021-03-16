@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -52,6 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -284,7 +285,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Data
+     5.3. Input Data
     </a>
    </li>
    <li class="toctree-l2">
@@ -437,7 +438,7 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
+  <a class="reference internal nav-link" href="#id5">
    3.3.1. What are ontologies?
   </a>
  </li>
@@ -474,20 +475,20 @@
 <span id="what-are-ontologies"></span><h1><span class="section-number">3.3. </span>Ontologies<a class="headerlink" href="#ontologies" title="Permalink to this headline">¶</a></h1>
 <div class="figure align-default" id="linneaus-ehret">
 <a class="reference internal image-reference" href="../_images/linneaus_ehret.png"><img alt="../_images/linneaus_ehret.png" src="../_images/linneaus_ehret.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Carl Linneaus developed a system of classifying plants, animals and minerals, including plant classification based on their number of stamens<a href="#id1"><span class="problematic" id="id2">:cite:`Blunt2001-wr`</span></a>. The left image is a key to this classification system taken from his book, while the right image is a depiction of how the system works, drawn by botanist George Ehret<a href="#id3"><span class="problematic" id="id4">:cite:`Ehret1748-bx`</span></a>.</span><a class="headerlink" href="#linneaus-ehret" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Carl Linneaus developed a system of classifying plants, animals and minerals, including plant classification based on their number of stamens<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id24"><span>82</span></a>]</span>. The left image is a key to this classification system taken from his book, while the right image is a depiction of how the system works, drawn by botanist George Ehret<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id25"><span>83</span></a>]</span>.</span><a class="headerlink" href="#linneaus-ehret" title="Permalink to this image">¶</a></p>
 </div>
 <div class="margin sidebar" id="linneus-racist">
 <p class="sidebar-title">Linneus and scientific racism</p>
-<p>Linneus’ classifications included a racist hierarchical classification of human beings<a href="#id5"><span class="problematic" id="id6">:cite:`Charmantier_undated-wy`</span></a>.</p>
+<p>Linneus’ classifications included a racist hierarchical classification of human beings<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id140"><span>84</span></a>]</span>.</p>
 </div>
 <p>Cataloguing and classifying has been a successful scientific endeavour in other disciplines (e.g. the periodic table), but it’s a cornerstone of biology.
-Biological classification dates back to the Linnaean taxonomy from the mid 1700s (see <a class="reference internal" href="#linneaus-ehret"><span class="std std-numref">Fig. 3.3</span></a>), which described species, their features, and the relationships between them<a href="#id7"><span class="problematic" id="id8">:cite:`Jensen2010-fk`</span></a>.
+Biological classification dates back to the Linnaean taxonomy from the mid 1700s (see <a class="reference internal" href="#linneaus-ehret"><span class="std std-numref">Fig. 3.3</span></a>), which described species, their features, and the relationships between them<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id23"><span>85</span></a>]</span>.
 It also contained some <a class="reference internal" href="#linneus-racist"><span class="std std-ref">hateful racist ideas</span></a>.
 Nonetheless the idea of measuring and categorising the biological world also birthed an enduring tradition of classification in biology.</p>
 <p>Modern biology continues in this tradition of classification, cataloguing biology in ever more (molecular) detail: cells, genes, transcripts, proteins, and pathways.
 One major way in which this data is synthesised is through the use of ontologies.</p>
-<div class="section" id="id9">
-<h2><span class="section-number">3.3.1. </span>What are ontologies?<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2><span class="section-number">3.3.1. </span>What are ontologies?<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>Ontologies are a way of organising all of the information we have collected in classifying and annotating biological concepts and entities, into a unified framework: one which we can represent, build, and query computationally.
 Biological ontologies represent knowledge that we have about the relationships between biological entities.
 Ontologies have classes (called <em>terms</em>), which are organised in hierarchies, i.e. such that a term can be a subclass of another.
@@ -516,7 +517,7 @@ There can also be annotations linking to publications from which the knowledge a
 </div>
 <div class="section" id="how-are-ontologies-created-maintained-and-improved">
 <h2><span class="section-number">3.3.2. </span>How are ontologies created, maintained, and improved?<a class="headerlink" href="#how-are-ontologies-created-maintained-and-improved" title="Permalink to this headline">¶</a></h2>
-<p>Biological ontologies are generally created through some combination of manual curation by highly skilled bio-curators and logic-testing (checking for illogical relationships, for example using ROBOT<a href="#id10"><span class="problematic" id="id11">:cite:`Overton2015-vo`</span></a>).
+<p>Biological ontologies are generally created through some combination of manual curation by highly skilled bio-curators and logic-testing (checking for illogical relationships, for example using ROBOT<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id67"><span>86</span></a>]</span>).
 Creating an ontology is generally a long-term project, with new suggestions and updates to the ontologies being made as new knowledge accumulates, or just as more people have time to add to them.
 As well as being the work of dedicated curators, contributions to ontologies can usually be crowd-sourced from the scientific community using GitHub issues, mailing list discussions, web forms, and dedicated workshops.
 In this way, they are similar to other bioinformatics community-driven efforts like structural and sequence databases.</p>
@@ -531,7 +532,7 @@ Since this is a laborious process, there are also many computational methods to 
 <h3><span class="section-number">3.3.3.1. </span>Gene Ontology<a class="headerlink" href="#gene-ontology" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="go-rilla">
 <a class="reference internal image-reference" href="../_images/go_rilla.png"><img alt="../_images/go_rilla.png" src="../_images/go_rilla.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.4 </span><span class="caption-text">A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla<a href="#id12"><span class="problematic" id="id13">:cite:`Eden2009-ic`</span></a>)</span><a class="headerlink" href="#go-rilla" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.4 </span><span class="caption-text">A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id71"><span>87</span></a>]</span>)</span><a class="headerlink" href="#go-rilla" title="Permalink to this image">¶</a></p>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 [//]: # (TODO: Remove backticks)

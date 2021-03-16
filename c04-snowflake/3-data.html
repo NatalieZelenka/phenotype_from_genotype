@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -52,6 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -284,7 +285,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Data
+     5.3. Input Data
     </a>
    </li>
    <li class="toctree-l2">
@@ -493,7 +494,7 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id4">
      4.3.4.2. ALSPAC
     </a>
     <ul class="nav section-nav flex-column">
@@ -503,19 +504,19 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
+      <a class="reference internal nav-link" href="#id5">
        4.3.4.2.2. Phenotypes
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
+    <a class="reference internal nav-link" href="#id6">
      4.3.4.3. CAGI
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id10">
+      <a class="reference internal nav-link" href="#id7">
        4.3.4.3.1. Creating VCF files
       </a>
      </li>
@@ -527,17 +528,17 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
+    <a class="reference internal nav-link" href="#id8">
      4.3.4.4. Athletes
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id12">
+      <a class="reference internal nav-link" href="#id9">
        4.3.4.4.1. Creating VCF files
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id13">
+      <a class="reference internal nav-link" href="#id10">
        4.3.4.4.2. Mapping phenotypes to CAGI measurements
       </a>
      </li>
@@ -567,7 +568,7 @@
 <h2><span class="section-number">4.3.1. </span>Data sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="alspac">
 <h3><span class="section-number">4.3.1.1. </span>ALSPAC<a class="headerlink" href="#alspac" title="Permalink to this headline">¶</a></h3>
-<p>The Avon Longitudinal Study of Parents and Children, ALSPAC<a href="#id1"><span class="problematic" id="id2">:cite:`Golding2001-oj`</span></a> (a.k.a. the children of the 90s) is a cohort of over 14,000 families from the Avon area. A wealth of phenotype information has also been collected from these families, through a series of voluntary surveys and clinics.</p>
+<p>The Avon Longitudinal Study of Parents and Children, ALSPAC<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id129"><span>72</span></a>]</span> (a.k.a. the children of the 90s) is a cohort of over 14,000 families from the Avon area. A wealth of phenotype information has also been collected from these families, through a series of voluntary surveys and clinics.</p>
 <p>Due to the personal and private nature of the data, we were granted access to the genotype data first, then allowed to request a small number of high-scoring phenotypes after running the predictor.</p>
 <p>Although the ALSPAC data set is large, it is not very diverse, therefore the 1000 genomes project (Phase 1) genomes were used as a background set.</p>
 <div class="margin sidebar" id="vcf-format">
@@ -612,12 +613,12 @@ Lifting over VCF files between <span class="xref std std-ref">different-builds</
 </div>
 <div class="section" id="ambiguous-flips">
 <h4><span class="section-number">4.3.4.1.2. </span>Ambiguous Flips<a class="headerlink" href="#ambiguous-flips" title="Permalink to this headline">¶</a></h4>
-<p>The majority of input data to the predictor is 23andMe data. In testing the predictor with the 2500G background and a cohort of 23andMe genomes, it became clear that for many phenotypes, the background was forming a separate cluster to the cohort. This led to the realisation that there are 23andMe calls which had the opposite ratio of wild type:mutant than the 2500 genomes. Some further reading revealed this to be a known problem<a href="#id3"><span class="problematic" id="id4">:cite:`Church2005-zv`</span></a>, which may be due to ambiguous flips<a href="#id5"><span class="problematic" id="id6">:cite:`Sand2007-ed`</span></a>.</p>
+<p>The majority of input data to the predictor is 23andMe data. In testing the predictor with the 2500G background and a cohort of 23andMe genomes, it became clear that for many phenotypes, the background was forming a separate cluster to the cohort. This led to the realisation that there are 23andMe calls which had the opposite ratio of wild type:mutant than the 2500 genomes. Some further reading revealed this to be a known problem<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id127"><span>123</span></a>]</span>, which may be due to ambiguous flips<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id128"><span>124</span></a>]</span>.</p>
 <p>Implausible distributions of SNPs in the input cohort (given the background) are therefore discarded. i.e if the input cohort doesn’t match the background. (all one way and the rest all the other).</p>
 </div>
 </div>
-<div class="section" id="id7">
-<h3><span class="section-number">4.3.4.2. </span>ALSPAC<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3><span class="section-number">4.3.4.2. </span>ALSPAC<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="creating-vcf-files">
 <h4><span class="section-number">4.3.4.2.1. </span>Creating VCF files<a class="headerlink" href="#creating-vcf-files" title="Permalink to this headline">¶</a></h4>
 <p><strong>Missing values</strong>
@@ -627,14 +628,14 @@ Lifting over VCF files between <span class="xref std std-ref">different-builds</
 <p><strong>Distribution of SNP scores within phenotypes</strong>
 <span class="xref myst">//</span>: # (TODO: Distribution of number SNP scores within phenotypes - violin plot with some examples - for ALSPAC. Known phenotypes included, dotted lines showing max scores for any SNP.)</p>
 </div>
-<div class="section" id="id8">
-<h4><span class="section-number">4.3.4.2.2. </span>Phenotypes<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id5">
+<h4><span class="section-number">4.3.4.2.2. </span>Phenotypes<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
-<div class="section" id="id9">
-<h3><span class="section-number">4.3.4.3. </span>CAGI<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id10">
-<h4><span class="section-number">4.3.4.3.1. </span>Creating VCF files<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id6">
+<h3><span class="section-number">4.3.4.3. </span>CAGI<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h4><span class="section-number">4.3.4.3.1. </span>Creating VCF files<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <p><strong>Missing values</strong>
 <span class="xref myst">//</span>: # (TODO: write - or possibly move to results section)</p>
 <p><strong>Distribution of SNPs per phenotype</strong>
@@ -646,10 +647,10 @@ Lifting over VCF files between <span class="xref std std-ref">different-builds</
 <h4><span class="section-number">4.3.4.3.2. </span>Mapping phenotypes to CAGI measurements<a class="headerlink" href="#mapping-phenotypes-to-cagi-measurements" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
-<div class="section" id="id11">
-<h3><span class="section-number">4.3.4.4. </span>Athletes<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id12">
-<h4><span class="section-number">4.3.4.4.1. </span>Creating VCF files<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id8">
+<h3><span class="section-number">4.3.4.4. </span>Athletes<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h4><span class="section-number">4.3.4.4.1. </span>Creating VCF files<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
 <p><strong>Missing values</strong>
 <span class="xref myst">//</span>: # (TODO: write - or possibly move to results section)</p>
 <p><strong>Distribution of SNPs per phenotype</strong>
@@ -657,8 +658,8 @@ Lifting over VCF files between <span class="xref std std-ref">different-builds</
 <p><strong>Distribution of SNP scores within phenotypes</strong>
 <span class="xref myst">//</span>: # (TODO: Distribution of number SNP scores within phenotypes - violin plot with some examples - for CAGI. Known phenotypes included, dotted lines showing max scores for any SNP.)</p>
 </div>
-<div class="section" id="id13">
-<h4><span class="section-number">4.3.4.4.2. </span>Mapping phenotypes to CAGI measurements<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id10">
+<h4><span class="section-number">4.3.4.4.2. </span>Mapping phenotypes to CAGI measurements<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
 </div>
