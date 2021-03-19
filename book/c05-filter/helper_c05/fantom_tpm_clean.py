@@ -1,6 +1,19 @@
 import pandas as pd
 from myst_nb import glue
 import logging
+import time
+from numba import jit
+import numpy as np
+
+
+def get_dtypes(header):
+    dtypes = {'00Annotation': object}
+    for i, header_item in enumerate(header):
+        if i < 6:
+            dtypes[header_item] = object
+        else:
+            dtypes[header_item] = np.float64
+    return dtypes
 
 
 def get_cage_stats(transcript_tpm):
@@ -20,26 +33,43 @@ def get_cage_stats(transcript_tpm):
     glue("total_gene_id_duplicates", total_gene_id_duplicates, display=False)
 
 
-def read_and_clean_tpm(tpm_file):
-    """
-    Reads orginal FANTOM human CAGE peaks file
-    """
-    # TODO: Use to restrict protein-centric expression as read in file
-    # TODO: Save protein centric expression file
-    # TODO: Rename transcript tpm to CAGE tpm
+def read_tpm(tpm_file, long_ids_to_keep=None, long_ids_to_new_ff=None, dtypes=None):
+    start = time.time()
 
     transcript_tpm = pd.read_csv(
         tpm_file,
-        delimiter='\t', comment='#', dtype={'entrezgene_id': object})
+        delimiter='\t', comment='#', dtype=dtypes,
+        usecols=long_ids_to_keep,
+    )
     transcript_tpm.drop([0], axis='index', inplace=True)
     transcript_tpm.set_index('00Annotation', inplace=True)
+    if long_ids_to_new_ff:
+        transcript_tpm.rename(columns=long_ids_to_new_ff, inplace=True)
 
+    end = time.time()
+    logging.info(f"Read file in {end-start} seconds")
+
+    return transcript_tpm
+
+
+def remove_non_proteins(transcript_tpm):
+    transcript_tpm.dropna(axis=0, subset=['uniprot_id'], inplace=True)
+    return transcript_tpm
+
+
+def read_and_clean_tpm(tpm_file, long_ids_to_keep, long_ids_to_new_ff, dtypes):
+    """
+    Reads orginal FANTOM human CAGE peaks file
+    """
+    # TODO: Save protein centric expression file
+    # TODO: Rename transcript tpm to CAGE tpm?
+
+    transcript_tpm = read_tpm(tpm_file, long_ids_to_keep, long_ids_to_new_ff, dtypes)
     sep_in_col = ' '  # In expression file, multiple values in a column are separated by a space.
-
     n_peaks = transcript_tpm.shape[0]  # Total number of CAGE peaks in FANTOM5 data set
     glue("total_F5_peaks", n_peaks, display=False)
 
-    transcript_tpm.dropna(axis=0, subset=['uniprot_id'], inplace=True)
+    transcript_tpm = remove_non_proteins(transcript_tpm)
     n_peaks_protein = transcript_tpm.shape[0]  # Number of peaks which are protein-coding (as mapped by FANTOM)
     glue("has_protein_F5_peaks", n_peaks_protein, display=False)
 

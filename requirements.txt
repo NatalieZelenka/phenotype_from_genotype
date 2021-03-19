@@ -3,8 +3,8 @@ jupytext
 uberon_py
 numba
 numpy
-pandas
+pandas >= 1.2.1
 plotly
 psutil
-reportlab
 biopython
+pytest

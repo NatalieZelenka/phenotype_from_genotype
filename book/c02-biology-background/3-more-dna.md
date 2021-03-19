@@ -67,6 +67,13 @@ Other nearby stretches of DNA are also of interest in relation to genes: enhance
 These are stretches of DNA that control the regulation of gene's transcription.
 Mutations in these stretches of DNA are often understood in relation to the genes that they regulate.
 
+```{margin} Pseudogenes
+:name: psuedogenes
+Pseduogenes are segments of DNA that look like genes (have high homology to known genes), but are missing some functionality such that they do not encode proteins. Some pseudogenes are cannot be transcribed (e.g. due to missing regulatory regions), and some are transcribed, but not translated (e.g. due to a premature stop codon). 
+Although they were originally characterised as non-functional, they have been found to have biological roles, for example through being transcribed into functional RNAs{cite}`Cheetham2020-jc`.
+
+```
+
 (other-variation)=
 ## Indels and Copy Number Variations
 Smaller lengths of DNA are mostly of interest because there are differences at those locations between individuals. 

@@ -49,6 +49,7 @@ parse:
 execute:
   execute_notebooks: 'cache'
   allow_errors: true
+  timeout: -1
 
 
 only_build_toc_files: true

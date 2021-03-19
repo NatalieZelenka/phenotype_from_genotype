@@ -3,6 +3,7 @@ from myst_nb import glue
 import numpy as np
 import logging
 import re
+import time
 
 
 def clean_donor(desc_str):
@@ -157,9 +158,30 @@ def get_sample_type(cat_str, desc_str):
     return sample_type
 
 
+def col_name_to_tech_rep(long_id):
+    fantom_sample_accession = 'FF:' + long_id.split('.')[3]
+
+    if 'tech_rep' in long_id:
+        number = long_id.split('tech_rep')[-1][0]  # first character after 'tech_rep' (e.g. "1" or "2")
+        fantom_sample_accession = fantom_sample_accession + '_tech_rep' + number
+    elif ('rep2' in long_id) and ('11227-116C3' in fantom_sample_accession):
+        logging.info(f"{fantom_sample_accession} has typo in long header name. Manually fixing in rep_info.")
+        fantom_sample_accession = fantom_sample_accession + '_tech_rep2'
+        number = 2
+    else:
+        number = None
+
+    return fantom_sample_accession, number
+
+
+def calc_has_tech_rep(long_id, ff):
+    has_tech_rep = ('tech_rep' in long_id) or (('rep2' in long_id) and ('11227-116C3' in ff))
+    return has_tech_rep
+
+
 def get_tech_bio_reps(header, samples_info):
     """
-    Extract information about which samples are technical and biological reps from TPM header
+    Extract information about which samples are technical and biological reps from TPM header.
     """
     category = 'Characteristics [Category]'
     wrong_accession = '11227-116C3'
@@ -169,17 +191,11 @@ def get_tech_bio_reps(header, samples_info):
     bio_rep_counter = 0
     for col_name in header[6:]:
         fantom_sample_accession = 'FF:' + col_name.split('.')[3]
-
-        # In FANTOM5 data, FF accessions are per sample (i.e. different FFs for bio reps, same FFs for tech reps)
-        if 'tech_rep' in col_name:
-            number = col_name.split('tech_rep')[-1][0]  # first character after 'tech_rep' (e.g. "1" or "2")
-            fantom_sample_accession = fantom_sample_accession + '_tech_rep' + number
-            if number == '1':  # new sample with a tech rep
+        has_tech_rep = calc_has_tech_rep(col_name, fantom_sample_accession)
+        if has_tech_rep:
+            fantom_sample_accession, number = col_name_to_tech_rep(col_name)
+            if number == '1':
                 tech_rep_counter += 1
-            tech_rep_id = 'FANTOM-T' + str(tech_rep_counter).zfill(3)
-        elif ('rep2' in col_name) and ('11227-116C3' in fantom_sample_accession):
-            logging.info(f"{fantom_sample_accession} has typo in long header name. Manually fixing in rep_info.")
-            fantom_sample_accession = fantom_sample_accession + '_tech_rep2'
             tech_rep_id = 'FANTOM-T' + str(tech_rep_counter).zfill(3)
         else:
             tech_rep_id = None
@@ -212,16 +228,23 @@ def update_sample_info_labels(samples_info, rep_info):
     Fantom accessions (e.g. FF:12225-129F2) are unique per physical sample, not per CAGE peak measurement.
     Technical replicates have the same Fantom accession. This is a problem because I often use them for mapping.
     This changes the sameples_info dataframe to use identifiers FF:12225-129F2_tech_rep1 and FF:12225-129F2_tech_rep2, to make it easier to map.
+    And also returns a mapping (dict) between these.
     """
+
     tech_reps = rep_info.dropna(axis=0, subset=['Tech Rep ID'], how='all')['Tech Rep ID']
     nrow_a = samples_info.shape[0]
 
+    # works by copying rows for the samples with tech reps (new ids), then removing old sample id rows:
     to_drop = set([])
-    for new_FF_accession in tech_reps.index:
-        old_FF_accession = new_FF_accession.split('_')[0]
-        if old_FF_accession in samples_info.index:
-            samples_info.loc[new_FF_accession] = samples_info.loc[old_FF_accession].copy()
-            to_drop.add(old_FF_accession)
+    for new_ff in tech_reps.index:
+        ff = new_ff.split('_')[0]
+
+        assert(len(new_ff.split('_')) > 1)
+
+        if ff in samples_info.index:
+            samples_info.loc[new_ff] = samples_info.loc[ff].copy()
+            to_drop.add(ff)
+
     nrow_b = samples_info.shape[0]
     samples_info.drop(index=list(to_drop), inplace=True)
     nrow_c = samples_info.shape[0]
@@ -331,3 +354,51 @@ def restrict_samples(samples_info):
     samples_info = samples_info[samples_info['Characteristics [Category]'].isin(['tissues', 'primary cells'])]
     glue("fantom-primary-tissue-samples", samples_info.shape[0], display=False)
     return samples_info
+
+
+def long_ids_to_restricted_samples(samples_info, header):
+    """
+    Takes already restricted list of samples... Returns:
+    - list of kept header IDs (long IDs) to read in from the expression file.
+    - dictionary mapping from long header IDs to augmented Fantom accession IDs, e.g. "FF:10063-101H9_tech_rep1"
+    """
+    index_label = '00Annotation'  # not in header
+    long_ids_to_new_ff = {index_label: index_label}
+    long_ids_to_keep = [index_label]
+
+    first_sample_index = 6
+    for i, long_id in enumerate(header):
+        if i < first_sample_index:  # not sample IDs, other column names (eg. "short_description", "uniprotgene_id")
+            long_ids_to_new_ff[long_id] = long_id
+            long_ids_to_keep.append(long_id)
+        else:  # long sample ids e..g. "tpm.293SLAM%20rinderpest%20infection%2c%2012hr%2c%20biol_rep1.CNhs14413.13547-145I1.hg38.nobarcode"
+
+            ff = 'FF:' + long_id.split('.')[3]  # original FF accession number, e.g. FF:10063-101H9
+
+            has_tech_rep = calc_has_tech_rep(long_id, ff)
+            if has_tech_rep:
+                ff, _ = col_name_to_tech_rep(long_id)
+
+            if ff in samples_info.index:
+                long_ids_to_keep.append(long_id)
+                long_ids_to_new_ff[long_id] = ff
+
+    try:
+        assert(len(long_ids_to_keep) == len(long_ids_to_new_ff))
+    except AssertionError:
+        logging.error(f"Error in calcuating `long_ids_to_keep` {len(long_ids_to_keep)} "
+                      f"and `long_ids_to_new_ff` {len(long_ids_to_new_ff)}")
+    try:
+        assert(len(long_ids_to_new_ff) < len(header))
+    except AssertionError:
+        logging.error(f"Error in calculating `long_ids_to_new_ff` {len(long_ids_to_new_ff)} "
+                      f"longer than `header` {len(header)}")
+
+    try:
+        # Samples info should be shorter due to lack of extra col info
+        assert(samples_info.shape[0] + first_sample_index + 1 == len(long_ids_to_keep))
+    except AssertionError:
+        logging.error(f"Error in calculating `long_ids_to_keep` {len(long_ids_to_keep)} "
+                      f"wrong size compared to `samples_info` {len(samples_info)}")
+
+    return long_ids_to_keep, long_ids_to_new_ff

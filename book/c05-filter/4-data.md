@@ -17,8 +17,8 @@ kernelspec:
 There are several types of input data that are needed to run `filip`. These include:
 - {ref}`Expression Data<fantom5-expression-data>` (and related sample metadata)
 - {ref}`Cell, tissue, and phenotype mapping data<cell-tissue-phen-map-data>`
-- {ref}`Training data<cafa2-training-set>` (ground-truth data for use in developing `filip`)
-- {ref}`Test data<cafa3-test-set>` (ground-truth data for testing `filip`)
+- {ref}`Training data<cafa2-training-set>` (benchmarking data for use in developing `filip`)
+- {ref}`Test data<cafa3-test-set>` (benchmarking data for testing `filip`)
 
 In addition to this, `filip` requires the input of a protein function or phenotype prediction method, but this (and the data required for this) is described in {ref}`filter-methods`.
 
@@ -31,7 +31,7 @@ In addition to this, `filip` requires the input of a protein function or phenoty
 The `filip` method requires expression data to inform whether or not predictions should be filtered out.
 The FANTOM5 data set was chosen for this purpose.
 FANTOM5 represents one of the most comprehensive collections of expression data in terms of tissue and cell type. 
-It consists of transcript expression data, captured using the {ref}`CAGE technique<cage-method>`. 
+It consists of expression data, captured using the {ref}`CAGE technique<cage-method>`. 
 FANTOM5 collected a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations.
 At the time of developing it was the latest data output of the {ref}`FANTOM consortium<fantom-consortium>`.
 
@@ -47,15 +47,14 @@ My reasoning for choosing FANTOM5 data as the input gene expression data to test
 - The data set has an ontology of samples, which is already linked to Uberon tissue terms and CL cell terms, making the mapping process much easier.
 
 I chose the version of the FANTOM5 data that:
-- had been reprocessed using the hg38 reference genome (the original FANTOM5 data was processed using hg19).
-- contained annotated information about the samples, as this information could be used to aid in mapping
-- available in TPM format
-
-[//]: # (TODO: Aside about TPM/link to before)
+- had been reprocessed using the hg38 reference genome (the original FANTOM5 data was processed using hg19){cite}`Abugessaisa2017-fc`.
+- contained annotated information about the samples, as this information could be used to aid in mapping.
+- available in {ref}`TPM<rna-normalisation>` format.
 
 ### Data files and acquisition
 [//]: # (TODO: Signpost that I don't use the FANTOM OBO yet)
-[//]: # (TODO: Check that counts are per transcript)
+[//]: # (TODO: double-check that I don't say anything about transcript expression)
+[//]: # (TODO: Check how I format human sample information file, maybe italicise it and make sure that the capitalisation lines up)
 
 ```{margin} FANTOM5 Accession numbers
 :name: fantom-accession
@@ -64,7 +63,7 @@ Note: some samples have repeat measurements per sample.
 ```
 
 I downloaded the following files from the FANTOM website:
-- the [FANTOM5 CAGE peaks expression data](http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz) containing expression in counts per transcript, and mappings to HGNC id and entrez gene ID. The long sample labels in this file are also a source of metadata (including {ref}`sample identifiers (FANTOM accession numbers)<fantom-accession>`).
+- the [FANTOM5 CAGE peaks expression data](http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz) containing expression in counts per CAGE peak, and mappings to transcript id (ensembl ENST id), HGNC id and entrez gene ID. The long sample labels in this file are also a source of metadata (including {ref}`sample identifiers (FANTOM accession numbers)<fantom-accession>`).
 - FANTOM's [human sample information file](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/basic/HumanSamples2.0.sdrf.xlsx) containing text descriptions about sample, for example FANTOM accession numbers, tissue, age, sex, disease, etc, which is necessary for data cleaning.
 - the [FANTOM5 ontology](https://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt) containing an obo file mapping between FANTOM accession numbers, Uberon and cell ontology (CL) terms.
 
@@ -85,7 +84,6 @@ from myst_nb import glue
 :tags: [hide-input, remove-output]
 
 import helper_c05.fantom_sample_clean as fsc
-# TODO: Add cell metadata to prevent output + make code dropdown
 
 # read in CAGE header and samples info files:
 expression_header = fsc.read_CAGE_header()
@@ -103,7 +101,6 @@ samples_info = fsc.clean_samples_info(samples_info, rep_info)
 (fantom-sample-categories)=
 #### Sample categories
 [//]: # (TODO: Add HeLa image)
-
 
 ```{margin} HeLa cell line
 The FANTOM5 experiment contains HeLa cell lines samples (e.g. sample `FF:10815-111B5`).
@@ -133,16 +130,11 @@ Immortal cell lines are often expressed differently than their primary counterpa
 
 __Sample Type__:
 
-As mentioned tissues can come from a pool, or individual donor. 
+As mentioned, tissues can come from a pool, or individual donor. 
 This information can be found in the `Charateristics [description]` field.
 I combined this information with information from the `Characteristics [Category]` field to create an additional `Sample Type` field that describes whether a sample is a `tissue - pool`, `tissue - donor` or `primary cells` sample.
 
 #### Technical and biological replicates
-[//]: # (TODO: Rewrite)
-[//]: # (TODO: Add glues of how many are left in/explanations of why)
-[//]: # (TODO: Aside for difference between biological and technilogical replicates)
-
-[//]: # (TODO: Check technical/bio replicates info)
 
 ```{margin} Technical and biological replicates
 :name: tech-biol-replicates
@@ -157,12 +149,11 @@ FANTOM technical and biological replicates are indicated in long labels of the a
 These were used to create additional fields for the human samples table.
 
 Note: there is an error in the original transcript expression file for one of these identifiers (`tpm.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode`) such that it is missing the “tech” part of the the replicate label. 
-There is a hard-coded fix when I read in the input file and the FANTOM data curation team was informed.
+There is a hard-coded fix for this accession when I read in the input file and the FANTOM data curation team was informed.
 
-After restricting the dataset to *primary cell* and *tissue* type samples, there are {glue:}`num_bio_rep_samples` remaining samples which have biological replicates, and {glue:}`num_tech_rep_samples` sets of samples with technological replicates (2 replicates each).
+After restricting the dataset to *primary cell* and *tissue* type samples, there are {glue:}`num_bio_rep_samples` remaining samples which have biological replicates (between 2 and 3 replicates each), and {glue:}`num_tech_rep_samples` sets of samples with technological replicates (2 replicates each).
 
 #### Age and age range
-[//]: # (TODO: Check how I format human sample information file, maybe italicise it and make sure that the capitalisation lines up)
 
 The age of the sample source donor(s) is available through two fields in the human sample information file: `Characteristics [Developmental stage]`, and `Characteristics [Age]`.
 These fields contain description-like text, which are somewhat inconsistent, for example, “3 year old child”, “3 years old child”, “25 year old”, “76” and “76 years old adult” all feature in the same column, amongst other errors. 
@@ -189,47 +180,40 @@ The continued data processing of these components is described in {ref}`the meth
 
 [//]: # (TODO: Add link to FANTOM exp download)
 
-
 ```{admonition} FANTOM5 cleaned experimental design file
 :name: cleaned-fantom-exp
 The cleaned FANTOM5 experimental design file (which has undergone the cleaning mentioned in this section, and in {ref}`the methodology section<filter-methods>`) is available [here](link). 
 ```
 
-```{code-cell} ipython3
-:tags: [hide-input]
-# TODO: Create list of allowed primary + tissue samples (in sample_header)
-```
+### Initial FANTOM5 data cleaning: expression file
 
 ```{code-cell} ipython3
-:tags: [hide-input]
+:tags: [hide-input, remove-output]
 from helper_c05 import fantom_tpm_clean as tpm_clean
 
-#tpm_file = '../c06-combining/data/experiments/fantom/hg38_fair+new_CAGE_peaks_phase1and2_tpm_ann.osc.txt'
-#cage_tpm = tpm_clean.read_and_clean_tpm(tpm_file)
-#cage_tpm
+# Create list of allowed primary + tissue samples to prevent reading in whole tpm file:
+long_ids_to_keep, long_ids_to_new_ff = fsc.long_ids_to_restricted_samples(samples_info, expression_header)
+dtypes = tpm_clean.get_dtypes(expression_header)
+tpm_file = '../c06-combining/data/experiments/fantom/hg38_fair+new_CAGE_peaks_phase1and2_tpm_ann.osc.txt'
+cage_tpm = tpm_clean.read_and_clean_tpm(tpm_file, long_ids_to_keep, long_ids_to_new_ff, dtypes)
+protein_tpm = tpm_clean.get_protein_tpm(cage_tpm)
 ```
+[//]: # (TODO: spell out why we want protein-centric expression)
 
-```{code-cell} ipython3
-:tags: [hide-input]
-#protein_tpm = tpm_clean.get_protein_tpm(cage_tpm)
-#protein_tpm
-```
-
-### Initial FANTOM5 data cleaning: expression file
-[//]: # (TODO: Choose output of these code cells: make some invisible, show some data snippets)
-[//]: # (TODO: mention the file we're talking about and restriction to existing samples)
-[//]: # (TODO: Structure section... first explain that/why want protein-centric expression... etc)
+The tidied and restricted sample data, is combined with the FANTOM5 CAGE peaks expression data file and processed to create a protein-centric expression file.
+The CAGE peaks have already been cleaned by FANTOM (labeled as "fair") meaning that CAGE peaks do not overlap.
 
 #### CAGE peaks with associated proteins
 [//]: # (TODO: Check what type of uniprot ID these are)
-The CAGE peaks represent all kinds of transcripts, not only those which map to protein-coding genes. 
+The CAGE peaks represent all kinds of mRNA transcripts, not only those which map to protein-coding gene, for example "RNA genes" representing pseduogenes or long non-coding RNAs.
 The FANTOM file provides mappings to Uniprot IDs (`uniprot_id`), and these are used to discard the CAGE peaks that do not map to protein-coding genes: this takes us from {glue:}`total_F5_peaks` to  {glue:}`has_protein_F5_peaks` rows (CAGE peaks).
 
 #### CAGE peaks mapped to one gene only
 [//]: # (TODO: Do I want to do this? What about overlapping genes?)
 [//]: # (TODO: cross-ref discrepencies between gene ID databases)
+[//]: # (TODO: Plotly Gannt for CAGE peaks overlapping with multiple transcripts/genes)
 CAGE peaks are mapped to genes based on overlap with the gene, so it is not always clear which gene a CAGE peak maps to.
-For simplicity, and to remove the potential of wrongly mapped genes being used in `filip`, protein-coding CAGE peaks (those which are mapped to at least one `uniprot_id` by FANTOM) that map to multiple genes are removed.
+For simplicity, and to remove the potential of wrongly mapped genes being used in `filip`, protein-coding CAGE peaks (those which are mapped to at least one `uniprot_id` by FANTOM) but that map to multiple genes are removed.
 These can be found by looking at either the `hgnc_id` or `entrezgene_id` gene identifier columns.
 The choice of gene ID matters, since there are discrepancies between gene ID databases: in this case, choosing `hgnc_id` finds all those CAGE peaks found by using `entrezgene_id`, and more, so these are removed.
 This represents a total of {glue:}`total_gene_id_duplicates` CAGE peaks that map to multiple genes according to the given identifiers.
@@ -241,7 +225,9 @@ This gave {glue:}`protein_expression_total` rows of "protein expression" data.
 Of these, there were then {glue:}`rows_left_multiple_genes` rows of data (corresponding to {glue:}`proteins_multiple_genes` proteins) for which each protein maps to multiple genes.
 This happens when different genes are translated to make identical protein products, for example the [H4 human histone protein](https://www.uniprot.org/uniprot/P62805) is encoded by 14 different genes at different loci, across three different chromosomes.
 It used to be the case that Uniprot would map these genes to the same Uniprot ID, but more recently different Uniprot IDs are used to capture where the proteins came from.
-These rows were also removed.
+These small number of rows were also removed for simplicity.
+
+<!--It would probably make sense to keep these multiple gene proteins and sum over them because they are expressed lots around the geneome, so it would make sense to continue to count them. The small number and the fact that they are widely expressed means it isn't likely to be important though-->
 
 ### Exploratory Data Analysis
 
@@ -267,7 +253,6 @@ name: fantom-eda
 (b) collaborators and providers: a stacked histogram showing the {glue:}`num_collaborators` most common collaborators, and {glue:}`num_providers` most common providers. 
 (c) age: a histogram of age of sample donors (this does not include the {glue:}`age_ranged` samples which have age ranges due to pooled donors of various ages). 
 (d) tissues and sample types: a histogram showing the {glue:}`num_common_tissues` most common tissues, spread across the different types of samples (primary cells, tissue donors, and tissue pools).
-
 ```
 
 <!-- ../images/blank.png This is a workaround to put a 1x1px blank image after an interactive image so that it appears to have a figure label -->
@@ -287,6 +272,7 @@ There is also the question of how general or specific the human sample categorie
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 anatomical_system_samples = f_eda.anat_system_tbl(samples_info, chosen_samples = [2, 10, 15, 20])
 ```
 
@@ -310,13 +296,22 @@ We can also see in {numref}`anatomical-system-table` that this data set, though 
 
 ```{code-cell} ipython3
 :tags: [hide-input]
-#display(transcript_tpm[transcript_tpm['uniprot_id'].str.contains('B2R4R0', na=False)])
+from helper_c05 import fantom_tpm_eda as fte
+fig = fte.create_distribution_plot(samples_info, protein_tpm)
+fig.show('notebook')
 ```
 
-```{code-cell} ipython3
-:tags: [hide-input]
-# TODO: Plotly Gannt for CAGE peaks overlapping with multiple transcripts/genes (check association with transcript to check whether it's multiple transcripts or just muktiple genes with same TSS)
+```{figure} ../images/blank.png
+---
+name: fantom-protein-distribution
+---
+(a) box-plots showing the distribution of mean (TPM+1) values (note: logarithmic x axis) for the top {glue:}`num-tissues-fpd` most common tissue and primary cell samples in the FANTOM5 human data.
+(b) density-plots showing the distribution of mean (TPM+1) values for the top {glue:}`num-tissues-fpd` most common tissue and primary cell samples in the FANTOM5 human data on log-log axes.
 ```
+
+<!-- ../images/blank.png This is a workaround to put a 1x1px blank image after an interactive image so that it appears to have a figure label -->
+
+As expected, {numref}`fantom-protein-distribution` shows similar distributions of expression per tissue since the data is TPM normalised ({ref}`since TPM normalises samples by sample library size to account for sequencing depth <rna-normalisation>`), with the characteristic long tail.
 
 (cell-tissue-phen-map-data)=
 ## Cell, tissue, and phenotype mapping data
@@ -328,42 +323,64 @@ I also used the following datasets to aid in mapping to a common set of identifi
 [//]: # (TODO: Describe mapping data here, e.g. biomart/uniprot)
 
 (cafa2-training-set)=
-## "Training"" set: CAFA2
-
-[//]: # (TODO: describe not literally a ML training set)
-
-### What?
-During development, I tested `filip` by comparing DcGO only and `filip` + DcGO on data from the 2nd round of the CAFA competition: CAFA2. 
-This was the most recent round of CAFA for which there were "groundtruth" data available at the time of development.
-The data consisted of CAFA2 targets and the CAFA2 ground truth data.
-
-**CAFA2 targets**: 
-
-[//]: # (TODO: describe data format)
-[//]: # (TODO: check it's the right build hg38)
-
-**CAFA2 groundtruth**: 
-
-[//]: # (TODO: describe data format)
-
-### Why?
+## "Training" set: CAFA2
 [//]: # (TODO: Cite swissprot KB and GOA)
 
+During development, I tested `filip` by comparing DcGO only and `filip` + DcGO on data from the 2nd round of the CAFA competition: CAFA2. 
 I chose to use the CAFA2 data because rather than a larger set of annotations (such as those available from SwissProt-KB or GOA) because it provided a way of validating on unknown targets.
 I.e. if I made predictions with DcgO using the version of GO from the time the challenge was launched, and I use the groundtruth data provided by CAFA2, then I could compare my results with those in the CAFA2 competition and I could look at my results on unknown targets.
+Although `filip` was not literally "trained" on this data in a machine-learning sense (`filip` doesn't have any formalised parameters), I had access to the "groundtruth" data as I was developing CAFA2.
 
-### How?
-[//]: # (TODO: describe data acquisition)
+This was the most recent round of CAFA for which there were "groundtruth" data available at the time of development.
+
+### Data files and acquisition
+
+The data consisted of:
+- {ref}`CAFA2 targets<cafa2-targets>`: a list of proteins which the CAFA2 competition was soliciting predictions for.
+- {ref}`CAFA2 ground truth data<cafa-benchmark>`: experimentally validated associations between proteins and GO terms, divided by category.
+
+Both of which could be found within the CAFA2 paper{cite}`Jiang2016-rz`'s [Supplementary Material](https://figshare.com/articles/dataset/Supplementary_Data_for_CAFA2/2059944).
+
+(cafa2-targets)=
+**CAFA2 targets**: 
+CAFA2 provided targets from species across the tree of life: bacteria (10 species), archaea (7 species), and eukaryotes (10 species).
+Since tissue-specific gene expression data (which `filip` requires) is not available (nor relevant) for all species, I only used the human targets (in `data/CAFA2-targets/eukarya/sp_species.9606.tfa`). 
+
+[//]: # (TODO: Move explain FASTA at/before PQI, due to X content)
+
+```{margin} FASTA format
+:name: fasta
+FASTA is a text-based file format for proteins, where each letter represents an amino acid (except X, which represents any amino acid).
+```
+
+[//]: # (TODO: head the first lines of the file instead of copy/paste)
+The `sp_species.9606.tfa` file is a {ref}`FASTA<fasta>` file containing information about `20257` proteins, each with a CAFA2 identifier (e.g. `T96060000001`), Uniprot Entry Name (the mnemonic identifier for the protein, e.g. [`1433B_HUMAN`](https://www.uniprot.org/uniprot/P31946)), and the amino acid sequence, as in the following excerpt:
+
+```
+>T96060000001 1433B_HUMAN
+MTMDKSELVQKAKLAEQAERYDDMAAAMKAVTEQGHELSNEERNLLSVAYKNVVGARRSS
+WRVISSIEQKTERNEKKQQMGKEYREKIEAELQDICNDVLELLDKYLIPNATQPESKVFY
+LKMKGDYFRYLSEVASGDNKQTTVSNSQQAYQEAFEISKKEMQPTHPIRLGLALNFSVFY
+YEILNSPEKACSLAKTAFDEAIAELDTLNEESYKDSTLIMQLLRDNLTLWTSENQGDEGD
+AGEGEN
+```
+
+[//]: # (NOTE: doesn't matter if it's the right build hg38 - not relevant - we only use the mnemonic id)
+
+(cafa-benchmark)=
+**CAFA2 benchmark**: 
+The CAGA2 benchmark data was available in the `/data/benchmark` directory of the CAFA2 Supplementary Data. 
+It includes:
+- **Lists** of different types of targets for which there is groundtruth data (in `/data/benchmark/lists`): each line of these files is a CAFA2 protein identifier (e.g. `T96060015767`). The lists are separated into different files according to species, source phenotype ontology (e.g. `HP`, `GO`), and protein {ref}`type<no-limited-knowledge>` (type1 = No Knowledge, type2 = Limited Knowledge). There are `7` files for human.
+- **Groundtruth** associations (in `/data/benchmark/groundtruth`): tab-separated CAFA protein identifiers and phenotype ontology terms, e.g. `T96060000002    HP:0000348`), organised into `8` separate files by source phenotype ontology, and whether the proteins are experimentally annotated to the exact term, or whether an association can be inferred due to a {ref}`ontology relationship<ont-relationships>`. 
 
 +++
 
 (cafa3-test-set)=
 ## Test set: CAFA3 
-After initial development, I entered DcGO only, and `filip` plus DcGO into the CAFA3 competition in order to test `filip` on a new dataset.
+After initial development, I entered DcGO only, and `filip` plus DcGO into the CAFA3 competition in order to test `filip` on an unseen dataset.
 
-This meant that I did not download the CAFA3 ground-truth, as this analysis was done by the CAFA3 team, but only the CAFA3 targets.
+This meant that I did not download the CAFA3 ground-truth, as this analysis was done by the CAFA3 team, but only the [CAFA3 targets](https://www.biofunctionprediction.org/cafa-targets/CAFA3_targets.tgz), these continue to be available through the CAFA website.
 
-**CAFA3 targets**: 
-
-[//]: # (TODO: describe data format)
-
+Again, I used only the human targets (file `target.9606.fasta`). 
+This is again a FASTA file, with the same format as for CAFA2, this time containing `20197` targets proteins.

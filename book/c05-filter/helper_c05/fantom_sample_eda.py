@@ -2,6 +2,7 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import textwrap
 from myst_nb import glue
+import logging
 import pandas as pd
 
 
@@ -127,7 +128,10 @@ def create_plotly_plots(samples_info, sex_donut, tissues_samples, nan_age_count,
     fig.update_layout(barmode="stack", showlegend=False, template='seaborn', width=800)
     fig_name = 'fantom_eda'
     fig.write_html(f"../images/{fig_name}.html")
-    fig.write_image(f"../images/{fig_name}.png")
+    try:
+        fig.write_image(f"../images/{fig_name}.png")
+    except ValueError:
+        logging.warning(f"Could not save {fig_name}.png")
     return fig
 
 

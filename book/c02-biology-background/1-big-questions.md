@@ -1,6 +1,7 @@
 (big.questions)=
 # Big questions: What is genetically determined, and how?
 
+
 As humans, we are curious and want to understand ourselves. 
 We want to know the answers to questions like: "Why are people the way we are?", "Which aspects of ourselves have we inherited?", and "What is fixed and what can be changed by the way we live our lives?"
  
@@ -15,6 +16,22 @@ By understanding how our bodies work, researchers seek to develop new, more effe
 Humanity has been trying to answer the big questions long before we discovered DNA. 
 The ancient theory of soft inheritance{cite}`Zirkle1935-sb` said that people can pass on traits they gained during their lives, while 16th-century alchemists theorised that sperm contains tiny fully formed humans{cite}`Grafton_undated-af` (i.e. women didn't pass down anything). 
 
+```{margin} Charles Darwin and racism
+:name: darwin-racism
+Darwin used his theory of natural selection to argue that women and non-white races were inferior to white men{cite}`Rose2009-jd`. The full title of *On the Origin of Species* was *On the Origin of Species by Means of Natural Selection, or the Preservation of Favoured Races in the Struggle for Life*.
+```
+
+(darwin)=
+In 1859, {ref}`Charles Darwin<darwin-racism>` published his book *On the Origin of Species*{cite}`Darwin1913-ym`, explaining his theory of natural selection: organisms compete for resources and not all can survive to reproduce, some organisms will have traits that increase their chances of this, and those that do pass on their traits to the next generation.
+The theory predicts and explains the gradual change of heritable characteristics over time: evolution.
+Darwin presented {ref}`homologous<homology>` anatomical structures, like the similarity between a bat's wing and a human hand, as evidence for evolution and shared ancestry.
+
+```{margin} Homology
+:name: homology
+Homology is similarity due to a shared evolutionary ancestry. 
+This similarity can be between anatomy, or biological molecules (like DNA and proteins).
+```
+
 ```{figure} ../images/mendel.png
 ---
 height: 220px
@@ -25,7 +42,7 @@ When self-pollinated, these first generation plants created plants with purple a
 ```
 
 (mendel)=
-Gregor Mendel's famous pea experiments{cite}`Mendel1996-gi` provided the earliest scientific basis for genetics through his experiments with independently inherited traits of peas (e.g. purple or white flowers, tall or shot plants, wrinkled or round seeds...). 
+Inspired by Darwin{cite}`Fairbanks2020-jk`, his contemporary Gregor Mendel's famous pea experiments{cite}`Mendel1996-gi` provided the earliest scientific basis for genetics through his experiments with independently inherited traits of peas (e.g. purple or white flowers, tall or shot plants, wrinkled or round seeds...). 
 Importantly, he discovered rules of inheritance that indicated that offspring have combinations of discrete genetic material (rather than a blend), i.e. we don't see pink flowers when we cross purple and white flowered peas.
 He also showed that single traits (e.g. purple flowers) can actually be caused by different underlying genetics (see {numref}`mendel-pea`.
 
