@@ -511,7 +511,7 @@ These are usually very common words (e.g. “and”, ”the”), or word which a
 <p>The extended Uberon ontology is first interrogated for any existing relation to the term in the ontology using <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code>.</p>
 <p>Failing this, text-mining is used to assist in mapping based on phenotype term names:</p>
 <ul class="simple">
-<li><p>First <a class="reference internal" href="#stop-words"><span class="std std-ref">stop words</span></a> are removed, using the base list in the Natural Language Toolkit (<code class="docutils literal notranslate"><span class="pre">nltk</span></code>) Python Package<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id189"><span>147</span></a>]</span>, and a small number of manually curated phenotypic stopwords (e.g. “phenotype”, “abnormality”).</p></li>
+<li><p>First <a class="reference internal" href="#stop-words"><span class="std std-ref">stop words</span></a> are removed, using the base list in the Natural Language Toolkit (<code class="docutils literal notranslate"><span class="pre">nltk</span></code>) Python Package<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id189"><span>152</span></a>]</span>, and a small number of manually curated phenotypic stopwords (e.g. “phenotype”, “abnormality”).</p></li>
 <li><p>Then, an exact match between an UBERON term’s name or synonyms and phenotype term’s name is searched for.</p></li>
 <li><p>If such a match does not exist, individual words from the phenotype term name or synonyms are then searched for exactly, such that the HP term “abnormality of the head and neck” would be mapped to UBERON’s “head” and “neck” terms (but never “neck of radius”).</p></li>
 <li><p>In cases where multiple terms are found, a common parent would be searched for, in the case of this example, “craniocervical region”.</p></li>
@@ -547,11 +547,11 @@ Precision (the proportion of selected items that are relevant), and recall (the 
 <h3><span class="section-number">5.4.2.3. </span>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h3>
 <p>To create the input to DcGO, I used:</p>
 <ul class="simple">
-<li><p>BioPython<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id190"><span>148</span></a>]</span>’s <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO</span></code> interface for reading CAFA FASTA files.</p></li>
-<li><p>SUPERFAMILY<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id47"><span>69</span></a>]</span> <a class="reference external" href="https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/cgi-bin/save.cgi?var=ht%3Btype=ass">domain assignments for Homo Sapiens</a>.</p></li>
-<li><p>UniprotKB<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id191"><span>149</span></a>]</span>’s <a class="reference external" href="https://www.uniprot.org/uploadlists/">mapping tool</a> to create a mapping between the UniprotKB id’s provided by CAFA and the ENSP ID’s used by SUPERFAMILY.</p></li>
+<li><p>BioPython<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id190"><span>153</span></a>]</span>’s <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO</span></code> interface for reading CAFA FASTA files.</p></li>
+<li><p>SUPERFAMILY<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id47"><span>73</span></a>]</span> <a class="reference external" href="https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/cgi-bin/save.cgi?var=ht%3Btype=ass">domain assignments for Homo Sapiens</a>.</p></li>
+<li><p>UniprotKB<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id191"><span>154</span></a>]</span>’s <a class="reference external" href="https://www.uniprot.org/uploadlists/">mapping tool</a> to create a mapping between the UniprotKB id’s provided by CAFA and the ENSP ID’s used by SUPERFAMILY.</p></li>
 </ul>
-<p>Then, to create the DcGO only entry, I used the <code class="docutils literal notranslate"><span class="pre">DcGOR</span></code> library<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id192"><span>150</span></a>]</span> (the <code class="docutils literal notranslate"><span class="pre">dcAlgoPredictMain</span></code> function).</p>
+<p>Then, to create the DcGO only entry, I used the <code class="docutils literal notranslate"><span class="pre">DcGOR</span></code> library<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id192"><span>155</span></a>]</span> (the <code class="docutils literal notranslate"><span class="pre">dcAlgoPredictMain</span></code> function).</p>
 </div>
 </div>
 </div>

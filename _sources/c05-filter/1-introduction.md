@@ -44,6 +44,7 @@ Participants can use any additional data they see fit to make predictions, which
 A score of 1 indicates a completely confident prediction, while a score of 0 is equivalent to not returning the prediction. 
 Each team may submit up to three models, the best of which is ranked.
 
+(no-limited-knowledge)=
 The target sequences consist of a mixture of "no-knowledge" and "limited-knowledge" sequences. 
 No-knowledge sequences are sequences which upon release have zero experimentally-validated GO annotations to any of GO's three constituent ontologies (biological process, cellular component, and molecular function).
 Limited-knowledge sequences are sequences with one or more annotations in one or two GO ontologies, but not all three.

@@ -227,11 +227,6 @@ These structures are used for {ref}`protein classification<protein-classificatio
 [//]: # (TODO: Cite low sequence similarity, high homology: https://www.mrc-lmb.cam.ac.uk/rlw/text/bioinfo_tuto/structure.html)
 [//]: # (TODO: Mention PFAM?)
 
-```{margin} Homology
-:name: homology
-Homology is similarity based on a shared evolutionary ancestor.
-```
-
 As {ref}`previously mentioned<protein-classification>`, proteins are classified by structural similarities. 
 This information is often used because researchers identify a gene or protein of interest, but information about it's function or sequence (in Uniprot) or structure (PDB) has not yet been captured and stored.
 In such cases, it's often necessary to make inferences about protein structure or function based on their similarity to known proteins.

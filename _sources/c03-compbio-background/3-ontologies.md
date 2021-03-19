@@ -124,6 +124,7 @@ Other ontologies which are used in this thesis include:
 - Human Phenotype Ontology{cite}`Kohler2021-oy` (`HP`) describes "human phenotypic abnormalities encountered in human disease". Example relationship: Motor Seizure `is_a` Seizure `is_a` Abnormal Motor System Physiology.
 - The Experimental Factor Ontology{cite}`Malone2010-es` (`EFO`) describes experimental setups common to the EBI databases. It is well-integrated with CL, Uberon, and ChEBI (chemical compound ontology). Example relationship: RNA Extraction Protocol `is_a` Nucleic Acid Extraction Protocol `is_a` Extraction protocol.
 
+(ont-relationships)=
 ## Why are ontologies useful?
 [//]: # (TODO: Example of query of insight you woudln't have usually,  signpost to DCGO, mention usefulness of controlled vocabulary and agreed upon definitions)
 [//]: # (TODO: Add picture describing logic http://geneontology.org/docs/ontology-relations/)

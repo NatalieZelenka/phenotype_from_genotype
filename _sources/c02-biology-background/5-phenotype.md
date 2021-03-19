@@ -54,3 +54,5 @@ Facial recognition technology{cite}`Wu2016-ic` is often criticised on this basis
 It is for these reasons, that the majority of modern concepts of phenotype are based in medical concepts, where looking for a link between genotype and phenotype can have a potential life-saving or life-improving benefit.
 This scenario still comes with serious ethical considerations, however.
 Many disabled people do not want cures for their disabilities{cite}`Pulrang2019-gj`, and people are also worried that the development of genetic screenings for disabilities will effectively result in a genocide of disabled people{cite}`Miller2013-ws`.
+
+[//]: # (TODO: Add hazard label + spell out that you need to include the people who are affected in the research process.)
