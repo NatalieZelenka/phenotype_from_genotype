@@ -17,7 +17,7 @@ def create_distribution_plot(samples_info, protein_tpm):
     glue('num-tissues-fpd', num_tissues, display=False)
     cmap = sns.color_palette(n_colors=num_tissues + 1).as_hex()
 
-    n_bins = 50
+    n_bins = 200
     bins = np.logspace(0, 5.5, n_bins)
 
     i = 0

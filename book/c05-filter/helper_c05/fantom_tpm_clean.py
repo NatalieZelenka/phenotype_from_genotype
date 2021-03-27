@@ -2,9 +2,9 @@ import pandas as pd
 from myst_nb import glue
 import logging
 import time
-from numba import jit
 import numpy as np
-
+import datetime
+import os
 
 def get_dtypes(header):
     dtypes = {'00Annotation': object}
@@ -120,3 +120,36 @@ def get_protein_tpm(transcript_tpm):
     glue("unique_proteins", protein_tpm.shape[0], display=False)
 
     return protein_tpm
+
+
+def save_protein_tpm(df, file_path, over_write=False):
+    """
+    :param df: Pandas dataframe: protein tpm file.
+    :param  path to file
+    :param over_write: if True, over-write existing file
+    :return:
+    """
+    if (not os.path.exists(file_path)) or over_write:
+        f = open(file_path, 'a')
+        f.write(f"# Protein-centric TPM. Created by {os.path.split(__file__)[1]} at"
+                f" {datetime.datetime.now().strftime('%d/%m/%y, %H:%M:%S')}\n")
+        df.to_csv(f, sep='\t')
+        f.close()
+    return None
+
+
+def save_long_ids(long_ids_to_new_ff, file_path, over_write=False):
+    """
+    :param long_ids_to_new_ff: dictionary of mappings between long ids and new FF accessions (including tech rep info)
+    :param file_path: path to file
+    :param over_write: if True, over-write existing file
+    :return:
+    """
+    if (not os.path.exists(file_path)) or over_write:
+        accessions_to_keep = [x[0] for x in pd.Series(long_ids_to_new_ff.values()).str.split('_') if x[0][:2] == 'FF']
+        with open(file_path, 'w') as f:
+            f.write(f"# List of FF accessions (old - no rep info) to keep. Created by {os.path.split(__file__)[1]} at"
+                    f" {datetime.datetime.now().strftime('%d/%m/%y, %H:%M:%S')}\n")
+            for accession in accessions_to_keep:
+                f.write(accession + '\n')
+    return None

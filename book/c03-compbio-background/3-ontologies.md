@@ -77,8 +77,6 @@ name: go_rilla
 A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla{cite}`Eden2009-ic`)
 ``` 
 
-```
-
 [//]: # (TODO: Remove backticks)
 
 The Gene Ontology (GO){cite}`Ashburner2000-cr` is one of the first biomedical ontologies, and continues to be one of the most popular. 

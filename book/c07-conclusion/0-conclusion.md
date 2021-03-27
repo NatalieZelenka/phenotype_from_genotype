@@ -1,6 +1,7 @@
 (c07-conclusion)=
 ## Conclusion
 [//]: # (TODO: cross-ref this section, add in all publications incl. PQI, SUPERFAMILY)
+[//]: # (TODO: Mention complexity... That I wanted to study that in relation to biology, but that the data doesn't really seem to be there quite yet: cite can a biologist fix a radio. Mention network with diffusion. )
 
 To conclude:
 - I present my contribution towards the `snowflake` phenotype prediction method, and it's use for finding unusual combinations of SNPs with possible explanatory mechanisms for phenotype.

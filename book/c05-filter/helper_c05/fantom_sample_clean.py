@@ -4,6 +4,8 @@ import numpy as np
 import logging
 import re
 import time
+import os
+import datetime
 
 
 def clean_donor(desc_str):
@@ -402,3 +404,19 @@ def long_ids_to_restricted_samples(samples_info, header):
                       f"wrong size compared to `samples_info` {len(samples_info)}")
 
     return long_ids_to_keep, long_ids_to_new_ff
+
+
+def save_sample_cleaned(df, file_path, over_write=False):
+    """
+    :param df: Pandas dataframe: samples info file.
+    :param file_path: path to file
+    :param over_write: if True, over-write existing file
+    :return:
+    """
+    if (not os.path.exists(file_path)) or over_write:
+        f = open(file_path, 'a')
+        f.write(f"# Cleaned samples file. Created by {os.path.split(__file__)[1]} at"
+                f" {datetime.datetime.now().strftime('%d/%m/%y, %H:%M:%S')}\n")
+        df.to_csv(f, sep='\t')
+        f.close()
+    return None

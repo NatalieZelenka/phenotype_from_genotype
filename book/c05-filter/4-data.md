@@ -45,6 +45,7 @@ The Functional ANnoTation Of the MAmmalian genome (FANTOM) consortium was establ
 My reasoning for choosing FANTOM5 data as the input gene expression data to test `filip` was:
 - The data set has a good coverage of different tissue types, meaning that `filip` should be able to turn this into a good coverage of predictions.
 - The data set has an ontology of samples, which is already linked to Uberon tissue terms and CL cell terms, making the mapping process much easier.
+- For the purpose of `filip` (getting measure of whether a cell is meaningfully expressed in a tissue of interest), choosing bulk RNA-Seq over scRNA-Seq makes sense, as it is a measure of many more cells.
 
 I chose the version of the FANTOM5 data that:
 - had been reprocessed using the hg38 reference genome (the original FANTOM5 data was processed using hg19){cite}`Abugessaisa2017-fc`.
@@ -189,6 +190,7 @@ The cleaned FANTOM5 experimental design file (which has undergone the cleaning m
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
+
 from helper_c05 import fantom_tpm_clean as tpm_clean
 
 # Create list of allowed primary + tissue samples to prevent reading in whole tpm file:
@@ -198,6 +200,14 @@ tpm_file = '../c06-combining/data/experiments/fantom/hg38_fair+new_CAGE_peaks_ph
 cage_tpm = tpm_clean.read_and_clean_tpm(tpm_file, long_ids_to_keep, long_ids_to_new_ff, dtypes)
 protein_tpm = tpm_clean.get_protein_tpm(cage_tpm)
 ```
+
+```{code-cell} ipython3
+# TODO: make cell invisible
+fsc.save_sample_cleaned(samples_info, file_path='data/cleaned_pre_input/samples_info.csv')
+tpm_clean.save_long_ids(long_ids_to_new_ff, file_path = 'data/cleaned_pre_input/ff_accessions_to_keep.txt')
+tpm_clean.save_protein_tpm(protein_tpm, file_path='data/cleaned_pre_input/protein_tpm.csv')
+```
+
 [//]: # (TODO: spell out why we want protein-centric expression)
 
 The tidied and restricted sample data, is combined with the FANTOM5 CAGE peaks expression data file and processed to create a protein-centric expression file.
@@ -296,6 +306,7 @@ We can also see in {numref}`anatomical-system-table` that this data set, though 
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 from helper_c05 import fantom_tpm_eda as fte
 fig = fte.create_distribution_plot(samples_info, protein_tpm)
 fig.show('notebook')
@@ -372,7 +383,7 @@ AGEGEN
 The CAGA2 benchmark data was available in the `/data/benchmark` directory of the CAFA2 Supplementary Data. 
 It includes:
 - **Lists** of different types of targets for which there is groundtruth data (in `/data/benchmark/lists`): each line of these files is a CAFA2 protein identifier (e.g. `T96060015767`). The lists are separated into different files according to species, source phenotype ontology (e.g. `HP`, `GO`), and protein {ref}`type<no-limited-knowledge>` (type1 = No Knowledge, type2 = Limited Knowledge). There are `7` files for human.
-- **Groundtruth** associations (in `/data/benchmark/groundtruth`): tab-separated CAFA protein identifiers and phenotype ontology terms, e.g. `T96060000002    HP:0000348`), organised into `8` separate files by source phenotype ontology, and whether the proteins are experimentally annotated to the exact term, or whether an association can be inferred due to a {ref}`ontology relationship<ont-relationships>`. 
+- **Groundtruth** associations (in `/data/benchmark/groundtruth`): tab-separated CAFA protein identifiers and phenotype ontology terms, e.g. `T96060000002    HP:0000348`), organised into `8` separate files by source phenotype ontology, and whether the proteins are experimentally annotated to the exact term, or whether an association can be inferred due to a {ref}`ontology relationship<ont-relationships>`.
 
 +++
 
