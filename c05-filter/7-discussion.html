@@ -443,13 +443,23 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reliance-on-fantom-5">
-     5.6.1.1. Reliance on FANTOM 5
+    <a class="reference internal nav-link" href="#reliance-of-prototype-on-fantom-5">
+     5.6.1.1. Reliance of prototype on FANTOM 5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#practical-difficulties-in-finding-and-creating-alternative-input-data">
+     5.6.1.2. Practical difficulties in finding and creating alternative input data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mrna-abundance-not-protein-abundance">
+     5.6.1.3. mRNA abundance, not protein abundance
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#coverage">
-     5.6.1.2. Coverage
+     5.6.1.4. Coverage
     </a>
    </li>
   </ul>
@@ -480,18 +490,29 @@
 <h1><span class="section-number">5.6. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="limitations">
 <h2><span class="section-number">5.6.1. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="reliance-on-fantom-5">
-<h3><span class="section-number">5.6.1.1. </span>Reliance on FANTOM 5<a class="headerlink" href="#reliance-on-fantom-5" title="Permalink to this headline">¶</a></h3>
-<p>Although the FANTOM5 data set has a good coverage of tissue types and number of samples, the filter is nonetheless limited to the tissues it contains.
-It is also limited by the coverage and accuracy of the mapping from phenotype to tissue.</p>
-<p>Similarly, although proteins, tissues and protein functions may be present in multiple species, FilP only uses human data, so the filter only measures if a gene is expressed in the human tissue of interest.
-This means that where there are differences in expression between species, FilP will be incorrect if it is run on non-human data (not recommended).
-Reliance on FANTOM</p>
-<p>FilP’s low coverage of tissues (due to its reliance on the FANTOM dataset) limits the number of predictions that can be filtered out.
-However, by combining baseline gene expression sets from multiple sources (the focus of the next chapter), this coverage of tissues (and therefore phenotype terms) may be improved.</p>
+<div class="section" id="reliance-of-prototype-on-fantom-5">
+<h3><span class="section-number">5.6.1.1. </span>Reliance of prototype on FANTOM 5<a class="headerlink" href="#reliance-of-prototype-on-fantom-5" title="Permalink to this headline">¶</a></h3>
+<p>Although the FANTOM5 data set has a excellent coverage of tissue types and number of samples, the filter is nonetheless limited to the tissues it contains.
+This low coverage of tissues limits the number of predictions that <code class="docutils literal notranslate"><span class="pre">filip</span></code> can filter out, and as we saw in the results, this is the major bottleneck for it’s performance.
+However, by combining baseline gene expression sets from multiple sources (the focus of <a class="reference internal" href="../c06-combining/0-index.html#c05-combining"><span class="std std-ref">the next chapter</span></a>), the coverage of tissues therefore phenotype terms might be improved.</p>
+<p>In addition, although proteins, tissues and protein functions may be present in multiple species, <code class="docutils literal notranslate"><span class="pre">filip</span></code> only uses human data, so the filter only measures if a gene is expressed in the human tissue of interest, making it only suitable for this class of predictions.</p>
+</div>
+<div class="section" id="practical-difficulties-in-finding-and-creating-alternative-input-data">
+<h3><span class="section-number">5.6.1.2. </span>Practical difficulties in finding and creating alternative input data<a class="headerlink" href="#practical-difficulties-in-finding-and-creating-alternative-input-data" title="Permalink to this headline">¶</a></h3>
+<p>In theory, <code class="docutils literal notranslate"><span class="pre">filip</span></code> could be used with any other RNA-Seq data set with a wide range of tissues.
+In practice, finding a data set with the appropriate spread of tissues and cell samples (and furthermore, detailed metadata about these samples) is difficult.</p>
+<p>However, the <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> package does provide make mapping samples to Uberon tissues much easier, even when only names or descriptions of the tissues are present.</p>
+</div>
+<div class="section" id="mrna-abundance-not-protein-abundance">
+<h3><span class="section-number">5.6.1.3. </span>mRNA abundance, not protein abundance<a class="headerlink" href="#mrna-abundance-not-protein-abundance" title="Permalink to this headline">¶</a></h3>
+<p>As <span class="xref std std-ref">noted earlier</span>, gene expression data is a measure of mRNA abundance, not protein abundance, and it is not especially well correlated with it.
+Furthermore, when it is available, protein abundance data outperforms mRNA data for predicting gene function<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id212"><span>168</span></a>]</span>.
+By choosing a sensible cut-off for gene expression, we do discard some of the transcriptional noise which characterises some of the difference between mRNA and protein abundance, which is good.
+Still, <code class="docutils literal notranslate"><span class="pre">filip</span></code> would almost certainly throw away more false positive predictions if the mRNAs that are destined for degradation weren’t present in the input data.</p>
 </div>
 <div class="section" id="coverage">
-<h3><span class="section-number">5.6.1.2. </span>Coverage<a class="headerlink" href="#coverage" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.6.1.4. </span>Coverage<a class="headerlink" href="#coverage" title="Permalink to this headline">¶</a></h3>
+<p>In addition to the influence of the input gene expression data set, the poor coverage is also limited by the quality of the mapping, which is reliant on the input metadata and ontologies.</p>
 </div>
 </div>
 <div class="section" id="wrong-ly-filtered-out-tissues">

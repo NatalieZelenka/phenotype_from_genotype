@@ -580,10 +580,11 @@ At the time of developing it was the latest data output of the <a class="referen
 <ul class="simple">
 <li><p>The data set has a good coverage of different tissue types, meaning that <code class="docutils literal notranslate"><span class="pre">filip</span></code> should be able to turn this into a good coverage of predictions.</p></li>
 <li><p>The data set has an ontology of samples, which is already linked to Uberon tissue terms and CL cell terms, making the mapping process much easier.</p></li>
+<li><p>For the purpose of <code class="docutils literal notranslate"><span class="pre">filip</span></code> (getting measure of whether a cell is meaningfully expressed in a tissue of interest), choosing bulk RNA-Seq over scRNA-Seq makes sense, as it is a measure of many more cells.</p></li>
 </ul>
 <p>I chose the version of the FANTOM5 data that:</p>
 <ul class="simple">
-<li><p>had been reprocessed using the hg38 reference genome (the original FANTOM5 data was processed using hg19)<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id203"><span>147</span></a>]</span>.</p></li>
+<li><p>had been reprocessed using the hg38 reference genome (the original FANTOM5 data was processed using hg19)<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id203"><span>153</span></a>]</span>.</p></li>
 <li><p>contained annotated information about the samples, as this information could be used to aid in mapping.</p></li>
 <li><p>available in <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html#rna-normalisation"><span class="std std-ref">TPM</span></a> format.</p></li>
 </ul>
@@ -631,7 +632,7 @@ Note: some samples have repeat measurements per sample.</p>
 Henrietta was a black woman who lived in Baltimore, Maryland.
 Her cells were taken without consent during a hospital biopsy for an aggressive cervical cancer, which she died from at age 31 in 1951.</p>
 <p>Companies continue to profit from the sale of these lines of cells, since such cell lines have several practical advantages over primary cells, notably their immortality, low variability (compared to primary cells, which vary depending on cell donor characteristics such as age and sex), and easiness to keep alive (without the need for e.g. additional nutrients).</p>
-<p>Some companies have recently begun to pay reparations for this injustice<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id197"><span>148</span></a>]</span>.</p>
+<p>Some companies have recently begun to pay reparations for this injustice<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id197"><span>154</span></a>]</span>.</p>
 </div>
 <p><strong>Restriction to  primary cell and tissue samples</strong>:</p>
 <p>The human FANTOM5 sample information file contains four categories of samples (in the <code class="docutils literal notranslate"><span class="pre">Characteristics</span> <span class="pre">[Category]</span></code> field):</p>
@@ -643,7 +644,7 @@ Her cells were taken without consent during a hospital biopsy for an aggressive 
 <li><p><strong>fractionations</strong>: RNA extracted from parts of cells (fractionations) ( samples), e.g.  - .</p></li>
 </ul>
 <p>I restricted the data set to only <em>tissues</em> and <em>primary cells</em>, as these represent the closest approximations to <em>in vivo</em> biology.
-Immortal cell lines are often expressed differently than their primary counterparts<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id194"><span>149</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id195"><span>150</span></a>]</span>, and time courses and fractionations do not represent any particular tissue.</p>
+Immortal cell lines are often expressed differently than their primary counterparts<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id194"><span>155</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id195"><span>156</span></a>]</span>, and time courses and fractionations do not represent any particular tissue.</p>
 <p><strong>Sample Type</strong>:</p>
 <p>As mentioned, tissues can come from a pool, or individual donor.
 This information can be found in the <code class="docutils literal notranslate"><span class="pre">Charateristics</span> <span class="pre">[description]</span></code> field.
@@ -653,7 +654,7 @@ I combined this information with information from the <code class="docutils lite
 <h4><span class="section-number">5.3.1.2.2. </span>Technical and biological replicates<a class="headerlink" href="#technical-and-biological-replicates" title="Permalink to this headline">¶</a></h4>
 <div class="margin sidebar" id="tech-biol-replicates">
 <p class="sidebar-title">Technical and biological replicates</p>
-<p>Usually <em>technical replicates</em> refer to repeated measures of the same sample, while <em>biological replicates</em> refer to separate samples which have been treated in the same way (e.g. different donors)<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id196"><span>151</span></a>]</span>.</p>
+<p>Usually <em>technical replicates</em> refer to repeated measures of the same sample, while <em>biological replicates</em> refer to separate samples which have been treated in the same way (e.g. different donors)<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id196"><span>157</span></a>]</span>.</p>
 <p>In FANTOM, the “biol_rep” and “donor” label are both used to denote biological replicates.</p>
 </div>
 <p>The <a class="reference internal" href="#fantom-accession"><span class="std std-ref">FANTOM accession numbers</span></a> are per sample, not per measurement.
@@ -710,6 +711,29 @@ Similarly, there is a <code class="docutils literal notranslate"><span class="pr
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: make cell invisible</span>
+<span class="n">fsc</span><span class="o">.</span><span class="n">save_sample_cleaned</span><span class="p">(</span><span class="n">samples_info</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;data/cleaned_pre_input/samples_info.csv&#39;</span><span class="p">)</span>
+<span class="n">tpm_clean</span><span class="o">.</span><span class="n">save_long_ids</span><span class="p">(</span><span class="n">long_ids_to_new_ff</span><span class="p">,</span> <span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;data/cleaned_pre_input/ff_accessions_to_keep.txt&#39;</span><span class="p">)</span>
+<span class="n">tpm_clean</span><span class="o">.</span><span class="n">save_protein_tpm</span><span class="p">(</span><span class="n">protein_tpm</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;data/cleaned_pre_input/protein_tpm.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">3</span><span class="n">cde7e3826be</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># TODO: make cell invisible</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">fsc</span><span class="o">.</span><span class="n">save_sample_cleaned</span><span class="p">(</span><span class="n">samples_info</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;data/cleaned_pre_input/samples_info.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">tpm_clean</span><span class="o">.</span><span class="n">save_long_ids</span><span class="p">(</span><span class="n">long_ids_to_new_ff</span><span class="p">,</span> <span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;data/cleaned_pre_input/ff_accessions_to_keep.txt&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">tpm_clean</span><span class="o">.</span><span class="n">save_protein_tpm</span><span class="p">(</span><span class="n">protein_tpm</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;data/cleaned_pre_input/protein_tpm.csv&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;samples_info&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
 <p>The tidied and restricted sample data, is combined with the FANTOM5 CAGE peaks expression data file and processed to create a protein-centric expression file.
 The CAGE peaks have already been cleaned by FANTOM (labeled as “fair”) meaning that CAGE peaks do not overlap.</p>
 <div class="section" id="cage-peaks-with-associated-proteins">
@@ -753,7 +777,7 @@ These small number of rows were also removed for simplicity.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">dbe7181c6662</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">dbe7181c6662</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">helper_c05</span> <span class="kn">import</span> <span class="n">fantom_sample_eda</span> <span class="k">as</span> <span class="n">f_eda</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">sex_donut</span><span class="p">,</span> <span class="n">tissues_samples</span><span class="p">,</span> <span class="n">nan_age_count</span><span class="p">,</span> <span class="n">collaborators_providers</span> <span class="o">=</span> <span class="n">f_eda</span><span class="o">.</span><span class="n">create_plot_dfs</span><span class="p">(</span><span class="n">samples_info</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">f_eda</span><span class="o">.</span><span class="n">create_plotly_plots</span><span class="p">(</span><span class="n">samples_info</span><span class="p">,</span> <span class="n">sex_donut</span><span class="p">,</span> <span class="n">tissues_samples</span><span class="p">,</span> <span class="n">nan_age_count</span><span class="p">,</span> <span class="n">collaborators_providers</span><span class="p">)</span>
@@ -787,7 +811,7 @@ In <a class="reference internal" href="#fantom-eda"><span class="std std-numref"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">50626</span><span class="n">b1a5f3a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mi">50626</span><span class="n">b1a5f3a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">anatomical_system_samples</span> <span class="o">=</span> <span class="n">f_eda</span><span class="o">.</span><span class="n">anat_system_tbl</span><span class="p">(</span><span class="n">samples_info</span><span class="p">,</span> <span class="n">chosen_samples</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 
 <span class="ne">NameError</span>: name &#39;samples_info&#39; is not defined
@@ -813,7 +837,7 @@ In <a class="reference internal" href="#fantom-eda"><span class="std std-numref"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="n">ef13aa6c2166</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">ef13aa6c2166</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">helper_c05</span> <span class="kn">import</span> <span class="n">fantom_tpm_eda</span> <span class="k">as</span> <span class="n">fte</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">fte</span><span class="o">.</span><span class="n">create_distribution_plot</span><span class="p">(</span><span class="n">samples_info</span><span class="p">,</span> <span class="n">protein_tpm</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">)</span>
@@ -861,7 +885,7 @@ Although <code class="docutils literal notranslate"><span class="pre">filip</spa
 <li><p><a class="reference internal" href="#cafa2-targets"><span class="std std-ref">CAFA2 targets</span></a>: a list of proteins which the CAFA2 competition was soliciting predictions for.</p></li>
 <li><p><a class="reference internal" href="#cafa-benchmark"><span class="std std-ref">CAFA2 ground truth data</span></a>: experimentally validated associations between proteins and GO terms, divided by category.</p></li>
 </ul>
-<p>Both of which could be found within the CAFA2 paper<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id112"><span>143</span></a>]</span>’s <a class="reference external" href="https://figshare.com/articles/dataset/Supplementary_Data_for_CAFA2/2059944">Supplementary Material</a>.</p>
+<p>Both of which could be found within the CAFA2 paper<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id112"><span>150</span></a>]</span>’s <a class="reference external" href="https://figshare.com/articles/dataset/Supplementary_Data_for_CAFA2/2059944">Supplementary Material</a>.</p>
 <p id="cafa2-targets"><strong>CAFA2 targets</strong>:
 CAFA2 provided targets from species across the tree of life: bacteria (10 species), archaea (7 species), and eukaryotes (10 species).
 Since tissue-specific gene expression data (which <code class="docutils literal notranslate"><span class="pre">filip</span></code> requires) is not available (nor relevant) for all species, I only used the human targets (in <code class="docutils literal notranslate"><span class="pre">data/CAFA2-targets/eukarya/sp_species.9606.tfa</span></code>).</p>
@@ -883,7 +907,7 @@ The CAGA2 benchmark data was available in the <code class="docutils literal notr
 It includes:</p>
 <ul class="simple">
 <li><p><strong>Lists</strong> of different types of targets for which there is groundtruth data (in <code class="docutils literal notranslate"><span class="pre">/data/benchmark/lists</span></code>): each line of these files is a CAFA2 protein identifier (e.g. <code class="docutils literal notranslate"><span class="pre">T96060015767</span></code>). The lists are separated into different files according to species, source phenotype ontology (e.g. <code class="docutils literal notranslate"><span class="pre">HP</span></code>, <code class="docutils literal notranslate"><span class="pre">GO</span></code>), and protein <a class="reference internal" href="1-introduction.html#no-limited-knowledge"><span class="std std-ref">type</span></a> (type1 = No Knowledge, type2 = Limited Knowledge). There are <code class="docutils literal notranslate"><span class="pre">7</span></code> files for human.</p></li>
-<li><p><strong>Groundtruth</strong> associations (in <code class="docutils literal notranslate"><span class="pre">/data/benchmark/groundtruth</span></code>): tab-separated CAFA protein identifiers and phenotype ontology terms, e.g. <code class="docutils literal notranslate"><span class="pre">T96060000002</span>&#160;&#160;&#160; <span class="pre">HP:0000348</span></code>), organised into <code class="docutils literal notranslate"><span class="pre">8</span></code> separate files by source phenotype ontology, and whether the proteins are experimentally annotated to the exact term, or whether an association can be inferred due to a <span class="xref std std-ref">ontology relationship</span>.</p></li>
+<li><p><strong>Groundtruth</strong> associations (in <code class="docutils literal notranslate"><span class="pre">/data/benchmark/groundtruth</span></code>): tab-separated CAFA protein identifiers and phenotype ontology terms, e.g. <code class="docutils literal notranslate"><span class="pre">T96060000002</span>&#160;&#160;&#160; <span class="pre">HP:0000348</span></code>), organised into <code class="docutils literal notranslate"><span class="pre">8</span></code> separate files by source phenotype ontology, and whether the proteins are experimentally annotated to the exact term, or whether an association can be inferred due to a <a class="reference internal" href="../c03-compbio-background/3-ontologies.html#ont-relationships"><span class="std std-ref">ontology relationship</span></a>.</p></li>
 </ul>
 </div>
 </div>

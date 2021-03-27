@@ -1,3 +1,4 @@
+(filip-future-work)=
 # Future work
 
 ## Development of `uberon-py`
@@ -13,8 +14,16 @@ Other investigations:
 - For unmappable phenotypes, is it advantageous to use all samples, i.e. if a protein that is never expressed is predicted, filter it out.
 - Treat developing gene expression samples differently.
 
-## CAFA5
+## Protein abundance
+### Including protein abundance data
 [//]: # (TODO: Write)
+
+### Predicting protein abundance from mRNA abundance
+[//]: # (TODO: Write: there are loads more)
+There are some attempts to predict protein abundance from mRNA abundance{cite}`Terai2020-lv,`. 
+
+## CAFA5
+[//]: # (TODO: Write: wait is it CAFA6 next?)
 [//]: # (TODO: Aside about how naive works weirdly well)
 
 - Inclusion of mapping improvements made in the in {ref}`the next Chapter<c05-combining>`, specifically:

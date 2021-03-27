@@ -131,17 +131,21 @@ Functional RNA has structure with recurring motifs similar to those of proteins.
 There are also databases of functional RNA structure{cite}`Andrews2017-tr,Richardson2020-wa` (similar to {ref}`those for proteins<protein-stucture-measurements>`), but those for RNA are at an earlier stage.
 
 ### Gene Expression
-[//]: # (TODO: Mention different types of RNA-Seq, e.g. scRNA versus tissues versus)
-[//]: # (TODO: Put CAGE here?)
-As I've already explained RNA abundance in samples can be measured through RNA microarrays and RNA-Seq, and that recently, RNA-Seq has been much more popular.
-Measures of mRNA abundance (i.e. gene expression data) are generally considered the best measures of translation (compared to {ref}`protein abundance<protein-abundance>` for example), and therefore the best data to tell us how DNA's blueprints are being used in different {ref}`scenarios<gene-expression-scenarios>`.
-Together with mappings, this data is used to understand the function of genes, to identify housekeeping genes, to re-engineer gene regulatory networks, and more - knowledge about DNA function that wouldn't be possible to glean without measuring RNA.
-Like other bioinformatics data, gene expression data is also available in databases such as the EBI's Gene Expression Atlas (GxA){cite}`Petryszak2016-je` and Single Cell Expression Atlas{cite}`Papatheodorou2020-ib`.
 
 ```{margin} Gene expression = DNA + cellular environment
 :name: gene-expression-scenarios
 The environment, of the cell, and of the individual, and even of modifications to the DNA molecules, can affect the rate of gene expression.
 This is obvious when we think about the fact that the same DNA is present in their liver cells, skin cells, and neurons and realise that the difference in how these cells/tissues look and function is due to differences in which proteins are actually being made at any given time. 
+```
+
+As I've already explained RNA abundance in samples can be measured through RNA microarrays and RNA-Seq, and that recently, RNA-Seq has been much more popular.
+Measures of mRNA abundance (i.e. gene expression data) are generally considered the best measures of translation (compared to {ref}`protein abundance<protein-abundance>` for example), and therefore the best data to tell us how DNA's blueprints are being used in different {ref}`scenarios<gene-expression-scenarios>`.
+Together with mappings, this data is used to understand the function of genes, to identify housekeeping genes, to re-engineer gene regulatory networks, and more - knowledge about DNA function that wouldn't be possible to glean without measuring RNA.
+Like other bioinformatics data, gene expression data is also available in databases such as the EBI's Gene Expression Atlas (GxA){cite}`Petryszak2016-je` and Single Cell Expression Atlas{cite}`Papatheodorou2020-ib` (for {ref}`bulk and single cell gene expression<bulk-scRNA-seq>`, respectively).
+
+```{margin} Bulk versus Single-cell RNA-Seq
+:name: bulk-scRNA-seq
+Most RNA-Seq experiments sequence RNA from millions of cells at a time: this is bulk RNA-seq. Bulk RNA-Seq may take place for many cells of the same type or for a collection of different cell types (e.g. a tissue). Single-cell RNA-Seq (scRNA-seq) allows RNA to be sequenced from a single cell and is becoming increasingly widespread{ref}`Ashraful_Haque_Jessica_Engel_Sarah_A_Teichmann_Tapio_Lonnberg2017-rj`.
 ```
 
 **Differential expression versus baseline experiments**: 
