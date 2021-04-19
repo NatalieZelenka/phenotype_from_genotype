@@ -33,6 +33,8 @@ This bootstrapping histogram shows the distribution of the number of correct pre
 
 The small improvement is due to `filip` filtering out 85,637 GOBP human protein predictions, only 23 of which were true according to the CAFA2 ground truth, meaning that 99.973% of filip's predictions (on what to filter in or out) were correct.
 
+[//]: # (TODO: Explain that the majority of predictions are false, since e.g. DcGO predicts up to 5% of the space of all possible predictions is true - with varying confidence)
+
 To ensure that this is a better success rate than we would expect by chance, I performed a bootstrapping test by taking out random sets of 85,637 predictions from the DcGO set and measuring the number of true positives remaining in the set. 
 This was repeated 100,000 times to create {numref}`filip-bootstrap`, and calculate the p-value {math}`p < 0.001`, meaning that the filter performed far better than chance.
 

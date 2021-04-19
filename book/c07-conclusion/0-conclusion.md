@@ -2,6 +2,7 @@
 ## Conclusion
 [//]: # (TODO: cross-ref this section, add in all publications incl. PQI, SUPERFAMILY)
 [//]: # (TODO: Mention complexity... That I wanted to study that in relation to biology, but that the data doesn't really seem to be there quite yet: cite can a biologist fix a radio. Mention network with diffusion. )
+[//]: # (TODO: Come back to the treasure trove of data, and think about it's current maturity)
 
 To conclude:
 - I present my contribution towards the `snowflake` phenotype prediction method, and it's use for finding unusual combinations of SNPs with possible explanatory mechanisms for phenotype.
@@ -47,5 +48,5 @@ Over time, my endless questions became less frustrating and more and more energi
 [//]: # (TODO: Give example of snowflake not being useless)
 [//]: # (TODO: Cross-reference)
 Working on `snowflake` gave me a bird's eye view of our model of the connection between genotype and phenotype: and the data sets we have about that connection.
-It is, of course, regrettable that we could not access enough data to conclusively test it as a phenotype predictor.
-However, I have found a small way in which to improve phenotype predictions, with a mechanistic reason behind it - and I have found value in creating and contributing to resources which I hope will lead us towards more.
+It is (obviously) regrettable that we could not access enough data to conclusively test it as a phenotype predictor.
+However, I have found a small way in which to improve phenotype predictions, with a mechanistic reason behind it, and I have found value in creating and contributing to resources which I hope will lead us towards more.

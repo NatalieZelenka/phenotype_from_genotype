@@ -90,11 +90,12 @@ In step 2, `filip` filters out any predictions where for which the gene is not e
 [//]: # (TODO: Cite FANTOM5)
 [//]: # (TODO: cross-ref to UBERON, and make sure it is included in ontology section)
 [//]: # (TODO: cross-ref next section)
+[//]: # (TODO: cross-ref to Ontolopy section)
 
 The user can supply any tissue-specific gene expression data set as input for `filip`. 
 The FANTOM5 data set was chosen as the default gene expression data, due to it's existing mapping to UBERON tissues, through the FANTOM5 sample ontology.
 For other data sets (and as a secondary data mapping for the FANTOM5 data set), simple text-mining is used to match samples to UBERON tissues. 
-A separate Python package was developed to facilitate this: `uberon-py`, which is described in the next section.
+
 
 [//]: # (TODO: describe expression cut off further)
 The user can also choose a cut-off for expression.

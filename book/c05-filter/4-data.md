@@ -14,6 +14,8 @@ kernelspec:
 
 # Input Data
 
+This section describes the input data used for creating and validating `filip` and it's provenance, as well as any necessary data-cleaning.
+
 There are several types of input data that are needed to run `filip`. These include:
 - {ref}`Expression Data<fantom5-expression-data>` (and related sample metadata)
 - {ref}`Cell, tissue, and phenotype mapping data<cell-tissue-phen-map-data>`
@@ -21,6 +23,7 @@ There are several types of input data that are needed to run `filip`. These incl
 - {ref}`Test data<cafa3-test-set>` (benchmarking data for testing `filip`)
 
 In addition to this, `filip` requires the input of a protein function or phenotype prediction method, but this (and the data required for this) is described in {ref}`filter-methods`.
+In the next section, I also discuss how the data sets introduced here are used to create inputs to `filip`.
 
 (fantom5-expression-data)=
 ##  Expression data: FANTOM5
@@ -376,6 +379,7 @@ YEILNSPEKACSLAKTAFDEAIAELDTLNEESYKDSTLIMQLLRDNLTLWTSENQGDEGD
 AGEGEN
 ```
 
+[//]: # (TODO: move note to secion where I use this data so I can explain that)
 [//]: # (NOTE: doesn't matter if it's the right build hg38 - not relevant - we only use the mnemonic id)
 
 (cafa-benchmark)=

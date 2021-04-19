@@ -1,7 +1,26 @@
 # Discussion
 
+(quality-coverage)=
+## Mapping quality and coverage
+[//]: # (TODO: Write)
+
+Of course we don't have a gold standard to compare to.
+
+### Disagreements
+
+[//]: # (TODO: Write - how many agreements versus disagreements? Also Qualitatively describe.)
+
+### Coverage
+
+[//]: # (TODO: Write - sensitive to inclusion of the correct data, e.g. CL)
+
+
+## Speed 
+
 ## Limitations
+
 ### Ontologies don't always capture the directionality of relationships that we are interested in
+[//]: # (TODO: Check if child-mapping still exists)
 Ontology structures are directed and acyclic, and we depend on the directionality of the relationships in order to infer new relationships from these graphs. 
 These are very well thought out, but very general, so they don't always simply suit our use case. 
 
@@ -15,12 +34,14 @@ This would likely need more complex logic than simply turning on `child-mapping=
 In order to do something like this, we would need to have something more like a query language (e.g. SPARQL) for interacting with the ontology, which is beyond this scope of this package.
 
 ### Only maps to one tissue
-[//]: # (TODO: Write)
 When mapping by ontology or name, multiple mappings can be retrieved, but when finding an overall mapping, only one (per method) is chosen. 
+An good example of this is leukocytes, which are part of the blood and the immune system.
 
-### Software engineering best practices
-[//]: # (TIDO: write)
-This package was developed before I discovered most best practices for package development, e.g. test coverage, continuous integration, or detailed documentation. 
-I think this kind of software development would be necessary in order for this package to gain wider usage, as I explain in {ref}`filip-future-work`. 
- [Versioned doc, and continuous integration, there is also much more that could be done to increase reliability and usability (particularly in terms of test and tutorial coverage).
+### Weird choices?
+relation strings
 
+### Name mapping slow
+[//]: # (TODO: Write)
+
+## Fit-for-purpose
+[//]: # (TODO: Write)

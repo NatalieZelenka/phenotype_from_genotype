@@ -157,10 +157,14 @@ latex:
   latex_engine: xelatex
 
 sphinx:
+  extra_extensions: ['sphinx.ext.autosummary']
+  local_extensions:
+    ontolopy:  '../../../../ontolopy'
   config:
     html_js_files:
-      - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+      - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js  # makes interactive figs work
     html_favicon: images/favicon.png
+    autosummary_generate: True
     html_theme_options:
       use_download_button: false
   latex_elements:

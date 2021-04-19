@@ -5,8 +5,7 @@
 [//]: # (TODO: Put in other datasets if I mention them)
 [//]: # (TODO: Cross-reference to the sections of the Chapter)
 
-This Chapter describes:
- - The `Snowflake` algorithm for phenotype prediction and my contributions to it, including:
+This Chapter describes the `Snowflake` algorithm for phenotype prediction and my contributions to it.
     * Development to increase the algorithm's functionality, including:
         + Running with different formats and numbers of inputs and background cohorts
         + Dealing with missing calls 

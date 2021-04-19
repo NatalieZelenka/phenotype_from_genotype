@@ -95,10 +95,19 @@ A local score, $L_{ij}$ can be defined as the average Euclidean distance from an
 
 A global score $G_{ij}$ can be defined as the distance of the cluster to the rest of the cohort.
 
-The global-local score is designed to balance these sources of interest. It sums the two scores, adjusting the weighting by a cluster size correction factor, $\mu_{\gamma}$:
+```{margin} TF-IDF
+:name: tf-idf
+Term Frequency, Inverse Document Frequency is a common and basic measure in NLP which attempts to measure how representative a term (word) is of a document. 
+It is defined by {math}`tfidf=tf(t,d) \cdot idf(t,D) = (f_{t,d}) \cdot (\frac{N}{abs{d \in D : t \in d}) ` where {math}`f_{t,d}` is the frequency of a term {math}`t` in a document {math}`d`, {math}`N` is the number of documents, and {math}`{abs{d \in D : t \in d}` is the number of documents containing the term.
+```
+
+The global-local score is designed to balance these sources of interest. 
+It sums the two scores, adjusting the weighting by a cluster size correction factor, $\mu_{\gamma}$:
 $$score_{ij}=L_{ij}+\mu_{\gamma} \cdot G_{ij}$$
 
 Such that: $\mu_{\gamma}=\frac{exp(\gamma \frac{n-n_j}{n})-1}{exp(\gamma)-1}$ where $\gamma$ is a parameter representing how strongly we wish to penalise large clusters, $n$ is the over all number of individuals and $n_j$ is the number of individuals in a cluster.
+
+The global-local score was inspired by the {ref}`tf-idf` score popular in Natural Language Processing bag-of-word models. 
 
 +++
 

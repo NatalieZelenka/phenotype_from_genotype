@@ -50,14 +50,15 @@ The latest version is available online [here](https://nataliethurlby.github.io/p
 This brings me to the second unusual thing about this thesis, which is that I have mentioned as asides in this thesis researchers who have been involved in eugenics and/or racism. 
 I did this because I don't want to highlight the scientific achievements of these individuals, without also acknowledging their legacy of scientific racism, particularly in the light of the Black Lives Matter movement.
 
-The Black Lives Matter movement also inspired my alternative University of Bristol crest, which you can see on the title page and in this margin comment.
-This is an example of the third weird thing about this thesis, which is that I drew some {ref}`illustrations` for it (using Krita{cite}`noauthor_undated-ns`), particularly in the background Chapters.
-My aim in including the majority of these drawings was to illustrate concepts, and help the reader (and myself) imagine some of the amazing stuff that is going on in the body.
-
 ```{margin} Illustrations 
 :name: illustrations
 The illustrations are CC-BY licensed (use freely, with attribution) in case they are useful to anyone. 
 ```
+
+The Black Lives Matter movement also inspired my alternative University of Bristol crest, which you can see on the title page and in this margin comment.
+This is an example of the third weird thing about this thesis, which is that I drew some {ref}`illustrations` for it (using Krita{cite}`noauthor_undated-ns`), particularly in the background Chapters.
+My aim in including the majority of these drawings was to illustrate concepts, and help the reader (and myself) imagine some of the amazing stuff that is going on in the body.
+
 
 ## Chapter Structure
 

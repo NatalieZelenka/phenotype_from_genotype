@@ -37,6 +37,15 @@
       - file: c04-snowflake/5-results
       - file: c04-snowflake/6-discussion
       - file: c04-snowflake/7-future-work
+  - file: c04.5-ontolopy/0-index
+    sections:
+      - file: c04.5-ontolopy/1-introduction
+      - file: c04.5-ontolopy/2-functionality
+      - file: c04.5-ontolopy/3-how-it-works
+      - file: c04.5-ontolopy/4-mapping-example
+      - file: c04.5-ontolopy/5-misc-examples
+      - file: c04.5-ontolopy/6-discussion
+      - file: c04.5-ontolopy/7-future-work
   - file: c05-filter/0-index
     sections:
       - file: c05-filter/1-introduction
