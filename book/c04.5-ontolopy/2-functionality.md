@@ -25,6 +25,7 @@ Note: you will see `ontolopy` shortened to `opy` in code segments.
 :::
 
 `Ontolopy` is organised into three submodules, each centred around classes with the same names: `opy.Obo()` for OBO ontology objects, `obo.Relations()` for finding relationships between terms in an ontology object, and `opy.Uberon()` for finding tissue mappings.
+These three submodules are automatically loaded with `import ontolopy`.
 
 ## Working with OBO ontologies
 [//]: # (TODO: reorganise with sphinx-argparse)
@@ -131,6 +132,10 @@ It's also possible to download OBO files, either from a list of popular OBO file
 ````
 
 ## Finding relationships
+At it's core, the most useful thing about the `Ontolopy` package is being able to infer relationships between terms, across ontologies (be it between tissue terms and phenotype terms, or something else).
+This functionality is inside the `opy.relations` module and handled by the {ref}`Relations<relations-class>` class.
+
+````{admonition} Relations reference
 
 ```{eval-rst}
 .. currentmodule:: ontolopy.relations
@@ -139,43 +144,79 @@ It's also possible to download OBO files, either from a list of popular OBO file
    relation_path_to_text
    Relations
 ```
+````
 
+(relations-class)=
 ### The `Relations` class
-[//]: # (TODO: Write explain how mapping works: what is prioritised, etc)
-[//]: # (TODO: mention pandas data frames)
+The `Relations` class finds relationships of certain types between sources and targets.
+It subclasses a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) since that is a convenient and familiar format for the relationship information to be returned.
 
 ```{eval-rst}
 .. currentmodule:: ontolopy.relations
 
 .. autoclass:: Relations
 
-   
    .. automethod:: __init__
  
 ```
 
+[//]: # (TODO: Example here)
+<!--
+````{admonition} Relations usage example
+:class: note
+```python
+import ontolopy as opy
 
-### Disagreements
-(disagreement-finding)=
-**Using disagreements between mappings to improve biological ontologies and sample mappings:**
 
-As described, the `uberon_py` package has two methods of mapping to tissues. 
-Where both can be ran, disagreements between these mappings can be checked. 
-When these two methods disagree, logical inconsistencies in either the mappings or the ontologies is revealed. 
-See the {ref}`example<FANTOM5-inconsistencies-example>` of how this worked for the FANTOM5 data set.
+```
+````
+-->
 
-### Miscellaneous
-- Relation strings to text
-- Simplifying relationships
+#### Additional parameter information
 
+[//]: # (TODO: how much quicker is any than all.)
+
+**The `mode` parameter** can be either "any" or "all", and this stands for whether we are looking for relations from our source terms to *any* one target term, or to a *all* target terms for which we can find a relationship.
+It is much quicker to run in "any" mode, so this mode is the default, and it is preferable when we simply need the most direct mapping between our source and target terms, for example we want to know which (one) tissue does the sample map to best? 
+
+The "all" mode tends to be more useful when we are equally interested in the targets as the source terms for example: when looking at mappings between tissues and phenotypes, there is likely to be many different phenotypes that a tissue can exhibit and we are equally interested in all of them.
+
+**Provide either `sources` and `targets` OR `source-targets`**. 
+It's possible to provide a list of `sources` and a list of `targets`, OR a list of tuple `source-targets`. 
+It does not make sense to provide both. 
+The latter option only works in `all` mode: i.e. we are interested in all source-target pairs.
+Essentially, the `sources-targets` option provides a quicker way of running `Ontolopy` in "all" mode when we know in advance which specific pairs of sources and targets we are interested in. 
+If `sources` and `targets` are provided and `mode==all`, then `Ontolopy` will generate a combination of all possible sources and targets (removing `excluded` target terms if provided).
+
+#### Finding relationships: what it's doing
+To find relationships, the code loops through sources, and for each source it will look at the `allowed_relations` to find relationships with other terms, then for each of these terms it will look for relationships with other terms in the same manner, etc.
+
+(relation-paths)=
+Internally, `Ontolopy` stores these relationships as a list of strings, where each string details the relations between the source term and other terms, e.g. `UBERON:123913.is_a~UBERON:1381239.is_a~UBERON:987890`. 
+Let's call these strings *relation paths*.
+
+Cyclic relationships are not permitted (a term can only be present in a relation path once).
+Relationships continue to be searched for until either the ontology provided can no longer add any new relation paths OR we found what we were looking for.
+
+In "any" mode, finding what we're looking for means finding any target term as the last term in the relation string, while in "all" mode, we must find all target terms for the source term.
+
+### Converting "relation paths" to text
+Since relationships are internally stored as {ref}`relation paths<relation-paths>` as explained above, it is useful to turn these strings into more readable text, which is what the `relation_path_to_text` function does.
+
+````{admonition} relation_path_to_text reference
+:class: hint
+```{eval-rst}
+.. currentmodule:: ontolopy.relations
+.. autofunction:: relation_path_to_text
+```
+````
+
+[//]: # (TODO: Simplifying relationships)
 
 ## Creating Uberon Mappings
 
-There are four parts to the process in creating Uberon mappings:
-1. **{ref}`Mapping via name<mapping-by-name>`:** Map from sample-to-tissue via informal tissue names given in experimental design information (e.g. “eye stalk”) to an Uberon term (`UBERON:0010326`, Optic Pedicel). 
-2. **{ref}`Mapping via ontology term<mapping-by-term>`:** Map from CL cell types (e.g. `CL:0000235`, Macrophage), sample ontology term to Uberon tissues (e.g. `UBERON:0002405`, Immune system). Or from sample ontology terms (like FANTOM terms, such as `FF:10048-101G3`, *Smooth Muscle, Adult, Pool1*) to Uberon terms (`UBERON:0001135`, Smooth Muscle Tissue). Returns relationships between source term and Uberon term.
-3. **Create sample-to-tissue mappings** based on (3) and (4)
-4. **{ref}`Find disagreements in mappings<disagreement-finding>`** based on (3) and (4), which my indicate errors in sample metadata or ontologies.
+The `opy.uberon` submodule contains the specific tools for working with the Uberon ontology: finding mappings between tissues and phenotypes {ref}`via ontology terms<mapping-by-term>` by making use of the {ref}`Relations<relations-class>` class, as well as {ref}`doing this mapping using text<mapping-by-name>`, and {ref}`comparing these two mappings<comparing-mappings>`. 
+The vast majority of this functionality sits in the `Uberon` class.
 
 
 ```{eval-rst}
@@ -187,6 +228,13 @@ There are four parts to the process in creating Uberon mappings:
 ```
 
 ### The `Uberon` class
+Calling the `Uberon` class itself simply checks if there are any `Uberon` terms in the merged ontology, and then allows the ontology to be used to create Uberon sample-to-tissue mappings, through class methods (which should be called separately).
+
+There are three parts to the process in creating Uberon mappings, the functionality for which lives in three different `Uberon` class methods:
+1. **{ref}`Mapping via name<mapping-by-name>`:** Map from sample-to-tissue via informal tissue names given in experimental design information (e.g. “eye stalk”) to an Uberon term (`UBERON:0010326`, Optic Pedicel). 
+2. **{ref}`Mapping via ontology term<mapping-by-term>`:** Map from CL cell types (e.g. `CL:0000235`, Macrophage), sample ontology term to Uberon tissues (e.g. `UBERON:0002405`, Immune system). Or from sample ontology terms (like FANTOM terms, such as `FF:10048-101G3`, *Smooth Muscle, Adult, Pool1*) to Uberon terms (`UBERON:0001135`, Smooth Muscle Tissue). Returns relationships between source term and Uberon term.
+3. **{ref}`Create sample-to-tissue mappings and disagreements between mappings<comparing-mappings>`** based on (1) and (2).
+
 
 ```{eval-rst}
 .. currentmodule:: ontolopy.uberon
@@ -208,22 +256,36 @@ There are four parts to the process in creating Uberon mappings:
 
 ```
 
-
 (mapping-by-name)=
-### Mapping by name
+### Mapping from sample to tissue via name using `Uberon.sample_map_by_name`
 Informal tissue names are mapped Uberon term identifiers by checking for exact name matches to Uberon term names and their synonyms in the extended Uberon ontology.
 
+````{admonition} Uberon.sample_map_by_name reference
+:class: hint
+```{eval-rst}
+.. currentmodule:: ontolopy.uberon
+.. automethod:: Uberon.sample_map_by_name
+```
+````
+
 (mapping-by-term)=
-### Mapping by term
-**Mapping by term: regular mapping**
+### Mapping from sample to tissue via ontology term using `Uberon.sample_map_by_ont`
+The `sample_map_by_ont` function uses the Relations class in "any" mode to find relationships via ontologies in much the same way described {ref}`above<relations-class>`. 
+This is essentially a wrapper that provides convenient default settings for allowed relations and targets.
+
+[//]: # (TODO: rename relation_types to match allowed_relations, and to to targets)
+
+Mappings can be made via any term in the merged ontology, which allows mappings that cannot be made through Uberon alone, for example: Macrophage - monocyte derived, donor3 `is_a` Human macrophage sample `derives_from` Macrophage `is_a` Monocyte `is_a` Leukocyte `part_of` Immune System, which means this sample is derived from part of the immune system.
 
 [//]: # (TODO: Cite cell ontology)
-
-A mapping between a provided term (e.g. a FANTOM sample identifier or CL identifier) associated with a sample and an Uberon term is created by:
-* Finding all relationships of interest (e.g. `is_a`, `related_to`, `part_of`, `derives_from`, `intersection_of`, `union_of`) to any other sample, cell or Uberon term (i.e. all *parents* of our term of interest).
-* Propagate any relationships found using the same list of relationships, until either an Uberon term is found, or no new relationships are found, or you reach the root terms of the ontology. 
-
-In this way, some mappings can be made via the cell ontology, which cannot be made through Uberon alone, for example: Macrophage - monocyte derived, donor3 `is_a` Human macrophage sample `derives_from` Macrophage `is_a` Monocyte `is_a` Leukocyte `part_of` Immune System, e.g. this sample is related to the immune system.
+[//]: # (TODO: Rewrite with Relations class in mind)
+````{admonition} Uberon.sample_map_by_ont reference
+:class: hint
+```{eval-rst}
+.. currentmodule:: ontolopy.uberon
+.. automethod:: Uberon.sample_map_by_ont
+```
+````
 
 [//]: # (TODO: Add example code for child-mapping melanocyte.)
 (child-mapping)=
@@ -234,5 +296,19 @@ In this case, we can look at tissue mappings (in the usual way, described above)
 I call this mode "child mapping" and it is off by default.
 
 So, for example *melanocytes* are are melanin-producing cells found in many different places in the body (skin, hair, heart), and therefore they (nor any of their parents map to a specific Uberon term).
-If we choose {python}`child_mapping=TRUE`, then for this term, we will get a list of all Uberon terms that cells of this type can come from.
+If we choose `child_mapping==TRUE`, then for this term, we will get a list of all Uberon terms that cells of this type can come from.
 This mode isn't currently used in the context of the rest of this thesis.
+
+(comparing-mappings)=
+### Getting overall mappings and finding disagreements using `Uberon.get_overall_tissue_mappings`
+As described, `Ontolopy` has two methods of mapping to tissues, and it also provides a method of harmonising these two mappings, and for finding any disagreements between them.
+This can be very useful for revealing logical inconsistencies in either the mappings or the ontologies (as was the case in the {ref}`FANTOM5 example<FANTOM5-inconsistencies-example>`).
+
+````{admonition} Uberon.get_overall_tissue_mappings reference
+:class: hint
+```{eval-rst}
+.. currentmodule:: ontolopy.uberon
+.. automethod:: Uberon.get_overall_tissue_mappings
+```
+````
+

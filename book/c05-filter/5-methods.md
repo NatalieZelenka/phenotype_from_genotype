@@ -361,18 +361,7 @@ The extended Uberon ontology is first interrogated for any existing relation to 
 
 
 ```python
-# TODO: Do nothing with this (keep in disease for now), maybe add it as an ontolopy example
-def get_disease_related_samples(samples, ont):
-    disease_relations_of_interest = ['is_a','is_model_for']
-    disease_related = opy.Relations(
-        allowed_relations=disease_relations_of_interest, 
-        sources=list(samples),
-        targets=['DOID'],
-        ont=ont,
-    )
-    return disease_related
-disease_related = get_disease_related_samples(samples=names_info.index, ont=merged)
-display(disease_related.dropna(subset=['to']))
+
 ```
 
 ```python

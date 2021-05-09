@@ -4,6 +4,7 @@
 Ontologies are controlled vocabularies of terms and relationships. You can read more about them in {numref}`what-are-ontologies`.
 :::
 
+[//]: # (TODO: Mention https://monarchinitiative.org/about/monarch - here or in intro to contextualise within idea of this very generalising biology world)
 [//]: # (TODO: Make a Zenodo for ontolopy and reference it here)
 
 ## Motivation
@@ -14,25 +15,25 @@ This is true even within databases of gene expression data where great care has 
 If tissue type is recorded at all, it is usually manually given a label tissue using a name (e.g. "blood", "kidney"), or perhaps as part of the sample name ("blood adult donor1"). 
 In other cases, cell type might be recorded instead (e.g. "leukocyte", "cardiac fibroblast").
 In other circumstances still, the samples might be annotated to existing ontologies, and some even have their own ontologies of samples (such as FANTOM5).
-Names like *blood* can be useful, but if you'd like to compare across samples, then it's helpful to have a controlled vocabulary such as ontology terms.
+Names like *blood* can be useful, but if you'd like to compare across samples, then it's helpful to have a controlled vocabulary such as ontology terms: that way even a computer can figure out what *mature basophils*, *plasma* and *fibrinogen complex* have in common.
 
-In addition to the benefits of ontologies' controlled vocabulary, they also contain a wealth of information about tissues and cells in existing ontologies (for example in Uberon, the cross-species anatomy ontology, and the Cell Ontology). 
+In addition to the benefits of ontologies controlled vocabulary (the terms themselves), they also contain a wealth of additional information and links to other ontologies. 
 For example, Uberon contains information about synonyms for different anatomical entities: the *pituitary stalk* is also known as the *infundibular stem* which is *part of the brain* that connects to the *hypothalamus*. 
 Ontologies are therefore also sources of text that could be used to map sample names to terms. 
 Once samples are mapped to ontologies they can leverage on all of the information inside them, for example, to find all the samples that are capable of *hormone secretion*.
 
 ## OBO files
-## Why OBO files?
+### Why OBO files?
 There are two file format which rule the ontology world. 
 
 [//]: # (TODO: Cite Hermit + sparql)
 Open Biomedical Ontology (`.obo` files) is the format that biomedical ontologies such as Gene Ontology or Human Phenotype Ontology were originally built in.
 Meanwhile, the other file format is the Ontology Web Language (OWL), which is built upon XML. 
 Although it has not always been the home of biomedical ontologies, many now release both OBO and OWL versions. 
-Both file types are human-readable, although the OBO format is a little easier to edit directly.
+Both file types are human-readable, although the OBO format is a little easier (for humans) to edit and read directly, and is generally considered easier to work with.
 The major benefit of the OWL format is that it is formally axiomised and there exists a large suite of tools available for performing logical reasoning (e.g. using HermiT and SPARQL)
 
-However, I found that at the time of creating, that the I needed files which were only available in OBO format, and OBO-to-OWL converters were not able to extract all the information that I needed. 
+I found that at the time of creating, that the I needed files which were only available in OBO format, and OBO-to-OWL converters were not able to extract all the information that I needed. 
 
 ### Anatomy of an OBO file
 [//]: # (TODO: write, excerpt of obo file here mention *terms* *relations* *attributes*)
@@ -90,7 +91,7 @@ If we propagate this relationship to the parent term, we find out that *surface 
 In particular, this supports finding and {ref}`propagating<propagate>` relationships between ontology terms (such as tissue and phenotype terms), and to enable matching of sample names to ontology terms.
 ```
 
-To my knowledge, no other existing package fulfils this need, however there are of course many other tools for working with ontologies.
+To my knowledge, no other existing package fulfils this particular need, however there are of course many other tools for working with ontologies.
 
 ## Other available tools
 There are a number of other tools that are available for building and logically querying ontologies, but these tend to be standalone platforms like [Protégé](https://protege.stanford.edu/) (a Desktop platform primarily for building ontologies) or OWL-specific like [OwlReady2](https://owlready2.readthedocs.io/en/latest/intro.html). 
@@ -99,6 +100,8 @@ I tested Protégé (using it's built-in reasoner HermiT with SPARQL queries) for
 Ontologies are widely used by biomedical researchers, mostly for ontology enrichment analyses. 
 There are easy to use tools in popular programming languages like R and Python for performing specialised analyses (such as GO enrichment, like GOATools{cite}`Klopfenstein2018-eh`, or the older [goenrich](https://github.com/jdrudolph/goenrich)) but tools for querying them generally are either very specialised or browser-based (like Ontobee{cite}`Ong2017-gh`).
 
-### Pronto
-Pronto{cite}`Larralde2021-sg` is a nice Python package which is the exception to this rule, however it has some "missing" (missing for me, out of scope for them) functionality: being able to propagate relationships between nodes (terms).
-It would be beneficial for Ontolopy to make use of Pronto (depending on performance) as I discuss in {numref}`pronto-integration`.
+Pronto{cite}`Larralde2021-sg` is a nice Python package which is one of the exceptions to this rule, however it has some "missing" (missing for me, out of scope for them) functionality: being able to propagate relationships between nodes (terms).
+
+OntoBio{cite}`Albuquerque2015-ls` is another Python package with similar functionality, which remains in active development. It is made by the same team as GOATools. It has a rich functionality in terms of querying common attributes of biological ontologies, for example their synonyms, definitions. Again, the missing functionality for me is to be able to merge and query ontologies for relationships.
+
+It would be beneficial for Ontolopy to make use of Pronto or OntoBio's underlying data structures as I discuss in {numref}`pronto-integration`.

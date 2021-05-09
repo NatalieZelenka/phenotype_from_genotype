@@ -109,6 +109,7 @@ GOA also link to the supporting publications for the experimental annotations.
 
 [//]: # (TODO: but the GO do not provide the statistical evidence that they used alongside this - e.g. p-value, effect size-, etc)
 
+(uberon-is)=
 ### Uberon Ontology
 Uberon is a cross-species anatomy ontology{cite}`Mungall2012-nc`, whose terms represent body parts, organs, and tissues in a variety of animal species (mouse, xenopus, fly, zebrafish) and specific structures (Neuroscience Information Framework (NIF) Gross Anatomy, Edinburgh Human Developmental Anatomy). 
 It is particularly strong in it's integration to other ontologies, including anatomy ontologies for individual species, the Gene Ontology, Cell Ontology, phenotype ontologies (e.g. mammalian phenotype, human phenotype), the Experimental Factor Ontology (EFO), etc. 

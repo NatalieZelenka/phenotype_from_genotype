@@ -1,10 +1,6 @@
 (c04-snowflake)=
 # Phenotype prediction with `Snowflake`
 
-[//]: # (TODO: Cite ALSPAC here)
-[//]: # (TODO: Put in other datasets if I mention them)
-[//]: # (TODO: Cross-reference to the sections of the Chapter)
-
 This Chapter describes the `Snowflake` algorithm for phenotype prediction and my contributions to it.
     * Development to increase the algorithm's functionality, including:
         + Running with different formats and numbers of inputs and background cohorts
@@ -17,3 +13,7 @@ This Chapter describes the `Snowflake` algorithm for phenotype prediction and my
  - Attempts to validate the algorithm with it's application to the ALSPAC data set.
 
 The development of the  `Snowflake` algorithm resulted in a patent{cite}`Gough2017-ik`, on which I am an author.
+
+[//]: # (TODO: Cite ALSPAC here)
+[//]: # (TODO: Put in other datasets if I mention them)
+[//]: # (TODO: Cross-reference to the sections of the Chapter)

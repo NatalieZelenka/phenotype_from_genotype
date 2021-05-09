@@ -1,5 +1,7 @@
 # Discussion
 
+## Usage
+
 (quality-coverage)=
 ## Mapping quality and coverage
 [//]: # (TODO: Write)
@@ -17,7 +19,23 @@ Of course we don't have a gold standard to compare to.
 
 ## Speed 
 
+### Ontology mapping
+As we saw in the {ref}`examples<ontolopy-examples-2>`, Ontolopy runs quickly for most uses involving operations on or queries to ontology objects (typically less than half a second). 
+The time taken depends on the size of the ontology, the number of the chosen relations, and the popularity of those relations within the ontology.
+However, making a query with a large number of relations to check can inflate how long a query takes to run.
+
+### Name mapping slow
+[//]: # (TODO: Write)
+
+
 ## Limitations
+
+### It's difficult to make complex queries
+[//]: # (TODO: Write)
+For example, if we want to find out which samples are made of precursor cells, we have to find *in vivo* samples which are or are derived from stem cell samples.
+In this particular case, the difficulty is partly because `derives_from` means "extracted from", or "extracted from and then had lots of things done to it", which can change the meaning.
+
+
 
 ### Ontologies don't always capture the directionality of relationships that we are interested in
 [//]: # (TODO: Check if child-mapping still exists)
@@ -37,11 +55,10 @@ In order to do something like this, we would need to have something more like a 
 When mapping by ontology or name, multiple mappings can be retrieved, but when finding an overall mapping, only one (per method) is chosen. 
 An good example of this is leukocytes, which are part of the blood and the immune system.
 
-### Weird choices?
-relation strings
-
-### Name mapping slow
+### Weird choices in implementation
 [//]: # (TODO: Write)
+- relation strings
+- not matching up with existing tools: (+s a small number of very well maintained dependencies, it's not clear how well-used these tools are anyway)
 
 ## Fit-for-purpose
 [//]: # (TODO: Write)
