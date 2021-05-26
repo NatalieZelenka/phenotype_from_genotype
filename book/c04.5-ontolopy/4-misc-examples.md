@@ -13,7 +13,7 @@ kernelspec:
 ---
 
 (ontolopy-examples-2)=
-# Example uses
+# Example uses: mapping samples to diseases or phenotypes
 
 There are a number of potential uses for Ontolopy. 
 In this section, I show two simple examples to demonstrate this usefulness. 
@@ -23,6 +23,7 @@ These show how Ontolopy can be used to:
 
 Then in {ref}`the next section<ontolopy-mapping-example>` I give the more detailed and complex example of creating a mapping between samples and tissues (which is what Ontolopy was created for specifically), and how this was used to {ref}`find inconsistencies in the FANTOM5 data<FANTOM5-inconsistencies-example>`.
 
+(ontolopy-example-inputs)=
 ## Inputs
 The examples of using Ontolopy in this Chapter use input files from FANTOM5{cite}`Lizio2015-ph` (for samples) and Uberon{cite}`Mungall2012-nc` (the cross-species anatomy ontology).
 
@@ -285,4 +286,4 @@ An excerpt of the output of Ontolopy's found FANTOM samples that are or derive f
 
 Again Ontolopy can retrieve this information compactly (2 lines of code), and in less than half a second.
 An excerpt of the output is shown in {numref}`differentiable-relations-found`.
-This would be useful for examle if we wanted to look at expression in tissues that are capable of cell differentiation, for example.
+This would be useful for example if we wanted to look at expression in tissues that are capable of cell differentiation, for example.
