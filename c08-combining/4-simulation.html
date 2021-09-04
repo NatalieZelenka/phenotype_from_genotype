@@ -1,0 +1,1349 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation &#8212; Phenotype from Genotype</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Thesis style and philosophy
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
+   2. How phenotype arises from genotype
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: function, structure and classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c03-compbio-background/0-index.html">
+   3. How genotype and phenotype are measured and researched
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. Predictive computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/7-summary.html">
+     3.7. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c04-snowflake/0-index.html">
+   4. Phenotype prediction with Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
+     4.3. Creating
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       snowflake
+      </span>
+     </code>
+     inputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/4-preprocessing.html">
+     4.4. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/7-discussion.html">
+     4.6. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
+     5.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. How Ontolopy works
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulating-coefficients-for-log-fold-change">
+   Simulating coefficients for log-fold change
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulating-tissue-specific-rna-seq-counts">
+   Simulating tissue-specific RNA-Seq counts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assessing-suitability-of-simulated-data">
+   Assessing suitability of simulated data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distributions">
+     Distributions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pca">
+     PCA
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations-of-simulations">
+   Limitations of simulations
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="simulation">
+<h1>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h1>
+<!--
+Simulated data can be used to test that methodologies are applicable to new data types. 
+Since simulated data has a well-defined ground truth, we can test the performance and accuracy of a methodology using it. 
+As long as the real data is similar to the simulated data, we can assume that methodologies will perform similarly on the real data.
+
+In order to test whether it is feasible to use batch correction to combine the RNA-Seq experiments chosen (considering the unbalanced design), a simulated data set of tissue-specific batch-affected gene expression data was created. 
+
+Data can be simulated based on its expected distribution and the parameters for the simulated distribution for each gene can be chosen based on estimates from existing data sets. 
+Any number of samples can be simulated in this manner.
+Additional effects (e.g. noise) can be added to this base level of gene expression and pre-decided fold changes for differences between samples (e.g. differential expression of tissue-specific genes, or batch effects) can be achieved by multiplying (or adding to) the simulated data. 
+
+
+## Experimental design of simulated data
+One aspect of the simulated data that I kept identical to the real data was number of samples in each experiment and tissue-group.
+
+I focused on tissue-specific expression for samples within the 10 more general {ref}`tissue groups<tissue-groups>` that I mapped samples to using Ontolopy, rather than the more specific 129 Uberon terms that the samples map to.
+These more general tissue groups contain the same specificity (and some of the exact same) terms (e.g. brain) that are in the Human Protein Atlas, which was used to parameterise the simulated count data.
+
+```{code-cell} ipython3
+:tags: [hide-input, remove-output]
+
+import pandas as pd 
+from myst_nb import glue
+
+design_file = 'data/design.csv'
+design = pd.read_csv(design_file, sep=',' ,index_col=0,
+                     usecols=['Sample ID','Experiment','Tissue (UBERON)'])
+
+tissue_groups_df = pd.read_csv('data/tissues_groups.csv', index_col=0)
+
+design['Group name'] = design['Tissue (UBERON)'].map(tissue_groups_df['Group name'])
+
+tissue_groups = list(design['Group name'].dropna().unique())
+mod = pd.DataFrame(index = design.index)
+for tissue_group in tissue_groups:
+    # Note: zeros correspond to a normal fold change of 1 (as mod contains logfold changes)
+    mod[tissue_group] = (design['Group name']==tissue_group).astype('int')
+
+overall_design = mod.copy()
+overall_design['Experiment'] = design['Experiment']
+overall_design = overall_design.groupby('Experiment').sum()
+overall_design['Samples per experiment'] = overall_design.sum(axis=1)
+overall_design.loc['Total'] = overall_design.sum(axis=0)
+
+percentage = overall_design.sum(axis=0)/float(overall_design.loc['Total', 'Samples per experiment'])
+tissue_groups_to_discard = percentage.index[percentage<0.01]
+overall_design.drop(columns=tissue_groups_to_discard, inplace=True)
+mod.drop(columns=tissue_groups_to_discard, inplace=True)
+tissue_groups.remove(tissue_groups_to_discard)
+
+glue('design-balance', overall_design)
+glue('mod-head', mod.head())
+
+mod.to_csv('data/simulated/group_mod.csv')
+```
+
+
+
+
+(estimating-coexpression)=
+### Estimating co-expression between genes
+[//]: # (TODO: Cite other packages)
+The `polyester` package does not include gene co-expression (a.k.a. co-occurrance): the correlation between genes of expression values, which is due to genes working together in the same networks.
+Although some other packages do have this functionality, they are created for scRNA-Seq data and would not be suitable for this purpose.
+
+In order to introduce this correlation to some extent, I used FANTOM data to estimate the correlation between gene expression and used this correlation matrix to create the tissue-specific effects over genes.
+
+```{code-cell} ipython3
+:tags: [hide-input, remove-output]
+
+import numpy as np
+
+fantom_exp = pd.read_csv('data/experiments/fantom_gene_expression.tsv', sep='\t', index_col=0)
+random_seed = 14042003
+num_genes_to_simulate = 1000
+
+# Calculate gene covariances to include in model data for RNA-seq simulations
+sampled = fantom_exp.sample(num_genes_to_simulate, random_state=random_seed)
+corrcoef_genes = np.corrcoef(sampled)
+assert(corrcoef_genes.shape == (num_genes_to_simulate, num_genes_to_simulate))
+corrcoef_genes = pd.DataFrame(corrcoef_genes, index=sampled.index, columns=sampled.index)
+# display(corrcoef_genes.head())
+
+# Not exactly 1 due to the linear alg. Set to 1.
+for gene in corrcoef_genes.columns:
+    corrcoef_genes.loc[gene, gene] = 1
+
+# all-NaNs due to all-zero genes in FANTOM. Set to zeros.
+for gene in corrcoef_genes.loc[gene][corrcoef_genes.loc[gene].isna()].index:
+    corrcoef_genes.loc[gene, :] = np.zeros(num_genes_to_simulate) 
+    corrcoef_genes.loc[:, gene] = np.zeros(num_genes_to_simulate) 
+assert(len((corrcoef_genes.loc[gene][corrcoef_genes.loc[gene].isna()]))==0)  # No more NaNs
+
+# Save:
+with open('data/simulated/corrcoef_matrix_genes.csv', 'w') as f:
+    f.write(f'# corrcoef matrix for {num_genes_to_simulate} randomly sampled genes from FANTOM gene expression file `fantom_gene_expression.tsv`, seed = {random_seed}.\n')
+    corrcoef_genes.to_csv(f, sep='\t')
+    
+glue('average-correlation-fantom', np.mean(corrcoef_genes.values))
+```
+
+```{code-cell} ipython3
+:tags: [hide-input]
+
+import plotly.graph_objects as go
+import plotly.figure_factory as ff
+from scipy.spatial.distance import pdist, squareform
+
+data_array = corrcoef_genes.values
+labels = corrcoef_genes.columns
+
+# Code for dendogram and heatmap adapted from plotly examples: https://plotly.com/python/dendrogram/
+# Initialize figure by creating upper dendrogram
+fig = ff.create_dendrogram(data_array, orientation='bottom', labels=labels, )
+for i in range(len(fig['data'])):
+    fig['data'][i]['yaxis'] = 'y2'
+
+# Create Side Dendrogram
+dendro_side = ff.create_dendrogram(data_array, orientation='right')
+for i in range(len(dendro_side['data'])):
+    dendro_side['data'][i]['xaxis'] = 'x2'
+
+# Add Side Dendrogram Data to Figure
+for data in dendro_side['data']:
+    fig.add_trace(data,)
+
+# Create Heatmap
+dendro_leaves = dendro_side['layout']['yaxis']['ticktext']
+dendro_leaves = list(map(int, dendro_leaves))
+heat_data = data_array[dendro_leaves,:]
+heat_data = heat_data[:,dendro_leaves]
+
+heatmap = [
+    go.Heatmap(
+        x = dendro_leaves,
+        y = dendro_leaves,
+        z = heat_data,
+        colorscale = 'Blues',
+        name = 'Correlation'
+    )
+]
+
+heatmap[0]['x'] = fig['layout']['xaxis']['tickvals']
+heatmap[0]['y'] = dendro_side['layout']['yaxis']['tickvals']
+
+# Add Heatmap Data to Figure
+for data in heatmap:
+    fig.add_trace(data)
+
+# Edit Layout
+fig.update_layout({'width':600, 'height':600,
+                         'showlegend':False, 'hovermode': 'closest',
+                         })
+# Edit xaxis
+fig.update_layout(xaxis={'domain': [.15, 1],
+                                  'mirror': False,
+                                  'showgrid': False,
+                                  'showline': False,
+                                  'zeroline': False,
+                                'showticklabels': False,
+
+                                  'ticks':""})
+# Edit xaxis2
+fig.update_layout(xaxis2={'domain': [0, .15],
+                                   'mirror': False,
+                                   'showgrid': False,
+                                   'showline': False,
+                                   'zeroline': False,
+                                   'showticklabels': False,
+                                   'ticks':""})
+
+# Edit yaxis
+fig.update_layout(yaxis={'domain': [0, .85],
+                                  'mirror': False,
+                                  'showgrid': False,
+                                  'showline': False,
+                                  'zeroline': False,
+                                  'showticklabels': False,
+                                  'ticks': ""
+                        })
+# Edit yaxis2
+fig.update_layout(yaxis2={'domain':[.825, .975],
+                                   'mirror': False,
+                                   'showgrid': False,
+                                   'showline': False,
+                                   'zeroline': False,
+                                   'showticklabels': False,
+                                   'ticks':""})
+
+# Plot!
+fig.show()
+```
+
+```{figure} ../images/blank.png
+---
+width: 1
+name: heatmap-correlations
+---
+Heatmap showing the correlation coefficients between the randomly sampled 1000 genes in the FANTOM5 data set.
+```
+
+The correlations between genes, which are used to {ref}`create the coefficient matrix<creating-coefficient-matrix>` are shown in {numref}`heatmap-correlations`. 
+
+
+### Distribution of fold-changes for tissue specific genes
+
+The expected log2-fold change due to tissue-specific effects per gene and per sample (matrix $\beta$) must be pre-decided in order to simulate the data set. 
+The size of the effect and number genes affected were estimated using data from the Human Protein Atlas (HPA) - available [here](https://www.proteinatlas.org/download/proteinatlas.tsv.zip) -  which contains for each tissue-specific gene, the transcripts per million (TPM) for tissues that were found to be tissue-enriched (at least a 5 fold change, compared to all other tissues), group-enriched (at least a 5 fold change between the group of 2-7 tissues compared to all other tissues) or tissue enhanced (at least a 5 fold change between the tissue and the average of all other tissues), and the transcripts per million of the most highly expressed tissues that were not. 
+Taken together (tissue-enriched, group-enriched and tissue-enhanced), we here refer to these genes/tissues as tissue-specific.
+An excerpt of the file can be seen in {numref}`protein-atlas-view-tbl`.
+
+```{code-cell} ipython3
+:tags: [hide-input, remove-output]
+
+import powerlaw
+
+df = pd.read_csv('data/proteinatlas.tsv', index_col=0, sep='\t',
+                 usecols= ['Gene','RNA tissue category', 'RNA TS', 'RNA TS TPM', 'TPM max in non-specific'])
+glue('protein-atlas-view', df.head())
+```
+
+```{glue:figure} protein-atlas-view
+:name: protein-atlas-view-tbl
+
+The Human protein atlas provides a csv file of TPM values for tissues with >5 fold change. This table was used to parameterise the matrix of coefficients $\beta$.
+```
+
+Since the HPA data does not include fold-changes of less than 5, I had no information about these changes, and decided to model the distribution of unaffected genes separately to the affected genes.
+
+(lognormal-estimates)=
+**Estimating parameters of lognormal distribution of log2-fold change per gene:** 
+For any of these tissue-specific genes/tissues, the log2-fold change per tissue per gene was calculated. 
+I first checked that each of the tissues had some tissue-specific genes according to the HPA data; this was the case.
+
+```{code-cell} ipython3
+:tags: [hide-input, remove-output]
+
+# First check that all tissues have some tissue-specific effects according to HPA (5fold(TPM) changes)
+non_spec_tissues = set([])
+spec_tissues = set([])
+for gene, row in df.iterrows():
+    for non_spec_tissue in [x.split(":")[0] for x in str(row.loc['RNA TS TPM']).replace(',',';').split(';')]: 
+        non_spec_tissues.add(non_spec_tissue)
+    for spec_tissue in [x.split(":")[0] for x in row.loc['TPM max in non-specific'].split(',')]:
+        spec_tissues.add(spec_tissue)
+        
+# remove strings we don't care about:
+spec_tissues.remove('all non-specific tissues')  # denotes genes that are only expressed in specific tissues
+non_spec_tissues.remove('nan')  # denotes genes that are not tissue-specific
+
+assert(non_spec_tissues==spec_tissues) # => yes all tissues are tissue-specific of these 37
+```
+
+I then extracted the multipliers from the data, and converted them to log2-fold format (expected by `polyester`).
+Since the distribution was long-tailed, I compared the distribution to an exponential, log-normal and power-law distribution using the python `powerlaw` package{cite}`Alstott2014-qq`. 
+Comparative tests showed that lognormal was the best fit (with extremely low p-values, see code output below);  {numref}`powerlaw-multipliers` visualises this.
+
+```{code-cell} ipython3
+:tags: [hide-input]
+
+#Extract the data of the TPM multipliers
+multipliers = []
+for gene, row in df.iterrows():
+    if pd.isna(row.loc['RNA TS TPM']):
+        continue
+    biggest_ts = max([float(x.split(':')[1].strip()) for x in row.loc['RNA TS TPM'].split(';')])
+    biggest_non_ts = float(row.loc['TPM max in non-specific'].split(':')[1].strip())
+    if biggest_non_ts == 0:
+        continue 
+    if np.log2(biggest_ts/float(biggest_non_ts)) == 0:
+        continue
+    multipliers.append(np.log2(biggest_ts/float(biggest_non_ts)))
+    
+#Fit distribitions to the TPM multipliers
+fit = powerlaw.Fit(multipliers, xmin=1, discrete=True)
+compare1 = ['lognormal', 'power_law']
+R, p = fit.distribution_compare(*compare1)
+if  p < 0.05:
+    print(f"{compare1[0]} distribution is a better fit than {compare1[1]} distribution with p-value={p}")
+
+compare2 = ['lognormal', 'exponential']
+R, p = fit.distribution_compare(*compare2)
+if p < 0.05:
+    print(f"{compare1[0]} distribution is a better fit than {compare1[1]} distribution with p-value={p}")
+    
+# Parameters for log2-fold coefficients of tissue-specific expression over genes:
+mu_ts = fit.lognormal.mu
+sigma_ts = fit.lognormal.sigma
+glue('mu-lognormal-ts', f'{mu_ts:.2f}', False)
+glue('sigma-lognormal-ts', f'{sigma_ts:.2f}', False)
+```
+
+```{code-cell} ipython3
+:tags: [hide-input]
+
+bin_edges, probs = fit.pdf(list(np.arange(0, 20, 0.1)))
+bin_centres = 0.5 * (bin_edges[:-1] + bin_edges[1:])
+xlim = max(bin_edges)
+x = list(np.arange(0, xlim, 0.1))
+
+lognormal = fit.lognormal.pdf(x)
+exponential = fit.exponential.pdf(x)
+power_law = fit.power_law.pdf(x)
+
+
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=bin_centres, y=probs, name='HPA data',  fill='tozeroy'))
+
+fig.add_trace(go.Scatter(x=x, y=lognormal,
+                    mode='lines', name='lognormal', line=dict(color='darkorange', width=2,
+                              dash='dot')))
+
+fig.add_trace(go.Scatter(x=x, y=exponential,
+                    mode='lines', name='exponential', line=dict(color='darkmagenta', width=2,
+                              dash='dot')))
+
+fig.add_trace(go.Scatter(x=x, y=power_law,
+                    mode='lines', name='power law', line=dict(color='green', width=2,
+                              dash='dot')))
+
+fig.update_layout(xaxis_title='Log<sub>2</sub>-fold multipliers tissue-specific gene.',
+                 yaxis_title='Probability density', height=400)
+fig.update_xaxes(range=[0, max(bin_centres)])
+fig.show()
+```
+
+```{figure} ../images/blank.png
+---
+width: 1
+name: powerlaw-multipliers-fit
+---
+The distribution of tissue-specific fold-change over all tissue-specific gene-sample pairs from HPA, fitted to lognormal, powerlaw, and exponential distributions, showing the lognormal as the best fit.
+```
+
+The log-normal distribution was the best fit to the data, see {numref}`powerlaw-multipliers-fit`). 
+The parameters fitting the log2-fold changes to the log-normal distribution were estimated as $\mu=${glue:text}`mu-lognormal-ts` $\sigma=${glue:text}`sigma-lognormal-ts`. 
+Visually inspection of {numref}`multipliers-fit` reveals that the data simulated from these parameters appears to fit the data reasonably well, although it may be better parameterised by two overlapping distributions.
+
++++
+
+**Number of tissue-specific genes per tissue:** 
+The number of tissue-specific genes per tissue was also calculated from the HPA data.
+Again, the data was most similar to a lognormal, still with very small p-values (see code output below), but the fit (see {numref}`genes-per-tissue`) was less convincing, probably due to the small number of tissues: 37.
+The distribution was parameterised with $\mu=${glue:text}`mu-lognormal-num-ts-genes` $\sigma=${glue:text}`sigma-lognormal-num-ts-genes`.
+
+```{code-cell} ipython3
+:tags: [hide-input]
+
+#Extract the data of genes per sample
+df.dropna(subset=['RNA TS TPM']).head()
+count_dict = {}
+for gene, row in df.dropna(subset=['RNA TS TPM']).iterrows():
+    tissue_names = [x.split(':')[0] for x in row.loc['RNA TS TPM'].split(';')]
+    for tissue in tissue_names:
+        try:
+            count_dict[tissue]+=1
+        except:
+            count_dict[tissue]=1
+
+genes_per_tissue = [x for x in count_dict.values()]
+
+# Fit powerlaw
+min_fold_change = np.log2(5)
+fit = powerlaw.Fit(genes_per_tissue, xmin=min_fold_change, discrete=True)
+R, p = fit.distribution_compare(*compare1)
+if  p < 0.05:
+    print(f"{compare1[0]} distribution is a better fit than {compare1[1]} distribution with p-value={p}")
+
+fit.distribution_compare(*compare2)
+if p < 0.05:
+    print(f"{compare1[0]} distribution is a better fit than {compare1[1]} distribution with p-value={p}")
+
+# Parameters for number of genes affected by tissues:
+mu_ngenes = fit.lognormal.mu
+sigma_ngenes = fit.lognormal.sigma
+glue('mu-lognormal-num-ts-genes', f'{mu_ngenes:.2f}', False)
+glue('sigma-lognormal-num-ts-genes', f'{sigma_ngenes:.2f}', False)
+```
+
+```{code-cell} ipython3
+:tags: [hide-input]
+
+bin_edges, probs = fit.pdf(list(np.arange(0, 20, 0.1)))
+bin_centres = 0.5 * (bin_edges[:-1] + bin_edges[1:])
+xlim = max(bin_edges)
+x = list(np.arange(0, xlim, 0.1))
+
+lognormal = fit.lognormal.pdf(x)
+exponential = fit.exponential.pdf(x)
+power_law = fit.power_law.pdf(x)
+
+
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=bin_centres, y=probs, name='HPA data',  fill='tozeroy'))
+
+fig.add_trace(go.Scatter(x=x, y=lognormal,
+                    mode='lines', name='lognormal', line=dict(color='darkorange', width=2,
+                              dash='dot')))
+
+fig.add_trace(go.Scatter(x=x, y=exponential,
+                    mode='lines', name='exponential', line=dict(color='darkmagenta', width=2,
+                              dash='dot')))
+
+fig.add_trace(go.Scatter(x=x, y=power_law,
+                    mode='lines', name='power law', line=dict(color='green', width=2,
+                              dash='dot')))
+
+fig.update_layout(xaxis_title='Numbers of tissue-specific genes per tissue',
+                 yaxis_title='Probability density', height=400)
+fig.update_xaxes(range=[0, max(bin_centres)])
+fig.update_yaxes(range=[0, 0.006])
+
+fig.show()
+```
+
+```{figure} ../images/blank.png
+---
+width: 1
+name: genes-per-tissue
+---
+The distribution of the number of tissue-specific genes per tissue from HPA, fitted to lognormal, powerlaw, and exponential distributions, showing the lognormal as the best fit.
+```
+
+-->
+<div class="section" id="simulating-coefficients-for-log-fold-change">
+<h2>Simulating coefficients for log-fold change<a class="headerlink" href="#simulating-coefficients-for-log-fold-change" title="Permalink to this headline">¶</a></h2>
+<p>To simulate the matrix of coefficients of log2-fold change for input to <code class="docutils literal notranslate"><span class="pre">polyester</span></code>, I first created lognormally distributed (with parameters <a class="reference internal" href="../cz-end-matter/0-appendix.html#lognormal-estimates"><span class="std std-ref">estimated</span></a> from Human Protein Atlas data) and correlated (according to the <a class="reference internal" href="../cz-end-matter/0-appendix.html#estimating-coexpression"><span class="std std-ref">gene correlations</span></a> calculated earlier) coefficients.</p>
+<p>Instead of creating log fold coefficients per tissue, I create them per row.
+This is equivalent and allows me to use <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>’s <code class="docutils literal notranslate"><span class="pre">multivariate_normal</span></code> function, which I then transform to a lognormal distribution.</p>
+<p>I then set a proportion of these coefficients to zero, based on the lognormal relationship for the number of tissue-specific genes per tissue.</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="n">mus</span>  <span class="o">=</span> <span class="n">num_genes_to_simulate</span><span class="o">*</span><span class="p">[</span><span class="n">mu_ts</span><span class="p">]</span>
+<span class="n">sigmas</span> <span class="o">=</span> <span class="n">num_genes_to_simulate</span><span class="o">*</span><span class="p">[</span><span class="n">sigma_ts</span><span class="p">]</span>
+
+<span class="n">cov</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">corrcoef_genes</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">corrcoef_genes</span><span class="o">.</span><span class="n">values</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">corrcoef_genes</span><span class="o">.</span><span class="n">values</span><span class="p">)):</span>
+        <span class="n">cov</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">corrcoef_genes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">*</span> <span class="n">sigmas</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">*</span> <span class="n">sigmas</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+
+<span class="n">mvn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mus</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">tissue_groups</span><span class="p">))</span> 
+<span class="n">sim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">mvn</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">corrcoef_genes</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">tissue_groups</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="n">sim</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="n">num_genes_affected</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mu_ngenes</span><span class="p">,</span> <span class="n">sigma_ngenes</span><span class="p">)),</span> <span class="n">num_genes_to_simulate</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">num_genes_affected</span><span class="p">)</span>
+    
+    <span class="n">genes_to_set_to_zero</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">genes_to_set_to_zero</span><span class="p">)</span>
+    <span class="n">genes_to_set_to_zero</span> <span class="o">=</span> <span class="n">genes_to_set_to_zero</span><span class="p">[:</span><span class="n">num_genes_affected</span><span class="p">]</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">tissue</span><span class="p">,</span> <span class="n">genes_to_set_to_zero</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;correlation-coefficients&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">sim</span><span class="p">))))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data/simulated/genes_1000/group_coeffs.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulating-tissue-specific-rna-seq-counts">
+<h2>Simulating tissue-specific RNA-Seq counts<a class="headerlink" href="#simulating-tissue-specific-rna-seq-counts" title="Permalink to this headline">¶</a></h2>
+<p>I simulated batch effects separately from the “base” read counts to facilitate comparison between them.</p>
+<p>I first simulated the base read counts were simulated using <code class="docutils literal notranslate"><span class="pre">polyester</span></code> (using <a class="reference download internal" download="" href="../_downloads/1d5aed2e2ac99c61648969ced4c4bf8c/create-base-simulated-counts.R"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">script</span></code></a>).
+The simulated data set is given by: <span class="math notranslate nohighlight">\(C_{ijk}\propto Negative Binomal (mean=\mu_{jk},size=r_{jk})\)</span> for replicate <span class="math notranslate nohighlight">\(i\)</span>, gene <span class="math notranslate nohighlight">\(j\)</span>, and sample <span class="math notranslate nohighlight">\(k\)</span>, where:</p>
+<ul class="simple">
+<li><p>the means are given by <span class="math notranslate nohighlight">\(\mu_{jk}=\mu'_j+\beta_{jk} \cdot mod\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu'_j\)</span> are the estimated base means per gene</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_{jk}\)</span> are the generated matrix of log-fold changes in matrix format, including both batch and tissue effects (<code class="docutils literal notranslate"><span class="pre">coeffs_batch.csv</span></code>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(mod\)</span> is the model design matrix.</p></li>
+<li><p>the dispersion parameter (size), <span class="math notranslate nohighlight">\(r_{jk}\)</span> is calculated based on <span class="math notranslate nohighlight">\(\mu_{jk}\)</span> and the fit between mean and size (estimated from the FANTOM5 data).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># load in base counts</span>
+<span class="n">base_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/simulated/genes_1000/simulated.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+<span class="n">base_counts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Genes&#39;</span><span class="p">]</span>
+<span class="n">batches</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]),</span> <span class="n">index</span><span class="o">=</span><span class="n">base_counts</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># Create mod batch</span>
+<span class="n">mod_batch</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">design</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">exp</span> <span class="ow">in</span> <span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    <span class="n">mod_batch</span><span class="p">[</span><span class="n">exp</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">exp</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+<span class="n">mod_batch</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">base_counts</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="c1"># Load in real data</span>
+<span class="n">real</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/combined/combined_subset.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># shuffled using gshuf</span>
+<span class="n">real</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="assessing-suitability-of-simulated-data">
+<h2>Assessing suitability of simulated data<a class="headerlink" href="#assessing-suitability-of-simulated-data" title="Permalink to this headline">¶</a></h2>
+<p>To assess the suitability of the simulated data as a test of batch effect removal, I compared PCA plots and distributions of the real and simulated data, after performingh the normalisation steps that precede batch correction. These steps include:</p>
+<ul class="simple">
+<li><p>Removing poorly expressed genes (</p></li>
+</ul>
+<div class="section" id="distributions">
+<h3>Distributions<a class="headerlink" href="#distributions" title="Permalink to this headline">¶</a></h3>
+<p>To determine which value of <span class="math notranslate nohighlight">\(p_0\)</span> was the closest match to the data, I visualised the distributions of the real and simulated data across experiments.</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gaussian_kde</span>
+
+<span class="k">def</span> <span class="nf">remove_low_expression_genes</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">expression_cutoff</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">absent_pc_sample</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    :param expression_cutoff: cut off for counts below which it counts as absent</span>
+<span class="sd">    :absent_pc_sample: percentage of samples that have to be less than expression cutoff for a gene to be discarded</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">always_zero</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># Num all-0 genes</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;genes sum 0:&#39;</span><span class="p">,</span> <span class="n">always_zero</span> <span class="p">)</span> 
+
+    <span class="n">low_expression_genes</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[(</span><span class="n">df</span> <span class="o">&lt;=</span> <span class="n">expression_cutoff</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">absent_pc_sample</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;more than 80</span><span class="si">% g</span><span class="s1">enes equal to 0:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">low_expression_genes</span><span class="p">))</span> 
+    
+    <span class="k">return</span> <span class="n">low_expression_genes</span>
+
+<span class="k">def</span> <span class="nf">create_exp_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">design</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a matrix with a row per count observation, and a column for experiment.&quot;&quot;&quot;</span>
+    <span class="n">exp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[])</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+        <span class="n">expression</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">design</span><span class="p">[</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">x</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">expression</span><span class="p">))</span>
+        <span class="n">gene_ids</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">expression</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">codes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">exp_df</span> <span class="o">=</span> <span class="n">exp_df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;Expression&#39;</span><span class="p">:</span> <span class="n">expression</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                <span class="s1">&#39;Experiment&#39;</span><span class="p">:</span> <span class="n">labels</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+                <span class="s1">&#39;Gene&#39;</span><span class="p">:</span> <span class="n">gene_ids</span><span class="o">.</span><span class="n">values</span>
+            <span class="p">}))</span>
+    <span class="k">return</span> <span class="n">exp_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># probs_to_plot = [0, 0.5, 1.0]</span>
+<span class="n">probs_to_plot</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+
+<span class="n">plots</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;real&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;p&lt;sub&gt;0&lt;/sub&gt; = </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">probs_to_plot</span><span class="p">]</span>
+<span class="n">num_graphs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">plots</span><span class="p">)</span>
+
+<span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">tiny_bit</span> <span class="o">=</span> <span class="mf">0.0001</span>
+<span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">tiny_bit</span><span class="p">,</span> <span class="mi">20</span><span class="o">+</span><span class="n">tiny_bit</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+<span class="c1"># bin_edges_rounded= [round(x, 2) for x in bin_edges]</span>
+
+<span class="c1"># TODO: Make the exp data object wider with more</span>
+<span class="n">x_y</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">to_plot</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">plots</span><span class="p">):</span>    
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">real</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">batch_dfs</span><span class="p">[</span><span class="n">probs_to_plot</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">real</span><span class="o">.</span><span class="n">columns</span>
+
+    <span class="n">low_exp</span> <span class="o">=</span> <span class="n">remove_low_expression_genes</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">low_exp</span><span class="p">)</span>
+    <span class="n">exp_data</span> <span class="o">=</span> <span class="n">create_exp_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">design</span><span class="p">)</span>
+    <span class="n">exp_data</span><span class="p">[</span><span class="s1">&#39;Log expression&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">exp_data</span><span class="p">[</span><span class="s1">&#39;Expression&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">experiment_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">to_plot</span><span class="p">,</span> <span class="n">experiment_name</span><span class="p">)</span>
+        <span class="n">dat</span> <span class="o">=</span> <span class="n">exp_data</span><span class="p">[</span><span class="n">exp_data</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">experiment_name</span><span class="p">][</span><span class="s1">&#39;Log expression&#39;</span><span class="p">]</span>
+<span class="c1">#         dat = exp_data[exp_data[&#39;Experiment&#39;]==experiment_name][&#39;Expression&#39;]</span>
+
+        <span class="n">x_y</span><span class="p">[(</span><span class="n">to_plot</span><span class="p">,</span> <span class="n">experiment_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#         x_y[(to_plot, experiment_name)] = density(dat, bw_adjust=0.08)</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span>
+    <span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="n">num_graphs</span><span class="p">,</span> 
+    <span class="n">subplot_titles</span><span class="o">=</span><span class="n">plots</span><span class="p">,</span>
+    <span class="n">shared_yaxes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">shared_xaxes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">x_title</span> <span class="o">=</span><span class="s1">&#39;Log expression&#39;</span><span class="p">,</span>
+    <span class="n">y_title</span><span class="o">=</span><span class="s1">&#39;Density&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">colours</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;limegreen&#39;</span><span class="p">,</span> <span class="s1">&#39;rgb(208, 32, 144)&#39;</span><span class="p">,</span> <span class="s1">&#39;darkorange&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">to_plot</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">plots</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">experiment_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
+        <span class="c1"># data too chunky to use plotly&#39;s built in density plot as it tries to display every piece of data separately</span>
+        <span class="c1"># so, I calculate separately</span>
+        <span class="n">show_leg</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">show_leg</span> <span class="o">=</span> <span class="kc">True</span>
+        
+        <span class="n">hist_y</span> <span class="o">=</span> <span class="n">x_y</span><span class="p">[(</span><span class="n">to_plot</span><span class="p">,</span> <span class="n">experiment_name</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">x_y</span><span class="p">[(</span><span class="n">to_plot</span><span class="p">,</span> <span class="n">experiment_name</span><span class="p">)][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">bin_centres</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+
+        <span class="n">dens_x</span><span class="p">,</span> <span class="n">dens_y</span> <span class="o">=</span> <span class="n">x_y</span><span class="p">[(</span><span class="n">to_plot</span><span class="p">,</span> <span class="n">experiment_name</span><span class="p">)]</span>
+        
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+            <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">bin_centres</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">hist_y</span><span class="p">,</span> 
+
+<span class="c1">#             go.Scatter(x=dens_x, y=dens_y, </span>
+                       <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> 
+                       <span class="n">legendgroup</span><span class="o">=</span><span class="n">experiment_name</span><span class="p">,</span>
+                       <span class="n">name</span><span class="o">=</span><span class="n">experiment_name</span><span class="p">,</span>
+                       <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">j</span><span class="p">]),</span>
+                       <span class="n">showlegend</span><span class="o">=</span><span class="n">show_leg</span><span class="p">,</span>
+                      <span class="p">),</span>
+            <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span>
+         <span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span>
+    <span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="n">num_graphs</span><span class="p">,</span> 
+    <span class="n">subplot_titles</span><span class="o">=</span><span class="n">plots</span><span class="p">,</span>
+    <span class="n">shared_yaxes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">shared_xaxes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">x_title</span> <span class="o">=</span><span class="s1">&#39;Log expression&#39;</span><span class="p">,</span>
+    <span class="n">y_title</span><span class="o">=</span><span class="s1">&#39;Density&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">colours</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;limegreen&#39;</span><span class="p">,</span> <span class="s1">&#39;rgb(208, 32, 144)&#39;</span><span class="p">,</span> <span class="s1">&#39;darkorange&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">to_plot</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">plots</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">experiment_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
+        <span class="c1"># data too chunky to use plotly&#39;s built in density plot as it tries to display every piece of data separately</span>
+        <span class="c1"># so, I calculate separately</span>
+        <span class="n">show_leg</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">show_leg</span> <span class="o">=</span> <span class="kc">True</span>
+        
+        <span class="n">hist_y</span> <span class="o">=</span> <span class="n">x_y</span><span class="p">[(</span><span class="n">to_plot</span><span class="p">,</span> <span class="n">experiment_name</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">x_y</span><span class="p">[(</span><span class="n">to_plot</span><span class="p">,</span> <span class="n">experiment_name</span><span class="p">)][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">bin_centres</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+
+        <span class="n">dens_x</span><span class="p">,</span> <span class="n">dens_y</span> <span class="o">=</span> <span class="n">x_y</span><span class="p">[(</span><span class="n">to_plot</span><span class="p">,</span> <span class="n">experiment_name</span><span class="p">)]</span>
+        
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+            <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">bin_centres</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">hist_y</span><span class="p">,</span> 
+
+<span class="c1">#             go.Scatter(x=dens_x, y=dens_y, </span>
+                       <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> 
+                       <span class="n">legendgroup</span><span class="o">=</span><span class="n">experiment_name</span><span class="p">,</span>
+                       <span class="n">name</span><span class="o">=</span><span class="n">experiment_name</span><span class="p">,</span>
+                       <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">j</span><span class="p">]),</span>
+                       <span class="n">showlegend</span><span class="o">=</span><span class="n">show_leg</span><span class="p">,</span>
+                      <span class="p">),</span>
+            <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span>
+         <span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="density-sim">
+<a class="reference internal image-reference" href="../_images/blank.png"><img alt="../_images/blank.png" src="../_images/blank.png" style="width: 1px;" /></a>
+<p class="caption"><span class="caption-text">Density plots for the real (leftmost) and simulated data for varying probability of zero batch-effect <span class="math notranslate nohighlight">\(p_{0}\)</span>. As <span class="math notranslate nohighlight">\(p_{0}\)</span> increases…</span><a class="headerlink" href="#density-sim" title="Permalink to this image">¶</a></p>
+</div>
+<p>The density plots in <code class="xref std std-numref docutils literal notranslate"> <span class="pre">density-sim</span></code> shows that the simulated data has comparable distributions to the true data, with <span class="math notranslate nohighlight">\(p_{0}=\)</span> appearing to show the closest resemblance to the data.
+PCA (figure <code class="xref std std-numref docutils literal notranslate"><span class="pre">pca-sim</span></code>) reveals that batch effects are visible in the simulated data, as they are in the real data.</p>
+</div>
+<div class="section" id="pca">
+<h3>PCA<a class="headerlink" href="#pca" title="Permalink to this headline">¶</a></h3>
+<p>I also visualised prinicipal components analysis for the simulated data, with and without batch effect.
+We would expect to see the data clustering by tissue for the simulated data with no batch effect, and by batch for the simulated batch-effected data, which is the case (see <code class="xref std std-numref docutils literal notranslate"><span class="pre">pca-simulations</span></code>).</p>
+<p>I followed a standard data pipeline for PCA:</p>
+<ol class="simple">
+<li><p>removing low-expression genes (less than 100 counts in more than 80% of samples)</p></li>
+<li><p>feature scaling</p></li>
+<li></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="limitations-of-simulations">
+<h2>Limitations of simulations<a class="headerlink" href="#limitations-of-simulations" title="Permalink to this headline">¶</a></h2>
+<p><strong>Negative Binomial</strong>
+Although the negative binomial distribution is often used to model count data, count data do not always fit the distribution very well<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id272"><span>264</span></a>]</span>, and I did not check that the 4 experiments used here do so.</p>
+<p>Number of genes with tissue-specific effects measured over 37 tissues (all are in my data set), and 20,000 genes… Need PROPORTION OF genes.
+<strong>Estimated from HPA TPM summaries</strong></p>
+<ul class="simple">
+<li><p>only counts data with log2-fold changes of &gt; 5 TPM, don’t get a good estimate of smaller changes</p></li>
+<li><p>estimates are made from TPM data but applied to counts data</p></li>
+</ul>
+<p><strong>Co-expression not accurately modelled</strong>
+<span class="xref myst">//</span>: # (TODO: Image for co-expression in real and simulated data)</p>
+<p>Although I use gene expression data to ensure that the coefficients for genes are correlated across samples, this does not ensure that the resulting dataset shows this coexpression accurately (although it does improve it substantially, see <code class="xref std std-numref docutils literal notranslate"><span class="pre">correlations-coexpression</span></code>).
+One result of this is that Principal Components Analysis plots for simulated data are not as informative for simulated data since the explained variance of the first two components is lower.
+This should not impact the interpretation of the simultations, since if anything it will be more difficult to estimate batch effects with more variance over genes.
+<span class="xref myst">//</span>: # (TODO: Write)</p>
+<p>These correlations are very sensitive to the number of zeros in the coefficient matrix.</p>
+<table class="table" id="correlations-coexpression">
+<caption><span class="caption-text">Table showing correlations between genes for real and simulated count data, and <span class="math notranslate nohighlight">\(\beta\)</span> matrix.</span><a class="headerlink" href="#correlations-coexpression" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>FANTOM5 data</p></th>
+<th class="head"><p>Coefficients matrix for tissue-specific expression, <span class="math notranslate nohighlight">\(\beta\)</span></p></th>
+<th class="head"><p>Simulated count (no co-expression between coefficients)</p></th>
+<th class="head"><p>Simulated count data (with co-expression between coefficients)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>0.05</p></td>
+<td><p>?</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Batch effects</strong>
+A good indication of the relative size or extent of batch effects was not readily available.
+Batch effects (log-fold changes - and proportion of genes affected by them) were chosen such that the simulated distributions most closely (according to visual inspection of PCA and box-plots).</p>
+<p>The simulated data set is read counts and the fold changes are calculated from TPM data, however the simulated data does not include effects due to gene length or library size.</p>
+<p>I combined multiplicative and additive batch effects: not sure if there are more nonlinear effects, or whether it was necessary to include multiplicative effects, etc.
+Looking at the real data, the number of zero counts is clearly quite different per experiment and this is not well-modelled by the simulated data set.
+A multiplicative batch effect that included multiplying some genes by zero might have been a good idea to simulate this, or potentially, a multiplicative batch effect which had more small values (much below 1), which would potentially reduce small counts to zero counts.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c08-combining"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

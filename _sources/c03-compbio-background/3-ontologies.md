@@ -18,11 +18,12 @@ Linneus' classifications included a racist hierarchical classification of human 
 Cataloguing and classifying has been a successful scientific endeavour in other disciplines (e.g. the periodic table), but it’s a cornerstone of biology. 
 Biological classification dates back to the Linnaean taxonomy from the mid 1700s (see {numref}`linneaus_ehret`), which described species, their features, and the relationships between them{cite}`Jensen2010-fk`.
 It also contained some {ref}`hateful racist ideas<linneus-racist>`.
-Nonetheless the idea of measuring and categorising the biological world also birthed an enduring tradition of classification in biology.
+Nonetheless the idea of measuring and categorising the biological world also birthed an enduring tradition of classification in biology, which have led to some of it's most important discoveries.
  
 Modern biology continues in this tradition of classification, cataloguing biology in ever more (molecular) detail: cells, genes, transcripts, proteins, and pathways. 
 One major way in which this data is synthesised is through the use of ontologies.
 
+(what-are-ontologies-section)=
 ## What are ontologies?
 [//]: # (TODO: Draw a tree and refer to image in text)
 Ontologies are a way of organising all of the information we have collected in classifying and annotating biological concepts and entities, into a unified framework: one which we can represent, build, and query computationally.
@@ -53,6 +54,7 @@ Ontologies:
 - Allow entities (terms) to be *annotated* with additional information, e.g. annotating gene functions to genes.
 ```
 
+(how-ontologies-created)=
 ## How are ontologies created, maintained, and improved?
 Biological ontologies are generally created through some combination of manual curation by highly skilled bio-curators and logic-testing (checking for illogical relationships, for example using ROBOT{cite}`Overton2015-vo`). 
 Creating an ontology is generally a long-term project, with new suggestions and updates to the ontologies being made as new knowledge accumulates, or just as more people have time to add to them. 
@@ -64,8 +66,10 @@ However, there are also cross-ontology mappings and annotations, where terms fro
 These also require the work of dedicated curators, who search through literature, assessing various criteria for the inclusion of an annotation (such criteria vary by ontology). 
 Since this is a laborious process, there are also many computational methods to annotate ontology terms automatically. 
 
-
+(examples-ontologies)=
 ## Examples of ontologies
+
+(gene-ontology)=
 ### Gene Ontology
 [//]: # (TODO: Citations in GO section)
 
@@ -87,7 +91,7 @@ It includes:
 3. Tools for using and updating these resources.
 
 **Gene Ontology terms:** 
-The Gene Ontology defines the “universe” of possible functions a gene might have (in any species), while the functions of particular genes are captured as GOA database{cite}`Thomas2017-vm`.
+The Gene Ontology defines the “universe” of possible functions a gene might have (in any species), while the functions of particular genes are captured as annotations in the GOA database{cite}`Thomas2017-vm`.
 
 The terms in the GO ontology are subdivided into three types (molecular function, biological process, and cellular component), meaning that GO is actually a collection of three ontologies{cite}`Ashburner2000-cr`. 
 Gene products in GO are assumed to carry out molecular-level process or activity (molecular function) in a specific location relative to the cell (cellular component), and this molecular process contributes to a larger biological objective (biological process){cite}`Thomas2017-vm`.
@@ -109,10 +113,12 @@ GOA also link to the supporting publications for the experimental annotations.
 
 [//]: # (TODO: but the GO do not provide the statistical evidence that they used alongside this - e.g. p-value, effect size-, etc)
 
+(uberon-is)=
 ### Uberon Ontology
-Uberon is a cross-species anatomy ontology{cite}`Mungall2012-nc`, whose terms represent body parts, organs, and tissues in a variety of animal species. 
-It is particularly strong in it's integration to other ontologies, including anatomy ontologies for individual species, the Gene Ontology, Cell Ontology, phenotype ontologies, the Experimental Factor Ontology (EFO), etc. 
+Uberon is a cross-species anatomy ontology{cite}`Mungall2012-nc`, whose terms represent body parts, organs, and tissues in a variety of animal species (mouse, xenopus, fly, zebrafish) and specific structures (Neuroscience Information Framework (NIF) Gross Anatomy, Edinburgh Human Developmental Anatomy). 
+It is particularly strong in it's integration to other ontologies, including anatomy ontologies for individual species, the Gene Ontology, Cell Ontology, phenotype ontologies (e.g. mammalian phenotype, human phenotype), the Experimental Factor Ontology (EFO), etc. 
 
+(other-ontologies)=
 ### Other Ontologies
 [//]: # (TODO: Other ontologies, cite + descriptions)
 There are many other ontologies which aim to catalogue other aspects of biological experiments and knowledge.
@@ -126,6 +132,7 @@ Other ontologies which are used in this thesis include:
 ## Why are ontologies useful?
 [//]: # (TODO: Example of query of insight you woudln't have usually,  signpost to DCGO, mention usefulness of controlled vocabulary and agreed upon definitions)
 [//]: # (TODO: Add picture describing logic http://geneontology.org/docs/ontology-relations/)
+[//]: # (TODO: Maths not displaying in PDF)
 
 Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities.
 With logical reasoning, we can generate inferred relationships between distantly related terms in  ontologies, for example $is\_a \cdot part\_of \implies part\_of$. 
@@ -135,10 +142,11 @@ Ontologies and particularly their annotations are varying degrees of incomplete,
 
 (term-enrichment)=
 ### Term enrichment
-Ontologies are often used to try to make sense of a list of genes that are found to be differentially expressed across different experimental conditions, or as outputs from GWAS. 
-In the context of GO, a term enrichment analysis can be carried out to see which GO terms are overrepresented (aka enriched) for a given group of genes, thus saying something about the function of the list of genes. 
+Ontologies are often used to try to make sense of a list of genes that are found to be differentially expressed across different experimental conditions, or that are outputs from GWAS. 
+In the context of GO, a term enrichment analysis can be carried out to see which GO terms are overrepresented (a.k.a. enriched) for a given group of genes, thus saying something about the function of the list of genes. 
 
+(ontology-file-formats)=
 ## File formats
 (obo-format)=
 There are two major file formats in which ontologies are currently stored. 
-he OBO format is a human-readable format, while the OWL format is more complex, but has more functionality, and for example can be queried using SPARQL (an SQL-like querying language).  
+The OBO format is a human-readable format, while the OWL format is more complex, but has more functionality, and for example can be queried using SPARQL (an SQL-like querying language).  

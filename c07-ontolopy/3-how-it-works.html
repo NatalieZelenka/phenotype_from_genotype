@@ -1,0 +1,662 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7.3. How Ontolopy works &#8212; Phenotype from Genotype</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.4. Example uses: mapping samples to diseases or phenotypes" href="4-misc-examples.html" />
+    <link rel="prev" title="7.2. Functionality" href="2-functionality.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Thesis style and philosophy
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
+   2. How phenotype arises from genotype
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: function, structure and classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c03-compbio-background/0-index.html">
+   3. How genotype and phenotype are measured and researched
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. Predictive computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/7-summary.html">
+     3.7. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c04-snowflake/0-index.html">
+   4. Phenotype prediction with Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
+     4.3. Creating
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       snowflake
+      </span>
+     </code>
+     inputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/4-preprocessing.html">
+     4.4. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/7-discussion.html">
+     4.6. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
+     5.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0-index.html">
+   7. Ontolopy
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     7.3. How Ontolopy works
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c08-combining/0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practices">
+   7.3.1. Practices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tools">
+   7.3.2. Tools
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="how-ontolopy-works">
+<h1><span class="section-number">7.3. </span>How Ontolopy works<a class="headerlink" href="#how-ontolopy-works" title="Permalink to this headline">¶</a></h1>
+<p>This section briefly describes the tools and practices that Ontolopy is built upon.</p>
+<div class="section" id="practices">
+<h2><span class="section-number">7.3.1. </span>Practices<a class="headerlink" href="#practices" title="Permalink to this headline">¶</a></h2>
+<p><strong>Development philosophy:</strong></p>
+<div class="margin sidebar" id="continuous-integration">
+<p class="sidebar-title">Continuous Integration</p>
+<p>Continuous integration, delivery, and deployment enable running tests and updating packaging frequently by automatically doing these things when changes are made to a version-controlled repository<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id218"><span>115</span></a>]</span>.</p>
+</div>
+<p>Ontolopy aspires to <a class="reference external" href="https://society-rse.org/">Research Software Engineering</a> best practice, including:</p>
+<ul class="simple">
+<li><p>Automated testing with <a class="reference external" href="https://docs.pytest.org/en/stable/">pytest</a> which are <a class="reference internal" href="#continuous-integration"><span class="std std-ref">continuously integrated</span></a> with <a class="reference external" href="https://github.com/features/actions">GitHub Actions</a>.</p></li>
+<li><p><a class="reference external" href="https://semver.org/">Semantic Versioning</a> to make the package versions informative and useful for others.</p></li>
+<li><p>Thorough <a class="reference external" href="https://nataliethurlby.github.io/ontolopy">documentation</a>, which is versioned. This means that you can always reach the documentation corresponding to the version of the software you are using - you can access this at <code class="docutils literal notranslate"><span class="pre">/versions/{tagged_version}</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">v1.0.2-beta</span></code> is <a class="reference external" href="https://nataliethurlby.github.io/ontolopy/versions/1.0.2-beta/">here</a>.) The documentation is also built automatically using GitHub Actions.</p></li>
+<li><p>Keeping a small number of dependencies, which are: <code class="docutils literal notranslate"><span class="pre">numpy</span></code><span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id216"><span>219</span></a>]</span> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code><span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id217"><span>220</span></a>]</span> for general data manipulation, and <code class="docutils literal notranslate"><span class="pre">validators</span></code> (for validating URLs)</p></li>
+</ul>
+<p><strong>Open Source:</strong></p>
+<p>Ontolopy is Open Source (with an MIT license), and available on <a class="reference external" href="https://github.com/NatalieThurlby/ontolopy">GitHub</a>.
+This means that:</p>
+<ul class="simple">
+<li><p>anyone can contribute to it. I provided <a class="reference external" href="https://nataliethurlby.github.io/ontolopy/contents/develop.html#developer-guidance">developer guidance</a> and <a class="reference external" href="https://github.com/NatalieThurlby/ontolopy/labels/good%20first%20issue">“good first issues”</a> to reduce the barrier to this.</p></li>
+<li><p>anyone can download, use, reuse, or adapt the source code for their own work. This is made easier by the fact that Ontolopy is distributed via the <a class="reference external" href="https://pypi.org/project/ontolopy/">Python Package Index</a>.</p></li>
+</ul>
+<p><strong>Style:</strong></p>
+<p>Ontolopy uses consistent programming style and conventions to make it easier for others to work with (these were adapted from the <a class="reference external" href="https://metawards.org/">MetaWards</a> package developer guide<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id219"><span>221</span></a>]</span>:</p>
+<ul class="simple">
+<li><p>Python-style naming conventions:</p>
+<ul>
+<li><p>Packages: lowercase (single word)</p></li>
+<li><p>Classes: CamelCase</p></li>
+<li><p>Methods, Functions, Variables: snake_case</p></li>
+</ul>
+</li>
+<li><p>Functions with leading underscores (e.g. <code class="docutils literal notranslate"><span class="pre">_extract_source()</span></code>)  are meant for internal use only.</p></li>
+<li><p>Relative imports should be used at all times, with imports ideally delayed until they are needed.</p></li>
+</ul>
+</div>
+<div class="section" id="tools">
+<h2><span class="section-number">7.3.2. </span>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<p><strong>Packaging:</strong></p>
+<p>Packaging is carried out automatically using GitHub actions whenever a new version of the software is “tagged” via GitHub.
+This uses the <a class="reference external" href="https://twine.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">twine</span></code></a><span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id220"><span>222</span></a>]</span> Python Package.</p>
+<p><strong>Testing:</strong></p>
+<p>Tests are automatically run whenever Ontolopy code is changed on either the GitHub <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">dev</span></code> (development) branches.
+This is achieved with GitHub Actions and the <a class="reference external" href="https://docs.pytest.org/"><code class="docutils literal notranslate"><span class="pre">pytest</span></code></a><span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id221"><span>223</span></a>]</span> Python Package.</p>
+<p><strong>Logging:</strong></p>
+<p>Python’s in-built <a class="reference external" href="https://docs.python.org/3/library/logging.html"><code class="docutils literal notranslate"><span class="pre">logging</span></code></a> module is used to integrate logging messages from dependencies as well as adding useful logging messages for Ontolopy users.
+This allows informative messages to be printed to the console or to a log file.</p>
+<p><strong>Documentation:</strong></p>
+<p>Ontolopy’s documentation is hosted on GitHub pages <a class="reference external" href="https://nataliethurlby.github.io/ontolopy/">here</a>, and built using <a class="reference external" href="https://www.sphinx-doc.org/"><code class="docutils literal notranslate"><span class="pre">Sphinx</span></code></a> with the <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/"><code class="docutils literal notranslate"><span class="pre">pydata-sphinx-theme</span></code></a> theme<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id222"><span>224</span></a>]</span>, and it is automatically built using GitHub Actions whenever there are changes to the development branch or when there is a new release.
+It also makes use of following tools:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/peaceiris/actions-gh-pages"><code class="docutils literal notranslate"><span class="pre">peaceiris</span></code>’s GitHub pages action</a> - to automatically update a GitHub pages site in a GitHub Action.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.autosummary</span></code></a> - to automatically build an API Reference from docstrings in code.</p></li>
+</ul>
+<p id="sphinx-extension">In addition to the above tools which were built by others, I wrote a small local sphinx extension to create the versioned documentation.
+This, in turn, uses <a class="reference external" href="https://gitpython.readthedocs.io/">gitpython</a> and <a class="reference external" href="https://pygithub.readthedocs.io/">pygithub</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c07-ontolopy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="2-functionality.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">7.2. </span>Functionality</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="4-misc-examples.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">7.4. </span>Example uses: mapping samples to diseases or phenotypes</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

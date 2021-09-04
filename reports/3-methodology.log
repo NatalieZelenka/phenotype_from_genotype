@@ -1,0 +1,70 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/client.py", line 1117, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/util.py", line 78, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/util.py", line 57, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/client.py", line 559, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/client.py", line 862, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/client.py", line 765, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import os
+import pandas as pd
+import plotly.express as px
+import numpy as np
+from myst_nb import glue
+
+# Read in all the 'snp' files and count the number of SNPs
+# TODO: symlink this data to somewhere and add to the data dir
+output_dir = '/Users/nataliethurlby/old/RecoveredData/NatHardDrive/work/CAGI_2015/cagi_output'
+all_term_descriptions_loc = '/Users/nataliethurlby/phd/athletes/old/data/allTermDescriptions.txt'
+
+snps = {}
+for file in os.listdir(output_dir):
+    term, suffix = file.split('.')
+    if not suffix == 'snp':
+        continue
+    
+    with open(os.path.join(output_dir, file)) as f:
+        snps[term] = len(f.readlines())
+
+# TODO: Make sure the graph is the last thing in the box/in it's own box, potentially with some other subplots.
+snps = pd.Series(snps, name = 'Number of snps')
+
+large_num_snps = 800
+glue('num-phen-many-snps', len(snps[snps>large_num_snps]))
+glue('num-phen-single-snp', len(snps[snps==1]))
+
+# Find the names of terms from allTermsDescriptions.txt
+term_descriptions = pd.read_csv(all_term_descriptions_loc, sep='\t', header=None, usecols = [1,4])
+term_descriptions.rename(columns={1: 'Term ID', 4:'Term name'}, inplace=True)
+term_descriptions.set_index('Term ID', inplace=True)
+
+many_snp_terms = pd.DataFrame(snps[snps>large_num_snps])
+many_snp_terms['Term name'] = term_descriptions.loc[many_snp_terms.index]['Term name']
+
+glue('over-many-terms-table', many_snp_terms)
+glue('percent-less-than-100', f"{100*len(snps[snps<100])/float(len(snps)):.0f}")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m/tmp/ipykernel_16836/857504512.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     11[0m [0;34m[0m[0m
+[1;32m     12[0m [0msnps[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 13[0;31m [0;32mfor[0m [0mfile[0m [0;32min[0m [0mos[0m[0;34m.[0m[0mlistdir[0m[0;34m([0m[0moutput_dir[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     14[0m     [0mterm[0m[0;34m,[0m [0msuffix[0m [0;34m=[0m [0mfile[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0;34m'.'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     15[0m     [0;32mif[0m [0;32mnot[0m [0msuffix[0m [0;34m==[0m [0;34m'snp'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/nataliethurlby/old/RecoveredData/NatHardDrive/work/CAGI_2015/cagi_output'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/nataliethurlby/old/RecoveredData/NatHardDrive/work/CAGI_2015/cagi_output'
+

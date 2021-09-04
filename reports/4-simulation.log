@@ -1,0 +1,59 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/client.py", line 1117, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/util.py", line 78, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/util.py", line 57, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/client.py", line 559, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/client.py", line 862, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/client.py", line 765, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from copy import deepcopy
+mus  = num_genes_to_simulate*[mu_ts]
+sigmas = num_genes_to_simulate*[sigma_ts]
+
+cov = deepcopy(corrcoef_genes.values)
+for row in range(len(corrcoef_genes.values)):
+    for col in range(len(corrcoef_genes.values)):
+        cov[row][col] = corrcoef_genes.values[row][col] * sigmas[row] * sigmas[col]
+
+mvn = np.random.multivariate_normal(mus, cov, size=len(tissue_groups)) 
+sim = pd.DataFrame(np.exp(mvn), columns=corrcoef_genes.columns, index=tissue_groups)
+
+display(np.transpose(sim).head())
+
+for tissue in sim.index:
+    num_genes_affected = min(int(np.random.lognormal(mu_ngenes, sigma_ngenes)), num_genes_to_simulate) 
+    print(num_genes_affected)
+    
+    genes_to_set_to_zero = list(sim.columns)
+    np.random.shuffle(genes_to_set_to_zero)
+    genes_to_set_to_zero = genes_to_set_to_zero[:num_genes_affected]
+    sim.loc[tissue, genes_to_set_to_zero] = 0
+
+display(np.transpose(sim).head())
+glue('correlation-coefficients', np.mean(np.corrcoef(np.transpose(sim))))
+np.transpose(sim).to_csv('data/simulated/genes_1000/group_coeffs.csv')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m/tmp/ipykernel_16567/1756252472.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mfrom[0m [0mcopy[0m [0;32mimport[0m [0mdeepcopy[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mmus[0m  [0;34m=[0m [0mnum_genes_to_simulate[0m[0;34m*[0m[0;34m[[0m[0mmu_ts[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0msigmas[0m [0;34m=[0m [0mnum_genes_to_simulate[0m[0;34m*[0m[0;34m[[0m[0msigma_ts[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mcov[0m [0;34m=[0m [0mdeepcopy[0m[0;34m([0m[0mcorrcoef_genes[0m[0;34m.[0m[0mvalues[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'num_genes_to_simulate' is not defined
+NameError: name 'num_genes_to_simulate' is not defined
+

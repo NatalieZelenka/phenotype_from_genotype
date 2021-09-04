@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.4. Results and discussion &#8212; Phenotype from Genotype</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Glossary" href="../cz-end-matter/glossary.html" />
+    <link rel="prev" title="8.3. Data Wrangling" href="3-data-wrangling.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Thesis style and philosophy
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
+   2. How phenotype arises from genotype
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: function, structure and classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c03-compbio-background/0-index.html">
+   3. How genotype and phenotype are measured and researched
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. Predictive computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/7-summary.html">
+     3.7. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c04-snowflake/0-index.html">
+   4. Phenotype prediction with Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
+     4.3. Creating
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       snowflake
+      </span>
+     </code>
+     inputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/4-preprocessing.html">
+     4.4. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/7-discussion.html">
+     4.6. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
+     5.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. How Ontolopy works
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   8.4.1. Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-tissue-specific-expression-comparison">
+     8.4.1.1. Example: Tissue-specific expression comparison
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batch-effects">
+     8.4.1.2. Batch effects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#related-outputs">
+     8.4.1.3. Related outputs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#future-work">
+   8.4.2. Future Work
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mapping-improvements">
+     8.4.2.1. Mapping improvements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batch-effect-removal">
+     8.4.2.2. Batch effect removal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tissue-specific-vs-cell-specific">
+     8.4.2.3. Tissue-specific vs cell specific
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combining-omics-data-sets-is-an-opportunity-to-improve-existing-resources">
+   8.4.3. Combining omics data sets is an opportunity to improve existing resources
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="results-and-discussion">
+<h1><span class="section-number">8.4. </span>Results and discussion<a class="headerlink" href="#results-and-discussion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="results">
+<h2><span class="section-number">8.4.1. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>By harmonising the metadata of the four gene expression experiments, I have made it possible to query these four large data sets together, and I show an <a class="reference internal" href="#tissue-specific-expression"><span class="std std-ref">example</span></a> of this.
+I have made the harmonised metadata for these experiments available for download through the Open Science Framework, <a class="reference external" href="https://osf.io/zkc32/download">here</a>.</p>
+<!--
+### Combined data se
+
+{numref}`combined-summary` shows how the combined data set holds a larger range of samples and tissue types.
+
+-->
+<p>The combined data set represents 122 healthy tissues (all of which map to Uberon terms), over almost 20,000 samples, all which have consistent labelled sample information (age, development stage, sex).
+This wider variety of information can be used to increase coverage when gene expression data is needed for input to algorithms, which I do in <a class="reference internal" href="../c06-filter/0-index.html#c06-filter"><span class="std std-ref">the next chapter</span></a>.</p>
+<!--
+```{list-table} Table showing the size of experiments ($^1$ = after filtering for healthy tissues).
+:header-rows: 1
+:name: combined-summary
+
+* - Experiment
+  - Number of unique labelled tissues$^1$
+  - Number of samples$^1$
+  - Number of unique mapped Uberon terms$^1$
+  - Number of genes
+* - FANTOM5
+  - 
+  - 
+  -
+  -
+* - HPA
+  - 
+  - 
+  -
+  -  
+* - GTEx
+  - 
+  - 
+  -
+  -
+* - HDBR
+  - 
+  - 
+  -
+  -
+* - **Combined**
+  - ** **
+  - ** **
+  - ** **
+  - ** **
+  
+```
+-->
+<div class="section" id="example-tissue-specific-expression-comparison">
+<span id="tissue-specific-expression"></span><h3><span class="section-number">8.4.1.1. </span>Example: Tissue-specific expression comparison<a class="headerlink" href="#example-tissue-specific-expression-comparison" title="Permalink to this headline">¶</a></h3>
+<p>To illustrate the benefit of combining datasets, I will demonstrate that even the largest and most comprehensive gene expression experiments do not show all genes that are capable of expression being expressed.</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">cohen_kappa_score</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">chosen_tissue_group</span> <span class="o">=</span> <span class="s1">&#39;brain&#39;</span>  <span class="c1"># the only tissue group in all experiments</span>
+
+<span class="n">design_file</span> <span class="o">=</span> <span class="s1">&#39;data/design.csv&#39;</span>
+<span class="n">design</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">design_file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">tissue_names</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/tissue_groups_overlap.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">chosen_tissue_map</span> <span class="o">=</span> <span class="n">tissue_names</span><span class="p">[</span><span class="n">tissue_names</span><span class="p">[</span><span class="s1">&#39;Group name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">chosen_tissue_group</span><span class="p">]</span>
+
+<span class="c1"># Print tissues within tissue group</span>
+<span class="n">chosen_tissues</span> <span class="o">=</span> <span class="n">chosen_tissue_map</span><span class="o">.</span><span class="n">index</span>
+<span class="n">design</span> <span class="o">=</span> <span class="n">design</span><span class="p">[</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Tissue (UBERON)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">chosen_tissues</span><span class="p">)]</span>
+<span class="n">design</span><span class="p">[</span><span class="s1">&#39;Tissue name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">design</span><span class="p">[</span><span class="s1">&#39;Tissue (UBERON)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">chosen_tissue_map</span><span class="p">[</span><span class="s1">&#39;Tissue name&#39;</span><span class="p">])</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;num-brain-subtissues&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Tissue name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()))</span>
+<span class="n">brain_tissues</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Tissue name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">brain_tissues</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Frequency in samples&#39;</span><span class="p">]</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;brain-tissues-view&#39;</span><span class="p">,</span> <span class="n">brain_tissues</span><span class="p">)</span>
+
+<span class="c1"># Display breakdown by Experiment</span>
+<span class="n">breakdown_by_experiment</span> <span class="o">=</span> <span class="n">design</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Experiment&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()[[</span><span class="s1">&#39;Tissue name&#39;</span><span class="p">]]</span>
+<span class="n">breakdown_by_experiment</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Brain tissues&#39;</span><span class="p">]</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;brain-design-view&#39;</span><span class="p">,</span> <span class="n">breakdown_by_experiment</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>I looked at the tissue group <em>brain</em>, since all experiments have tissues in this group (see <a class="reference internal" href="#brain-design"><span class="std std-numref">Fig. 8.6</span></a>).
+These samples represent  different brain tissues, <a class="reference internal" href="#top-brain-tissues"><span class="std std-numref">Fig. 8.5</span></a> shows the most prevalent subtissue types.</p>
+<div class="figure align-default" id="top-brain-tissues" style="width: 600px">
+<p class="caption"><span class="caption-number">Fig. 8.5 </span><span class="caption-text">The five most common subtissues making up the brain tissue group.</span><a class="headerlink" href="#top-brain-tissues" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="brain-design" style="width: 400px">
+<p class="caption"><span class="caption-number">Fig. 8.6 </span><span class="caption-text">The breakdown of samples per source experiment in the brain tissue group.</span><a class="headerlink" href="#brain-design" title="Permalink to this image">¶</a></p>
+</div>
+<p>To illustrate the fact that the different sources do not agree on whether or not genes are expressed, I first chose a random subset of 1000 genes from the combined dataset, then normalised the counts into <abbr>TPM (Tags Per Million</abbr> (using average transcript length from BioMart<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id274"><span>255</span></a>]</span>).
+I then identified a TPM cutoff per experiment to reduce noise by graphing pairs of <em>cerebral cortex</em> samples in each experiment, looking for a threshold where like samples are not as similar as we would imagine.</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in expression data</span>
+<span class="n">combined_expression</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/combined/combined_subset.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">combined_expression</span>
+
+<span class="c1"># convert to TPM</span>
+<span class="k">def</span> <span class="nf">tpm</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">lengths</span><span class="p">):</span>
+    <span class="n">rpk</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">lengths</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;rows&#39;</span><span class="p">)</span>
+    <span class="n">scaling_factor</span> <span class="o">=</span> <span class="n">rpk</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">tpm</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="n">rpk</span><span class="o">/</span><span class="n">scaling_factor</span>
+    <span class="k">return</span> <span class="n">tpm</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">lengths</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/mart_export_gene_lenths.txt&#39;</span><span class="p">)</span>
+<span class="n">lengths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">lengths</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Gene stable ID&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">lengths</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mean lengths&#39;</span><span class="p">]</span>
+<span class="n">combined_tpm</span> <span class="o">=</span> <span class="n">tpm</span><span class="p">(</span><span class="n">combined_expression</span><span class="p">,</span> <span class="n">lengths</span><span class="p">[</span><span class="s1">&#39;mean lengths&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
+
+<span class="n">matched_samples</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>    
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">design</span><span class="p">[</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Tissue name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;cerebral cortex&#39;</span><span class="p">]</span>
+    <span class="n">matched_samples</span><span class="p">[</span><span class="n">experiment</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">temp</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">experiment</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">log_combined_tpm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">combined_tpm</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span>
+    <span class="n">rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> 
+    <span class="n">subplot_titles</span><span class="o">=</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span>
+<span class="c1">#     shared_yaxes=True,</span>
+<span class="p">)</span>
+
+<span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">max_</span><span class="o">=</span> <span class="mi">1000</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">max_</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+<span class="n">colours</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;limegreen&#39;</span><span class="p">,</span> <span class="s1">&#39;rgb(208, 32, 144)&#39;</span><span class="p">,</span> <span class="s1">&#39;darkorange&#39;</span><span class="p">]</span>
+<span class="n">colours_alpha</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rgba(135, 206, 235, 0.1)&#39;</span><span class="p">,</span> 
+                 <span class="s1">&#39;rgba(50, 205, 50, 0.1)&#39;</span><span class="p">,</span> 
+                 <span class="s1">&#39;rgba(208, 32, 144, 0.1)&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;rgba(255, 140, 0, 0.1)&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
+    <span class="n">sample1</span><span class="p">,</span> <span class="n">sample2</span> <span class="o">=</span> <span class="n">matched_samples</span><span class="p">[</span><span class="n">experiment</span><span class="p">]</span>
+    
+    <span class="n">logtpm1</span> <span class="o">=</span> <span class="n">log_combined_tpm</span><span class="p">[</span><span class="n">sample1</span><span class="p">]</span>
+    <span class="n">logtpm2</span> <span class="o">=</span> <span class="n">log_combined_tpm</span><span class="p">[</span><span class="n">sample2</span><span class="p">]</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">logtpm1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">logtpm2</span><span class="p">,</span> 
+                   <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> 
+                   <span class="n">name</span><span class="o">=</span><span class="n">experiment</span><span class="p">,</span>
+                   <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colours_alpha</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span>
+                   <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
+                   <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span>
+                   <span class="n">legendgroup</span><span class="o">=</span><span class="n">experiment</span><span class="p">,</span>
+                   
+
+                  <span class="p">),</span>
+        <span class="n">row</span> <span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+    
+    <span class="n">tpm1</span> <span class="o">=</span> <span class="n">combined_tpm</span><span class="p">[</span><span class="n">sample1</span><span class="p">]</span>
+    <span class="n">hist_y</span><span class="p">,</span> <span class="n">bin_edges</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">tpm1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">hist_y</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span> 
+                   <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> 
+                   <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Sample 1&#39;</span><span class="p">,</span>
+                   <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">dash</span><span class="o">=</span><span class="s1">&#39;dash&#39;</span><span class="p">),</span>
+                   <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;x2&quot;</span><span class="p">,</span>
+                   <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;y2&quot;</span><span class="p">,</span>
+                   <span class="n">legendgroup</span><span class="o">=</span><span class="n">experiment</span><span class="p">,</span>
+
+                  <span class="p">),</span>
+        <span class="n">row</span> <span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+    
+    <span class="n">tpm2</span> <span class="o">=</span> <span class="n">combined_tpm</span><span class="p">[</span><span class="n">sample2</span><span class="p">]</span>
+    <span class="n">hist_y</span><span class="p">,</span> <span class="n">bin_edges</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">tpm2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">hist_y</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span> 
+                   <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> 
+                   <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Sample 2&#39;</span><span class="p">,</span>
+                   <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">dash</span><span class="o">=</span><span class="s1">&#39;dot&#39;</span><span class="p">),</span>
+                   <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;x2&quot;</span><span class="p">,</span>
+                   <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;y2&quot;</span><span class="p">,</span>
+                   <span class="n">legendgroup</span><span class="o">=</span><span class="n">experiment</span><span class="p">,</span>
+                  <span class="p">),</span>
+        <span class="n">row</span> <span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="s2">&quot;log&lt;sub&gt;2&lt;/sub&gt;(TPM+1)&lt;br&gt;sample 1&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="s2">&quot;TPM&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="s2">&quot;log&lt;sub&gt;2&lt;/sub&gt;(TPM+1)&lt;br&gt;sample 2&quot;</span><span class="p">,</span>  <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="s2">&quot;Number genes&lt;br&gt;with &lt; TPM&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">({</span><span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="mi">720</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="mi">600</span><span class="p">})</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="choosing-tpm-cutoff">
+<a class="reference internal image-reference" href="../_images/blank.png"><img alt="../_images/blank.png" src="../_images/blank.png" style="width: 1px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.7 </span><span class="caption-text">Scatter plot (above) and cumulative histograms (bottom) showing two similar <em>cerebral cortex</em> samples from each experiment.</span><a class="headerlink" href="#choosing-tpm-cutoff" title="Permalink to this image">¶</a></p>
+</div>
+<p>In <a class="reference internal" href="#choosing-tpm-cutoff"><span class="std std-numref">Fig. 8.7</span></a>, I am looking for thresholds above which the samples correlate more strongly, as well as nonlinear behaviour in the low TPMs in the bottom plots, as described here<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id275"><span>256</span></a>]</span>.
+I chose thresholds as shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">chosen-tpm-cutoffs</span></code>.</p>
+<table class="table" id="chosen-tpm-cutoffs">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Experiment</p></th>
+<th class="head"><p>TPM cut-off</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HDBR</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>FANTOM5</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-even"><td><p>HPA</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>GTEx</p></td>
+<td><p>25</p></td>
+</tr>
+</tbody>
+</table>
+<p>I then define “unexpressed” genes as genes which on average across samples in an experiment have a lower mean than this noise threshold, and calculated the genes that were unexpressed in the brain according to each experiment.
+Calculating the inter-rater reliability using Cohen’s Kappa (which adjusts for the probability of randomly rating samples the same way) between experiments reveals that there is moderate agreement between samples when using the per-experiment cut-offs chosen (see <a class="reference internal" href="#cohens-kappa-cutoffs"><span class="std std-numref">Fig. 8.8</span></a>).</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cut_offs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;HDBR&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s1">&#39;FANTOM5&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;HPA&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;GTEx&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">calc_kappas</span><span class="p">(</span><span class="n">cut_offs</span><span class="p">,</span> <span class="n">experiments</span><span class="p">,</span> <span class="n">design_df</span><span class="p">,</span> <span class="n">exp_df</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cut_offs</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">cut_off_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">experiments</span><span class="p">:</span>
+            <span class="n">cut_off_dict</span><span class="p">[</span><span class="n">experiment</span><span class="p">]</span> <span class="o">=</span> <span class="n">cut_offs</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cut_off_dict</span> <span class="o">=</span> <span class="n">cut_offs</span>
+        
+    <span class="n">ratings</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">experiments</span><span class="p">:</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="n">design_df</span><span class="p">[</span><span class="n">design_df</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">experiment</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+        <span class="n">exp</span> <span class="o">=</span> <span class="n">exp_df</span><span class="p">[</span><span class="n">samples</span><span class="p">]</span>
+        <span class="n">expressed</span> <span class="o">=</span> <span class="p">(</span><span class="n">exp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">cut_off_dict</span><span class="p">[</span><span class="n">experiment</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">ratings</span><span class="p">[</span><span class="n">experiment</span><span class="p">]</span> <span class="o">=</span> <span class="n">expressed</span>
+
+    <span class="n">kappas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">experiments</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">experiments</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">e1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">experiments</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">e2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">experiments</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">j</span><span class="p">:</span> 
+                <span class="k">continue</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="n">cohen_kappa_score</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="n">e1</span><span class="p">],</span> <span class="n">ratings</span><span class="p">[</span><span class="n">e2</span><span class="p">])</span>
+            <span class="n">kappas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">]</span> <span class="o">=</span> <span class="n">score</span>
+    <span class="k">return</span> <span class="n">kappas</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">ck_cutoff</span> <span class="o">=</span> <span class="n">calc_kappas</span><span class="p">(</span><span class="n">cut_offs</span><span class="p">,</span> <span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">design</span><span class="p">,</span> <span class="n">combined_expression</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;ck-cutoff-view&#39;</span><span class="p">,</span> <span class="n">ck_cutoff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="cohens-kappa-cutoffs" style="width: 400px">
+<p class="caption"><span class="caption-number">Fig. 8.8 </span><span class="caption-text">Inter-rater reliability (Cohen’s Kappa) for unexpressed genes. The score can vary between -1 and 1, with scores below 0 representing random variation and 1 representing perfect agreement.</span><a class="headerlink" href="#cohens-kappa-cutoffs" title="Permalink to this image">¶</a></p>
+</div>
+<p>Although the different experiments do have moderate agreement, there is also a lot to be gained by combining them.
+<a class="reference internal" href="#venn-brain"><span class="std std-numref">Fig. 8.9</span></a> shows the overlap between unexpressed genes for brain, found in each experiment.</p>
+<div class="figure align-default" id="venn-brain">
+<img alt="../_images/venn_brain.png" src="../_images/venn_brain.png" />
+<p class="caption"><span class="caption-number">Fig. 8.9 </span><span class="caption-text">Venn diagram showing the number of unique genes found in each experiment.</span><a class="headerlink" href="#venn-brain" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">venn</span> <span class="kn">import</span> <span class="n">venn</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">expressed</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">design</span><span class="p">[</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">experiment</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="n">combined_expression</span><span class="p">[</span><span class="n">samples</span><span class="p">]</span>
+    <span class="n">expressed</span><span class="p">[</span><span class="n">experiment</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="n">exp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">cut_offs</span><span class="p">[</span><span class="n">experiment</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">venn</span><span class="p">(</span><span class="n">expressed</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Genes expressed in brain&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../images/venn_brain.png&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="batch-effects">
+<h3><span class="section-number">8.4.1.2. </span>Batch effects<a class="headerlink" href="#batch-effects" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="real-data-batch">
+<img alt="../_images/pca_real.png" src="../_images/pca_real.png" />
+<p class="caption"><span class="caption-number">Fig. 8.10 </span><span class="caption-text"><abbr>PCA (Principal Components Analysis</abbr> plot showing batch effects present in the combined dataset.</span><a class="headerlink" href="#real-data-batch" title="Permalink to this image">¶</a></p>
+</div>
+<p>Batch effects are clearly present in the combined data set (see <a class="reference internal" href="#real-data-batch"><span class="std std-numref">Fig. 8.10</span></a>).
+I attempted batch effect correction using ComBat, however the PCA of the resulting data set did not cluster clearly by tissue type after batch effect removal which is a sign of “over correction”.
+ComBat requires a balanced experimental design which, <a class="reference internal" href="3-data-wrangling.html#experimental-design"><span class="std std-ref">as we have seen</span></a>, is lacking in this combined dataset, so it is likely that is the reason for it’s unsuitability.</p>
+<p>This means that the data set can not be used as-is for the purpose of measuring baseline expression (e.g. identifying housekeeping genes or measuring baseline tissue-specific gene expression).
+I explain some ideas for making the combined data set suitable for these types of analyses in <a class="reference internal" href="#batch-effect-removal-future-work"><span class="std std-ref">future work</span></a>.</p>
+<p>However, by overcoming the data cleaning and standardisation necessary to have all datasets in the same format with the same sample metadata, the data can be used for analyses where batch and other sample metadata is used as covariates (e.g. differential expression of tissues).<br />
+In its current iteration, it is also suitable for use in <a class="reference internal" href="../c06-filter/0-index.html#c06-filter"><span class="std std-ref">the next chapter</span></a>, where the data set only needs to distinguish between presence and absence (as in the <a class="reference internal" href="#tissue-specific-expression"><span class="std std-ref">example above</span></a>, this problem can be side-stepped by choosing a cut-off per experiment).</p>
+</div>
+<div class="section" id="related-outputs">
+<h3><span class="section-number">8.4.1.3. </span>Related outputs<a class="headerlink" href="#related-outputs" title="Permalink to this headline">¶</a></h3>
+<p>In creating the combined data set, I created the <span class="xref std std-ref">Ontolopy</span> Python package, and by combining ontologies and omics data sets, I <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#fantom5-inconsistencies-example"><span class="std std-ref">contributed towards improving these resources</span></a>.</p>
+</div>
+</div>
+<div class="section" id="future-work">
+<h2><span class="section-number">8.4.2. </span>Future Work<a class="headerlink" href="#future-work" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mapping-improvements">
+<h3><span class="section-number">8.4.2.1. </span>Mapping improvements<a class="headerlink" href="#mapping-improvements" title="Permalink to this headline">¶</a></h3>
+<p>Firstly, there are also some mapping improvements which might improve the quality of the data set as a resource for other people.</p>
+<p><strong>Multiple membership of tissues and cells</strong>
+It is sometimes appropriate for samples to map to two apparently distinct Uberon terms.
+For example, leukocytes are known to be part of the immune system, but are found in the blood.
+In the FANTOM mapping, they would be mapped by name to blood, but by ontology to immune system.
+In this case, we could imagine mapping to two Uberon terms rather than defaulting to where the cells were collected, since researchers interested in blood or the immune system would both like to access the information.</p>
+<p>In addition, it would be preferable to map simultaneously to tissue and cell type, since this enables researchers to, for example, make queries about expression about the same cell types in different tissue locations, query the data set against scRNA-seq data, or simply find cell as well as tissue specific information.<br />
+This could be achieved partly with relative ease by using the ontological mapping between CL and Uberon.
+Improvement of the CL-Uberon mapping would then allow for a complete understanding of which cell types are in a tissue, but not their relative abundances.</p>
+<p><strong>Cell type deconvolution:</strong>
+In order to understand the relative abundances of cell types in each sample, a cell type deconvolution programme (e.g. CIBERSORT<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id75"><span>257</span></a>]</span>, BSEQ-sc<span id="id4">[<span>Gaujoux_undated-ru</span>]</span>, or MuSiC<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id77"><span>258</span></a>]</span>) could be used.
+These algorithms estimate percentages of cell types making up a tissue.
+This would require the input of a large scRNA-seq data set as input, and there doesn’t yet exist enough diversity to deconvolve all tissue types.
+As well as improving the mapping, this is likely to improve the quality and variety of batch effect correction methods available.</p>
+</div>
+<div class="section" id="batch-effect-removal">
+<span id="batch-effect-removal-future-work"></span><h3><span class="section-number">8.4.2.2. </span>Batch effect removal<a class="headerlink" href="#batch-effect-removal" title="Permalink to this headline">¶</a></h3>
+<p>Many popular batch-effect removal techniques (e.g. ComBat and ComBat-Seq<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id273"><span>259</span></a>]</span>) require a balanced experimental design, which this combined dataset does not have.
+It is not clear, however, to what extent this may affect their performance.
+Some alternative methods are not as sensitive to this requirement, e.g. Mutual Nearest Neighbour (MNN)<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id78"><span>260</span></a>]</span>, which was developed for scRNA-seq data.
+No batch-effect removal method is designed specifically for this kind of scenario, so it would be sensible to do a simulation study to test their suitability; some preliminary work towards this goal can be found in the <a class="reference internal" href="../cz-end-matter/0-appendix.html#simulation-appendix"><span class="std std-ref">appendix</span></a>.</p>
+</div>
+<div class="section" id="tissue-specific-vs-cell-specific">
+<h3><span class="section-number">8.4.2.3. </span>Tissue-specific vs cell specific<a class="headerlink" href="#tissue-specific-vs-cell-specific" title="Permalink to this headline">¶</a></h3>
+<p>As the number of scRNA-seq experiments increase, including them in a combined dataset of tissue-specific expression will become more statistically viable.
+A prerequisite of including scRNA-seq data would be the use of an alternative batch effect removal algorithm that is suitable for single cell data (e.g. MNN).
+It would be interesting to compare how the expression of cells which can exist in multiple tissue types differs across those different tissue types, and to investigate whether some gene expression is truly tissue-specific rather than cell-type specific.</p>
+</div>
+</div>
+<div class="section" id="combining-omics-data-sets-is-an-opportunity-to-improve-existing-resources">
+<h2><span class="section-number">8.4.3. </span>Combining omics data sets is an opportunity to improve existing resources<a class="headerlink" href="#combining-omics-data-sets-is-an-opportunity-to-improve-existing-resources" title="Permalink to this headline">¶</a></h2>
+<p>While a great deal of careful work has clearly been spent on making the datasets used in this analysis available and useful to researchers such as myself, there were still many barriers to their use in this circumstance.
+This ranged from mislabelled samples, to missing information, to having to seek data about the same experiment from multiple different sources (as we saw in <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#ontolopy-mapping-example"><span class="std std-numref">Section 7.5</span></a>).
+It is reassuring that the data issues that were discovered had clear pathways for reporting, and that some of them have already resulted in changes to the files used.
+In particular, I think it’s important that key information that we know affects gene expression such as age, developmental stage, and sex are made available with the data set and preferably in a standardised format across experiments.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c08-combining"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="3-data-wrangling.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">8.3. </span>Data Wrangling</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../cz-end-matter/glossary.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Glossary</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

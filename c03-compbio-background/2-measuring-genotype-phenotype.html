@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3.2. From genotype to phenotype: what is measured &#8212; Phenotype from Genotype</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,22 +20,19 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,8 +42,8 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -58,14 +56,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3.3. Ontologies" href="3-ontologies.html" />
     <link rel="prev" title="3.1. Sequencing and microarrays" href="1-sequencing-technology.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,66 +72,73 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
  <span class="caption-text">
   Front Matter
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c0-front-matter/title-page.html">
-   Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
   </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c0-front-matter/acknowledgements.html">
-     Acknowledgements
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c0-front-matter/abstract.html">
-     Abstract
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c0-front-matter/declaration.html">
-     Declaration
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
-  Main book
+  Background
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../c01-introduction/intro.html">
-   1. Introduction
+   1. Thesis style and philosophy
   </a>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../c02-biology-background/0-index.html">
-   2. Biology Background
+   2. How phenotype arises from genotype
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
      2.1. Big questions: What is genetically determined, and how?
@@ -165,14 +170,17 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="0-index.html">
-   3. Computational Biology Background
+   3. How genotype and phenotype are measured and researched
   </a>
-  <ul class="current collapse-ul">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="1-sequencing-technology.html">
      3.1. Sequencing and microarrays
@@ -189,34 +197,44 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4-bias.html">
-     3.4. Bias
+    <a class="reference internal" href="4-comp-bio-methods.html">
+     3.4. Predictive computational methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="5-pqi.html">
-     3.5. PQI
+    <a class="reference internal" href="5-bias.html">
+     3.5. Sources of bias in computational biology
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6-summary.html">
-     3.6. Summary
+    <a class="reference internal" href="6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-summary.html">
+     3.7. Summary
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../c04-snowflake/0-index.html">
-   4. Phenotype prediction with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Snowflake
-    </span>
-   </code>
+   4. Phenotype prediction with Snowflake
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/1-introduction.html">
      4.1. Introduction
@@ -234,148 +252,198 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/3-data.html">
-     4.3. Snowflake input data
+    <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
+     4.3. Creating
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       snowflake
+      </span>
+     </code>
+     inputs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/4-clustering-snps.html">
-     4.4. Considerations for Clustering SNPs
+    <a class="reference internal" href="../c04-snowflake/4-preprocessing.html">
+     4.4. Preprocessing
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/5-results.html">
-     4.5. Results
+    <a class="reference internal" href="../c04-snowflake/5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/6-discussion.html">
+    <a class="reference internal" href="../c04-snowflake/7-discussion.html">
      4.6. Discussion
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/7-future-work.html">
-     4.7. Future Work
-    </a>
-   </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c05-filter/0-index.html">
-   5. Filtering computational predictions with tissue-specific expression information
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
      5.1. Introduction
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-uberon.html">
-     5.2. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Input Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-methods.html">
-     5.4. Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-results.html">
-     5.5. Results
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/7-discussion.html">
-     5.6. Discussion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/8-future-work.html">
-     5.7. Future work
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c06-combining/0-index.html">
-   6. Combining RNA-seq datasets
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/1-background.html">
-     6.1. Background
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/2-data.html">
-     6.2. Data Acquisition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/3-data-wrangling.html">
-     6.3. Data Wrangling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.4. Batch correction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/6-results.html">
-     6.5. Results and outputs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.6. Combined data set
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.7. Discussion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.8. Future Work
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
-   7. Conclusion
-  </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. How Ontolopy works
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c08-combining/0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   End Matter
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../cz-end-matter/glossary.html">
    Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
   </a>
  </li>
  <li class="toctree-l1">
@@ -385,6 +453,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -417,12 +486,12 @@
             
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -431,12 +500,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dna">
    3.2.1. DNA
@@ -456,13 +524,11 @@
     <a class="reference internal nav-link" href="#genes">
      3.2.1.3. Genes
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#variants">
-       3.2.1.3.1. Variants
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variants">
+     3.2.1.4. Variants
+    </a>
    </li>
   </ul>
  </li>
@@ -472,23 +538,18 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rna-sequence">
-     3.2.2.1. RNA Sequence
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rna-structure">
-     3.2.2.2. RNA Structure
+    <a class="reference internal nav-link" href="#rna-sequence-and-structure">
+     3.2.2.1. RNA Sequence and Structure
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gene-expression">
-     3.2.2.3. Gene Expression
+     3.2.2.2. Gene Expression
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#rna-seq-bioinformatics-pipeline">
-     3.2.2.4. RNA-Seq bioinformatics pipeline
+     3.2.2.3. RNA-Seq bioinformatics pipeline
     </a>
    </li>
   </ul>
@@ -513,11 +574,6 @@
      3.2.3.3. Protein Structure
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#protein-classification">
-     3.2.3.4. Protein Classification
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -535,24 +591,21 @@
      3.2.5.1. Genome Wide Association Studies
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gene-knockouts">
-   3.2.6. Gene Knockouts
-  </a>
-  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gene-knockouts">
+     3.2.5.2. Gene Knockouts
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#biological-pathways">
-     3.2.6.1. Biological Pathways
+     3.2.5.3. Biological Pathways
     </a>
    </li>
   </ul>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -578,13 +631,13 @@ Whole genomes are <a class="reference internal" href="1-sequencing-technology.ht
 <div class="margin sidebar" id="really-wgs">
 <p class="sidebar-title">The <em>whole</em> genome?</p>
 <p>In practice, almost complete genomes are also referred to as whole genomes, particularly for more complex genomes.
-Even the human genome still a small outstanding amount of unassembled DNA<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id181"><span>42</span></a>]</span> - satellite DNA which is thought to be part of the structure of chromosomes.</p>
+Even the human genome still a small outstanding amount of unassembled DNA<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id181"><span>46</span></a>]</span> - satellite DNA which is thought to be part of the structure of chromosomes.</p>
 </div>
 <p id="individual-wgs">When WGS is carried out for an organism that has already been sequenced, the sequence data is mapped to the organism’s <a class="reference internal" href="#human-reference-genome"><span class="std std-ref">reference genome</span></a>.
 This provides a more detailed and more accurate alternative to <a class="reference internal" href="1-sequencing-technology.html#genotyping"><span class="std std-ref">genotyping</span></a> data.
 When cohorts have their whole genomes sequenced, this allows information from WGS data to be compressed into Variant Call Format (VCF) files, which stores only the allele calls for locations where there is variation in the population.</p>
 <p>Whole genomes for different organisms can be compared to one another to give us insight about the organisms, or within an organism, individuals can be compared to understand the importance of sections of DNA for that organism.
-Genomes from different species are stored in databases such as the University of California Santa Cruz (UCSC) Genome Browser database<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id81"><span>43</span></a>]</span>, the US National Centre for Biotechnology Information (NCBI) Genome Sequence database<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id80"><span>44</span></a>]</span>, or the European Bioinformatics Institute’s (EBI) Ensembl Genome database<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id82"><span>45</span></a>]</span>.</p>
+Genomes from different species are stored in databases such as the University of California Santa Cruz (UCSC) Genome Browser database<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id81"><span>47</span></a>]</span>, the US National Centre for Biotechnology Information (NCBI) Genome Sequence database<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id80"><span>48</span></a>]</span>, or the European Bioinformatics Institute’s (EBI) Ensembl Genome database<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id82"><span>49</span></a>]</span>.</p>
 </div>
 <div class="section" id="the-human-reference-genome">
 <span id="human-reference-genome"></span><h3><span class="section-number">3.2.1.2. </span>The human reference genome<a class="headerlink" href="#the-human-reference-genome" title="Permalink to this headline">¶</a></h3>
@@ -596,10 +649,10 @@ New major versions of genomes are released every few years to fix these changes.
 These versions are called <em>builds</em>.
 Between builds and patches, sequences may be added, removed, or moved to different locations on chromosomes.</p>
 <p>Different versions of the builds are released by the Genome Reference Consortium (GRC) and the University of California Santa Cruz (UCSC) Genomics Institute.
-<a class="reference internal" href="#build-table"><span class="std std-numref">Table 3.1</span></a> shows information about the most recent human reference builds, taken from the UCSC website<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id141"><span>46</span></a>]</span>.
+<a class="reference internal" href="#build-table"><span class="std std-numref">Table 3.1</span></a> shows information about the most recent human reference builds, taken from the UCSC website<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id141"><span>50</span></a>]</span>.
 For example, <code class="docutils literal notranslate"><span class="pre">hg19</span></code> (<strong>h</strong>uman <strong>g</strong>enome build <strong>19</strong>), is largely equivalent to <code class="docutils literal notranslate"><span class="pre">GRCh37</span></code> (<strong>G</strong>enome <strong>R</strong>eference <strong>C</strong>onsortium <strong>h</strong>uman build <strong>37</strong>).
 These are generally used interchangeably by researchers, but there are some differences between them.
-This includes formatting differences (storing chromosome as integers rather than strings like <code class="docutils literal notranslate"><span class="pre">chr1</span></code>), the inclusion of mitochondrial DNA, as well as small numbers of differences of the locations of some variants on some chromosomes <span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id142"><span>47</span></a>]</span>.</p>
+This includes formatting differences (storing chromosome as integers rather than strings like <code class="docutils literal notranslate"><span class="pre">chr1</span></code>), the inclusion of mitochondrial DNA, as well as small numbers of differences of the locations of some variants on some chromosomes <span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id142"><span>51</span></a>]</span>.</p>
 <table class="table" id="build-table">
 <caption><span class="caption-number">Table 3.1 </span><span class="caption-text">Table showing human reference genome builds</span><a class="headerlink" href="#build-table" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -630,97 +683,93 @@ This includes formatting differences (storing chromosome as integers rather than
 </table>
 </div>
 <div class="section" id="genes">
-<h3><span class="section-number">3.2.1.3. </span>Genes<a class="headerlink" href="#genes" title="Permalink to this headline">¶</a></h3>
+<span id="gene-measurement"></span><h3><span class="section-number">3.2.1.3. </span>Genes<a class="headerlink" href="#genes" title="Permalink to this headline">¶</a></h3>
 <p>Once we have an <span class="xref std std-ref">assembled</span> genome, genes are identified within them.
 The first step in this process is to look for nucleotides that code for the start codon (i.e. the amino acid methionine) (<code class="docutils literal notranslate"><span class="pre">ATG</span></code>) and end with one of the stop codons (<code class="docutils literal notranslate"><span class="pre">TAA</span></code>, <code class="docutils literal notranslate"><span class="pre">TGA</span></code>, or <code class="docutils literal notranslate"><span class="pre">TAG</span></code>).
 The potential genes found through this search are then checked in the lab, e.g. through sequencing transcripts.</p>
-<div class="margin sidebar">
-<p class="sidebar-title">Persistent identifiers</p>
-<p>Persistent identifiers are long-lasting digital reference to entities<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id151"><span>48</span></a>]</span>.
-Gene names can change; we might agree to change gs because Excel keeps converting them to dates<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id153"><span>49</span></a>]</span> or because two genes turn out to be one.
-Gene identifiers should be unique, and persistent over time, for example between genome builds, and as we learn more about their function, but they can still be merged or retired.</p>
-</div>
 <p>Like whole genomes, the sequences and positions of genes relative to the reference genome are stored in databases.
 Again these are part of the UCSC, NCBI and EMBL-EBI ecosystem and these resources are vital to bioinformatics.
 However, having multiple sources of gene information does cause some ambiguities when there are disagreements between databases.
-They can sometimes disagree on fundamental details such as locations of genes or the number of genes in an organism<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id10"><span>50</span></a>]</span> since the different databases take different decisions about how to store information.</p>
-<p>Each of these databases also have their own identifiers and these names and symbols can change over time.
+They can sometimes disagree on fundamental details such as locations of genes or the number of genes in an organism<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id10"><span>52</span></a>]</span> since the different databases take different decisions about how to store information.</p>
+<div class="margin sidebar" id="identifiers">
+<p class="sidebar-title">Persistent identifiers</p>
+<p>Persistent identifiers are long-lasting digital reference to entities<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id151"><span>53</span></a>]</span>.
+Gene names can change; we might agree to change gs because Excel keeps converting them to dates<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id153"><span>54</span></a>]</span> or because two genes turn out to be one.
+Gene identifiers should be unique, and persistent over time, for example between genome builds, and as we learn more about their function, but they can still be merged or retired.</p>
+</div>
+<p>Each of these databases also have their own <span class="xref std std-ref">identifiers</span> and these names and symbols can change over time.
 For this reason, it can sometimes be difficult to map between identifiers from different sources.</p>
-<p>In part, due to the amount of information that researchers have collected through through <a class="reference internal" href="#gene-knockouts"><span class="std std-ref">gene knockouts</span></a> and gene expression experiments, it is at the level of the gene that a lot of mappings about function take place.
+<p>Due to the history of the gene, and the amount of information that researchers have collected through <a class="reference internal" href="#gene-knockouts"><span class="std std-ref">gene knockouts</span></a> and gene expression experiments, it is at the level of the gene that a lot of mappings about function take place.
 This includes, for example, information about a gene’s involvement in a gene regulatory network or in a <span class="xref std std-ref">biological pathway</span>, and information about gene function according to <a class="reference internal" href="#observational-studies"><span class="std std-ref">observational studies</span></a>.</p>
 <p>Even in the most-studied genomes, there are many genes for which we have sequence, but no functional information.
 This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes.
 This missing functional information is not likely to appear soon, without some sort of revolution in funding priorities or technology.</p>
+</div>
 <div class="section" id="variants">
-<h4><span class="section-number">3.2.1.3.1. </span>Variants<a class="headerlink" href="#variants" title="Permalink to this headline">¶</a></h4>
-<p>Information about what variants individuals have comes from either <a class="reference internal" href="1-sequencing-technology.html#genotyping"><span class="std std-ref">genotype</span></a> or <a class="reference internal" href="#individual-wgs"><span class="std std-ref">whole genome sequencing</span></a> data.
+<span id="variants-measurements"></span><h3><span class="section-number">3.2.1.4. </span>Variants<a class="headerlink" href="#variants" title="Permalink to this headline">¶</a></h3>
+<p>Information about which variants individuals have comes from either <a class="reference internal" href="1-sequencing-technology.html#genotyping"><span class="std std-ref">genotype</span></a> or <a class="reference internal" href="#individual-wgs"><span class="std std-ref">whole genome sequencing</span></a> data.
 Some of this data is owned by private companies, such as 23andMe.</p>
-<p>Databases like dbSNP<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id33"><span>51</span></a>]</span>, clinVar, and SNPedia contain information about the location of these variants, their possible alleles, their frequency in populations, their functions, and associated phenotypes.</p>
-<p>The largest SNP database - NCBI’s dbSNP<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id33"><span>51</span></a>]</span> - contains information from ten organisms (including human) and has information on indels and short tandem repeats in addition to SNPs.
+<p>Databases like dbSNP<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id33"><span>55</span></a>]</span>, clinVar, and SNPedia contain information about the location of these variants, their possible alleles, their frequency in populations, their functions, and associated phenotypes.</p>
+<p>The largest SNP database - NCBI’s dbSNP<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id33"><span>55</span></a>]</span> - contains information from ten organisms (including human) and has information on indels and short tandem repeats in addition to SNPs.
 Anyone can submit their findings about variants to dbSNP, and they must indicate what sort of evidence they have for the association.
 dbSNP gives SNPs unique identifiers (Reference SNP cluster IDs, a.k.a. RSIDs) of the form <code class="docutils literal notranslate"><span class="pre">rs###</span></code>, which are used by many other resources.</p>
-</div>
 </div>
 </div>
 <div class="section" id="rna">
 <span id="rna-measurements"></span><h2><span class="section-number">3.2.2. </span>RNA<a class="headerlink" href="#rna" title="Permalink to this headline">¶</a></h2>
 <p>For RNA there are three main types of data: sequence (and mappings), structure, and gene expression data.</p>
-<div class="section" id="rna-sequence">
-<h3><span class="section-number">3.2.2.1. </span>RNA Sequence<a class="headerlink" href="#rna-sequence" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="rna-sequence-and-structure">
+<span id="rna-sequence-structure"></span><h3><span class="section-number">3.2.2.1. </span>RNA Sequence and Structure<a class="headerlink" href="#rna-sequence-and-structure" title="Permalink to this headline">¶</a></h3>
 <p>The sequences of RNA (including miRNAs, tRNAs, rRNAs, etc), and their locations relative to reference geneomes are stored in databases such as Ensembl.
 For mRNAs, this also enables mappings between transcript IDs, gene IDs, and protein IDs, and again these are integrated with previously mentioned gene databases.</p>
-</div>
-<div class="section" id="rna-structure">
-<h3><span class="section-number">3.2.2.2. </span>RNA Structure<a class="headerlink" href="#rna-structure" title="Permalink to this headline">¶</a></h3>
 <p>Functional RNA has structure with recurring motifs similar to those of proteins.
-There are also databases of functional RNA structure<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id176"><span>52</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id177"><span>53</span></a>]</span> (similar to <a class="reference internal" href="#protein-stucture-measurements"><span class="std std-ref">those for proteins</span></a>), but those for RNA are at an earlier stage.</p>
+There are also databases of functional RNA structure<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id176"><span>56</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id177"><span>57</span></a>]</span> (similar to <a class="reference internal" href="#protein-stucture-measurements"><span class="std std-ref">those for proteins</span></a>), but those for RNA are at an earlier stage.</p>
 </div>
 <div class="section" id="gene-expression">
-<h3><span class="section-number">3.2.2.3. </span>Gene Expression<a class="headerlink" href="#gene-expression" title="Permalink to this headline">¶</a></h3>
-<div class="margin sidebar" id="gene-expression-scenarios">
-<p class="sidebar-title">Gene expression = DNA + cellular environment</p>
-<p>The environment, of the cell, and of the individual, and even of modifications to the DNA molecules, can affect the rate of gene expression.
-This is obvious when we think about the fact that the same DNA is present in their liver cells, skin cells, and neurons and realise that the difference in how these cells/tissues look and function is due to differences in which proteins are actually being made at any given time.</p>
+<span id="gene-expression-measurements"></span><h3><span class="section-number">3.2.2.2. </span>Gene Expression<a class="headerlink" href="#gene-expression" title="Permalink to this headline">¶</a></h3>
+<div class="margin sidebar" id="housekeeping-genes">
+<p class="sidebar-title">Housekeeping genes</p>
+<p>Genes whose core functionality are to perform basic cell maintainance are known as <em>housekeeping genes</em>.</p>
 </div>
-<p>As I’ve already explained RNA abundance in samples can be measured through RNA microarrays and RNA-Seq, and that recently, RNA-Seq has been much more popular.
-Measures of mRNA abundance (i.e. gene expression data) are generally considered the best measures of translation (compared to <span class="xref std std-ref">protein abundance</span> for example), and therefore the best data to tell us how DNA’s blueprints are being used in different <a class="reference internal" href="#gene-expression-scenarios"><span class="std std-ref">scenarios</span></a>.
-Together with mappings, this data is used to understand the function of genes, to identify housekeeping genes, to re-engineer gene regulatory networks, and more - knowledge about DNA function that wouldn’t be possible to glean without measuring RNA.
-Like other bioinformatics data, gene expression data is also available in databases such as the EBI’s Gene Expression Atlas (GxA)<span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id34"><span>54</span></a>]</span> and Single Cell Expression Atlas<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id175"><span>55</span></a>]</span> (for <a class="reference internal" href="#bulk-scrna-seq"><span class="std std-ref">bulk and single cell gene expression</span></a>, respectively).</p>
+<p>As I’ve already explained RNA abundance in samples can be measured through RNA microarrays and RNA-Seq, and recently, RNA-Seq has been much more popular.
+Measures of mRNA abundance (i.e. gene expression data) are generally considered the best measures of translation (compared to <a class="reference internal" href="#protein-abundance"><span class="std std-ref">protein abundance</span></a> for example), and therefore the best data to tell us how DNA’s blueprints are being used in different <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html#gene-expression-scenarios"><span class="std std-ref">scenarios</span></a>.
+Together with mappings, this data is used to understand the function of genes, to identify <a class="reference internal" href="#housekeeping-genes"><span class="std std-ref">housekeeping genes</span></a>, to re-engineer gene regulatory networks, and more - knowledge about DNA function that wouldn’t be possible to glean without measuring RNA.
+Like other bioinformatics data, gene expression data is also available in databases such as the EBI’s Gene Expression Atlas (GxA)<span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id34"><span>58</span></a>]</span> and Single Cell Expression Atlas<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id175"><span>59</span></a>]</span> (for <a class="reference internal" href="#bulk-scrna-seq"><span class="std std-ref">bulk and single cell gene expression</span></a>, respectively).</p>
 <div class="margin sidebar" id="bulk-scrna-seq">
 <p class="sidebar-title">Bulk versus Single-cell RNA-Seq</p>
-<p>Most RNA-Seq experiments sequence RNA from millions of cells at a time: this is bulk RNA-seq. Bulk RNA-Seq may take place for many cells of the same type or for a collection of different cell types (e.g. a tissue). Single-cell RNA-Seq (scRNA-seq) allows RNA to be sequenced from a single cell and is becoming increasingly widespread<span class="xref std std-ref">Ashraful_Haque_Jessica_Engel_Sarah_A_Teichmann_Tapio_Lonnberg2017-rj</span>.</p>
+<p>Most RNA-Seq experiments sequence RNA from millions of cells at a time: this is bulk RNA-seq. Bulk RNA-Seq may take place for many cells of the same type or for a collection of different cell types (e.g. a tissue). Single-cell RNA-Seq (scRNA-seq) allows RNA to be sequenced from a single cell and is becoming increasingly widespread<span id="id15">[<a class="reference internal" href="../cz-end-matter/reference.html#id205"><span>60</span></a>]</span>.</p>
 </div>
 <p><strong>Differential expression versus baseline experiments</strong>:
-In order to reveal genes that are involved in specific diseases or functions, a popular type of gene expression experiment involves comparing the gene expression between two types of samples.
+In order to reveal genes that are involved in specific diseases or functions, a popular type of gene expression experiment involves comparing the gene expression between two types of samples, for example between healthy samples and cancerous samples.
 This is known as a <em>differential</em> expression experiment.
 In contrast, a <em>baseline</em> experiment would measure the amount of expression in a range of more regular circumstances, aiming to characterise the range of expected expression in healthy individuals.</p>
 </div>
 <div class="section" id="rna-seq-bioinformatics-pipeline">
-<h3><span class="section-number">3.2.2.4. </span>RNA-Seq bioinformatics pipeline<a class="headerlink" href="#rna-seq-bioinformatics-pipeline" title="Permalink to this headline">¶</a></h3>
-<p>RNA-Seq data <em>counts</em> the number of times a sequence matching that gene or transcript that has been sequenced.
+<span id="rna-seq-pipeline"></span><h3><span class="section-number">3.2.2.3. </span>RNA-Seq bioinformatics pipeline<a class="headerlink" href="#rna-seq-bioinformatics-pipeline" title="Permalink to this headline">¶</a></h3>
+<p>RNA-Seq data <em>counts</em> the number of times a sequence matching that gene or transcript has been sequenced.
 The amount of RNA from a particular transcript that is found in a sample in a given experiment is dependent on the sequencing depth and the transcript length.
-The rate of transcription is dependent on time of, tissue, location, cell, etc, measures of RNA are also dependent on all of these conditions: this can make RNA difficult to compare between experiments.
+The rate of transcription is dependent on time of day, tissue, location, cell type, etc, so measures of RNA are also dependent on all of these conditions: this can make RNA measurements difficult to compare between experiments.
 To make matters worse, RNA-Seq and RNA microarray measurements are also sensitive to differences in laboratory conditions and experimental design, creating artefacts in the resulting data known as <em>batch effects</em>.
 Taken together, these things mean that there is a substantial data preparation pipeline for RNA-Seq data.</p>
 <p id="quality-control"><strong>Quality Control</strong>:
 Before RNA-Seq data undergoes <a class="reference internal" href="1-sequencing-technology.html#assembly-and-alignment"><span class="std std-ref">alignment</span></a>, it undergoes quality control.
-This involves comparing sequencing parameters to a data set of known accuracy<span id="id15">[<a class="reference internal" href="../cz-end-matter/reference.html#id35"><span>56</span></a>]</span> and is usually done as part of the sequencing.</p>
+This involves comparing sequencing parameters to a data set of known accuracy<span id="id16">[<a class="reference internal" href="../cz-end-matter/reference.html#id35"><span>61</span></a>]</span> and is usually done as part of the sequencing.</p>
 <p id="rna-normalisation"><strong>Normalisation - within-sample normalisation: TPM and FPKM</strong>:
 Within-sample normalisation methods are designed to account for sequencing depth and transcript length so that gene expression values from the same sample (e.g. different replicates) can be more easily compared.
 Longer genes will have more reads mapped to them for an equal level of expression, so RNA-seq will report more counts.
 Similarly, without normalising, samples with greater sequencing depth will have higher counts for an equal level of expression.</p>
 <p>RPKM/FPKM (Reads/Fragments Per Kilobase Million) and TPM (Tags Per Million) are the three major normalisation techniques used for this purpose.
-In RPKM and FPKM, counts are first normalised for sequencing depth, and then for gene length. This means that they are suitable for comparing within a sample (e.g. between replicates.
+In RPKM and FPKM, counts are first normalised for sequencing depth, and then for gene length. This means that they are suitable for comparing within a sample (e.g. between replicates).
 TPM, however performs the same steps in the opposite order, which has the desirable effect of ensuring that columns corresponding to TPM normalised samples sum to the same number.
-This means that TPM gives us a measure of relative abundance; we can compare across samples which proportion of counts are from each gene.
-For this reason, TPM is now generally preferred over RPKM/FPKM<span id="id16">[<a class="reference internal" href="../cz-end-matter/reference.html#id36"><span>57</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id37"><span>58</span></a>]</span>.</p>
+This means that TPM gives us a measure of relative abundance; the proportion of counts are from each gene can be compared across samples.
+For this reason, TPM is now generally preferred over RPKM/FPKM<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id36"><span>62</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id37"><span>63</span></a>]</span>.</p>
 <p><strong>Normalisation - between-sample</strong>:
 While TPM gives us a measure of relative abundance, it does not give us a measure of absolute abundance.
 One outlying gene which is highly expressed will have the effect of making all other genes look relatively less expressed.
 We might expect this to occur, particularly when samples are under different conditions (e.g. disease/treatment).
 Between-sample normalisation methods are designed to counter this issue, and enable researchers to compare different samples.</p>
 <p>These methods adjust counts to reduce the impact of outlying expression values.
-Examples include scale normalisation methods like TMM (used in edgeR<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id38"><span>59</span></a>]</span>), the Log Geometric Mean (used in DESeq2<span id="id18">[<a class="reference internal" href="../cz-end-matter/reference.html#id38"><span>59</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id39"><span>60</span></a>]</span>), and quantile normalisation (giving samples the same distribution of counts).</p>
+Examples include scale normalisation methods like TMM (used in edgeR<span id="id18">[<a class="reference internal" href="../cz-end-matter/reference.html#id38"><span>64</span></a>]</span>), the Log Geometric Mean (used in DESeq2<span id="id19">[<a class="reference internal" href="../cz-end-matter/reference.html#id38"><span>64</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id39"><span>65</span></a>]</span>), and quantile normalisation (giving samples the same distribution of counts).</p>
 </div>
 </div>
 <div class="section" id="proteins">
@@ -728,111 +777,82 @@ Examples include scale normalisation methods like TMM (used in edgeR<span id="id
 <p>Similar to RNA, proteins also have (amino acid) sequence data, mappings to genes and transcripts, structure data and protein abundance data.
 While for RNA, abundance (gene expression) data is the most popular type, for proteins, it is structure data, and from this structural information, there is a very detailed system of protein classification.</p>
 <p>Proteins are where the history of bioinformatics databases that any researcher can contribute to began.
-Margaret Dayhoff created the first bioinformatics database in 1969, to store protein structures imaged using X-ray crystallography, related to her publication of Atlas of Protein Sequence and Structure<span id="id19">[<a class="reference internal" href="../cz-end-matter/reference.html#id12"><span>61</span></a>]</span>.
-The Uniprot<span id="id20">[<a class="reference internal" href="../cz-end-matter/reference.html#id54"><span>62</span></a>]</span> database of protein sequence and functional information is the heir to this early database, it contains information about protein sequence, domain architecture, and function.</p>
+Margaret Dayhoff created the first bioinformatics database in 1969, to store protein structures imaged using X-ray crystallography, related to her publication of Atlas of Protein Sequence and Structure<span id="id20">[<a class="reference internal" href="../cz-end-matter/reference.html#id12"><span>66</span></a>]</span>.
+The Uniprot<span id="id21">[<a class="reference internal" href="../cz-end-matter/reference.html#id54"><span>67</span></a>]</span> database of protein sequence and functional information is the heir to this early database, it contains information about protein sequence, domain architecture, and function.</p>
 <div class="section" id="protein-sequence">
-<h3><span class="section-number">3.2.3.1. </span>Protein Sequence<a class="headerlink" href="#protein-sequence" title="Permalink to this headline">¶</a></h3>
+<span id="id22"></span><h3><span class="section-number">3.2.3.1. </span>Protein Sequence<a class="headerlink" href="#protein-sequence" title="Permalink to this headline">¶</a></h3>
 <p>Just as DNA and RNA can be <a class="reference internal" href="1-sequencing-technology.html#sequencing"><span class="std std-ref">sequenced</span></a> in nucleic acids, proteins can be sequenced by their amino acids, although the technology behind doing this is quite different (e.g. using mass spectrometry is the most common way).
-This is often done for a small part of a protein, to allow it to be matched to a the expected amino acid sequence based on gene or transcript sequences.
+This is often done for a small part of a protein, to allow it to be matched to the expected amino acid sequence based on gene or transcript sequences.
 This is how mappings from protein IDs to gene IDs and transcript IDs are available through databases (e.g. Ensembl).</p>
 <p>Protein sequencing is also used to characterise protein’s <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html#post-translational-modifications"><span class="std std-ref">post-translational modifications</span></a>.</p>
 </div>
 <div class="section" id="protein-abundance">
-<h3><span class="section-number">3.2.3.2. </span>Protein Abundance<a class="headerlink" href="#protein-abundance" title="Permalink to this headline">¶</a></h3>
+<span id="id23"></span><h3><span class="section-number">3.2.3.2. </span>Protein Abundance<a class="headerlink" href="#protein-abundance" title="Permalink to this headline">¶</a></h3>
 <p>The abundance of proteins in a sample can be measured through various quantitative proteomics techniques.
 These are carried out using electrophoresis, or mass spectrometry, for example.
 Similar to gene expression, this technique is often used to compare between two different samples (e.g. disease and control groups).
-Data from such experiments are also available in databases<span id="id21">[<a class="reference internal" href="../cz-end-matter/reference.html#id179"><span>63</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id180"><span>64</span></a>]</span>.</p>
+Data from such experiments are also available in databases<span id="id24">[<a class="reference internal" href="../cz-end-matter/reference.html#id179"><span>68</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id180"><span>69</span></a>]</span>.</p>
 <div class="margin sidebar" id="gene-expression-protein-abundance">
 <p class="sidebar-title">Gene Expression and Protein Abundance data</p>
-<p>It’s interesting to note that gene expression levels (from RNA-Seq and microarray data) are not necessarily strongly correlated with protein abundance; this has been found in mice<span id="id22">[<a class="reference internal" href="../cz-end-matter/reference.html#id90"><span>65</span></a>]</span>, yeast<span id="id23">[<a class="reference internal" href="../cz-end-matter/reference.html#id91"><span>66</span></a>]</span>, and human<span id="id24">[<a class="reference internal" href="../cz-end-matter/reference.html#id92"><span>67</span></a>]</span>.</p>
-<p>In human, Spearman correlations between protein abundance and gene expression levels vary between 0.36 and 0.50, depending on tissue, meaning that they are only weakly or moderately correlated<span id="id25">[<a class="reference internal" href="../cz-end-matter/reference.html#id92"><span>67</span></a>]</span>.</p>
+<p>It’s interesting to note that gene expression levels (from RNA-Seq and microarray data) are not necessarily strongly correlated with protein abundance; this has been found in mice<span id="id25">[<a class="reference internal" href="../cz-end-matter/reference.html#id90"><span>70</span></a>]</span>, yeast<span id="id26">[<a class="reference internal" href="../cz-end-matter/reference.html#id91"><span>71</span></a>]</span>, and human<span id="id27">[<a class="reference internal" href="../cz-end-matter/reference.html#id92"><span>72</span></a>]</span>.</p>
+<p>In human, Spearman correlations between protein abundance and gene expression levels vary between 0.36 and 0.50, depending on tissue, meaning that they are only weakly or moderately correlated<span id="id28">[<a class="reference internal" href="../cz-end-matter/reference.html#id92"><span>72</span></a>]</span>.</p>
 </div>
 </div>
 <div class="section" id="protein-structure">
 <span id="protein-stucture-measurements"></span><h3><span class="section-number">3.2.3.3. </span>Protein Structure<a class="headerlink" href="#protein-structure" title="Permalink to this headline">¶</a></h3>
-<p>The Protein DataBank (PDB)<span id="id26">[<a class="reference internal" href="../cz-end-matter/reference.html#id13"><span>68</span></a>]</span> was established not long after Dayhoff’s database, it contains three dimensional protein structures, typically obtained using X-ray Crystallography or NMR spectroscopy.
+<p>The Protein DataBank (PDB)<span id="id29">[<a class="reference internal" href="../cz-end-matter/reference.html#id13"><span>73</span></a>]</span> was established not long after Dayhoff’s database, it contains three dimensional protein structures, typically obtained using X-ray Crystallography or NMR spectroscopy.
 The PDB continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.
-These structures are used for <a class="reference internal" href="#protein-classification"><span class="std std-ref">protein classification</span></a>, and for Molecular Dynamics simulations (simulating the physical interactions of molecules).</p>
-</div>
-<div class="section" id="protein-classification">
-<span id="id27"></span><h3><span class="section-number">3.2.3.4. </span>Protein Classification<a class="headerlink" href="#protein-classification" title="Permalink to this headline">¶</a></h3>
-<p>As <a class="reference internal" href="#protein-classification"><span class="std std-ref">previously mentioned</span></a>, proteins are classified by structural similarities.
-This information is often used because researchers identify a gene or protein of interest, but information about it’s function or sequence (in Uniprot) or structure (PDB) has not yet been captured and stored.
-In such cases, it’s often necessary to make inferences about protein structure or function based on their similarity to known proteins.
-This is sometimes done using sequence similarity (e.g. <a class="reference internal" href="#blast"><span class="std std-ref">BLAST</span></a>, but sequence similarity can vary considerably between proteins with the same underlying structure.
-This is why structural similarity searches based on protein classification are preferred.</p>
-<div class="margin sidebar" id="blast">
-<p class="sidebar-title">BLAST</p>
-<p>The Basic Local Alignment Search Tool<span id="id28">[<a class="reference internal" href="../cz-end-matter/reference.html#id42"><span>69</span></a>]</span>, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.</p>
-</div>
-<p><strong>SCOP:</strong>
-The Structural Classification of Proteins (SCOP) database<span id="id29">[<a class="reference internal" href="../cz-end-matter/reference.html#id43"><span>26</span></a>]</span> classifies all proteins with known structure based on their structural similarities, based on the consideration of the protein’s constituent domains.
-The classification is mostly done at the level of families, superfamilies, and folds arranged in a tree structure.
-Families represent the most similar proteins, which share a “clear evolutionary relationship”, while superfamilies represent less close evolutionary relationships, and folds represent the same secondary structure. This protein classification task, while aided by automation, was carried out largely by manual visual inspection.</p>
-<p>SCOP was updated until 2009, but has been succeeded by SCOP2<span id="id30">[<a class="reference internal" href="../cz-end-matter/reference.html#id44"><span>70</span></a>]</span>.
-However, SCOP2 has a different underlying classification system, based on a complex graph, rather than a hierarchy.
-The CATH (Class, Architecture, Topology, Homologous superfamily)<span id="id31">[<a class="reference internal" href="../cz-end-matter/reference.html#id45"><span>71</span></a>]</span> database provides another classification system, which operates hierarchically, but is created mostly via automation, which leads to major differences between the classifications<span id="id32">[<a class="reference internal" href="../cz-end-matter/reference.html#id46"><span>72</span></a>]</span>.</p>
-<p id="superfamily-update"><strong>SUPERFAMILY</strong>
-SUPERFAMILY<span id="id33">[<a class="reference internal" href="../cz-end-matter/reference.html#id47"><span>73</span></a>]</span> uses HMMs to assign sequences to SCOP domains, primarily at the superfamily level.
-This allows the functions of poorly understood proteins to be inferred based on how closely they match known superfamilies.
-HMMs are very successful at such assignments since pairwise correlations between proteins (or their domains) and other proteins in the family may be weak, but consistently for many proteins; this can be picked up by an HMM.
-The superfamily level is chosen since it is the broadest level which suggests evolutionary relationships, but SUPERFAMILY also generates assignments at the (stricter) family level.</p>
-<p>HMMs are created by first finding closely relating protein homologs for a given protein superfamily using <a class="reference internal" href="#blast"><span class="std std-ref">BLAST</span></a>, and then extending it by comparing the HMM to more distantly related homologs.
-The resulting HMM library is fine-tuned by some manual curation.</p>
-<p>The SUPERFAMILY website also contains other tools, including a database of all sequences (genomes) which are used to generate the HMM library.</p>
-<p id="my-superfamily-contribution"><strong>SUPERFAMILY update</strong>
-I contributed to SUPERFAMILY’s 2014 update<span id="id34">[<a class="reference internal" href="../cz-end-matter/reference.html#id2"><span>3</span></a>]</span> by editing the paper, and adding a small number of proteomes.
-The SUPERFAMILY database of proteomes doubled from 1400 to over 3200 from 2010 to 2014.
-The update paper described this development, as well as highlighting SUPERFAMILY as a resource for unique proteomes that are not found elsewhere (e.g. Uniprot).
-Although SUPERFAMILY’s primary resource is it’s HMM library, it also integrates a range of other tools for sequence analysis, for example protein disorder prediction (D2P2) and GO annotation (dcGO), as well as a domain-based phylogenetic tree.</p>
+These structures are used for <a class="reference internal" href="../c02-biology-background/4-more-proteins.html#protein-classification"><span class="std std-ref">protein classification</span></a>, and for Molecular Dynamics simulations (simulating the physical interactions of molecules).</p>
 </div>
 </div>
 <div class="section" id="phenotypes">
 <span id="phenotype-measurements"></span><h2><span class="section-number">3.2.4. </span>Phenotypes<a class="headerlink" href="#phenotypes" title="Permalink to this headline">¶</a></h2>
-<p>As described in <a class="reference internal" href="../c02-biology-background/5-phenotype.html#what-is-phenotype"><span class="std std-numref">Section 2.5.1</span></a>, most phenotypes that are studied today are based in medicine: this can range from the results of a blood test, to presence of a disease diagnosis.
-Neutral like height, eye colour, baldness, etc, are also measured.</p>
+<p>As described in <a class="reference internal" href="../c02-biology-background/5-phenotype.html#what-is-phenotype"><span class="std std-numref">Section 2.5.1</span></a>, most phenotypes that are studied today are based in medicine: this can range from the results of a blood test, to the presence of a disease diagnosis.
+Neutral traits like height, eye colour, baldness, etc, are also sometimes measured.</p>
 <p>Phenotypic traits can be measured in a variety of ways, depending on the phenotype.
 One important type is data collected via survey or interview, where participants self-identify as having certain illnesses, or symptoms.
-This type of data can suffer from biases due to what people feel comfortable answering<span id="id35">[<a class="reference internal" href="../cz-end-matter/reference.html#id167"><span>74</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id168"><span>75</span></a>]</span>.</p>
+This type of data can suffer from biases due to what people feel comfortable answering<span id="id30">[<a class="reference internal" href="../cz-end-matter/reference.html#id167"><span>74</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id168"><span>75</span></a>]</span>.</p>
 <p>Phenotype data must be connected to genotype data in order to be useful for validating genotype-to-phenotype predictions, and due to the sensitivity of this kind of information, there are a limited number of these kinds of data sets.
-Some data sets focus on particular phenotypes, while others are cohort studies that record everything about a cohort (for example the the Avon Longitudinal Study of Parents and Children, ALSPAC<span id="id36">[<a class="reference internal" href="../cz-end-matter/reference.html#id129"><span>76</span></a>]</span>, and the UK Biobank<span id="id37">[<a class="reference internal" href="../cz-end-matter/reference.html#id169"><span>77</span></a>]</span>).
-In the latter case, it is not easy for researchers to access the whole data set, due to concerns about de-anonymisation<span id="id38">[<a class="reference internal" href="../cz-end-matter/reference.html#id170"><span>78</span></a>]</span>.</p>
+Some data sets focus on particular phenotypes, while others are cohort studies that record everything about a cohort (for example the the Avon Longitudinal Study of Parents and Children, ALSPAC<span id="id31">[<a class="reference internal" href="../cz-end-matter/reference.html#id129"><span>76</span></a>]</span>, and the UK Biobank<span id="id32">[<a class="reference internal" href="../cz-end-matter/reference.html#id169"><span>77</span></a>]</span>).
+In the latter case, it is not easy for researchers to access the whole data set, due to concerns about de-anonymisation<span id="id33">[<a class="reference internal" href="../cz-end-matter/reference.html#id170"><span>78</span></a>]</span>.</p>
 <p>Knowledge about how phenotypes are related to each other (e.g. liver cancer is a type of cancer that is found in the liver) is organised in <a class="reference internal" href="3-ontologies.html#what-are-ontologies"><span class="std std-ref">ontologies</span></a>, which are described in their own section.
 These ontologies also form a defined vocabulary for terms, with identifiers, definitions, and links to other information.</p>
 </div>
 <div class="section" id="measuring-the-connection-between-genotype-and-phenotype">
-<h2><span class="section-number">3.2.5. </span>Measuring the connection between genotype and phenotype<a class="headerlink" href="#measuring-the-connection-between-genotype-and-phenotype" title="Permalink to this headline">¶</a></h2>
+<span id="connection-genotype-phenotype"></span><h2><span class="section-number">3.2.5. </span>Measuring the connection between genotype and phenotype<a class="headerlink" href="#measuring-the-connection-between-genotype-and-phenotype" title="Permalink to this headline">¶</a></h2>
 <p>There are many different methods of investigating the connection between genotype and phenotype.
 Some methods focus solely on the “what”, seeking to answer the question “<em>what phenotypes(s)</em> does this gene have an effect on?”, while some focus also on the “how”, i.e. answering “<em>what is the mechanism</em> behind this phenotype?”.
-<a class="reference internal" href="#observational-studies"><span class="std std-ref">Genome Wide Association Studies (GWAS)</span></a> and <a class="reference internal" href="#gene-knockouts"><span class="std std-ref">gene knockouts</span></a> are two methods of finding potential or actual “what” connections, while building <a class="reference internal" href="#biological-pathways"><span class="std std-ref">biological pathways</span></a> is currently the main way of finding “why” connections.
-There are also many experiments which can contribute pieces of the puzzle, for example elucidating  links in a biological pathway.</p>
-<p>Computational methods also exist for linking genotype and phenotype.
-The majority of the most successful methods rely on statistical associations between phenotypes and features of interest, for example using deep learning methods.
-For this reason the majority of computational methods are focused on predicting the “what”, rather thn the “how”.</p>
-<p>Connections to phenotype can be made with different scales and types of genetic features, from SNPs, genes, transcripts, and proteins to populations.
-Computational biology links these resources well, so that knowledge at these different scales can be investigated, the <a class="reference internal" href="3-ontologies.html#gene-ontology-annotation"><span class="std std-ref">Gene Ontology Annottion</span></a> resource for example, connects information from many of these computational and experimental sources at the level of the gene.</p>
+<a class="reference internal" href="#observational-studies"><span class="std std-ref">Genome Wide Association Studies (GWAS)</span></a> are the most popular way of finding potential or actual “what” connections, while <a class="reference internal" href="#gene-knockouts"><span class="std std-ref">gene knockouts</span></a> and building <a class="reference internal" href="#biological-pathways"><span class="std std-ref">biological pathways</span></a> is currently the main way of finding “why” connections.
+There are also many more specific kinds of experiments which can contribute pieces of the puzzle.</p>
+<p>Efforts to uncover the links between genotype and phenotype broadly take one of three approaches:</p>
+<ol class="simple">
+<li><p><strong>DNA-centric:</strong> Looking closely at one particular variant (e.g. SNP or gene) at a time, and comparing data to a change in only this variable (knocking out a gene). This is a successful, but expensive methodology, but it isn’t hugely successful at finding multi-genic (aka complex) traits. In addition to it’s success at uncovering simpler traits, these methods create a wealth of information  which are collected in databases.</p></li>
+<li><p><strong>Phenotype-centric:</strong> Looking closely at one particular phenotype and comparing the genetics of people with the phenotype to those without it. Again this is expensive and it also has the problem of finding that in lists of potentially involved genes, some will be there by random chance.</p></li>
+<li><p><strong>Cross-cutting:</strong> Computational methods which aim to uncover protein or variant function, and protein interactions across the genome, and across phenotypes. These methods tend to rely on data from (1) and (2). I will discuss some of these in the <a class="reference internal" href="4-comp-bio-methods.html#predictive-methods"><span class="std std-numref">Section 3.4</span></a>.</p></li>
+</ol>
+<p>Connections to phenotype can be made with different scales and types of genetic features, from SNPs, genes, transcripts, and proteins to networks thereof and variation within populations.
+Computational biology links these resources well, so that knowledge at these different scales can be investigated, the <a class="reference internal" href="3-ontologies.html#gene-ontology-annotation"><span class="std std-ref">Gene Ontology Annotation</span></a> resource for example, connects information from many of these computational and experimental sources at the level of the gene.</p>
 <div class="section" id="genome-wide-association-studies">
 <span id="observational-studies"></span><h3><span class="section-number">3.2.5.1. </span>Genome Wide Association Studies<a class="headerlink" href="#genome-wide-association-studies" title="Permalink to this headline">¶</a></h3>
 <p>Genome Wide Association Studies (GWAS) are large observational studies where the genotypes of a cohort with a specific phenotype (e.g. diabetes) are compared to the genotypes of a cohort lacking in that phenotype (i.e. a control group) in order to find genomic loci that are statistically associated with the phenotype.
 This has been a popular type of scientific enquiry since the first GWAS study in 2005.
 GWAS generally results in lists of SNPs, often in the hundreds, ordered by p-value.
-Disentangling which of these SNPs (if any) <em>cause</em> the trait (in addition to correlating with it) is a tricky, particularly since GWAS specifically interrogates common variants.
-The process of identifying causal variants generally involving identifying regions in linkage disequilibrium, and re-sequencing regions of interest in further detail.</p>
-<p>The GWAS catalog database<span id="id39">[<a class="reference internal" href="../cz-end-matter/reference.html#id21"><span>79</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id22"><span>80</span></a>]</span> was founded in 2008, to provide a consistent and accessible location for published SNP-trait associations, which extracts information about experiments from the literature (currently over 70000 associations from over 3000 publications).</p>
-</div>
+Disentangling which of these SNPs (if any) <em>cause</em> the trait (in addition to correlating with it) is tricky, particularly since GWAS specifically interrogates common variants.</p>
+<p>The GWAS catalog database<span id="id34">[<a class="reference internal" href="../cz-end-matter/reference.html#id21"><span>79</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id22"><span>80</span></a>]</span> was founded in 2008, to provide a consistent and accessible location for published SNP-trait associations, which extracts information about experiments from the literature (currently over 70000 associations from over 3000 publications).</p>
+<p>Phenome-Wide Association<span id="id35">[<a class="reference internal" href="../cz-end-matter/reference.html#id247"><span>81</span></a>]</span> Studies (PheWAS) are an extension of these where multiple phenotypes are investigated at once in the same cohort of people.</p>
 </div>
 <div class="section" id="gene-knockouts">
-<span id="id40"></span><h2><span class="section-number">3.2.6. </span>Gene Knockouts<a class="headerlink" href="#gene-knockouts" title="Permalink to this headline">¶</a></h2>
+<span id="id36"></span><h3><span class="section-number">3.2.5.2. </span>Gene Knockouts<a class="headerlink" href="#gene-knockouts" title="Permalink to this headline">¶</a></h3>
 <p>Insight into gene function can be gained by “knocking out” a gene, preventing it from being translated into a working protein, for example using CRISPR.
 Combinations of up to four genes can be knocked out in a single experiment.
 Knocking out a gene can lead to a difference in phenotype, and differences in gene expression, which can be used to help determine gene regulatory networks.
 There is a lot of existing data on the phenotypic results of mouse knockouts, since they are often used to create mouse models for diseases.
-Unfortunately, it is not always well-recorded when knockouts lead to no detectable phenotypic change<span id="id41">[<a class="reference internal" href="../cz-end-matter/reference.html#id20"><span>81</span></a>]</span>.</p>
+Unfortunately, it is not always well-recorded when knockouts lead to no detectable phenotypic change<span id="id37">[<a class="reference internal" href="../cz-end-matter/reference.html#id20"><span>82</span></a>]</span>.</p>
+</div>
 <div class="section" id="biological-pathways">
-<span id="id42"></span><h3><span class="section-number">3.2.6.1. </span>Biological Pathways<a class="headerlink" href="#biological-pathways" title="Permalink to this headline">¶</a></h3>
-<p>Biological pathways are generally built either through a data-centric method, i.e. beginning with <a class="reference internal" href="#rna-measurements"><span class="std std-ref">gene expression</span></a> or mass spectrometry data<span id="id43">[<a class="reference internal" href="../cz-end-matter/reference.html#id171"><span>82</span></a>]</span>, or through a knowledge-centric method, by beginning with a graph based on knowledge from publications and domain experts<span id="id44">[<a class="reference internal" href="../cz-end-matter/reference.html#id172"><span>83</span></a>]</span>.
-There are a number of popular databases which store pathways, for example Reactome<span id="id45">[<a class="reference internal" href="../cz-end-matter/reference.html#id173"><span>84</span></a>]</span> and KEGG<span id="id46">[<a class="reference internal" href="../cz-end-matter/reference.html#id174"><span>85</span></a>]</span>.
+<span id="id38"></span><h3><span class="section-number">3.2.5.3. </span>Biological Pathways<a class="headerlink" href="#biological-pathways" title="Permalink to this headline">¶</a></h3>
+<p>Biological pathways are generally built either through a data-centric method, i.e. beginning with <a class="reference internal" href="#rna-measurements"><span class="std std-ref">gene expression</span></a> or mass spectrometry data<span id="id39">[<a class="reference internal" href="../cz-end-matter/reference.html#id171"><span>83</span></a>]</span>, or through a knowledge-centric method, by beginning with a graph based on knowledge from publications and domain experts<span id="id40">[<a class="reference internal" href="../cz-end-matter/reference.html#id172"><span>84</span></a>]</span>.
+There are a number of popular databases which store pathways, for example Reactome<span id="id41">[<a class="reference internal" href="../cz-end-matter/reference.html#id173"><span>85</span></a>]</span> and KEGG<span id="id42">[<a class="reference internal" href="../cz-end-matter/reference.html#id174"><span>86</span></a>]</span>.
 These resources are well-linked to other sources of information, for example gene, rna, protein and chemical databases.</p>
 </div>
 </div>
@@ -861,12 +881,32 @@ These resources are well-linked to other sources of information, for example gen
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="1-sequencing-technology.html" title="previous page"><span class="section-number">3.1. </span>Sequencing and microarrays</a>
-    <a class='right-next' id="next-link" href="3-ontologies.html" title="next page"><span class="section-number">3.3. </span>Ontologies</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="1-sequencing-technology.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">3.1. </span>Sequencing and microarrays</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="3-ontologies.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">3.3. </span>Ontologies</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
@@ -885,11 +925,9 @@ These resources are well-linked to other sources of information, for example gen
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

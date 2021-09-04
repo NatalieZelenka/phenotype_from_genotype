@@ -1,23 +1,30 @@
 (c03-compbio-bg)=
-# Computational Biology Background
-This chapter is a second background chapter.
-We have {ref}`just introduced<c02-biology-bg>` the biology of the molecules involved the connection between genotype and phenotype, and now we will discuss the details of how this connection is studied.
-
-[//]: # (TODO: Put my contributions in this chapter here)
+# How genotype and phenotype are measured and researched
+We have {ref}`just introduced<c02-biology-bg>` the biological mechanisms linking genotype and phenotype.
+Next, we will discuss the details of how this connection is studied, including how data about DNA and RNA is captured, organised and stored, and how this data is used in computational biology research.
 
 [//]: # (TODO: Make an aside for in vivo, ex vivo, in vitro, in silico)
-This Chapter begins with a short {ref}`description of popular sequencing technologies<sequencing-technology>`, as this is relevant to both DNA and RNA.
+This chapter begins with a short {ref}`description of popular sequencing technologies<sequencing-technology>`, as this is relevant to both DNA and RNA.
 
-Then in the {ref}`second Section<measuring-genotype-phenotype>`, we will retrace the steps we took in {ref}`the previous Chapter<c02-biology-bg>`, looking again at DNA, RNA, proteins, and phenotypes in turn, but this time considering the data gathered about each of these entities, and the data gathered about the connections between them. 
-I will describe some specific examples of resources and tools used in bioinformatics and computational biology, particularly those which are important in later chapters. 
-In this part of the Chapter, I will explain {ref}`my contribution to the update to the SUPERFAMILY resource<my-supfam-contribution>`.
+Then in the {ref}`second section<measuring-genotype-phenotype>`, we will retrace the steps we took in {ref}`the previous chapter<c02-biology-bg>`, looking again at DNA, RNA, proteins, and phenotypes in turn, but this time considering the data gathered about each of these entities, and the data gathered about the connections between them. 
+Sprinkled throughout the chapter, as they become relevant, I describe some specific examples of resources and tools used in bioinformatics and computational biology that are relevant to this thesis.
 
-I then mention {ref}`biological ontologies<what-are-ontologies>`, which are efforts to unify some of the information gained in the experiments just described in {numref}`measuring-genotype-phenotype`.
+Two types of tools and resources, however, have their own sections.
+The first are {ref}`biological ontologies<what-are-ontologies>`, which are efforts to unify some of the information gained in the experiments just described in earlier parts of this chapter.
+Secondly, predictive computational biology methods and the ecosystem of competitions that are often used to validate them are also described separately in {numref}`section %s<predictive-methods>`. 
+In this section, I also explain {ref}`my contribution to the update to the SUPERFAMILY resource<my-superfamily-contribution>`{cite}`Oates2015-li`.
 
-[//]: # (TODO: Write  + crossref this paragraph)
-In the {ref}`penultimate Section<compbio-bias>`, I will consider some of the potential sources of bias in this data. 
-Here I mention my contributions to two collaborative projects: PQI and MAPS (ongoing).
+[//]: # (TODO: Add gene bias stuff to contributions?)
 
-[//]: # (TODO: cross-ref)
-Finally, I summarise the data we currently have (and don't have) on the link between genotype and phenotype.
+I then describe some of the potential {ref}`sources of bias<compbio-bias>` in the data and tools used throughout this thesis, followed by my contribution to a project designed to counter some of these issues, {ref}`the Proteome Quality Index (PQI)<pqi>`{cite}`Zaucha2015-ez`.
 
+Finally, I {ref}`summarise<c03-summary>` the data we currently have (and don't have) on the link between genotype and phenotype.
+
+[//]: # (TODO: Make contributions more specific?)
+
+```{admonition} Contributions in this Chapter
+:class: hint
+This chapter primarily summarises the work of others, but it also contains my contributions to the following collaborative projects:
+- 2014 Superfamily update paper{cite}`Oates2015-li`
+- The Proteome Quality Index paper{cite}`Zaucha2015-ez`
+```

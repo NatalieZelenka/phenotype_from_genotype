@@ -1,0 +1,832 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.6. Discussion &#8212; Phenotype from Genotype</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Predicting phenotypes of the ALSPAC cohort using Snowflake" href="../c05-alspac/0-index.html" />
+    <link rel="prev" title="4.5. Considerations for Clustering SNPs" href="5-clustering-snps.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Thesis style and philosophy
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
+   2. How phenotype arises from genotype
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: function, structure and classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c03-compbio-background/0-index.html">
+   3. How genotype and phenotype are measured and researched
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. Predictive computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/7-summary.html">
+     3.7. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0-index.html">
+   4. Phenotype prediction with Snowflake
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-creating-inputs.html">
+     4.3. Creating
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       snowflake
+      </span>
+     </code>
+     inputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-preprocessing.html">
+     4.4. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     4.6. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
+     5.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. How Ontolopy works
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c08-combining/0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations">
+   4.6.1. Limitations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#genotype-data">
+     4.6.1.1. Genotype data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equivalent-terms">
+     4.6.1.2. Equivalent terms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coverage-synonymous-snps-nonsense-and-non-coding-variants">
+     4.6.1.3. Coverage: Synonymous SNPs, nonsense and non-coding variants
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#localised-expression">
+     4.6.1.4. Localised expression
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ethics-self-assessment">
+   4.6.2. Ethics self-assessment
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="discussion">
+<span id="snowflake-discussion"></span><h1><span class="section-number">4.6. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h1>
+<!--
+
+## Software Engineering Best-practices
+The most time-consuming aspect of working on Snowflake was it's Research Software Engineering requirements, writing and testing the research code to ensure that it ran in a reasonable time and without bugs, and giving it the features needed to be able to test it's use as a research tool.
+
+Test suite
+Documentation
+??? Publishing
+
+## Dependencies and interoperability
+[//]: # (TODO: Write from RSE oint of view)
+The phenotype predictor relies heavily on all forms of it's input data: `dcGO`, `FATHMM` and the background cohort.
+`dcGO` decides which SNPs we consider at all for a phenotype, while `FATHMM` decides to what extent SNPs within that set would be interesting if we see a rare combination.
+And how rare the combination appears is defined by the background cohort.
+A limitation of this method is that it's hard to test Snowflake's approach to combining these types of data and clustering independently from these inputs.
+
+Snowflake uses FATHMM-MKL rather than the newer FATHMM-XF. 
+[//]: # (TODO: Cite FATHMM-XF and various independent)
+
+FATHMM-XF is my many independent researchers, the most accurate variant prioritisation tool currently available, much more so than FATHMM-MLK.
+FATHMM-MKL is constrained to build 37 of the human reference genome which is no longer up to date.
+
+### Background
+- 1000 genomes has different priorities than us: does not care about rare SNPs - most likely to cause rare diseases
+- As diverse a bg set as we can get, but not very diverse.
+- Size/diversity of background set constrains how many SNPs we can hae
+- Same problem as PQI, the results are very sensitive to our background set (test?)
+
+[//]: # (TODO: rename next section)
+
+## Difficulty in finding a test set
+[//]: # (TODO: reqrite - look at what Jan wrote)
+[//]: # (TODO: Rewrite in light of the fact that all the other phenotype predictors managed... just say something about coverage being massive in Snowflake)
+
+The `snowflake` project could be considered "blue-sky" curiosity-led research. 
+The motivation for creating `snowflake` was our curiosity in seeing if the resources of Computational Biology could0 be used for the practical outcome of creating phenotype predictions.
+This was far from incremental, since other leading approaches predicted phenotypes on a phenotype-per-phenotype basis, or restricted the problem to prioritising variants.
+We can only test `snowflake` on data sets with both genetic and phenotype information across many phenotypes, which means it is very difficult to conclusively test (we have very low statistical power over all phenotypes).
+
+It is disappointing that the phenotype predictor does not produce statistically significant results.
+However, the phenotype predictor may yet be useful for revealing candidate SNPs for certain kinds of diseases, and when a suitable data set becomes available (e.g. through the growing number of publicly available genotypes on platforms such as OpenSNP{cite}`Greshake2014-mp`), this method will still be ready to be tested. 
+An alternative validation would be experimentally testing a prediction (e.g. with knockouts) of a phenotype with a highly interesting distribution of scores.
+
+[//]: # (TODO: Write + cross reference)
+[//]: # (TODO: Negative results are still interesting)
+
+
+[//]: # (TODO: How many terms appear to be successful? How many more than we would expect? Does this imply how much of our biology is influenced by missense mutations versus other tyoes? Or is it more of a relfection of the quality of our data.)
+
+[//]: # (TODO: Optional: Phenotypes where haplotype is not how things are clustering versus where they are)
+
+[//]: # (TODO: Discuss that genotyping data may not collect the right information for many phenotypes. Since genotype data contains far less variants.)
+-->
+<div class="section" id="limitations">
+<span id="snowflake-limitations"></span><h2><span class="section-number">4.6.1. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<!--
+### Curse of dimensionality/feature selection
+[//]: # (TODO: Write)
+
+There are too many snps for our number of individuals
+-->
+<div class="section" id="genotype-data">
+<span id="genotype-data-problems"></span><h3><span class="section-number">4.6.1.1. </span>Genotype data<a class="headerlink" href="#genotype-data" title="Permalink to this headline">¶</a></h3>
+<p>Genotype chips contain only a small fraction of the known disease-causing variants.
+For example, 23andMe tests for <a class="reference external" href="https://www.23andme.com/brca/">only 3</a> of thousands of known variants on the BRCA1 and BRCA2 genes implicated in hereditary cancer.</p>
+</div>
+<div class="section" id="equivalent-terms">
+<span id="id1"></span><h3><span class="section-number">4.6.1.2. </span>Equivalent terms<a class="headerlink" href="#equivalent-terms" title="Permalink to this headline">¶</a></h3>
+<p>Despite much development effort, there remain some idiosyncrasies to the predictor.
+For example, DcGO can map multiple terms to the same set of SNPs.
+This can sometimes be a diverse group of phenotypes which do not tend to co-occur in individuals and when this occurs, it is likely that we cannot make a good prediction.
+A semantic similarity measure, such as GOGO<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id133"><span>183</span></a>]</span> or Wang’s method<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id134"><span>184</span></a>]</span> could be used to check this, and update the confidence score accordingly.</p>
+</div>
+<div class="section" id="coverage-synonymous-snps-nonsense-and-non-coding-variants">
+<span id="coverage"></span><h3><span class="section-number">4.6.1.3. </span>Coverage: Synonymous SNPs, nonsense and non-coding variants<a class="headerlink" href="#coverage-synonymous-snps-nonsense-and-non-coding-variants" title="Permalink to this headline">¶</a></h3>
+<p>There are also clearly many aspects of the molecular biology mentioned in <a class="reference internal" href="../c02-biology-background/0-index.html#c02-biology-bg"><span class="std std-numref">chapter 2</span></a> that are not represented in the model used by the phenotype predictor.
+For example nonsense mutations, synonymous SNPs, regulatory networks, and non-coding variants.
+Updating the predictor to include these things could potentially give the predictor enough power to be validated on existing data sets.</p>
+<p>For example, non-coding variants could be included by extending <code class="docutils literal notranslate"><span class="pre">dcGO</span></code> annotations to SNPs in linkage disequilibrium, and using the non-coding version of <code class="docutils literal notranslate"><span class="pre">FATHMM</span></code>, <code class="docutils literal notranslate"><span class="pre">FATHMM-XF</span></code><span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id135"><span>185</span></a>]</span>.</p>
+</div>
+<div class="section" id="localised-expression">
+<span id="dcgo-expression-problem"></span><h3><span class="section-number">4.6.1.4. </span>Localised expression<a class="headerlink" href="#localised-expression" title="Permalink to this headline">¶</a></h3>
+<p>Another example is that dcGO does not take account of the environment of the cell (e.g. tissue-specific gene expression) in its’ predictions.
+Although domains which are statistically associated with phenotype can be present in a protein, there is no guarantee that the protein will have the opportunity to impact the phenotype (be transcribed).</p>
+<p>In investigating some of the ALSPAC phenotype predictions, I identified that some of the predicted dcGO relations between proteins and ontology terms may not be expressed in the tissue of interest.
+This makes sense, since dcGO makes predictions on the basis of structure, but it’s common in molecular biology that cells, proteins or genes have theoretical functionality that is repressed or silenced by another mechanism, for example most human transposable elements or silenced, or in this case, repressors preventing gene expression in some cell types.
+Filtering out predictions for SNPs in these repressed genes is therefore a potential route to improve Snowflake, and this is the focus of the next part.</p>
+<!--
+### Miscellaneous
+[//]: # (TODO: Write)
+[//]: # (TODO: Cite PhenIX)
+Successful phenotype prediction methods are successful for different reasons. 
+For example, PhenIX performs only for human genetic diseases, and includes information about the mode of inheritance of the disease in order to filter out false positives.
+-->
+</div>
+</div>
+<div class="section" id="ethics-self-assessment">
+<span id="snowflake-ethics-self-assessment"></span><h2><span class="section-number">4.6.2. </span>Ethics self-assessment<a class="headerlink" href="#ethics-self-assessment" title="Permalink to this headline">¶</a></h2>
+<blockquote class="epigraph">
+<div><p>Your scientists were so preoccupied with whether or not they could, they didn’t stop to think if they should.
+– Dr Ian Malcolm, Jurassic Park, Michael Crighton</p>
+</div></blockquote>
+<p>Like the creation of dinosaurs, the Snowflake methodology itself (rather than a particular use of it) is not the sort of research that usually requires ethical review by Institutional Review Boards (IRBs).
+This is because most IRBs focus on issues of informed consent, data privacy, and other matters which could cause legal problems for universities, while Snowflake’s core methodology uses only publicly available data.
+As <a class="reference internal" href="../c02-biology-background/5-phenotype.html#ethical-considerations-phenotype"><span class="std std-ref">I previously mentioned</span></a>, there are more general (wider, societal) ethical considerations relating to research in predicting phenotype.</p>
+<div class="margin sidebar" id="data-hazards">
+<p class="sidebar-title">Data Hazards</p>
+<p>The <a class="reference external" href="https://very-good-science.github.io/data-hazards/">Data Hazards</a> framework is a set of resources to help data science and methodological researchers apply ethics hazards labels to their work. These resources include a set of <a class="reference external" href="https://very-good-science.github.io/data-hazards/contents/materials/workshop/data-hazards.html">hazard labels</a> inspired by COSSHH chemical hazard labels with suggested safety precautions, as well as materials to help researchers apply them.</p>
+<p>Just as we still use bleach, but do so wearing gloves, data hazard labels are not necessarily statements against doing or using the research, but rather an appeal to “handle with care”.
+Similarly, data hazards aren’t meant to be statments of certainty or likelihood of the hazards occuring.
+They represent worst-case scenarios and apply not only to the specific research project, but also future impacts of further deployments.</p>
+</div>
+<p>With this in mind, I performed a self-assessment of the worst-case scenario outcomes of this research, in order to understand potential issues and think about what precautions should be put in place to avoid them.
+These extend out from this research itself, imagining future deployments.
+To this, I used the <a class="reference internal" href="#data-hazards"><span class="std std-ref">Data Hazards</span></a> framework: a framework that is currently under development, and which I am currently working with the data science research community to develop.
+<a class="reference internal" href="#data-hazards-snowflake"><span class="std std-numref">Table 4.3</span></a> contains the hazards that I felt applied to Snowflake, the reasons why, and what I recommend could be done to prevent these worst-case scenarios.</p>
+<table class="table" id="data-hazards-snowflake">
+<caption><span class="caption-number">Table 4.3 </span><span class="caption-text">The seven data hazards which I assessed as applying to Snowflake.</span><a class="headerlink" href="#data-hazards-snowflake" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Label name</p></th>
+<th class="head"><p>Label description</p></th>
+<th class="head"><p>Label image</p></th>
+<th class="head"><p>Reason for applying</p></th>
+<th class="head"><p>Relevant safety precautions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Contains Data Science</strong></p></td>
+<td><p>Data Science is being used in this output, and any negative outcome of using this work are not the responsibility of “the algorithm” or “the software”, but the people using it.</p></td>
+<td><a class="reference internal image-reference" href="../_images/general-hazard.png"><img alt="fishy" class="align-center" src="../_images/general-hazard.png" style="width: 200px;" /></a>
+</td>
+<td><p>Snowflake uses data, makes predictions, and uses unsupervised learning.</p></td>
+<td><p>When snowflake is deployed in new contexts (e.g. patent licenses sold), it should be done with the understanding that the licensee becomes accountable for using it responsibly.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Reinforces existing biases</strong></p></td>
+<td><p>Reinforces unfair treatment of individuals and groups. This may be due to for example input data, algorithm or software design choices, or society at large.</p></td>
+<td><a class="reference internal image-reference" href="../_images/reinforce-bias.png"><img alt="hazard label for reinforces existing bias" class="align-center" src="../_images/reinforce-bias.png" style="width: 200px;" /></a>
+</td>
+<td><p>Project does not check that the algorithm works just as well for non-white races, and we would expect it to work less well for them since they are less represented in the input data linking variants and diseases<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id265"><span>186</span></a>]</span>.</p></td>
+<td><p>Snowflake’s efficiacy should be tested separately for each demographic that any deployment may effect.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Ranks or classifies people</strong></p></td>
+<td><p>Ranking and classifications of people are hazards in their own right and should be handled with care.</p></td>
+<td><a class="reference internal image-reference" href="../_images/classifies-people.png"><img alt="hazard label for ranks or classifies people" class="align-center" src="../_images/classifies-people.png" style="width: 200px;" /></a>
+</td>
+<td><p>Project does not check that the algorithm works just as well for minority groups, who are less likely to be represented in the input data linking variants and diseases.</p></td>
+<td><ul class="simple">
+<li><p>Snowflake’s efficiacy should be tested separately for minority groups, before deployment outside research (e.g. healthcare).</p></li>
+<li><p>Appropriate phenotype terms should be curated before deployment (e.g. removing things like social behaviours, “intelligence” related terms, etc)</p></li>
+<li><p>When or if to share rankings should be consdered carefully.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Lacks Community Involvement</strong></p></td>
+<td><p>This applies when technology is being produced without input from the community it is supposed to serve.</p></td>
+<td><a class="reference internal image-reference" href="../_images/lacks-community.png"><img alt="hazard label for lacks community involvement" class="align-center" src="../_images/lacks-community.png" style="width: 200px;" /></a>
+</td>
+<td><p>The communities of people with the phenotypes have no current involvement in this process.</p></td>
+<td><p>Relevant communities should be asked about their feelings towards phenotype prediction before deployment in order to curate a list of appropriate phenotype terms.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Danger of misuse</strong></p></td>
+<td><p>There is a danger of misusing the algorithm, technology, or data collected as part of this work.</p></td>
+<td><a class="reference internal image-reference" href="../_images/misuse.png"><img alt="hazard label for danger of misuse" class="align-center" src="../_images/misuse.png" style="width: 200px;" /></a>
+</td>
+<td><p>The phenotype predictor is not expected to be accurate for all phenotypes, but It could even be used to try to predict phenotypes that are caused by the environment or regions of DNA it does not consider, if these are defined as genetic phenotypes in other literature.</p></td>
+<td><p>If deployed outside of research, Snowflake should be tested for different types of phenotypes and which ones it does work for should first be understood.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Difficult to understand</strong></p></td>
+<td><p>There is a danger that the technology is difficult to understand. This could be because of the technology itself is hard to interpret (e.g. neural nets), or it’s implementation (i.e. code is hidden and we are not allowed to see exactly what it is doing).</p></td>
+<td><a class="reference internal image-reference" href="../_images/difficult-to-understand.png"><img alt="hazard label for difficult to understand" class="align-center" src="../_images/difficult-to-understand.png" style="width: 200px;" /></a>
+</td>
+<td><p>Doesn’t use “black-box” machine learning (e.g. deep learning), but has closed source code and a complicated data pipeline.</p></td>
+<td><ul class="simple">
+<li><p>If published for research, the code should be Open sourced and the code should be thoroughly documented and tested.</p></li>
+<li><p>If provided for members of the public, explainers should be created similar to <a class="reference external" href="https://www.23andme.com/en-gb/brca/">those that 23andMe has</a>.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Privacy hazard</strong></p></td>
+<td><p>This technology may risk the privacy of individuals whose data is processed by it.</p></td>
+<td><a class="reference internal image-reference" href="../_images/privacy.png"><img alt="hazard label for difficult to understand" class="align-center" src="../_images/privacy.png" style="width: 200px;" /></a>
+</td>
+<td><p>Individual’s genetic data is required to run the phenotype predictor. This has many privacy risks, for example identification, use by insurers, being contacted by unknown relatives.</p></td>
+<td><ul class="simple">
+<li><p>Ensure there is explicit and well-informed consent from any future participants/users.</p></li>
+<li><p>Store data securely.</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Despite the tongue-in-cheek use of the Jurassic Park quote opening this subsection, I do think that phenotype prediction is something that we should attempt, due to its potential to help people.
+In “stop[ping] to think” about it, however, I applied 7 of the 11 existing data hazard labels, and set out some specific precautions for using it that I hope will be seriously considered by anyone using the method further.
+While some of these may seem far-fetched, Snowflake has already been trialled by a genomic analysis company used in clinical decision support.</p>
+<p>The question of whether we “could” predict phenotype accurately is also a huge ethical barrier to using it at present.
+Currently, it’s not clear to what extent, or for which types of variants, the phenotype predictor works.
+The next chapter explains my attempts to validate the predictor using the ALSPAC dataset.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c04-snowflake"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="5-clustering-snps.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">4.5. </span>Considerations for Clustering SNPs</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../c05-alspac/0-index.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">5. </span>Predicting phenotypes of the ALSPAC cohort using Snowflake</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

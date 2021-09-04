@@ -1,0 +1,1019 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.4. Validation method &#8212; Phenotype from Genotype</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.5. Results" href="6-results.html" />
+    <link rel="prev" title="6.3. Data" href="3-data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Thesis style and philosophy
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
+   2. How phenotype arises from genotype
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: function, structure and classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c03-compbio-background/0-index.html">
+   3. How genotype and phenotype are measured and researched
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. Predictive computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/7-summary.html">
+     3.7. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c04-snowflake/0-index.html">
+   4. Phenotype prediction with Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
+     4.3. Creating
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       snowflake
+      </span>
+     </code>
+     inputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/4-preprocessing.html">
+     4.4. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/7-discussion.html">
+     4.6. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
+     5.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-results.html">
+     6.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. How Ontolopy works
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c08-combining/0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-set-cafa3">
+   6.4.1. Test set: CAFA3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filip-inputs">
+   6.4.2. Filip inputs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-protein-function-predictions-dcgo">
+     6.4.2.1. Creating protein function predictions (DcGO)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-filip">
+   6.4.3. Running Filip
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mapping-between-uberon-tissues-and-phenotypes">
+     6.4.3.1. Mapping between Uberon tissues and phenotypes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-an-expression-cut-off">
+     6.4.3.2. Choosing an expression cut-off
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validation-methodology">
+   6.4.4. Validation Methodology
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cafa-validation">
+     6.4.4.1. CAFA Validation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limitations-of-validation-method">
+     6.4.4.2. Limitations of validation method
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="validation-method">
+<span id="filter-methods"></span><h1><span class="section-number">6.4. </span>Validation method<a class="headerlink" href="#validation-method" title="Permalink to this headline">¶</a></h1>
+<p>In order to fairly test Filip, I entered it in the third <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html#cafa"><span class="std std-ref">CAFA</span></a> competition, where it could be independently assessed by other researchers.
+In CAFA, each researcher can enter up to three methods, so I tested Filip by entering DcGO alone, and DcGO plus Filip, so that I could compare their performances.</p>
+<!--
+## Creating inputs
+There are three main inputs to Filip: 
+
+There are multiple steps that must be carried out in order to create these inputs:
+1. {ref}`Create *Protein function predictions*<create-protein-function-predictions>` by running a predictor on the CAFA2 and CAFA3 targets.
+2. {ref}`Create the *Background file*<create-background-file>` is created from the expression data and mappings, by:
+    A. Mapping {ref}`from gene/transcript expression to protein<gene-to-protein-expression>`.
+    B. Mapping from expression samples to phenotype terms using `Ontolopy`. We can break this down into:
+        i. Mapping {ref}`from samples to tissue<samples-to-tissue>` (Uberon terms)
+        ii. Mapping {ref}`from tissue to phenotype<tissue-to-phenotype>`
+
+-->
+<div class="section" id="test-set-cafa3">
+<span id="cafa3-test-set"></span><h2><span class="section-number">6.4.1. </span>Test set: CAFA3<a class="headerlink" href="#test-set-cafa3" title="Permalink to this headline">¶</a></h2>
+<p>After initial development, I entered DcGO only, and <code class="docutils literal notranslate"><span class="pre">filip</span></code> plus DcGO into the CAFA3 competition in order to test <code class="docutils literal notranslate"><span class="pre">filip</span></code> on an unseen dataset.</p>
+<p>This meant that I did not download the CAFA3 ground-truth, as this analysis was done by the CAFA3 team, but only the <a class="reference external" href="https://www.biofunctionprediction.org/cafa-targets/CAFA3_targets.tgz">CAFA3 targets</a>, these continue to be available through the CAFA website.</p>
+<p>Again, I used only the human targets (file <code class="docutils literal notranslate"><span class="pre">target.9606.fasta</span></code>).
+This is again a FASTA file, with the same format as for CAFA2, this time containing <code class="docutils literal notranslate"><span class="pre">20197</span></code> targets proteins.</p>
+</div>
+<div class="section" id="filip-inputs">
+<h2><span class="section-number">6.4.2. </span>Filip inputs<a class="headerlink" href="#filip-inputs" title="Permalink to this headline">¶</a></h2>
+<p>Two types of input are needed for Filip:</p>
+<ol class="simple">
+<li><p>Protein function predictions</p></li>
+<li><p>Normalised gene expression data.</p></li>
+<li><p>A map from gene expression samples to Uberon tissues.</p></li>
+</ol>
+<p>I described the gene expression data and metadata for (2) and (3) described in the previous section.</p>
+<div class="section" id="creating-protein-function-predictions-dcgo">
+<span id="create-protein-function-predictions"></span><h3><span class="section-number">6.4.2.1. </span>Creating protein function predictions (DcGO)<a class="headerlink" href="#creating-protein-function-predictions-dcgo" title="Permalink to this headline">¶</a></h3>
+<p>I used DcGO as a test since I knew that it’s structure-centric prediction method didn’t include any gene expression information.</p>
+<p>To create the input to DcGO, I used:</p>
+<ul class="simple">
+<li><p>BioPython<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id190"><span>208</span></a>]</span>’s <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO</span></code> interface for reading CAFA FASTA files.</p></li>
+<li><p>SUPERFAMILY<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id47"><span>105</span></a>]</span> <a class="reference external" href="https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/cgi-bin/save.cgi?var=ht%3Btype=ass">domain assignments for Homo Sapiens</a>.</p></li>
+<li><p>UniprotKB<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id191"><span>209</span></a>]</span>’s <a class="reference external" href="https://www.uniprot.org/uploadlists/">mapping tool</a> to create a mapping between the UniprotKB id’s provided by CAFA and the ENSP ID’s used by SUPERFAMILY.</p></li>
+</ul>
+<p>The script to create the UniprotKB IDs is <a class="reference download internal" download="" href="../_downloads/21b06bbc87849cd431043497ef629dae/fasta_to_uniprot.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span> <span class="pre">here</span></code></a>, to create the input for DcGO is <a class="reference download internal" download="" href="../_downloads/0f6968c734eb0e3592fbb93afaaafdcf/make_dcgo_input.py"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.
+Then, to create the DcGO-only entry, I used the <code class="docutils literal notranslate"><span class="pre">DcGOR</span></code> library<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id192"><span>210</span></a>]</span> (the <code class="docutils literal notranslate"><span class="pre">dcAlgoPredictMain</span></code> function).</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="c1"># TODO: Make drop-down. Glue table.</span>
+<span class="n">dcgo_predictions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/created/dcgo_submission.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">dcgo_predictions</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;END&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dcgo_predictions</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;phenotype&#39;</span><span class="p">,</span> <span class="s1">&#39;confidence&#39;</span><span class="p">]</span>
+<span class="n">dcgo_predictions</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;dcgo-predictions-view&#39;</span><span class="p">,</span> <span class="n">dcgo_predictions</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;dcgo-cafa2-predictions&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dcgo_predictions</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;dcgo-cafa2-proteins&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dcgo_predictions</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;dcgo-cafa2-phenotypes&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dcgo_predictions</span><span class="o">.</span><span class="n">phenotype</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The DcGO predictions contain only  of  proteins and  phenotype terms (all of which are <code class="docutils literal notranslate"><span class="pre">GO</span></code> terms).</p>
+<!--
+
+(samples-to-tissue)=
+#### Mapping from samples to tissue
+
+```python
+# Read in CAFA phenotypes
+fantom_obo_file = c08-combining
+
+fantom_obo = opy.load_obo(
+    file_loc=fantom_obo_file, 
+    ont_ids=['GO', 'CL', 'UBERON', 'FF', 'DOID'], 
+)
+```
+
+```python
+# TODO: glue sizes of ontologies maybe
+
+samples_info_file = 'data/cleaned_pre_input/samples_info.csv'
+tissue_col = 'Characteristics[Tissue]'
+desc_col = 'Charateristics [description]'
+
+samples_info = pd.read_csv(samples_info_file, sep='\t', comment='#', index_col=0)
+```
+
+```python
+samples_info['FF'] = 'FF:' + samples_info['Source Name']
+names_info = samples_info[['FF',tissue_col]].set_index('FF')
+```
+
+```python
+
+```
+
+```python
+# Use Ontolopy to read in fantom and uberon and combine.
+uberon_obo_file = c08-combining # TODO: maybe want to use old one and compare
+
+uberon_obo = opy.load_obo(
+    file_loc=uberon_obo_file, 
+    ont_ids=['GO', 'UBERON','CL'], 
+)
+
+go_obo_file = 'data/ontologies/go.obo'
+go_obo = opy.load_obo(
+    file_loc=go_obo_file, 
+    ont_ids=['HP', 'GO', 'CL', 'UBERON', 'DOID'], 
+)
+
+merged = uberon_obo.merge(new=go_obo)
+```
+
+```python
+# Create tissues and phenotypes from predictions and input expression data
+phenotypes = set(dcgo_predictions.phenotype.unique()) & set(go_obo)
+tiessues = overall['overall'].unique()
+print(len(phenotypes), len(tissues))
+```
+
+```python
+output_loc_1B = 'data/cleaned_pre_input/1B-phen-to-tissue.tsv'
+from_phen_to_tissue = filip.create_tissue_phenotype_mapping(
+    obo=merged, 
+    source = tissues,
+    target = phenotypes,
+    output_file=output_loc_1B,
+    relations=['GO', 'is_a', 'is_model_for', 'part_of', 'capable_of'])
+
+# output_loc_1B = 'data/cleaned_pre_input/1B-phen-to-tissue.tsv'
+# from_phen_to_tissue = filip.create_tissue_phenotype_mapping(
+#     obo=merged, 
+#     output_file=output_loc_1B,
+#     targets=['GO'], 
+#     relations=['GO', 'is_a', 'is_model_for', 'part_of', 'capable_of'])
+```
+
+```python
+from_phen_to_tissue
+```
+
+```python
+tissue = merged.terms_from(['UBERON'])
+phenotype = merged.terms_from(['GO'])
+print(len(tissue), len(phenotype))
+```
+
+#### Creating an alternate mapping by searching names
+
+
+
+```python
+# TODO: put the version without these additions into the ontolopy section: use an example of how to find problems.
+unmapped_t_cells = [
+    'FF:11784-124B2',
+    'FF:11791-124B9',
+    'FF:11792-124C1',
+    'FF:11793-124C2',
+    'FF:11794-124C3', 
+    'FF:11795-124C4', 
+    'FF:11796-124C5', 
+    'FF:11797-124C6', 
+    'FF:11798-124C7', 
+    'FF:11906-125F7',
+    'FF:11907-125F8',
+    'FF:11908-125F9', 
+    'FF:11909-125G1', 
+    'FF:11913-125G5', 
+    'FF:11914-125G6', 
+    'FF:11915-125G7', 
+    'FF:11916-125G8', 
+    'FF:11917-125G9', 
+    'FF:11918-125H1', 
+    'FF:11919-125H2', 
+    'FF:11920-125H3',
+]
+
+CD4_positive_T_cell_sample = 'FF:0000031'
+
+for t_cell in unmapped_t_cells:
+    try:
+        merged[t_cell]['is_a'].append(CD4_positive_T_cell_sample)
+    except KeyError:
+        merged[t_cell]['is_a'] = [CD4_positive_T_cell_sample]
+```
+
+```python
+# TODO: Check if this is relevant to what I did before
+# no_cl = {}
+# for key in merged_ont.keys():
+#     if key[:2] != 'CL':
+#         no_cl[key] = merged_ont[key]
+# map_by_ont_no_cl = map_tissue_by_ontology(samples, no_cl)
+
+# # TODO: Create table showing how adding CL increases coverage (and maybe also relation types)
+# print(len(map_by_ont_no_cl[~map_by_ont_no_cl['UBERON'].isna()].index.unique()))
+# print(len(map_by_ont[~map_by_ont['UBERON'].isna()].index.unique()))
+# print(len(map_by_ont_no_cl[map_by_ont_no_cl['UBERON'].isna()].index.unique()))
+# unmapped_by_ont = map_by_ont[map_by_ont['UBERON'].isna()].index.unique()
+# print(len(unmapped_by_ont))
+```
+
+```python
+# samples = list(pd.read_csv('data/cleaned_pre_input/ff_accessions_to_keep.txt', sep='\t', header=None, comment='#')[0])
+# samples
+```
+
+```python
+tissue_relations = merged.sample_map_by_ont(names_info.index)
+```
+
+```python
+print(len(names_info.index), tissue_relations.shape)
+```
+
+```python
+# TODO: Move example of checking if something is a stem cell to Ontolopy section
+
+# stem_cell = [
+#     'CL:0011115', # precursor cell exclude precursor cells because they only develop into one cell type
+#     'CL:0000048', # multi fate stem cell
+# #     'CL:0000034', # stem cell
+# #     'CL:0000723', # stomatic stem cell
+# #     'CL:0008001', # hematopoietic precursor cell (-> missing to `is_a` precursor cell)
+# ]
+
+# relations = ['is_a','related_to','part_of','intersection_of','union_of', 'derives_from']  # NOT 'develops_from'
+# for unmapped in map_by_ont[map_by_ont['UBERON'].isna()].index:
+#     print(unmapped, fantom_obo.ont[unmapped]['name'])
+#     tissue_relations = obo.Relations(
+#         relations_of_interest=relations, 
+#         source_terms=[unmapped],
+#         target_term=stem_cell,
+#         ont=merged_ont,
+# #         print_=True
+#     )
+
+#     if pd.isna(tissue_relations.relations[0][0]):
+#         print('NON STEM CELL')
+#         print(unmapped, fantom_obo.ont[unmapped]['name'])
+#         print(samples_info.loc[unmapped]['Characteristics[Tissue]'])
+#     else:
+#         print('STEM CELL')
+#         print(unmapped, fantom_obo.ont[unmapped]['name'])
+#         print(samples_info[samples_info.index.str.contains(unmapped)]['Characteristics[Tissue]'])
+
+#     print('\n\n')
+```
+
+
+
+
+(tissue-to-phenotype)=
+#### Mapping uberon terms to phenotype terms
+[//]: # (TODO: explain it's equally easy to add in more)
+We make use of two ontologies (and therefore two `.obo` files) to create the uberon-to-phenotype mapping, these are:
+- Uberon, UBERON, uberon-ext.obo, tissue
+- Gene Ontology, GO go.obo, phenotype
+
+These also contain references to other external ontologies, such as the the Human Phenotype Ontology, the Disease Ontology, Cell Ontology, the NCBI Taxonomy Ontology, etc.
+
+(combining-background)=
+#### Combining into background file
+
+### Quality of mapping-by-ontology
+#### Overall
+
+
+```python
+# TODO Create table with FF, FF name, tissue_col, to, and to['name'] and discuss
+display(tissue_relations)
+```
+
+#### Unclassifiable
+
+```python
+# TODO: put in a table so that I can discuss
+# TODO: explain that the mapping including CL terms and all types of mapping, does find a mapping for everything that the ontology-creators finishing classifying. And then lacking any expertise, I will map these manually to T-cell.
+unmapped_by_ont = tissue_relations[tissue_relations['to'].isna()].index
+for sample_id in unmapped_by_ont:
+    print('Unmapped', sample_id, merged[sample_id]['name'])
+```
+
+```python
+# TODO: Write about how unclassifable stuff maps to too general tissue.
+samples_info[tissue_col].unique()
+unclassifiables = samples_info[samples_info[tissue_col]=='unclassifiable']
+# unclassifiables.index 
+for unclassifiable in unclassifiables.index:
+    print(tissue_relations.loc[unclassifiable]['relation_text'])
+```
+
+#### ANATOMICAL SYSTEM
+
+```python
+# TODO: Write about how ANANTOMICAL SYSTEM stuff maps to tissues accurately.
+# TODO: Put in a table
+samples_info[tissue_col].unique()
+unclassifiables = samples_info[samples_info[tissue_col]=='ANATOMICAL SYSTEM']
+for unclassifiable in unclassifiables.index:
+    print(merged[unclassifiable]['name'], merged[tissue_relations.loc[unclassifiable]['to']]['name'])
+```
+
+```python
+
+samples_info[tissue_col].unique()
+```
+
+### Via ontologies
+[//]: # (TODO: Write)
+
+The extended Uberon ontology is first interrogated for any existing relation to the term in the ontology using `uberon-py`. 
+
+--><!--
+```python
+# TODO: Do nothing with this (except maybe explain that it was checked, maybe add it as an uberon-py example)
+def get_missing_human_annotation(samples, ont):
+    human_relations_of_interest = ['is_a']
+    human_related = opy.Relations(
+        allowed_relations=human_relations_of_interest, 
+        sources=samples,
+        targets=['FF:0000210'], 
+        ont=ont,
+    )
+    missing_human_ann = human_related[human_related['to'].isna()]
+    return missing_human_ann
+missing_human_ann = get_missing_human_annotation(names_info.index, ont=merged)
+missing_human_ann['name'] = pd.Series([merged[x]['name'] for x in missing_human_ann.index], index= missing_human_ann.index)
+species_col = 'Chracteristics [Species]'
+missing_human_ann['labeled species'] = pd.Series([samples_info.loc[x][species_col] for x in missing_human_ann.index], index=missing_human_ann.index)
+display(missing_human_ann)
+
+human = 'Human (Homo sapiens)'
+assert(pd.Series.all(samples_info[samples_info.index.isin(list(missing_human_ann.index))][species_col] == human))
+```
+--><div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="running-filip">
+<h2><span class="section-number">6.4.3. </span>Running Filip<a class="headerlink" href="#running-filip" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mapping-between-uberon-tissues-and-phenotypes">
+<h3><span class="section-number">6.4.3.1. </span>Mapping between Uberon tissues and phenotypes<a class="headerlink" href="#mapping-between-uberon-tissues-and-phenotypes" title="Permalink to this headline">¶</a></h3>
+<p>I used an early version of <a class="reference internal" href="../c07-ontolopy/0-index.html#c06-ontolopy"><span class="std std-ref">ontolopy</span></a> to map between uberon tissues and phenotypes.
+I describe this process in detail in <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#ontolopy-mapping-example"><span class="std std-numref">Section 7.5</span></a>: for CAFA3, I used phenotypes present in DcGO predictions as targets, and looked for mappings only including Uberon terms (not Cell Ontology terms).</p>
+</div>
+<div class="section" id="choosing-an-expression-cut-off">
+<h3><span class="section-number">6.4.3.2. </span>Choosing an expression cut-off<a class="headerlink" href="#choosing-an-expression-cut-off" title="Permalink to this headline">¶</a></h3>
+<p>The cut-off was chosen by plotting the distribution of TPM expression and choosing a value below which there appeared to be little noise (50 TPM) between biological and technical replicates.</p>
+</div>
+</div>
+<div class="section" id="validation-methodology">
+<span id="cafa-validation-method"></span><h2><span class="section-number">6.4.4. </span>Validation Methodology<a class="headerlink" href="#validation-methodology" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cafa-validation">
+<h3><span class="section-number">6.4.4.1. </span>CAFA Validation<a class="headerlink" href="#cafa-validation" title="Permalink to this headline">¶</a></h3>
+<p>This confidence score allows for a range of possible sets of predictions, depending on the threshold parameter <span class="math notranslate nohighlight">\(\tau\)</span>.
+Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined as:</p>
+<p><span class="math notranslate nohighlight">\(precision = p = \frac{t_p}{t_p + f_p}\)</span>
+<span class="math notranslate nohighlight">\(recall = r = \frac{t_p}{t_p + f_n}\)</span></p>
+<p>Precision-recall curves are generally used to validate a predictors performance, but the <span class="math notranslate nohighlight">\(F_1\)</span> measure combines these into a single measure of performance:</p>
+<p><span class="math notranslate nohighlight">\(F_1 =2/ \frac{precision \cdot recall}{precision + recall}\)</span></p>
+<p>Since the precision and recall will be different for any <span class="math notranslate nohighlight">\(\tau\)</span>, the <span class="math notranslate nohighlight">\(F_{max}\)</span> score is the maximum possible {math{<code class="docutils literal notranslate"><span class="pre">F_1</span></code>} for any value of <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<p>CAFA validation can either be term-centric or protein-centric. For each option, submissions are assessed per species and for wholly unknown and partially known genes separately.</p>
+</div>
+<div class="section" id="limitations-of-validation-method">
+<h3><span class="section-number">6.4.4.2. </span>Limitations of validation method<a class="headerlink" href="#limitations-of-validation-method" title="Permalink to this headline">¶</a></h3>
+<p>There is no penalty for making a broad guess, or reward for making a precise one.
+This is one of the reasons that the naive method does so well: for example it is not penalised for guessing that the root term of the GO BPO ontology Biological Process is related to every gene.</p>
+<p>Due to the nature of the validation set, it’s possible that the best-scoring CAFA methods simply predict which associations are likely to be discovered soon (i.e. associations to genes people are currently studying, which is well-predicted by genes that are currently being studied).</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c06-filter"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="3-data.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">6.3. </span>Data</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="6-results.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">6.5. </span>Results</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

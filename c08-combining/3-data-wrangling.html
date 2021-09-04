@@ -1,0 +1,830 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.3. Data Wrangling &#8212; Phenotype from Genotype</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.4. Results and discussion" href="7-discussion.html" />
+    <link rel="prev" title="8.2. Data Acquisition" href="2-data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Thesis style and philosophy
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
+   2. How phenotype arises from genotype
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: function, structure and classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c03-compbio-background/0-index.html">
+   3. How genotype and phenotype are measured and researched
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. Predictive computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/7-summary.html">
+     3.7. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c04-snowflake/0-index.html">
+   4. Phenotype prediction with Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
+     4.3. Creating
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       snowflake
+      </span>
+     </code>
+     inputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/4-preprocessing.html">
+     4.4. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/7-discussion.html">
+     4.6. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
+     5.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. How Ontolopy works
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#obtaining-raw-expression-per-gene-for-healthy-human-tissues">
+   8.3.1. Obtaining raw expression per gene for healthy human tissues
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-acquisition">
+     8.3.1.1. Data Acquisition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mapping-from-transcript-to-gene">
+     8.3.1.2. Mapping from transcript to gene
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering-out-disease-samples">
+     8.3.1.3. Filtering out disease samples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mapping-to-uberon">
+   8.3.2. Mapping to UBERON
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aggregating-metadata">
+   8.3.3. Aggregating Metadata
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tissue-groups">
+     8.3.3.1. Tissue groups
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-experimental-design">
+   8.3.4. Final Experimental Design
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-wrangling">
+<span id="c05-3-data-wrangling"></span><h1><span class="section-number">8.3. </span>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">¶</a></h1>
+<p>Before the data sets could be combined, substantial data wrangling was necessary.
+The details of these processes - obtaining, checking, mapping identifiers, and excluding irrelevant data - are described in this section.
+Ontolopy was developed and used to do much of this mapping, and parts of the wrangling mentioned here form examples in the <a class="reference internal" href="../c07-ontolopy/0-index.html#c06-ontolopy"><span class="std std-ref">Ontolopy chapter</span></a>.</p>
+<p>The steps required to obtain consistently formatted and labelled data can be described as follows:</p>
+<ul class="simple">
+<li><p>Obtaining the raw expression per gene for healthy human tissues</p>
+<ul>
+<li><p>Data acquisition</p></li>
+<li><p>(Where required) Mapping from transcript to gene</p></li>
+<li><p>(Where required) Filtering out disease samples</p></li>
+<li><p>(Where required) Filtering out non-human samples</p></li>
+</ul>
+</li>
+<li><p>Mapping from sample name to UBERON tissue using <a class="reference internal" href="../c07-ontolopy/0-index.html#c06-ontolopy"><span class="std std-ref">Ontolopy</span></a>.</p></li>
+<li><p>Mapping from UBERON tissues to tissue groups using Ontolopy.</p></li>
+<li><p>Aggregating metadata</p></li>
+</ul>
+<div class="section" id="obtaining-raw-expression-per-gene-for-healthy-human-tissues">
+<h2><span class="section-number">8.3.1. </span>Obtaining raw expression per gene for healthy human tissues<a class="headerlink" href="#obtaining-raw-expression-per-gene-for-healthy-human-tissues" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-acquisition">
+<h3><span class="section-number">8.3.1.1. </span>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned in <span class="xref std std-ref">data-aquisition</span>, for the HPA, GTeX and HDBR experiments, count data were available through the <em>ExpressionAtlas</em> R package<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id156"><span>254</span></a>]</span>, and the FANTOM dataset was downloaded directly.</p>
+</div>
+<div class="section" id="mapping-from-transcript-to-gene">
+<h3><span class="section-number">8.3.1.2. </span>Mapping from transcript to gene<a class="headerlink" href="#mapping-from-transcript-to-gene" title="Permalink to this headline">¶</a></h3>
+<p>This step was only required for the FANTOM dataset.</p>
+<p>FANTOM provides mappings to gene IDs based on proximity of genes to peaks according to Ensembl. Gene expression was then calculated by summing over transcripts mapped to genes. The transcripts were already mapped to HGNC gene identifiers in the downloaded FANTOM file and <a class="reference external" href="https://www.ensembl.org/biomart">Ensembl’s Biomart</a> was used to obtain a <span class="xref myst">mapping from HGNC gene identifiers to ENSG gene identifiers</span>, in order to match the gene expression atlas format.</p>
+<p>Any transcripts which mapped to multiple genes were discarded, as were any HGNC ids which did not map to ENSG ids.</p>
+</div>
+<div class="section" id="filtering-out-disease-samples">
+<h3><span class="section-number">8.3.1.3. </span>Filtering out disease samples<a class="headerlink" href="#filtering-out-disease-samples" title="Permalink to this headline">¶</a></h3>
+<p>The HDBR and HPA experiments contained only healthy samples.</p>
+<p><strong>GTEx</strong>
+Although GTEx contained clinical data, no disease-related phenotypes were removed from the data set, since the <code class="docutils literal notranslate"><span class="pre">disease</span></code> column contains only values of “normal” and the only clinical variables (as described in the <code class="docutils literal notranslate"><span class="pre">clinical_variables</span></code> column) in the dataset were sun exposure or lack thereof for skin tissues.
+I judged these to be within the normal range of environments that we would expect skin to be subjected to.</p>
+<p><strong>FANTOM</strong>
+The FANTOM sample ontology was used to remove samples which are models for diseases. Samples which are disease models are identified using the <code class="docutils literal notranslate"><span class="pre">is_model_for</span></code> relationship and these relationships are propagated to the children terms based on the <code class="docutils literal notranslate"><span class="pre">is_a</span></code> relationship. For example, <code class="docutils literal notranslate"><span class="pre">FF:11558-120D1</span></code> (Fibroblast - skin spinal muscular atrophy, donor2) would be removed from the set of samples, since:
+<code class="docutils literal notranslate"><span class="pre">FF:11558-120D1</span></code> (Fibroblast - skin spinal muscular atrophy, donor2) <code class="docutils literal notranslate"><span class="pre">is_a</span> <span class="pre">FF:0000251</span></code> (human fibroblast - skin spinal muscular atrophy sample) <code class="docutils literal notranslate"><span class="pre">is_model_for</span> <span class="pre">DOID:12377</span></code> (spinal muscular atrophy).</p>
+<p><strong>1D. Filtering out non-human samples</strong>
+The GTEx, HDBR, and HPA experiments contained only human samples.</p>
+<p><strong>FANTOM</strong>
+The FANTOM5 data set also contains non-human (mouse) samples.
+The FANTOM sample ontology (which was downloaded <a class="reference external" href="http://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt">from here</a>) was used to look-up which FANTOM samples are human samples, i.e. have an <code class="docutils literal notranslate"><span class="pre">is_a</span></code> relationship to the term <code class="docutils literal notranslate"><span class="pre">FF:0000210</span></code> (human sample) directly or indirectly.</p>
+</div>
+</div>
+<div class="section" id="mapping-to-uberon">
+<h2><span class="section-number">8.3.2. </span>Mapping to UBERON<a class="headerlink" href="#mapping-to-uberon" title="Permalink to this headline">¶</a></h2>
+<p>Mapping from samples to Uberon tissue required the development of a small Python package <span class="xref std std-ref">Ontolopy</span>.
+To create input to this package, informal tissue names (e.g. blood, kidney) were taken from the experimental design files (or the human sample information file for FANTOM) to create a map of samples to informal tissue names.
+For FANTOM, the FANTOM ontology could also be used to create a more fine-grained mapping of samples to tissues based on FANTOM sample identifiers and/or cell type (CL) identifiers.</p>
+<p><strong>HPA</strong>
+The HPA samples were mapped using exact matches to Uberon names.
+Three types of sample did not have exact matches: <em>transformed skin fibroblast</em>, <em>suprapubic skin</em>, and <em>ebv-transformed lymphocyte</em>.
+I manually mapped <em>suprapubic skin</em> to <code class="docutils literal notranslate"><span class="pre">UBERON:0001415</span></code> <em>Skin of pelvis</em>, and excluded the other two (corresponding to excluding 869 samples).</p>
+<p><strong>HDBR</strong>
+For HDBR, tissue names from the “organism part’ column of the column data file were matched to Uberon names and synonyms from the Uberon extended ontology.
+The 96 unmatched terms corresponding to mixed brain tissues and brain fragments were defaulted to the more general Uberon Brain term.</p>
+<p><strong>FANTOM</strong>
+Since an experimental design file could not be obtained for FANTOM via GxA, additional sample information was obtained via the FANTOM5 website, namely the <a class="reference external" href="https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/basic/HumanSamples2.0.sdrf.xlsx">human sample information file</a> and the FANTOM5 ontology.</p>
+<p>FANTOM also contains time courses of cell differentiation (cells changing from one type to another) as well measures of perturbed cells.
+Since these samples do not have a well-defined locality in the body given by cell or tissue type, they were not used in the combined dataset.
+Such samples were filtered out using the human sample information file.</p>
+<p>Since the FANTOM data had both an ontology file and the human sample information file, both were used to map to Uberon.
+The disagreements between the two mappings revealed some inconsistencies with the data set: these are described in <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#fantom5-inconsistencies-example"><span class="std std-ref">the next section</span></a>, as they demonstrate a potential use case for Ontolopy.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotly</span> <span class="kn">import</span> <span class="n">graph_objects</span> <span class="k">as</span> <span class="n">go</span>
+<span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
+
+<span class="c1"># from myst_nb import glue</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">funnel_plot_transcripts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/experiments/fantom/funnel_plot_transcripts.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">funnel_plot_samples</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/experiments/fantom/funnel_plot_samples.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">horizontal_spacing</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+
+<span class="n">transcript_y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">funnel_plot_transcripts</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Funnel</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Transcripts&#39;</span><span class="p">,</span> 
+              <span class="n">y</span><span class="o">=</span><span class="n">transcript_y</span><span class="p">,</span>
+              <span class="n">x</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">funnel_plot_transcripts</span><span class="p">[</span><span class="s1">&#39;Number of transcripts&#39;</span><span class="p">])),</span>
+    <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="n">sample_y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">27</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">funnel_plot_samples</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Funnel</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Samples&#39;</span><span class="p">,</span> 
+              <span class="n">y</span><span class="o">=</span><span class="n">sample_y</span><span class="p">,</span>
+              <span class="n">x</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">funnel_plot_samples</span><span class="p">[</span><span class="s1">&#39;Number&#39;</span><span class="p">])),</span>
+    <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">autosize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+                  <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+                  <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                      <span class="n">l</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                      <span class="n">r</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                      <span class="n">b</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                      <span class="n">t</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                      <span class="n">pad</span><span class="o">=</span><span class="mi">2</span>
+                  <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># fig.write_image(&#39;../images/fantom_funnel.png&#39;)</span>
+<span class="c1"># fig.write_html(&#39;../images/fantom_funnel.html&#39;)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># glue(&#39;transcript-funnel&#39;, fig, display=False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="fantom-funnel-interactive">
+<img alt="../_images/blank.png" src="../_images/blank.png" />
+<p class="caption"><span class="caption-number">Fig. 8.3 </span><span class="caption-text">Funnel plot showing the data cleaning pipeline for FANTOM transcripts/genes (left) and samples (right), along with the number which remained after each stage of data cleaning.</span><a class="headerlink" href="#fantom-funnel-interactive" title="Permalink to this image">¶</a></p>
+</div>
+<p>The amount of data that flows through the processing pipeline for the FANTOM5 dataset can be seen in <a class="reference internal" href="#fantom-funnel-interactive"><span class="std std-numref">Fig. 8.3</span></a>.</p>
+</div>
+<div class="section" id="aggregating-metadata">
+<h2><span class="section-number">8.3.3. </span>Aggregating Metadata<a class="headerlink" href="#aggregating-metadata" title="Permalink to this headline">¶</a></h2>
+<p>To create consistent metadata for the samples (e.g. age, developmental stage, replicate status, etc), information was extracted from multiple sources (including GxA and additional data from each experiment), and sometimes manually curated or corrected.</p>
+<p><strong>HPA, HBDR, and GTEx:</strong>
+Metadata about the experiments was collected from multiple sources, primarily the column data files accessed via ExpressionAtlas.
+This metadata was used to describe the the experimental design for ComBat.
+The metadata collected includes (where available), sample identifier, individual identifier, age (exact), age (range), developmental stage, tissue type (as Uberon term), sex, experiment, biological replicate identifier and technical replicate identifier.</p>
+<p>Both age variables are given in years and may include negative values (e.g. for a developing fetus).
+The age (range) variable contains uneven ranges, since this allows there to be an age-related factor that is compatible across the experiments.
+These values had to be converted to common units, since they were incompatible between experiments, and age-related terms were missing in GxA for GTEx and HPA.
+For GTEx it was possible to acquire this information via <a class="reference external" href="https://storage.googleapis.com/gtex_analysis_v7/annotations/GTEx_v7_Annotations_SubjectPhenotypesDS.txt">its own website</a>.</p>
+<p><strong>FANTOM:</strong>
+The metadata aggregation for the FANTOM dataset is described in detail in <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#ontolopy-mapping-example"><span class="std std-numref">Section 7.5</span></a>.</p>
+<div class="section" id="tissue-groups">
+<span id="id2"></span><h3><span class="section-number">8.3.3.1. </span>Tissue groups<a class="headerlink" href="#tissue-groups" title="Permalink to this headline">¶</a></h3>
+<p>While the data is in general mapped to the most specific Uberon terms possible, 10 broader tissue groups (e.g. “brain”, “connective tissue”) were identified by hand and the individual samples were mapped to these groups using Ontolopy’s <code class="docutils literal notranslate"><span class="pre">Relations()</span></code> function.
+This level of specificity is useful for comparing between experiments, since many experiments describe some tissues more specifically than others.
+For example, there are many FANTOM5 tissues labelled “brain”, but many HDBR experiments are labelled as more specific parts of the brain.</p>
+</div>
+</div>
+<div class="section" id="final-experimental-design">
+<span id="experimental-design"></span><h2><span class="section-number">8.3.4. </span>Final Experimental Design<a class="headerlink" href="#final-experimental-design" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">design_file</span> <span class="o">=</span> <span class="s1">&#39;data/design.csv&#39;</span>
+<span class="n">design</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">design_file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span> <span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                     <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sample ID&#39;</span><span class="p">,</span><span class="s1">&#39;Experiment&#39;</span><span class="p">,</span><span class="s1">&#39;Tissue (UBERON)&#39;</span><span class="p">])</span>
+
+<span class="n">tissue_groups_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/tissues_groups.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">design</span><span class="p">[</span><span class="s1">&#39;Group name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">design</span><span class="p">[</span><span class="s1">&#39;Tissue (UBERON)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tissue_groups_df</span><span class="p">[</span><span class="s1">&#39;Group name&#39;</span><span class="p">])</span>
+
+<span class="n">tissue_groups</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Group name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">mod</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">design</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tissue_group</span> <span class="ow">in</span> <span class="n">tissue_groups</span><span class="p">:</span>
+    <span class="c1"># Note: zeros correspond to a normal fold change of 1 (as mod contains logfold changes)</span>
+    <span class="n">mod</span><span class="p">[</span><span class="n">tissue_group</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">design</span><span class="p">[</span><span class="s1">&#39;Group name&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">tissue_group</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+
+<span class="n">overall_design</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">overall_design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">design</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span>
+<span class="n">overall_design</span> <span class="o">=</span> <span class="n">overall_design</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Experiment&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">overall_design</span><span class="p">[</span><span class="s1">&#39;Samples per experiment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">overall_design</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">overall_design</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">overall_design</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">percentage</span> <span class="o">=</span> <span class="n">overall_design</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">overall_design</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="s1">&#39;Samples per experiment&#39;</span><span class="p">])</span>
+<span class="n">tissue_groups_to_discard</span> <span class="o">=</span> <span class="n">percentage</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">percentage</span><span class="o">&lt;</span><span class="mf">0.01</span><span class="p">]</span>
+<span class="n">overall_design</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">tissue_groups_to_discard</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mod</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">tissue_groups_to_discard</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tissue_groups</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tissue_groups_to_discard</span><span class="p">)</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;design-balance&#39;</span><span class="p">,</span> <span class="n">overall_design</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;mod-head&#39;</span><span class="p">,</span> <span class="n">mod</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="n">mod</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data/simulated/group_mod.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="design-balance-tbl">
+<p class="caption"><span class="caption-number">Fig. 8.4 </span><span class="caption-text">A table showing the number of samples in each category, by tissue group and experiment. Note that the design is not balanced: there are some categories that do not overlap at all.</span><a class="headerlink" href="#design-balance-tbl" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#design-balance-tbl"><span class="std std-ref">A table showing the number of samples in each category, by tissue group and experiment. Note that the design is not balanced: there are some categories that do not overlap at all.</span></a> shows the experimental design of the combined data set.
+Since it is not balanced, it is not likely to be suitable for batch-correction algorithms such as ComBat or ComBat-Seq.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c08-combining"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="2-data.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">8.2. </span>Data Acquisition</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="7-discussion.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">8.4. </span>Results and discussion</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

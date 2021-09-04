@@ -1,16 +1,21 @@
 (sequencing-technology)=
 # Sequencing and microarrays
-Sequencing are microarrays are how we get measurements of DNA and RNA.
-
-We measure DNA so that we can understand what organisms genetic material is capable of doing: and understand what the differences between different species and individuals is.
-
+Sequencing and microarrays are how we get measurements of DNA and RNA.
+We measure DNA so that we can understand what organisms genetic material is capable of doing: and understand what the differences between different species and individuals are.
 These measures of DNA can tell us (among other things) what proteins it is possible to make. 
-If we think of genes as a collection of blueprints, then one major reason that we measure RNA to tell us how much each blue print is in production.
+If we think of genes as a collection of blueprints, then one major reason that we measure RNA to tell us how much each blueprint is in production.
 
 (sequencing)=
 ## Sequencing 
-Sequencing technologies are used to read strings of DNA or RNA: this can be done *de novo*, i.e. even when we don't know the sequences ahead of time.
+Sequencing technologies are used to read strings of DNA or RNA: this can be done *de novo*, i.e. even when we don't know the sequences ahead of time. 
+At one time, we might wish to sequence anything from one gene to the {ref}`entire genome<whole-genome-sequencing>`.
 No sequencing technology can read whole chromosomes end to end, however, all work by reading shorter lengths of DNA (called *reads*).
+
+```{margin} Whole genome sequencing
+:name: whole-genome-sequencing
+
+Whole genome sequencing (WGS) is the process of sequencing an individual's entire genome: across all chromosomes (protein-coding and non-coding DNA) and the mitochondria. This can be achieved with different sequencing techologies.
+```
 
 In most sequencing technologies (e.g. Sanger, Illumina), in order for the different nucleotides to be detected (by human sight or using a sensor), DNA is first prepared such that different nucleotides bond to different visible markers, e.g. different coloured dyes or fluorescent markers.
 
@@ -18,7 +23,7 @@ In most sequencing technologies (e.g. Sanger, Illumina), in order for the differ
 
 ```{margin} Elecrophoresis
 :name: electrophoresis
-Eectrophoresis is a laboratory technique in which molecules are separated based on their size and electrical by applying an electric current to molecules.
+Electrophoresis is a laboratory technique in which molecules are separated based on their size by applying an electric current to molecules.
 This forces them to travel through a small capillary tube, or through a gel matrix.
 
 In DNA capillary electrophoresis, DNA is read via exciting flurescent markers with lasers and detecting the produced light (this is how automated Sanger sequencing works).
@@ -70,7 +75,7 @@ name: assembly
 Image illustrating how reads of DNA are aligned with one anther to assemble genomes *de novo*.
 ```
 
-The current estimate for raw sequencing inaccuracy of an individual NGS read is around 0.24%{cite}`Pfeiffer2018-kt`, meaning that on average one base pair will be incorrect for a 500pb read.
+The current estimate for raw sequencing inaccuracy of an individual NGS read is around 0.24%{cite}`Pfeiffer2018-kt`, meaning that on average one base pair will be incorrect for a 500bp read.
 Multiple repeats are therefore required to obtain a more accurate measurement of the assembled sequence, which is further necessary since there are many repeated sequences (perhaps over two thirds of the human genome{cite}`De_Koning2011-ac`).
 The depth for a nucleotide is the number of reads that overlap that nucleotide. 
 Similarly, the average depth of a sequence can be calculated. 
@@ -87,6 +92,7 @@ RNA-seq is used much less often for de novo sequencing, and is generally mapped 
 ``` 
 {numref}`alignment` shows how alignment and assembly are used in the context of RNA sequencing.
 
+(microarrays)=
 ## Microarrays
 Through the 1970s into the early 2000s, DNA arrays/microarrays developed alongside sequencing as a way of measuring the presence of previously sequenced DNA in new samples. 
 These arrays contain pre-chosen fragments of DNA (probes) arranged in spots, with each spot containing many copies of the probe, on a solid surface, e.g. a glass, silicon or plastic chip. 

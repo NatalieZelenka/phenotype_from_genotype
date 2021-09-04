@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2.5. Phenotype &#8212; Phenotype from Genotype</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,22 +20,19 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,8 +42,8 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -58,14 +56,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.6. Summary: how genotype and phenotype are linked" href="6-summary.html" />
     <link rel="prev" title="2.4. Looking more closely at proteins: function, structure and classification" href="4-more-proteins.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,66 +72,73 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
  <span class="caption-text">
   Front Matter
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c0-front-matter/title-page.html">
-   Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
   </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c0-front-matter/acknowledgements.html">
-     Acknowledgements
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c0-front-matter/abstract.html">
-     Abstract
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c0-front-matter/declaration.html">
-     Declaration
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
-  Main book
+  Background
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../c01-introduction/intro.html">
-   1. Introduction
+   1. Thesis style and philosophy
   </a>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="0-index.html">
-   2. Biology Background
+   2. How phenotype arises from genotype
   </a>
-  <ul class="current collapse-ul">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="1-big-questions.html">
      2.1. Big questions: What is genetically determined, and how?
@@ -165,14 +170,17 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../c03-compbio-background/0-index.html">
-   3. Computational Biology Background
+   3. How genotype and phenotype are measured and researched
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
      3.1. Sequencing and microarrays
@@ -189,34 +197,44 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/4-bias.html">
-     3.4. Bias
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. Predictive computational methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/5-pqi.html">
-     3.5. PQI
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/6-summary.html">
-     3.6. Summary
+    <a class="reference internal" href="../c03-compbio-background/6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/7-summary.html">
+     3.7. Summary
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../c04-snowflake/0-index.html">
-   4. Phenotype prediction with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Snowflake
-    </span>
-   </code>
+   4. Phenotype prediction with Snowflake
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/1-introduction.html">
      4.1. Introduction
@@ -234,148 +252,198 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/3-data.html">
-     4.3. Snowflake input data
+    <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
+     4.3. Creating
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       snowflake
+      </span>
+     </code>
+     inputs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/4-clustering-snps.html">
-     4.4. Considerations for Clustering SNPs
+    <a class="reference internal" href="../c04-snowflake/4-preprocessing.html">
+     4.4. Preprocessing
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/5-results.html">
-     4.5. Results
+    <a class="reference internal" href="../c04-snowflake/5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/6-discussion.html">
+    <a class="reference internal" href="../c04-snowflake/7-discussion.html">
      4.6. Discussion
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/7-future-work.html">
-     4.7. Future Work
-    </a>
-   </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c05-filter/0-index.html">
-   5. Filtering computational predictions with tissue-specific expression information
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
      5.1. Introduction
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-uberon.html">
-     5.2. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Input Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-methods.html">
-     5.4. Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-results.html">
-     5.5. Results
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/7-discussion.html">
-     5.6. Discussion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/8-future-work.html">
-     5.7. Future work
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c06-combining/0-index.html">
-   6. Combining RNA-seq datasets
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/1-background.html">
-     6.1. Background
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/2-data.html">
-     6.2. Data Acquisition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/3-data-wrangling.html">
-     6.3. Data Wrangling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.4. Batch correction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/6-results.html">
-     6.5. Results and outputs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.6. Combined data set
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.7. Discussion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.8. Future Work
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
-   7. Conclusion
-  </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. How Ontolopy works
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c08-combining/0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   End Matter
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../cz-end-matter/glossary.html">
    Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
   </a>
  </li>
  <li class="toctree-l1">
@@ -385,6 +453,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -417,12 +486,12 @@
             
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -431,12 +500,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-phenotype">
    2.5.1. What is phenotype?
@@ -461,8 +529,7 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -472,7 +539,7 @@
               <div>
                 
   <div class="section" id="phenotype">
-<h1><span class="section-number">2.5. </span>Phenotype<a class="headerlink" href="#phenotype" title="Permalink to this headline">¶</a></h1>
+<span id="phenotype-organised"></span><h1><span class="section-number">2.5. </span>Phenotype<a class="headerlink" href="#phenotype" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-is-phenotype">
 <span id="id1"></span><h2><span class="section-number">2.5.1. </span>What is phenotype?<a class="headerlink" href="#what-is-phenotype" title="Permalink to this headline">¶</a></h2>
 <p>Phenotypes are observable traits, which can range from neutral (like height, skin colour, or eye colour) to disabling (e.g. chronic fatigue syndrome) or life-threatening (e.g. cancers), to very specific measurements (e.g. level of calcium in blood).
@@ -480,45 +547,49 @@ Since phenotypes can have various levels of specificity, they can also be hierar
 Human phenotype information is private information, and some phenotypes are not easy to measure, so information about human phenotypes is not always easy to access.</p>
 </div>
 <div class="section" id="how-do-proteins-influence-phenotype">
-<h2><span class="section-number">2.5.2. </span>How do proteins influence phenotype?<a class="headerlink" href="#how-do-proteins-influence-phenotype" title="Permalink to this headline">¶</a></h2>
+<span id="proteins-influence-phenotype"></span><h2><span class="section-number">2.5.2. </span>How do proteins influence phenotype?<a class="headerlink" href="#how-do-proteins-influence-phenotype" title="Permalink to this headline">¶</a></h2>
 <p>The easiest phenotypes to understand genetically are <a class="reference internal" href="1-big-questions.html#mendel"><span class="std std-ref">Mendelian</span></a>.
 In Mendelian phenotypes, a single mutation is responsible for a phenotype, and we can assume that the mutation changes, reduces, or stops entirely the functionality of the protein, and that this protein is the main actor involved in the trait.
 An example of this in humans is the <a class="reference external" href="https://www.genecards.org/cgi-bin/carddisp.pl?gene=OPN1MW">OPN1MW gene</a> which encodes for green-light absorbing pigment necessary to create green light absorbing cones in the eye: the allele that causes a non-functional OPN1MW gene therefore causes red-green colourblindness.</p>
 <p>The way in which Mendelian genetics affect a phenotype can vary.
-In humans, for a variant with two alleles, we have three options: homozygous wild type (two copies of common allele), heterozygous (one copy of common allele and one copy of rare allele), and homozygous mutant (two copies of rare allele).
-Sometimes having one copy of a rare allele will cause a phenotype, and sometimes it won’t, but having two copies will.</p>
+In humans, for a SNP with two alleles, there are three possible <em>calls</em>: homozygous wild type (two copies of the most common allele), heterozygous (one copy of the most common allele and one copy of the rarer allele), and homozygous mutant (two copies of the rarer allele).
+Sometimes having one copy of the rarer allele is enough to cause a phenotype, but sometimes two copies are required.
+Not all SNPs are disease-causing at all, i.e. have any disease-causing combinations of alleles.</p>
 <p>As well as mutations, phenotypes can be caused by chromosomal abnormalities (extra or missing sections of chromosomes).
 In this case, the mechanism is the increased or decreased gene expression of the affected section of the chromosome which is influencing phenotypic differences.</p>
 <p>Proteins can effect the same phenotype indirectly, through protein-protein interaction networks,  through interaction with the metabolism (the body’s creation of small chemicals, like sugars, fatty acids, and vitamins), and through interaction with the environment of the cell.
 The environment of the cell is of course in turn influenced from the human-scale environment: what we eat, whether we smoke, the air we breathe, and our body’s response to outside stimuli.</p>
 <div class="section" id="limits">
-<h3><span class="section-number">2.5.2.1. </span>Limits<a class="headerlink" href="#limits" title="Permalink to this headline">¶</a></h3>
+<span id="limits-of-proteins"></span><h3><span class="section-number">2.5.2.1. </span>Limits<a class="headerlink" href="#limits" title="Permalink to this headline">¶</a></h3>
 <p>For many disease phenotypes (e.g. Breast Cancer, Asbestosis), a genetic mutation might predict an increased probability of having the phenotype, given similar environmental conditions.
-And there are some many phenotypes which may not be linked to genetic variation at all, but may be entirely influenced by the environment: for example medical conditions that are the result of poisoning.
+And there are phenotypes which may not be linked to genetic variation at all, but may be entirely influenced by the environment: for example medical conditions that are the result of poisoning.
 In these cases, we might imagine that there is a mutation that humans could have that would prevent or reduce the poison reaction, but since no one has it, we can’t study this by looking at human mutations.</p>
 <div class="margin sidebar" id="social-constructs">
 <p class="sidebar-title">Social Constructs</p>
 <p>A social construct is an idea or concept that exists because it has been created and agreed upon by society.</p>
 </div>
-<p>To get a little philosophical (metaphysical) for just a paragraph, some phenotypes may not even exist (as we usually mean the word).
-That is, they might not be <em>natural</em> categories such that there is a straight-forward and physical thing that decides membership to the category<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id160"><span>27</span></a>]</span>.
-As an example, consider an imaginary poorly-understood syndrome, it might be diagnosed if you have some of a list of symptoms, but the syndrome might actually four separate diseases with four totally separate causes and the treatments might only work for one of these diseases.
-Some phenotypes might be <em><a class="reference internal" href="#social-constructs"><span class="std std-ref">social constructs</span></a></em>; there is a long-running debate among psychologists about whether some mental health conditions and other psychological and behavioural concepts are socially constructed<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id161"><span>28</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id162"><span>29</span></a>]</span>.
-If phenotypes are not based in the physical, then we may have difficulty accurately predicting them from genetics.</p>
+<p>To get a little philosophical (metaphysical) for just a paragraph, some phenotypes may not even exist.
+That is, they might not be <em>natural</em> categories such that there is a straight-forward and physical thing that decides membership to the category<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id160"><span>31</span></a>]</span>.
+As an example, consider an imaginary poorly-understood syndrome, it might be diagnosed if you have some of a list of symptoms, but the syndrome might actually be four separate diseases with four totally separate causes and the treatments might only work for one of these diseases.
+Some phenotypes might even be <em><a class="reference internal" href="#social-constructs"><span class="std std-ref">social constructs</span></a></em>; there is a long-running debate among psychologists about whether some mental health conditions and other psychological and behavioural concepts are socially constructed<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id161"><span>32</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id162"><span>33</span></a>]</span>.
+If phenotypes are not based in the physical, then we will likely have difficulty accurately predicting them from genetics.</p>
 </div>
 <div class="section" id="ethical-considerations">
-<h3><span class="section-number">2.5.2.2. </span>Ethical considerations<a class="headerlink" href="#ethical-considerations" title="Permalink to this headline">¶</a></h3>
+<span id="ethical-considerations-phenotype"></span><h3><span class="section-number">2.5.2.2. </span>Ethical considerations<a class="headerlink" href="#ethical-considerations" title="Permalink to this headline">¶</a></h3>
 <p>Aside from the fact that predicting non-physical concepts is difficult, there are also ethical considerations in trying to predict socially constructed phenotypes.
-If we try to predict sexual orientation from genetics <span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id158"><span>30</span></a>]</span>, then we might turn out to be measuring something else which indirectly influences sexual orientation, for example a protein that influences how open people are to new experiences, or something that in turn influences that.
-And in trying to predict intelligence from genetics, for example, we are likely finding associations between variables like how much you have practiced IQ tests or whether you are in the same cultural group as those that created them<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id159"><span>31</span></a>]</span>, reinforcing racist ideas<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id157"><span>32</span></a>]</span>.</p>
-<p>Even if all phenotypes were natural concepts, predicting the genetic basis of some phenotypes could be harmful<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id152"><span>33</span></a>]</span>, for example finding a gay gene could be motivated by, or lead to a search for “treatments” to “cure” homosexuality even if it did have a physical basis.</p>
+If we try to predict sexual orientation from genetics <span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id158"><span>34</span></a>]</span>, then we might turn out to be measuring something else which indirectly influences sexual orientation, for example a protein that influences how open people are to new experiences, or something that in turn influences that.
+And in trying to predict intelligence from genetics, for example, we are likely finding associations between variables like how much you have practiced IQ tests or whether you are in the same cultural group as those that created them<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id159"><span>35</span></a>]</span>, reinforcing racist ideas<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id157"><span>36</span></a>]</span>.</p>
+<p id="which-phenotypes">Even if all phenotypes were natural concepts, predicting the genetic basis of some phenotypes could be harmful<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id152"><span>37</span></a>]</span>, for example finding a gay gene could be motivated by, or lead to a search for “treatments” to “cure” homosexuality even if it did have a physical basis.</p>
 <p>Physical measurements can also be problematic for similar reasons.
 Take measurements of facial features for example: this brings to mind image of nazis measuring skulls.
 Where physical measurements are proxies for measuring the social construct of race, these kinds of phenotypes can be similarly worrying.
-Facial recognition technology<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id165"><span>34</span></a>]</span> is often criticised on this basis<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id166"><span>35</span></a>]</span>.</p>
+Facial recognition technology<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id165"><span>38</span></a>]</span> is often criticised on this basis<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id166"><span>39</span></a>]</span>.</p>
 <p>It is for these reasons, that the majority of modern concepts of phenotype are based in medical concepts, where looking for a link between genotype and phenotype can have a potential life-saving or life-improving benefit.
 This scenario still comes with serious ethical considerations, however.
-Many disabled people do not want cures for their disabilities<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id163"><span>36</span></a>]</span>, and people are also worried that the development of genetic screenings for disabilities will effectively result in a genocide of disabled people<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id164"><span>37</span></a>]</span>.</p>
+Many disabled people do not want cures for their disabilities<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id163"><span>40</span></a>]</span>, and people are also worried that the development of genetic screenings for disabilities will effectively result in a genocide of disabled people<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id164"><span>41</span></a>]</span>.</p>
+<p id="who-gets-the-information">Another concern is that people may accidentally find out about phenotyoes that they are predisposed to that they do not wish to know about.
+This is particularly worrying if there are not any existing preventative/proactive measures to avoid a future diagnosis, and if they are not be able to access genetic counselling.
+For example, 23andMe have a system whereby you must opt-in to viewing reports about your health for some illnesses.</p>
 </div>
 </div>
 </div>
@@ -546,12 +617,32 @@ Many disabled people do not want cures for their disabilities<span id="id10">[<a
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="4-more-proteins.html" title="previous page"><span class="section-number">2.4. </span>Looking more closely at proteins: function, structure and classification</a>
-    <a class='right-next' id="next-link" href="6-summary.html" title="next page"><span class="section-number">2.6. </span>Summary: how genotype and phenotype are linked</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="4-more-proteins.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">2.4. </span>Looking more closely at proteins: function, structure and classification</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="6-summary.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">2.6. </span>Summary: how genotype and phenotype are linked</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
@@ -570,11 +661,9 @@ Many disabled people do not want cures for their disabilities<span id="id10">[<a
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2.4. Looking more closely at proteins: function, structure and classification &#8212; Phenotype from Genotype</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,22 +20,19 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,8 +42,8 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -58,14 +56,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.5. Phenotype" href="5-phenotype.html" />
     <link rel="prev" title="2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation" href="3-more-dna.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,66 +72,73 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
  <span class="caption-text">
   Front Matter
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c0-front-matter/title-page.html">
-   Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
   </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c0-front-matter/acknowledgements.html">
-     Acknowledgements
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c0-front-matter/abstract.html">
-     Abstract
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c0-front-matter/declaration.html">
-     Declaration
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
-  Main book
+  Background
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../c01-introduction/intro.html">
-   1. Introduction
+   1. Thesis style and philosophy
   </a>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="0-index.html">
-   2. Biology Background
+   2. How phenotype arises from genotype
   </a>
-  <ul class="current collapse-ul">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="1-big-questions.html">
      2.1. Big questions: What is genetically determined, and how?
@@ -165,14 +170,17 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../c03-compbio-background/0-index.html">
-   3. Computational Biology Background
+   3. How genotype and phenotype are measured and researched
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
      3.1. Sequencing and microarrays
@@ -189,34 +197,44 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/4-bias.html">
-     3.4. Bias
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. Predictive computational methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/5-pqi.html">
-     3.5. PQI
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c03-compbio-background/6-summary.html">
-     3.6. Summary
+    <a class="reference internal" href="../c03-compbio-background/6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/7-summary.html">
+     3.7. Summary
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../c04-snowflake/0-index.html">
-   4. Phenotype prediction with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Snowflake
-    </span>
-   </code>
+   4. Phenotype prediction with Snowflake
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/1-introduction.html">
      4.1. Introduction
@@ -234,148 +252,198 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/3-data.html">
-     4.3. Snowflake input data
+    <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
+     4.3. Creating
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       snowflake
+      </span>
+     </code>
+     inputs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/4-clustering-snps.html">
-     4.4. Considerations for Clustering SNPs
+    <a class="reference internal" href="../c04-snowflake/4-preprocessing.html">
+     4.4. Preprocessing
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/5-results.html">
-     4.5. Results
+    <a class="reference internal" href="../c04-snowflake/5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/6-discussion.html">
+    <a class="reference internal" href="../c04-snowflake/7-discussion.html">
      4.6. Discussion
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c04-snowflake/7-future-work.html">
-     4.7. Future Work
-    </a>
-   </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c05-filter/0-index.html">
-   5. Filtering computational predictions with tissue-specific expression information
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/1-introduction.html">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
      5.1. Introduction
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/2-uberon.html">
-     5.2. The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       uberon-py
-      </span>
-     </code>
-     package
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/4-data.html">
-     5.3. Input Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/5-methods.html">
-     5.4. Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/6-results.html">
-     5.5. Results
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/7-discussion.html">
-     5.6. Discussion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c05-filter/8-future-work.html">
-     5.7. Future work
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../c06-combining/0-index.html">
-   6. Combining RNA-seq datasets
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/1-background.html">
-     6.1. Background
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/2-data.html">
-     6.2. Data Acquisition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/3-data-wrangling.html">
-     6.3. Data Wrangling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/5-batch-correction.html">
-     6.4. Batch correction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/6-results.html">
-     6.5. Results and outputs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/6-results.html#combined-data-set">
-     6.6. Combined data set
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/7-discussion.html">
-     6.7. Discussion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../c06-combining/8-future-work.html">
-     6.8. Future Work
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c07-conclusion/0-conclusion.html">
-   7. Conclusion
-  </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. How Ontolopy works
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c08-combining/0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   End Matter
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../cz-end-matter/glossary.html">
    Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
   </a>
  </li>
  <li class="toctree-l1">
@@ -385,6 +453,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -417,12 +486,12 @@
             
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -431,12 +500,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#protein-structure-primary-secondary-tertiary-and-quaternary">
    2.4.1. Protein structure: Primary, Secondary, Tertiary, and Quaternary
@@ -461,8 +529,7 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -475,26 +542,20 @@
 <span id="proteins-organised"></span><h1><span class="section-number">2.4. </span>Looking more closely at proteins: function, structure and classification<a class="headerlink" href="#looking-more-closely-at-proteins-function-structure-and-classification" title="Permalink to this headline">¶</a></h1>
 <p>Just as DNA has been classified at different levels (SNP, gene, genome), so too have proteins. In contrast to DNA, what’s interesting (and useful!) to know about proteins is their structure.</p>
 <p><a class="reference internal" href="2-biological-molecules.html#what-is-translation"><span class="std std-ref">As mentioned earlier</span></a>, translated strings of amino acids fold automatically (or sometimes with the help of other proteins) into the 3D structure of proteins.
-<a class="reference internal" href="#protein-folding-problem"><span class="std std-ref">We still don’t understand how this happens very well.</span></a></p>
-<div class="margin sidebar" id="protein-folding-problem">
-<p class="sidebar-title">The protein folding problem</p>
-<p>Amino acid strings reliably fold into globular protein structures, but we don’t know exactly how or why and can’t accurately predict what form a string of amino acids will take as a protein.
-Answering these related problems is known as the protein folding problem and has been one of the grandest challenges in biology for over half a century.</p>
-</div>
-<p>What we do understand however, is that the structure of proteins defines what molecules (large and small) they can bind to, and this has huge consequences for their functionality in the body.
+This structure defines what molecules (large and small) they can bind to, and this has huge consequences for their functionality in the body.
 Moreover, proteins have recognisable features of their structure which appear again and again. These features occur at different levels and sizes, and they allow us to learn about the evolution and functional similarity of proteins.</p>
 <div class="section" id="protein-structure-primary-secondary-tertiary-and-quaternary">
-<h2><span class="section-number">2.4.1. </span>Protein structure: Primary, Secondary, Tertiary, and Quaternary<a class="headerlink" href="#protein-structure-primary-secondary-tertiary-and-quaternary" title="Permalink to this headline">¶</a></h2>
+<span id="protein-structure"></span><h2><span class="section-number">2.4.1. </span>Protein structure: Primary, Secondary, Tertiary, and Quaternary<a class="headerlink" href="#protein-structure-primary-secondary-tertiary-and-quaternary" title="Permalink to this headline">¶</a></h2>
 <p>Proteins are described and classified in terms of the their primary, secondary, tertiary, and quaternary structure.</p>
 <p>The primary structure is simply the amino acid makeup of the protein, which describes the protein’s chemical makeup, but not it’s three-dimensional structure.
 These amino acid strings tend to form into a small number of familiar (secondary) three-dimensional structures, for example beta strands, beta sheets, and alpha helices.
 At the next level, the tertiary structure describes combinations of secondary structures, for example a TIM barrels (a torroidal structure made up of alpha helices and beta strands).
 At this level, similar structures do not imply an evolutionary or functional similarity.</p>
 <div class="section" id="quaternary-structures-protein-domains">
-<h3><span class="section-number">2.4.1.1. </span>Quaternary structures: protein domains<a class="headerlink" href="#quaternary-structures-protein-domains" title="Permalink to this headline">¶</a></h3>
+<span id="protein-domains"></span><h3><span class="section-number">2.4.1.1. </span>Quaternary structures: protein domains<a class="headerlink" href="#quaternary-structures-protein-domains" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="lego">
 <a class="reference internal image-reference" href="../_images/lego.png"><img alt="The figure shows a red lego block linked to a yellow lego block, which is then linked to another yellow lego block. The links are thin grey lego blocks." src="../_images/lego.png" style="height: 100px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.5 </span><span class="caption-text">An illustration of the lego analogy for protein domains. Coloured bricks represent protein domains - colour represents a specific protein domain type, while thin grey bricks represent polypeptide linkers which link domains. Image created using mecabricks<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id14"><span>25</span></a>]</span></span><a class="headerlink" href="#lego" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.5 </span><span class="caption-text">An illustration of the lego analogy for protein domains. Coloured bricks represent protein domains - colour represents a specific protein domain type, while thin grey bricks represent polypeptide linkers which link domains. Image created using mecabricks<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id14"><span>29</span></a>]</span></span><a class="headerlink" href="#lego" title="Permalink to this image">¶</a></p>
 </div>
 <p>The quaternary structures of proteins - protein domains - have proved particularly interesting for research.
 A simple and oft-used metaphor is to think of protein domains as lego building blocks (<a class="reference internal" href="#lego"><span class="std std-numref">Fig. 2.5</span></a>) which can be linked by polypeptide chains to make up a protein.
@@ -506,7 +567,7 @@ The functions of proteins, at both low-level (e.g. “calcium signalling protein
 For this reason, often proteins are classified according to their similarity to proteins about which functions are known, for example those containing the same protein domains.</p>
 </div>
 <div class="section" id="disorder">
-<h3><span class="section-number">2.4.1.2. </span>Disorder<a class="headerlink" href="#disorder" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3><span class="section-number">2.4.1.2. </span>Disorder<a class="headerlink" href="#disorder" title="Permalink to this headline">¶</a></h3>
 <p>While protein domains always exist in one confirmation, this is not the case for proteins as a whole.
 One reason for this is that not all linkers are rigid.
 Flexible regions of proteins which allow for various conformations are referred to as <em>disordered</em>.</p>
@@ -519,7 +580,7 @@ On some occasions, the disordered regions are known to be functional, while on o
 <span id="protein-classification"></span><h3><span class="section-number">2.4.1.3. </span>Classifying proteins by domain: families and superfamilies<a class="headerlink" href="#classifying-proteins-by-domain-families-and-superfamilies" title="Permalink to this headline">¶</a></h3>
 <p>Proteins with known domain structure can be grouped together based on their structural similarities, based on the consideration of the protein’s constituent domains into <em>familes</em>, <em>superfamilies</em> and <em>folds</em>.
 Proteins are classified into <em>families</em> representing the most similar proteins, which share a clear evolutionary relationship, while <em>superfamilies</em> represent less close evolutionary relationships, and <em>folds</em> represent the same secondary structure.
-This protein classification task, while aided by automation, were carried out largely by manual visual inspection<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id43"><span>26</span></a>]</span>.</p>
+This protein classification task, while aided by automation, was carried out largely by manual visual inspection<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id43"><span>30</span></a>]</span>.</p>
 </div>
 </div>
 </div>
@@ -547,12 +608,32 @@ This protein classification task, while aided by automation, were carried out la
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="3-more-dna.html" title="previous page"><span class="section-number">2.3. </span>A closer look at DNA: Genomes, Genes, and Genetic Variation</a>
-    <a class='right-next' id="next-link" href="5-phenotype.html" title="next page"><span class="section-number">2.5. </span>Phenotype</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="3-more-dna.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">2.3. </span>A closer look at DNA: Genomes, Genes, and Genetic Variation</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="5-phenotype.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">2.5. </span>Phenotype</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
@@ -571,11 +652,9 @@ This protein classification task, while aided by automation, were carried out la
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

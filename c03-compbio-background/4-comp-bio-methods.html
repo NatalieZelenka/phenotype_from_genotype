@@ -1,0 +1,757 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.4. Predictive computational methods &#8212; Phenotype from Genotype</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.5. Sources of bias in computational biology" href="5-bias.html" />
+    <link rel="prev" title="3.3. Ontologies" href="3-ontologies.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Thesis style and philosophy
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
+   2. How phenotype arises from genotype
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: function, structure and classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0-index.html">
+   3. How genotype and phenotype are measured and researched
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-ontologies.html">
+     3.3. Ontologies
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.4. Predictive computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-bias.html">
+     3.5. Sources of bias in computational biology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-summary.html">
+     3.7. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c04-snowflake/0-index.html">
+   4. Phenotype prediction with Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
+     4.3. Creating
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       snowflake
+      </span>
+     </code>
+     inputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/4-preprocessing.html">
+     4.4. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/7-discussion.html">
+     4.6. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
+     5.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. How Ontolopy works
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c08-combining/0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediction-tasks-protein-classification-prediction">
+   3.4.1. Prediction tasks: Protein classification prediction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scop">
+     3.4.1.1. SCOP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#superfamily">
+     3.4.1.2. SUPERFAMILY
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediction-tasks-protein-function-prediction">
+   3.4.2. Prediction tasks: Protein function prediction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dcgo">
+     3.4.2.1. DcGO
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cafa">
+   3.4.3. CAFA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediction-tasks-variant-prioritisation">
+   3.4.4. Prediction tasks: Variant prioritisation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fathmm">
+     3.4.4.1. FATHMM
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediction-tasks-phenotype-prediction">
+   3.4.5. Prediction tasks: Phenotype prediction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cagi">
+     3.4.5.1. CAGI
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="predictive-computational-methods">
+<span id="predictive-methods"></span><h1><span class="section-number">3.4. </span>Predictive computational methods<a class="headerlink" href="#predictive-computational-methods" title="Permalink to this headline">¶</a></h1>
+<p>The low cost of sequencing means that databases of sequences have been expanding very rapidly in comparison to other information, which is much harder to determine.
+Computational predictive methods aim to predict structure or function from sequence in order to bridge this gap.
+Here I describe some of the challenges and methods in this space.</p>
+<div class="section" id="prediction-tasks-protein-classification-prediction">
+<span id="protein-classification-prediction"></span><h2><span class="section-number">3.4.1. </span>Prediction tasks: Protein classification prediction<a class="headerlink" href="#prediction-tasks-protein-classification-prediction" title="Permalink to this headline">¶</a></h2>
+<p>As <a class="reference internal" href="../c02-biology-background/4-more-proteins.html#protein-classification"><span class="std std-ref">previously mentioned</span></a>, proteins are often classified by structural similarities.
+This information is often used because researchers identify a gene of interest, but information about it’s function or structure (in PDB) has not yet been captured and stored.
+In such cases, it’s often necessary to make inferences about protein structure or function based on their similarity to known proteins.
+This is sometimes done using sequence similarity (e.g. <a class="reference internal" href="#blast"><span class="std std-ref">BLAST</span></a>), but sequence similarity can vary considerably between proteins with the same underlying structure.
+This is why structural similarity searches based on protein classification are preferred.</p>
+<div class="margin sidebar" id="blast">
+<p class="sidebar-title">BLAST</p>
+<p>The Basic Local Alignment Search Tool<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id42"><span>101</span></a>]</span>, is an extremely popular tool that is used to perform a basic search of nucleotide or amino acid sequences to known sequences, based on statistically significant similarities between parts of the sequence.</p>
+</div>
+<div class="section" id="scop">
+<span id="id2"></span><h3><span class="section-number">3.4.1.1. </span>SCOP<a class="headerlink" href="#scop" title="Permalink to this headline">¶</a></h3>
+<p>The Structural Classification of Proteins (SCOP) database<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id43"><span>30</span></a>]</span> classifies all proteins with known structure based on their structural similarities, based on the consideration of the protein’s constituent domains.
+The classification is mostly done at the level of families, superfamilies, and folds arranged in a tree structure.
+Families represent the most similar proteins, which share a “clear evolutionary relationship”, while superfamilies represent less close evolutionary relationships, and folds represent the same secondary structure. This protein classification task, while aided by automation, was carried out largely by manual visual inspection.</p>
+<p>SCOP was updated until 2009, but has been succeeded by SCOP2<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id44"><span>102</span></a>]</span>.
+However, SCOP2 has a different underlying classification system, based on a complex graph, rather than a hierarchy.
+The CATH (Class, Architecture, Topology, Homologous superfamily)<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id45"><span>103</span></a>]</span> database provides another classification system, which operates hierarchically, but is created mostly via automation, which leads to major differences between the classifications<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id46"><span>104</span></a>]</span>.</p>
+</div>
+<div class="section" id="superfamily">
+<span id="superfamily-update"></span><h3><span class="section-number">3.4.1.2. </span>SUPERFAMILY<a class="headerlink" href="#superfamily" title="Permalink to this headline">¶</a></h3>
+<p>SUPERFAMILY<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id47"><span>105</span></a>]</span> uses Hidden Markov Models (HMMs) to assign sequences to SCOP domains, primarily at the superfamily level.
+This allows the functions of poorly understood proteins to be inferred based on how closely they match known superfamilies.
+HMMs are very successful at such assignments since pairwise correlations between proteins (or their domains) and other proteins in the family may be weak, but consistently for many proteins; this can be picked up by an HMM.
+The superfamily level is chosen since it is the broadest level which suggests evolutionary relationships, but SUPERFAMILY also generates assignments at the (stricter) family level.</p>
+<p>HMMs are created by first finding closely relating protein homologs for a given protein superfamily using <a class="reference internal" href="#blast"><span class="std std-ref">BLAST</span></a>, and then extending it by comparing the HMM to more distantly related homologs.
+The resulting HMM library is fine-tuned by some manual curation.</p>
+<p>The SUPERFAMILY website also contains other tools, including a database of all sequences (genomes) which are used to generate the HMM library.</p>
+<p id="my-superfamily-contribution"><strong>SUPERFAMILY update</strong>
+I contributed to SUPERFAMILY’s 2014 update<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id2"><span>2</span></a>]</span> by editing the paper and adding a small number of proteomes.
+The SUPERFAMILY database of proteomes doubled from 1400 to over 3200 from 2010 to 2014.
+The update paper described this development, as well as highlighting SUPERFAMILY as a resource for unique proteomes that are not found elsewhere (e.g. Uniprot).
+Although SUPERFAMILY’s primary resource is it’s HMM library, it also integrates a range of other tools for sequence analysis, for example protein disorder prediction (D2P2) and GO annotation (dcGO), as well as a domain-based phylogenetic tree (sTol).</p>
+</div>
+</div>
+<div class="section" id="prediction-tasks-protein-function-prediction">
+<h2><span class="section-number">3.4.2. </span>Prediction tasks: Protein function prediction<a class="headerlink" href="#prediction-tasks-protein-function-prediction" title="Permalink to this headline">¶</a></h2>
+<p>Human genes can have multiple functions, but currently, we don’t even know one function for all of them.
+Although we have their sequence, some genes are completely functionally unknown to us.
+Protein function prediction is the task of predicting protein function (usually in terms of ontology terms) from protein sequence.</p>
+<div class="section" id="dcgo">
+<span id="id9"></span><h3><span class="section-number">3.4.2.1. </span>DcGO<a class="headerlink" href="#dcgo" title="Permalink to this headline">¶</a></h3>
+<p>The aim of the domain-centric Gene Ontology (dcGO)<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id50"><span>106</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id51"><span>107</span></a>]</span> tool is to give insight into uncharacterised or poorly characterised proteins by leveraging information about the content of their constituent protein domains.
+It annotates domains and combinations of domains (a.k.a. supradomains) to phenotype terms from a variety of ontologies, including the Gene Ontology (GO), Mammalian Phenotype ontology (MP), Disease Ontology (DOID), Zebrafish ontology (ZFA).
+Domain information comes from SUPERFAMILY, and annotations between (supra)domains and phenotype terms are made below a cut-off of false-discovery-rate-adjusted statistical associations between the entities.
+Using phenotypes from a range of species serves to make use of greater numbers of experiments, and therefore increases the number of little-known proteins across species that DcGO can make predictions about.</p>
+</div>
+</div>
+<div class="section" id="cafa">
+<span id="id11"></span><h2><span class="section-number">3.4.3. </span>CAFA<a class="headerlink" href="#cafa" title="Permalink to this headline">¶</a></h2>
+<p>Critical Assessment of Functional Annotation<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id5"><span>4</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id112"><span>108</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id113"><span>109</span></a>]</span> (CAFA) is an international community-wide competition for the prediction of protein function, which aims both to stimulate research in the field of protein function prediction, and to measure progress in the field.
+It has been running approximately every 2-3 years since 2013.</p>
+<p>Each CAFA challenge begins by the organisers releasing a large number of target sequences (over one hundred thousand) across multiple species, about which participant teams must make predictions.
+After the competition closes, the organisers wait 3 months, by which time, new experimentally verified protein functions will be found (representing ~3% of sequences in past competitions) and these are the data set against which the predictors are measured.</p>
+<p>Participants can use any additional data they see fit to make predictions, which must be triples containing a sequence ID, ontology term ID (e.g. a GO/HP identifier), and a confidence score between 0 and 1.
+A score of 1 indicates a completely confident prediction, while a score of 0 is equivalent to not returning the prediction.
+Each team may submit up to three models, the best of which is ranked.</p>
+<p id="no-limited-knowledge">The target sequences consist of a mixture of “no-knowledge” and “limited-knowledge” sequences.
+No-knowledge sequences are sequences which upon release have zero experimentally-validated GO annotations to any of GO’s three constituent ontologies (biological process, cellular component, and molecular function).
+Limited-knowledge sequences are sequences with one or more annotations in one or two GO ontologies, but not all three.</p>
+<!--
+### Past CAFAs
+In 2014, the CAFA2 experiment began: 100,8216 target sequences from 27 different species were released to participants. 
+In addition to the GO Biological Process and Molecular Function ontologies used in CAFA1, predictions were also requested for the Human Phenotype Ontology and GO Cellular Component ontology. 
+-->
+</div>
+<div class="section" id="prediction-tasks-variant-prioritisation">
+<h2><span class="section-number">3.4.4. </span>Prediction tasks: Variant prioritisation<a class="headerlink" href="#prediction-tasks-variant-prioritisation" title="Permalink to this headline">¶</a></h2>
+<p>Variant prioritisation is a version of protein function prediction in which long list of genes or variants (obtained for example through a GWAS experiment) are narrowed down to a shorter list of variants or genes which are more likely to be causal.</p>
+<div class="section" id="fathmm">
+<span id="id13"></span><h3><span class="section-number">3.4.4.1. </span>FATHMM<a class="headerlink" href="#fathmm" title="Permalink to this headline">¶</a></h3>
+<p>Functional Analysis through Hidden Markov Models (FATHMM)<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id52"><span>110</span></a>]</span> is a tool for predicting the functional effects of protein missense mutations using sequence conservation information (via HMMs), which can be (optionally) weighted by how likely a mutation in a protein/domain would be to lead to disease.
+FATHMM can only score missense mutations because it scores SNPs based on the probability of specific amino acids existing in proteins.
+Weightings are calculated from the frequency of disease-associated and functionally neutral amino acid substitutions in protein domains from human variation databases (the Human Gene Mutation Database<span id="id15">[<a class="reference internal" href="../cz-end-matter/reference.html#id53"><span>111</span></a>]</span> and Uniprot-KB/Swiss-prot<span id="id16">[<a class="reference internal" href="../cz-end-matter/reference.html#id54"><span>67</span></a>]</span>).</p>
+<p>Consequence files describing whether an amino acid results in a missense, nonsense or synonymous SNP must first be obtained by using Ensembl’s Variant Effect Predictor<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id55"><span>112</span></a>]</span> in order to create input to FATHMM.
+FATHMM then calculates conservation scores which are a measure of the difference in amino acid probabilities for a SNP according to the HMM, i.e. between a wild type amino acid and it’s substitution.
+A reduction in amino acid probabilities is interpreted as a prediction of deleteriousness (likelihood to cause harm), and the larger the reduction the greater the predicted harm.</p>
+</div>
+</div>
+<div class="section" id="prediction-tasks-phenotype-prediction">
+<span id="prediction-phenotype"></span><h2><span class="section-number">3.4.5. </span>Prediction tasks: Phenotype prediction<a class="headerlink" href="#prediction-tasks-phenotype-prediction" title="Permalink to this headline">¶</a></h2>
+<p>Phenotype prediction is the task of predicting phenotypes from genotypes.
+Specific tests of phenotype prediction might look like matching genotypes to profiles of traits, or predicting specific phenotypes from genotypes.</p>
+<p id="phenotype-protein-prediction-link">Although it’s often presented as a separate task, phenotype prediction is closely linked to protein function prediction.
+When variants on the protein-coding genome are known to be responsible for phenotypes, the assumption is that variant impacts the protein and the protein has a function that causes the phenotype when it behaves differently than usual.
+This is the assumption that underlies annotations between genes or proteins and phenotype terms, and it’s also the assumption that underlies phenotype “prediction” algorithms like 23andMe or Promethease’s health reports, which count the presence or absence of individual variants thought to be associated with disease, in order to inform potential phenotypes e.g. “You have 2 alleles associated with causing Breast Cancer”.</p>
+<div class="section" id="cagi">
+<span id="id18"></span><h3><span class="section-number">3.4.5.1. </span>CAGI<a class="headerlink" href="#cagi" title="Permalink to this headline">¶</a></h3>
+<p>Critical Assessment of Genome Intepretation<span id="id19">[<a class="reference internal" href="../cz-end-matter/reference.html#id130"><span>113</span></a>]</span> (CAGI) is a prediction competition open to the research community, in the same tradition as CAFA, this time aiming to objectively assess predictive methods for determining the phenotypic impacts of genomic variation across a number of different challenges.</p>
+<p>The precision of the best methods in phenotype prediction of rare illnesses is still below 50%<span id="id20">[<a class="reference internal" href="../cz-end-matter/reference.html#id257"><span>114</span></a>]</span>.</p>
+<!--
+## Validating computational methods
+
+### Predictive competitions
+
+**CAFA**
+
+**CAGI**
+--></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c03-compbio-background"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="3-ontologies.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">3.3. </span>Ontologies</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="5-bias.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">3.5. </span>Sources of bias in computational biology</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
