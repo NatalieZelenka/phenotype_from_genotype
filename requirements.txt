@@ -1,10 +1,14 @@
 jupyter-book
 jupytext
+sphinx-multitoc-numbering
 uberon_py
 numba
-numpy
+numpy == 1.20
 pandas >= 1.2.1
 plotly
 psutil
 biopython
 pytest
+owlready2
+scikit-allel
+scanpy

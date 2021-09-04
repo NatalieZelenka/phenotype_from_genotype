@@ -22,6 +22,8 @@ To view/check:
 `jupyter-book build book --builder pdfhtml`
 `jupyter-book build book --builder pdflatex` <- fails
 -->
+
+<1--
 First build latex:
 `jupyter-book build book --builder latex`
 
@@ -34,4 +36,6 @@ Next edit `_build/latex/thesis.tex`:
 - Code blocks: remove/link to website.
 
 Finally, move to the `latex` directory and run `make`.
+-->
 
+` jupyter-book build . --builder pdfhtml`

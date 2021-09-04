@@ -1,17 +1,19 @@
 - file: jupyter_book_intro
+  numbered: true
 
 - part: Front Matter
   numbered: false
   chapters:
-  - file: c0-front-matter/title-page
-    sections:
-    - file: c0-front-matter/acknowledgements
-    - file: c0-front-matter/abstract
-    - file: c0-front-matter/declaration
-- part: Main book
-  numbered: true
+  - file: c0-front-matter/01-title-page
+  - file: c0-front-matter/02-declaration
+  - file: c0-front-matter/03-abstract
+  - file: c0-front-matter/04-acknowledgements
+  - file: c0-front-matter/05-full-table-of-contents
+
+- part: Background
   chapters:
   - file: c01-introduction/intro
+
   - file: c02-biology-background/0-index
     sections:
       - file: c02-biology-background/1-big-questions
@@ -20,54 +22,76 @@
       - file: c02-biology-background/4-more-proteins
       - file: c02-biology-background/5-phenotype
       - file: c02-biology-background/6-summary
+
   - file: c03-compbio-background/0-index
     sections:
       - file: c03-compbio-background/1-sequencing-technology
       - file: c03-compbio-background/2-measuring-genotype-phenotype
       - file: c03-compbio-background/3-ontologies
-      - file: c03-compbio-background/4-bias
-      - file: c03-compbio-background/5-pqi
-      - file: c03-compbio-background/6-summary
+      - file: c03-compbio-background/4-comp-bio-methods
+      - file: c03-compbio-background/5-bias
+      - file: c03-compbio-background/6-pqi
+      - file: c03-compbio-background/7-summary
+
+- part: Phenotype prediction
+  chapters:
   - file: c04-snowflake/0-index
     sections:
       - file: c04-snowflake/1-introduction
       - file: c04-snowflake/2-snowflake-algorithm
-      - file: c04-snowflake/3-data
-      - file: c04-snowflake/4-clustering-snps
-      - file: c04-snowflake/5-results
-      - file: c04-snowflake/6-discussion
-      - file: c04-snowflake/7-future-work
-  - file: c04.5-ontolopy/0-index
+      - file: c04-snowflake/3-creating-inputs
+      - file: c04-snowflake/4-preprocessing
+      - file: c04-snowflake/5-clustering-snps
+#      - file: c04-snowflake/6-making-predictions
+      - file: c04-snowflake/7-discussion
+#      - file: c04-snowflake/8-future-work
+  - file: c05-alspac/0-index
     sections:
-      - file: c04.5-ontolopy/1-introduction
-      - file: c04.5-ontolopy/2-functionality
-      - file: c04.5-ontolopy/3-how-it-works
-      - file: c04.5-ontolopy/4-misc-examples
-      - file: c04.5-ontolopy/5-mapping-example
-      - file: c04.5-ontolopy/6-discussion
-      - file: c04.5-ontolopy/7-future-work
-  - file: c05-filter/0-index
+      - file: c05-alspac/1-introduction
+#      - file: c05-alspac/2-data
+#      - file: c05-alspac/3-methodology
+#      - file: c05-alspac/4-results
+      - file: c05-alspac/5-discussion
+
+- part: Tissue-specific gene expression
+  numbered: true
+  chapters:
+
+  - file: c06-filter/0-index
     sections:
-      - file: c05-filter/1-introduction
-      - file: c05-filter/2-uberon
-      - file: c05-filter/3-functionality
-      - file: c05-filter/4-data
-      - file: c05-filter/5-methods
-      - file: c05-filter/6-results
-      - file: c05-filter/7-discussion
-      - file: c05-filter/8-future-work
-  - file: c06-combining/0-index
+      - file: c06-filter/1-introduction
+      - file: c06-filter/2-algorithm
+      - file: c06-filter/3-data
+#      - file: c06-filter/4-functionality
+      - file: c06-filter/5-methods
+      - file: c06-filter/6-results
+      - file: c06-filter/7-discussion
+#      - file: c06-filter/8-future-work
+
+  - file: c07-ontolopy/0-index
     sections:
-      - file: c06-combining/1-background
-      - file: c06-combining/2-data
-      - file: c06-combining/3-data-wrangling
-      - file: c06-combining/5-batch-correction
-      - file: c06-combining/6-results
-      - file: c06-combining/7-discussion
-      - file: c06-combining/8-future-work
-  - file: c07-conclusion/0-conclusion
+      - file: c07-ontolopy/1-introduction
+      - file: c07-ontolopy/2-functionality
+      - file: c07-ontolopy/3-how-it-works
+      - file: c07-ontolopy/4-misc-examples
+      - file: c07-ontolopy/5-mapping-example
+      - file: c07-ontolopy/6-discussion
+      - file: c07-ontolopy/7-future-work
+
+  - file: c08-combining/0-index
+    sections:
+      - file: c08-combining/1-background
+      - file: c08-combining/2-data
+      - file: c08-combining/3-data-wrangling
+      - file: c08-combining/7-discussion
+
+#- part: Conclusion
+#  chapters:
+#  - file: c09-conclusion/0-conclusion
+
 
 - part: End Matter
+  numbered: false
   chapters:
   - file: cz-end-matter/glossary
   - file: cz-end-matter/0-appendix.md
