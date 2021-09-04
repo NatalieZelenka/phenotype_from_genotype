@@ -13,3 +13,4 @@ owlready2
 scikit-allel
 scanpy
 sphinx_jupyterbook_latex
+ontolopy
