@@ -93,7 +93,7 @@
 - part: End Matter
   numbered: false
   chapters:
-  - file: cz-end-matter/glossary
+#  - file: cz-end-matter/glossary
   - file: cz-end-matter/0-appendix.md
   - file: cz-end-matter/reference
     title: Bibliography

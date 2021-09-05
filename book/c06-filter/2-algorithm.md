@@ -54,15 +54,15 @@ This is the standard for CAFA competitions.
 (input-ge)=
 ### Gene expression file
 If Filip was a filter coffee machine, the gene expression (GE) file would be the (reusable) filter: it is the part that determines what can and cannot pass through the  filter and it can be used with any kind of input predictions (coffee). 
-Once we have the GE file can be reused for any different protein function predictor, as long as they are predicting phenotype terms that are in our GE file.
+Once we have the GE file, it can be reused for any different protein function predictor, as long as it predicts phenotype terms related to the samples in our GE file.
 
 The user must also determine a cut-off: the minimum gene expression level to count as "expressed". 
-The higher the cut-off the fewer genes will count as unexpressed, and therefore the fewer predictions will be filtered from the original list.
+The higher the cut-off the more genes will count as unexpressed, and therefore more predictions will be filtered from the original list.
 
 (input-sample-tissue)=
 ### Sample-tissue map
 Some GE datasets will include a sample-to-Uberon map as part of their metadata (e.g. FANTOM5).
-For those that don't the {ref}`ontolopy<c06-ontolopy>` Python package can be used to map between samples tissue names and their Uberon tissue.
+For those that don't, the {ref}`ontolopy<c06-ontolopy>` Python package can be used to map between samples tissue names and their Uberon tissue.
 
 (filter-preprocessing)=
 ## Step 1: Preprocessing

@@ -5,7 +5,7 @@
 ## CAFA 2
 [//]: # (TODO: Explain how I calculated it differently - based on only the types of things I was trying to do, which is why it's a bigger number)
 
-**{math}`F_{max}` Improvement:** 
+### {math}`F_{max}` Improvement:** 
 
 ```{list-table} CAFA2 data f-max results for DcGO and filip
 :header-rows: 1
@@ -20,8 +20,9 @@
 During development, I validated `filip` using the original DcGO CAFA2 submission, using the CAFA2 targets.
 The {math}`F_{max}` score was calculated for human BPO, combining both *No Knowledge* and *Limited Knowledge* targets. 
 {numref}`cafa2-results` shows that `filip` provides a small benefit to the {math}`F_{max}` score. 
-``
-**Bootstrapping:** 
+
+
+### Bootstrapping
 
 ```{figure} ../images/filip_bootstrap.png
 ---
@@ -38,7 +39,7 @@ The small improvement is due to `filip` filtering out 85,637 GOBP human protein 
 To ensure that this is a better success rate than we would expect by chance, I performed a bootstrapping test by taking out random sets of 85,637 predictions from the DcGO set and measuring the number of true positives remaining in the set. 
 This was repeated 100,000 times to create {numref}`filip-bootstrap`, and calculate the p-value {math}`p < 0.001`, meaning that the filter performed far better than chance.
 
-**Relationship between incorrect terms:** 
+### Relationship between incorrect terms
 
 ```{figure} ../images/revigo_filip_wrong_cafa2.png
 ---
@@ -50,8 +51,8 @@ A grouping/summary of the incorrectly excluded predictions. Larger circles repre
 
 I also looked to see whether there was any relationship between the 23 incorrectly removed predictions. 
 Interestingly, all of these incorrectly filtered out predictions were for GOBP terms which were related to development (e.g. tissue development, anatomical structure development, epithelium development, organ morphogenesis). 
-{numref}`filip-go-wrong` shows a summarises the incorrectly mapped GO terms, created using ReviGO{cite}`Supek2011-ii`. 
-The fact that the incorrectly filtered out terms are all related to development implies there may be due to a bias in the developing tissues in the FANTOM5 data-set used by `filip`.
+{numref}`filip-go-wrong` shows relationships between the incorrectly mapped GO terms, created using ReviGO{cite}`Supek2011-ii`. 
+The fact that the incorrectly filtered out terms are all related to development may be due to a lack of tissue-specific developing tissues in the FANTOM5 data-set used by Filip.
 
 (filip-results-cafa3)=
 ## CAFA 3 

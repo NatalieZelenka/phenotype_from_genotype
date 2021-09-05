@@ -32,7 +32,7 @@ Together these research areas are known as *omics* and research which combines t
 (what-are-genes)=
 ## Genes
 DNA is often considered at the level of the gene.
-Genes have been so central to the historical study of dna (hence the name *gene*tics), and the gene-centric view of molecular biology continues to this day.
+Genes have been so central to the historical study of DNA (hence the name *gene*tics), and the gene-centric view of molecular biology continues to this day.
 For example, many researchers have favourite genes, which they primarily study, and understand the mechanisms of in detail. 
 And for this reason, diseases and phenotypes are often attributed at the level of the gene, rather than at a more fine-grained level of the specific mutation.
 
@@ -57,7 +57,7 @@ And finally, sometimes entirely different genes can create identical proteins af
 
 The interaction between DNA, RNA and proteins, and the environment is also important to consider. 
 Although DNA makes RNA makes proteins and proteins do pretty much everything in our bodies, which proteins are made and how they behave is highly dependent on the environment. 
-The function of a gene might not be evident in some environments since the protein is never transcribed, or it may behave differently. 
+The function of a gene might not be evident in some environments because the protein is never transcribed, or it may behave differently. 
 Many traits may be mostly environmental.
 
 [//]: # (TODO: Cite not always genes whole inherited)
@@ -117,7 +117,7 @@ An individual {ref}`allele<define-allele>` for a given SNP is defined as “wild
 The reference genome does not always have the most common allele at each location, although this is it’s aim, so “wild” and “mutant” do not necessarily imply anything about rarity. 
 
 If there are only two nucleotide possibilities for a SNP (e.g. it could be A or C at a given position), then it is called bi-allelic; the vast majority of SNPs are of this type. 
-Multi-allelic SNPs (e.g. it could be A, T or C), and tri-allelic SNPs (three choices) are much rarer. 
+Multi-allelic SNPs such as tri-allelic SNPs (three choices, e.g. it could be A, T or C) are much rarer. 
 
 Since humans mostly have two copies of each chromosome (except for X/Y chromosomes in genetically male people, and people with chromosomal anomalies), an individual will usually have two alleles for each SNP. 
 These may match (which we call homozygous) or not (heterozygous). 

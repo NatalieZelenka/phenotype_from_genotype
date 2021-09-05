@@ -39,12 +39,12 @@ An individual domain can be found in many different proteins, and multiple times
 [//]: # (TODO: aside, conservation)
 
 Protein domains are interesting because they are highly conserved in evolution, and are thought of as units of function, evolution, and/or structure. 
-The functions of proteins, at both low-level (e.g. “calcium signalling protein”) and high-level (e.g. annotated to “liver disease”), are costly and difficult to discern, so there are many proteins about which little is known. 
+The functions of proteins, at both low-level (e.g. “calcium signalling protein”) and high-level (e.g. involved in “liver disease”), are costly and difficult to discern, so there are many proteins about which little is known. 
 For this reason, often proteins are classified according to their similarity to proteins about which functions are known, for example those containing the same protein domains.
 
 (disorder)=
 ### Disorder
-While protein domains always exist in one confirmation, this is not the case for proteins as a whole.
+While protein domains always exist in one conformation, this is not the case for proteins as a whole.
 One reason for this is that not all linkers are rigid. 
 Flexible regions of proteins which allow for various conformations are referred to as *disordered*. 
 
@@ -56,6 +56,6 @@ On some occasions, the disordered regions are known to be functional, while on o
 
 (protein-classification)=
 ### Classifying proteins by domain: families and superfamilies
-Proteins with known domain structure can be grouped together based on their structural similarities, based on the consideration of the protein’s constituent domains into *familes*, *superfamilies* and *folds*. 
+Proteins with known domain structure can be grouped together based on their structural similarities, based on the consideration of the protein’s constituent domains into *families*, *superfamilies* and *folds*. 
 Proteins are classified into *families* representing the most similar proteins, which share a clear evolutionary relationship, while *superfamilies* represent less close evolutionary relationships, and *folds* represent the same secondary structure. 
 This protein classification task, while aided by automation, was carried out largely by manual visual inspection{cite}`Murzin1995-se`.

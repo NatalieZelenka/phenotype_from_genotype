@@ -15,7 +15,7 @@ This reveals that the limited success of Filip on the CAFA data is due to it's p
 
 Although the FANTOM5 data set has a excellent coverage of tissue types and number of samples, the filter is nonetheless limited to the tissues it contains. 
 This low coverage of tissues limits the number of predictions that Filip can filter out, and as we saw in the results, this is the major bottleneck for it's performance.
-However, by {ref}`combining baseline gene expression sets from multiple sources<c05-combining>`, the coverage of tissues therefore phenotype terms might be improved. 
+However, by {ref}`combining baseline gene expression sets from multiple sources<c05-combining>`, the coverage of tissues and therefore phenotype terms might be improved. 
 
 In addition, although proteins, tissues and protein functions may be present in multiple species, Filip only currently measures if a gene is expressed in the human tissue of interest.
 This further reduces the coverage of CAFA predictions that Filip could be tested on.
@@ -29,14 +29,14 @@ Including Cell Ontology terms can increase the coverage (see {numref}`cl-increas
 In theory, Filip could be used with any other RNA-Seq data set with a wide range of tissues. 
 In practice, however, finding a data set with the appropriate spread of tissues and cell samples (and furthermore, detailed metadata about these samples) is difficult.
 
-The Ontolopy package ({ref}`next chapter<c06-ontolopy>`) does provide make mapping samples to Uberon tissues possible, even when only names or descriptions of the tissues are present. 
+The Ontolopy package ({ref}`next chapter<c06-ontolopy>`) does make mapping samples to Uberon tissues possible, even when only names or descriptions of the tissues are present. 
 
 (filtered-out)=
-## Wrong-ly filtered out tissues
+## Wrongly filtered out tissues
 100% of wrongly filtered out tissues were "development" terms. 
 This could mean that time is another way in which cell context should be considered, for example we shouldn't filter out predictions for development phenotypes if we only have adult/not-fetal tissues, and perhaps vice versa.
 Should we include developing tissue samples as evidence that a gene is expressed in a tissue type if the phenotype manifests after development?
-This is another question which it would be necessary to increase the coverage of the GE data set(s) used by Filip to answer.
+This is another question for which it would be necessary to increase the coverage of the GE data set(s) used by Filip to answer.
 
 (filip-future-work)=
 ## Future work
