@@ -134,8 +134,9 @@ import plotly.graph_objects as go
 import plotly.figure_factory as ff
 from scipy.spatial.distance import pdist, squareform
 
-data_array = corrcoef_genes.values
-labels = corrcoef_genes.columns
+num_to_picture = 100  # Bigger than GitHub storage if use all 1000
+data_array = corrcoef_genes.iloc[:num_to_picture].values
+labels = corrcoef_genes.iloc[:num_to_picture].index
 
 # Code for dendogram and heatmap adapted from plotly examples: https://plotly.com/python/dendrogram/
 # Initialize figure by creating upper dendrogram
@@ -224,7 +225,7 @@ fig.show()
 width: 1
 name: heatmap-correlations
 ---
-Heatmap showing the correlation coefficients between the randomly sampled 1000 genes in the FANTOM5 data set.
+Heatmap showing the correlation coefficients between 100 randomly sampled genes from the FANTOM5 data set.
 ```
 
 The correlations between genes, which could be used to create the coefficient matrix $\beta$ are shown in {numref}`heatmap-correlations`. 
