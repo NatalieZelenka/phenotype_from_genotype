@@ -54,7 +54,7 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7.3. How Ontolopy works" href="3-how-it-works.html" />
+    <link rel="next" title="7.3. Ontolopy tools and practices" href="3-how-it-works.html" />
     <link rel="prev" title="7.1. Introduction" href="1-introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -253,13 +253,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -340,7 +334,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-filter/6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -372,7 +366,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -428,6 +422,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -558,18 +564,6 @@
      </code>
      class
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#additional-parameter-information">
-       7.2.3.1.1. Additional parameter information
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#finding-relationships-what-it-s-doing">
-       7.2.3.1.2. Finding relationships: what it’s doing
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#converting-relation-paths-to-text">
@@ -640,7 +634,7 @@
   <div class="section" id="functionality">
 <span id="ontolopy-functionality"></span><h1><span class="section-number">7.2. </span>Functionality<a class="headerlink" href="#functionality" title="Permalink to this headline">¶</a></h1>
 <p>This section describes the low-level functionality of Ontolopy: what it can do.
-For examples of how this functionality is of practical use, please see the <span class="xref std std-ref">Examples</span> section.
+For examples of how this functionality is of practical use, please see the <a class="reference internal" href="4-misc-examples.html#ontolopy-examples-2"><span class="std std-ref">examples</span></a> sections.
 You can find a full and up-to-date API Reference <a class="reference external" href="https://nataliethurlby.github.io/ontolopy/contents/reference.html">in the documentation</a>.</p>
 <div class="margin sidebar" id="subclass">
 <p class="sidebar-title">Subclass</p>
@@ -654,7 +648,7 @@ You can find a full and up-to-date API Reference <a class="reference external" h
 <li><p>Further to this, it provides an extra class for manipulating and querying the Uberon anatomy specifically.</p></li>
 </ol>
 <div class="section" id="structure">
-<h2><span class="section-number">7.2.1. </span>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<span id="opystructure"></span><h2><span class="section-number">7.2.1. </span>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
 <div class="margin sidebar">
 <p class="sidebar-title"><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">ontolopy</span> <span class="pre">as</span> <span class="pre">opy</span></code></p>
 <p>Note: you will see <code class="docutils literal notranslate"><span class="pre">ontolopy</span></code> shortened to <code class="docutils literal notranslate"><span class="pre">opy</span></code> in code segments.</p>
@@ -663,7 +657,7 @@ You can find a full and up-to-date API Reference <a class="reference external" h
 These three submodules are automatically loaded with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">ontolopy</span></code>.</p>
 </div>
 <div class="section" id="working-with-obo-ontologies">
-<h2><span class="section-number">7.2.2. </span>Working with OBO ontologies<a class="headerlink" href="#working-with-obo-ontologies" title="Permalink to this headline">¶</a></h2>
+<span id="opyobo"></span><h2><span class="section-number">7.2.2. </span>Working with OBO ontologies<a class="headerlink" href="#working-with-obo-ontologies" title="Permalink to this headline">¶</a></h2>
 <div class="margin sidebar" id="callables">
 <p class="sidebar-title">Callables</p>
 <p>In Python callables are functions, classes, and class methods that you can call, i.e. where you use syntax like <code class="docutils literal notranslate"><span class="pre">function()</span></code> or <code class="docutils literal notranslate"><span class="pre">MyClass()</span></code> to run some code.</p>
@@ -681,7 +675,7 @@ These three submodules are automatically loaded with <code class="docutils liter
 </tbody>
 </table>
 <div class="section" id="the-obo-class">
-<h3><span class="section-number">7.2.2.1. </span>The <code class="docutils literal notranslate"><span class="pre">Obo</span></code> class<a class="headerlink" href="#the-obo-class" title="Permalink to this headline">¶</a></h3>
+<span id="oboclass"></span><h3><span class="section-number">7.2.2.1. </span>The <code class="docutils literal notranslate"><span class="pre">Obo</span></code> class<a class="headerlink" href="#the-obo-class" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">Obo</span></code> class is an OBO ontology object, which subclasses <code class="docutils literal notranslate"><span class="pre">dict</span></code>.
 New <code class="docutils literal notranslate"><span class="pre">Obo</span></code> objects can be created from nested dictionaries.
 At the top level of the dictionary, keys are terms and values are dictionaries.
@@ -734,7 +728,7 @@ This dictionary structure also allows you to add new terms.</p>
 </div>
 </div>
 <div class="section" id="merging-ontologies">
-<h3><span class="section-number">7.2.2.2. </span>Merging ontologies<a class="headerlink" href="#merging-ontologies" title="Permalink to this headline">¶</a></h3>
+<span id="obomerge"></span><h3><span class="section-number">7.2.2.2. </span>Merging ontologies<a class="headerlink" href="#merging-ontologies" title="Permalink to this headline">¶</a></h3>
 <p>It’s also possible to merge (a list of) ontologies into the base ontology.
 This can be useful for investigating relationships between ontologies.
 For example, to find relationships between samples and tissues, that might go via cells, you may want to merge a sample ontology, cell, and tissue ontology to find all possible relationships.</p>
@@ -743,14 +737,14 @@ For example, to find relationships between samples and tissues, that might go vi
 </div>
 </div>
 <div class="section" id="loading-ontologies-from-file">
-<h3><span class="section-number">7.2.2.3. </span>Loading ontologies from file<a class="headerlink" href="#loading-ontologies-from-file" title="Permalink to this headline">¶</a></h3>
+<span id="oboload"></span><h3><span class="section-number">7.2.2.3. </span>Loading ontologies from file<a class="headerlink" href="#loading-ontologies-from-file" title="Permalink to this headline">¶</a></h3>
 <p>While creating ontologies from dictionaries is useful for adding bespoke terms, most of the time we want to load an official and curated OBO from a file.</p>
 <div class="hint admonition">
 <p class="admonition-title">load_obo reference</p>
 </div>
 </div>
 <div class="section" id="downloading-obo-files">
-<h3><span class="section-number">7.2.2.4. </span>Downloading OBO files<a class="headerlink" href="#downloading-obo-files" title="Permalink to this headline">¶</a></h3>
+<span id="obodownload"></span><h3><span class="section-number">7.2.2.4. </span>Downloading OBO files<a class="headerlink" href="#downloading-obo-files" title="Permalink to this headline">¶</a></h3>
 <p>It’s also possible to download OBO files, either from a list of popular OBO files by name, or via a URL.</p>
 <div class="hint admonition">
 <p class="admonition-title">download_obo reference</p>
@@ -758,7 +752,7 @@ For example, to find relationships between samples and tissues, that might go vi
 </div>
 </div>
 <div class="section" id="finding-relationships">
-<h2><span class="section-number">7.2.3. </span>Finding relationships<a class="headerlink" href="#finding-relationships" title="Permalink to this headline">¶</a></h2>
+<span id="opyrelations"></span><h2><span class="section-number">7.2.3. </span>Finding relationships<a class="headerlink" href="#finding-relationships" title="Permalink to this headline">¶</a></h2>
 <p>The most key functionality in Ontolopy is the ability to infer relationships between terms, across ontologies (be it between tissue terms and phenotype terms, or something else).
 This functionality is inside the <code class="docutils literal notranslate"><span class="pre">opy.relations</span></code> module and handled by the <a class="reference internal" href="#relations-class"><span class="std std-ref">Relations</span></a> class.</p>
 <div class="admonition-relations-reference admonition">
@@ -812,8 +806,12 @@ import ontolopy as opy
 ```
 ````
 -->
-<div class="section" id="additional-parameter-information">
-<h4><span class="section-number">7.2.3.1.1. </span>Additional parameter information<a class="headerlink" href="#additional-parameter-information" title="Permalink to this headline">¶</a></h4>
+<p>To find relationships, the code loops through sources, and for each source it will look at the <code class="docutils literal notranslate"><span class="pre">allowed_relations</span></code> to find relationships with other terms, then for each of these terms it will look for relationships with other terms in the same manner, etc.</p>
+<p id="relation-paths">Internally, Ontolopy stores these relationships as a list of strings, where each string details the relations between the source term and other terms, e.g. <code class="docutils literal notranslate"><span class="pre">UBERON:123913.is_a~UBERON:1381239.is_a~UBERON:987890</span></code>.
+Let’s call these strings <em>relation paths</em>.</p>
+<p>Cyclic relationships are not permitted (a term can only be present in a relation path once).
+Relationships continue to be searched for until either the ontology provided can no longer add any new relation paths OR we found what we were looking for.</p>
+<p>In “any” mode, finding what we’re looking for means finding any target term as the last term in the relation string, while in “all” mode, we must find all target terms for the source term.</p>
 <p><strong>The <code class="docutils literal notranslate"><span class="pre">mode</span></code> parameter</strong> can be either “any” or “all”, and this represents whether we are looking for relations from our source terms to <em>any</em> one target term, or to a <em>all</em> target terms for which we can find a relationship.
 It is much quicker to run in “any” mode, so this mode is the default, and it is preferable when we simply need the most direct mapping between our source and target terms, for example we want to know which (one) tissue does the sample map to best?</p>
 <p>The “all” mode tends to be more useful when we are equally interested in the targets as the source terms for example: when looking at mappings between tissues and phenotypes, there is likely to be many different phenotypes that a tissue can exhibit and we are equally interested in all of them.</p>
@@ -824,26 +822,17 @@ The latter option only works in <code class="docutils literal notranslate"><span
 Essentially, the <code class="docutils literal notranslate"><span class="pre">sources-targets</span></code> option provides a quicker way of running <code class="docutils literal notranslate"><span class="pre">Ontolopy</span></code> in “all” mode when we know in advance which specific pairs of sources and targets we are interested in.
 If <code class="docutils literal notranslate"><span class="pre">sources</span></code> and <code class="docutils literal notranslate"><span class="pre">targets</span></code> are provided and <code class="docutils literal notranslate"><span class="pre">mode==all</span></code>, then <code class="docutils literal notranslate"><span class="pre">Ontolopy</span></code> will generate a combination of all possible sources and targets (removing <code class="docutils literal notranslate"><span class="pre">excluded</span></code> target terms if provided).</p>
 </div>
-<div class="section" id="finding-relationships-what-it-s-doing">
-<h4><span class="section-number">7.2.3.1.2. </span>Finding relationships: what it’s doing<a class="headerlink" href="#finding-relationships-what-it-s-doing" title="Permalink to this headline">¶</a></h4>
-<p>To find relationships, the code loops through sources, and for each source it will look at the <code class="docutils literal notranslate"><span class="pre">allowed_relations</span></code> to find relationships with other terms, then for each of these terms it will look for relationships with other terms in the same manner, etc.</p>
-<p id="relation-paths">Internally, Ontolopy stores these relationships as a list of strings, where each string details the relations between the source term and other terms, e.g. <code class="docutils literal notranslate"><span class="pre">UBERON:123913.is_a~UBERON:1381239.is_a~UBERON:987890</span></code>.
-Let’s call these strings <em>relation paths</em>.</p>
-<p>Cyclic relationships are not permitted (a term can only be present in a relation path once).
-Relationships continue to be searched for until either the ontology provided can no longer add any new relation paths OR we found what we were looking for.</p>
-<p>In “any” mode, finding what we’re looking for means finding any target term as the last term in the relation string, while in “all” mode, we must find all target terms for the source term.</p>
-</div>
-</div>
 <div class="section" id="converting-relation-paths-to-text">
-<h3><span class="section-number">7.2.3.2. </span>Converting “relation paths” to text<a class="headerlink" href="#converting-relation-paths-to-text" title="Permalink to this headline">¶</a></h3>
+<span id="relationspathstotext"></span><h3><span class="section-number">7.2.3.2. </span>Converting “relation paths” to text<a class="headerlink" href="#converting-relation-paths-to-text" title="Permalink to this headline">¶</a></h3>
 <p>Since relationships are internally stored as <a class="reference internal" href="#relation-paths"><span class="std std-ref">relation paths</span></a> as explained above, it is useful to turn these strings into more readable text, which is what the <code class="docutils literal notranslate"><span class="pre">relation_path_to_text</span></code> function does.</p>
 <div class="hint admonition">
 <p class="admonition-title">relation_path_to_text reference</p>
 </div>
+<!--Simplifying relationships-->
 </div>
 </div>
 <div class="section" id="creating-uberon-mappings">
-<h2><span class="section-number">7.2.4. </span>Creating Uberon Mappings<a class="headerlink" href="#creating-uberon-mappings" title="Permalink to this headline">¶</a></h2>
+<span id="opyuberon"></span><h2><span class="section-number">7.2.4. </span>Creating Uberon Mappings<a class="headerlink" href="#creating-uberon-mappings" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">opy.uberon</span></code> submodule contains the specific tools for working with the Uberon ontology: finding mappings between tissues and phenotypes <a class="reference internal" href="#mapping-by-term"><span class="std std-ref">via ontology terms</span></a> by making use of the <a class="reference internal" href="#relations-class"><span class="std std-ref">Relations</span></a> class, as well as <a class="reference internal" href="#mapping-by-name"><span class="std std-ref">doing this mapping using text</span></a>, and <a class="reference internal" href="#comparing-mappings"><span class="std std-ref">comparing these two mappings</span></a>.
 The vast majority of this functionality sits in the <code class="docutils literal notranslate"><span class="pre">Uberon</span></code> class.</p>
 <table class="longtable table autosummary">
@@ -855,7 +844,7 @@ The vast majority of this functionality sits in the <code class="docutils litera
 </tbody>
 </table>
 <div class="section" id="the-uberon-class">
-<h3><span class="section-number">7.2.4.1. </span>The <code class="docutils literal notranslate"><span class="pre">Uberon</span></code> class<a class="headerlink" href="#the-uberon-class" title="Permalink to this headline">¶</a></h3>
+<span id="uberonclass"></span><h3><span class="section-number">7.2.4.1. </span>The <code class="docutils literal notranslate"><span class="pre">Uberon</span></code> class<a class="headerlink" href="#the-uberon-class" title="Permalink to this headline">¶</a></h3>
 <p>Calling the <code class="docutils literal notranslate"><span class="pre">Uberon</span></code> class itself simply checks if there are any <code class="docutils literal notranslate"><span class="pre">Uberon</span></code> terms in the merged ontology, and then allows the ontology to be used to create Uberon sample-to-tissue mappings, through class methods (which should be called separately).</p>
 <p>There are three parts to the process in creating Uberon mappings, the functionality for which lives in three different <code class="docutils literal notranslate"><span class="pre">Uberon</span></code> class methods:</p>
 <ol class="simple">
@@ -872,7 +861,7 @@ The vast majority of this functionality sits in the <code class="docutils litera
 <p>Stop words are words that are filtered out before processing text using Natural Language Processing (NLP) methods.
 These are usually very common words (e.g. “and”, ”the”), or word which are meaningless in the context of the analysis.</p>
 </div>
-<p>If an exact match does not exist, individual words from the phenotype term name or synonyms are then searched for exactly. First <a class="reference internal" href="#stop-words"><span class="std std-ref">stop words</span></a> are removed, using the base list in the Natural Language Toolkit (<code class="docutils literal notranslate"><span class="pre">nltk</span></code>) Python Package<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id189"><span>218</span></a>]</span>, and a small number of manually curated phenotypic stopwords (e.g. “phenotype”, “abnormality”), such that the HP term “abnormality of the head and neck” would be mapped to UBERON’s “head” and “neck” terms (but never “neck of radius”).
+<p>If an exact match does not exist, individual words from the phenotype term name or synonyms are then searched for exactly. First <a class="reference internal" href="#stop-words"><span class="std std-ref">stop words</span></a> are removed, using the base list in the Natural Language Toolkit (<code class="docutils literal notranslate"><span class="pre">nltk</span></code>) Python Package<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id190"><span>219</span></a>]</span>, and a small number of manually curated phenotypic stopwords (e.g. “phenotype”, “abnormality”), such that the HP term “abnormality of the head and neck” would be mapped to UBERON’s “head” and “neck” terms (but never “neck of radius”).
 In cases where multiple terms are found, a common parent would be searched for, in the case of this example, “craniocervical region”.</p>
 <div class="hint admonition">
 <p class="admonition-title">Uberon.sample_map_by_name reference</p>
@@ -948,7 +937,7 @@ This can be very useful for revealing logical inconsistencies in either the mapp
         <a class="right-next" href="3-how-it-works.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">7.3. </span>How Ontolopy works</p>
+                <p class="prevnext-title"><span class="section-number">7.3. </span>Ontolopy tools and practices</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

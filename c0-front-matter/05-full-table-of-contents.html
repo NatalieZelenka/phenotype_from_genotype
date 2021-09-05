@@ -253,13 +253,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -340,7 +334,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-filter/6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -372,7 +366,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -428,6 +422,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -500,6 +506,39 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#phenotype-prediction">
+   Phenotype prediction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tissue-specific-gene-expression">
+   Tissue-specific gene expression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concluding-remarks">
+   Concluding remarks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#end-matter">
+   End matter
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -510,6 +549,8 @@
                 
   <div class="section" id="table-of-contents">
 <h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong><a class="reference internal" href="../c01-introduction/intro.html#c01-philosophy"><span class="std std-numref">Chapter 1: Introduction</span></a></strong></p>
 <ul>
@@ -567,7 +608,7 @@
 </li>
 </ul>
 </li>
-<li><p><code class="xref std std-numref docutils literal notranslate"><span class="pre">%s</span></code> <span class="xref std std-ref">phenotype</span></p>
+<li><p><a class="reference internal" href="../c02-biology-background/5-phenotype.html#phenotype-organised"><span class="std std-numref">2.5</span></a> <a class="reference internal" href="../c02-biology-background/5-phenotype.html#phenotype-organised"><span class="std std-ref">Phenotype</span></a></p>
 <ul>
 <li><p><a class="reference internal" href="../c02-biology-background/5-phenotype.html#what-is-phenotype"><span class="std std-numref">2.5.1</span></a> <a class="reference internal" href="../c02-biology-background/5-phenotype.html#what-is-phenotype"><span class="std std-ref">What is phenotype?</span></a></p></li>
 <li><p><a class="reference internal" href="../c02-biology-background/5-phenotype.html#proteins-influence-phenotype"><span class="std std-numref">2.5.2</span></a> <a class="reference internal" href="../c02-biology-background/5-phenotype.html#proteins-influence-phenotype"><span class="std std-ref">How do proteins influence phenotype?</span></a></p>
@@ -680,6 +721,12 @@
 </ul>
 </li>
 <li><p><a class="reference internal" href="../c03-compbio-background/7-summary.html#c03-summary"><span class="std std-numref">3.7</span></a> <a class="reference internal" href="../c03-compbio-background/7-summary.html#c03-summary"><span class="std std-ref">Summary</span></a></p></li>
+</ul>
+<br>
+</div>
+<div class="section" id="phenotype-prediction">
+<h2>Phenotype prediction<a class="headerlink" href="#phenotype-prediction" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><p><strong><a class="reference internal" href="../c04-snowflake/0-index.html#c04-snowflake"><span class="std std-numref">Chapter 4: Phenotype prediction with Snowflake</span></a></strong></p>
 <ul>
 <li><p><a class="reference internal" href="../c04-snowflake/1-introduction.html#snowlflake-intro"><span class="std std-numref">4.1</span></a> <a class="reference internal" href="../c04-snowflake/1-introduction.html#snowlflake-intro"><span class="std std-ref">Introduction</span></a></p>
@@ -703,7 +750,7 @@
 <li><p><a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#fathmm-in-snowflake"><span class="std std-numref">4.2.2.2</span></a> <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#fathmm-in-snowflake"><span class="std std-ref">SNPs are given deleteriousness scores using FATHMM</span></a></p></li>
 <li><p><a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#clustering-step"><span class="std std-numref">4.2.2.3</span></a> <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#clustering-step"><span class="std std-ref">Comparison to a background via clustering</span></a></p></li>
 <li><p><a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#clustering-step"><span class="std std-numref">4.2.2.3</span></a> <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#clustering-step"><span class="std std-ref">Comparison to a background via clustering</span></a></p></li>
-<li><p><code class="xref std std-numref docutils literal notranslate"><span class="pre">%s</span></code> <span class="xref std std-ref">phenotype-score</span></p></li>
+<li><p><a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#id19"><span class="std std-numref">4.2.4.5</span></a> <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#id19"><span class="std std-ref">Confidence score per phenotype</span></a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#snowflake-functionality"><span class="std std-numref">4.2.3</span></a> <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#snowflake-functionality"><span class="std std-ref">Functionality</span></a></p></li>
@@ -713,12 +760,12 @@
 <li><p><a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#snowflake-dbsnp"><span class="std std-numref">4.2.4.2</span></a> <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#snowflake-dbsnp"><span class="std std-ref">Adding SNP-phenotype associations from dbSNP</span></a></p></li>
 <li><p><a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#snowflake-missing-calls"><span class="std std-numref">4.2.4.3</span></a> <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#snowflake-missing-calls"><span class="std std-ref">Dealing with missing calls</span></a></p></li>
 <li><p><a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#snowflake-dimensionality-reduction"><span class="std std-numref">4.2.4.4</span></a> <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#snowflake-dimensionality-reduction"><span class="std std-ref">Reducing dimensionality</span></a></p></li>
-<li><p><code class="xref std std-numref docutils literal notranslate"><span class="pre">%s</span></code> <span class="xref std std-ref">phenotype-score</span></p></li>
+<li><p><a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#id19"><span class="std std-numref">4.2.4.5</span></a> <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#id19"><span class="std std-ref">Confidence score per phenotype</span></a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="../c04-snowflake/3-creating-inputs.html#creating-snowflake-inputs"><span class="std std-numref">4.3</span></a> <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html#creating-snowflake-inputs"><span class="std std-ref">Creating snowflake inputs</span></a></p>
+<li><p><a class="reference internal" href="../c04-snowflake/3-creating-inputs.html#creating-snowflake-inputs"><span class="std std-numref">4.3</span></a> <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html#creating-snowflake-inputs"><span class="std std-ref">Creating Snowflake inputs</span></a></p>
 <ul>
 <li><p><a class="reference internal" href="../c04-snowflake/3-creating-inputs.html#dcgo-input"><span class="std std-numref">4.3.1</span></a> <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html#dcgo-input"><span class="std std-ref">DcGO phenotype mapping file (human)</span></a></p></li>
 <li><p><a class="reference internal" href="../c04-snowflake/3-creating-inputs.html#bg-cohort-input"><span class="std std-numref">4.3.2</span></a> <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html#bg-cohort-input"><span class="std std-ref">Background cohort</span></a></p>
@@ -774,6 +821,9 @@
 </ul>
 </li>
 <li><p><a class="reference internal" href="../c04-snowflake/7-discussion.html#snowflake-ethics-self-assessment"><span class="std std-numref">4.6.2</span></a> <a class="reference internal" href="../c04-snowflake/7-discussion.html#snowflake-ethics-self-assessment"><span class="std std-ref">Ethics self-assessment</span></a></p></li>
+</ul>
+<br>
+<ul class="simple">
 <li><p><strong><a class="reference internal" href="../c05-alspac/0-index.html#c05-alspac"><span class="std std-numref">Chapter 5: Predicting phenotypes of the ALSPAC cohort using Snowflake</span></a></strong></p>
 <ul>
 <li><p><a class="reference internal" href="../c05-alspac/1-introduction.html#alspac-intro"><span class="std std-numref">5.1</span></a> <a class="reference internal" href="../c05-alspac/1-introduction.html#alspac-intro"><span class="std std-ref">Introduction</span></a></p>
@@ -795,6 +845,292 @@
 </ul>
 </li>
 </ul>
+<br>
+</div>
+<div class="section" id="tissue-specific-gene-expression">
+<h2>Tissue-specific gene expression<a class="headerlink" href="#tissue-specific-gene-expression" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong><a class="reference internal" href="../c06-filter/0-index.html#c06-filter"><span class="std std-numref">Chapter 6: Filtering computational predictions with tissue-specific expression information</span></a></strong></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/1-introduction.html#filter-intro"><span class="std std-numref">6.1</span></a> <a class="reference internal" href="../c06-filter/1-introduction.html#filter-intro"><span class="std std-ref">Introduction</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/1-introduction.html#filter-motivation"><span class="std std-numref">6.1.1</span></a> <a class="reference internal" href="../c06-filter/1-introduction.html#filter-motivation"><span class="std std-ref">Motivation: improving phenotype and protein function prediction</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/1-introduction.html#when-expressed"><span class="std std-numref">6.1.2</span></a> <a class="reference internal" href="../c06-filter/1-introduction.html#when-expressed"><span class="std std-ref">When are transcripts “expressed”?</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c06-filter/2-algorithm.html#filter-algorithm"><span class="std std-numref">6.2</span></a> <a class="reference internal" href="../c06-filter/2-algorithm.html#filter-algorithm"><span class="std std-ref">Algorithm</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/2-algorithm.html#filter-algo-overview"><span class="std std-numref">6.2.1</span></a> <a class="reference internal" href="../c06-filter/2-algorithm.html#filter-algo-overview"><span class="std std-ref">Overview</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/2-algorithm.html#filter-inputs"><span class="std std-numref">6.2.2</span></a> <a class="reference internal" href="../c06-filter/2-algorithm.html#filter-inputs"><span class="std std-ref">Inputs</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/2-algorithm.html#input-predictions"><span class="std std-numref">6.2.2.1</span></a> <a class="reference internal" href="../c06-filter/2-algorithm.html#input-predictions"><span class="std std-ref">Protein function predictions</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/2-algorithm.html#input-ge"><span class="std std-numref">6.2.2.2</span></a> <a class="reference internal" href="../c06-filter/2-algorithm.html#input-ge"><span class="std std-ref">Gene expression file</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/2-algorithm.html#input-sample-tissue"><span class="std std-numref">6.2.2.3</span></a> <a class="reference internal" href="../c06-filter/2-algorithm.html#input-sample-tissue"><span class="std std-ref">Sample-tissue map</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c06-filter/2-algorithm.html#filter-preprocessing"><span class="std std-numref">6.2.3</span></a> <a class="reference internal" href="../c06-filter/2-algorithm.html#filter-preprocessing"><span class="std std-ref">Step 1: Preprocessing</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/2-algorithm.html#filter-filtering"><span class="std std-numref">6.2.4</span></a> <a class="reference internal" href="../c06-filter/2-algorithm.html#filter-filtering"><span class="std std-ref">Step 2: Filtering</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c06-filter/3-data.html#filter-data"><span class="std std-numref">6.3</span></a> <a class="reference internal" href="../c06-filter/3-data.html#filter-data"><span class="std std-ref">Data</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/3-data.html#fantom5-expression-data"><span class="std std-numref">6.3.1</span></a> <a class="reference internal" href="../c06-filter/3-data.html#fantom5-expression-data"><span class="std std-ref">Expression data: FANTOM5</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/3-data.html#fantom-files"><span class="std std-numref">6.3.1.1</span></a> <a class="reference internal" href="../c06-filter/3-data.html#fantom-files"><span class="std std-ref">Data files and acquisition</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/3-data.html#fantom-cleaning"><span class="std std-numref">6.3.1.2</span></a> <a class="reference internal" href="../c06-filter/3-data.html#fantom-cleaning"><span class="std std-ref">Initial FANTOM5 data cleaning: sample info file</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/3-data.html#fantom-cleaning-expression"><span class="std std-numref">6.3.1.3</span></a> <a class="reference internal" href="../c06-filter/3-data.html#fantom-cleaning-expression"><span class="std std-ref">Initial FANTOM5 data cleaning: expression file</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/3-data.html#fantom-filter-eda"><span class="std std-numref">6.3.1.4</span></a> <a class="reference internal" href="../c06-filter/3-data.html#fantom-filter-eda"><span class="std std-ref">Exploratory Data Analysis</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c06-filter/3-data.html#cafa2-training-set"><span class="std std-numref">6.3.3</span></a> <a class="reference internal" href="../c06-filter/3-data.html#cafa2-training-set"><span class="std std-ref">“Training” set: CAFA2</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c06-filter/5-methods.html#filter-methods"><span class="std std-numref">6.4</span></a> <a class="reference internal" href="../c06-filter/5-methods.html#filter-methods"><span class="std std-ref">Validation method</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/5-methods.html#cafa3-test-set"><span class="std std-numref">6.4.1</span></a> <a class="reference internal" href="../c06-filter/5-methods.html#cafa3-test-set"><span class="std std-ref">Test set: CAFA3</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/5-methods.html#filip-intputs-validation"><span class="std std-numref">6.4.2</span></a> <a class="reference internal" href="../c06-filter/5-methods.html#filip-intputs-validation"><span class="std std-ref">Filip inputs for validation</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/5-methods.html#create-protein-function-predictions"><span class="std std-numref">6.4.2.1</span></a> <a class="reference internal" href="../c06-filter/5-methods.html#create-protein-function-predictions"><span class="std std-ref">Creating protein function predictions (DcGO)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c06-filter/5-methods.html#running-filip-validation"><span class="std std-numref">6.4.3</span></a> <a class="reference internal" href="../c06-filter/5-methods.html#running-filip-validation"><span class="std std-ref">Running Filip</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/5-methods.html#cafa-validation-method"><span class="std std-numref">6.4.4</span></a> <a class="reference internal" href="../c06-filter/5-methods.html#cafa-validation-method"><span class="std std-ref">Validation Methodology</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/5-methods.html#validation-cafa-limitations"><span class="std std-numref">6.4.4.1</span></a> <a class="reference internal" href="../c06-filter/5-methods.html#validation-cafa-limitations"><span class="std std-ref">Limitations of validation method</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c06-filter/6-results.html#filip-results"><span class="std std-numref">6.5</span></a> <a class="reference internal" href="../c06-filter/6-results.html#filip-results"><span class="std std-ref">Filip results</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/6-results.html#filip-results-cafa2"><span class="std std-numref">6.5.1</span></a> <a class="reference internal" href="../c06-filter/6-results.html#filip-results-cafa2"><span class="std std-ref">CAFA 2</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/6-results.html#filip-results-cafa3"><span class="std std-numref">6.5.2</span></a> <a class="reference internal" href="../c06-filter/6-results.html#filip-results-cafa3"><span class="std std-ref">CAFA 3</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c06-filter/7-discussion.html#filip-discussion"><span class="std std-numref">6.6</span></a> <a class="reference internal" href="../c06-filter/7-discussion.html#filip-discussion"><span class="std std-ref">Discussion and Future work</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/7-discussion.html#filip-coverage"><span class="std std-numref">6.6.1</span></a> <a class="reference internal" href="../c06-filter/7-discussion.html#filip-coverage"><span class="std std-ref">Coverage</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/7-discussion.html#practicalities-improving-coverage"><span class="std std-numref">6.6.1.1</span></a> <a class="reference internal" href="../c06-filter/7-discussion.html#practicalities-improving-coverage"><span class="std std-ref">Practical difficulties in finding and creating alternative input data</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c06-filter/7-discussion.html#filtered-out"><span class="std std-numref">6.6.2</span></a> <a class="reference internal" href="../c06-filter/7-discussion.html#filtered-out"><span class="std std-ref">Wrong-ly filtered out tissues</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/7-discussion.html#filip-future-work"><span class="std std-numref">6.6.3</span></a> <a class="reference internal" href="../c06-filter/7-discussion.html#filip-future-work"><span class="std std-ref">Future work</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c06-filter/7-discussion.html#filip-speed"><span class="std std-numref">6.6.3.1</span></a> <a class="reference internal" href="../c06-filter/7-discussion.html#filip-speed"><span class="std std-ref">Speed</span></a></p></li>
+<li><p><a class="reference internal" href="../c06-filter/7-discussion.html#filip-protein-abundance"><span class="std std-numref">6.6.3.2</span></a> <a class="reference internal" href="../c06-filter/7-discussion.html#filip-protein-abundance"><span class="std std-ref">Protein abundance</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul class="simple">
+<li><p><strong><a class="reference internal" href="../c07-ontolopy/0-index.html#c06-ontolopy"><span class="std std-numref">Chapter 7: Ontolopy</span></a></strong></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/1-introduction.html#ontolopy-intro"><span class="std std-numref">7.1</span></a> <a class="reference internal" href="../c07-ontolopy/1-introduction.html#ontolopy-intro"><span class="std std-ref">Introduction</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/1-introduction.html#opy-motivation"><span class="std std-numref">7.1.1</span></a> <a class="reference internal" href="../c07-ontolopy/1-introduction.html#opy-motivation"><span class="std std-ref">Motivation</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/1-introduction.html#obo-files"><span class="std std-numref">7.1.2</span></a> <a class="reference internal" href="../c07-ontolopy/1-introduction.html#obo-files"><span class="std std-ref">OBO files</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/1-introduction.html#obo-anatomy"><span class="std std-numref">7.1.2.1</span></a> <a class="reference internal" href="../c07-ontolopy/1-introduction.html#obo-anatomy"><span class="std std-ref">Anatomy of an OBO file</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/1-introduction.html#ontolopy-purpose"><span class="std std-numref">7.1.3</span></a> <a class="reference internal" href="../c07-ontolopy/1-introduction.html#ontolopy-purpose"><span class="std std-ref">Purpose</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/1-introduction.html#other-ont-tools"><span class="std std-numref">7.1.4</span></a> <a class="reference internal" href="../c07-ontolopy/1-introduction.html#other-ont-tools"><span class="std std-ref">Other available tools</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#ontolopy-functionality"><span class="std std-numref">7.2</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#ontolopy-functionality"><span class="std std-ref">Functionality</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#opystructure"><span class="std std-numref">7.2.1</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#opystructure"><span class="std std-ref">Structure</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#opyobo"><span class="std std-numref">7.2.2</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#opyobo"><span class="std std-ref">Working with OBO ontologies</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#oboclass"><span class="std std-numref">7.2.2.1</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#oboclass"><span class="std std-ref">The Obo class</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#obomerge"><span class="std std-numref">7.2.2.2</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#obomerge"><span class="std std-ref">Merging ontologies</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#oboload"><span class="std std-numref">7.2.2.3</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#oboload"><span class="std std-ref">Loading ontologies from file</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#obodownload"><span class="std std-numref">7.2.2.4</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#obodownload"><span class="std std-ref">Downloading OBO files</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#opyrelations"><span class="std std-numref">7.2.3</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#opyrelations"><span class="std std-ref">Finding relationships</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#relations-class"><span class="std std-numref">7.2.3.1</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#relations-class"><span class="std std-ref">The Relations class</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#relationspathstotext"><span class="std std-numref">7.2.3.2</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#relationspathstotext"><span class="std std-ref">Converting “relation paths” to text</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#opyuberon"><span class="std std-numref">7.2.4</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#opyuberon"><span class="std std-ref">Creating Uberon Mappings</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#uberonclass"><span class="std std-numref">7.2.4.1</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#uberonclass"><span class="std std-ref">The Uberon class</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#mapping-by-name"><span class="std std-numref">7.2.4.2</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#mapping-by-name"><span class="std std-ref">Mapping from sample to tissue via name using Uberon.sample_map_by_name</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#mapping-by-term"><span class="std std-numref">7.2.4.3</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#mapping-by-term"><span class="std std-ref">Mapping from sample to tissue via ontology term using Uberon.sample_map_by_ont</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/2-functionality.html#comparing-mappings"><span class="std std-numref">7.2.4.4</span></a> <a class="reference internal" href="../c07-ontolopy/2-functionality.html#comparing-mappings"><span class="std std-ref">Getting overall mappings and finding disagreements using Uberon.get_overall_tissue_mappings</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/3-how-it-works.html#opytoolspractices"><span class="std std-numref">7.3</span></a> <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html#opytoolspractices"><span class="std std-ref">Ontolopy tools and practices</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/3-how-it-works.html#opypractices"><span class="std std-numref">7.3.1</span></a> <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html#opypractices"><span class="std std-ref">Practices</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/3-how-it-works.html#opytools"><span class="std std-numref">7.3.2</span></a> <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html#opytools"><span class="std std-ref">Tools</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/4-misc-examples.html#ontolopy-examples-2"><span class="std std-numref">7.4</span></a> <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html#ontolopy-examples-2"><span class="std std-ref">Example uses: mapping samples to diseases or phenotypes</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/4-misc-examples.html#ontolopy-example-inputs"><span class="std std-numref">7.4.1</span></a> <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html#ontolopy-example-inputs"><span class="std std-ref">Inputs</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/4-misc-examples.html#opy-fantom5"><span class="std std-numref">7.4.1.1</span></a> <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html#opy-fantom5"><span class="std std-ref">FANTOM5</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/4-misc-examples.html#opyuberondata"><span class="std std-numref">7.4.1.2</span></a> <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html#opyuberondata"><span class="std std-ref">Uberon</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/4-misc-examples.html#opydiseaseexample"><span class="std std-numref">7.4.2</span></a> <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html#opydiseaseexample"><span class="std std-ref">Example 1: Finding disease-related samples</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/4-misc-examples.html#opycelldifferentiation"><span class="std std-numref">7.4.3</span></a> <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html#opycelldifferentiation"><span class="std std-ref">Example 2: Find tissues that are capable of cell differentiation</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#ontolopy-mapping-example"><span class="std std-numref">7.5</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#ontolopy-mapping-example"><span class="std std-ref">Example use: mapping samples to tissue-related phenotypes</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#sample-to-tissue"><span class="std std-numref">7.5.1</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#sample-to-tissue"><span class="std std-ref">Creating sample-to-tissue mappings</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#map-load-prefilter"><span class="std std-numref">7.5.1.1</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#map-load-prefilter"><span class="std std-ref">Load data and pre-filter</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#bigexamplemapbyont"><span class="std std-numref">7.5.1.2</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#bigexamplemapbyont"><span class="std std-ref">Mapping by ontology</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#bigexamplemapbyname"><span class="std std-numref">7.5.1.3</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#bigexamplemapbyname"><span class="std std-ref">Mapping by name</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#bigexamplecombiningmappings"><span class="std std-numref">7.5.1.4</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#bigexamplecombiningmappings"><span class="std std-ref">Combining mappings</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#mappingstatistics"><span class="std std-numref">7.5.1.6</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#mappingstatistics"><span class="std std-ref">Mapping overview</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#tissue-to-phenotype"><span class="std std-numref">7.5.2</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#tissue-to-phenotype"><span class="std std-ref">Creating tissue-to-phenotype mappings</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#partofprop"><span class="std std-numref">7.5.2.1</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#partofprop"><span class="std std-ref">Propagating relationships up the tree using part_of</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#has-part"><span class="std std-numref">7.5.2.2</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#has-part"><span class="std std-ref">Propagating “down” the tree: has_part</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#can-have-human-part-define"><span class="std std-numref">7.5.2.3</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#can-have-human-part-define"><span class="std std-ref">Propagating down the tree: inverse of part_of</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#combiningexample2"><span class="std std-numref">7.5.2.4</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#combiningexample2"><span class="std std-ref">Combining previous mappings</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#sample-tissue"><span class="std std-numref">7.5.3</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#sample-tissue"><span class="std std-ref">Creating sample-to-tissue-phenotype mappings</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#opyexamplefinalmapping"><span class="std std-numref">7.5.3.1</span></a> <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#opyexamplefinalmapping"><span class="std std-ref">Final mapping</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/6-discussion.html#opydiscussion"><span class="std std-numref">7.6</span></a> <a class="reference internal" href="../c07-ontolopy/6-discussion.html#opydiscussion"><span class="std std-ref">Discussion</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/6-discussion.html#useful-ontolopy"><span class="std std-numref">7.6.1</span></a> <a class="reference internal" href="../c07-ontolopy/6-discussion.html#useful-ontolopy"><span class="std std-ref">Usefulness</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/6-discussion.html#usable-ontolopy"><span class="std std-numref">7.6.2</span></a> <a class="reference internal" href="../c07-ontolopy/6-discussion.html#usable-ontolopy"><span class="std std-ref">Usability</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/6-discussion.html#opylimitations"><span class="std std-numref">7.6.3</span></a> <a class="reference internal" href="../c07-ontolopy/6-discussion.html#opylimitations"><span class="std std-ref">Limitations</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/6-discussion.html#what-to-ask-for"><span class="std std-numref">7.6.3.1</span></a> <a class="reference internal" href="../c07-ontolopy/6-discussion.html#what-to-ask-for"><span class="std std-ref">You still need to understand the structure of the ontology</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/6-discussion.html#opymissing"><span class="std std-numref">7.6.3.2</span></a> <a class="reference internal" href="../c07-ontolopy/6-discussion.html#opymissing"><span class="std std-ref">“Missing” functionality</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/6-discussion.html#opysynonyms"><span class="std std-numref">7.6.3.3</span></a> <a class="reference internal" href="../c07-ontolopy/6-discussion.html#opysynonyms"><span class="std std-ref">Improving choosing from multiple synonym options</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/7-future-work.html#ont-fw"><span class="std std-numref">7.7</span></a> <a class="reference internal" href="../c07-ontolopy/7-future-work.html#ont-fw"><span class="std std-ref">Future Work</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/7-future-work.html#opyv2"><span class="std std-numref">7.7.1</span></a> <a class="reference internal" href="../c07-ontolopy/7-future-work.html#opyv2"><span class="std std-ref">v2.0.0</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/7-future-work.html#opyadditional"><span class="std std-numref">7.7.2</span></a> <a class="reference internal" href="../c07-ontolopy/7-future-work.html#opyadditional"><span class="std std-ref">Other potential improvements to Ontolopy</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c07-ontolopy/7-future-work.html#text-search-ont"><span class="std std-numref">7.7.2.1</span></a> <a class="reference internal" href="../c07-ontolopy/7-future-work.html#text-search-ont"><span class="std std-ref">Text-search and fuzzy-matching</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/7-future-work.html#complex-queries-ont"><span class="std std-numref">7.7.2.2</span></a> <a class="reference internal" href="../c07-ontolopy/7-future-work.html#complex-queries-ont"><span class="std std-ref">Functionality for more complex queries</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/7-future-work.html#opygo"><span class="std std-numref">7.7.2.3</span></a> <a class="reference internal" href="../c07-ontolopy/7-future-work.html#opygo"><span class="std std-ref">opy.Go</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/7-future-work.html#pronto-integration"><span class="std std-numref">7.7.2.4</span></a> <a class="reference internal" href="../c07-ontolopy/7-future-work.html#pronto-integration"><span class="std std-ref">Integration with Pronto</span></a></p></li>
+<li><p><a class="reference internal" href="../c07-ontolopy/7-future-work.html#opyvalidity"><span class="std std-numref">7.7.2.5</span></a> <a class="reference internal" href="../c07-ontolopy/7-future-work.html#opyvalidity"><span class="std std-ref">Ontology validity</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c07-ontolopy/7-future-work.html#opymiscfw"><span class="std std-numref">7.7.3</span></a> <a class="reference internal" href="../c07-ontolopy/7-future-work.html#opymiscfw"><span class="std std-ref">Miscellaneous</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul class="simple">
+<li><p><strong><a class="reference internal" href="../c08-combining/0-index.html#c05-combining"><span class="std std-numref">Chapter 8: Combining RNA-seq datasets</span></a></strong></p>
+<ul>
+<li><p><a class="reference internal" href="../c08-combining/1-background.html#combiningintro"><span class="std std-numref">8.1</span></a> <a class="reference internal" href="../c08-combining/1-background.html#combiningintro"><span class="std std-ref">Introduction</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c08-combining/1-background.html#combmotivation"><span class="std std-numref">8.1.1</span></a> <a class="reference internal" href="../c08-combining/1-background.html#combmotivation"><span class="std std-ref">Motivation</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/1-background.html#combchallenges"><span class="std std-numref">8.1.2</span></a> <a class="reference internal" href="../c08-combining/1-background.html#combchallenges"><span class="std std-ref">Challenges in combining gene expression data sets</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c08-combining/1-background.html#harmonisingchallenge"><span class="std std-numref">8.1.2.1</span></a> <a class="reference internal" href="../c08-combining/1-background.html#harmonisingchallenge"><span class="std std-ref">Harmonising meta-data</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/1-background.html#batchchallenge"><span class="std std-numref">8.1.2.2</span></a> <a class="reference internal" href="../c08-combining/1-background.html#batchchallenge"><span class="std std-ref">Batch effects</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#data-acquisition"><span class="std std-numref">8.2</span></a> <a class="reference internal" href="../c08-combining/2-data.html#data-acquisition"><span class="std std-ref">Data Acquisition</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#gxacriteria"><span class="std std-numref">8.2.1</span></a> <a class="reference internal" href="../c08-combining/2-data.html#gxacriteria"><span class="std std-ref">Criteria for choosing datasets</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#geprotein"><span class="std std-numref">8.2.1.1</span></a> <a class="reference internal" href="../c08-combining/2-data.html#geprotein"><span class="std std-ref">Gene expression vs protein abundance</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#genetranscriptexp"><span class="std std-numref">8.2.1.2</span></a> <a class="reference internal" href="../c08-combining/2-data.html#genetranscriptexp"><span class="std std-ref">Gene expression vs Transcript expression</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#includecage"><span class="std std-numref">8.2.1.3</span></a> <a class="reference internal" href="../c08-combining/2-data.html#includecage"><span class="std std-ref">Inclusion of CAGE data</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#genetranscriptexp"><span class="std std-numref">8.2.1.2</span></a> <a class="reference internal" href="../c08-combining/2-data.html#genetranscriptexp"><span class="std std-ref">Gene expression vs Transcript expression</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#excludediseasewhy"><span class="std std-numref">8.2.1.4</span></a> <a class="reference internal" href="../c08-combining/2-data.html#excludediseasewhy"><span class="std std-ref">Excluding disease-focused experiments</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#searchhowgxa"><span class="std std-numref">8.2.2</span></a> <a class="reference internal" href="../c08-combining/2-data.html#searchhowgxa"><span class="std std-ref">Method of searching</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#gxaelligible"><span class="std std-numref">8.2.3</span></a> <a class="reference internal" href="../c08-combining/2-data.html#gxaelligible"><span class="std std-ref">Eligible data sets</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#combiningfantom"><span class="std std-numref">8.2.3.1</span></a> <a class="reference internal" href="../c08-combining/2-data.html#combiningfantom"><span class="std std-ref">FANTOM5</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#combininghpa"><span class="std std-numref">8.2.3.2</span></a> <a class="reference internal" href="../c08-combining/2-data.html#combininghpa"><span class="std std-ref">Human Protein Atlas</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#combininggtex"><span class="std std-numref">8.2.3.3</span></a> <a class="reference internal" href="../c08-combining/2-data.html#combininggtex"><span class="std std-ref">Genotype Tissue Expression</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#combininghdbr"><span class="std std-numref">8.2.3.4</span></a> <a class="reference internal" href="../c08-combining/2-data.html#combininghdbr"><span class="std std-ref">Human Developmental Biology Resource</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c08-combining/2-data.html#combining-data-acquisition"><span class="std std-numref">8.2.4</span></a> <a class="reference internal" href="../c08-combining/2-data.html#combining-data-acquisition"><span class="std std-ref">Data acquisition</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c08-combining/3-data-wrangling.html#c05-3-data-wrangling"><span class="std std-numref">8.3</span></a> <a class="reference internal" href="../c08-combining/3-data-wrangling.html#c05-3-data-wrangling"><span class="std std-ref">Data Wrangling</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c08-combining/3-data-wrangling.html#rawgeneexpression"><span class="std std-numref">8.3.1</span></a> <a class="reference internal" href="../c08-combining/3-data-wrangling.html#rawgeneexpression"><span class="std std-ref">Obtaining raw expression per gene for healthy human tissues</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c08-combining/3-data-wrangling.html#transcriptgenemapping"><span class="std std-numref">8.3.1.1</span></a> <a class="reference internal" href="../c08-combining/3-data-wrangling.html#transcriptgenemapping"><span class="std std-ref">Mapping from transcript to gene</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c08-combining/3-data-wrangling.html#combininguberonmapping"><span class="std std-numref">8.3.2</span></a> <a class="reference internal" href="../c08-combining/3-data-wrangling.html#combininguberonmapping"><span class="std std-ref">Mapping to UBERON</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/3-data-wrangling.html#aggregatingmetadata"><span class="std std-numref">8.3.3</span></a> <a class="reference internal" href="../c08-combining/3-data-wrangling.html#aggregatingmetadata"><span class="std std-ref">Aggregating Metadata</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c08-combining/3-data-wrangling.html#tissue-groups"><span class="std std-numref">8.3.3.1</span></a> <a class="reference internal" href="../c08-combining/3-data-wrangling.html#tissue-groups"><span class="std std-ref">Tissue groups</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c08-combining/3-data-wrangling.html#experimental-design"><span class="std std-numref">8.3.4</span></a> <a class="reference internal" href="../c08-combining/3-data-wrangling.html#experimental-design"><span class="std std-ref">Final Experimental Design</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../c08-combining/7-discussion.html#combiningresultsdiscussion"><span class="std std-numref">8.4</span></a> <a class="reference internal" href="../c08-combining/7-discussion.html#combiningresultsdiscussion"><span class="std std-ref">Results and discussion</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c08-combining/7-discussion.html#tissue-specific-expression"><span class="std std-numref">8.4.1</span></a> <a class="reference internal" href="../c08-combining/7-discussion.html#tissue-specific-expression"><span class="std std-ref">Example: Tissue-specific expression comparison</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/7-discussion.html#batcheffectsdiscussion"><span class="std std-numref">8.4.2</span></a> <a class="reference internal" href="../c08-combining/7-discussion.html#batcheffectsdiscussion"><span class="std std-ref">Batch effects</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/7-discussion.html#improvingresources"><span class="std std-numref">8.4.3</span></a> <a class="reference internal" href="../c08-combining/7-discussion.html#improvingresources"><span class="std std-ref">Combining omics data sets is an opportunity to improve existing resources</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/7-discussion.html#combiningfuturework"><span class="std std-numref">8.4.4</span></a> <a class="reference internal" href="../c08-combining/7-discussion.html#combiningfuturework"><span class="std std-ref">Future Work</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../c08-combining/7-discussion.html#mappingimprovementscombining"><span class="std std-numref">8.4.4.1</span></a> <a class="reference internal" href="../c08-combining/7-discussion.html#mappingimprovementscombining"><span class="std std-ref">Mapping improvements</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/7-discussion.html#batch-effect-removal-future-work"><span class="std std-numref">8.4.4.2</span></a> <a class="reference internal" href="../c08-combining/7-discussion.html#batch-effect-removal-future-work"><span class="std std-ref">Batch effect removal</span></a></p></li>
+<li><p><a class="reference internal" href="../c08-combining/7-discussion.html#tissuecellspecific"><span class="std std-numref">8.4.4.3</span></a> <a class="reference internal" href="../c08-combining/7-discussion.html#tissuecellspecific"><span class="std std-ref">Tissue-specific vs cell specific</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+</div>
+<div class="section" id="concluding-remarks">
+<h2>Concluding remarks<a class="headerlink" href="#concluding-remarks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong><a class="reference internal" href="../c09-conclusion/0-conclusion.html#c07-conclusion"><span class="std std-numref">Chapter 9: Concluding remarks</span></a></strong></p></li>
+</ul>
+<br>
+</div>
+<div class="section" id="end-matter">
+<h2>End matter<a class="headerlink" href="#end-matter" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../cz-end-matter/0-appendix.html#appendix"><span class="std std-ref">Appendix</span></a></p></li>
+<li><p><a class="reference internal" href="../cz-end-matter/reference.html#bibliography"><span class="std std-ref">Bibliography</span></a></p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

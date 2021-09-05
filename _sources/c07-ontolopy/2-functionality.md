@@ -4,7 +4,7 @@
 [//]: # (TODO: Make sure documentation links are versioned)
 
 This section describes the low-level functionality of Ontolopy: what it can do. 
-For examples of how this functionality is of practical use, please see the {ref}`Examples<ontolopy-examples>` section.
+For examples of how this functionality is of practical use, please see the {ref}`examples<ontolopy-examples-2>` sections.
 You can find a full and up-to-date API Reference [in the documentation](https://nataliethurlby.github.io/ontolopy/contents/reference.html).
 
 (subclass)=
@@ -19,6 +19,7 @@ The functionality of the package can be summarised as follows: Ontolopy takes OB
 2. provides a set of tools for doing some useful manipulations and queries to these objects, which are particular to ontologies. This includes for example propagating relationships between terms, finding leaf/root terms, and merging ontologies.
 3. Further to this, it provides an extra class for manipulating and querying the Uberon anatomy specifically. 
 
+(opystructure)=
 ## Structure
 :::{margin} `import ontolopy as opy`
 Note: you will see `ontolopy` shortened to `opy` in code segments.
@@ -27,6 +28,7 @@ Note: you will see `ontolopy` shortened to `opy` in code segments.
 Ontolopy is organised into three submodules, each centred around classes with the same names: `opy.Obo()` for OBO ontology objects, `obo.Relations()` for finding relationships between terms in an ontology object, and `opy.Uberon()` for finding tissue mappings.
 These three submodules are automatically loaded with `import ontolopy`.
 
+(opyobo)=
 ## Working with OBO ontologies
 [//]: # (TODO: reorganise with sphinx-argparse)
 
@@ -47,6 +49,7 @@ The `opy.obo` module contains the following {ref}`callables<callables>` that mak
    Obo.merge
 ```
 
+(oboclass)=
 ### The `Obo` class
 [//]: # (TODO: Example/excerpt of Obo structure)
 
@@ -93,6 +96,7 @@ new_ontology['TERM:000002'] = {'name': 'Second example term', 'is_a': ['TERM:000
 ```
 ````
 
+(obomerge)=
 ### Merging ontologies
 It's also possible to merge (a list of) ontologies into the base ontology. 
 This can be useful for investigating relationships between ontologies.
@@ -106,6 +110,7 @@ For example, to find relationships between samples and tissues, that might go vi
 ```
 ````
 
+(oboload)=
 ### Loading ontologies from file
 While creating ontologies from dictionaries is useful for adding bespoke terms, most of the time we want to load an official and curated OBO from a file.
 
@@ -119,6 +124,7 @@ While creating ontologies from dictionaries is useful for adding bespoke terms, 
 
 [//]: # (TODO: Describe how it works and what types of relationships are considered, especially when references are terms of interest)
 
+(obodownload)=
 ### Downloading OBO files
 [//]: # (TODO: List what can be downloaded)
 [//]: # (TODO: Check via URL works)
@@ -133,6 +139,7 @@ It's also possible to download OBO files, either from a list of popular OBO file
 ```
 ````
 
+(opyrelations)=
 ## Finding relationships
 The most key functionality in Ontolopy is the ability to infer relationships between terms, across ontologies (be it between tissue terms and phenotype terms, or something else).
 This functionality is inside the `opy.relations` module and handled by the {ref}`Relations<relations-class>` class.
@@ -174,9 +181,20 @@ import ontolopy as opy
 ````
 -->
 
-#### Additional parameter information
 
 [//]: # (TODO: how much quicker is any than all.)
+
+To find relationships, the code loops through sources, and for each source it will look at the `allowed_relations` to find relationships with other terms, then for each of these terms it will look for relationships with other terms in the same manner, etc.
+
+(relation-paths)=
+Internally, Ontolopy stores these relationships as a list of strings, where each string details the relations between the source term and other terms, e.g. `UBERON:123913.is_a~UBERON:1381239.is_a~UBERON:987890`. 
+Let's call these strings *relation paths*.
+
+Cyclic relationships are not permitted (a term can only be present in a relation path once).
+Relationships continue to be searched for until either the ontology provided can no longer add any new relation paths OR we found what we were looking for.
+
+In "any" mode, finding what we're looking for means finding any target term as the last term in the relation string, while in "all" mode, we must find all target terms for the source term.
+
 
 **The `mode` parameter** can be either "any" or "all", and this represents whether we are looking for relations from our source terms to *any* one target term, or to a *all* target terms for which we can find a relationship.
 It is much quicker to run in "any" mode, so this mode is the default, and it is preferable when we simply need the most direct mapping between our source and target terms, for example we want to know which (one) tissue does the sample map to best? 
@@ -190,18 +208,7 @@ The latter option only works in `all` mode: i.e. we are interested in all source
 Essentially, the `sources-targets` option provides a quicker way of running `Ontolopy` in "all" mode when we know in advance which specific pairs of sources and targets we are interested in. 
 If `sources` and `targets` are provided and `mode==all`, then `Ontolopy` will generate a combination of all possible sources and targets (removing `excluded` target terms if provided).
 
-#### Finding relationships: what it's doing
-To find relationships, the code loops through sources, and for each source it will look at the `allowed_relations` to find relationships with other terms, then for each of these terms it will look for relationships with other terms in the same manner, etc.
-
-(relation-paths)=
-Internally, Ontolopy stores these relationships as a list of strings, where each string details the relations between the source term and other terms, e.g. `UBERON:123913.is_a~UBERON:1381239.is_a~UBERON:987890`. 
-Let's call these strings *relation paths*.
-
-Cyclic relationships are not permitted (a term can only be present in a relation path once).
-Relationships continue to be searched for until either the ontology provided can no longer add any new relation paths OR we found what we were looking for.
-
-In "any" mode, finding what we're looking for means finding any target term as the last term in the relation string, while in "all" mode, we must find all target terms for the source term.
-
+(relationspathstotext)=
 ### Converting "relation paths" to text
 Since relationships are internally stored as {ref}`relation paths<relation-paths>` as explained above, it is useful to turn these strings into more readable text, which is what the `relation_path_to_text` function does.
 
@@ -215,8 +222,9 @@ Since relationships are internally stored as {ref}`relation paths<relation-paths
 ```
 ````
 
-[//]: # (TODO: Simplifying relationships)
+<!--Simplifying relationships-->
 
+(opyuberon)=
 ## Creating Uberon Mappings
 
 The `opy.uberon` submodule contains the specific tools for working with the Uberon ontology: finding mappings between tissues and phenotypes {ref}`via ontology terms<mapping-by-term>` by making use of the {ref}`Relations<relations-class>` class, as well as {ref}`doing this mapping using text<mapping-by-name>`, and {ref}`comparing these two mappings<comparing-mappings>`. 
@@ -231,6 +239,7 @@ The vast majority of this functionality sits in the `Uberon` class.
    Uberon
 ```
 
+(uberonclass)=
 ### The `Uberon` class
 Calling the `Uberon` class itself simply checks if there are any `Uberon` terms in the merged ontology, and then allows the ontology to be used to create Uberon sample-to-tissue mappings, through class methods (which should be called separately).
 

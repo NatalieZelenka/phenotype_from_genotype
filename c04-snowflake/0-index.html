@@ -253,13 +253,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -340,7 +334,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-filter/6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -372,7 +366,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -428,6 +422,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -511,7 +517,7 @@
   <div class="section" id="phenotype-prediction-with-snowflake">
 <span id="c04-snowflake"></span><h1><span class="section-number">4. </span>Phenotype prediction with Snowflake<a class="headerlink" href="#phenotype-prediction-with-snowflake" title="Permalink to this headline">¶</a></h1>
 <p>This chapter describes the Snowflake algorithm for phenotype prediction that I developed in collaboration with Jan Zaucha, Ben Smithers and Julian Gough.
-The development of <code class="docutils literal notranslate"><span class="pre">snowflake</span></code> resulted in a patent<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id4"><span>3</span></a>]</span>, of which I am an author.
+The development of <code class="docutils literal notranslate"><span class="pre">snowflake</span></code> resulted in a patent<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id5"><span>3</span></a>]</span>, of which I am an author.
 This chapter deals with the functionality and design of the Snowflake algorithm, while the <a class="reference internal" href="../c05-alspac/0-index.html#c05-alspac"><span class="std std-ref">next</span></a> describes it’s application to the ALSPAC dataset.</p>
 <p>At it’s heart, Snowflake is a <abbr title="Command Line Interface">CLI</abbr> tool and private Python package that allows the user to detect outliers for each phenotype of interest, according to their genotype.
 Individuals with unusual combinations of variants in highly conserved protein domains associated with a phenotype will score highly for (be indicated as likely to have) a phenotype.</p>
@@ -521,7 +527,7 @@ Working from Ben’s translation, Jan and I both worked on increasing the algori
 <div class="hint admonition">
 <p class="admonition-title">Contributions in this chapter</p>
 <ul class="simple">
-<li><p>Writing part of the patent<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id4"><span>3</span></a>]</span> relating to intrinsic dimensionality.</p></li>
+<li><p>Writing part of the patent<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id5"><span>3</span></a>]</span> relating to intrinsic dimensionality.</p></li>
 <li><p>Software development to increase and test the algorithm’s functionality, including:</p>
 <ul>
 <li><p>With Jan and Ben:</p>

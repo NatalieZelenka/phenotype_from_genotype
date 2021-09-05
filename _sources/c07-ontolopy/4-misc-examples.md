@@ -18,7 +18,7 @@ kernelspec:
 There are a number of potential uses for Ontolopy. 
 In this section, I show two simple examples to demonstrate this usefulness. 
 These show how Ontolopy can be used to:
-1. {ref}`Find disease-related samples<disease-example>`
+1. {ref}`Find disease-related samples<opydiseaseexample>`
 2. Find samples of pluripotent stem cells (cells that can turn into different tissue types)
 
 Then in {ref}`the next section<ontolopy-mapping-example>` I give the more detailed and complex example of creating a mapping between samples and tissues (which is what Ontolopy was created for specifically), and how this was used to {ref}`find inconsistencies in the FANTOM5 data<FANTOM5-inconsistencies-example>`.
@@ -72,13 +72,14 @@ display(fantom_samples_info.iloc[indices])
 glue("fantom-samples-info-excerpt", fantom_samples_info.iloc[indices], display=False)
 ```
 
+(opy-fantom5)=
 ### FANTOM5 
 
 [//]: # (TODO: Check display of all tables in this section, potentially link to website version for full excerpt)
 
 Large experiments sometimes include an ontology of samples instead of or (more frequently) in addition to a samples information file.
 The data from the FANTOM5 experiment{cite}`Lizio2015-ph` is one such example of this.
-I {ref}`explain the FANTOM5 data in more detail later<fantom5-expression-data>` but for now the only things we need to know are that:
+I {ref}`have already explained the FANTOM5 data in more detail<fantom5-expression-data>` but for now the only things we need to keep in mind are that:
 1. The FANTOM5 experiment measures transcript expression in a wide variety of samples, across many tissue and cell types.
 2. FANTOM5 provide an [ontology of samples](https://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt) as well as a [sample information file](https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/basic/HumanSamples2.0.sdrf.xlsx) (containing short text descriptions of samples).
 
@@ -112,9 +113,10 @@ created_by: tmeehan
 creation_date: 2011-03-01T04:51:50Z
 ```
 
+(opyuberondata)=
 ### Uberon
 As I mentioned in {numref}`Section %s<uberon-is>`, Uberon is a cross-species anatomy ontology with excellent linkage to other ontologies. 
-As we can see {ref}`above`, the FANTOM5 ontology links FANTOM samples to Uberon.
+As we can see above, the FANTOM5 ontology links FANTOM samples to Uberon.
 This means that the Uberon{cite}`Mungall2012-nc` [extended ontology OBO file](http://purl.obolibrary.org/obo/uberon/ext.obo) can then be used to further link the samples to human disease or gene ontology terms.
 
 For example, here is an excerpt of the Uberon extended OBO file (non-consecutive lines for brevity), showing how the Uberon extended ontology could be used to link a FANTOM sample to a GO term:
@@ -166,6 +168,7 @@ However, this information could still be useful in Computational Biology. If we 
 This is something to be aware of in general when using Ontolopy: if you are only interested in straight-forward relationships, then you often need to think carefully about the types of relationships that you ask for: `part_of` relationships need particular care.
 ```
 
+(opydiseaseexample)=
 ## Example 1: Finding disease-related samples
 [//]: # (TODO: cite disease ontology)
 This first example shows a simple use-case of Ontolopy, where we are looking for relationships to any term in an ontology: in this case any relation to a Disease Ontology term (representing human diseases). 
@@ -220,7 +223,7 @@ The top 5 lines of the disease-related FANTOM samples that Ontolopy found.
 
 +++
 
-(disease-example)=
+(opycelldifferentiation)=
 ## Example 2: Find tissues that are capable of cell differentiation
 
 ````{margin}

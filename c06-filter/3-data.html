@@ -253,13 +253,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -340,7 +334,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -372,7 +366,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -428,6 +422,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -519,72 +525,16 @@
     <a class="reference internal nav-link" href="#initial-fantom5-data-cleaning-sample-info-file">
      6.3.1.2. Initial FANTOM5 data cleaning: sample info file
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sample-categories">
-       6.3.1.2.1. Sample categories
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#technical-and-biological-replicates">
-       6.3.1.2.2. Technical and biological replicates
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#age-and-age-range">
-       6.3.1.2.3. Age and age range
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sex">
-       6.3.1.2.4. Sex
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#disease-and-tissue-mapping">
-       6.3.1.2.5. Disease and tissue mapping
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#initial-fantom5-data-cleaning-expression-file">
      6.3.1.3. Initial FANTOM5 data cleaning: expression file
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cage-peaks-with-associated-proteins">
-       6.3.1.3.1. CAGE peaks with associated proteins
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cage-peaks-mapped-to-one-gene-only">
-       6.3.1.3.2. CAGE peaks mapped to one gene only
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#proteins-that-map-to-multiple-genes">
-       6.3.1.3.3. Proteins that map to multiple genes
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exploratory-data-analysis">
      6.3.1.4. Exploratory Data Analysis
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#samples">
-       6.3.1.4.1. Samples
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#protein-centric-tpm">
-       6.3.1.4.2. Protein-centric TPM
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -617,7 +567,7 @@
               <div>
                 
   <div class="section" id="data">
-<h1><span class="section-number">6.3. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
+<span id="filter-data"></span><h1><span class="section-number">6.3. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
 <p>This section describes the <a class="reference internal" href="#fantom5-expression-data"><span class="std std-ref">gene expression data</span></a> used for creating and validating Filip, including it’s provenance as well as any necessary data-cleaning.</p>
 <p>I also describe the <a class="reference internal" href="#cafa2-training-set"><span class="std std-ref">benchmarking data</span></a> I used to develop Filip.</p>
 <p>In addition to this, Filip requires the input of a protein function or phenotype prediction method, but this (and the data required for this) is described in <a class="reference internal" href="5-methods.html#filter-methods"><span class="std std-ref">Validation method</span></a>.</p>
@@ -633,7 +583,7 @@ The FANTOM5 data set was chosen for this purpose.</p>
 </ul>
 <p>I chose the version of the FANTOM5 data that:</p>
 <ul class="simple">
-<li><p>had been reprocessed using the hg38 reference genome (the original FANTOM5 data was processed using hg19)<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id203"><span>203</span></a>]</span>.</p></li>
+<li><p>had been reprocessed using the hg38 reference genome (the original FANTOM5 data was processed using hg19)<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id204"><span>204</span></a>]</span>.</p></li>
 <li><p>contained annotated information about the samples, as this information could be used to aid in mapping.</p></li>
 <li><p>available in <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html#rna-normalisation"><span class="std std-ref">TPM</span></a> format.</p></li>
 </ul>
@@ -652,7 +602,7 @@ Note: some samples have repeat measurements per sample.</p>
 </ul>
 </div>
 <div class="section" id="initial-fantom5-data-cleaning-sample-info-file">
-<h3><span class="section-number">6.3.1.2. </span>Initial FANTOM5 data cleaning: sample info file<a class="headerlink" href="#initial-fantom5-data-cleaning-sample-info-file" title="Permalink to this headline">¶</a></h3>
+<span id="fantom-cleaning"></span><h3><span class="section-number">6.3.1.2. </span>Initial FANTOM5 data cleaning: sample info file<a class="headerlink" href="#initial-fantom5-data-cleaning-sample-info-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">helper_c05.fantom_sample_clean</span> <span class="k">as</span> <span class="nn">fsc</span>
@@ -672,8 +622,7 @@ Note: some samples have repeat measurements per sample.</p>
 </div>
 </div>
 </div>
-<div class="section" id="sample-categories">
-<span id="fantom-sample-categories"></span><h4><span class="section-number">6.3.1.2.1. </span>Sample categories<a class="headerlink" href="#sample-categories" title="Permalink to this headline">¶</a></h4>
+<p id="fantom-sample-categories"><strong>Sample categories</strong></p>
 <div class="margin sidebar">
 <p class="sidebar-title">HeLa cell line</p>
 <p>The FANTOM5 experiment contains HeLa cell lines samples (e.g. sample <code class="docutils literal notranslate"><span class="pre">FF:10815-111B5</span></code>).</p>
@@ -681,29 +630,27 @@ Note: some samples have repeat measurements per sample.</p>
 Henrietta was a black woman who lived in Baltimore, Maryland.
 Her cells were taken without consent during a hospital biopsy for an aggressive cervical cancer, which she died from at age 31 in 1951.</p>
 <p>Companies continue to profit from the sale of these lines of cells, since such cell lines have several practical advantages over primary cells, notably their immortality, low variability (compared to primary cells, which vary depending on cell donor characteristics such as age and sex), and easiness to keep alive (without the need for e.g. additional nutrients).</p>
-<p>Some companies have recently begun to pay reparations for this injustice<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id197"><span>204</span></a>]</span>.</p>
+<p>Some companies have recently begun to pay reparations for this injustice<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id198"><span>205</span></a>]</span>.</p>
 </div>
 <p id="primary-cell-tissue"><strong>Restriction to  primary cell and tissue samples</strong>:</p>
 <p>The human FANTOM5 sample information file contains four categories of samples (in the <code class="docutils literal notranslate"><span class="pre">Characteristics</span> <span class="pre">[Category]</span></code> field):</p>
 <ul class="simple">
 <li><p><strong>time courses</strong>: RNA extracted from samples being measured over time as cells change types during cell development and differentiation ( samples), e.g.  - <em></em>.</p></li>
 <li><p><strong>primary cells</strong>: RNA extracted from cultures of cells recently isolated from tissues, before undergoing proliferation with nutrients specific to the cell type ( samples), e.g.  - <em></em>.</p></li>
-<li><p><strong>cell lines</strong>: RNA extracted from immortal cell lines (which unlike primary cells) can keep undergoing division indefinitely ( samples), e.g.  - <em></em>.</p></li>
+<li><p><strong>cell lines</strong>: RNA extracted from immortal cell lines (which unlike primary cells) can keep undergoing division indefinitely ( samples)<!-- TODO: add examples e.g. {glue:}`cell-line-ex-id` - *{glue:text}`cell-line-ex-desc`*-->.</p></li>
 <li><p><strong>tissues</strong>: RNA extracted from post-mortem tissues, which may be pooled or individual donors ( samples), e.g.  - <em></em>.</p></li>
 <li><p><strong>fractionations</strong>: RNA extracted from parts of cells (fractionations) ( samples), e.g.  - .</p></li>
 </ul>
 <p>I restricted the data set to only <em>tissues</em> and <em>primary cells</em>, as these represent the closest approximations to <em>in vivo</em> biology.
-Immortal cell lines are often expressed differently than their primary counterparts<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id194"><span>205</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id195"><span>206</span></a>]</span>, and time courses and fractionations do not represent any particular tissue.</p>
+Immortal cell lines are often expressed differently than their primary counterparts<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id195"><span>206</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id196"><span>207</span></a>]</span>, and time courses and fractionations do not represent any particular tissue.</p>
 <p><strong>Sample Type</strong>:</p>
 <p>As mentioned, tissues can come from a pool, or individual donor.
 This information can be found in the <code class="docutils literal notranslate"><span class="pre">Charateristics</span> <span class="pre">[description]</span></code> field.
 I combined this information with information from the <code class="docutils literal notranslate"><span class="pre">Characteristics</span> <span class="pre">[Category]</span></code> field to create an additional <code class="docutils literal notranslate"><span class="pre">Sample</span> <span class="pre">Type</span></code> field that describes whether a sample is a <code class="docutils literal notranslate"><span class="pre">tissue</span> <span class="pre">-</span> <span class="pre">pool</span></code>, <code class="docutils literal notranslate"><span class="pre">tissue</span> <span class="pre">-</span> <span class="pre">donor</span></code> or <code class="docutils literal notranslate"><span class="pre">primary</span> <span class="pre">cells</span></code> sample.</p>
-</div>
-<div class="section" id="technical-and-biological-replicates">
-<h4><span class="section-number">6.3.1.2.2. </span>Technical and biological replicates<a class="headerlink" href="#technical-and-biological-replicates" title="Permalink to this headline">¶</a></h4>
+<p><strong>Technical and biological replicates:</strong></p>
 <div class="margin sidebar" id="tech-biol-replicates">
 <p class="sidebar-title">Technical and biological replicates</p>
-<p>Usually <em>technical replicates</em> refer to repeated measures of the same sample, while <em>biological replicates</em> refer to separate samples which have been treated in the same way (e.g. different donors)<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id196"><span>207</span></a>]</span>.</p>
+<p>Usually <em>technical replicates</em> refer to repeated measures of the same sample, while <em>biological replicates</em> refer to separate samples which have been treated in the same way (e.g. different donors)<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id197"><span>208</span></a>]</span>.</p>
 <p>In FANTOM, the “biol_rep” and “donor” label are both used to denote biological replicates.</p>
 </div>
 <p>The <a class="reference internal" href="#fantom-accession"><span class="std std-ref">FANTOM accession numbers</span></a> are per sample, not per measurement.
@@ -712,10 +659,8 @@ FANTOM technical and biological replicates are indicated in long labels of the a
 These were used to create additional fields for the human samples table.</p>
 <p>Note: there is an error in the original transcript expression file for one of these identifiers (<code class="docutils literal notranslate"><span class="pre">tpm.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode</span></code>) such that it is missing the “tech” part of the the replicate label.
 There is a hard-coded fix for this accession when I read in the input file and the FANTOM data curation team was informed.</p>
-<p>After restricting the dataset to <em>primary cell</em> and <em>tissue</em> type samples, there are  remaining samples which have biological replicates (between 2 and 3 replicates each), and  sets of samples with technological replicates (2 replicates each).</p>
-</div>
-<div class="section" id="age-and-age-range">
-<h4><span class="section-number">6.3.1.2.3. </span>Age and age range<a class="headerlink" href="#age-and-age-range" title="Permalink to this headline">¶</a></h4>
+<p>After restricting the data set to <em>primary cell</em> and <em>tissue</em> type samples, there are  remaining samples which have biological replicates (between 2 and 3 replicates each), and  sets of samples with technological replicates (2 replicates each).</p>
+<p><strong>Age and age range:</strong></p>
 <p>The age of the sample source donor(s) is available through two fields in the human sample information file: <code class="docutils literal notranslate"><span class="pre">Characteristics</span> <span class="pre">[Developmental</span> <span class="pre">stage]</span></code>, and <code class="docutils literal notranslate"><span class="pre">Characteristics</span> <span class="pre">[Age]</span></code>.
 These fields contain description-like text, which are somewhat inconsistent, for example, “3 year old child”, “3 years old child”, “25 year old”, “76” and “76 years old adult” all feature in the same column, amongst other errors.
 These were standardised into a new field (<code class="docutils literal notranslate"><span class="pre">Age</span> <span class="pre">(years)</span></code>).
@@ -726,26 +671,25 @@ In both columns, some samples contain fetal samples, in which caset age (range) 
 For example, sample <code class="docutils literal notranslate"><span class="pre">FF:10027-101D9</span></code> is labelled as <em>thymus, adult, pool1</em> in the <em>Description</em> field, but as <em>0.5,0.5,0.83 years old infant</em> in the <em>Developmental Stage</em> field.
 Sample <code class="docutils literal notranslate"><span class="pre">FF:10209-103G2</span></code> had an age of ‘M’ and a sex of ‘28’.
 I reported both these discrepencies: and the latter has since been fixed in the FANTOM file, and for the former, I hardcode the age to <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
-</div>
-<div class="section" id="sex">
-<h4><span class="section-number">6.3.1.2.4. </span>Sex<a class="headerlink" href="#sex" title="Permalink to this headline">¶</a></h4>
+<p><strong>Sex:</strong></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Characteristics</span> <span class="pre">[Sex]</span></code> field contains information about the sex of the sample source donor(s).
 Similarly to age, due to the consortium nature of FANTOM5, the entries of this field are not consistently labelled.
 They undergo data cleaning into 4 categories: male, female, mixed (pool with both male and female samples), and unlabelled.</p>
-</div>
-<div class="section" id="disease-and-tissue-mapping">
-<h4><span class="section-number">6.3.1.2.5. </span>Disease and tissue mapping<a class="headerlink" href="#disease-and-tissue-mapping" title="Permalink to this headline">¶</a></h4>
+<p><strong>Disease and tissue mapping:</strong></p>
 <p>The disease status of samples (e.g. healthy/non-healthy) is not straight-forwardly labelled in the human sample file, so requires some basic text-mining (and cross-referencing with ontology terms).
-Similarly, there is a <code class="docutils literal notranslate"><span class="pre">Characteristics[Tissue]</span></code> field in the human samples file containing some manually mapped tissue types, but as I point out with an example in <a class="reference internal" href="#eda-sample-tissues"><span class="std std-ref">the exploratory data analysis</span></a>, these do not contain ideal mappings for <code class="docutils literal notranslate"><span class="pre">filip</span></code>.</p>
+Similarly, there is a <code class="docutils literal notranslate"><span class="pre">Characteristics[Tissue]</span></code> field in the human samples file containing some manually mapped tissue types, but as I point out with an example in <a class="reference internal" href="#eda-sample-tissues"><span class="std std-ref">the exploratory data analysis</span></a>, these do not contain ideal mappings for Filip.</p>
 <p>The continued data processing of these components is described in <a class="reference internal" href="5-methods.html#filter-methods"><span class="std std-ref">the methdology section</span></a>, after the introduction of <code class="docutils literal notranslate"><span class="pre">uberon-py</span></code> (the package developed to do this).</p>
-<div class="admonition-fantom5-cleaned-experimental-design-file admonition" id="cleaned-fantom-exp">
-<p class="admonition-title">FANTOM5 cleaned experimental design file</p>
-<p>The cleaned FANTOM5 experimental design file (which has undergone the cleaning mentioned in this section, and in <a class="reference internal" href="5-methods.html#filter-methods"><span class="std std-ref">the methodology section</span></a>) is available <span class="xref myst">here</span>.</p>
-</div>
-</div>
+<!--
+[//]: # (TODO: Add link to FANTOM exp download)
+
+```{admonition} FANTOM5 cleaned experimental design file
+:name: cleaned-fantom-exp
+The cleaned FANTOM5 experimental design file (which has undergone the cleaning mentioned in this section, and in {ref}`the methodology section<filter-methods>`) is available [here](link). 
+```
+-->
 </div>
 <div class="section" id="initial-fantom5-data-cleaning-expression-file">
-<h3><span class="section-number">6.3.1.3. </span>Initial FANTOM5 data cleaning: expression file<a class="headerlink" href="#initial-fantom5-data-cleaning-expression-file" title="Permalink to this headline">¶</a></h3>
+<span id="fantom-cleaning-expression"></span><h3><span class="section-number">6.3.1.3. </span>Initial FANTOM5 data cleaning: expression file<a class="headerlink" href="#initial-fantom5-data-cleaning-expression-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">helper_c05</span> <span class="kn">import</span> <span class="n">fantom_tpm_clean</span> <span class="k">as</span> <span class="n">tpm_clean</span>
@@ -760,34 +704,21 @@ Similarly, there is a <code class="docutils literal notranslate"><span class="pr
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: make cell invisible</span>
-<span class="n">fsc</span><span class="o">.</span><span class="n">save_sample_cleaned</span><span class="p">(</span><span class="n">samples_info</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;data/cleaned_pre_input/samples_info.csv&#39;</span><span class="p">)</span>
-<span class="n">tpm_clean</span><span class="o">.</span><span class="n">save_long_ids</span><span class="p">(</span><span class="n">long_ids_to_new_ff</span><span class="p">,</span> <span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;data/cleaned_pre_input/ff_accessions_to_keep.txt&#39;</span><span class="p">)</span>
-<span class="n">tpm_clean</span><span class="o">.</span><span class="n">save_protein_tpm</span><span class="p">(</span><span class="n">protein_tpm</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;data/cleaned_pre_input/protein_tpm.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <p>The tidied and restricted sample data, is combined with the FANTOM5 CAGE peaks expression data file and processed to create a protein-centric expression file.
 The CAGE peaks have already been cleaned by FANTOM (labeled as “fair”) meaning that CAGE peaks do not overlap.</p>
-<div class="section" id="cage-peaks-with-associated-proteins">
-<h4><span class="section-number">6.3.1.3.1. </span>CAGE peaks with associated proteins<a class="headerlink" href="#cage-peaks-with-associated-proteins" title="Permalink to this headline">¶</a></h4>
+<p><strong>CAGE peaks with associated proteins:</strong></p>
 <p>The CAGE peaks represent all kinds of mRNA transcripts, not only those which map to protein-coding gene, for example “RNA genes” representing pseduogenes or long non-coding RNAs.
 The FANTOM file provides mappings to Uniprot IDs (<code class="docutils literal notranslate"><span class="pre">uniprot_id</span></code>), and these are used to discard the CAGE peaks that do not map to protein-coding genes: this takes us from  to   rows (CAGE peaks).</p>
-</div>
-<div class="section" id="cage-peaks-mapped-to-one-gene-only">
-<h4><span class="section-number">6.3.1.3.2. </span>CAGE peaks mapped to one gene only<a class="headerlink" href="#cage-peaks-mapped-to-one-gene-only" title="Permalink to this headline">¶</a></h4>
+<p><strong>CAGE peaks mapped to one gene only:</strong></p>
 <p>CAGE peaks are mapped to genes based on overlap with the gene, so it is not always clear which gene a CAGE peak maps to.
-For simplicity, and to remove the potential of wrongly mapped genes being used in <code class="docutils literal notranslate"><span class="pre">filip</span></code>, protein-coding CAGE peaks (those which are mapped to at least one <code class="docutils literal notranslate"><span class="pre">uniprot_id</span></code> by FANTOM) but that map to multiple genes are removed.
+For simplicity, and to remove the potential of wrongly mapped genes being used in Filip, protein-coding CAGE peaks (those which are mapped to at least one <code class="docutils literal notranslate"><span class="pre">uniprot_id</span></code> by FANTOM) but that map to multiple genes are removed.
 These can be found by looking at either the <code class="docutils literal notranslate"><span class="pre">hgnc_id</span></code> or <code class="docutils literal notranslate"><span class="pre">entrezgene_id</span></code> gene identifier columns.
 The choice of gene ID matters, since there are discrepancies between gene ID databases: in this case, choosing <code class="docutils literal notranslate"><span class="pre">hgnc_id</span></code> finds all those CAGE peaks found by using <code class="docutils literal notranslate"><span class="pre">entrezgene_id</span></code>, and more, so these are removed.
 This represents a total of  CAGE peaks that map to multiple genes according to the given identifiers.</p>
-</div>
-<div class="section" id="proteins-that-map-to-multiple-genes">
-<h4><span class="section-number">6.3.1.3.3. </span>Proteins that map to multiple genes<a class="headerlink" href="#proteins-that-map-to-multiple-genes" title="Permalink to this headline">¶</a></h4>
-<p>For <code class="docutils literal notranslate"><span class="pre">filip</span></code>, the expression was calculated per protein (since it is protein function predictions that it is filtering), rather than per CAGE peak (summing the TPMs of all CAGE peaks mapped to a protein to get the total for that protein) as in the original data, or as is often presented per gene.
+<p><strong>Proteins that map to multiple genes:</strong></p>
+<p>For Filip, the expression was calculated per protein (since it is protein function predictions that it is filtering), rather than per CAGE peak (summing the TPMs of all CAGE peaks mapped to a protein to get the total for that protein) as in the original data, or as is often presented per gene.
 This gave  rows of “protein expression” data.</p>
 <p>Of these, there were then  rows of data (corresponding to  proteins) for which each protein maps to multiple genes.
 This happens when different genes are translated to make identical protein products, for example the <a class="reference external" href="https://www.uniprot.org/uniprot/P62805">H4 human histone protein</a> is encoded by 14 different genes at different loci, across three different chromosomes.
@@ -795,11 +726,9 @@ It used to be the case that Uniprot would map these genes to the same Uniprot ID
 These small number of rows were also removed for simplicity.</p>
 <!--It would probably make sense to keep these multiple gene proteins and sum over them because they are expressed lots around the geneome, so it would make sense to continue to count them. The small number and the fact that they are widely expressed means it isn't likely to be important though-->
 </div>
-</div>
 <div class="section" id="exploratory-data-analysis">
-<h3><span class="section-number">6.3.1.4. </span>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="samples">
-<h4><span class="section-number">6.3.1.4.1. </span>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">¶</a></h4>
+<span id="fantom-filter-eda"></span><h3><span class="section-number">6.3.1.4. </span>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h3>
+<p><strong>Samples:</strong></p>
 <p>After <a class="reference internal" href="#fantom-sample-categories"><span class="std std-ref">restricting the samples to those which are primary cells or tissues</span></a>, there were  remaining samples.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -836,9 +765,7 @@ In <a class="reference internal" href="#fantom-eda"><span class="std std-numref"
 <p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text">An example of four <em>ANANTOMICAL SYSTEM</em> tissues, with tissue-specific cells, indicating that they could be mapped to tissues. For example sample <code class="docutils literal notranslate"><span class="pre">FF:11922-125H5</span></code> is a gingival fibroblast, which are one of the main constituent cells of gum tissue.</span><a class="headerlink" href="#anatomical-system-table" title="Permalink to this image">¶</a></p>
 </div>
 <p>We can also see in <a class="reference internal" href="#anatomical-system-table"><span class="std std-numref">Fig. 6.3</span></a> that this data set, though having undergone some data cleaning, still contains disease samples (e.g. “aggressive periodontitis”).</p>
-</div>
-<div class="section" id="protein-centric-tpm">
-<h4><span class="section-number">6.3.1.4.2. </span>Protein-centric TPM<a class="headerlink" href="#protein-centric-tpm" title="Permalink to this headline">¶</a></h4>
+<p><strong>Protein-centric TPM:</strong></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">helper_c05</span> <span class="kn">import</span> <span class="n">fantom_tpm_eda</span> <span class="k">as</span> <span class="n">fte</span>
@@ -857,12 +784,11 @@ In <a class="reference internal" href="#fantom-eda"><span class="std std-numref"
 <p>As expected, <a class="reference internal" href="#fantom-protein-distribution"><span class="std std-numref">Fig. 6.4</span></a> shows similar distributions of expression per tissue since the data is TPM normalised (<a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html#rna-normalisation"><span class="std std-ref">since TPM normalises samples by sample library size to account for sequencing depth</span></a>), with the characteristic long tail.</p>
 </div>
 </div>
-</div>
 <div class="section" id="cell-tissue-and-phenotype-mapping-data">
 <span id="cell-tissue-phen-map-data"></span><h2><span class="section-number">6.3.2. </span>Cell, tissue, and phenotype mapping data<a class="headerlink" href="#cell-tissue-and-phenotype-mapping-data" title="Permalink to this headline">¶</a></h2>
 <p>I also used the following datasets to aid in mapping to a common set of identifiers:</p>
 <ul class="simple">
-<li><p>the <a class="reference external" href="http://purl.obolibrary.org/obo/uberon/ext.obo">uberon extended ontology OBO file</a> from <span class="xref myst">the uberon website</span> to assist in mapping cells and tissues.</p></li>
+<li><p>the <a class="reference external" href="http://purl.obolibrary.org/obo/uberon/ext.obo">uberon extended ontology OBO file</a> from <a class="reference external" href="http://uberon.github.io/downloads.html">the uberon website</a> to assist in mapping cells and tissues.</p></li>
 </ul>
 </div>
 <div class="section" id="training-set-cafa2">
@@ -879,10 +805,10 @@ Although Filip was not literally “trained” on this data in a machine-learnin
 <li><p><a class="reference internal" href="#cafa2-targets"><span class="std std-ref">CAFA2 targets</span></a>: a list of proteins which the CAFA2 competition was soliciting predictions for.</p></li>
 <li><p><a class="reference internal" href="#cafa-benchmark"><span class="std std-ref">CAFA2 ground truth data</span></a>: experimentally validated associations between proteins and GO terms, divided by category.</p></li>
 </ul>
-<p>Both of which could be found within the CAFA2 paper<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id112"><span>108</span></a>]</span>’s <a class="reference external" href="https://figshare.com/articles/dataset/Supplementary_Data_for_CAFA2/2059944">Supplementary Material</a>.</p>
+<p>Both of which could be found within the CAFA2 paper<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id113"><span>108</span></a>]</span>’s <a class="reference external" href="https://figshare.com/articles/dataset/Supplementary_Data_for_CAFA2/2059944">Supplementary Material</a>.</p>
 <p id="cafa2-targets"><strong>CAFA2 targets</strong>:
 CAFA2 provided targets from species across the tree of life: bacteria (10 species), archaea (7 species), and eukaryotes (10 species).
-Since tissue-specific gene expression data (which <code class="docutils literal notranslate"><span class="pre">filip</span></code> requires) is not available for all species, I only used the human targets (in <code class="docutils literal notranslate"><span class="pre">data/CAFA2-targets/eukarya/sp_species.9606.tfa</span></code>).</p>
+Since tissue-specific gene expression data (which Filip requires) is not available for all species, I only used the human targets (in <code class="docutils literal notranslate"><span class="pre">data/CAFA2-targets/eukarya/sp_species.9606.tfa</span></code>).</p>
 <div class="margin sidebar" id="fasta">
 <p class="sidebar-title">FASTA format</p>
 <p>FASTA is a text-based file format for proteins, where each letter represents an amino acid (except X, which represents any amino acid).</p>

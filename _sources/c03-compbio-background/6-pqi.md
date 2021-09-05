@@ -129,7 +129,7 @@ A view of the PQI website for the RGTB423 strain of Myobacterium Tuberculosis. T
 ```
 
 A typical use case for PQI would be to check the metrics of a genome before including it in analysis. 
-Comparing {numref}`myobacyyz` (showing the [PQI website for the lower-scoring proteome]((https://pqi-list.org/genome/Yyz))) to the earlier example in {numref}`myobacrKb`, we can see that the RGTB423 strain scores considerably worse in all of the metrics associated with proteins or protein domains. 
+Comparing {numref}`myobacyyz` (showing the [PQI website for the lower-scoring proteome]((http://pqi-list.org/genome/Yyz))) to the earlier example in {numref}`myobacrKb`, we can see that the RGTB423 strain scores considerably worse in all of the metrics associated with proteins or protein domains. 
 For example, the average sequence length is considerably shorter in RGTB423 than in Haarlem, which makes it very unusual for the clade, meaning that the genome gets only 1.9 stars for this metric. 
 This is indicative of the fact that the proteins in the sequenced RGTB423 strain are incomplete.
 

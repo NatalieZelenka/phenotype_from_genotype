@@ -107,7 +107,7 @@ Much of the time, the aim of studying such variants is to determine which are wh
 This is often done through looking at their rarity, either in a specific human population (e.g. people with diabetes), the entire human population, or across the tree of life. 
 
 ```{margin} Alleles
-:name: define-allel
+:name: define-allele
 The different forms that a variant can take in the population are called alleles. 
 Alleles can be as big as different forms of a whole gene, or as small in length as an individual nucleotide.
 ```

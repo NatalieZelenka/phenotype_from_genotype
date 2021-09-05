@@ -255,13 +255,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -342,7 +336,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-filter/6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -374,7 +368,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -430,6 +424,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -561,7 +567,7 @@
               <div>
                 
   <div class="section" id="appendix">
-<h1>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h1>
 <!--
 ## Gene study
 [//]: # (TODO: Gene study)
@@ -578,7 +584,7 @@ This appendix contains some preliminary work towards this goal, in estimating pa
 <div class="section" id="parameters-for-simulation">
 <h2>Parameters for simulation<a class="headerlink" href="#parameters-for-simulation" title="Permalink to this headline">¶</a></h2>
 <p>In order to create simulated data that is similar to the real thing, decisions must be made about how to parameterise the distribution of counts per sample and how these relate to tissue specific effects and batch effects.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">polyester</span></code> R package<span id="id1">[<a class="reference internal" href="reference.html#id87"><span>261</span></a>]</span> can be used to simulate RNA-seq count data with the same design of tissues, samples, and experiments as in the combined data set, particularly the <code class="docutils literal notranslate"><span class="pre">create_read_numbers</span></code> function, which requires a model matrix that specifies the experimental design and a matrix of coefficients <span class="math notranslate nohighlight">\(\beta\)</span> that specify the sample-specific effects.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">polyester</span></code> R package<span id="id2">[<a class="reference internal" href="reference.html#id88"><span>263</span></a>]</span> can be used to simulate RNA-seq count data with the same design of tissues, samples, and experiments as in the combined data set, particularly the <code class="docutils literal notranslate"><span class="pre">create_read_numbers</span></code> function, which requires a model matrix that specifies the experimental design and a matrix of coefficients <span class="math notranslate nohighlight">\(\beta\)</span> that specify the sample-specific effects.</p>
 <div class="section" id="count-parameters">
 <h3>Count parameters<a class="headerlink" href="#count-parameters" title="Permalink to this headline">¶</a></h3>
 <p>For gene expression count data, a zero-truncated negative binomial distribution is commonly used to represent the underlying gene expression counts
@@ -621,11 +627,6 @@ These more general tissue groups contain the same specificity (and some of the e
 <span class="n">overall_design</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">tissue_groups_to_discard</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">mod</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">tissue_groups_to_discard</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">tissue_groups</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tissue_groups_to_discard</span><span class="p">)</span>
-
-<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;design-balance&#39;</span><span class="p">,</span> <span class="n">overall_design</span><span class="p">)</span>
-<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;mod-head&#39;</span><span class="p">,</span> <span class="n">mod</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-
-<span class="n">mod</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../c08-combining/data/simulated/group_mod.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -676,8 +677,9 @@ These more general tissue groups contain the same specificity (and some of the e
 <span class="kn">import</span> <span class="nn">plotly.figure_factory</span> <span class="k">as</span> <span class="nn">ff</span>
 <span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">pdist</span><span class="p">,</span> <span class="n">squareform</span>
 
-<span class="n">data_array</span> <span class="o">=</span> <span class="n">corrcoef_genes</span><span class="o">.</span><span class="n">values</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">corrcoef_genes</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">num_to_picture</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Bigger than GitHub storage if use all 1000</span>
+<span class="n">data_array</span> <span class="o">=</span> <span class="n">corrcoef_genes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">num_to_picture</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">corrcoef_genes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">num_to_picture</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
 
 <span class="c1"># Code for dendogram and heatmap adapted from plotly examples: https://plotly.com/python/dendrogram/</span>
 <span class="c1"># Initialize figure by creating upper dendrogram</span>
@@ -765,9 +767,9 @@ These more general tissue groups contain the same specificity (and some of the e
 </div>
 <div class="figure align-default" id="heatmap-correlations">
 <a class="reference internal image-reference" href="../_images/blank.png"><img alt="../_images/blank.png" src="../_images/blank.png" style="width: 1px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Heatmap showing the correlation coefficients between the randomly sampled 1000 genes in the FANTOM5 data set.</span><a class="headerlink" href="#heatmap-correlations" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Heatmap showing the correlation coefficients between 100 randomly sampled genes from the FANTOM5 data set.</span><a class="headerlink" href="#heatmap-correlations" title="Permalink to this image">¶</a></p>
 </div>
-<p>The correlations between genes, which are used to <a class="reference internal" href="../c08-combining/4-simulation.html#creating-coefficient-matrix"><span class="std std-ref">create the coefficient matrix</span></a> are shown in <a class="reference internal" href="#heatmap-correlations"><span class="std std-numref">Fig. 1</span></a>.</p>
+<p>The correlations between genes, which could be used to create the coefficient matrix <span class="math notranslate nohighlight">\(\beta\)</span> are shown in <a class="reference internal" href="#heatmap-correlations"><span class="std std-numref">Fig. 1</span></a>.</p>
 </div>
 <div class="section" id="distribution-of-fold-changes-for-tissue-specific-genes">
 <h3>Distribution of fold-changes for tissue specific genes<a class="headerlink" href="#distribution-of-fold-changes-for-tissue-specific-genes" title="Permalink to this headline">¶</a></h3>
@@ -814,8 +816,8 @@ I first checked that each of the tissues had some tissue-specific genes accordin
 </div>
 </div>
 <p>I then extracted the multipliers from the data, and converted them to log2-fold format (expected by <code class="docutils literal notranslate"><span class="pre">polyester</span></code>).
-Since the distribution was long-tailed, I compared the distribution to an exponential, log-normal and power-law distribution using the python <code class="docutils literal notranslate"><span class="pre">powerlaw</span></code> package<span id="id2">[<a class="reference internal" href="reference.html#id270"><span>262</span></a>]</span>.
-Comparative tests showed that lognormal was the best fit (with extremely low p-values, see code output below);  <code class="xref std std-numref docutils literal notranslate"><span class="pre">powerlaw-multipliers</span></code> visualises this.</p>
+Since the distribution was long-tailed, I compared the distribution to an exponential, log-normal and power-law distribution using the python <code class="docutils literal notranslate"><span class="pre">powerlaw</span></code> package<span id="id3">[<a class="reference internal" href="reference.html#id271"><span>264</span></a>]</span>.
+Comparative tests showed that lognormal was the best fit (with extremely low p-values, see code output below); <a class="reference internal" href="#powerlaw-multipliers-fit"><span class="std std-numref">Fig. 3</span></a> visualises this.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -883,7 +885,7 @@ Comparative tests showed that lognormal was the best fit (with extremely low p-v
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;Log&lt;sub&gt;2&lt;/sub&gt;-fold multipliers tissue-specific gene.&#39;</span><span class="p">,</span>
                  <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;Probability density&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">bin_centres</span><span class="p">)])</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.008</span><span class="p">])</span>
+<span class="c1"># fig.update_yaxes(range=[0, 0.008])</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -896,7 +898,7 @@ Comparative tests showed that lognormal was the best fit (with extremely low p-v
 </div>
 <p>The log-normal distribution was the best fit to the data, see <a class="reference internal" href="#powerlaw-multipliers-fit"><span class="std std-numref">Fig. 3</span></a>).
 The parameters fitting the log2-fold changes to the log-normal distribution were estimated as <span class="math notranslate nohighlight">\(\mu=\)</span> <span class="math notranslate nohighlight">\(\sigma=\)</span>.
-Visually inspection of <code class="xref std std-numref docutils literal notranslate"><span class="pre">multipliers-fit</span></code> reveals that the data simulated from these parameters appears to fit the data reasonably well, although it may be better parameterised by two overlapping distributions.</p>
+Visual inspection of <a class="reference internal" href="#powerlaw-multipliers-fit"><span class="std std-numref">Fig. 3</span></a> reveals that the data simulated from these parameters appears to fit the data reasonably well, although it may be better parameterised by two overlapping distributions.</p>
 <p><strong>Number of tissue-specific genes per tissue:</strong>
 The number of tissue-specific genes per tissue was also calculated from the HPA data.
 Again, the data was most similar to a lognormal, still with very small p-values (see code output below), but the fit (see <a class="reference internal" href="#genes-per-tissue"><span class="std std-numref">Fig. 4</span></a>) was less convincing, probably due to the small number of tissues: 37.
@@ -981,7 +983,7 @@ The distribution was parameterised with <span class="math notranslate nohighligh
 </div>
 <div class="section" id="simulating-tissue-specific-rna-seq-counts">
 <h2>Simulating tissue-specific RNA-Seq counts<a class="headerlink" href="#simulating-tissue-specific-rna-seq-counts" title="Permalink to this headline">¶</a></h2>
-<p>Counts can then be simulated using <code class="docutils literal notranslate"><span class="pre">polyester</span></code> (using <code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">script</span></code>) or an alternative tool.</p>
+<p>Counts can then be simulated using <code class="docutils literal notranslate"><span class="pre">polyester</span></code> (using <a class="reference download internal" download="" href="../_downloads/1d5aed2e2ac99c61648969ced4c4bf8c/create-base-simulated-counts.R"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">script</span></code></a>) or an alternative tool.</p>
 <p>The simulated data set is given by: <span class="math notranslate nohighlight">\(C_{ijk}\propto Negative Binomal (mean=\mu_{jk},size=r_{jk})\)</span> for replicate <span class="math notranslate nohighlight">\(i\)</span>, gene <span class="math notranslate nohighlight">\(j\)</span>, and sample <span class="math notranslate nohighlight">\(k\)</span>, where:</p>
 <ul class="simple">
 <li><p>the means are given by <span class="math notranslate nohighlight">\(\mu_{jk}=\mu'_j+\beta_{jk} \cdot mod\)</span></p></li>

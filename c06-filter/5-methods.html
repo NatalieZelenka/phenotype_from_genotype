@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.5. Results" href="6-results.html" />
+    <link rel="next" title="6.5. Filip results" href="6-results.html" />
     <link rel="prev" title="6.3. Data" href="3-data.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -255,13 +255,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -342,7 +336,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -374,7 +368,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -430,6 +424,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -513,8 +519,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filip-inputs">
-   6.4.2. Filip inputs
+  <a class="reference internal nav-link" href="#filip-inputs-for-validation">
+   6.4.2. Filip inputs for validation
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -528,18 +534,6 @@
   <a class="reference internal nav-link" href="#running-filip">
    6.4.3. Running Filip
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mapping-between-uberon-tissues-and-phenotypes">
-     6.4.3.1. Mapping between Uberon tissues and phenotypes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#choosing-an-expression-cut-off">
-     6.4.3.2. Choosing an expression cut-off
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#validation-methodology">
@@ -547,13 +541,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cafa-validation">
-     6.4.4.1. CAFA Validation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#limitations-of-validation-method">
-     6.4.4.2. Limitations of validation method
+     6.4.4.1. Limitations of validation method
     </a>
    </li>
   </ul>
@@ -588,34 +577,34 @@ There are multiple steps that must be carried out in order to create these input
 -->
 <div class="section" id="test-set-cafa3">
 <span id="cafa3-test-set"></span><h2><span class="section-number">6.4.1. </span>Test set: CAFA3<a class="headerlink" href="#test-set-cafa3" title="Permalink to this headline">¶</a></h2>
-<p>After initial development, I entered DcGO only, and <code class="docutils literal notranslate"><span class="pre">filip</span></code> plus DcGO into the CAFA3 competition in order to test <code class="docutils literal notranslate"><span class="pre">filip</span></code> on an unseen dataset.</p>
+<p>After initial development, I entered DcGO only, and Filip-plus-DcGO into the CAFA3 competition in order to test Filip on an unseen dataset.</p>
 <p>This meant that I did not download the CAFA3 ground-truth, as this analysis was done by the CAFA3 team, but only the <a class="reference external" href="https://www.biofunctionprediction.org/cafa-targets/CAFA3_targets.tgz">CAFA3 targets</a>, these continue to be available through the CAFA website.</p>
 <p>Again, I used only the human targets (file <code class="docutils literal notranslate"><span class="pre">target.9606.fasta</span></code>).
 This is again a FASTA file, with the same format as for CAFA2, this time containing <code class="docutils literal notranslate"><span class="pre">20197</span></code> targets proteins.</p>
 </div>
-<div class="section" id="filip-inputs">
-<h2><span class="section-number">6.4.2. </span>Filip inputs<a class="headerlink" href="#filip-inputs" title="Permalink to this headline">¶</a></h2>
-<p>Two types of input are needed for Filip:</p>
+<div class="section" id="filip-inputs-for-validation">
+<span id="filip-intputs-validation"></span><h2><span class="section-number">6.4.2. </span>Filip inputs for validation<a class="headerlink" href="#filip-inputs-for-validation" title="Permalink to this headline">¶</a></h2>
+<p>As previously described, three types of input are needed for Filip:</p>
 <ol class="simple">
 <li><p>Protein function predictions</p></li>
 <li><p>Normalised gene expression data.</p></li>
 <li><p>A map from gene expression samples to Uberon tissues.</p></li>
 </ol>
-<p>I described the gene expression data and metadata for (2) and (3) described in the previous section.</p>
+<p>I described the gene expression data and metadata for (2) and (3) use for validation in the previous section.</p>
 <div class="section" id="creating-protein-function-predictions-dcgo">
 <span id="create-protein-function-predictions"></span><h3><span class="section-number">6.4.2.1. </span>Creating protein function predictions (DcGO)<a class="headerlink" href="#creating-protein-function-predictions-dcgo" title="Permalink to this headline">¶</a></h3>
 <p>I used DcGO as a test since I knew that it’s structure-centric prediction method didn’t include any gene expression information.</p>
 <p>To create the input to DcGO, I used:</p>
 <ul class="simple">
-<li><p>BioPython<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id190"><span>208</span></a>]</span>’s <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO</span></code> interface for reading CAFA FASTA files.</p></li>
-<li><p>SUPERFAMILY<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id47"><span>105</span></a>]</span> <a class="reference external" href="https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/cgi-bin/save.cgi?var=ht%3Btype=ass">domain assignments for Homo Sapiens</a>.</p></li>
-<li><p>UniprotKB<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id191"><span>209</span></a>]</span>’s <a class="reference external" href="https://www.uniprot.org/uploadlists/">mapping tool</a> to create a mapping between the UniprotKB id’s provided by CAFA and the ENSP ID’s used by SUPERFAMILY.</p></li>
+<li><p>BioPython<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id191"><span>209</span></a>]</span>’s <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO</span></code> interface for reading CAFA FASTA files.</p></li>
+<li><p>SUPERFAMILY<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id48"><span>105</span></a>]</span> <a class="reference external" href="https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/cgi-bin/save.cgi?var=ht%3Btype=ass">domain assignments for Homo Sapiens</a>.</p></li>
+<li><p>UniprotKB<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id192"><span>210</span></a>]</span>’s <a class="reference external" href="https://www.uniprot.org/uploadlists/">mapping tool</a> to create a mapping between the UniprotKB id’s provided by CAFA and the ENSP ID’s used by SUPERFAMILY.</p></li>
 </ul>
 <p>The script to create the UniprotKB IDs is <a class="reference download internal" download="" href="../_downloads/21b06bbc87849cd431043497ef629dae/fasta_to_uniprot.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span> <span class="pre">here</span></code></a>, to create the input for DcGO is <a class="reference download internal" download="" href="../_downloads/0f6968c734eb0e3592fbb93afaaafdcf/make_dcgo_input.py"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.
-Then, to create the DcGO-only entry, I used the <code class="docutils literal notranslate"><span class="pre">DcGOR</span></code> library<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id192"><span>210</span></a>]</span> (the <code class="docutils literal notranslate"><span class="pre">dcAlgoPredictMain</span></code> function).</p>
+Then, to create the DcGO-only entry, I used the <code class="docutils literal notranslate"><span class="pre">DcGOR</span></code> library<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id193"><span>211</span></a>]</span> (the <code class="docutils literal notranslate"><span class="pre">dcAlgoPredictMain</span></code> function).</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
 <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
 <span class="c1"># TODO: Make drop-down. Glue table.</span>
@@ -631,7 +620,7 @@ Then, to create the DcGO-only entry, I used the <code class="docutils literal no
 </div>
 </div>
 </div>
-<p>The DcGO predictions contain only  of  proteins and  phenotype terms (all of which are <code class="docutils literal notranslate"><span class="pre">GO</span></code> terms).</p>
+<p>The DcGO predictions contain only <span class="pasted-text">15192949</span> of <span class="pasted-text">20257</span> proteins and <span class="pasted-text">15749</span> phenotype terms (all of which are <code class="docutils literal notranslate"><span class="pre">GO</span></code> terms).</p>
 <!--
 
 (samples-to-tissue)=
@@ -911,21 +900,13 @@ assert(pd.Series.all(samples_info[samples_info.index.isin(list(missing_human_ann
 </div>
 </div>
 <div class="section" id="running-filip">
-<h2><span class="section-number">6.4.3. </span>Running Filip<a class="headerlink" href="#running-filip" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="mapping-between-uberon-tissues-and-phenotypes">
-<h3><span class="section-number">6.4.3.1. </span>Mapping between Uberon tissues and phenotypes<a class="headerlink" href="#mapping-between-uberon-tissues-and-phenotypes" title="Permalink to this headline">¶</a></h3>
+<span id="running-filip-validation"></span><h2><span class="section-number">6.4.3. </span>Running Filip<a class="headerlink" href="#running-filip" title="Permalink to this headline">¶</a></h2>
 <p>I used an early version of <a class="reference internal" href="../c07-ontolopy/0-index.html#c06-ontolopy"><span class="std std-ref">ontolopy</span></a> to map between uberon tissues and phenotypes.
 I describe this process in detail in <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#ontolopy-mapping-example"><span class="std std-numref">Section 7.5</span></a>: for CAFA3, I used phenotypes present in DcGO predictions as targets, and looked for mappings only including Uberon terms (not Cell Ontology terms).</p>
-</div>
-<div class="section" id="choosing-an-expression-cut-off">
-<h3><span class="section-number">6.4.3.2. </span>Choosing an expression cut-off<a class="headerlink" href="#choosing-an-expression-cut-off" title="Permalink to this headline">¶</a></h3>
 <p>The cut-off was chosen by plotting the distribution of TPM expression and choosing a value below which there appeared to be little noise (50 TPM) between biological and technical replicates.</p>
-</div>
 </div>
 <div class="section" id="validation-methodology">
 <span id="cafa-validation-method"></span><h2><span class="section-number">6.4.4. </span>Validation Methodology<a class="headerlink" href="#validation-methodology" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="cafa-validation">
-<h3><span class="section-number">6.4.4.1. </span>CAFA Validation<a class="headerlink" href="#cafa-validation" title="Permalink to this headline">¶</a></h3>
 <p>This confidence score allows for a range of possible sets of predictions, depending on the threshold parameter <span class="math notranslate nohighlight">\(\tau\)</span>.
 Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined as:</p>
 <p><span class="math notranslate nohighlight">\(precision = p = \frac{t_p}{t_p + f_p}\)</span>
@@ -934,9 +915,8 @@ Precision (the proportion of selected items that are relevant), and recall (the 
 <p><span class="math notranslate nohighlight">\(F_1 =2/ \frac{precision \cdot recall}{precision + recall}\)</span></p>
 <p>Since the precision and recall will be different for any <span class="math notranslate nohighlight">\(\tau\)</span>, the <span class="math notranslate nohighlight">\(F_{max}\)</span> score is the maximum possible {math{<code class="docutils literal notranslate"><span class="pre">F_1</span></code>} for any value of <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
 <p>CAFA validation can either be term-centric or protein-centric. For each option, submissions are assessed per species and for wholly unknown and partially known genes separately.</p>
-</div>
 <div class="section" id="limitations-of-validation-method">
-<h3><span class="section-number">6.4.4.2. </span>Limitations of validation method<a class="headerlink" href="#limitations-of-validation-method" title="Permalink to this headline">¶</a></h3>
+<span id="validation-cafa-limitations"></span><h3><span class="section-number">6.4.4.1. </span>Limitations of validation method<a class="headerlink" href="#limitations-of-validation-method" title="Permalink to this headline">¶</a></h3>
 <p>There is no penalty for making a broad guess, or reward for making a precise one.
 This is one of the reasons that the naive method does so well: for example it is not penalised for guessing that the root term of the GO BPO ontology Biological Process is related to every gene.</p>
 <p>Due to the nature of the validation set, it’s possible that the best-scoring CAFA methods simply predict which associations are likely to be discovered soon (i.e. associations to genes people are currently studying, which is well-predicted by genes that are currently being studied).</p>
@@ -986,7 +966,7 @@ This is one of the reasons that the naive method does so well: for example it is
         <a class="right-next" href="6-results.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">6.5. </span>Results</p>
+                <p class="prevnext-title"><span class="section-number">6.5. </span>Filip results</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

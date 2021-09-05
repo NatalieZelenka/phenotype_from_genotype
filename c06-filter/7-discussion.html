@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7. Ontolopy" href="../c07-ontolopy/0-index.html" />
-    <link rel="prev" title="6.5. Results" href="6-results.html" />
+    <link rel="prev" title="6.5. Filip results" href="6-results.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -253,13 +253,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -340,7 +334,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -372,7 +366,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -428,6 +422,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -551,13 +557,13 @@
               <div>
                 
   <div class="section" id="discussion-and-future-work">
-<h1><span class="section-number">6.6. </span>Discussion and Future work<a class="headerlink" href="#discussion-and-future-work" title="Permalink to this headline">¶</a></h1>
+<span id="filip-discussion"></span><h1><span class="section-number">6.6. </span>Discussion and Future work<a class="headerlink" href="#discussion-and-future-work" title="Permalink to this headline">¶</a></h1>
 <p>However incrementally, Filip met its goal of increasing the precision of DcGO predictions: Filip was correct in 99.973% of it’s predictions, showing that this could be a useful approach if coverage can be increased.
 In addition, 100% of wrongly filtered out (true) predictions, appear to be explainable due to the sample condition of the gene expression data (development-related phenotypes, with a lack of development age tissue-specific samples).</p>
 <p>The results show that including gene expression information does improve results of a structure-based predictor, and that this improvement is extremely unlikely to be due to chance.
 The overall improvement is very slight, but this could be be improved by a more comprehensive coverage of gene expression data for tissues, and/or by an improved mapping of tissues to ontology terms.</p>
 <div class="section" id="coverage">
-<h2><span class="section-number">6.6.1. </span>Coverage<a class="headerlink" href="#coverage" title="Permalink to this headline">¶</a></h2>
+<span id="filip-coverage"></span><h2><span class="section-number">6.6.1. </span>Coverage<a class="headerlink" href="#coverage" title="Permalink to this headline">¶</a></h2>
 <p>We have seen that Filip was successful for 99.973% of it’s “choices”, but that the number of decisions it could make were not enough to usefully boost the performance of the predictor it was tested on.
 This reveals that the limited success of Filip on the CAFA data is due to it’s poor mapping coverage.</p>
 <p>Although the FANTOM5 data set has a excellent coverage of tissue types and number of samples, the filter is nonetheless limited to the tissues it contains.
@@ -569,14 +575,14 @@ This further reduces the coverage of CAFA predictions that Filip could be tested
 In this initial test of Filip, I did not include mappings via Cell Ontology terms.
 Including Cell Ontology terms can increase the coverage (see <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#cl-increases-coverage"><span class="std std-numref">Table 7.1</span></a>).</p>
 <div class="section" id="practical-difficulties-in-finding-and-creating-alternative-input-data">
-<h3><span class="section-number">6.6.1.1. </span>Practical difficulties in finding and creating alternative input data<a class="headerlink" href="#practical-difficulties-in-finding-and-creating-alternative-input-data" title="Permalink to this headline">¶</a></h3>
+<span id="practicalities-improving-coverage"></span><h3><span class="section-number">6.6.1.1. </span>Practical difficulties in finding and creating alternative input data<a class="headerlink" href="#practical-difficulties-in-finding-and-creating-alternative-input-data" title="Permalink to this headline">¶</a></h3>
 <p>In theory, Filip could be used with any other RNA-Seq data set with a wide range of tissues.
 In practice, however, finding a data set with the appropriate spread of tissues and cell samples (and furthermore, detailed metadata about these samples) is difficult.</p>
 <p>The Ontolopy package (<a class="reference internal" href="../c07-ontolopy/0-index.html#c06-ontolopy"><span class="std std-ref">next chapter</span></a>) does provide make mapping samples to Uberon tissues possible, even when only names or descriptions of the tissues are present.</p>
 </div>
 </div>
 <div class="section" id="wrong-ly-filtered-out-tissues">
-<h2><span class="section-number">6.6.2. </span>Wrong-ly filtered out tissues<a class="headerlink" href="#wrong-ly-filtered-out-tissues" title="Permalink to this headline">¶</a></h2>
+<span id="filtered-out"></span><h2><span class="section-number">6.6.2. </span>Wrong-ly filtered out tissues<a class="headerlink" href="#wrong-ly-filtered-out-tissues" title="Permalink to this headline">¶</a></h2>
 <p>100% of wrongly filtered out tissues were “development” terms.
 This could mean that time is another way in which cell context should be considered, for example we shouldn’t filter out predictions for development phenotypes if we only have adult/not-fetal tissues, and perhaps vice versa.
 Should we include developing tissue samples as evidence that a gene is expressed in a tissue type if the phenotype manifests after development?
@@ -590,16 +596,16 @@ The mappings between phenotype terms and tissues should also be made available a
 <p>I plan to do this work in time for the next CAFA challenge (CAFA5), by which time I would like to improve the coverage using the mapping improvements made in the rest of this thesis, specifically those made by including the cell ontology (in addition to Uberon - explained in the next chapter, and using the <a class="reference internal" href="../c08-combining/0-index.html#c05-combining"><span class="std std-ref">combined tissue-specific gene expression data set</span></a>.
 I would also like to enter CAFA5 using the naive predictor plus Filip, to test Filip’s potential as a standalone predictor.</p>
 <div class="section" id="speed">
-<h3><span class="section-number">6.6.3.1. </span>Speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h3>
+<span id="filip-speed"></span><h3><span class="section-number">6.6.3.1. </span>Speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h3>
 <p>For usability, it would speed up the process of running Filip on new predictors considerably to pre-calculate the tissue-phenotype pairs. Currently, this process is done within Filip, which makes it somewhat slow.</p>
 </div>
 <div class="section" id="protein-abundance">
-<h3><span class="section-number">6.6.3.2. </span>Protein abundance<a class="headerlink" href="#protein-abundance" title="Permalink to this headline">¶</a></h3>
+<span id="filip-protein-abundance"></span><h3><span class="section-number">6.6.3.2. </span>Protein abundance<a class="headerlink" href="#protein-abundance" title="Permalink to this headline">¶</a></h3>
 <p>As noted earlier, gene expression data is a measure of mRNA abundance, not protein abundance, and it is not especially well correlated with it.
-Furthermore, when it is available, protein abundance data outperforms mRNA data for predicting gene function<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id212"><span>212</span></a>]</span>.
+Furthermore, when it is available, protein abundance data outperforms mRNA data for predicting gene function<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id213"><span>213</span></a>]</span>.
 By choosing a sensible cut-off for gene expression, we do discard some of the transcriptional noise which characterises some of the difference between mRNA and protein abundance, which is good.
 Still, Filip would almost certainly throw away more false positive predictions if the mRNAs that are destined for degradation weren’t present in the input data.</p>
-<p>There are some attempts to predict protein abundance from mRNA abundance<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id211"><span>213</span></a>,<span></span>]</span>.
+<p>There are some attempts to predict protein abundance from mRNA abundance<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id212"><span>214</span></a>]</span>.
 It would be interesting to investigate if these predictors can improve the performance of Filip.</p>
 </div>
 </div>
@@ -639,7 +645,7 @@ It would be interesting to investigate if these predictors can improve the perfo
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">6.5. </span>Results</p>
+                <p class="prevnext-title"><span class="section-number">6.5. </span>Filip results</p>
             </div>
         </a>
     </div>

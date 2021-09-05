@@ -255,13 +255,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -342,7 +336,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-filter/6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -374,7 +368,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -430,6 +424,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -556,61 +562,46 @@ Data is simulated for the following cases, representing the diversity of phenoty
 -->
 <div class="section" id="combinations-of-snps">
 <span id="id1"></span><h2><span class="section-number">4.5.1. </span>Combinations of SNPs<a class="headerlink" href="#combinations-of-snps" title="Permalink to this headline">¶</a></h2>
-<p>Given <span class="math notranslate nohighlight">\(N\)</span> SNPs of interest, there are <span class="math notranslate nohighlight">\(3^N\)</span> different options for individual’s combinations of calls for biallelic SNPS, since there are three different options for each SNP <code class="docutils literal notranslate"><span class="pre">WW</span></code> wild-wild homozygous, <code class="docutils literal notranslate"><span class="pre">MW</span></code>/<code class="docutils literal notranslate"><span class="pre">WM</span></code> heterozygous, or <code class="docutils literal notranslate"><span class="pre">MM</span></code> mutant-mutant heterozygous.
-<a class="reference internal" href="#snp-combo-table"><span class="std std-numref">Table 4.2</span></a> shows this for 2 SNPs.
-For our purposes, heterozygous SNPs are considered the same whether they are mutant-wild <code class="docutils literal notranslate"><span class="pre">MW</span></code> or wild-mutant <code class="docutils literal notranslate"><span class="pre">WM</span></code>, since we assume they would create the same balance of proteins in a cell.</p>
-<table class="table" id="snp-combo-table">
-<caption><span class="caption-number">Table 4.2 </span><span class="caption-text">Table showing all possible combinations of calls for two biallelic SNPs where M denotes mutant type and W denotes wild type.</span><a class="headerlink" href="#snp-combo-table" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>count</p></th>
-<th class="head"><p>SNP 1</p></th>
-<th class="head"><p>SNP 2</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">WW</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">WW</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">WW</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">WM</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">WW</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">MM</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">WM</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">WW</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">WM</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">WM</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">WM</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">MM</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>7</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">MM</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">WW</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>8</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">MM</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">WM</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>9</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">MM</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">MM</span></code></p></td>
-</tr>
-</tbody>
-</table>
+<p>Given <span class="math notranslate nohighlight">\(N\)</span> SNPs of interest, there are <span class="math notranslate nohighlight">\(3^N\)</span> different options for individual’s combinations of calls for biallelic SNPS, since there are three different options for each SNP <code class="docutils literal notranslate"><span class="pre">WW</span></code> wild-wild homozygous, <code class="docutils literal notranslate"><span class="pre">MW</span></code>/<code class="docutils literal notranslate"><span class="pre">WM</span></code> heterozygous, or <code class="docutils literal notranslate"><span class="pre">MM</span></code> mutant-mutant heterozygous.</p>
+<!--{numref}`snp-combo-table` shows this for 2 SNPs.-->
+<p>For our purposes, heterozygous SNPs are considered the same whether they are mutant-wild <code class="docutils literal notranslate"><span class="pre">MW</span></code> or wild-mutant <code class="docutils literal notranslate"><span class="pre">WM</span></code>, since we assume they would create the same balance of proteins in a cell.</p>
+<!--
+```{list-table} Table showing all possible combinations of calls for two biallelic SNPs where M denotes mutant type and W denotes wild type.
+:header-rows: 1
+:name: snp-combo-table
+
+* - count
+  - SNP 1
+  - SNP 2
+* - 1
+  - `WW`
+  - `WW`
+* - 2
+  - `WW`
+  - `WM`
+* - 3
+  - `WW`
+  - `MM`
+* - 4
+  - `WM`
+  - `WW`
+* - 5
+  - `WM`
+  - `WM`  
+* - 6
+  - `WM`
+  - `MM`
+* - 7
+  - `MM`
+  - `WW`
+* - 8
+  - `MM`
+  - `WM`  
+* - 9
+  - `MM`
+  - `MM`
+````
+-->
 <div class="note admonition" id="linkage-disequilibrium">
 <p class="admonition-title">Linkage Disequilibrium</p>
 <p>Linkage disequilibrium is the measure of how much more often alleles are found together than would be expected if they were randomly distributed.
@@ -764,36 +755,36 @@ simulate_genotypes(1000, num_individuals)
 <span id="clustering-methodology"></span><h2><span class="section-number">4.5.2. </span>Choice of clustering methodology<a class="headerlink" href="#choice-of-clustering-methodology" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="non-spherical">
 <a class="reference internal image-reference" href="../_images/clustering_snps.png"><img alt="../_images/clustering_snps.png" src="../_images/clustering_snps.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">A drawing indicating how the combinations of SNPs we might expect to cause disease would represent a non spherical relationship between SNPs.</span><a class="headerlink" href="#non-spherical" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.7 </span><span class="caption-text">A drawing indicating how the combinations of SNPs we might expect to cause disease would represent a non spherical relationship between SNPs.</span><a class="headerlink" href="#non-spherical" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="clustering-comparison">
 <a class="reference internal image-reference" href="../_images/clustering_comparison.png"><img alt="../_images/clustering_comparison.png" src="../_images/clustering_comparison.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.6 </span><span class="caption-text">Comparison illustrating differences between the implemented clustering methods. Image adapted from sklearn documentation<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id126"><span>181</span></a>]</span>.</span><a class="headerlink" href="#clustering-comparison" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Comparison illustrating differences between the implemented clustering methods. Image adapted from sklearn documentation<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id127"><span>181</span></a>]</span>.</span><a class="headerlink" href="#clustering-comparison" title="Permalink to this image">¶</a></p>
 </div>
-<p>The original implementation of the phenotype predictor used k-means clustering<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id125"><span>182</span></a>]</span>.
-This wasn’t suitable for the predictor, since we expect combinations of SNPs to form non-spherical shapes (see <a class="reference internal" href="#non-spherical"><span class="std std-numref">Fig. 4.5</span></a>), and k-means cannot achieve this (see <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.6</span></a>).</p>
+<p>The original implementation of the phenotype predictor used k-means clustering<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id126"><span>182</span></a>]</span>.
+This wasn’t suitable for the predictor, since we expect combinations of SNPs to form non-spherical shapes (see <a class="reference internal" href="#non-spherical"><span class="std std-numref">Fig. 4.7</span></a>), and k-means cannot achieve this (see <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.8</span></a>).</p>
 <p>Spectral clustering, DBSCAN (Density-Based Spatial Clustering of Applications with Noise), IDOS, OPTICS and LOF (Local Outlier Factor) were also implemented.
 This involved automation of parameter selection, to enable clustering to be performed automatically on thousands of phenotype terms.
 These methods have theoretical pros and cons with respect to the predictor.
 For example, OPTICS and DBSCAN do not need the number of clusters as an input, but instead require the minimum number of points required to form a cluster and a radius from each point to consider as part of a cluster, which has more meaning in this context.
-They also automatically output outliers to clusters, which will affect the resulting phenotype score, potentially in unseen ways - particularly as it is difficult to visualise high-dimensional data. OPTICS is the default setting, as in addition to not requiring a number of clusters, it can identify clusters of differing densities (a quality that DBSCAN lacks - as can be seen in the second row of <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.6</span></a>).
+They also automatically output outliers to clusters, which will affect the resulting phenotype score, potentially in unseen ways - particularly as it is difficult to visualise high-dimensional data. OPTICS is the default setting, as in addition to not requiring a number of clusters, it can identify clusters of differing densities (a quality that DBSCAN lacks - as can be seen in the second row of <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.8</span></a>).
 A final informed choice between these options requires a large benchmarking set.</p>
 <div class="section" id="choice-of-distance-metric">
 <span id="distance-metric"></span><h3><span class="section-number">4.5.2.1. </span>Choice of distance metric<a class="headerlink" href="#choice-of-distance-metric" title="Permalink to this headline">¶</a></h3>
-<p>The phenotype predictor’s original distance metric was non-linear, such that the homozygous calls were further from each other than the distance via the heterozygous call, as shown in <a class="reference internal" href="#non-linear-metric"><span class="std std-numref">Fig. 4.7</span></a>.
+<p>The phenotype predictor’s original distance metric was non-linear, such that the homozygous calls were further from each other than the distance via the heterozygous call, as shown in <a class="reference internal" href="#non-linear-metric"><span class="std std-numref">Fig. 4.9</span></a>.
 Non-linear distance metrics mean that it is not possible to create a location matrix rather than a distance matrix.
 This is required for some types of clustering.</p>
-<p>A linear distance metric which also captured the increased likelihood of homozygous alleles to be disease-causing (<a class="reference internal" href="#linear-metric"><span class="std std-numref">Fig. 4.8</span></a>) was developed to enable this, and to better represent the biology.
+<p>A linear distance metric which also captured the increased likelihood of homozygous alleles to be disease-causing (<a class="reference internal" href="#linear-metric"><span class="std std-numref">Fig. 4.10</span></a>) was developed to enable this, and to better represent the biology.
 In this version, the popularity of an allele decides which homozygous call the heterozygous call is more functionally similar to.</p>
 <div class="figure align-default" id="non-linear-metric">
 <a class="reference internal image-reference" href="../_images/nonlinear_metric.png"><img alt="../_images/nonlinear_metric.png" src="../_images/nonlinear_metric.png" style="width: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.7 </span><span class="caption-text">Original non-linear distance metric.
+<p class="caption"><span class="caption-number">Fig. 4.9 </span><span class="caption-text">Original non-linear distance metric.
 <span class="math notranslate nohighlight">\(MM\)</span> denotes homozygous mutant alleles, <span class="math notranslate nohighlight">\(WW\)</span> denotes homozygous wild type alleles, and <span class="math notranslate nohighlight">\(MW\)</span> denotes heterozygous alleles.
 The FATHMM score for the SNP <span class="math notranslate nohighlight">\(f\)</span>, defines the distance between the wild type and mutant alleles.</span><a class="headerlink" href="#non-linear-metric" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="linear-metric">
 <a class="reference internal image-reference" href="../_images/linear_metric.png"><img alt="../_images/linear_metric.png" src="../_images/linear_metric.png" style="width: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Linear distance metrics. <span class="math notranslate nohighlight">\(MM\)</span> denotes homozygous mutant alleles, <span class="math notranslate nohighlight">\(WW\)</span> denotes homozygous wild type alleles, and <span class="math notranslate nohighlight">\(MW\)</span> denotes heterozygous alleles, and <span class="math notranslate nohighlight">\(N\)</span> represents the number of people with that allele call. The FATHMM score for the SNP <span class="math notranslate nohighlight">\(f\)</span>, defines the distance between the wild type and mutant alleles.</span><a class="headerlink" href="#linear-metric" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.10 </span><span class="caption-text">Linear distance metrics. <span class="math notranslate nohighlight">\(MM\)</span> denotes homozygous mutant alleles, <span class="math notranslate nohighlight">\(WW\)</span> denotes homozygous wild type alleles, and <span class="math notranslate nohighlight">\(MW\)</span> denotes heterozygous alleles, and <span class="math notranslate nohighlight">\(N\)</span> represents the number of people with that allele call. The FATHMM score for the SNP <span class="math notranslate nohighlight">\(f\)</span>, defines the distance between the wild type and mutant alleles.</span><a class="headerlink" href="#linear-metric" title="Permalink to this image">¶</a></p>
 </div>
 <!--
 ### Input individuals

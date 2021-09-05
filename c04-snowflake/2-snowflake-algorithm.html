@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.3. Creating snowflake inputs" href="3-creating-inputs.html" />
+    <link rel="next" title="4.3. Creating Snowflake inputs" href="3-creating-inputs.html" />
     <link rel="prev" title="4.1. Introduction" href="1-introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -255,13 +255,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -342,7 +336,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-filter/6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -374,7 +368,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -430,6 +424,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -604,7 +610,7 @@ The locations of the variants and the proteins that they are within may then be 
 -->
 <p>The Snowflake phenotype prediction method works by identifying individuals who have unusual combinations of deleterious missense SNPs associated with a phenotype.
 The phenotype predictor uses only data about missense SNPs in coding regions of globular proteins, so it can only be expected to work well where phenotypes are determined primarily by these kinds of mutations.</p>
-<p>This method combines conservation and variant effect scores using FATHMM<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id52"><span>110</span></a>]</span>, inference about function of protein domains using dcGO<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id50"><span>106</span></a>]</span>, and human genetic variation data from the 2500 genomes project<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id117"><span>167</span></a>]</span> to predict phenotypes of individuals based on their combinations of missense SNPs.</p>
+<p>This method combines conservation and variant effect scores using FATHMM<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id53"><span>110</span></a>]</span>, inference about function of protein domains using dcGO<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id51"><span>106</span></a>]</span>, and human genetic variation data from the 2500 genomes project<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id118"><span>167</span></a>]</span> to predict phenotypes of individuals based on their combinations of missense SNPs.</p>
 <!--
 While GWAS looks at each variant individually, `snowflake` groups variants by relation to phenotype: it is capable of finding combinations of SNPs that might be responsible, taking into account the fact that single SNPs do not act alone and biology is full of redundancy. 
 However, it does not take into account the structure of the redundancy.
@@ -631,8 +637,8 @@ However, it does not take into account the structure of the redundancy.
 <div class="section" id="how-does-it-work">
 <span id="id4"></span><h2><span class="section-number">4.2.2. </span>How does it work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="snowflake-overview">
-<a class="reference internal image-reference" href="../_images/snowflake-overview-new.png"><img alt="../_images/snowflake-overview-new.png" src="../_images/snowflake-overview-new.png" style="height: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Flowchart showing an overview of the phenotype predictor. Scores are generated per allele using SUPERFAMILY, VEP, FATHMM and dcGO for both the input genotype(s), and the background genotypes. These data points are then combined into a matrix, which is then clustered..</span><a class="headerlink" href="#snowflake-overview" title="Permalink to this image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/snowflake-overview-new.png"><img alt="../_images/snowflake-overview-new.png" src="../_images/snowflake-overview-new.png" style="width: 250px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Flowchart showing an overview of the phenotype predictor. Scores are generated per allele using SUPERFAMILY, VEP, FATHMM and dcGO for both the input genotype(s), and the background genotypes. These data points are then combined into a matrix, which is then clustered.</span><a class="headerlink" href="#snowflake-overview" title="Permalink to this image">¶</a></p>
 </div>
 <!--
 The `Snowflake` algorithm predicts phenotype by finding individuals who have unusual combinations of deleterious genetic variants associated with a phenotype. 
@@ -642,7 +648,7 @@ One or more genotypes (in VCF or 23andMe format) are needed: this is the <em>inp
 <ol class="simple">
 <li><p>Score variants for deleteriousness, using FATHMM and VEP</p></li>
 <li><p>Map variants to phenotype, using dcGO and SUPERFAMILY</p></li>
-<li><p>Cluster individuals per phenotype and extract score, using <abbr title="Intrinsic Dimensionality Outlier Score">IDOS</abbr>. Each genotype will be compared against all others, including (optionally) a diverse background set from the 2500 Genomes Project<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id117"><span>167</span></a>]</span>.</p></li>
+<li><p>Cluster individuals per phenotype and extract score, using <abbr title="Intrinsic Dimensionality Outlier Score">IDOS</abbr>. Each genotype will be compared against all others, including (optionally) a diverse background set from the 2500 Genomes Project<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id118"><span>167</span></a>]</span>.</p></li>
 </ol>
 <p>Further detail on these steps is provided below.</p>
 <!--
@@ -658,26 +664,26 @@ Each of these steps is modular, meaning that it's possible to use another method
 -->
 <div class="section" id="snps-are-mapped-to-phenotype-terms-using-dcgo-and-dbsnp">
 <span id="dcgo-in-snowflake"></span><h3><span class="section-number">4.2.2.1. </span>SNPs are mapped to phenotype terms using DcGO and dbSNP<a class="headerlink" href="#snps-are-mapped-to-phenotype-terms-using-dcgo-and-dbsnp" title="Permalink to this headline">¶</a></h3>
-<p>DcGO<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id50"><span>106</span></a>]</span> is used to map combinations of protein domains to their associated phenotype terms, using a false discovery rate cut-off of <span class="math notranslate nohighlight">\(10^{-3}\)</span> or less.
+<p>DcGO<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id51"><span>106</span></a>]</span> is used to map combinations of protein domains to their associated phenotype terms, using a false discovery rate cut-off of <span class="math notranslate nohighlight">\(10^{-3}\)</span> or less.
 SNPs are therefore mapped to phenotype terms by whether they fall in a gene whose protein contains domains or combinations of domains that are statistically associated with a phenotype.
-In order to do this, DcGO makes use of SUPERFAMILY<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id47"><span>105</span></a>]</span> domain assignments, and a variety of ontology annotations (GO<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id69"><span>93</span></a>]</span>, MPO<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id118"><span>168</span></a>]</span>, HP<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id119"><span>169</span></a>]</span>, DOID<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id120"><span>170</span></a>]</span> and others).</p>
+In order to do this, DcGO makes use of SUPERFAMILY<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id48"><span>105</span></a>]</span> domain assignments, and a variety of ontology annotations (GO<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id70"><span>93</span></a>]</span>, MPO<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id119"><span>168</span></a>]</span>, HP<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id120"><span>169</span></a>]</span>, DOID<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id121"><span>170</span></a>]</span> and others).</p>
 <p>Using DcGO means that phenotypes are only mapped to protein if the link is statistically significant due to the protein’s contingent domains.
 This leaves out some known protein-phenotype links, where the function may be due to disorder for example rather than protein domain structure.</p>
-<p>Known phenotype-associated variants are therefore added back in using dbSNP<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id33"><span>55</span></a>]</span>.</p>
+<p>Known phenotype-associated variants are therefore added back in using dbSNP<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id34"><span>55</span></a>]</span>.</p>
 </div>
 <div class="section" id="snps-are-given-deleteriousness-scores-using-fathmm">
 <span id="fathmm-in-snowflake"></span><h3><span class="section-number">4.2.2.2. </span>SNPs are given deleteriousness scores using FATHMM<a class="headerlink" href="#snps-are-given-deleteriousness-scores-using-fathmm" title="Permalink to this headline">¶</a></h3>
-<p>The phenotype predictor uses the unweighted FATHMM scores<span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id52"><span>110</span></a>]</span> to get scores per SNP for the likelihood of it causing a deleterious mutation. This is based on conservation of protein domains across all life, according to data from SUPERFAMILY<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id47"><span>105</span></a>]</span> and Pfam<span id="id15">[<a class="reference internal" href="../cz-end-matter/reference.html#id121"><span>171</span></a>]</span>.</p>
+<p>The phenotype predictor uses the unweighted FATHMM scores<span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id53"><span>110</span></a>]</span> to get scores per SNP for the likelihood of it causing a deleterious mutation. This is based on conservation of protein domains across all life, according to data from SUPERFAMILY<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id48"><span>105</span></a>]</span> and Pfam<span id="id15">[<a class="reference internal" href="../cz-end-matter/reference.html#id122"><span>171</span></a>]</span>.</p>
 <p>This method gives SNPs the same base FATHMM score for being deleterious, no matter which phenotype we are predicting them for.
 It is therefore the combination of SNPs per phenotype, and their rarity in the population that determines the phenotype prediction score.</p>
 </div>
 <div class="section" id="comparison-to-a-background-via-clustering">
 <span id="clustering-step"></span><h3><span class="section-number">4.2.2.3. </span>Comparison to a background via clustering<a class="headerlink" href="#comparison-to-a-background-via-clustering" title="Permalink to this headline">¶</a></h3>
-<p>Individuals are compared to all others through clustering. This usually includes comparing each individual to the genetically diverse background of the 2500 genomes project<span id="id16">[<a class="reference internal" href="../cz-end-matter/reference.html#id117"><span>167</span></a>]</span>.</p>
+<p>Individuals are compared to all others through clustering. This usually includes comparing each individual to the genetically diverse background of the 2500 genomes project<span id="id16">[<a class="reference internal" href="../cz-end-matter/reference.html#id118"><span>167</span></a>]</span>.</p>
 <p>Clustering is the task of grouping objects into a number of groups (clusters) so that items in the same cluster are similar to each other by some measure. There are many clustering algorithms, but most are unsupervised learning algorithms which iterate while looking to minimise dissimilarity in the same cluster. A number of options were implemented for the predictor, but for the time being at least, OPTICS is used as a default.</p>
 </div>
 <div class="section" id="phenotype-score">
-<span id="id17"></span><h3><span class="section-number">4.2.2.4. </span>Phenotype score<a class="headerlink" href="#phenotype-score" title="Permalink to this headline">¶</a></h3>
+<span id="individual-score"></span><h3><span class="section-number">4.2.2.4. </span>Phenotype score<a class="headerlink" href="#phenotype-score" title="Permalink to this headline">¶</a></h3>
 <p>The OPTICS clustering assigns each individual to a cluster (or labels them as an outlier). Depending on the phenotype term, the cluster is expected to either correspond to a haplogroup or a phenotype.
 In cases where the cluster refers to a haplogroup, we are interested in the outliers of all clusters, i.e. the local outlier-ness.
 In cases where the cluster is the phenotype, we are interested in the outlying cluster, i.e. the global outlier-ness.</p>
@@ -733,7 +739,7 @@ This included parallelisation (possible due to the independence of different phe
 <div class="section" id="adding-snp-phenotype-associations-from-dbsnp">
 <span id="snowflake-dbsnp"></span><h3><span class="section-number">4.2.4.2. </span>Adding SNP-phenotype associations from dbSNP<a class="headerlink" href="#adding-snp-phenotype-associations-from-dbsnp" title="Permalink to this headline">¶</a></h3>
 <p>As mentioned in the overview, using DcGO as the only SNP-phenotype mapping leaves out some known associations that are not due to protein domain structure.
-Adding dbSNP<span id="id18">[<a class="reference internal" href="../cz-end-matter/reference.html#id33"><span>55</span></a>]</span> associations to the predictor was one of my contributions to this software.</p>
+Adding dbSNP<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id34"><span>55</span></a>]</span> associations to the predictor was one of my contributions to this software.</p>
 </div>
 <div class="section" id="dealing-with-missing-calls">
 <span id="snowflake-missing-calls"></span><h3><span class="section-number">4.2.4.3. </span>Dealing with missing calls<a class="headerlink" href="#dealing-with-missing-calls" title="Permalink to this headline">¶</a></h3>
@@ -745,7 +751,7 @@ This prevents a new cluster being formed or an individual appearing to be more u
 However, there is a downside to this approach when there are many missing calls.
 Adding all missing calls to a cluster that was only slightly more common than the alternatives can lead to the new cluster containing the missing data dwarfing the others.
 To fix this, SNPs with many missing calls were discarded.</p>
-<p>Alternatives such as assigning the most common call for that SNP only, or assigning an average score for that SNP dimension by carrying out a “normalised cut”<span id="id19">[<a class="reference internal" href="../cz-end-matter/reference.html#id122"><span>172</span></a>]</span> are untenable since they can create the same problem we are trying to overcome: the appearance of an individual having an unusual combination of calls.</p>
+<p>Alternatives such as assigning the most common call for that SNP only, or assigning an average score for that SNP dimension by carrying out a “normalised cut”<span id="id18">[<a class="reference internal" href="../cz-end-matter/reference.html#id123"><span>172</span></a>]</span> are untenable since they can create the same problem we are trying to overcome: the appearance of an individual having an unusual combination of calls.</p>
 </div>
 <div class="section" id="reducing-dimensionality">
 <span id="snowflake-dimensionality-reduction"></span><h3><span class="section-number">4.2.4.4. </span>Reducing dimensionality<a class="headerlink" href="#reducing-dimensionality" title="Permalink to this headline">¶</a></h3>
@@ -754,24 +760,23 @@ I added a dimensionality reduction step in the clustering, and tested different 
 These changes are explained <a class="reference internal" href="1-introduction.html#curse-of-dimensionality-section"><span class="std std-ref">later in this Chapter</span></a>.</p>
 </div>
 <div class="section" id="confidence-score-per-phenotype">
-<span id="id20"></span><h3><span class="section-number">4.2.4.5. </span>Confidence score per phenotype<a class="headerlink" href="#confidence-score-per-phenotype" title="Permalink to this headline">¶</a></h3>
+<span id="id19"></span><h3><span class="section-number">4.2.4.5. </span>Confidence score per phenotype<a class="headerlink" href="#confidence-score-per-phenotype" title="Permalink to this headline">¶</a></h3>
 <p>The phenotype predictor outputs a score for each person for each phenotype.
 Our confidence in these scores depends on the distribution of scores, as well as the scale of them.
 A distribution of scores with distinct groups of individuals is generally preferable, since most phenotypes that we are interested in are categorical or it is at least more useful to highlight phenotypes that can be predicted this way (i.e. if there are 100 groups with varying risk of a disease, that would be less useful than knowing there are 2 groups with high/low risk).</p>
+<div class="figure align-default" id="shaded-score">
+<a class="reference internal image-reference" href="../_images/shaded_score.png"><img alt="../_images/shaded_score.png" src="../_images/shaded_score.png" style="width: 250px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4.3 </span><span class="caption-text">An illustration of how the confidence score per phenotype is calculated.</span><a class="headerlink" href="#shaded-score" title="Permalink to this image">¶</a></p>
+</div>
 <p>I developed a simple method of prioritising predictions according to these requirements.
-A confidence score is achieved by plotting the ranked raw score and measuring the minimum area between a straight line resting on this line (resting on the two points furthest from y=x) and the line itself, as illustrated in <code class="xref std std-numref docutils literal notranslate"><span class="pre">shaded-score</span></code>.
+A confidence score is achieved by plotting the ranked raw score and measuring the area between a straight line resting on this the most extreme points and the line itself, as illustrated in <a class="reference internal" href="#shaded-score"><span class="std std-numref">Fig. 4.3</span></a>.
 Since this measure takes into account the size of the raw scores, these confidence scores can be compared across phenotypes.</p>
-<p><code class="xref std std-numref docutils literal notranslate"><span class="pre">ranked-scores</span></code> shows an example of an interesting and uninteresting distribution.
-These distributions mostly depend on the number, population frequency, and <code class="docutils literal notranslate"><span class="pre">fathmm</span></code> score of the SNPs associated with the phenotype term.</p>
-<!--
-```{code-cell} ipython3
-# Code for: An illustration of how the confidence score is calculated (shaded area).  - `shaded-score`
-```
-
-```{code-cell} ipython3
-# Code for: Ranked scores for `DOID:1324` - the disease ontology term Lung Cancer (left) and HP:0008518 - the human phenotype ontology term for Absent/underdeveloped sacral bone (right). These represent an interesting and uninteresting distribution of scores, respectively.  - `ranked-scores`
-```
--->
+<div class="figure align-default" id="interesting-scores">
+<a class="reference internal image-reference" href="../_images/interesting-scores.png"><img alt="../_images/interesting-scores.png" src="../_images/interesting-scores.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4.4 </span><span class="caption-text">Ranked scores for <code class="docutils literal notranslate"><span class="pre">DOID:1324</span></code> - the disease ontology term Lung Cancer (left) and HP:0008518 - the human phenotype ontology term for Absent/underdeveloped sacral bone (right). These represent an interesting and uninteresting distribution of scores, respectively.</span><a class="headerlink" href="#interesting-scores" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#interesting-scores"><span class="std std-numref">Fig. 4.4</span></a> shows an example of an interesting and uninteresting distribution.
+These distributions mostly depend on the number, population frequency, and FATHMM score of the SNPs associated with the phenotype term.</p>
 <!--
 #### Outputs 
 [//]: # (TODO: Write about outputs of the predictor)
@@ -882,7 +887,7 @@ Since the VCF file created in Step 1 is larger than needed by `Snowflake`, we th
         <a class="right-next" href="3-creating-inputs.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">4.3. </span>Creating <code class="docutils literal notranslate"><span class="pre">snowflake</span></code> inputs</p>
+                <p class="prevnext-title"><span class="section-number">4.3. </span>Creating Snowflake inputs</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

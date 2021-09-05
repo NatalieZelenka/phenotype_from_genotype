@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.5. Results &#8212; Phenotype from Genotype</title>
+    <title>6.5. Filip results &#8212; Phenotype from Genotype</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -255,13 +255,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -342,7 +336,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -374,7 +368,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -430,6 +424,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -508,26 +514,14 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#validation-of-prototype-filip">
-   6.5.1. Validation of prototype
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     filip
-    </span>
-   </code>
+  <a class="reference internal nav-link" href="#cafa-2">
+   6.5.1. CAFA 2
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cafa-2">
-     6.5.1.1. CAFA 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cafa-3">
-     6.5.1.2. CAFA 3
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cafa-3">
+   6.5.2. CAFA 3
+  </a>
  </li>
 </ul>
 
@@ -540,12 +534,10 @@
         
               <div>
                 
-  <div class="section" id="results">
-<h1><span class="section-number">6.5. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="validation-of-prototype-filip">
-<h2><span class="section-number">6.5.1. </span>Validation of prototype <code class="docutils literal notranslate"><span class="pre">filip</span></code><a class="headerlink" href="#validation-of-prototype-filip" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="filip-results">
+<span id="id1"></span><h1><span class="section-number">6.5. </span>Filip results<a class="headerlink" href="#filip-results" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="cafa-2">
-<h3><span class="section-number">6.5.1.1. </span>CAFA 2<a class="headerlink" href="#cafa-2" title="Permalink to this headline">¶</a></h3>
+<span id="filip-results-cafa2"></span><h2><span class="section-number">6.5.1. </span>CAFA 2<a class="headerlink" href="#cafa-2" title="Permalink to this headline">¶</a></h2>
 <p><strong><span class="math notranslate nohighlight">\(F_{max}\)</span> Improvement:</strong></p>
 <table class="table" id="cafa2-results">
 <caption><span class="caption-number">Table 6.1 </span><span class="caption-text">CAFA2 data f-max results for DcGO and filip</span><a class="headerlink" href="#cafa2-results" title="Permalink to this table">¶</a></caption>
@@ -583,11 +575,11 @@ This was repeated 100,000 times to create <a class="reference internal" href="#f
 </div>
 <p>I also looked to see whether there was any relationship between the 23 incorrectly removed predictions.
 Interestingly, all of these incorrectly filtered out predictions were for GOBP terms which were related to development (e.g. tissue development, anatomical structure development, epithelium development, organ morphogenesis).
-<a class="reference internal" href="#filip-go-wrong"><span class="std std-numref">Fig. 6.6</span></a> shows a summarises the incorrectly mapped GO terms, created using ReviGO<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id188"><span>211</span></a>]</span>.
+<a class="reference internal" href="#filip-go-wrong"><span class="std std-numref">Fig. 6.6</span></a> shows a summarises the incorrectly mapped GO terms, created using ReviGO<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id189"><span>212</span></a>]</span>.
 The fact that the incorrectly filtered out terms are all related to development implies there may be due to a bias in the developing tissues in the FANTOM5 data-set used by <code class="docutils literal notranslate"><span class="pre">filip</span></code>.</p>
 </div>
 <div class="section" id="cafa-3">
-<h3><span class="section-number">6.5.1.2. </span>CAFA 3<a class="headerlink" href="#cafa-3" title="Permalink to this headline">¶</a></h3>
+<span id="filip-results-cafa3"></span><h2><span class="section-number">6.5.2. </span>CAFA 3<a class="headerlink" href="#cafa-3" title="Permalink to this headline">¶</a></h2>
 <p>The same kind of improvement is seen by the independently calculated CAFA3 results (validated by the CAFA3 team).
 I entered two models into CAFA3: DcGO only and DcGO plus <code class="docutils literal notranslate"><span class="pre">filip</span></code>, for Human and for Gene Ontology Biological Process terms only.</p>
 <p>In all categories, <code class="docutils literal notranslate"><span class="pre">filip</span></code> improved DcGO by 0.02 <span class="math notranslate nohighlight">\(F_{max}\)</span> (see <a class="reference internal" href="#cafa3-results"><span class="std std-numref">Table 6.2</span></a>.
@@ -642,7 +634,6 @@ This reveals that the limited success of `filip` on the CAFA data is due to it's
 
 ### Overall
 --></div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">

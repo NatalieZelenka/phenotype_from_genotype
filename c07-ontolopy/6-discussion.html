@@ -253,13 +253,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -340,7 +334,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-filter/6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -372,7 +366,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -428,6 +422,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -514,23 +520,6 @@
   <a class="reference internal nav-link" href="#usability">
    7.6.2. Usability
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#documentation">
-     7.6.2.1. Documentation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#installation">
-     7.6.2.2. Installation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#speed">
-     7.6.2.3. Speed
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#limitations">
@@ -552,17 +541,7 @@
      7.6.3.3. Improving choosing from multiple synonym options
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#implementation">
-     7.6.3.4. Implementation
-    </a>
-   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fit-for-purpose">
-   7.6.4. Fit-for-purpose
-  </a>
  </li>
 </ul>
 
@@ -576,7 +555,7 @@
               <div>
                 
   <div class="section" id="discussion">
-<h1><span class="section-number">7.6. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h1>
+<span id="opydiscussion"></span><h1><span class="section-number">7.6. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h1>
 <p>This Chapter is simply supposed to present Ontolopy as a <a class="reference internal" href="#usable-ontolopy"><span class="std std-ref">usable</span></a> tool for finding relationships in OBO ontologies, from which <a class="reference internal" href="#useful-ontolopy"><span class="std std-ref">useful</span></a> outputs can be obtained.</p>
 <div class="section" id="usefulness">
 <span id="useful-ontolopy"></span><h2><span class="section-number">7.6.1. </span>Usefulness<a class="headerlink" href="#usefulness" title="Permalink to this headline">¶</a></h2>
@@ -590,18 +569,10 @@ By <a class="reference internal" href="5-mapping-example.html#fantom5-inconsiste
 </div>
 <div class="section" id="usability">
 <span id="usable-ontolopy"></span><h2><span class="section-number">7.6.2. </span>Usability<a class="headerlink" href="#usability" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="documentation">
-<h3><span class="section-number">7.6.2.1. </span>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
 <p>One key feature of Ontolopy’s usability is that it is well-documented.
 At the time of writing, it is much more so than other <a class="reference internal" href="1-introduction.html#other-ont-tools"><span class="std std-ref">alternatives</span></a> for working with OBO files.
 The documentation is versioned and contains well-worked examples and a descriptive API.</p>
-</div>
-<div class="section" id="installation">
-<h3><span class="section-number">7.6.2.2. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
-<p>It is quick and easy to install, lightweight, and has a small number of dependencies (the upside of the lack of integration with other tools).</p>
-</div>
-<div class="section" id="speed">
-<h3><span class="section-number">7.6.2.3. </span>Speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h3>
+<p>It is also quick and easy to install, lightweight, and has a small number of dependencies (the upside of the lack of integration with other tools).</p>
 <p>Ontolopy runs quickly for a wide variety of tasks.
 As we saw in the <a class="reference internal" href="4-misc-examples.html#ontolopy-examples-2"><span class="std std-ref">examples</span></a>, Ontolopy runs quickly for most uses involving operations on or queries to ontology objects (typically less than half a second).
 The time taken depends on the size of the ontology, the number of the chosen relations, and the popularity of those relations within the ontology.
@@ -609,9 +580,8 @@ However, making a query with a large number of relations to check can inflate ho
 <p>The name mapping (<code class="docutils literal notranslate"><span class="pre">Uberon.map_by_name</span></code>), however is the exception to this, which runs fairly slowly (on the order of seconds).
 There are more interesting text-mining techniques that could be integrated into Ontolopy if gains in speed where made here, for example using fuzzy-text matching to catch typos in sample information files (which are often present as they are often created by hand).</p>
 </div>
-</div>
 <div class="section" id="limitations">
-<h2><span class="section-number">7.6.3. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<span id="opylimitations"></span><h2><span class="section-number">7.6.3. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
 <p>Ontolopy is a small and lightweight package, so it hasn’t got as much functionality as some larger tools, as well as having some limitations due to it’s reliance on underlying ontologies.</p>
 <div class="section" id="you-still-need-to-understand-the-structure-of-the-ontology">
 <span id="what-to-ask-for"></span><h3><span class="section-number">7.6.3.1. </span>You still need to understand the structure of the ontology<a class="headerlink" href="#you-still-need-to-understand-the-structure-of-the-ontology" title="Permalink to this headline">¶</a></h3>
@@ -619,7 +589,7 @@ There are more interesting text-mining techniques that could be integrated into 
 Ontolopy will allow you to ask for nonsense relations, e.g. combining any relations which may give misleading responses if you are only looking at what it is mapping to and from (rather than the path that the mapping represents).</p>
 </div>
 <div class="section" id="missing-functionality">
-<h3><span class="section-number">7.6.3.2. </span>“Missing” functionality<a class="headerlink" href="#missing-functionality" title="Permalink to this headline">¶</a></h3>
+<span id="opymissing"></span><h3><span class="section-number">7.6.3.2. </span>“Missing” functionality<a class="headerlink" href="#missing-functionality" title="Permalink to this headline">¶</a></h3>
 <p>There is plenty of non-existent functionality for Ontolopy that could be useful, namely:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="7-future-work.html#text-search-ont"><span class="std std-ref">Text search functionality</span></a>.</p></li>
@@ -639,7 +609,7 @@ An good example of this is leukocytes, which are part of the blood and the immun
 -->
 </div>
 <div class="section" id="improving-choosing-from-multiple-synonym-options">
-<h3><span class="section-number">7.6.3.3. </span>Improving choosing from multiple synonym options<a class="headerlink" href="#improving-choosing-from-multiple-synonym-options" title="Permalink to this headline">¶</a></h3>
+<span id="opysynonyms"></span><h3><span class="section-number">7.6.3.3. </span>Improving choosing from multiple synonym options<a class="headerlink" href="#improving-choosing-from-multiple-synonym-options" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">Uberon.sample_map_by_name</span></code> function simply looks up the strings provided and looks for important external references to decide between synonyms. If this information is not provided or doesn’t help us to make the choice, we currently just choose the first term that we found, ignoring information about  <a class="reference internal" href="#synonym-class"><span class="std std-ref">synonym</span></a>, or which synonym-having term is more specific.</p>
 <div class="margin sidebar" id="synonym-class">
 <p class="sidebar-title">Classes of synonyms</p>
@@ -648,19 +618,16 @@ An good example of this is leukocytes, which are part of the blood and the immun
 On the other hand, <code class="docutils literal notranslate"><span class="pre">NARROW</span></code> synonyms have more specific definitions than the name itself (in some cases they might eventually become a subclass of the original term), for example <em>mononuclear cell</em> has the narrow synonym <em>peripheral blood mononuclear cell</em>.
 There are also <em>BROAD</em> and <em>RELATED</em> synonyms.</p>
 </div>
+<!--
+(opyimplementation)=
+### Implementation
+[//]: # (TODO: Write)
+
+Some of the implementation choices are a little unusual, for example:
+- representing relationships internally as relation paths (strings).
+- not matching up with existing tools
+-->
 </div>
-<div class="section" id="implementation">
-<h3><span class="section-number">7.6.3.4. </span>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h3>
-<p>Some of the implementation choices are a little unusual, for example:</p>
-<ul class="simple">
-<li><p>representing relationships internally as relation paths (strings).</p></li>
-<li><p>not matching up with existing tools</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="fit-for-purpose">
-<h2><span class="section-number">7.6.4. </span>Fit-for-purpose<a class="headerlink" href="#fit-for-purpose" title="Permalink to this headline">¶</a></h2>
-<p>Further to the examples given in this chapter, <a class="reference internal" href="../c08-combining/3-data-wrangling.html#c05-3-data-wrangling"><span class="std std-numref">Section 8.3</span></a> shows an example of how this Ontolpy is especially useful for harmonising sample to tissue mappings for different gene expression data sets, which may have different levels of specificity.</p>
 </div>
 </div>
 

@@ -34,20 +34,21 @@ There are multiple steps that must be carried out in order to create these input
 
 (cafa3-test-set)=
 ## Test set: CAFA3 
-After initial development, I entered DcGO only, and `filip` plus DcGO into the CAFA3 competition in order to test `filip` on an unseen dataset.
+After initial development, I entered DcGO only, and Filip-plus-DcGO into the CAFA3 competition in order to test Filip on an unseen dataset.
 
 This meant that I did not download the CAFA3 ground-truth, as this analysis was done by the CAFA3 team, but only the [CAFA3 targets](https://www.biofunctionprediction.org/cafa-targets/CAFA3_targets.tgz), these continue to be available through the CAFA website.
 
 Again, I used only the human targets (file `target.9606.fasta`). 
 This is again a FASTA file, with the same format as for CAFA2, this time containing `20197` targets proteins.
 
-## Filip inputs
-Two types of input are needed for Filip: 
+(filip-intputs-validation)=
+## Filip inputs for validation
+As previously described, three types of input are needed for Filip: 
 1. Protein function predictions 
 2. Normalised gene expression data.
 3. A map from gene expression samples to Uberon tissues. 
 
-I described the gene expression data and metadata for (2) and (3) described in the previous section. 
+I described the gene expression data and metadata for (2) and (3) use for validation in the previous section. 
 
 (create-protein-function-predictions)=
 ### Creating protein function predictions (DcGO)
@@ -79,10 +80,6 @@ glue('dcgo-cafa2-phenotypes', len(dcgo_predictions.phenotype.unique()), display=
 ```
 
 The DcGO predictions contain only {glue:text}`dcgo-cafa2-predictions` of {glue:text}`dcgo-cafa2-proteins` proteins and {glue:text}`dcgo-cafa2-phenotypes` phenotype terms (all of which are `GO` terms).
-
-+++
-
-
 
 +++
 
@@ -402,13 +399,12 @@ assert(pd.Series.all(samples_info[samples_info.index.isin(list(missing_human_ann
 # print(total)
 ```
 
+(running-filip-validation)=
 ## Running Filip
 
-### Mapping between Uberon tissues and phenotypes
 I used an early version of {ref}`ontolopy<c06-ontolopy>` to map between uberon tissues and phenotypes.
 I describe this process in detail in {numref}`ontolopy-mapping-example`: for CAFA3, I used phenotypes present in DcGO predictions as targets, and looked for mappings only including Uberon terms (not Cell Ontology terms).
 
-### Choosing an expression cut-off
 The cut-off was chosen by plotting the distribution of TPM expression and choosing a value below which there appeared to be little noise (50 TPM) between biological and technical replicates.
 
 +++
@@ -416,7 +412,6 @@ The cut-off was chosen by plotting the distribution of TPM expression and choosi
 (cafa-validation-method)=
 ## Validation Methodology
 
-### CAFA Validation 
 This confidence score allows for a range of possible sets of predictions, depending on the threshold parameter {math}`\tau`. 
 Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined as:
 
@@ -432,6 +427,7 @@ Since the precision and recall will be different for any {math}`\tau`, the {math
 [//]: # (TODO: explain the below a little more: how many measures does that make? 2 x2 = 4?)
 CAFA validation can either be term-centric or protein-centric. For each option, submissions are assessed per species and for wholly unknown and partially known genes separately.
 
+(validation-cafa-limitations)=
 ### Limitations of validation method
 There is no penalty for making a broad guess, or reward for making a precise one. 
 This is one of the reasons that the naive method does so well: for example it is not penalised for guessing that the root term of the GO BPO ontology Biological Process is related to every gene. 

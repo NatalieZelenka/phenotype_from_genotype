@@ -253,13 +253,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -340,7 +334,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-filter/6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -372,7 +366,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -428,6 +422,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -543,8 +549,8 @@ Since I chose these purely by looking at the distribution of scores for Snowflak
 <div class="section" id="overlap-between-training-and-validation-data">
 <span id="alspac-overlap-problem"></span><h2><span class="section-number">5.2.2. </span>Overlap between training and validation data<a class="headerlink" href="#overlap-between-training-and-validation-data" title="Permalink to this headline">¶</a></h2>
 <p>ALSPAC is a popular cohort study for use in GWAS analyses.
-Many links between genotype loci and phenotypes have been published from this data set, for example loci associated with birthweight<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id263"><span>187</span></a>]</span>, asthma and allergies<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id259"><span>188</span></a>]</span>, autism spectrum disorders<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id258"><span>189</span></a>]</span>, problematic peer relationships<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id261"><span>190</span></a>]</span>, and lung function<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id260"><span>191</span></a>]</span>.
-This data informs GOA genotype-phenotype annotations, and through dcGO this data could already be present in Snowflake, meaning that there may be in some sense, overlap between the training and validation data, which could overestimate the accuracy of the predictor on unseen data<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id262"><span>192</span></a>]</span>.</p>
+Many links between genotype loci and phenotypes have been published from this data set, for example loci associated with birthweight<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id264"><span>187</span></a>]</span>, asthma and allergies<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id260"><span>188</span></a>]</span>, autism spectrum disorders<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id259"><span>189</span></a>]</span>, problematic peer relationships<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id262"><span>190</span></a>]</span>, and lung function<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id261"><span>191</span></a>]</span>.
+This data informs GOA genotype-phenotype annotations, and through dcGO this data could already be present in Snowflake, meaning that there may be in some sense, overlap between the training and validation data, which could overestimate the accuracy of the predictor on unseen data<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id263"><span>192</span></a>]</span>.</p>
 <p>For this reason, I do not think that it is sensible to try any further to use ALSPAC to validate or test Snowflake.</p>
 </div>
 </div>

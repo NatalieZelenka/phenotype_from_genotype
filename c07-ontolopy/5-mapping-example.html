@@ -255,13 +255,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -342,7 +336,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-filter/6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -374,7 +368,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -430,6 +424,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -560,8 +566,8 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mapping-statistics">
-     7.5.1.6. Mapping statistics
+    <a class="reference internal nav-link" href="#mapping-overview">
+     7.5.1.6. Mapping overview
     </a>
    </li>
   </ul>
@@ -659,7 +665,7 @@ The <code class="docutils literal notranslate"><span class="pre">Uberon</span></
 <li><p><code class="docutils literal notranslate"><span class="pre">get_overall_tissue_mappings</span></code>: combines the two mappings to create a more comprehensive overall mapping.</p></li>
 </ol>
 <div class="section" id="load-data-and-pre-filter">
-<h3><span class="section-number">7.5.1.1. </span>Load data and pre-filter<a class="headerlink" href="#load-data-and-pre-filter" title="Permalink to this headline">¶</a></h3>
+<span id="map-load-prefilter"></span><h3><span class="section-number">7.5.1.1. </span>Load data and pre-filter<a class="headerlink" href="#load-data-and-pre-filter" title="Permalink to this headline">¶</a></h3>
 <p>In order to do this, I load the input FANTOM5 ontology and sample information files.
 These are the same files that I explained <a class="reference internal" href="4-misc-examples.html#ontolopy-example-inputs"><span class="std std-ref">in the previous section</span></a>.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
@@ -711,7 +717,7 @@ These are the same files that I explained <a class="reference internal" href="4-
 </div>
 </div>
 <div class="section" id="mapping-by-ontology">
-<h3><span class="section-number">7.5.1.2. </span>Mapping by ontology<a class="headerlink" href="#mapping-by-ontology" title="Permalink to this headline">¶</a></h3>
+<span id="bigexamplemapbyont"></span><h3><span class="section-number">7.5.1.2. </span>Mapping by ontology<a class="headerlink" href="#mapping-by-ontology" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">sample_map_by_ont</span></code> function is a wrapper function which calls <code class="docutils literal notranslate"><span class="pre">relations.Relations</span></code>, and excludes too-general Uberon tissues such as anatomical structure, tissue, anatomical system, embryo, and multi fate stem cell.
 We use a merged sample (FANTOM) and tissue (Uberon) ontology as input.</p>
 <p>The inclusion of the Cell Ontology (which is included in the Uberon OBO file) is important to retrieve a mapping for as many samples as possible.
@@ -822,13 +828,13 @@ We use a merged sample (FANTOM) and tissue (Uberon) ontology as input.</p>
 <p id="expect-to-map">The unmapped samples do contain some samples that we wouldn’t expect to be able to map to tissue (defined as those that do not have a tissue provided in the samples information file, or that are labelled as <code class="docutils literal notranslate"><span class="pre">unclassifiable</span></code>, <code class="docutils literal notranslate"><span class="pre">UNDEFINED_TISSUE_TYPE</span></code>, or <code class="docutils literal notranslate"><span class="pre">ANATOMICAL</span> <span class="pre">SYSTEM</span></code>): these account for  of the  unmapped samples.
 This, however, leaves  samples which we would expect to map, spread across  tissues ().</p>
 <div class="figure align-default" id="expect-to-map-examples" style="width: 800px">
-<p class="caption"><span class="caption-number">Fig. 7.4 </span><span class="caption-text">Four FANTOM5 samples that we would expect to be able to map using Ontolopy based on the information in the samples information file (selected columns shown here), but that do not map using Ontolopy with the FANTOM5 ontology.</span><a class="headerlink" href="#expect-to-map-examples" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7.5 </span><span class="caption-text">Four FANTOM5 samples that we would expect to be able to map using Ontolopy based on the information in the samples information file (selected columns shown here), but that do not map using Ontolopy with the FANTOM5 ontology.</span><a class="headerlink" href="#expect-to-map-examples" title="Permalink to this image">¶</a></p>
 </div>
-<p><a class="reference internal" href="#expect-to-map-examples"><span class="std std-numref">Fig. 7.4</span></a> show four examples of such samples.
+<p><a class="reference internal" href="#expect-to-map-examples"><span class="std std-numref">Fig. 7.5</span></a> show four examples of such samples.
 The existence of such tissues, means that mapping via name as well as by ontology could prove useful.</p>
 </div>
 <div class="section" id="mapping-by-name">
-<h3><span class="section-number">7.5.1.3. </span>Mapping by name<a class="headerlink" href="#mapping-by-name" title="Permalink to this headline">¶</a></h3>
+<span id="bigexamplemapbyname"></span><h3><span class="section-number">7.5.1.3. </span>Mapping by name<a class="headerlink" href="#mapping-by-name" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># map by name</span>
@@ -851,12 +857,12 @@ Since we are only looking for Uberon terms, it doesn’t make any difference whe
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="figure align-default" id="example-imprecise" style="width: 800px">
-<p class="caption"><span class="caption-number">Fig. 7.5 </span><span class="caption-text">Comparisons of sample mappings by ontology (inlcluding CL) and by name (by tissue column of samples information file), illustrating the tendency of by-name mappings to be less precise.</span><a class="headerlink" href="#example-imprecise" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7.6 </span><span class="caption-text">Comparisons of sample mappings by ontology (inlcluding CL) and by name (by tissue column of samples information file), illustrating the tendency of by-name mappings to be less precise.</span><a class="headerlink" href="#example-imprecise" title="Permalink to this image">¶</a></p>
 </div>
 <p>As <a class="reference internal" href="#cl-increases-coverage"><span class="std std-numref">Table 7.1</span></a> shows, mapping by name function is quite slow, taking .
 The mappings coverage is .</p>
 <p>This measure doesn’t show that the mapping is constrained to be less precise than the mapping via ontology - of course this is particular to the data as it depends on how the tissues were labelled.
-In this case, FANTOM5 labelled the tissues fairly broadly, so we see examples like <code class="docutils literal notranslate"><span class="pre">FF:10075-102A3</span></code> (<em>lung, right lower lobe</em>) and <code class="docutils literal notranslate"><span class="pre">FF:14331-155F2</span></code> (<em>Fibroblast - Aortic Adventitial</em>) in <a class="reference internal" href="#example-imprecise"><span class="std std-numref">Fig. 7.5</span></a> - this is particularly common when the samples are cell types.</p>
+In this case, FANTOM5 labelled the tissues fairly broadly, so we see examples like <code class="docutils literal notranslate"><span class="pre">FF:10075-102A3</span></code> (<em>lung, right lower lobe</em>) and <code class="docutils literal notranslate"><span class="pre">FF:14331-155F2</span></code> (<em>Fibroblast - Aortic Adventitial</em>) in <a class="reference internal" href="#example-imprecise"><span class="std std-numref">Fig. 7.6</span></a> - this is particularly common when the samples are cell types.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Examples of things that would be unmappable by text alone &quot;Anatomical system&quot;</span>
@@ -882,11 +888,11 @@ In this case, FANTOM5 labelled the tissues fairly broadly, so we see examples li
 </div>
 <p>In addition, there are samples that are not usefully mapped at all (or completely missing a mapping) using the by-name approach, that we can get by-ontology.
 One subset of these is the tissues which are labelled “ANATOMICAL SYSTEM”: these map to the Uberon term <em>anatomical system</em>, but this is too general to be useful.
-<a class="reference internal" href="#anatomical-system"><span class="std std-numref">Fig. 7.6</span></a> shows how these terms can be mapped to more localised terms</p>
+<a class="reference internal" href="#anatomical-system"><span class="std std-numref">Fig. 7.7</span></a> shows how these terms can be mapped to more localised terms</p>
 <p>This also shows the one limitation of mapping by ontology, in that we might expect that samples such as <code class="docutils literal notranslate"><span class="pre">FF:11936-126A1</span></code> to be mapped to the more specific (and useful) <code class="docutils literal notranslate"><span class="pre">UBERON:0001997</span></code> <em>olfactory epithelium</em>.
 This is not the case since there is a “missing” annotation between <code class="docutils literal notranslate"><span class="pre">CL:0002167</span></code> <em>olfactory epithelial cell</em> and <em>olfactory epithelium</em>, since the definition of olfactory epithelial cell is <a class="reference external" href="https://github.com/obophenotype/cell-ontology/issues/167">still under discussion and development</a>.</p>
 <div class="figure align-default" id="anatomical-system" style="width: 800px">
-<p class="caption"><span class="caption-number">Fig. 7.6 </span><span class="caption-text">An example of <em>ANATOMICAL SYSTEM</em> tissue samples, with tissue-specific cells, which are unmapped by-name, but have useful by-ontology mappings.</span><a class="headerlink" href="#anatomical-system" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7.7 </span><span class="caption-text">An example of <em>ANATOMICAL SYSTEM</em> tissue samples, with tissue-specific cells, which are unmapped by-name, but have useful by-ontology mappings.</span><a class="headerlink" href="#anatomical-system" title="Permalink to this image">¶</a></p>
 </div>
 <p id="immune-system-mappings">There are also some benefits to the name based mapping.
 A quirk of the ontology-based mapping is that many cell types are identified as having being part of the <em>immune system</em>, however, this isn’t a well-defined locality.
@@ -894,7 +900,7 @@ It’s possible for samples from different physical locations (e.g. liver, blood
 For the FANTOM5 data at least, the names better describe locations that these samples came from.</p>
 </div>
 <div class="section" id="combining-mappings">
-<h3><span class="section-number">7.5.1.4. </span>Combining mappings<a class="headerlink" href="#combining-mappings" title="Permalink to this headline">¶</a></h3>
+<span id="bigexamplecombiningmappings"></span><h3><span class="section-number">7.5.1.4. </span>Combining mappings<a class="headerlink" href="#combining-mappings" title="Permalink to this headline">¶</a></h3>
 <p>To get the best of both mappings, we need to combine them using the <code class="docutils literal notranslate"><span class="pre">Uberon.get_overall_tissue_mappings</span></code> function.
 This function creates both an overall mapping and a list of disagreements.
 Where only one mapping covers a term, it is trivial to do this (the overall mapping uses the present mapping, and there are no disagreements).
@@ -1003,9 +1009,9 @@ This is likely to have led to uncertainties in the sample ontology file, so by r
 </div>
 <p><a class="reference internal" href="#coverage-tissue-primary-cell"><span class="std std-numref">Table 7.2</span></a> shows that the missing mapping seen in <a class="reference internal" href="#cl-increases-coverage"><span class="std std-numref">Table 7.1</span></a> can be explained by the presence of sample types such as developing tissues and immortal cell lines (models for diseases), i.e. not healthy adult tissues.
 Again there was a benefit in combining mappings.
-The only remaining unmapped tissues were all <em>unclassifiable</em> reference RNA samples (from different providers) - shown in <a class="reference internal" href="#unmapped-samples"><span class="std std-numref">Fig. 7.7</span></a>, from mixed donors and cell types: this is reassuring as we would hope that these would not be mapped to a tissue.</p>
+The only remaining unmapped tissues were all <em>unclassifiable</em> reference RNA samples (from different providers) - shown in <a class="reference internal" href="#unmapped-samples"><span class="std std-numref">Fig. 7.8</span></a>, from mixed donors and cell types: this is reassuring as we would hope that these would not be mapped to a tissue.</p>
 <div class="figure align-default" id="unmapped-samples" style="width: 800px">
-<p class="caption"><span class="caption-number">Fig. 7.7 </span><span class="caption-text">Table showing the three remaining samples which could not be mapped to an Uberon tissue using Ontolopy. All three are  reference RNA samples.</span><a class="headerlink" href="#unmapped-samples" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7.8 </span><span class="caption-text">Table showing the three remaining samples which could not be mapped to an Uberon tissue using Ontolopy. All three are  reference RNA samples.</span><a class="headerlink" href="#unmapped-samples" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -1044,11 +1050,11 @@ I found this approach very useful, as it allowed me to feed back my discoveries 
 <p>Disagreements between the tissue-sample mappings created through the (FANTOM and extended Uberon) ontologies and those created using human annotation illuminates what may be a lack of specificity, incompleteness in, or disagreement between FANTOM, CL, or Uberon annotations, either in creating ontologies or annotating tissues to samples.
 The process of mapping FANTOM to Uberon tissues found twenty-two such disagreements, of which FANTOM, Uberon, and CL where appropriate have been informed via GitHub issues, some of which have already sparked changes in the ontologies.</p>
 <p>Four different types of example are described below, to give an idea of how multiple mappings may be used to improve annotation.</p>
-<p>A full list of disagreements can be seen in <a class="reference internal" href="#disagreements-examples"><span class="std std-numref">Fig. 7.8</span></a>.
+<p>A full list of disagreements can be seen in <a class="reference internal" href="#disagreements-examples"><span class="std std-numref">Fig. 7.9</span></a>.
 There were  disagreements/inconsistencies found using Ontolopy.
 These disagreements can effect multiple (replicate) samples, for a total of  samples.</p>
 <div class="figure align-default" id="disagreements-examples" style="width: 800px">
-<p class="caption"><span class="caption-number">Fig. 7.8 </span><span class="caption-text">Table showing all types of disagreements found using Ontolopy, with example samples.</span><a class="headerlink" href="#disagreements-examples" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7.9 </span><span class="caption-text">Table showing all types of disagreements found using Ontolopy, with example samples.</span><a class="headerlink" href="#disagreements-examples" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="finding-samples-that-are-missing-annotations-to-tissues">
 <h4><span class="section-number">7.5.1.5.1. </span>Finding samples that are missing annotations to tissues<a class="headerlink" href="#finding-samples-that-are-missing-annotations-to-tissues" title="Permalink to this headline">¶</a></h4>
@@ -1126,8 +1132,8 @@ This {ref}`can be useful<>` when comparing to experiments that use more general 
 -->
 </div>
 </div>
-<div class="section" id="mapping-statistics">
-<h3><span class="section-number">7.5.1.6. </span>Mapping statistics<a class="headerlink" href="#mapping-statistics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="mapping-overview">
+<span id="mappingstatistics"></span><h3><span class="section-number">7.5.1.6. </span>Mapping overview<a class="headerlink" href="#mapping-overview" title="Permalink to this headline">¶</a></h3>
 <p>Using Ontolopy we can get a coverage of all samples that we would expect to map to a localised tissue (defining this as primary cell and tissue samples excluding reference RNA).
 These mappings correspond to  unique tissues.</p>
 </div>
@@ -1160,7 +1166,7 @@ After loading the <a class="reference external" href="http://geneontology.org/do
 </div>
 </div>
 <div class="section" id="propagating-relationships-up-the-tree-using-part-of">
-<h3><span class="section-number">7.5.2.1. </span>Propagating relationships up the tree using <code class="docutils literal notranslate"><span class="pre">part_of</span></code><a class="headerlink" href="#propagating-relationships-up-the-tree-using-part-of" title="Permalink to this headline">¶</a></h3>
+<span id="partofprop"></span><h3><span class="section-number">7.5.2.1. </span>Propagating relationships up the tree using <code class="docutils literal notranslate"><span class="pre">part_of</span></code><a class="headerlink" href="#propagating-relationships-up-the-tree-using-part-of" title="Permalink to this headline">¶</a></h3>
 <p>Our first example of looking for relations between tissues and phenotypes will include the <code class="docutils literal notranslate"><span class="pre">part_of</span></code> relation.
 Since ontologies are often represented by DAGs, relationships are usually generally in one direction.
 While there is also the <code class="docutils literal notranslate"><span class="pre">has_part</span></code> relationship that we will look at <a class="reference internal" href="#has-part"><span class="std std-ref">shortly</span></a>, <code class="docutils literal notranslate"><span class="pre">part_of</span></code> is preferred  in the Uberon ontology with almost 10 times as many instances (15,486 compared to 1,703).</p>
@@ -1171,7 +1177,7 @@ This retrieves the mappings in .</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Relations</span></code> class returns a dataframe with the same format whether you use the default <code class="docutils literal notranslate"><span class="pre">mode</span></code> (finding <code class="docutils literal notranslate"><span class="pre">any</span></code> mapping that looks like the <code class="docutils literal notranslate"><span class="pre">targets</span></code>) or the <code class="docutils literal notranslate"><span class="pre">all</span></code> mode; both are indexed by source terms.
 For <code class="docutils literal notranslate"><span class="pre">all</span></code> mode, however, there can be multiple mappings for each source term, so the dataframe contains lists of mappings.
 This dataframe isn’t too easy on the eyes (or analysis), so Ontolopy also has a helpful method called <code class="docutils literal notranslate"><span class="pre">format_all</span></code> which reformats the <code class="docutils literal notranslate"><span class="pre">Relations</span></code> output dataframe when the <code class="docutils literal notranslate"><span class="pre">all</span></code> mode is used into an easier-to-work-with multi-indexed dataframe.
-Example output of this can be seen in <a class="reference internal" href="#phenotype-mapping-example-table"><span class="std std-numref">Fig. 7.9</span></a>.</p>
+Example output of this can be seen in <a class="reference internal" href="#phenotype-mapping-example-table"><span class="std std-numref">Fig. 7.10</span></a>.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merge GO obo:</span>
@@ -1214,9 +1220,9 @@ Example output of this can be seen in <a class="reference internal" href="#pheno
 </div>
 </div>
 <div class="figure align-default" id="phenotype-mapping-example-table" style="width: 800px">
-<p class="caption"><span class="caption-number">Fig. 7.9 </span><span class="caption-text">Table showing a view of the output of <code class="docutils literal notranslate"><span class="pre">Relations.format_all</span></code> for the tissue-to-phenotype mapping.</span><a class="headerlink" href="#phenotype-mapping-example-table" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7.10 </span><span class="caption-text">Table showing a view of the output of <code class="docutils literal notranslate"><span class="pre">Relations.format_all</span></code> for the tissue-to-phenotype mapping.</span><a class="headerlink" href="#phenotype-mapping-example-table" title="Permalink to this image">¶</a></p>
 </div>
-<p>As <a class="reference internal" href="#phenotype-mapping-example-table"><span class="std std-numref">Fig. 7.9</span></a> shows, mappings contain a mixture of mappings to specific GO terms like <em>brain</em> and <em>cognition</em>, and very general phenotype terms, like <em>urinary bladder</em> and <em>anatomical structure development</em>.</p>
+<p>As <a class="reference internal" href="#phenotype-mapping-example-table"><span class="std std-numref">Fig. 7.10</span></a> shows, mappings contain a mixture of mappings to specific GO terms like <em>brain</em> and <em>cognition</em>, and very general phenotype terms, like <em>urinary bladder</em> and <em>anatomical structure development</em>.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate number of mapped GO terms:</span>
@@ -1242,10 +1248,10 @@ Example output of this can be seen in <a class="reference internal" href="#pheno
 </div>
 </div>
 <p>As we’ve seen in other example use cases, it’s possible to use the <code class="docutils literal notranslate"><span class="pre">exclude</span></code> option when retreiving the mapping, to exclude any terms that you might wish to avoid, for example very general terms if you have a list of these.
-Since we didn’t know this, we found the 20 most frequently mapped GO terms (seen in <a class="reference internal" href="#go-counts-top20"><span class="std std-numref">Fig. 7.10</span></a>), out of  mapped overall.
+Since we didn’t know this, we found the 20 most frequently mapped GO terms (seen in <a class="reference internal" href="#go-counts-top20"><span class="std std-numref">Fig. 7.11</span></a>), out of  mapped overall.
 From this list  tissues to remove were then manually identified: .</p>
 <div class="figure align-default" id="go-counts-top20" style="width: 800px">
-<p class="caption"><span class="caption-number">Fig. 7.10 </span><span class="caption-text">Table showing the frequency that phenotype (<code class="docutils literal notranslate"><span class="pre">GO</span></code>) terms are mapped to the provided tissue terms, for the top 20 GO terms.</span><a class="headerlink" href="#go-counts-top20" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7.11 </span><span class="caption-text">Table showing the frequency that phenotype (<code class="docutils literal notranslate"><span class="pre">GO</span></code>) terms are mapped to the provided tissue terms, for the top 20 GO terms.</span><a class="headerlink" href="#go-counts-top20" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -1281,15 +1287,15 @@ From this list  tissues to remove were then manually identified: .</p>
 <span class="c1"># glue(&quot;mapped-tissue-up&quot;, len(formatted_phenotype_mapping_filtered.index.get_level_values(&quot;Tissue&quot;).unique()))</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;num-unique-phen-up&quot;</span><span class="p">,</span>  <span class="nb">len</span><span class="p">(</span><span class="n">formatted_phenotype_mapping_filtered</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s2">&quot;Phenotype&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
 
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;num-unmapped-tissue-phenotype-rem&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">unmapped_tissue_phenotype_less</span><span class="p">))</span>
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;lst-unmapped-tissue-phenotype-rem&quot;</span><span class="p">,</span> <span class="n">list_to_text</span><span class="p">([</span><span class="n">merged</span><span class="p">[</span><span class="n">tissue</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="n">unmapped_tissue_phenotype_less</span><span class="p">]))</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;num-unmapped-tissue-phenotype-num&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">unmapped_tissue_phenotype_less</span><span class="p">))</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;lst-unmapped-tissue-phenotype-lst&quot;</span><span class="p">,</span> <span class="n">list_to_text</span><span class="p">([</span><span class="n">merged</span><span class="p">[</span><span class="n">tissue</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="n">unmapped_tissue_phenotype_less</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><a class="reference internal" href="#mapped-phenotypes-per-tissue"><span class="std std-numref">Fig. 7.12</span></a> (b) shows us that after removing very general terms, the majority of terms have 1-20 phenotypes mapped to them.</p>
+<p><a class="reference internal" href="#mapped-phenotypes-per-tissue"><span class="std std-numref">Fig. 7.13</span></a> (b) shows us that after removing very general terms, the majority of terms have 1-20 phenotypes mapped to them.</p>
 <p>A small number have more, and a small number have no mappings.
-There are  terms with no mapping whatsoever in (a), or  terms in (b) which do not have a mapping except for the very general terms.
+There are  terms in (b) which do not have a mapping except for the very general terms.
 These terms are: .
 Clearly there are phenotypes that affect these tissues (with the exception of the obsolete term), so the lack of mapping here may represent missing relationships or terms within the gene ontology.
 An important one for our data set is <em>blood</em> (since we have many such tissue samples): there are GO phenotype terms relating to <em>blood</em> such as <em>blood circulation</em> and <em>blood coagulation</em>, so why don’t we get mappings to these terms?</p>
@@ -1301,7 +1307,7 @@ In order to retrieve these terms, instead of propagating up the tree (to more ge
 <div class="margin sidebar" id="has-part-part-of">
 <p class="sidebar-title">has_part and part_of</p>
 <p>Ontological relations have strict definitions which help allow us to reason based on these relations, for example by <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">has_part</span> <span class="pre">B</span></code>, we mean that A always has B as a part, while <code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">part_of</span> <span class="pre">A</span></code> means that whenever B exists it is part of A.</p>
-<p>This means that <code class="docutils literal notranslate"><span class="pre">has_part</span></code> and <code class="docutils literal notranslate"><span class="pre">part_of</span></code> are not inverses<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id225"><span>173</span></a>]</span>, i.e. if <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">part_of</span> <span class="pre">B</span></code>, that does not necessarily mean that <code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">has_part</span> <span class="pre">A</span></code>.
+<p>This means that <code class="docutils literal notranslate"><span class="pre">has_part</span></code> and <code class="docutils literal notranslate"><span class="pre">part_of</span></code> are not inverses<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id226"><span>173</span></a>]</span>, i.e. if <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">part_of</span> <span class="pre">B</span></code>, that does not necessarily mean that <code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">has_part</span> <span class="pre">A</span></code>.
 For example, wherever human ovaries exist, they are <code class="docutils literal notranslate"><span class="pre">part_of</span></code> humans, but whever humans exist, they don’t necessarily <code class="docutils literal notranslate"><span class="pre">has_part</span></code> human ovaries.</p>
 <p>There are also other terms which denote similar relations, such as <code class="docutils literal notranslate"><span class="pre">composed_primarily_of</span></code>.</p>
 </div>
@@ -1358,7 +1364,7 @@ Running this is otherwise very similar.</p>
 <p>Although less tissues have been mapped overall, we can tell they do capture previously unmapped tissues since the overall number of unmapped tissues (after removal of too-general terms) reduces from  with propagating up only to  which aren’t mapped by either method.
 While propagating down therefore improves the overall mapping coverage, looking at the tissues which remain unmapped gives us a clue as to what further improvements we can make.</p>
 <p>The terms which remain unmapped are .
-The give-away term is <em>skin of body</em>, since looking at subfigure <code class="docutils literal notranslate"><span class="pre">(d)</span></code> in <a class="reference internal" href="#mapped-phenotypes-per-tissue"><span class="std std-numref">Fig. 7.12</span></a>, by hovering over the top most well-mapped tissue we can see that it is <em>stratum basale of epidermis</em>, which is part of the <em>epidermis</em> which is in turn part of the <em>skin of body</em>.
+The give-away term is <em>skin of body</em>, since looking at subfigure <code class="docutils literal notranslate"><span class="pre">(d)</span></code> in <a class="reference internal" href="#mapped-phenotypes-per-tissue"><span class="std std-numref">Fig. 7.13</span></a>, by hovering over the top most well-mapped tissue we can see that it is <em>stratum basale of epidermis</em>, which is part of the <em>epidermis</em> which is in turn part of the <em>skin of body</em>.
 The reason skin of body doesn’t have a mapping is because while the <em>epidermis</em> is <code class="docutils literal notranslate"><span class="pre">part_of</span></code> the <em>skin of body</em>, the <em>skin of body</em> does not have the <code class="docutils literal notranslate"><span class="pre">has_part</span></code> relation to <em>epidermis</em>.</p>
 </div>
 <div class="section" id="propagating-down-the-tree-inverse-of-part-of">
@@ -1448,17 +1454,17 @@ This could be useful, depending on the experiment data in question and the resul
 </div>
 </div>
 <p>This resulting mapping contains  additional tissue-phenotype mappings (not found in either the <code class="docutils literal notranslate"><span class="pre">has_part</span></code> or the <code class="docutils literal notranslate"><span class="pre">part_of</span></code> approach).
-Some examples of these additional tissue-phenotype mappings that were found using this <code class="docutils literal notranslate"><span class="pre">can_have_human_part</span></code> approach are given in <a class="reference internal" href="#tbl-down2-examples"><span class="std std-numref">Fig. 7.11</span></a>.
+Some examples of these additional tissue-phenotype mappings that were found using this <code class="docutils literal notranslate"><span class="pre">can_have_human_part</span></code> approach are given in <a class="reference internal" href="#tbl-down2-examples"><span class="std std-numref">Fig. 7.12</span></a>.
 Overall, this mapping covers  tissues and  phenotypes.</p>
 <p>The yet unmapped tissues (by any method) are now: .
 While this list still contains tissues that we would expect to map to GOBP phenotypes, the lack of these terms in our searches now means that they are simply missing annotations.
 For example we have no mapping for <em>adipose tissue</em> despite the fact that GOBP terms exists for <em>adipose tissue development</em> and <em>fat cell proliferation</em>, but there is no cross-ontology mapping of these term in the current version of the ontology, so there is no way Ontolopy could pick them up.</p>
 <div class="figure align-default" id="tbl-down2-examples" style="width: 800px">
-<p class="caption"><span class="caption-number">Fig. 7.11 </span><span class="caption-text">An example of six of the  additional Uberon-GOBP mappings found using <code class="docutils literal notranslate"><span class="pre">can_have_human_part</span></code>.</span><a class="headerlink" href="#tbl-down2-examples" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7.12 </span><span class="caption-text">An example of six of the  additional Uberon-GOBP mappings found using <code class="docutils literal notranslate"><span class="pre">can_have_human_part</span></code>.</span><a class="headerlink" href="#tbl-down2-examples" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="combining-previous-mappings">
-<h3><span class="section-number">7.5.2.4. </span>Combining previous mappings<a class="headerlink" href="#combining-previous-mappings" title="Permalink to this headline">¶</a></h3>
+<span id="combiningexample2"></span><h3><span class="section-number">7.5.2.4. </span>Combining previous mappings<a class="headerlink" href="#combining-previous-mappings" title="Permalink to this headline">¶</a></h3>
 <p>To create the final tissue-phenotype mapping, we combine the propagating up (<code class="docutils literal notranslate"><span class="pre">part_of</span></code>) mapping with the <a class="reference internal" href="#can-have-contains"><span class="std std-ref">larger</span></a> propagating down (<code class="docutils literal notranslate"><span class="pre">can_have_human_part</span></code>) mapping, by simply appending the new lines of the DataFrame.</p>
 <div class="admonition-can-have-human-part-query-completely-contains-has-part-query admonition" id="can-have-contains">
 <p class="admonition-title">‘can_have_human_part’ query completely contains ‘has_part’ query.</p>
@@ -1598,12 +1604,12 @@ Since this is greater than any other individual mapping, we can see that it is n
 </div>
 <div class="figure align-default" id="mapped-phenotypes-per-tissue">
 <img alt="../_images/blank.png" src="../_images/blank.png" />
-<p class="caption"><span class="caption-number">Fig. 7.12 </span><span class="caption-text">Bar charts showing the number of tissue-phenotype mappings (number of phenotypes mapped to each tissue - roll mouse over to see tissue names) for (a) all phenotype terms propagating down, (b) general phenotypes removed propagating down, (c) all phenotype terms propagating up, (d) general phenotypes removed propagating down, (e) all phenotype terms propagating both up and down, and (f) general phenotypes removed propagating both up and down.</span><a class="headerlink" href="#mapped-phenotypes-per-tissue" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7.13 </span><span class="caption-text">Bar charts showing the number of tissue-phenotype mappings (number of phenotypes mapped to each tissue - roll mouse over to see tissue names) for (a) all phenotype terms propagating down, (b) general phenotypes removed propagating down, (c) all phenotype terms propagating up, (d) general phenotypes removed propagating down, (e) all phenotype terms propagating both up and down, and (f) general phenotypes removed propagating both up and down.</span><a class="headerlink" href="#mapped-phenotypes-per-tissue" title="Permalink to this image">¶</a></p>
 </div>
 <!-- ../images/blank.png This is a workaround to put a 1x1px blank image after an interactive image so that it appears to have a figure label -->
-<p>There are  unmapped tissues (which map to zero phenotypes), and all other tissues map to between 2 and 131 phenotype terms, (as we can see in figure <a class="reference internal" href="#mapped-phenotypes-per-tissue"><span class="std std-numref">Fig. 7.12</span></a>).
+<p>There are  unmapped tissues (which map to zero phenotypes), and all other tissues map to between 2 and 131 phenotype terms, (as we can see in figure <a class="reference internal" href="#mapped-phenotypes-per-tissue"><span class="std std-numref">Fig. 7.13</span></a>).
 The number of mappings varies smoothly in this range with more general tissues and organs broadly appearing to have higher numbers of mappings than very specific tissues.
-We can also see in <a class="reference internal" href="#mapped-phenotypes-per-tissue"><span class="std std-numref">Fig. 7.12</span></a> that the <code class="docutils literal notranslate"><span class="pre">can_have_human_part</span></code> mapping makes up the majority of the mappings in the final combined mapping.</p>
+We can also see in <a class="reference internal" href="#mapped-phenotypes-per-tissue"><span class="std std-numref">Fig. 7.13</span></a> that the <code class="docutils literal notranslate"><span class="pre">can_have_human_part</span></code> mapping makes up the majority of the mappings in the final combined mapping.</p>
 <table class="table" id="tissue-mapping-comparison">
 <caption><span class="caption-number">Table 7.3 </span><span class="caption-text">Table comparing the difference in coverage (mappable tissues), phenotypes, time taken, and unmapped tissues for different mapping techniques.</span><a class="headerlink" href="#tissue-mapping-comparison" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1697,7 +1703,7 @@ Since relation strings can now contain FANTOM5, CL, UBERON and GO terms, I first
                                       <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span>
                                       <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;relation_path&#39;</span><span class="p">,</span> <span class="s1">&#39;relation_text&#39;</span><span class="p">])</span>
 <span class="n">sample_to_tissue_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">sample_to_tissue_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sample&quot;</span><span class="p">,</span> <span class="s2">&quot;tissue&quot;</span><span class="p">,</span> <span class="s2">&quot;phenotype&quot;</span><span class="p">])</span>
-<span class="n">mapping_file_path</span> <span class="o">=</span> <span class="s1">&#39;../c09-filter/data/created/fantom-go-mapping.csv&#39;</span>
+<span class="n">mapping_file_path</span> <span class="o">=</span> <span class="s1">&#39;../c06-filter/data/created/fantom-go-mapping.csv&#39;</span>
 <span class="n">sample_to_tissue_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">mapping_file_path</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">sample_to_tissue_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 </pre></div>
@@ -1705,7 +1711,7 @@ Since relation strings can now contain FANTOM5, CL, UBERON and GO terms, I first
 </div>
 </div>
 <div class="section" id="final-mapping">
-<h3><span class="section-number">7.5.3.1. </span>Final mapping<a class="headerlink" href="#final-mapping" title="Permalink to this headline">¶</a></h3>
+<span id="opyexamplefinalmapping"></span><h3><span class="section-number">7.5.3.1. </span>Final mapping<a class="headerlink" href="#final-mapping" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Glue final mapping statistics:</span>
@@ -1745,9 +1751,9 @@ Since relation strings can now contain FANTOM5, CL, UBERON and GO terms, I first
 <p>There are  rows of the sample-to-tissue mapping DataFrame in total.
 This includes some <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values, so it contains  mappings from sample to phenotype; equivalent to a sample coverage of  of filtered (<em>tissue</em> and <em>primary cell</em>) samples or  of all samples.
 It also includes an additional  mappings from sample to tissue (but not to phenotype), and  samples with no mapping to tissue or phenotype.
-<a class="reference internal" href="#table-unmapped-why"><span class="std std-numref">Fig. 7.13</span></a> shows why almost 10% of samples are unmapped in more detail: many samples map to the same unmapped tissues, particiularly adipose tissue, epithelium, or connective tissue.</p>
+<a class="reference internal" href="#table-unmapped-why"><span class="std std-numref">Fig. 7.14</span></a> shows why almost 10% of samples are unmapped in more detail: many samples map to the same unmapped tissues, particiularly adipose tissue, epithelium, or connective tissue.</p>
 <div class="figure align-default" id="table-unmapped-why" style="width: 800px">
-<p class="caption"><span class="caption-number">Fig. 7.13 </span><span class="caption-text">Table showing how many samples are mapped to each unmappable tissue, showing why the coverage of samples isn’t higher.</span><a class="headerlink" href="#table-unmapped-why" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7.14 </span><span class="caption-text">Table showing how many samples are mapped to each unmappable tissue, showing why the coverage of samples isn’t higher.</span><a class="headerlink" href="#table-unmapped-why" title="Permalink to this image">¶</a></p>
 </div>
 <p>With Ontolopy, this complex task is relatively quick: it took  to run this whole notebook on a laptop without any parallelisation.
 Also recall that this section is merely an example of an application of Ontolopy: this same process could be done for other datasets that provide an ontology and/or a sample information file.</p>

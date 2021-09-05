@@ -253,13 +253,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -340,7 +334,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-filter/6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -372,7 +366,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -428,6 +422,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -567,7 +573,7 @@
 <span id="ont-fw"></span><h1><span class="section-number">7.7. </span>Future Work<a class="headerlink" href="#future-work" title="Permalink to this headline">¶</a></h1>
 <p>I keep an updated <a class="reference external" href="https://nataliethurlby.github.io/ontolopy/contents/roadmap.html">roadmap for Ontolopy</a> on the documentation website and a detailed list of <a class="reference external" href="https://github.com/NatalieThurlby/ontolopy/issues">issues on GitHub</a>.</p>
 <div class="section" id="v2-0-0">
-<h2><span class="section-number">7.7.1. </span>v2.0.0<a class="headerlink" href="#v2-0-0" title="Permalink to this headline">¶</a></h2>
+<span id="opyv2"></span><h2><span class="section-number">7.7.1. </span>v2.0.0<a class="headerlink" href="#v2-0-0" title="Permalink to this headline">¶</a></h2>
 <p>The main priority for Ontolopy is reaching a stable version for release, user-testing, and publishing the work.</p>
 <p>You can see the full list of features for the <a class="reference external" href="https://github.com/NatalieThurlby/ontolopy/milestone/1">v2.0.0 Milestone</a> on GitHub, but to summarise:</p>
 <ul class="simple">
@@ -579,11 +585,11 @@
 <!--If this proved useful, then allowing R-users to use Ontolopy by creating a wrapper to R using [`reticulate`](https://rstudio.github.io/reticulate/).-->
 </div>
 <div class="section" id="other-potential-improvements-to-ontolopy">
-<h2><span class="section-number">7.7.2. </span>Other potential improvements to Ontolopy<a class="headerlink" href="#other-potential-improvements-to-ontolopy" title="Permalink to this headline">¶</a></h2>
-<p>In addition to the barebones <span class="xref std std-ref">necessities for v2.0.0</span> above, there are a number of more ambitious pieces of functionality which would improve its’ usefulness.</p>
+<span id="opyadditional"></span><h2><span class="section-number">7.7.2. </span>Other potential improvements to Ontolopy<a class="headerlink" href="#other-potential-improvements-to-ontolopy" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the barebones necessities for v2.0.0 above, there are a number of more ambitious pieces of functionality which would improve its’ usefulness.</p>
 <div class="section" id="text-search-and-fuzzy-matching">
 <span id="text-search-ont"></span><h3><span class="section-number">7.7.2.1. </span>Text-search and fuzzy-matching<a class="headerlink" href="#text-search-and-fuzzy-matching" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">Uberon.map_by_name</span></code> function currently implements a slow search of names in ontologies, but this search could be both much quicker and more general (e.g. able to use wild cards, or search in any field to create mappings), i.e. similar in fuctionality to <a class="reference external" href="https://pypi.org/project/Owlready2/">OwlReady2</a><span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id226"><span>226</span></a>]</span>’s <a class="reference external" href="https://owlready2.readthedocs.io/en/v0.32/"><code class="docutils literal notranslate"><span class="pre">search</span></code> function</a>.
+<p>The <code class="docutils literal notranslate"><span class="pre">Uberon.map_by_name</span></code> function currently implements a slow search of names in ontologies, but this search could be both much quicker and more general (e.g. able to use wild cards, or search in any field to create mappings), i.e. similar in fuctionality to <a class="reference external" href="https://pypi.org/project/Owlready2/">OwlReady2</a><span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id227"><span>227</span></a>]</span>’s <a class="reference external" href="https://owlready2.readthedocs.io/en/v0.32/"><code class="docutils literal notranslate"><span class="pre">search</span></code> function</a>.
 Fuzzy-matching then expand this functionality to help capture misspelled information.</p>
 </div>
 <div class="section" id="functionality-for-more-complex-queries">
@@ -594,23 +600,23 @@ In this particular case, the difficulty is partly because <code class="docutils 
 <p>If we want to do this at the moment, we have to make two queries to Ontolopy separately and then combine them (as in <a class="reference internal" href="5-mapping-example.html#can-have-human-part-define"><span class="std std-ref">this example</span></a>), which is clearly not very user-friendly.</p>
 </div>
 <div class="section" id="opy-go">
-<h3><span class="section-number">7.7.2.3. </span><code class="docutils literal notranslate"><span class="pre">opy.Go</span></code><a class="headerlink" href="#opy-go" title="Permalink to this headline">¶</a></h3>
+<span id="opygo"></span><h3><span class="section-number">7.7.2.3. </span><code class="docutils literal notranslate"><span class="pre">opy.Go</span></code><a class="headerlink" href="#opy-go" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">opy.Uberon</span></code> class adds functionality specifically for the Uberon ontology, helping users to map between samples (or other entities) and tissues for their specific area of interest.
-We could imagine similar functionality for the Gene Ontology, and perhaps integration with GOATools<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id214"><span>214</span></a>]</span>.</p>
+We could imagine similar functionality for the Gene Ontology, and perhaps integration with GOATools<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id215"><span>215</span></a>]</span>.</p>
 </div>
 <div class="section" id="integration-with-pronto">
 <span id="pronto-integration"></span><h3><span class="section-number">7.7.2.4. </span>Integration with Pronto<a class="headerlink" href="#integration-with-pronto" title="Permalink to this headline">¶</a></h3>
 <p>Test integration with Pronto to investigate how it would effect how the speed of the current implementation.</p>
 </div>
 <div class="section" id="ontology-validity">
-<h3><span class="section-number">7.7.2.5. </span>Ontology validity<a class="headerlink" href="#ontology-validity" title="Permalink to this headline">¶</a></h3>
+<span id="opyvalidity"></span><h3><span class="section-number">7.7.2.5. </span>Ontology validity<a class="headerlink" href="#ontology-validity" title="Permalink to this headline">¶</a></h3>
 <p>Since it is possible with Ontolopy to add new terms and relationships, to merge OBO files, and to build ontologies from scratch, it might be useful for Ontolopy to have some functionality for checking the validity of the OBO object automatically.
 This could include for example checking for cyclic relationships, or checking if there is any missing information such as ontology version numbers, or required attributes for terms.
 This could use some of the same approaches as ROBOT.</p>
 </div>
 </div>
 <div class="section" id="miscellaneous">
-<h2><span class="section-number">7.7.3. </span>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
+<span id="opymiscfw"></span><h2><span class="section-number">7.7.3. </span>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>NLP similarity measures</strong>: An earlier version of Ontolopy included text-mining to find similar terms using a <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html#tf-idf"><span class="std std-ref">TF-IDF</span></a> like measure to create a similarity measure based on co-occurance, e.g. “mental” and “brain” have high similarity since they often appear in the same document (documents being term descriptions). This functionality is not currently in Ontolopy, and doesn’t really align with the core functionality of the module, but it could be released separately to find potential missing ontology links.</p></li>
 <li><p><strong>Versioned docs sphinx extension:</strong> Although it is not really an output of Ontolopy, I also hope to be able to release the <a class="reference internal" href="3-how-it-works.html#sphinx-extension"><span class="std std-ref">sphinx extension</span></a> that I used to create versioned documentation soon.</p></li>

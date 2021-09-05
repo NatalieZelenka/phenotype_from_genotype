@@ -1,3 +1,4 @@
+(ontolopy-intro)=
 # Introduction
 
 :::{margin} What are ontologies again?
@@ -9,6 +10,7 @@ Ontologies are controlled vocabularies of terms and relationships. You can read 
 [//]: # (TODO: Explain relationship between DAGS and ontologies... they're not really DAGS - they used to be DAGS because they come from phylogenetic trees)
 [//]: # (TODO: Ensure that relationship between SPARQL - for QUERYING ontologies, and reasoners - totally different thing - are spoken about differently)
 
+(opy-motivation)=
 ## Motivation
 
 I created Ontolopy in order to create a high-coverage mapping between tissues and gene expression samples, which I hoped would aid in phenotype and protein function prediction.
@@ -28,8 +30,8 @@ For example, Uberon contains information about synonyms for different anatomical
 Ontologies are therefore also sources of text that could be used to map sample names to terms. 
 Once samples are mapped to ontologies they can leverage on all of the information inside them, for example, to find all the samples that are capable of *hormone secretion*.
 
+(obo-files)=
 ## OBO files
-### Why OBO files?
 There are two file formats which rule the ontology world. 
 
 [//]: # (TODO: Cite Hermit + sparql)
@@ -41,6 +43,7 @@ The major benefit of the OWL format is that it is formally axiomised and there e
 
 I found that at the time of creating, I needed files which were only available in OBO format, and OBO-to-OWL converters were not able to extract all the information that I needed. 
 
+(obo-anatomy)=
 ### Anatomy of an OBO file
 [//]: # (TODO: write, excerpt of obo file here mention *terms* *relations* *attributes*)
 [//]: # (TODO: Add TODOs from Ontolopy to milestone)
@@ -76,13 +79,15 @@ relationship: part_of UBERON:0001769 ! iris
 (ontolopy-purpose)=
 ## Purpose
 
-:::{figure} ../images/ontolopy_logo.png
+[//]: # (TODO: Add alt text for ontolopy logo)
+
+```{figure} ../images/ontolopy_logo.png
 ---
 height: 220px
 name: ontolopy-logo
 ---
-
-:::
+Figure showing the purpose of Ontolopy as an ontology.
+```
 
 (propagate)=
 :::{margin} Propagating

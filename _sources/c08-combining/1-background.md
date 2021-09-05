@@ -1,3 +1,4 @@
+(combiningintro)=
 # Introduction
 [//]: # (TODO: Put basically an abstract in this space between title and motivation)
 <!--
@@ -6,6 +7,7 @@ The included experiments were chosen to minimise differences between data pipeli
 In order to ensure the interoperability of the final combined data set, the meta-data about the experiments is also combined, and mapped to the Uberon tissue ontology, using the Ontolopy package developed for this task, described in {ref}`the previous chapter<c06-ontolopy>`. 
 -->
 
+(combmotivation)=
 ## Motivation
 
 There is general agreement that integrating omics datasets is one of the primary challenges to overcome if we wish to harness the full information contained within them{cite}`Gomez-Cabrero2014-gk`. 
@@ -41,9 +43,11 @@ Although my aim in creating this data set was specifically to improve phenotype 
 Additional repeated measurements, and a larger spread of samples would allow researchers to ask more questions and have a larger statistical power.
 For example, one possible use is identification of housekeeping genes, or building models of gene regulatory networks.
 
+(combchallenges)=
 ## Challenges in combining gene expression data sets
 Challenges in combining gene expression data arise from the myriad of possible differences in experimental and analysis protocols between gene expression experiments. 
 
+(harmonisingchallenge)=
 ### Harmonising meta-data
 An important feature of any gene expression data set is the quality of the meta-data, by which I mean everything except the measures of gene expression, particularly including additional information about samples and protocols. 
 For example, data about samples can be recorded at different levels of specificity.
@@ -55,6 +59,7 @@ Samples were primarily assigned Uberon term identifiers by searching for matchin
 Where existing terms did not turn up a match, samples were assigned an Uberon term by hand.
 Then using the Uberon ontology, tissues could be understood in relation to each other, being mapped to tissues and more general tissue groups.
 
+(batchchallenge)=
 ### Batch effects
 [//]: # (TODO: Check if batch effects are mentioned previously)
 Combining gene expression data itself, is also not trivial: a major problem is their well known susceptibility to batch effects (differences in measurements due to technical artefacts of sequencing batch){cite}`Leek2010-yw`. 
@@ -70,7 +75,9 @@ Often they can also add systematic differences that can lead to incorrect biolog
 They are a problem for analysing the output of an individual experiment where there are multiple sequencing batches, but pose a particular problem in combining data from different experiments, as there is almost certainly more variations between analysis pipelines.
  
 (batch-effect-correction)=
-#### Batch-effect correction
+**Batch-effect correction:**
+
+
 Batch effects may affect only specific subsets of genes, and may affect different genes in different ways{cite}`Leek2010-yw`. 
 This means that {ref}`normalisation<rna-normalisation>` (e.g. TPM, FKPM) will not account for batch.
 However, when it is known, date of sequence processing is often used as a surrogate for batch, enabling researchers to check for, and then remove, batch effects if necessary. 
@@ -79,15 +86,20 @@ There are a number of batch correction analyses which attempt to remove batch ef
 Batch correction can be very useful for understanding baseline gene expression, but can lead to inflated p-values for downstream analysis (notably for differential gene expression, using ComBat{cite}`Johnson2007-zh`), where a more sensible approach is to include batch as a confounder for statistical tests. 
 
 (combat-description)=
-#### ComBat
+**ComBat:**
+
+
 [//]: # (TODO: Explain need for "balanced experimental design")
+
 ComBat{cite}`Johnson2007-zh` is a popular batch effect removal procedure, which was first developed for use with microarray data, but continues to be a popular choice for RNA-seq data. 
 Generally, it is a well-trusted method for both of these types of gene expression data{cite}`Chen2011-ke`, although there is some evidence that it may “over-correct” batches for some RNA-seq data{cite}`Liu2016-wa`.
 
 ComBat is an Empirical Bayes method, meaning that the prior distribution is estimated from the data. 
 It is designed to “borrow/share information” between genes in order to get a better estimate of batch effects, and assumes that batch effects affect many genes in similar ways.
 
-#### PCA to visualise batch effect removal
+**PCA to visualise batch effect removal:**
+
+
 Principal Components Analysis (PCA) is often used to visually inspect experimental results for batch effects; when biologically alike samples cluster together rather than those from like-batches, batch effects are often ignored. 
 In order to do this, we must also have enough meaningful information recorded per sample, access to data in raw count format, and mapping between the data that is given and similar samples in other datasets, as well as computational problems (data storage, optimisation of running operations on many or large files, etc). 
 

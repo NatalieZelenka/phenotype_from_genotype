@@ -253,13 +253,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -340,7 +334,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -372,7 +366,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -428,6 +422,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -554,7 +560,7 @@
               <div>
                 
   <div class="section" id="algorithm">
-<h1><span class="section-number">6.2. </span>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">¶</a></h1>
+<span id="filter-algorithm"></span><h1><span class="section-number">6.2. </span>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">¶</a></h1>
 <p>In order to overcome the problem of predictors containing erroneous predictions due to a lack of gene expression information, I have created a lightweight tool which allows researchers to filter their phenotype or protein function predictions using tissue-specific gene expression information.</p>
 <div class="margin sidebar" id="naming-things">
 <p class="sidebar-title">Naming things</p>
@@ -562,11 +568,11 @@
 <div><p>There are only two hard things in Computer Science: cache invalidation and naming things</p>
 <p>– Phil Karlton</p>
 </div></blockquote>
-<p>Aside from the above joke, there is also evidence in the literature<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id184"><span>202</span></a>]</span> to suggest that strained acronyms exist across scientific disciplines.</p>
+<p>Aside from the above joke, there is also evidence in the literature<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id185"><span>203</span></a>]</span> to suggest that strained acronyms exist across scientific disciplines.</p>
 </div>
 <p>Drawing on the noble tradition of scientists <a class="reference internal" href="#naming-things"><span class="std std-ref">naming things badly</span></a>, I call this Filip as it is for <strong>Fil</strong>ter<strong>i</strong>ng <strong>p</strong>redictions.</p>
 <div class="section" id="overview">
-<h2><span class="section-number">6.2.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<span id="filter-algo-overview"></span><h2><span class="section-number">6.2.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="#filip-overview"><span class="std std-numref">Fig. 6.1</span></a> illustrates Filip’s two-step approach, which aims to filter out predictions for proteins which are not created in the tissue of interest (related to the predicted phenotype).
 The filter is a simple rule-based tool, which is designed to be used on top of any protein function predictor, but would provide the most value for predictors that rely on structural or sequence similarity.</p>
 <div class="figure align-default" id="filip-overview">
@@ -578,7 +584,7 @@ In step 2, <em>filtering</em>, Filip filters out any predictions where for which
 </div>
 </div>
 <div class="section" id="inputs">
-<h2><span class="section-number">6.2.2. </span>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<span id="filter-inputs"></span><h2><span class="section-number">6.2.2. </span>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <p>Three types of input are needed for Filip:</p>
 <ol class="simple">
 <li><p>Protein function predictions</p></li>
@@ -586,25 +592,25 @@ In step 2, <em>filtering</em>, Filip filters out any predictions where for which
 <li><p>A map from gene expression samples to Uberon tissues.</p></li>
 </ol>
 <div class="section" id="protein-function-predictions">
-<h3><span class="section-number">6.2.2.1. </span>Protein function predictions<a class="headerlink" href="#protein-function-predictions" title="Permalink to this headline">¶</a></h3>
+<span id="input-predictions"></span><h3><span class="section-number">6.2.2.1. </span>Protein function predictions<a class="headerlink" href="#protein-function-predictions" title="Permalink to this headline">¶</a></h3>
 <p>Protein function predictions must be links between Protein identifiers and phenotype terms from GOBP, HP, MP or DOID ontologies.
 This is the standard for CAFA competitions.</p>
 </div>
 <div class="section" id="gene-expression-file">
-<h3><span class="section-number">6.2.2.2. </span>Gene expression file<a class="headerlink" href="#gene-expression-file" title="Permalink to this headline">¶</a></h3>
+<span id="input-ge"></span><h3><span class="section-number">6.2.2.2. </span>Gene expression file<a class="headerlink" href="#gene-expression-file" title="Permalink to this headline">¶</a></h3>
 <p>If Filip was a filter coffee machine, the gene expression (GE) file would be the (reusable) filter: it is the part that determines what can and cannot pass through the  filter and it can be used with any kind of input predictions (coffee).
 Once we have the GE file can be reused for any different protein function predictor, as long as they are predicting phenotype terms that are in our GE file.</p>
 <p>The user must also determine a cut-off: the minimum gene expression level to count as “expressed”.
 The higher the cut-off the fewer genes will count as unexpressed, and therefore the fewer predictions will be filtered from the original list.</p>
 </div>
 <div class="section" id="sample-tissue-map">
-<h3><span class="section-number">6.2.2.3. </span>Sample-tissue map<a class="headerlink" href="#sample-tissue-map" title="Permalink to this headline">¶</a></h3>
+<span id="input-sample-tissue"></span><h3><span class="section-number">6.2.2.3. </span>Sample-tissue map<a class="headerlink" href="#sample-tissue-map" title="Permalink to this headline">¶</a></h3>
 <p>Some GE datasets will include a sample-to-Uberon map as part of their metadata (e.g. FANTOM5).
 For those that don’t the <a class="reference internal" href="../c07-ontolopy/0-index.html#c06-ontolopy"><span class="std std-ref">ontolopy</span></a> Python package can be used to map between samples tissue names and their Uberon tissue.</p>
 </div>
 </div>
 <div class="section" id="step-1-preprocessing">
-<h2><span class="section-number">6.2.3. </span>Step 1: Preprocessing<a class="headerlink" href="#step-1-preprocessing" title="Permalink to this headline">¶</a></h2>
+<span id="filter-preprocessing"></span><h2><span class="section-number">6.2.3. </span>Step 1: Preprocessing<a class="headerlink" href="#step-1-preprocessing" title="Permalink to this headline">¶</a></h2>
 <p>The preprocessing file outputs:</p>
 <ol class="simple">
 <li><p>A phenotype-to-sample map, which stores a list of column indices in the gene expression file which Filip should use for filtering each phenotype.</p></li>
@@ -613,7 +619,7 @@ For those that don’t the <a class="reference internal" href="../c07-ontolopy/0
 <p>Mapping between phenotype and sample is the most invovled part of Filip: it relies on Ontolopy (<a class="reference internal" href="../c07-ontolopy/0-index.html#c06-ontolopy"><span class="std std-ref">next Chapter</span></a>) to create this mapping.</p>
 </div>
 <div class="section" id="step-2-filtering">
-<h2><span class="section-number">6.2.4. </span>Step 2: Filtering<a class="headerlink" href="#step-2-filtering" title="Permalink to this headline">¶</a></h2>
+<span id="filter-filtering"></span><h2><span class="section-number">6.2.4. </span>Step 2: Filtering<a class="headerlink" href="#step-2-filtering" title="Permalink to this headline">¶</a></h2>
 <p>The filtering step takes the orginal inputs, preprocessing outputs, and a GE cutoff as input.
 It outputs a reduced list of predictions that are still valid (are expressed above the cut-off on average across the samples).</p>
 </div>

@@ -253,13 +253,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -340,7 +334,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-filter/6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -372,7 +366,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -428,6 +422,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -516,13 +522,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-obo-files">
-     7.1.2.1. Why OBO files?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#anatomy-of-an-obo-file">
-     7.1.2.2. Anatomy of an OBO file
+     7.1.2.1. Anatomy of an OBO file
     </a>
    </li>
   </ul>
@@ -549,13 +550,13 @@
               <div>
                 
   <div class="section" id="introduction">
-<h1><span class="section-number">7.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<span id="ontolopy-intro"></span><h1><span class="section-number">7.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <div class="margin sidebar">
 <p class="sidebar-title">What are ontologies again?</p>
 <p>Ontologies are controlled vocabularies of terms and relationships. You can read more about them in <a class="reference internal" href="../c03-compbio-background/3-ontologies.html#what-are-ontologies"><span class="std std-numref">Section 3.3</span></a>.</p>
 </div>
 <div class="section" id="motivation">
-<h2><span class="section-number">7.1.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<span id="opy-motivation"></span><h2><span class="section-number">7.1.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
 <p>I created Ontolopy in order to create a high-coverage mapping between tissues and gene expression samples, which I hoped would aid in phenotype and protein function prediction.
 An earlier version of the package was used to create a mapping between gene expression sample names or identifiers to phenotypes that are known to effect that type of tissue for <a class="reference internal" href="../c06-filter/0-index.html#c06-filter"><span class="std std-numref">Section 6</span></a>.
 Removing wrong-tissue predictions proved successful in improving protein function predictions, but was constrained by a low coverage, despite using one of the most extensive tissue-specific gene expression experiments.
@@ -572,9 +573,7 @@ Ontologies are therefore also sources of text that could be used to map sample n
 Once samples are mapped to ontologies they can leverage on all of the information inside them, for example, to find all the samples that are capable of <em>hormone secretion</em>.</p>
 </div>
 <div class="section" id="obo-files">
-<h2><span class="section-number">7.1.2. </span>OBO files<a class="headerlink" href="#obo-files" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="why-obo-files">
-<h3><span class="section-number">7.1.2.1. </span>Why OBO files?<a class="headerlink" href="#why-obo-files" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h2><span class="section-number">7.1.2. </span>OBO files<a class="headerlink" href="#obo-files" title="Permalink to this headline">¶</a></h2>
 <p>There are two file formats which rule the ontology world.</p>
 <p>Open Biomedical Ontology (OBO, <code class="docutils literal notranslate"><span class="pre">.obo</span></code> files) is the format that biomedical ontologies such as Gene Ontology or Human Phenotype Ontology were originally built in.
 Meanwhile, the other file format is the Ontology Web Language (OWL), which is built upon XML.
@@ -582,9 +581,8 @@ Although it has not always been the home of biomedical ontologies, many now rele
 Both file types are human-readable, although the OBO format is a little easier (for humans) to edit and read directly, and is generally considered easier to work with.
 The major benefit of the OWL format is that it is formally axiomised and there exists a large suite of tools available for performing logical reasoning (e.g. using HermiT and SPARQL)</p>
 <p>I found that at the time of creating, I needed files which were only available in OBO format, and OBO-to-OWL converters were not able to extract all the information that I needed.</p>
-</div>
 <div class="section" id="anatomy-of-an-obo-file">
-<h3><span class="section-number">7.1.2.2. </span>Anatomy of an OBO file<a class="headerlink" href="#anatomy-of-an-obo-file" title="Permalink to this headline">¶</a></h3>
+<span id="obo-anatomy"></span><h3><span class="section-number">7.1.2.1. </span>Anatomy of an OBO file<a class="headerlink" href="#anatomy-of-an-obo-file" title="Permalink to this headline">¶</a></h3>
 <p>OBO files are text files.
 The top of an OBO file contains metadata about the ontology itself, for example it’s version in terms of format (<code class="docutils literal notranslate"><span class="pre">format-version</span></code>) and contents (<code class="docutils literal notranslate"><span class="pre">data-version</span></code>), name (<code class="docutils literal notranslate"><span class="pre">ontology</span></code>), the definitions of any subsets of ontology terms (<code class="docutils literal notranslate"><span class="pre">subsetdef</span></code>), the definition of synonym types (<code class="docutils literal notranslate"><span class="pre">synonymtypedef</span></code>), among many others.</p>
 <p>Below are some example lines from this top section of the extended Uberon ontology file:</p>
@@ -615,6 +613,10 @@ relationship: part_of UBERON:0001769 ! iris
 </div>
 <div class="section" id="purpose">
 <span id="ontolopy-purpose"></span><h2><span class="section-number">7.1.3. </span>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="ontolopy-logo">
+<a class="reference internal image-reference" href="../_images/ontolopy_logo.png"><img alt="../_images/ontolopy_logo.png" src="../_images/ontolopy_logo.png" style="height: 220px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Figure showing the purpose of Ontolopy as an ontology.</span><a class="headerlink" href="#ontolopy-logo" title="Permalink to this image">¶</a></p>
+</div>
 <div class="margin sidebar" id="propagate">
 <p class="sidebar-title">Propagating</p>
 <p>I use the word <em>propagate</em> to applying information about one ontology term, to describe it’s parents or children.
@@ -633,9 +635,9 @@ In particular, this supports finding and <a class="reference internal" href="#pr
 <p>There are a number of other tools that are available for building and logically querying ontologies, but these tend to be standalone platforms like <a class="reference external" href="https://protege.stanford.edu/">Protégé</a> (a Desktop platform primarily for building ontologies) or OWL-specific like <a class="reference external" href="https://owlready2.readthedocs.io/en/latest/intro.html">OwlReady2</a>.
 I tested Protégé (using it’s built-in reasoner HermiT with SPARQL queries) for extracting uberon-phenotype mappings, but perhaps due to the size of the ontologies, this was prohibitively slow.</p>
 <p>Ontologies are widely used by biomedical researchers, mostly for ontology enrichment analyses.
-There are easy to use tools in popular programming languages like R and Python for performing specialised analyses (such as GO enrichment, like GOATools<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id214"><span>214</span></a>]</span>, or the older <a class="reference external" href="https://github.com/jdrudolph/goenrich">goenrich</a>) but tools for querying them generally are either very specialised or browser-based (like Ontobee<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id215"><span>215</span></a>]</span>).</p>
-<p>Pronto<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id213"><span>216</span></a>]</span> is a nice Python package which is one of the exceptions to this rule, however it has some “missing” (missing for my needs, out of scope for them) functionality: being able to propagate relationships between nodes (terms).</p>
-<p>OntoBio<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id223"><span>217</span></a>]</span> is another Python package with similar functionality, which remains in active development. It is made by the same team as GOATools.
+There are easy to use tools in popular programming languages like R and Python for performing specialised analyses (such as GO enrichment, like GOATools<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id215"><span>215</span></a>]</span>, or the older <a class="reference external" href="https://github.com/jdrudolph/goenrich">goenrich</a>) but tools for querying them generally are either very specialised or browser-based (like Ontobee<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id216"><span>216</span></a>]</span>).</p>
+<p>Pronto<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id214"><span>217</span></a>]</span> is a nice Python package which is one of the exceptions to this rule, however it has some “missing” (missing for my needs, out of scope for them) functionality: being able to propagate relationships between nodes (terms).</p>
+<p>OntoBio<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id224"><span>218</span></a>]</span> is another Python package with similar functionality, which remains in active development. It is made by the same team as GOATools.
 It has a rich functionality in terms of querying common attributes of biological ontologies, for example their synonyms or definitions. Again, the missing functionality for me is to be able to merge and query ontologies for relationships.</p>
 <p>It would be beneficial for Ontolopy to make use of Pronto or OntoBio’s underlying data structures as I discuss in <a class="reference internal" href="7-future-work.html#pronto-integration"><span class="std std-numref">Section 7.7.2.4</span></a>.</p>
 </div>

@@ -253,13 +253,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
-     4.3. Creating
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       snowflake
-      </span>
-     </code>
-     inputs
+     4.3. Creating Snowflake inputs
     </a>
    </li>
    <li class="toctree-l2">
@@ -340,7 +334,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c06-filter/6-results.html">
-     6.5. Results
+     6.5. Filip results
     </a>
    </li>
    <li class="toctree-l2">
@@ -372,7 +366,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
-     7.3. How Ontolopy works
+     7.3. Ontolopy tools and practices
     </a>
    </li>
    <li class="toctree-l2">
@@ -428,6 +422,18 @@
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -587,7 +593,7 @@
   <div class="section" id="proteome-quality-index">
 <span id="pqi"></span><h1><span class="section-number">3.6. </span>Proteome Quality Index<a class="headerlink" href="#proteome-quality-index" title="Permalink to this headline">¶</a></h1>
 <p>Reducing bias and improving data and research quality in computational biology is a broad and active area of research.
-This section explains one such effort which I contributed to: <a class="reference external" href="http://pqi-list.org/">the Proteome Quality Index</a> (PQI)<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id3"><span>1</span></a>]</span>, which provides a variety of individual quality metrics as well as a “star rating” for complete genome sequences.</p>
+This section explains one such effort which I contributed to: <a class="reference external" href="http://pqi-list.org/">the Proteome Quality Index</a> (PQI)<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id4"><span>1</span></a>]</span>, which provides a variety of individual quality metrics as well as a “star rating” for complete genome sequences.</p>
 <div class="hint admonition">
 <p class="admonition-title">Contributions in this section</p>
 <p>The Proteome Quality Index paper was created as a joint project between the Computational Biology group (then) at Bristol.
@@ -596,20 +602,20 @@ I contributed to ideas for metrics, code to calculate some of these metrics, and
 <div class="section" id="introduction">
 <h2><span class="section-number">3.6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Although sequencing, assembly, and protein annotation of new genomes is a challenging and complex task, there are now thousands of organisms with sequenced genomes and identified protein sequences (proteomes).
-These proteomes can vary hugely in quality; in creating a daily-updated phylogenetic tree, sTOL (sequenced Tree Of Life), it was found that many sequenced genomes were missing vital proteins due to poor sequencing<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id26"><span>136</span></a>]</span>.
+These proteomes can vary hugely in quality; in creating a daily-updated phylogenetic tree, sTOL (sequenced Tree Of Life), it was found that many sequenced genomes were missing vital proteins due to poor sequencing<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id27"><span>136</span></a>]</span>.
 This could have a far-reaching impact on research results since such genomes are reused by many researchers, particularly in comparative genomics analyses, where omissions of whole proteins and poor accuracy of others are likely to affect results.
 While quality control and data submission guidelines were more developed in other areas of computational biology, similar guidelines for genome quality were lacking.</p>
-<p>In response, eleven different proteome quality metrics were developed, applied to 3,213 proteomes at the time of writing, and a <a class="reference external" href="http://pqi-list.org/">website</a> built to display the results, as well as being presented in a paper<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id3"><span>1</span></a>]</span>.
+<p>In response, eleven different proteome quality metrics were developed, applied to 3,213 proteomes at the time of writing, and a <a class="reference external" href="http://pqi-list.org/">website</a> built to display the results, as well as being presented in a paper<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id4"><span>1</span></a>]</span>.
 This website was intended to be both a way for users of genome data to look up the quality of a genome in advance of some research and, more importantly as a talking point for quality guidelines for genomes with known proteins.
-Since the development of PQI, a twelfth metric, <a class="reference internal" href="#dogma"><span class="std std-ref">DOGMA</span></a><span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id28"><span>137</span></a>]</span>, was added to the website, donated by the <a class="reference external" href="http://bornberglab.org/people/bornberg">Bornberglab</a>.</p>
+Since the development of PQI, a twelfth metric, <a class="reference internal" href="#dogma"><span class="std std-ref">DOGMA</span></a><span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id29"><span>137</span></a>]</span>, was added to the website, donated by the <a class="reference external" href="http://bornberglab.org/people/bornberg">Bornberglab</a>.</p>
 </div>
 <div class="section" id="pqi-metrics">
 <span id="id5"></span><h2><span class="section-number">3.6.2. </span>PQI metrics<a class="headerlink" href="#pqi-metrics" title="Permalink to this headline">¶</a></h2>
 <p>PQI’s original eleven metrics were either local i.e. “clade-based” (in which proteomes are compared to similar organisms) or global (in which case it is compared to all other proteomes).
-A clade is a group of organisms that consists of a common ancestor and all its descendants, i.e. is a branch on the tree of life<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id27"><span>138</span></a>]</span>, so an appropriate ancestor must be chosen to define the clade.
+A clade is a group of organisms that consists of a common ancestor and all its descendants, i.e. is a branch on the tree of life<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id28"><span>138</span></a>]</span>, so an appropriate ancestor must be chosen to define the clade.
 For PQI, since the purpose of these clades was to compare its’ constituent proteomes, we wanted clades that had similar variability.
 This was achieved by choosing parent nodes that are at least 0.01 in branch length away from the proteome (leaf node), and such that the clade contains at least 10 species.
-Trees and branch lengths to carry out these calculations were taken from sToL<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id26"><span>136</span></a>]</span>.
+Trees and branch lengths to carry out these calculations were taken from sToL<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id27"><span>136</span></a>]</span>.
 For clade-based metrics, proteomes score well if they have similar scores to the rest of the clade.
 Descriptions of the 12 different metrics currently in PQI can be seen in <a class="reference internal" href="#pqi-table"><span class="std std-numref">Table 3.3</span></a>.</p>
 <table class="table" id="pqi-table">
@@ -631,17 +637,17 @@ Descriptions of the 12 different metrics currently in PQI can be seen in <a clas
 <tr class="row-even"><td><p>1. Percentage X-content</p></td>
 <td><p>Global</p></td>
 <td><p>Percentage of proteome with amino acids denoted by ‘X’, excluding the first residue of each protein.</p></td>
-<td><p>Amino acids that cannot be identified, or can have more than one value are represented by an ‘X’ in the amino acid sequence<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id244"><span>139</span></a>]</span>. This occurs when coverage of the sequencing is low. Uncertainty in translation start sites mean the first residue of a protein is often uncertain (‘X’) even in the highest quality proteomes, so these are excluded from this measurement.</p></td>
+<td><p>Amino acids that cannot be identified, or can have more than one value are represented by an ‘X’ in the amino acid sequence<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id245"><span>139</span></a>]</span>. This occurs when coverage of the sequencing is low. Uncertainty in translation start sites mean the first residue of a protein is often uncertain (‘X’) even in the highest quality proteomes, so these are excluded from this measurement.</p></td>
 </tr>
 <tr class="row-odd"><td><p>2. PubMed Publication Count</p></td>
 <td><p>Global</p></td>
-<td><p>The total number of publications related to the genome as listed for that entry in the PubMed database<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id245"><span>140</span></a>]</span>.</p></td>
+<td><p>The total number of publications related to the genome as listed for that entry in the PubMed database<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id246"><span>140</span></a>]</span>.</p></td>
 <td><p>This is a measure of how well-studied a proteome is, assuming that proteomes that have been studied more will be of higher quality.</p></td>
 </tr>
 <tr class="row-even"><td><p>3. CEG domain architecture inclusion</p></td>
 <td><p>Global</p></td>
 <td><p>Proportion of CEG set which contains homologous domains in the proteome, according to SUPERFAMILY</p></td>
-<td><p>This method assumes that all eukaryotic genomes should contain a core set of well-conserved eukaryotic genes. This score is not calculated for non-eukaryotes. This was done using the Core Eukaryotic Gene (CEG) library used by the now <a class="reference internal" href="#cegma-dead"><span class="std std-ref">defunct</span></a> CEGMA tool<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id242"><span>141</span></a>]</span>, which comes from the Eukaryotic Orthologous Group (KOG) sequence orthology database<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id243"><span>142</span></a>]</span>. Domain-architecture similarity is calculated using the SUPERFAMILY HMM library.</p></td>
+<td><p>This method assumes that all eukaryotic genomes should contain a core set of well-conserved eukaryotic genes. This score is not calculated for non-eukaryotes. This was done using the Core Eukaryotic Gene (CEG) library used by the now <a class="reference internal" href="#cegma-dead"><span class="std std-ref">defunct</span></a> CEGMA tool<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id243"><span>141</span></a>]</span>, which comes from the Eukaryotic Orthologous Group (KOG) sequence orthology database<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id244"><span>142</span></a>]</span>. Domain-architecture similarity is calculated using the SUPERFAMILY HMM library.</p></td>
 </tr>
 <tr class="row-odd"><td><p>4. Percentage of sequences in Uniprot</p></td>
 <td><p>Global</p></td>
@@ -683,7 +689,7 @@ Descriptions of the 12 different metrics currently in PQI can be seen in <a clas
 <td><p>Number of unique domain architectures (combinations of SCOP domain superfamilies and gaps) in the proteome, according to SUPERFAMILY, compared to the average for the clade.</p></td>
 <td><p>Similarly to the number of domain families superfamilies, the number of domain architectures gives an indication of the diversity of the proteome at the SCOP family level.</p></td>
 </tr>
-<tr class="row-odd"><td><p>12. DOGMA<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id28"><span>137</span></a>]</span></p></td>
+<tr class="row-odd"><td><p>12. DOGMA<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id29"><span>137</span></a>]</span></p></td>
 <td><p>Clade-based*</p></td>
 <td><p>Percentage of conserved domain arrangments found</p></td>
 <td><p>DOGMA compares sequences to conserved domains arrangements across six eukaryotic model species (Arabidopsis thaliana, Caenorhabditis elegans, Drosophila melanogaster, Homo sapiens, Mus musculus and Saccharomyces cerevisiae), or alternative sets for mammals, insects, bacteria and archaea. It is therefore not “clade-based” in the same way as other PQI metrics.</p></td>
@@ -692,7 +698,7 @@ Descriptions of the 12 different metrics currently in PQI can be seen in <a clas
 </table>
 <div class="section" id="dogma">
 <span id="id13"></span><h3><span class="section-number">3.6.2.1. </span>DOGMA<a class="headerlink" href="#dogma" title="Permalink to this headline">¶</a></h3>
-<p>Since the publication of the PQI paper, the DOGMA metric<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id28"><span>137</span></a>]</span>, which scores proteomes based on conserved arrangements of protein domains, has been added to the PQI website.
+<p>Since the publication of the PQI paper, the DOGMA metric<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id29"><span>137</span></a>]</span>, which scores proteomes based on conserved arrangements of protein domains, has been added to the PQI website.
 The DOGMA score is similar to the PQI “Number of Domain Architectures” score, but since it is based on using model organisms as a ground truth, it scores these genomes highly, whereas this tends <a class="reference internal" href="#pqi-limitations"><span class="std std-ref">not to be the case</span></a> for PQI’s clade-based metrics.</p>
 </div>
 </div>
@@ -731,22 +737,22 @@ This is indicative of the fact that the proteins in the sequenced RGTB423 strain
 <p class="sidebar-title"></p>
 <div class="admonition-cegma-is-no-longer-supported admonition">
 <p class="admonition-title">CEGMA is no longer supported</p>
-<p>The CEGMA tool<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id242"><span>141</span></a>]</span> used as the basis for metric (3) is <a class="reference external" href="http://www.acgt.me/blog/2015/5/18/goodbye-cegma-hello-busco">no longer supported</a>. BUSCO<span id="id18">[<a class="reference internal" href="../cz-end-matter/reference.html#id29"><span>143</span></a>]</span> is considered the tool’s successor.</p>
+<p>The CEGMA tool<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id243"><span>141</span></a>]</span> used as the basis for metric (3) is <a class="reference external" href="http://www.acgt.me/blog/2015/5/18/goodbye-cegma-hello-busco">no longer supported</a>. BUSCO<span id="id18">[<a class="reference internal" href="../cz-end-matter/reference.html#id30"><span>143</span></a>]</span> is considered the tool’s successor.</p>
 </div>
 </div>
 <p>The original BUSCO paper was published slightly before PQI in the same month, and it performs a similar function: assessing the quality of genomes.</p>
 <p>BUSCO has a slightly different use-case than PQI in that it is a Python package designed to let people who are assembling and annotating new genomes check the quality of their work.
 BUSCO is in some ways the “new CEGMA”, since CEGMA is now <a class="reference internal" href="#cegma-dead"><span class="std std-ref">defunct</span></a>.
-The difference is mostly that where CEGMA relied on the old KOGs database<span id="id19">[<a class="reference internal" href="../cz-end-matter/reference.html#id241"><span>144</span></a>]</span> to define conserved genes (only in eukaryotes), while BUSCO uses the newer OrthoDB database<span id="id20">[<a class="reference internal" href="../cz-end-matter/reference.html#id246"><span>145</span></a>]</span> of conserved genes across many organisms.</p>
+The difference is mostly that where CEGMA relied on the old KOGs database<span id="id19">[<a class="reference internal" href="../cz-end-matter/reference.html#id242"><span>144</span></a>]</span> to define conserved genes (only in eukaryotes), while BUSCO uses the newer OrthoDB database<span id="id20">[<a class="reference internal" href="../cz-end-matter/reference.html#id247"><span>145</span></a>]</span> of conserved genes across many organisms.</p>
 </div>
 <div class="section" id="ncbi-assembly-database">
 <h3><span class="section-number">3.6.4.2. </span>NCBI Assembly database<a class="headerlink" href="#ncbi-assembly-database" title="Permalink to this headline">¶</a></h3>
-<p>NCBI’s Assembly database<span id="id21">[<a class="reference internal" href="../cz-end-matter/reference.html#id30"><span>146</span></a>]</span> has been released since PQI was published.
+<p>NCBI’s Assembly database<span id="id21">[<a class="reference internal" href="../cz-end-matter/reference.html#id31"><span>146</span></a>]</span> has been released since PQI was published.
 The database tracks how many assemblies there are for each species as well as how many versions of each assembly there has been.
 This information could be used to weight the importance of proteomes in clade-based metrics.
 The number of assemblies and versions could also form a separate score.</p>
-<p>Sequencing depth (coverage) and read length are also known markers of genome quality<span id="id22">[<a class="reference internal" href="../cz-end-matter/reference.html#id31"><span>147</span></a>]</span>.
-Average coverage for an assembly (except reference genomes) is also available in the NCBI Assembly database<span id="id23">[<a class="reference internal" href="../cz-end-matter/reference.html#id30"><span>146</span></a>]</span>.</p>
+<p>Sequencing depth (coverage) and read length are also known markers of genome quality<span id="id22">[<a class="reference internal" href="../cz-end-matter/reference.html#id32"><span>147</span></a>]</span>.
+Average coverage for an assembly (except reference genomes) is also available in the NCBI Assembly database<span id="id23">[<a class="reference internal" href="../cz-end-matter/reference.html#id31"><span>146</span></a>]</span>.</p>
 </div>
 </div>
 <div class="section" id="limitations">
@@ -763,7 +769,7 @@ Average coverage for an assembly (except reference genomes) is also available in
 <h3><span class="section-number">3.6.6.1. </span>Change weighting of star-rating<a class="headerlink" href="#change-weighting-of-star-rating" title="Permalink to this headline">¶</a></h3>
 <p>In order to address limitation (1), one option would be to downgrade the importance of clade-based metrics in star ratings.
 This could be done for all genomes, for model organisms specifically, or preferentially the more they have been sequenced and assembled.
-In the latter case, the Assembly database<span id="id24">[<a class="reference internal" href="../cz-end-matter/reference.html#id30"><span>146</span></a>]</span> could be used as a source of this information.</p>
+In the latter case, the Assembly database<span id="id24">[<a class="reference internal" href="../cz-end-matter/reference.html#id31"><span>146</span></a>]</span> could be used as a source of this information.</p>
 </div>
 <div class="section" id="changes-to-metrics">
 <h3><span class="section-number">3.6.6.2. </span>Changes to metrics<a class="headerlink" href="#changes-to-metrics" title="Permalink to this headline">¶</a></h3>
@@ -772,7 +778,7 @@ Here, I give three examples of metrics which would improve PQI.
 This list is by no means exhaustive.
 There could be far more additional measures to audit different types of problems in genome sequencing, for example GC content, amino acid bias, or contamination from other genomes.</p>
 <p><strong>Inclusion of BUSCO</strong>
-Although the DOGMA metric was added and it is based on BUSCO<span id="id25">[<a class="reference internal" href="../cz-end-matter/reference.html#id29"><span>143</span></a>]</span>, it might be sensible to add BUSCO, since it has become very popular (thousands of citations), and any proteome/genome quality index would arguably be seen as incomplete without it.
+Although the DOGMA metric was added and it is based on BUSCO<span id="id25">[<a class="reference internal" href="../cz-end-matter/reference.html#id30"><span>143</span></a>]</span>, it might be sensible to add BUSCO, since it has become very popular (thousands of citations), and any proteome/genome quality index would arguably be seen as incomplete without it.
 The continued inclusion of the CEG Domain Combination Homology metric may also be questioned since CEGMA is no longer being updated (nor is the KEG database upon which it is based).
 However, BUSCO and CEGMA may be complementary since BUSCO has a weaker requirement for inclusion in the set of proteins, which means that it has more proteins.</p>
 <p><strong>Number of assemblies</strong>
@@ -781,9 +787,9 @@ In addition to using the assembly information to choose the importance of clade-
 Some “third-generation” sequencing technologies can create much longer read lengths, but potentially lower accuracies.
 A third category of metrics “technology-based” metrics could exist for proteomes where the metric is only really comparable within similar types of technologies.
 If technology-based metrics were implemented, it may also be sensible to have some metrics which only exist for specific technologies.
-For example, for nanopore sequencing, we could implement an indel-based quality metric<span id="id26">[<a class="reference internal" href="../cz-end-matter/reference.html#id32"><span>148</span></a>]</span>.
+For example, for nanopore sequencing, we could implement an indel-based quality metric<span id="id26">[<a class="reference internal" href="../cz-end-matter/reference.html#id33"><span>148</span></a>]</span>.
 Including sequencing-technology-specific metrics may encourage contributions from other researchers who specialise in particular technologies.
-Sequencing technology is also available in the NCBI Assembly database<span id="id27">[<a class="reference internal" href="../cz-end-matter/reference.html#id30"><span>146</span></a>]</span>.</p>
+Sequencing technology is also available in the NCBI Assembly database<span id="id27">[<a class="reference internal" href="../cz-end-matter/reference.html#id31"><span>146</span></a>]</span>.</p>
 </div>
 </div>
 </div>

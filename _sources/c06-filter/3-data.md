@@ -12,6 +12,7 @@ kernelspec:
   name: python3
 ---
 
+(filter-data)=
 # Data
 
 This section describes the {ref}`gene expression data<fantom5-expression-data>` used for creating and validating Filip, including it's provenance as well as any necessary data-cleaning.
@@ -28,8 +29,6 @@ In addition to this, Filip requires the input of a protein function or phenotype
 
 The Filip method requires expression data to inform whether or not predictions should be filtered out.
 The FANTOM5 data set was chosen for this purpose.
-
-[//]: # (TODO: What does the data contain, how many samples, etc)
 
 My reasoning for choosing FANTOM5 data as the input gene expression data to test Filip was:
 - The data set has a good coverage of different tissue types, which I hoped would be helpful in Filip having a good coverage of predictions.
@@ -67,6 +66,7 @@ I downloaded the following files from the FANTOM website:
 from myst_nb import glue
 ```
 
+(fantom-cleaning)=
 ### Initial FANTOM5 data cleaning: sample info file
 
 ```{code-cell} ipython3
@@ -88,7 +88,8 @@ samples_info = fsc.clean_samples_info(samples_info, rep_info)
 ```
 
 (fantom-sample-categories)=
-#### Sample categories
+**Sample categories**
+
 [//]: # (TODO: Add HeLa image)
 
 ```{margin} HeLa cell line
@@ -109,7 +110,7 @@ __Restriction to  primary cell and tissue samples__:
 The human FANTOM5 sample information file contains four categories of samples (in the `Characteristics [Category]` field): 
 - __time courses__: RNA extracted from samples being measured over time as cells change types during cell development and differentiation ({glue:}`time-courses-num-samps` samples), e.g. {glue:}`time-courses-ex-id` - *{glue:text}`time-courses-ex-desc`*.
 - __primary cells__: RNA extracted from cultures of cells recently isolated from tissues, before undergoing proliferation with nutrients specific to the cell type ({glue:}`primary-cells-num-samps` samples), e.g. {glue:}`primary-cells-ex-id` - *{glue:text}`primary-cells-ex-desc`*.
-- __cell lines__: RNA extracted from immortal cell lines (which unlike primary cells) can keep undergoing division indefinitely ({glue:text}`cell-lines-num-samps` samples), e.g. {glue:}`cell-line-ex-id` - *{glue:text}`cell-line-ex-desc`*.
+- __cell lines__: RNA extracted from immortal cell lines (which unlike primary cells) can keep undergoing division indefinitely ({glue:text}`cell-lines-num-samps` samples)<!-- TODO: add examples e.g. {glue:}`cell-line-ex-id` - *{glue:text}`cell-line-ex-desc`*-->.
 - __tissues__: RNA extracted from post-mortem tissues, which may be pooled or individual donors ({glue:}`tissues-num-samps` samples), e.g. {glue:}`tissues-ex-id` - *{glue:text}`tissues-ex-desc`*.
 - __fractionations__: RNA extracted from parts of cells (fractionations) ({glue:}`fractionations-and-perturbations-num-samps` samples), e.g. {glue:}`fractionations-and-perturbations-ex-id` - {glue:}`fractionations-and-perturbations-ex-desc`.
 
@@ -124,7 +125,8 @@ As mentioned, tissues can come from a pool, or individual donor.
 This information can be found in the `Charateristics [description]` field.
 I combined this information with information from the `Characteristics [Category]` field to create an additional `Sample Type` field that describes whether a sample is a `tissue - pool`, `tissue - donor` or `primary cells` sample.
 
-#### Technical and biological replicates
+**Technical and biological replicates:**
+
 
 ```{margin} Technical and biological replicates
 :name: tech-biol-replicates
@@ -141,15 +143,16 @@ These were used to create additional fields for the human samples table.
 Note: there is an error in the original transcript expression file for one of these identifiers (`tpm.Dendritic%20Cells%20-%20monocyte%20immature%20derived%2c%20donor1%2c%20rep2.CNhs11062.11227-116C3.hg38.nobarcode`) such that it is missing the “tech” part of the the replicate label. 
 There is a hard-coded fix for this accession when I read in the input file and the FANTOM data curation team was informed.
 
-After restricting the dataset to *primary cell* and *tissue* type samples, there are {glue:}`num_bio_rep_samples` remaining samples which have biological replicates (between 2 and 3 replicates each), and {glue:}`num_tech_rep_samples` sets of samples with technological replicates (2 replicates each).
+After restricting the data set to *primary cell* and *tissue* type samples, there are {glue:}`num_bio_rep_samples` remaining samples which have biological replicates (between 2 and 3 replicates each), and {glue:}`num_tech_rep_samples` sets of samples with technological replicates (2 replicates each).
 
-#### Age and age range
+**Age and age range:** 
+
 
 The age of the sample source donor(s) is available through two fields in the human sample information file: `Characteristics [Developmental stage]`, and `Characteristics [Age]`.
 These fields contain description-like text, which are somewhat inconsistent, for example, “3 year old child”, “3 years old child”, “25 year old”, “76” and “76 years old adult” all feature in the same column, amongst other errors. 
 These were standardised into a new field (`Age (years)`).
 This field does not seek to include multiple ages (i.e. when the sample comes from a pool of donors).
-There is a complementary (i.e. no overlap) field (`Age range (years)`), which contains age ranges for the {glue:}`age_diranged` samples that contain multiple ages.
+There is a complementary (i.e. no overlap) field (`Age range (years)`), which contains age ranges for the {glue:}`age_ranged` samples that contain multiple ages.
 In both columns, some samples contain fetal samples, in which caset age (range) is given as a negative decimal (converted to years before birth).
 
 There file also contained some discrepancies between ages and developmental stages in the FANTOM human samples file.
@@ -157,24 +160,30 @@ For example, sample `FF:10027-101D9` is labelled as *thymus, adult, pool1* in th
 Sample `FF:10209-103G2` had an age of ‘M’ and a sex of ‘28’. 
 I reported both these discrepencies: and the latter has since been fixed in the FANTOM file, and for the former, I hardcode the age to `NaN`.
 
-#### Sex
+**Sex:**
+
 The `Characteristics [Sex]` field contains information about the sex of the sample source donor(s). 
 Similarly to age, due to the consortium nature of FANTOM5, the entries of this field are not consistently labelled.
 They undergo data cleaning into 4 categories: male, female, mixed (pool with both male and female samples), and unlabelled.
 
-#### Disease and tissue mapping
+**Disease and tissue mapping:**
+
+
 The disease status of samples (e.g. healthy/non-healthy) is not straight-forwardly labelled in the human sample file, so requires some basic text-mining (and cross-referencing with ontology terms).
-Similarly, there is a `Characteristics[Tissue]` field in the human samples file containing some manually mapped tissue types, but as I point out with an example in {ref}`the exploratory data analysis<eda-sample-tissues>`, these do not contain ideal mappings for `filip`. 
+Similarly, there is a `Characteristics[Tissue]` field in the human samples file containing some manually mapped tissue types, but as I point out with an example in {ref}`the exploratory data analysis<eda-sample-tissues>`, these do not contain ideal mappings for Filip. 
 
 The continued data processing of these components is described in {ref}`the methdology section <filter-methods>`, after the introduction of `uberon-py` (the package developed to do this).
 
+<!--
 [//]: # (TODO: Add link to FANTOM exp download)
 
 ```{admonition} FANTOM5 cleaned experimental design file
 :name: cleaned-fantom-exp
 The cleaned FANTOM5 experimental design file (which has undergone the cleaning mentioned in this section, and in {ref}`the methodology section<filter-methods>`) is available [here](link). 
 ```
+-->
 
+(fantom-cleaning-expression)=
 ### Initial FANTOM5 data cleaning: expression file
 
 ```{code-cell} ipython3
@@ -191,34 +200,36 @@ protein_tpm = tpm_clean.get_protein_tpm(cage_tpm)
 ```
 
 ```{code-cell} ipython3
-# TODO: make cell invisible
+:tags: [remove-input, remove-output]
+
 fsc.save_sample_cleaned(samples_info, file_path='data/cleaned_pre_input/samples_info.csv')
 tpm_clean.save_long_ids(long_ids_to_new_ff, file_path = 'data/cleaned_pre_input/ff_accessions_to_keep.txt')
 tpm_clean.save_protein_tpm(protein_tpm, file_path='data/cleaned_pre_input/protein_tpm.csv')
 ```
 
-[//]: # (TODO: spell out why we want protein-centric expression)
-
 The tidied and restricted sample data, is combined with the FANTOM5 CAGE peaks expression data file and processed to create a protein-centric expression file.
 The CAGE peaks have already been cleaned by FANTOM (labeled as "fair") meaning that CAGE peaks do not overlap.
 
-#### CAGE peaks with associated proteins
-[//]: # (TODO: Check what type of uniprot ID these are)
+**CAGE peaks with associated proteins:**
+
+
 The CAGE peaks represent all kinds of mRNA transcripts, not only those which map to protein-coding gene, for example "RNA genes" representing pseduogenes or long non-coding RNAs.
 The FANTOM file provides mappings to Uniprot IDs (`uniprot_id`), and these are used to discard the CAGE peaks that do not map to protein-coding genes: this takes us from {glue:}`total_F5_peaks` to  {glue:}`has_protein_F5_peaks` rows (CAGE peaks).
 
-#### CAGE peaks mapped to one gene only
+**CAGE peaks mapped to one gene only:**
+
 [//]: # (TODO: Do I want to do this? What about overlapping genes?)
 [//]: # (TODO: cross-ref discrepencies between gene ID databases)
 [//]: # (TODO: Plotly Gannt for CAGE peaks overlapping with multiple transcripts/genes)
 CAGE peaks are mapped to genes based on overlap with the gene, so it is not always clear which gene a CAGE peak maps to.
-For simplicity, and to remove the potential of wrongly mapped genes being used in `filip`, protein-coding CAGE peaks (those which are mapped to at least one `uniprot_id` by FANTOM) but that map to multiple genes are removed.
+For simplicity, and to remove the potential of wrongly mapped genes being used in Filip, protein-coding CAGE peaks (those which are mapped to at least one `uniprot_id` by FANTOM) but that map to multiple genes are removed.
 These can be found by looking at either the `hgnc_id` or `entrezgene_id` gene identifier columns.
 The choice of gene ID matters, since there are discrepancies between gene ID databases: in this case, choosing `hgnc_id` finds all those CAGE peaks found by using `entrezgene_id`, and more, so these are removed.
 This represents a total of {glue:}`total_gene_id_duplicates` CAGE peaks that map to multiple genes according to the given identifiers.
 
-#### Proteins that map to multiple genes
-For `filip`, the expression was calculated per protein (since it is protein function predictions that it is filtering), rather than per CAGE peak (summing the TPMs of all CAGE peaks mapped to a protein to get the total for that protein) as in the original data, or as is often presented per gene.
+**Proteins that map to multiple genes:** 
+
+For Filip, the expression was calculated per protein (since it is protein function predictions that it is filtering), rather than per CAGE peak (summing the TPMs of all CAGE peaks mapped to a protein to get the total for that protein) as in the original data, or as is often presented per gene.
 This gave {glue:}`protein_expression_total` rows of "protein expression" data.
 
 Of these, there were then {glue:}`rows_left_multiple_genes` rows of data (corresponding to {glue:}`proteins_multiple_genes` proteins) for which each protein maps to multiple genes.
@@ -228,10 +239,10 @@ These small number of rows were also removed for simplicity.
 
 <!--It would probably make sense to keep these multiple gene proteins and sum over them because they are expressed lots around the geneome, so it would make sense to continue to count them. The small number and the fact that they are widely expressed means it isn't likely to be important though-->
 
+(fantom-filter-eda)=
 ### Exploratory Data Analysis
 
-#### Samples
-[//]: # (TODO: Number of samples, biological and technical replicates)
+**Samples:**
 
 After {ref}`restricting the samples to those which are primary cells or tissues<fantom-sample-categories>`, there were {glue:}`fantom-primary-tissue-samples` remaining samples.
 
@@ -288,10 +299,8 @@ An example of four *ANANTOMICAL SYSTEM* tissues, with tissue-specific cells, ind
 We can also see in {numref}`anatomical-system-table` that this data set, though having undergone some data cleaning, still contains disease samples (e.g. "aggressive periodontitis"). 
 
 
-#### Protein-centric TPM
+**Protein-centric TPM:**
 
-[//]: # (TODO: Number of CAGE peaks, transcripts, proteins, genes)
-[//]: # (TODO: Expression distribution)
 
 ```{code-cell} ipython3
 :tags: [hide-input]
@@ -318,7 +327,7 @@ As expected, {numref}`fantom-protein-distribution` shows similar distributions o
 [//]: # (TODO: Cross ref to methodology)
 
 I also used the following datasets to aid in mapping to a common set of identifiers:
-- the [uberon extended ontology OBO file](http://purl.obolibrary.org/obo/uberon/ext.obo) from [the uberon website](uberon.github.io/downloads.html) to assist in mapping cells and tissues.
+- the [uberon extended ontology OBO file](http://purl.obolibrary.org/obo/uberon/ext.obo) from [the uberon website](http://uberon.github.io/downloads.html) to assist in mapping cells and tissues.
 
 [//]: # (TODO: Describe mapping data here, e.g. biomart/uniprot)
 
@@ -345,7 +354,7 @@ Both of which could be found within the CAFA2 paper{cite}`Jiang2016-rz`'s [Suppl
 (cafa2-targets)=
 **CAFA2 targets**: 
 CAFA2 provided targets from species across the tree of life: bacteria (10 species), archaea (7 species), and eukaryotes (10 species).
-Since tissue-specific gene expression data (which `filip` requires) is not available for all species, I only used the human targets (in `data/CAFA2-targets/eukarya/sp_species.9606.tfa`). 
+Since tissue-specific gene expression data (which Filip requires) is not available for all species, I only used the human targets (in `data/CAFA2-targets/eukarya/sp_species.9606.tfa`). 
 
 [//]: # (TODO: Move explain FASTA at/before PQI, due to X content)
 
@@ -354,7 +363,6 @@ Since tissue-specific gene expression data (which `filip` requires) is not avail
 FASTA is a text-based file format for proteins, where each letter represents an amino acid (except X, which represents any amino acid).
 ```
 
-[//]: # (TODO: head the first lines of the file instead of copy/paste)
 The `sp_species.9606.tfa` file is a {ref}`FASTA<fasta>` file containing information about `20257` proteins, each with a CAFA2 identifier (e.g. `T96060000001`), Uniprot Entry Name (the mnemonic identifier for the protein, e.g. [`1433B_HUMAN`](https://www.uniprot.org/uniprot/P31946)), and the amino acid sequence, as in the following excerpt:
 
 ```

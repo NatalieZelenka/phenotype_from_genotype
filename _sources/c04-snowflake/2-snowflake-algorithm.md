@@ -71,16 +71,15 @@ However, it does not take into account the structure of the redundancy.
 (how-does-it-work)=
 ## How does it work?
 [//]: # (TODO: Check capitalisation or backtick formatting for dcGO, fathmm and SUPERFAMILY)
-[//]: # (TODO: Describe the purpose of the algorithm here, and the overall user perspective: genetic data in, predictions out)
 [//]: # (TODO: Update image to make sure VEP and SUPERFAMILY are in there)
 [//]: # (TODO: Change order of steps 1 and 2 in image)
 
 ```{figure} ../images/snowflake-overview-new.png
 ---
-height: 600px
+width: 250px
 name: snowflake-overview
 ---
-Flowchart showing an overview of the phenotype predictor. Scores are generated per allele using SUPERFAMILY, VEP, FATHMM and dcGO for both the input genotype(s), and the background genotypes. These data points are then combined into a matrix, which is then clustered..
+Flowchart showing an overview of the phenotype predictor. Scores are generated per allele using SUPERFAMILY, VEP, FATHMM and dcGO for both the input genotype(s), and the background genotypes. These data points are then combined into a matrix, which is then clustered.
 ```
 
 <!--
@@ -139,7 +138,7 @@ Individuals are compared to all others through clustering. This usually includes
 
 Clustering is the task of grouping objects into a number of groups (clusters) so that items in the same cluster are similar to each other by some measure. There are many clustering algorithms, but most are unsupervised learning algorithms which iterate while looking to minimise dissimilarity in the same cluster. A number of options were implemented for the predictor, but for the time being at least, OPTICS is used as a default.
 
-(phenotype-score)=
+(individual-score)=
 ### Phenotype score
 The OPTICS clustering assigns each individual to a cluster (or labels them as an outlier). Depending on the phenotype term, the cluster is expected to either correspond to a haplogroup or a phenotype. 
 In cases where the cluster refers to a haplogroup, we are interested in the outliers of all clusters, i.e. the local outlier-ness. 
@@ -244,27 +243,32 @@ The phenotype predictor outputs a score for each person for each phenotype.
 Our confidence in these scores depends on the distribution of scores, as well as the scale of them. 
 A distribution of scores with distinct groups of individuals is generally preferable, since most phenotypes that we are interested in are categorical or it is at least more useful to highlight phenotypes that can be predicted this way (i.e. if there are 100 groups with varying risk of a disease, that would be less useful than knowing there are 2 groups with high/low risk). 
 
-[//]: # (TODO: Add images for ranked scores and shaded-scores)
 [//]: # (TODO: Say why some distributions are more interesting than others)
-[//]: # (TODO: describe better, it's not the furthest from y=x, it's just the ends of the ranked scores)
 [//]: # (TODO: should I normalise the distribution score?)
 
+```{figure} ../images/shaded_score.png
+---
+width: 250px
+name: shaded-score
+---
+An illustration of how the confidence score per phenotype is calculated.
+```
+
 I developed a simple method of prioritising predictions according to these requirements. 
-A confidence score is achieved by plotting the ranked raw score and measuring the minimum area between a straight line resting on this line (resting on the two points furthest from y=x) and the line itself, as illustrated in {numref}`shaded-score`. 
+A confidence score is achieved by plotting the ranked raw score and measuring the area between a straight line resting on this the most extreme points and the line itself, as illustrated in {numref}`shaded-score`. 
 Since this measure takes into account the size of the raw scores, these confidence scores can be compared across phenotypes.
 
-{numref}`ranked-scores` shows an example of an interesting and uninteresting distribution. 
-These distributions mostly depend on the number, population frequency, and `fathmm` score of the SNPs associated with the phenotype term.
-
-<!--
-```{code-cell} ipython3
-# Code for: An illustration of how the confidence score is calculated (shaded area).  - `shaded-score`
+```{figure} ../images/interesting-scores.png
+---
+width: 500px
+name: interesting-scores
+---
+Ranked scores for `DOID:1324` - the disease ontology term Lung Cancer (left) and HP:0008518 - the human phenotype ontology term for Absent/underdeveloped sacral bone (right). These represent an interesting and uninteresting distribution of scores, respectively.
 ```
 
-```{code-cell} ipython3
-# Code for: Ranked scores for `DOID:1324` - the disease ontology term Lung Cancer (left) and HP:0008518 - the human phenotype ontology term for Absent/underdeveloped sacral bone (right). These represent an interesting and uninteresting distribution of scores, respectively.  - `ranked-scores`
-```
--->
+{numref}`interesting-scores` shows an example of an interesting and uninteresting distribution. 
+These distributions mostly depend on the number, population frequency, and FATHMM score of the SNPs associated with the phenotype term.
+
 
 <!--
 #### Outputs 
