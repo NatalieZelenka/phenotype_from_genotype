@@ -1,8 +1,8 @@
-# Results 
+(filip-results)=
+# Filip results 
 
-## Validation of prototype `filip`
-
-### CAFA 2
+(filip-results-cafa2)=
+## CAFA 2
 [//]: # (TODO: Explain how I calculated it differently - based on only the types of things I was trying to do, which is why it's a bigger number)
 
 **{math}`F_{max}` Improvement:** 
@@ -53,8 +53,11 @@ Interestingly, all of these incorrectly filtered out predictions were for GOBP t
 {numref}`filip-go-wrong` shows a summarises the incorrectly mapped GO terms, created using ReviGO{cite}`Supek2011-ii`. 
 The fact that the incorrectly filtered out terms are all related to development implies there may be due to a bias in the developing tissues in the FANTOM5 data-set used by `filip`.
 
-### CAFA 3 
+(filip-results-cafa3)=
+## CAFA 3 
+
 [//]: # (TODO: Explain validation in more detail)
+
 The same kind of improvement is seen by the independently calculated CAFA3 results (validated by the CAFA3 team).
 I entered two models into CAFA3: DcGO only and DcGO plus `filip`, for Human and for Gene Ontology Biological Process terms only. 
 
@@ -63,6 +66,7 @@ This was not enough to be a competitive model (ranked between 33 and 38 out of 6
 Despite this, this result does show that the improvement was reproduced in another data set, carried out by other researchers.
  
 [//]: # (TODO: Change labels to more sensible, e.g. type1 == -un-known, check)
+
 [//]: # (NOTE: Type1 = no knowledge, type2 = limited knowledge, Mode1 = Full Assessement, Mode2 = Partial Assessment)
 
 ```{list-table} CAFA3 f-max results for DcGO and filip

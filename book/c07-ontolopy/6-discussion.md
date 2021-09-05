@@ -1,3 +1,4 @@
+(opydiscussion)=
 # Discussion
 This Chapter is simply supposed to present Ontolopy as a {ref}`usable<usable-ontolopy>` tool for finding relationships in OBO ontologies, from which {ref}`useful<useful-ontolopy>` outputs can be obtained.
 
@@ -13,17 +14,16 @@ At the same time, it is useful *because* it builds on these resources: these res
 Ontolopy has already proved useful at least in providing a valuable way of feeding back into experimental data and ontologies.
 By {ref}`checking for inconsistencies<FANTOM5-inconsistencies-example>` between multiple ways of labelling data, multiple issues in these resources and data sets have been identified and some of these revisions have been accepted. 
 
+
 (usable-ontolopy)=
 ## Usability
-### Documentation
+
 One key feature of Ontolopy's usability is that it is well-documented.
 At the time of writing, it is much more so than other {ref}`alternatives<other-ont-tools>` for working with OBO files.
 The documentation is versioned and contains well-worked examples and a descriptive API.
 
-### Installation
-It is quick and easy to install, lightweight, and has a small number of dependencies (the upside of the lack of integration with other tools).
+It is also quick and easy to install, lightweight, and has a small number of dependencies (the upside of the lack of integration with other tools).
 
-### Speed
 [//]: # (TODO: Compare with speeds of Protege/OwlReady2 for similar tasks: would need to use SPARQL queries to find all relations between objects - https://owlready2.readthedocs.io/en/v0.32/sparql.html - https://stackoverflow.com/questions/39560665/find-all-relations-between-2-nodes-using-sparql )
 Ontolopy runs quickly for a wide variety of tasks.
 As we saw in the {ref}`examples<ontolopy-examples-2>`, Ontolopy runs quickly for most uses involving operations on or queries to ontology objects (typically less than half a second). 
@@ -33,6 +33,7 @@ However, making a query with a large number of relations to check can inflate ho
 The name mapping (`Uberon.map_by_name`), however is the exception to this, which runs fairly slowly (on the order of seconds). 
 There are more interesting text-mining techniques that could be integrated into Ontolopy if gains in speed where made here, for example using fuzzy-text matching to catch typos in sample information files (which are often present as they are often created by hand).
 
+(opylimitations)=
 ## Limitations
 Ontolopy is a small and lightweight package, so it hasn't got as much functionality as some larger tools, as well as having some limitations due to it's reliance on underlying ontologies.
 
@@ -41,6 +42,7 @@ Ontolopy is a small and lightweight package, so it hasn't got as much functional
 While Ontolopy makes it easy to query biological ontologies in Python, it doesn't prevent the user from needing to understand the structure of the ontology (what kind of relations it contains and what these mean) to be able to ask meaningful queries.
 Ontolopy will allow you to ask for nonsense relations, e.g. combining any relations which may give misleading responses if you are only looking at what it is mapping to and from (rather than the path that the mapping represents).
 
+(opymissing)=
 ### "Missing" functionality
 There is plenty of non-existent functionality for Ontolopy that could be useful, namely:
 - {ref}`Text search functionality<text-search-ont>`.
@@ -63,6 +65,7 @@ When mapping by ontology or name, multiple mappings can be retrieved, but when f
 An good example of this is leukocytes, which are part of the blood and the immune system.
 -->
 
+(opysynonyms)=
 ### Improving choosing from multiple synonym options
 The `Uberon.sample_map_by_name` function simply looks up the strings provided and looks for important external references to decide between synonyms. If this information is not provided or doesn't help us to make the choice, we currently just choose the first term that we found, ignoring information about  {ref}`synonym<synonym-class>`, or which synonym-having term is more specific.
 
@@ -74,14 +77,13 @@ On the other hand, `NARROW` synonyms have more specific definitions than the nam
 There are also *BROAD* and *RELATED* synonyms.
 ```
 
+<!--
+(opyimplementation)=
 ### Implementation
 [//]: # (TODO: Write)
 
 Some of the implementation choices are a little unusual, for example:
 - representing relationships internally as relation paths (strings).
 - not matching up with existing tools
+-->
 
-## Fit-for-purpose
-[//]: # (TODO: Write)
-
-Further to the examples given in this chapter, {numref}`c05.3-data-wrangling` shows an example of how this Ontolpy is especially useful for harmonising sample to tissue mappings for different gene expression data sets, which may have different levels of specificity.

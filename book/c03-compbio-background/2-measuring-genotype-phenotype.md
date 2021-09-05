@@ -7,7 +7,6 @@ This is to give us a sense of the data that exists within the databases of the b
 
 (dna-measurements)=
 ## DNA
-[//]: # (TODO: Why measure dna: what's it used for? We're trying to decode those big questions.)
 In the {ref}`previous Chapter<what-is-dna>`, we looked at what DNA is and our understanding of how that links to phenotype. 
 Now we're going to look at the details of how this is measured and stored: and how these details impact computational biology research. 
 We'll once again go from big to small, beginning with whole genomes and moving through to individual SNPs.
@@ -75,7 +74,7 @@ This includes formatting differences (storing chromosome as integers rather than
 
 (gene-measurement)=
 ### Genes
-Once we have an {ref}`assembled` genome, genes are identified within them.
+Once we have an {ref}`assembled<assembly-and-alignment>` genome, genes are identified within them.
 The first step in this process is to look for nucleotides that code for the start codon (i.e. the amino acid methionine) (`ATG`) and end with one of the stop codons (`TAA`, `TGA`, or `TAG`).
 The potential genes found through this search are then checked in the lab, e.g. through sequencing transcripts.
 
@@ -91,11 +90,11 @@ Gene names can change; we might agree to change gs because Excel keeps convertin
 Gene identifiers should be unique, and persistent over time, for example between genome builds, and as we learn more about their function, but they can still be merged or retired.
 ```
 
-Each of these databases also have their own {ref}`identifiers<identifierse>` and these names and symbols can change over time. 
+Each of these databases also have their own {ref}`identifiers<identifiers>` and these names and symbols can change over time. 
 For this reason, it can sometimes be difficult to map between identifiers from different sources.
 
 Due to the history of the gene, and the amount of information that researchers have collected through {ref}`gene knockouts<gene-knockouts>` and gene expression experiments, it is at the level of the gene that a lot of mappings about function take place.
-This includes, for example, information about a gene's involvement in a gene regulatory network or in a {ref}`biological pathway<biological-pathway>`, and information about gene function according to {ref}`observational studies<observational-studies>`.
+This includes, for example, information about a gene's involvement in a gene regulatory network or in a {ref}`biological pathway<biological-pathways>`, and information about gene function according to {ref}`observational studies<observational-studies>`.
 
 [//]: # (TODO: Write here about how there are still many genes for which we do not have functional information and how that's not likely to change any time soon.)
 Even in the most-studied genomes, there are many genes for which we have sequence, but no functional information.

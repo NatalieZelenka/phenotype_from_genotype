@@ -1,3 +1,4 @@
+(filter-intro)=
 # Introduction
 [//]: # (TODO: Release mapping data separately)
 
@@ -9,8 +10,9 @@ Since larger scale phenotypes will follow from cellular differences, we expect g
 This is backed-up by data: disease-associated genes are generally over-expressed in the tissue they cause symptoms in, with the exception of cancer-associated genes{cite}`Lage2008-gq,Winter2004-rr`. 
 This can and has already been leveraged effectively as part of some gene and variant prioritisation methods {cite}`Rackham2015-jp,Antanaviciute2015-ke`.
 
+(filter-motivation)=
 ## Motivation: improving phenotype and protein function prediction
-The {ref}`inconclusive results of the snowflake predictor<snowflake-results>` led me to focus my efforts on finding answer to a much smaller piece of the genotype-to-phenotype puzzle. 
+The performance of the snowflake predictor led me to focus my efforts on finding answer to a much smaller piece of the genotype-to-phenotype puzzle. 
 As mentioned in {ref}`the previous chapter's discussion<dcgo-expression-problem>`, some predictions of a protein's phenotype are incorrect because the protein is not produced, even though they do have a structure that means that they could be involved in the pathway if they were present.
 To understand if this is the case, we need to know as a minimum if a gene is *ever* expressed a relevant context. 
 This would rule out, for example, proteins that are predicted to be associated with eye health, but are only ever produced in the developing limbs.
@@ -34,6 +36,7 @@ Filtering out predictions where genes are never expressed in a relevant tissue m
 TODO: Write: tissue-specific expression in phenotype prediction, transcirptional noise and the idea of genes being "on" or "off"
 -->
 
+(when-expressed)=
 ## When are transcripts "expressed"?
 
 The idea behind Filip is that some proteins are predicted to affect phenotypes that they are unable to affect, because the environment in the tissue or cell means that the protein isn't around to perform it's function (or fail to). 
@@ -61,8 +64,8 @@ Similar noise occurs in the process of translation (translational noise).
 [//]: # (TODO: Cross-ref batch effects, or put in an aside here)
 
 When we look at expression data for a sample, it will just be a snapshot of the transcription in that sample, and one that isn't necessarily representative of what's happening all the time.
-Very low count values in a sample are extremely common, and these are usually considered to be difficult to distinguish from {ref}`transcriptional-noise`: low levels of transcription with little effect are often randomly happening in the cell. 
-In addition to the biological stochasticity (which could possibly create phenotypic differences), RNA-Seq is sensitive to technical experimental artefacts (batch effects) due to differences in RNA extraction and library preparation{ref}`Conesa2016-gq`.
+Very low count values in a sample are extremely common, and these are usually considered to be difficult to distinguish from {ref}`transcriptional noise<transcriptional-noise>`: low levels of transcription with little effect are often randomly happening in the cell. 
+In addition to the biological stochasticity (which could possibly create phenotypic differences), RNA-Seq is sensitive to technical experimental artefacts (batch effects) due to differences in RNA extraction and library preparation{cite}`Conesa2016-gq`.
 In both cases, it is low counts where this is most difficult to correct for
 So, it isn't necessarily meaningful to take all genes expressed above `0` TPM as a sensible cut-off for whether a gene counts as "expressed" or not in a tissue: when I dichotomise proteins as "expressed" or "not expressed", I am using this as a convenient shorthand for "meaningfully expressed" or "not meaningfully expressed".
 

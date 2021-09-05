@@ -85,9 +85,9 @@
       - file: c08-combining/3-data-wrangling
       - file: c08-combining/7-discussion
 
-#- part: Conclusion
-#  chapters:
-#  - file: c09-conclusion/0-conclusion
+- part: Concluding remarks
+  chapters:
+  - file: c09-conclusion/0-conclusion
 
 
 - part: End Matter

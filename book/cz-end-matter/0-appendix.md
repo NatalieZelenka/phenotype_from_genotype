@@ -12,6 +12,7 @@ kernelspec:
   name: python3
 ---
 
+(appendix)=
 # Appendix
 
 [//]: # (TODO: Maybe split out into different sections if I add the  gene study)
@@ -81,16 +82,13 @@ tissue_groups_to_discard = percentage.index[percentage<0.01]
 overall_design.drop(columns=tissue_groups_to_discard, inplace=True)
 mod.drop(columns=tissue_groups_to_discard, inplace=True)
 tissue_groups.remove(tissue_groups_to_discard)
-
-glue('design-balance', overall_design)
-glue('mod-head', mod.head())
-
-mod.to_csv('../c08-combining/data/simulated/group_mod.csv')
 ```
 
 (estimating-coexpression)=
 ### Estimating co-expression between genes
+
 [//]: # (TODO: Cite other packages)
+
 The `polyester` package does not include gene co-expression (a.k.a. co-occurrance): the correlation between genes of expression values, which is due to genes working together in the same networks, although some other packages do have this functionality.
 
 In order to introduce this correlation to some extent, I used FANTOM data to estimate the correlation between gene expression and used this correlation matrix to create the tissue-specific effects over genes.
@@ -229,7 +227,7 @@ name: heatmap-correlations
 Heatmap showing the correlation coefficients between the randomly sampled 1000 genes in the FANTOM5 data set.
 ```
 
-The correlations between genes, which are used to {ref}`create the coefficient matrix<creating-coefficient-matrix>` are shown in {numref}`heatmap-correlations`. 
+The correlations between genes, which could be used to create the coefficient matrix $\beta$ are shown in {numref}`heatmap-correlations`. 
 
 ### Distribution of fold-changes for tissue specific genes
 
@@ -282,7 +280,7 @@ assert(non_spec_tissues==spec_tissues) # => yes all tissues are tissue-specific 
 
 I then extracted the multipliers from the data, and converted them to log2-fold format (expected by `polyester`).
 Since the distribution was long-tailed, I compared the distribution to an exponential, log-normal and power-law distribution using the python `powerlaw` package{cite}`Alstott2014-qq`. 
-Comparative tests showed that lognormal was the best fit (with extremely low p-values, see code output below);  {numref}`powerlaw-multipliers` visualises this.
+Comparative tests showed that lognormal was the best fit (with extremely low p-values, see code output below); {numref}`powerlaw-multipliers-fit` visualises this.
 
 ```{code-cell} ipython3
 :tags: [hide-input]
@@ -351,7 +349,7 @@ fig.add_trace(go.Scatter(x=x, y=power_law,
 fig.update_layout(xaxis_title='Log<sub>2</sub>-fold multipliers tissue-specific gene.',
                  yaxis_title='Probability density', height=400, width=600)
 fig.update_xaxes(range=[0, max(bin_centres)])
-fig.update_yaxes(range=[0, 0.008])
+# fig.update_yaxes(range=[0, 0.008])
 
 fig.show()
 ```
@@ -366,7 +364,7 @@ The distribution of tissue-specific fold-change over all tissue-specific gene-sa
 
 The log-normal distribution was the best fit to the data, see {numref}`powerlaw-multipliers-fit`). 
 The parameters fitting the log2-fold changes to the log-normal distribution were estimated as $\mu=${glue:text}`mu-lognormal-ts` $\sigma=${glue:text}`sigma-lognormal-ts`. 
-Visually inspection of {numref}`multipliers-fit` reveals that the data simulated from these parameters appears to fit the data reasonably well, although it may be better parameterised by two overlapping distributions.
+Visual inspection of {numref}`powerlaw-multipliers-fit` reveals that the data simulated from these parameters appears to fit the data reasonably well, although it may be better parameterised by two overlapping distributions.
 
 +++
 
@@ -455,7 +453,7 @@ The distribution of the number of tissue-specific genes per tissue from HPA, fit
 
 ## Simulating tissue-specific RNA-Seq counts
 
-Counts can then be simulated using `polyester` (using {download}`this script<helper_c05/create-base-simulated-counts.R>`) or an alternative tool.
+Counts can then be simulated using `polyester` (using {download}`this script<../c08-combining/helper_c05/create-base-simulated-counts.R>`) or an alternative tool.
 
 The simulated data set is given by: $C_{ijk}\propto Negative Binomal (mean=\mu_{jk},size=r_{jk})$ for replicate $i$, gene $j$, and sample $k$, where:
 - the means are given by $\mu_{jk}=\mu'_j+\beta_{jk} \cdot mod$ 

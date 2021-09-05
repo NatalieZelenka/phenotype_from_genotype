@@ -12,10 +12,9 @@ kernelspec:
   name: python3
 ---
 
+(combiningresultsdiscussion)=
 # Results and discussion
 
-
-## Results
 [//]: # (TODO: Add the script for downloading data to the OSF/GitHub, also)
 
 By harmonising the metadata of the four gene expression experiments, I have made it possible to query these four large data sets together, and I show an {ref}`example<tissue-specific-expression>` of this.
@@ -71,8 +70,10 @@ This wider variety of information can be used to increase coverage when gene exp
 -->
 
 (tissue-specific-expression)=
-### Example: Tissue-specific expression comparison
+## Example: Tissue-specific expression comparison
+
 [//]: # (TODO: For each experiment: Cohen's kappa of "expressed in tissue" - for a specific tissue or tissue group available in all experiments?)
+
 [//]: # (TODO: For each tissue/tissue group: number of genes with "no expression")
 
 To illustrate the benefit of combining datasets, I will demonstrate that even the largest and most comprehensive gene expression experiments do not show all genes that are capable of expression being expressed.
@@ -244,10 +245,7 @@ name: choosing-tpm-cutoff
 Scatter plot (above) and cumulative histograms (bottom) showing two similar *cerebral cortex* samples from each experiment.
 ```
 
-In {numref}`choosing-tpm-cutoff`, I am looking for thresholds above which the samples correlate more strongly, as well as nonlinear behaviour in the low TPMs in the bottom plots, as described here{cite}`Koch2018-kw`.
-I chose thresholds as shown in {numref}`chosen-tpm-cutoffs`.
-
-```{list-table}
+```{list-table} Table showing the cut-offs chosen for each experiment.
 :header-rows: 1
 :name: chosen-tpm-cutoffs
 
@@ -262,6 +260,10 @@ I chose thresholds as shown in {numref}`chosen-tpm-cutoffs`.
 * - GTEx
   - 25
 ```
+
+In {numref}`choosing-tpm-cutoff`, I am looking for thresholds above which the samples correlate more strongly, as well as nonlinear behaviour in the low TPMs in the bottom plots, as described here{cite}`Koch2018-kw`.
+I chose thresholds as shown in {numref}`chosen-tpm-cutoffs`.
+
 
 I then define "unexpressed" genes as genes which on average across samples in an experiment have a lower mean than this noise threshold, and calculated the genes that were unexpressed in the brain according to each experiment.
 Calculating the inter-rater reliability using Cohen's Kappa (which adjusts for the probability of randomly rating samples the same way) between experiments reveals that there is moderate agreement between samples when using the per-experiment cut-offs chosen (see {numref}`cohens-kappa-cutoffs`).
@@ -340,7 +342,8 @@ plt.savefig('../images/venn_brain.png')
 plt.show()
 ```
 
-### Batch effects
+(batcheffectsdiscussion)=
+## Batch effects
 ````{figure} ../images/pca_real.png
 ---
 name: real-data-batch
@@ -358,14 +361,21 @@ I explain some ideas for making the combined data set suitable for these types o
 However, by overcoming the data cleaning and standardisation necessary to have all datasets in the same format with the same sample metadata, the data can be used for analyses where batch and other sample metadata is used as covariates (e.g. differential expression of tissues).  
 In its current iteration, it is also suitable for use in {ref}`the next chapter<c06-filter>`, where the data set only needs to distinguish between presence and absence (as in the {ref}`example above<tissue-specific-expression>`, this problem can be side-stepped by choosing a cut-off per experiment). 
 
+(improvingresources)=
+## Combining omics data sets is an opportunity to improve existing resources
+While a great deal of careful work has clearly been spent on making the datasets used in this analysis available and useful to researchers such as myself, there were still many barriers to their use in this circumstance. 
+This ranged from mislabelled samples, to missing information, to having to seek data about the same experiment from multiple different sources (as we saw in {numref}`ontolopy-mapping-example`). 
+It is reassuring that the data issues that were discovered had clear pathways for reporting, and that some of them have already resulted in changes to the files used.
+In particular, I think it’s important that key information that we know affects gene expression such as age, developmental stage, and sex are made available with the data set and preferably in a standardised format across experiments.
 
-### Related outputs
-In creating the combined data set, I created the {ref}`Ontolopy<ontolopy>` Python package, and by combining ontologies and omics data sets, I {ref}`contributed towards improving these resources<FANTOM5-inconsistencies-example>`.
-
+(combiningfuturework)=
 ## Future Work
 
+The main piece of future work that I anticipate doing is using the combined dataset to improve the coverage of the Filip prediction filter.
+
+(mappingimprovementscombining)=
 ### Mapping improvements
-Firstly, there are also some mapping improvements which might improve the quality of the data set as a resource for other people. 
+There are also some mapping improvements which might improve the quality of the data set as a resource for other people. 
 
 **Multiple membership of tissues and cells** 
 It is sometimes appropriate for samples to map to two apparently distinct Uberon terms. 
@@ -378,7 +388,7 @@ This could be achieved partly with relative ease by using the ontological mappin
 Improvement of the CL-Uberon mapping would then allow for a complete understanding of which cell types are in a tissue, but not their relative abundances. 
 
 **Cell type deconvolution:**
-In order to understand the relative abundances of cell types in each sample, a cell type deconvolution programme (e.g. CIBERSORT{cite}`Newman2015-le`, BSEQ-sc{cite}`Gaujoux_undated-ru`, or MuSiC{cite}`Wang2019-hc`) could be used.
+In order to understand the relative abundances of cell types in each sample, a cell type deconvolution programme (e.g. CIBERSORT{cite}`Newman2015-le`, BSEQ-sc{cite}`Baron2016-yh`, or MuSiC{cite}`Wang2019-hc`) could be used.
 These algorithms estimate percentages of cell types making up a tissue. 
 This would require the input of a large scRNA-seq data set as input, and there doesn’t yet exist enough diversity to deconvolve all tissue types.
 As well as improving the mapping, this is likely to improve the quality and variety of batch effect correction methods available.
@@ -390,16 +400,12 @@ It is not clear, however, to what extent this may affect their performance.
 Some alternative methods are not as sensitive to this requirement, e.g. Mutual Nearest Neighbour (MNN){cite}`Haghverdi2018-ig`, which was developed for scRNA-seq data.
 No batch-effect removal method is designed specifically for this kind of scenario, so it would be sensible to do a simulation study to test their suitability; some preliminary work towards this goal can be found in the {ref}`appendix<simulation-appendix>`.
 
+(tissuecellspecific)=
 ### Tissue-specific vs cell specific
 As the number of scRNA-seq experiments increase, including them in a combined dataset of tissue-specific expression will become more statistically viable. 
 A prerequisite of including scRNA-seq data would be the use of an alternative batch effect removal algorithm that is suitable for single cell data (e.g. MNN).
 It would be interesting to compare how the expression of cells which can exist in multiple tissue types differs across those different tissue types, and to investigate whether some gene expression is truly tissue-specific rather than cell-type specific.
 
-## Combining omics data sets is an opportunity to improve existing resources
-While a great deal of careful work has clearly been spent on making the datasets used in this analysis available and useful to researchers such as myself, there were still many barriers to their use in this circumstance. 
-This ranged from mislabelled samples, to missing information, to having to seek data about the same experiment from multiple different sources (as we saw in {numref}`ontolopy-mapping-example`). 
-It is reassuring that the data issues that were discovered had clear pathways for reporting, and that some of them have already resulted in changes to the files used.
-In particular, I think it’s important that key information that we know affects gene expression such as age, developmental stage, and sex are made available with the data set and preferably in a standardised format across experiments.
 
 ```{code-cell} ipython3
 

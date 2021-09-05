@@ -48,9 +48,10 @@ Data is simulated for the following cases, representing the diversity of phenoty
 
 [//]: # (TODO: tie in this section with the curse of dimensionality part)
 Given $N$ SNPs of interest, there are $3^N$ different options for individual's combinations of calls for biallelic SNPS, since there are three different options for each SNP `WW` wild-wild homozygous, `MW`/`WM` heterozygous, or `MM` mutant-mutant heterozygous.
-{numref}`snp-combo-table` shows this for 2 SNPs.
+<!--{numref}`snp-combo-table` shows this for 2 SNPs.-->
 For our purposes, heterozygous SNPs are considered the same whether they are mutant-wild `MW` or wild-mutant `WM`, since we assume they would create the same balance of proteins in a cell.
 
+<!--
 ```{list-table} Table showing all possible combinations of calls for two biallelic SNPs where M denotes mutant type and W denotes wild type.
 :header-rows: 1
 :name: snp-combo-table
@@ -86,6 +87,7 @@ For our purposes, heterozygous SNPs are considered the same whether they are mut
   - `MM`
   - `MM`
 ````
+-->
 
 (linkage-disequilibrium)=
 ```{admonition} Linkage Disequilibrium
@@ -319,7 +321,7 @@ Linear distance metrics. $MM$ denotes homozygous mutant alleles, $WW$ denotes ho
 ### Input individuals
 [//]: # (TODO: Sensitivity of clustering score to background cohort)
 -->
-+++
++++ 
 
 <!--
 ### Overcoming the curse of dimensionality in Snowflake

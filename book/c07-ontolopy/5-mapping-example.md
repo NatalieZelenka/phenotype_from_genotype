@@ -40,6 +40,7 @@ The `Uberon` class has three useful functions for creating this mapping:
 2. `sample_map_by_name`: creates a mapping via sample or tissue names.
 3. `get_overall_tissue_mappings`: combines the two mappings to create a more comprehensive overall mapping.
 
+(map-load-prefilter)=
 ### Load data and pre-filter
 In order to do this, I load the input FANTOM5 ontology and sample information files.
 These are the same files that I explained {ref}`in the previous section<ontolopy-example-inputs>`.
@@ -97,6 +98,7 @@ fantom_obo_no_cl = opy.load_obo(
 samples_info = pd.read_csv(fantom_samples_info_file, index_col=1)
 ```
 
+(bigexamplemapbyont)=
 ### Mapping by ontology
 The `sample_map_by_ont` function is a wrapper function which calls `relations.Relations`, and excludes too-general Uberon tissues such as anatomical structure, tissue, anatomical system, embryo, and multi fate stem cell.
 We use a merged sample (FANTOM) and tissue (Uberon) ontology as input.
@@ -212,6 +214,7 @@ The existence of such tissues, means that mapping via name as well as by ontolog
 
 +++
 
+(bigexamplemapbyname)=
 ### Mapping by name
 
 ```{code-cell} ipython3
@@ -309,6 +312,7 @@ For the FANTOM5 data at least, the names better describe locations that these sa
 
 +++
 
+(bigexamplecombiningmappings)=
 ### Combining mappings
 
 To get the best of both mappings, we need to combine them using the `Uberon.get_overall_tissue_mappings` function.
@@ -554,12 +558,14 @@ This {ref}`can be useful<>` when comparing to experiments that use more general 
 ```
 -->
 
-### Mapping statistics
+(mappingstatistics)=
+### Mapping overview
 Using Ontolopy we can get a coverage of all samples that we would expect to map to a localised tissue (defining this as primary cell and tissue samples excluding reference RNA). 
 These mappings correspond to {glue:text}`overall-unique-tissues` unique tissues.
 
 (2-tissue-to-phenotype)=
 ## Creating tissue-to-phenotype mappings
+
 [//]: # (TODO: Make sure they are biological_process not cellular_component)
 
 ```{margin} by-ontology mapping
@@ -590,6 +596,7 @@ go_obo = opy.load_obo(
 biological_processes = [x for x in go_obo.terms if ('biological_process' in go_obo[x]['namespace'])]
 ```
 
+(partofprop)=
 ### Propagating relationships up the tree using `part_of`
 
 Our first example of looking for relations between tissues and phenotypes will include the `part_of` relation.
@@ -727,15 +734,15 @@ glue("mapped-tissue-up", f"{num_mapped_up} ({100*num_mapped_up/float(len(source_
 # glue("mapped-tissue-up", len(formatted_phenotype_mapping_filtered.index.get_level_values("Tissue").unique()))
 glue("num-unique-phen-up",  len(formatted_phenotype_mapping_filtered.index.get_level_values("Phenotype").unique()))
 
-glue("num-unmapped-tissue-phenotype-rem", len(unmapped_tissue_phenotype_less))
-glue("lst-unmapped-tissue-phenotype-rem", list_to_text([merged[tissue]['name'] for tissue in unmapped_tissue_phenotype_less]))
+glue("num-unmapped-tissue-phenotype-num", len(unmapped_tissue_phenotype_less))
+glue("lst-unmapped-tissue-phenotype-lst", list_to_text([merged[tissue]['name'] for tissue in unmapped_tissue_phenotype_less]))
 ```
 
 {numref}`mapped-phenotypes-per-tissue` (b) shows us that after removing very general terms, the majority of terms have 1-20 phenotypes mapped to them. 
 
 A small number have more, and a small number have no mappings. 
-There are {glue:text}`num-unmapped-tissue-phenotype` terms with no mapping whatsoever in (a), or {glue:text}`num-unmapped-tissue-phenotype-rem` terms in (b) which do not have a mapping except for the very general terms.
-These terms are: {glue:text}`lst-unmapped-tissue-phenotype-rem`.
+There are {glue:text}`num-unmapped-tissue-phenotype-num` terms in (b) which do not have a mapping except for the very general terms.
+These terms are: {glue:text}`lst-unmapped-tissue-phenotype-lst`.
 Clearly there are phenotypes that affect these tissues (with the exception of the obsolete term), so the lack of mapping here may represent missing relationships or terms within the gene ontology.
 An important one for our data set is *blood* (since we have many such tissue samples): there are GO phenotype terms relating to *blood* such as *blood circulation* and *blood coagulation*, so why don't we get mappings to these terms?
 
@@ -802,13 +809,14 @@ counts_down1_less, unmapped_down1_less = mapping_to_tissue_counts(formatted_phen
 yet_unmapped_down1 = list(set(unmapped_tissue_phenotype_less) & set(unmapped_down1_less))
 glue("unmapped-tissue-down-1", len(yet_unmapped_down1))
 glue("lst-unmapped-updown-less", list_to_text([merged[x]['name'] for x in yet_unmapped_down1]))
+
 ```
 
 In {numref}`tissue-mapping-comparison`, which compares the number of mapped tissues and phenotypes for different tissue-to-phenotype mapping methods, we can see that this method maps more phenotypes, but for less tissues.
 
 [//]: # (TODO: Check unmapped-updown-less - missing number)
 
-Although less tissues have been mapped overall, we can tell they do capture previously unmapped tissues since the overall number of unmapped tissues (after removal of too-general terms) reduces from {glue:text}`num-unmapped-tissue-phenotype-rem` with propagating up only to {glue:text}`unmapped-updown-less` which aren't mapped by either method.
+Although less tissues have been mapped overall, we can tell they do capture previously unmapped tissues since the overall number of unmapped tissues (after removal of too-general terms) reduces from {glue:text}`num-unmapped-tissue-phenotype-num` with propagating up only to {glue:text}`unmapped-tissue-down-1` which aren't mapped by either method.
 While propagating down therefore improves the overall mapping coverage, looking at the tissues which remain unmapped gives us a clue as to what further improvements we can make.
 
 The terms which remain unmapped are {glue:text}`lst-unmapped-updown-less`. 
@@ -921,6 +929,7 @@ For example we have no mapping for *adipose tissue* despite the fact that GOBP t
 An example of six of the {glue:text}`new-down2` additional Uberon-GOBP mappings found using `can_have_human_part`. 
 ```
 
+(combiningexample2)=
 ### Combining previous mappings
 
 To create the final tissue-phenotype mapping, we combine the propagating up (`part_of`) mapping with the {ref}`larger<can-have-contains>` propagating down (`can_have_human_part`) mapping, by simply appending the new lines of the DataFrame.
@@ -1160,7 +1169,7 @@ sample_to_tissue_df = pd.DataFrame.from_dict(sample_to_tissue,
                                       orient='index',
                                       columns=['relation_path', 'relation_text'])
 sample_to_tissue_df.index = pd.MultiIndex.from_tuples(sample_to_tissue_df.index, names=["sample", "tissue", "phenotype"])
-mapping_file_path = '../c09-filter/data/created/fantom-go-mapping.csv'
+mapping_file_path = '../c06-filter/data/created/fantom-go-mapping.csv'
 sample_to_tissue_df.to_csv(mapping_file_path, sep = '\t')
 display(sample_to_tissue_df.head(20))
 ```
@@ -1173,6 +1182,7 @@ print(sample_to_tissue_df.loc[('FF:11453-119A4','UBERON:0002048','GO:0007585'),'
 sample_to_tissue_df.loc[('FF:11453-119A4','UBERON:0002048','GO:0007585'),'relation_path']
 ```
 
+(opyexamplefinalmapping)=
 ### Final mapping
 
 ```{code-cell} ipython3

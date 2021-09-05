@@ -1,14 +1,14 @@
-# How Ontolopy works
+(opytoolspractices)=
+# Ontolopy tools and practices
 
 This section briefly describes the tools and practices that Ontolopy is built upon.
 
 [//]: # (TODO: cite everything, validators, semvar, twine pytest sphinx extensions)
 [//]: # (TODO: add version link for Ontolopy)
 
+(opypractices)=
 ## Practices
 __Development philosophy:__
-
-[//]: # (TODO: Aside: RSEing)
 
 (continuous-integration)=
 ```{margin} Continuous Integration
@@ -20,8 +20,6 @@ Ontolopy aspires to [Research Software Engineering](https://society-rse.org/) be
  - [Semantic Versioning](https://semver.org/) to make the package versions informative and useful for others. 
  - Thorough [documentation](https://nataliethurlby.github.io/ontolopy), which is versioned. This means that you can always reach the documentation corresponding to the version of the software you are using - you can access this at `/versions/{tagged_version}`, e.g. `v1.0.2-beta` is [here](https://nataliethurlby.github.io/ontolopy/versions/1.0.2-beta/).) The documentation is also built automatically using GitHub Actions.
  - Keeping a small number of dependencies, which are: `numpy`{cite}`harris2020array` and `pandas`{cite}`reback2020pandas` for general data manipulation, and `validators` (for validating URLs) 
-
-[//]: # (TODO: Aside about Open Source)
 
 __Open Source:__
 
@@ -40,8 +38,8 @@ Ontolopy uses consistent programming style and conventions to make it easier for
 - Functions with leading underscores (e.g. `_extract_source()`)  are meant for internal use only.
 - Relative imports should be used at all times, with imports ideally delayed until they are needed.
 
+(opytools)=
 ## Tools
-[//]: # (TODO: Aside about Packaging? Where do I first say packaging?)
 
 __Packaging:__
 
@@ -58,7 +56,6 @@ __Logging:__
 Python's in-built [`logging`](https://docs.python.org/3/library/logging.html) module is used to integrate logging messages from dependencies as well as adding useful logging messages for Ontolopy users.
 This allows informative messages to be printed to the console or to a log file.
 
-[//]: # (TODO: Aside: docstrings)
 __Documentation:__
 
 Ontolopy's documentation is hosted on GitHub pages [here](https://nataliethurlby.github.io/ontolopy/), and built using [`Sphinx`](https://www.sphinx-doc.org/) with the [`pydata-sphinx-theme`](https://pydata-sphinx-theme.readthedocs.io/) theme{cite}`PyData_Community2019-rw`, and it is automatically built using GitHub Actions whenever there are changes to the development branch or when there is a new release.

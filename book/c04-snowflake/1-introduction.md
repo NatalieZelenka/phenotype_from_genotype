@@ -41,7 +41,7 @@ This approach is used within Exomiser{cite}`Smedley2015-ql`, which combines PHIV
 Phenolyzer{cite}`Yang2015-dq` and Genomiser{cite}`Smedley2016-os` also take similar approaches of combining many different sources of data.
 
 [//]: # (TODO: Cross-ref to CAFA)
-The aim of these models is mostly to prioritise variants associated with diseases, and they are benchmarked by their ability to identify known variants.
+The aim of these models is mostly to prioritise variants associated with diseases, and they are bench-marked by their ability to identify known variants.
 Lists of known variants may be purpose-curated from the literature according to specific evidence, or may come from some subset of annotation databases (which in some cases the algorithm may have used as input data).
 Each phenotype predictor often targets a specific use case (e.g. non-coding variants), and in combination with the varying validation methods used, it is difficult to compare the accuracy of all of these models directly.
 For this reason, the CAFA competition is very useful in getting a more objective view of the capabilities of these kinds of tools.
@@ -58,7 +58,6 @@ While these examples are the most similar published work to Snowflake, they are 
 
 (clustering-outlier-genetics)=
 ### Clustering and outlier-detection in genetics
-[//]: # (TODO: Maybe move haplotypes/haplogroups to background: variation within populations?)
 [//]: # (TODO: Have I explained clustering anywhere? Should I explain that in some detail here?)
 
 ```{margin} Haplotypes and haplogroups

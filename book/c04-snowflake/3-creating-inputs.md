@@ -13,7 +13,7 @@ kernelspec:
 ---
 
 (creating-snowflake-inputs)=
-# Creating `snowflake` inputs
+# Creating Snowflake inputs
 
 [//]: # (TODO: Have I already explained VCF format? Link or explain here. Cite the version of the format we use. Explain that there are different versions.)
 [//]: # (TODO: Make sure that I haven't confused `create_data` and creating snowflake inputs)
@@ -25,13 +25,13 @@ This section describes the sources and pipelines for creating inputs to Snowflak
 [//]: # (TODO: Make this into a table describing the purpose of each part)
 
 There are four main inputs required by Snowflake which must be created:
-1. dcGO phenotype mapping file: high-quality mappings between protein (supra)domains and phenotype terms from 16 biomedical ontologies - provided as part of `snowflake` 
-2. Background cohort: genetic data of diverse individuals (`.vcf`, VCF format) - default human option provided as part of `snowflake`
-3. Consequence file: deleteriousness scores per SNP (`.Consequence`, format specific to `snowflake`) - default human option provided as part of `snowflake` 
+1. dcGO phenotype mapping file: high-quality mappings between protein (supra)domains and phenotype terms from 16 biomedical ontologies - provided as part of Snowflake 
+2. Background cohort: genetic data of diverse individuals (`.vcf`, VCF format) - default human option provided as part of Snowflake
+3. Consequence file: deleteriousness scores per SNP (`.Consequence`, format specific to `snowflake`) - default human option provided as part of Snowflake 
 4. Input cohort: genetic data of person or people of interest (`.vcf`, VCF format) - provided by user
 
 The dcGO mapping file works for all organisms and only needs remaking if dcGO or SUPERFAMILY have significant updates.
-Alternatively, a slimmed version can be created that contains only the ontologies of interest to a specific organism which reduces `snowflake`'s running time, and here I explain how I made a slimmed version of this file for ontologies of interest to humans. 
+Alternatively, a slimmed version can be created that contains only the ontologies of interest to a specific organism which reduces Snowflake's running time, and here I explain how I made a slimmed version of this file for ontologies of interest to humans. 
 The background cohort and consequence file must be created once for each organism/genome build. 
 Here, since I have only used Snowflake in predicting human phenotypes, I walk through the creation of the human background cohort and consequence file.
 Lastly, the input cohort file must be created per input cohort. 
@@ -41,7 +41,7 @@ Here I run through the creation of a VCF file from 23andMe genotype files.
 :class: info
 :name: consequences-input-cohort
 It is possible to create a consequence file for any cohort VCF file, i.e. it would be possible to make an input cohort consequence file.
-However, since `snowflake` can only cluster our input cohort against the background for SNPs which overlap between the two cohorts, we only need to create one such file for either the input or the background. 
+However, since Snowflake can only cluster our input cohort against the background for SNPs which overlap between the two cohorts, we only need to create one such file for either the input or the background. 
 Here I've chosen to do it for the background cohort since then this file can be reused for many different input cohorts.
 ```
 
@@ -50,7 +50,7 @@ Here I've chosen to do it for the background cohort since then this file can be 
 
 It is simple to create the dcGO mapping file since dcGO provides the required files for download on the [SUPERFAMILY website](https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/cgi-bin/dcdownload.cgi).
 The website provides 2 files of {ref}`high-coverage<high-coverage-dcGO>` mappings for each ontology supported by dcGO: one that maps between SCOP domains and ontology terms, and another that maps between SCOP {abbr}`supradomains (combinations of domains)` and ontology terms.
-Currently, `snowflake` does not support the inclusion of dcGO supra-domain assignments.
+Currently, Snowflake does not support the inclusion of dcGO supra-domain assignments.
 
 ```{admonition} High-coverage versus high-quality
 :class: info
@@ -60,7 +60,7 @@ DcGO provides two versions of it's GO mappings: high-coverage and high-quality. 
  
 For all other (non-GO) ontologies, dcGO provides only the high-coverage version.
 
-The high-coverage mappings were used in `snowflake` to increase the coverage of the phenotype predictions, i.e. so that more SNPs could be included and more phenotypes. 
+The high-coverage mappings were used in Snowflake to increase the coverage of the phenotype predictions, i.e. so that more SNPs could be included and more phenotypes. 
 ```
 
 ```{margin} Incusion of the Mammalian Phenotype ontology
@@ -81,7 +81,7 @@ The ontologies that contain interpretable phenotype terms for humans are:
 Some of these ontologies aren't designed only (or even primarily) for humans, but since they {ref}`contain terms which are relevant to humans<choosing-dcGO-ontologies>` and the associations are made based on protein domains found in human proteins, these ontologies were chosen.
 While dcGO supports many other ontologies (e.g. Zebrafish and Xenopus ontologies) based on protein domains that can be found in humans, I made the decision that the trade-off between the additional time needed to run the phenotype predictor and sift through the results of these ontology terms was not worth the increase in coverage gained from whichever of these terms were meaningful.
 
-To create the `snowflake` input for humans, files for the five relevant ontologies were downladed (for [DO](https://supfam.org/SUPERFAMILY/Domain2GO/Domain2DO.txt), [HP](https://supfam.org/SUPERFAMILY/Domain2GO/Domain2HP.txt), [GO](https://supfam.org/SUPERFAMILY/Domain2GO/Domain2GO_supported_only_by_all.txt), [MESH](https://supfam.org/SUPERFAMILY/Domain2GO/Domain2CD.txt), and [MP](https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/Domain2GO/Domain2MP.txt)), then concatenated, and the GO cellular component and GO molecular function terms were removed (these term identifiers were extracted from the `GO_subontologies` field of the `Domain2GO_supported_only_by_all.txt` file).
+To create the Snowflake input for humans, files for the five relevant ontologies were downladed (for [DO](https://supfam.org/SUPERFAMILY/Domain2GO/Domain2DO.txt), [HP](https://supfam.org/SUPERFAMILY/Domain2GO/Domain2HP.txt), [GO](https://supfam.org/SUPERFAMILY/Domain2GO/Domain2GO_supported_only_by_all.txt), [MESH](https://supfam.org/SUPERFAMILY/Domain2GO/Domain2CD.txt), and [MP](https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/Domain2GO/Domain2MP.txt)), then concatenated, and the GO cellular component and GO molecular function terms were removed (these term identifiers were extracted from the `GO_subontologies` field of the `Domain2GO_supported_only_by_all.txt` file).
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
@@ -211,7 +211,7 @@ the `information_content` field is a measure of how specific the phenotype term 
 
 {numref}`dcgo-po-stats` shows the number of assignments, unique phenotype terms, and unique domains covered in the dcGO phenotype mapping per ontology and in total. 
 The file contains {glue:text}`all_assignments` assignments, {glue:text}`all_terms` unique ontology terms, and {glue:text}`all_domains` unique domains. 
-This constrains the proteins and phenotypes which `snowflake` can make predictions about.
+This constrains the proteins and phenotypes which Snowflake can make predictions about.
 
 +++
 
@@ -236,7 +236,7 @@ The alleles at each location are commonly stored in Variant Call Format (VCF) fi
 VCF files describe the locations on the genome of variations between individuals, given by chromosome, position, variant identifiers (e.g. rsID), and then the calls at those locations for each individual.
 ```
 
-Data from the 1000 Genomes project are always used for the background cohort to `snowflake`, with data from the 1000 Genomes project Phase 3{cite}`Consortium2015-ci` used as a default, and earlier experiments using data from Phase 1{cite}`1000_Genomes_Project_Consortium2012-ek`. 
+Data from the 1000 Genomes project are always used for the background cohort to Snowflake, with data from the 1000 Genomes project Phase 3{cite}`Consortium2015-ci` used as a default, and earlier experiments using data from Phase 1{cite}`1000_Genomes_Project_Consortium2012-ek`. 
 Here I describe the process of creating the phase 1 {ref}`VCF<vcf-format>` file (`1000G.vcf`), but the same process is followed to create the larger phase 3 VCF file (`2500G.vcf`).
 
 For both phases of the 1000 Genomes project, data are provided as VCF files for each chromosome. 
@@ -370,7 +370,7 @@ As we can see in {ref}`tbl:excerpt-consequence`, the consequence file can contai
 Less frequently, SNPs that fall in multiple proteins may also fall in more than one domain families or even superfamilies.
 
 [//]: # (TODO: Give number of SNPs in consequence file in this next paragraph:)
-The output `.consequence` file defines the upper limit of the number of SNPs `snowflake` can make phenotype predictions based on.
+The output `.consequence` file defines the upper limit of the number of SNPs Snowflake can make phenotype predictions based on.
 In practice, this will often be a much smaller number as for SNPs to be used they must be:
 - measured in the input cohort (which is often genotyped, and therefore contains far fewer variants)
 - within protein domains that exist in the dcGO mapping file in addition to the consequence file.
@@ -400,7 +400,7 @@ Since launch, 23andMe have used a number of different Illumina chips for their g
 These chips capture information for different SNPs, and vastly different numbers of SNPs.
 This means that in order to combine data from different chips, many loci can not be used.
 
-23andMe have their own file formats, which must be convered to VCF in order to use `snowflake`. 
+23andMe have their own file formats, which must be convered to VCF in order to use Snowflake. 
 One of these formats is tab separated and very similar to VCF, but for their API, 23andMe also stored genotype data in long strings (~1 million characters, twice the number of loci on the chip) of the form `AAAACCTTTT__CC__`, where every 2 nucleotides corresponds to a given SNP on the 23andMe chip with a rsID, chromosome and position.
 To convert this compressed format to VCF, 23andMe provided a genotype snp map file (`snps.data`), which is different for each 23andMe chip, that gives rsIDs, chromosome and position for each index, which looks like:
 

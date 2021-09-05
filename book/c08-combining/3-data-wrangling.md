@@ -31,19 +31,21 @@ The steps required to obtain consistently formatted and labelled data can be des
 
 +++
 
+(rawgeneexpression)=
 ## Obtaining raw expression per gene for healthy human tissues
 
-### Data Acquisition
-As mentioned in {ref}`data-aquisition`, for the HPA, GTeX and HDBR experiments, count data were available through the *ExpressionAtlas* R package{cite}`Keays2018-pg`, and the FANTOM dataset was downloaded directly. 
+As mentioned in {ref}`data-acquisition`, for the HPA, GTeX and HDBR experiments, count data were available through the *ExpressionAtlas* R package{cite}`Keays2018-pg`, and the FANTOM dataset was downloaded directly. 
 
+(transcriptgenemapping)=
 ### Mapping from transcript to gene
 
 This step was only required for the FANTOM dataset.
 
-FANTOM provides mappings to gene IDs based on proximity of genes to peaks according to Ensembl. Gene expression was then calculated by summing over transcripts mapped to genes. The transcripts were already mapped to HGNC gene identifiers in the downloaded FANTOM file and [Ensembl’s Biomart](https://www.ensembl.org/biomart) was used to obtain a [mapping from HGNC gene identifiers to ENSG gene identifiers](data/experiments/fantom/data/experiments/fantom/biomart_ensg_hgnc.txt), in order to match the gene expression atlas format. 
+FANTOM provides mappings to gene IDs based on proximity of genes to peaks according to Ensembl. Gene expression was then calculated by summing over transcripts mapped to genes. The transcripts were already mapped to HGNC gene identifiers in the downloaded FANTOM file and [Ensembl’s Biomart](https://www.ensembl.org/biomart) was used to obtain a {download}`mapping from HGNC gene identifiers to ENSG gene identifiers<./data/experiments/fantom/data/experiments/fantom/biomart_ensg_hgnc.txt>`, in order to match the gene expression atlas format. 
 
 Any transcripts which mapped to multiple genes were discarded, as were any HGNC ids which did not map to ENSG ids.
 
+(filteroutdisease)=
 ### Filtering out disease samples
 
 The HDBR and HPA experiments contained only healthy samples.
@@ -65,9 +67,10 @@ The FANTOM sample ontology (which was downloaded [from here](http://fantom.gsc.r
 
 +++
 
+(combininguberonmapping)=
 ## Mapping to UBERON
 
-Mapping from samples to Uberon tissue required the development of a small Python package {ref}`Ontolopy<ontolopy>`. 
+Mapping from samples to Uberon tissue required the development of a small Python package {ref}`Ontolopy<c06-ontolopy>`. 
 To create input to this package, informal tissue names (e.g. blood, kidney) were taken from the experimental design files (or the human sample information file for FANTOM) to create a map of samples to informal tissue names.
 For FANTOM, the FANTOM ontology could also be used to create a more fine-grained mapping of samples to tissues based on FANTOM sample identifiers and/or cell type (CL) identifiers.
 
@@ -151,6 +154,7 @@ Funnel plot showing the data cleaning pipeline for FANTOM transcripts/genes (lef
 
 The amount of data that flows through the processing pipeline for the FANTOM5 dataset can be seen in {numref}`fantom-funnel-interactive`.
 
+(aggregatingmetadata)=
 ## Aggregating Metadata
 To create consistent metadata for the samples (e.g. age, developmental stage, replicate status, etc), information was extracted from multiple sources (including GxA and additional data from each experiment), and sometimes manually curated or corrected. 
 

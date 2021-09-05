@@ -7,6 +7,7 @@ description: >-
 
 baseurl: ""
 url: "http://nataliethurlby.github.io/thesis"
+only_build_toc_files: true
 
 bibtex_bibfiles:
   - _bibliography/references.bib

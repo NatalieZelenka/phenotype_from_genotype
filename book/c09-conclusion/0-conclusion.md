@@ -1,6 +1,7 @@
 (c07-conclusion)=
-# Conclusion
+# Concluding remarks
 
+<!--
 [//]: # (TODO: cross-ref this section, add in all publications incl. PQI, SUPERFAMILY)
 
 [//]: # (TODO: Mention complexity... That I wanted to study that in relation to biology, but that the data doesn't really seem to be there quite yet: cite can a biologist fix a radio. Mention network with diffusion. )
@@ -16,10 +17,6 @@ To conclude:
     - For downstream research
 - I showed that bringing baseline gene expression data into protein function predictions will (with current data) slightly increase the accuracy of those predictions. 
 
-In my attempts to make explanative genome-wide predictions about protein function, I have continuously bumped up against the limits of what is possible with the data that we currently have.
-These resources are absolutely vital to the efforts of computational biology, and are amazing feats of research and engineering, but there are some limits at present in using them for "big-picture" biology.
-As such, some of the most satisfying work has been to contribute back to some of these resources.
-Through linking them, and finding inconsistencies, I have in some small way been part of science's self-correcting mechanism, and hope that this brings us a little closer to their use for genome-wide explanatory predictions.
 
 ## Future work
 [//]: # (TODO: Cross ref future work in individual chapters)
@@ -50,10 +47,16 @@ In fact, as I tried to piece together the accepted model of how genotype influen
 Compared to maths and physics, there is so much in molecular biology that we don't know: there are so many moving parts and wherever there is a rule, there is *always* an exception to it.
 This is true for the processes themselves, and when you look a little closer - also the data that is collected.
 Over time, my endless questions became less frustrating and more and more energising as I became a better judge of what questions it was possible to answer, and more able to create the resources needed to answer them.
+-->
 
 [//]: # (TODO: Give example of snowflake not being useless)
 [//]: # (TODO: Cross-reference)
 Working on Snowflake gave me a bird's eye view of our model of the connection between genotype and phenotype: and the data sets we have about that connection.
 It is (obviously) regrettable that we could not conclusively test it as a phenotype predictor across phenotypes.
-I think that the work I've done in understanding how outlier detection could be applied to combinations of variants could still prove useful in some scenarios.
-However, in Filip, I have found a small way in which to improve phenotype predictions across the genome, with a mechanistic reason behind it, and I have found value in creating and contributing to resources which I hope will lead us towards more.
+I think that the work I've done in developing Snowflake as a tool for outlier detection for unusual combinations of variants could still prove useful in the future, but we would first need to access a data set with many phenotypes.
+However, in Filip, I have found a small way in which to improve phenotype predictions across the genome, with a mechanistic reason behind it, and I hope to continue to improve this.
+
+In my attempts to make explanative genome-wide predictions about protein function, I continuously bumped up against the limits of what is possible with the data that we currently have.
+These resources are absolutely vital to the efforts of computational biology, and are amazing feats of research, engineering, and collaboration, but there are some limits at present in using them for "big-picture" biology.
+As such, some of the most satisfying work has been to contribute back to some of these resources.
+Through linking them, and finding inconsistencies, I have in some small way been part of science's self-correcting mechanism, and hope that this brings us a little closer to their use for genome-wide explanatory predictions.
