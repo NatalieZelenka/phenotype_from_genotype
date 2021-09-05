@@ -664,8 +664,17 @@ These three submodules are automatically loaded with <code class="docutils liter
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ontolopy.obo.Obo" title="ontolopy.obo.Obo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Obo</span></code></a>(file_loc, ont_ids[, root_terms, …])</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ontolopy.obo.load_obo" title="ontolopy.obo.load_obo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_obo</span></code></a>(file_loc[, ont_ids, discard_obsolete])</p></td>
+<td><p>Loads ontology from <cite>.obo</cite> file at <cite>file_loc</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ontolopy.obo.download_obo" title="ontolopy.obo.download_obo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download_obo</span></code></a>(data_name[, out_dir])</p></td>
+<td><p>Download obo from a list of known locations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ontolopy.obo.Obo" title="ontolopy.obo.Obo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Obo</span></code></a>([source_dict])</p></td>
+<td><p>Creates <cite>Obo</cite> ontology object from <cite>dict</cite> with ontology terms for keys, mapping to term attributes and relations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ontolopy.obo.Obo.merge" title="ontolopy.obo.Obo.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Obo.merge</span></code></a>(new[, prefer])</p></td>
+<td><p>Recursively merges <cite>new</cite> into <cite>self</cite> and returns a merged <cite>Obo</cite> ontology.</p></td>
 </tr>
 </tbody>
 </table>
@@ -679,16 +688,23 @@ This dictionary structure also allows you to add new terms.</p>
 <p class="admonition-title">Obo reference</p>
 <dl class="py class">
 <dt id="ontolopy.obo.Obo">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ontolopy.obo.</span></code><code class="sig-name descname"><span class="pre">Obo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_loc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ont_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discard_obsolete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.obo.Obo" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py method">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ontolopy.obo.</span></code><code class="sig-name descname"><span class="pre">Obo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.obo.Obo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates <cite>Obo</cite> ontology object from <cite>dict</cite> with ontology terms for keys, mapping to term attributes and relations.</p>
+<p>Each key/term is a dictionary with key: value pairs mapping either:</p>
+<ol class="arabic simple">
+<li><p>Attribute (<cite>str</cite>) to value (<cite>str</cite>), e.g. <cite>‘name’: ‘scapula’</cite></p></li>
+<li><p>Type of relationship (<cite>str</cite>) to term identifiers (<cite>list</cite>), e.g. <cite>‘is_a’: [‘UBERON:0002513’]</cite></p></li>
+</ol>
+<p>Info: Obo stands for Open Biological Ontology: a popular file format for building biological ontologies.</p>
+<dl class="py method">
 <dt id="ontolopy.obo.Obo.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_loc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ont_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discard_obsolete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.obo.Obo.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loads ontology from obo file into a dictionary of dictionaries.</p>
-<dl class="simple">
-<dt>Attributes:</dt><dd><p>file_loc: file location of obo (.obo file)</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.obo.Obo.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise self from a source dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>source_dict</strong> – <cite>dict</cite> mapping terms to their attributes and relationships.</p>
 </dd>
 </dl>
-<p># TODO: include other attributes</p>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -698,6 +714,9 @@ This dictionary structure also allows you to add new terms.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ontolopy.obo.Obo.merge" title="ontolopy.obo.Obo.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge</span></code></a>(new[, prefer])</p></td>
+<td><p>Recursively merges <cite>new</cite> into <cite>self</cite> and returns a merged <cite>Obo</cite> ontology.</p></td>
+</tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
@@ -707,6 +726,12 @@ This dictionary structure also allows you to add new terms.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">leaves</span></code></p></td>
+<td><p>Leaf terms are the most specific terms in the ontology; they have no children, only parents (a <cite>set</cite> object).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">terms</span></code></p></td>
+<td><p>The ontology terms (a <cite>dict_keys</cite> object).</p></td>
+</tr>
 </tbody>
 </table>
 </dd></dl>
@@ -729,6 +754,23 @@ This can be useful for investigating relationships between ontologies.
 For example, to find relationships between samples and tissues, that might go via cells, you may want to merge a sample ontology, cell, and tissue ontology to find all possible relationships.</p>
 <div class="hint admonition">
 <p class="admonition-title">Obo.merge reference</p>
+<dl class="py method">
+<dt id="ontolopy.obo.Obo.merge">
+<code class="sig-prename descclassname"><span class="pre">Obo.</span></code><code class="sig-name descname"><span class="pre">merge</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'self'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.obo.Obo.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively merges <cite>new</cite> into <cite>self</cite> and returns a merged <cite>Obo</cite> ontology.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>new</strong> – Obo object (or list of objects) to add.</p></li>
+<li><p><strong>prefer</strong> – prefer ‘self’ (base Obo) or ‘new’ (new Obo)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return merged</dt>
+<dd class="field-even"><p>A merged Obo</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 <div class="section" id="loading-ontologies-from-file">
@@ -736,6 +778,24 @@ For example, to find relationships between samples and tissues, that might go vi
 <p>While creating ontologies from dictionaries is useful for adding bespoke terms, most of the time we want to load an official and curated OBO from a file.</p>
 <div class="hint admonition">
 <p class="admonition-title">load_obo reference</p>
+<dl class="py function">
+<dt id="ontolopy.obo.load_obo">
+<code class="sig-prename descclassname"><span class="pre">ontolopy.obo.</span></code><code class="sig-name descname"><span class="pre">load_obo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_loc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ont_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discard_obsolete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.obo.load_obo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads ontology from <cite>.obo</cite> file at <cite>file_loc</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_loc</strong> – file location - path to stored obo file.</p></li>
+<li><p><strong>ont_ids</strong> – list of ontology ids, e.g. <cite>[‘UBERON’, ‘CL’]</cite></p></li>
+<li><p><strong>discard_obsolete</strong> – if True discard obsolete terms.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><cite>Obo</cite> ontology object.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 <div class="section" id="downloading-obo-files">
@@ -743,6 +803,23 @@ For example, to find relationships between samples and tissues, that might go vi
 <p>It’s also possible to download OBO files, either from a list of popular OBO files by name, or via a URL.</p>
 <div class="hint admonition">
 <p class="admonition-title">download_obo reference</p>
+<dl class="py function">
+<dt id="ontolopy.obo.download_obo">
+<code class="sig-prename descclassname"><span class="pre">ontolopy.obo.</span></code><code class="sig-name descname"><span class="pre">download_obo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../data/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.obo.download_obo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download obo from a list of known locations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_name</strong> – Name of OBO you wish to download.</p></li>
+<li><p><strong>out_dir</strong> – Directory in which to save OBO file.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return out_file</dt>
+<dd class="field-even"><p>path to saved file.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 </div>
@@ -758,7 +835,10 @@ This functionality is inside the <code class="docutils literal notranslate"><spa
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ontolopy.relations.Relations" title="ontolopy.relations.Relations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Relations</span></code></a>(relations_of_interest, …[, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ontolopy.relations.relation_path_to_text" title="ontolopy.relations.relation_path_to_text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">relation_path_to_text</span></code></a>(relation_path, ont)</p></td>
+<td><p>Converts from a relation string e.g. “UBERON:123913.is_a~UBERON:1381239” to a text version,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ontolopy.relations.Relations" title="ontolopy.relations.Relations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Relations</span></code></a>(allowed_relations, ont[, sources, …])</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -770,21 +850,30 @@ This functionality is inside the <code class="docutils literal notranslate"><spa
 It subclasses a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">Pandas DataFrame</a> since that is a convenient and familiar format for the relationship information to be returned.</p>
 <dl class="py class">
 <dt id="ontolopy.relations.Relations">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ontolopy.relations.</span></code><code class="sig-name descname"><span class="pre">Relations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">relations_of_interest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_terms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_term</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ont</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded_terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.relations.Relations" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ontolopy.relations.</span></code><code class="sig-name descname"><span class="pre">Relations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allowed_relations</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ont</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'any'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.relations.Relations" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt id="ontolopy.relations.Relations.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">relations_of_interest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_terms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_term</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ont</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded_terms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.relations.Relations.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><dl>
-<dt>Attributes:</dt><dd><dl class="simple">
-<dt>relations_of_interest: a list of relations that are relevant for finding relationship between the source</dt><dd><p>and target term, e.g. [‘is_a’,’is_model_for’]</p>
-</dd>
-<dt>source_terms: terms that we wish to look for relations from, list of the form [source_term_1, source_term_2,</dt><dd><p>etc] such that we wish to find relationships of the form “source_term is_a target_term” or “source_term
-is_a other_term is_a target_term”.</p>
-</dd>
-<dt>target_term: term that we wish to look for relations to, e.g. source_term is_a target_term. Term string,</dt><dd><p>either specific (e.g. ‘FF:0000001’) or general (e.g. ‘FF’)</p>
-</dd>
-</dl>
-<p>ont: Obo().ont object</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allowed_relations</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ont</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'any'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.relations.Relations.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pandas Dataframe containing relationships between <cite>sources</cite> and <cite>targets</cite> terms according to <cite>ont</cite>.
+Finds relationships that do not pass through <cite>excluded</cite> terms and uses only <cite>allowed_relations</cite>. We keep looking
+until we find a relation to a target (if mode == ‘any’) or we run out of leads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>allowed_relations</strong> – a list of allowed relations, e.g. [‘is_a’, ‘part_of’]</p></li>
+<li><p><strong>sources</strong> – list of sources. For mode <cite>all</cite> must be a list of source-target tuple airs.</p></li>
+<li><p><strong>mode</strong> – ‘any’ or ‘all’ - ‘all is looking for specific term1-term2 pairs, while ‘any’ is looking for any
+relationship between something in specific source and anything in targets.</p></li>
+<li><p><strong>targets</strong> – list of targets.</p></li>
+<li><p><strong>source_targets</strong> – list of tuples of source-target pairs. Do not provide source or targets if using this
+parameter. Only runs in “all” mode.</p></li>
+<li><p><strong>ont</strong> – Obo ontology object.</p></li>
+<li><p><strong>excluded</strong> – a list/set of terms which are explicitly not being searched for (which may otherwise match the
+targets). Useful e.g. if we want to look for any tissue targets with prefix ‘UBERON’, except for very general
+ones. Does not allow relationships that pass through this term.</p></li>
+<li><p><strong>col_names</strong> – Alternative column names for the output of Relations Data Frame, by default is
+[‘from’, ‘relation_path’, ‘relation_text’, ‘to’]</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -822,6 +911,26 @@ If <code class="docutils literal notranslate"><span class="pre">sources</span></
 <p>Since relationships are internally stored as <a class="reference internal" href="#relation-paths"><span class="std std-ref">relation paths</span></a> as explained above, it is useful to turn these strings into more readable text, which is what the <code class="docutils literal notranslate"><span class="pre">relation_path_to_text</span></code> function does.</p>
 <div class="hint admonition">
 <p class="admonition-title">relation_path_to_text reference</p>
+<dl class="py function">
+<dt id="ontolopy.relations.relation_path_to_text">
+<code class="sig-prename descclassname"><span class="pre">ontolopy.relations.</span></code><code class="sig-name descname"><span class="pre">relation_path_to_text</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">relation_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ont</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.relations.relation_path_to_text" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Converts from a relation string e.g. “UBERON:123913.is_a~UBERON:1381239” to a text version,</dt><dd><p>e.g. “heart is a circulatory organ”.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ont</strong> – opy.Obo() ontology object.</p></li>
+<li><p><strong>relation_path</strong> – path describing the relationship between two terms, e.g. “UBERON:123913.is_a-UBERON:1381239”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <!--Simplifying relationships-->
 </div>
@@ -836,6 +945,12 @@ The vast majority of this functionality sits in the <code class="docutils litera
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">uberon_from_obo</span></code>(obo)</p></td>
+<td><p>Creates an <cite>Uberon</cite> object from an <cite>Obo</cite> object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ontolopy.uberon.Uberon" title="ontolopy.uberon.Uberon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Uberon</span></code></a>()</p></td>
+<td><p>An UBERON-specific ontology object.</p></td>
+</tr>
 </tbody>
 </table>
 <div class="section" id="the-uberon-class">
@@ -847,6 +962,44 @@ The vast majority of this functionality sits in the <code class="docutils litera
 <li><p><strong><a class="reference internal" href="#mapping-by-term"><span class="std std-ref">Mapping via ontology term</span></a>:</strong> Map from CL cell types (e.g. <code class="docutils literal notranslate"><span class="pre">CL:0000235</span></code>, Macrophage), sample ontology term to Uberon tissues (e.g. <code class="docutils literal notranslate"><span class="pre">UBERON:0002405</span></code>, Immune system). Or from sample ontology terms (like FANTOM terms, such as <code class="docutils literal notranslate"><span class="pre">FF:10048-101G3</span></code>, <em>Smooth Muscle, Adult, Pool1</em>) to Uberon terms (<code class="docutils literal notranslate"><span class="pre">UBERON:0001135</span></code>, Smooth Muscle Tissue). Returns relationships between source term and Uberon term.</p></li>
 <li><p><strong><a class="reference internal" href="#comparing-mappings"><span class="std std-ref">Create sample-to-tissue mappings and disagreements between mappings</span></a></strong> based on (1) and (2).</p></li>
 </ol>
+<dl class="py class">
+<dt id="ontolopy.uberon.Uberon">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ontolopy.uberon.</span></code><code class="sig-name descname"><span class="pre">Uberon</span></code><a class="headerlink" href="#ontolopy.uberon.Uberon" title="Permalink to this definition">¶</a></dt>
+<dd><p>An UBERON-specific ontology object.</p>
+<dl class="py method">
+<dt id="ontolopy.uberon.Uberon.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.uberon.Uberon.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise self from a source dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>source_dict</strong> – <cite>dict</cite> mapping terms to their attributes and relationships.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ontolopy.uberon.Uberon.__init__" title="ontolopy.uberon.Uberon.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
+<td><p>Initialise self from a source dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ontolopy.uberon.Uberon.sample_map_by_ont" title="ontolopy.uberon.Uberon.sample_map_by_ont"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_map_by_ont</span></code></a>(sample_ids[, exclude, …])</p></td>
+<td><p>Map tissues from sample names to uberon identifiers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ontolopy.uberon.Uberon.sample_map_by_name" title="ontolopy.uberon.Uberon.sample_map_by_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_map_by_name</span></code></a>(sample_names[, to, …])</p></td>
+<td><p>Map tissues from sample identifiers to uberon identifers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ontolopy.uberon.Uberon.get_overall_tissue_mappings" title="ontolopy.uberon.Uberon.get_overall_tissue_mappings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_overall_tissue_mappings</span></code></a>(map_by_name, …)</p></td>
+<td><p>Combines the two mappings <cite>map_by_name</cite> and <cite>map_by_ont</cite> to create an overall mapping and disagreements.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 <div class="section" id="mapping-from-sample-to-tissue-via-name-using-uberon-sample-map-by-name">
 <span id="mapping-by-name"></span><h3><span class="section-number">7.2.4.2. </span>Mapping from sample to tissue via name using <code class="docutils literal notranslate"><span class="pre">Uberon.sample_map_by_name</span></code><a class="headerlink" href="#mapping-from-sample-to-tissue-via-name-using-uberon-sample-map-by-name" title="Permalink to this headline">¶</a></h3>
@@ -860,6 +1013,26 @@ These are usually very common words (e.g. “and”, ”the”), or word which a
 In cases where multiple terms are found, a common parent would be searched for, in the case of this example, “craniocervical region”.</p>
 <div class="hint admonition">
 <p class="admonition-title">Uberon.sample_map_by_name reference</p>
+<dl class="py method">
+<dt id="ontolopy.uberon.Uberon.sample_map_by_name">
+<code class="sig-prename descclassname"><span class="pre">Uberon.</span></code><code class="sig-name descname"><span class="pre">sample_map_by_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.uberon.Uberon.sample_map_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map tissues from sample identifiers to uberon identifers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample_names</strong> – map from sample identifiers to tissue/sample descriptors/names for values.
+May be <cite>dict</cite> or <cite>pd.Series</cite></p></li>
+<li><p><strong>to</strong> – list of ontology prefixes that you want to map to.</p></li>
+<li><p><strong>xref</strong> – An ontology identifier (e.g. FMA) the presence of which denotes a preferred term.</p></li>
+<li><p><strong>col_names</strong> – Column names of returned relationships</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 <div class="section" id="mapping-from-sample-to-tissue-via-ontology-term-using-uberon-sample-map-by-ont">
@@ -869,6 +1042,26 @@ This is essentially a wrapper that provides convenient default settings for allo
 <p>Mappings can be made via any term in the merged ontology, which allows mappings that cannot be made through Uberon alone, for example: Macrophage - monocyte derived, donor3 <code class="docutils literal notranslate"><span class="pre">is_a</span></code> Human macrophage sample <code class="docutils literal notranslate"><span class="pre">derives_from</span></code> Macrophage <code class="docutils literal notranslate"><span class="pre">is_a</span></code> Monocyte <code class="docutils literal notranslate"><span class="pre">is_a</span></code> Leukocyte <code class="docutils literal notranslate"><span class="pre">part_of</span></code> Immune System, which means this sample is derived from part of the immune system.</p>
 <div class="hint admonition">
 <p class="admonition-title">Uberon.sample_map_by_ont reference</p>
+<dl class="py method">
+<dt id="ontolopy.uberon.Uberon.sample_map_by_ont">
+<code class="sig-prename descclassname"><span class="pre">Uberon.</span></code><code class="sig-name descname"><span class="pre">sample_map_by_ont</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_ids</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relation_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child_mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.uberon.Uberon.sample_map_by_ont" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map tissues from sample names to uberon identifiers. Will only work if ontology contains Uberon + Sample terms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample_ids</strong> – list of sample identifiers</p></li>
+<li><p><strong>exclude</strong> – list of tissues to exclude, i.e. because they are too general.</p></li>
+<li><p><strong>relation_types</strong> – list of relation types in ontology that relate to position in body.</p></li>
+<li><p><strong>to</strong> – list of ontology prefixes that you want to map to.</p></li>
+<li><p><strong>child_mapping</strong> – If True, searches children instead of parents.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <p id="child-mapping"><strong>Mapping by term: child mapping</strong>
 Some samples may be pools of cell types that may come from more than one anatomical location.
@@ -885,6 +1078,30 @@ This mode isn’t currently used in the context of the rest of this thesis.</p>
 This can be very useful for revealing logical inconsistencies in either the mappings or the ontologies (as was the case in the <a class="reference internal" href="5-mapping-example.html#fantom5-inconsistencies-example"><span class="std std-ref">FANTOM5 example</span></a>).</p>
 <div class="hint admonition">
 <p class="admonition-title">Uberon.get_overall_tissue_mappings reference</p>
+<dl class="py method">
+<dt id="ontolopy.uberon.Uberon.get_overall_tissue_mappings">
+<code class="sig-prename descclassname"><span class="pre">Uberon.</span></code><code class="sig-name descname"><span class="pre">get_overall_tissue_mappings</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_by_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_by_ont</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ontolopy.uberon.Uberon.get_overall_tissue_mappings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combines the two mappings <cite>map_by_name</cite> and <cite>map_by_ont</cite> to create an overall mapping and disagreements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>map_by_name</strong> (class: <cite>pd.DataFrame</cite>) – mapping from sample to tissue via sample name, from <cite>Uberon.sample_map_by_name</cite>.</p></li>
+<li><p><strong>map_by_ont</strong> (class: <cite>pd.DataFrame</cite>) – mapping from sample to tissue via sample ontology ID, from <cite>Uberon.sample_map_by_ont</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parm rel</dt>
+<dd class="field-even"><p>list of relation strings allowed between name and ontology mappings to count as not a disagreement.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>(<cite>overall_mapping</cite>: mapping from sample to tissue combining both sources,
+<cite>disagreements</cite>: disagreements between “by name” and “by ontology” mappings.)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(class: <cite>pd.DataFrame</cite>, class: <cite>pd.DataFrame</cite>)</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 </div>
