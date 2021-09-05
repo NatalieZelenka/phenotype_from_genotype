@@ -1,148 +1,36 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
-#######################################################################################
-# Thesis site settings
 title: Phenotype from Genotype
 author: Natalie Thurlby
 email: natalie.thurlby@bristol.ac.uk
-description: >- # this means to ignore newlines until "baseurl:"
+logo: images/thesis_logo_with_text.png
+description: >-
   Phenotype from Genotype: combining datasets to make explanatory predictions.
 
-baseurl: "" # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
-url: "http://nataliethurlby.github.io/thesis" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: ""
+url: "http://nataliethurlby.github.io/thesis"
+only_build_toc_files: true
 
-
-#######################################################################################
-# Jupyter Book settings
-
-# Sidebar settings
-show_sidebar              : true  # Show the sidebar. Only set to false if your only wish to host a single page.
-collapse_inactive_chapters: true  # Whether to collapse the inactive chapters in the sidebar
-textbook_logo             :  # A logo to be displayed at the top of your textbook sidebar. Should be square
-textbook_logo_link        : http://nataliethurlby.github.io/thesis/abstract.html  # A link for the logo.
-sidebar_footer_text       : 'Powered by <a href="https://jupyterbook.org">Jupyter Book</a>'
-number_toc_chapters       : true  # Whether to add numbers to chapterse in your Table of Contents. If true, you can control this at the Chapter level in _data/toc.yml
-
-# Search settings
-search_max_words_in_content : 30  # In the search function, use at most this many words (too many words will make search slow)
-
-parse:
-  myst_extended_syntax: true
-
-#######################################################################################
-# Interact link settings
-
-# General interact settings
-use_jupyterlab                   : false  # If 'true', interact links will use JupyterLab as the interface
-
-# Jupyterhub link settings
-use_jupyterhub_button            : false  # If 'true', display a button that will direct users to a JupyterHub (that you provide)
-
-# Binder link settings
-use_binder_button                : false  # If 'true', add a binder button for interactive links
-
-# Thebelab settings
-use_thebelab_button              : true  # If 'true', display a button to allow in-page running code cells with Thebelab
-thebelab_button_text             : "Run code cells using Theblab"  # The text to display inside the Thebelab initialization button
-codemirror_theme                 : "abcdef"  # Theme for codemirror cells, for options see https://codemirror.net/doc/manual.html#config
-
-# nbinteract settings
-use_show_widgets_button          : false  # If 'true', display a button to allow in-page running code cells with nbinteract
-
-# Download settings
-use_download_button              : false  # If 'true', display a button to download a zip file for the notebook
-
-#######################################################################################
-# Jupyter book extensions and additional features
-
-# Bibliography and citation settings. See https://github.com/inukshuk/jekyll-scholar#configuration for options
-scholar:
-  style: apa
-
-#######################################################################################
-# Option to add a Goggle analytics tracking code
-
-# Navigate to https://analytics.google.com, add a new property for your jupyter book and copy the tracking id here.
-google_analytics:
-  mytrackingcode: UA-52617120-7
-
-#######################################################################################
-# Jupyter book settings you probably don't need to change
-
-content_folder_name       : "content"  # The folder where your raw content (notebooks/markdown files) are located
-images_url                : "/assets/images" # Path to static image files
-css_url                   : "/assets/css" # Path to static CSS files
-js_url                    : "/assets/js" # Path to JS files
-custom_static_url         : "/assets/custom" # Path to user's custom CSS/JS files
-
-
-#######################################################################################
-# Jekyll build settings (only modify if you know what you're doing)
-
-# Site settings
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: "default"
-      toc: true
-      toc_label: "  On this page"
-      toc_icon: "list-ul"
-      excerpt: ''
+bibtex_bibfiles:
+  - _bibliography/references.bib
 
 favicon_path: "images/logo/favicon.ico"
 
-# Markdown Processing
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-
-sass:
-  style: compressed
-
-collections:
-  build:
-    output: true
-    permalink: /:path.html
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-exclude:
-  - scripts/
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-
-plugins:
-  - jekyll-redirect-from
-  - jekyll-scholar
+execute:
+  execute_notebooks: cache
+  timeout: -1
 
 sphinx:
+  extra_extensions:
+    - sphinx_jupyterbook_latex
+    - sphinx.ext.autosummary
+    - sphinx_multitoc_numbering
+  local_extensions:
+      ontolopy:  '../../../../ontolopy'
   config:
-    nb_custom_formats:
-        .Rmd:
-            - jupytext.reads
-            - fmt: Rmd
-
-# Jupyter Book version - DO NOT CHANGE THIS. It is generated when a new book is created
-jupyter_book_version: "0.6.3"
+    html_js_files:
+      - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js  # makes interactive figs work
+    html_favicon: images/favicon.png
+    autosummary_generate: True
+    html_theme_options:
+      use_download_button: false
+  latex_elements:
+    printindex: ''

@@ -3,8 +3,7 @@ venv/*
 .jekyll-cache/
 .sass-cache/
 .idea/
-book/_build/pdf/
-book/_build/latex/
+book/_build/
 .Rproj.user
 .Rdata
 .Rhistory
@@ -12,3 +11,8 @@ book/_build/latex/
 .ipynb_checkpoints
 *.ipynb
 experiments/
+data/
+__pycache__/
+book/images/combining_funnel_interactive_files/
+!book/_build/.jupyter_cache/
+!book/_build/.jupyter_cache/executed/*/*.ipynb

@@ -1,14 +1,15 @@
 (c06-filter)=
 # Filtering computational predictions with tissue-specific expression information
 
-This chapter describes a protein function prediction method that I created as an entry to the CAFA3{cite}`Zhou2019-jk` protein function competition. All work presented in this chapter is my own. 
+This chapter presents a more focused approach to improving phenotype and protein function predictions.
+I present a prototype filter for protein function prediction methods (Filip) which I developed for the CAFA3 competition, which filters out predictions where the gene is not expressed in the tissue relating to the phenotype.
+This approach was prompted by the discovery that this is one of the sources of noise in Snowflake, as described {ref}`earlier<dcgo-expression-problem>`.
 
-[//]: # (TODO: Explain the structure of this chapter here)
+[//]: # (TODO: cite zenodo for filip)
 
----
-**Page References**
-
-```{bibliography} /_bibliography/references.bib
-:filter: docname in docnames
-:style: unsrt
+```{admonition} Contributions in this chapter
+:class: hint
+- The Filip method for filtering protein function prediction based on tissue-specific gene expression.
+- Entering predictors using Filip in the CAFA3 competition, which contributes towards the CAFA3 paper{cite}`Zhou2019-jk`,
 ```
+

@@ -1,21 +1,26 @@
-# Start Here
+# Before you start
+[//]: # (TODO: Cite jupter-book)
+[//]: # (TODO: Note that interactive tables - views on inputs/outputs - are figures, while static tables are Tables)
 
-[//]: # (TODO: Check Thesis title)
-[//]: # (TODO: Check links)
-[//]: # (TODO: Check reference to chapters)
+{math}` `
 
-You're looking at Natalie Thurlby's thesis <!-- TODO: Thesis title--> as a [jupyter book](https://jupyterbook.org/intro.html). 
+You're looking at [Natalie Thurlby](https://orcid.org/0000-0002-1007-0286)'s thesis *Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions*.
 
-## What is a Jupyter Book?
+This thesis is a [jupyter book](https://jupyterbook.org/intro.html), meaning that is made up of markdown files and jupyter notebooks: the idea behind this was to make this thesis as reproducible as possible: these files are available [on GitHub](https://github.com/NatalieThurlby/phenotype_from_genotype).
+For some figures and tables (mostly in the Tissue-specific Expression part), this also means that the the graphs and figures are the output from that code, generated when the book is built. 
+When viewed online, the code to create these graphs can be viewed alongside them if desired with a drop down `+` button.
 
-This jupyter book thesis is made up of markdown files and jupyter notebooks, which are kept in [this](link-to-github) GitHub repo. The code for all graphs in <!--chapters X, Y and Z of--> this thesis are available there (as jupyter notebooks), which you can run for yourself using [binder](link-to-binder) if you like. This jupyter book thesis is therefore as up-to-date and as reproducible as possible.
+```{admonition} The best way to look at this thesis
 
-You can use the sidebar on the left to navigate to a chapter or section, or if you need a more fine-grained look at what's inside, you can look at [the table of contents](link-to-full-table-of-contents). 
+You will always be able to find the most up-to-date version of this book [at this link](https://nataliethurlby.github.io/phenotype_from_genotype/). 
+This thesis is best viewed as a web page since it contains interactive features such as interactive figures and scrollable tables, as well as drop-down boxes containing the code used to create some figures and tables.
 
-## Give me the PDF 
-Alternatively, you can download the thesis as a PDF [here](link-to-download). 
+Alternatively, you can download the most up to date PDF of this thesis [here](https://nataliethurlby.github.io/phenotype_from_genotype/_static/thesis.pdf). 
+```
 
-[link-to-download]: <!-- -->
-[link-to-full-table-of-contents]: <!-- -->
-[link-to-github]: <!-- -->
-[link-to-binder]: <!-- -->
+```{admonition} How to navigate online
+:class: tip
+
+If you are viewing this book online, you can use the sidebar on the left to navigate to a chapter or section, and within those sections, you can navigate to specific subsections using the right navbar. 
+
+```

@@ -1,12 +1,41 @@
 # phenotype_from_genotype
 Repo for tracking my thesis' conversion to jupyter book.
 
-To build:
-`cd ~/phd/jupyter_books_etc/jekyll-version/phenotype_from_genotype/book`
-`jupyter-book build .`
+## Website:
+To build html:
+`cd ~/phd/jupyter_books_etc/jekyll-version/phenotype_from_genotype/`
+`jupyter-book build book`
+
+For interactive images:
+Replace the `img` tags with an `iframe` tag pointing to the standalone html (which must be copied into `_build/html/_images`). (Not ideal. Hopefully they will fix.). I.e. Copy in the following:
+```html
+<!--
+<a class="reference internal image-reference" href="../_images/combining_funnel_interactive.html"><img alt="../_images/combining_funnel_interactive.html" src="../_images/combining_funnel_interactive.html" style="height: 150px;" /></a> -->
+<iframe src="../_images/combining_funnel_interactive.html" width="600px" height="300px" style="border:none;"></iframe>
+```
 
 To view/check:
-`open _build/html/index.html`
+`open book/_build/html/index.html`
 
-# Notes on Rmd
-At the moment, I am using `jupytext c05-combining/3-data-wrangling.Rmd --to md:myst` to convert from Rmarkdown to Myst. (Not properly tested). The reason I want to use Rmd is the ability to use R and Python in one notebook. I'm not sure if this will work in Myst/Jupyter Book. The alternative, is that I will have to split up chapters into things that only use one format, i.e. move the data downloading into the 'data' chapter (as an R ipynb) and then have the 'data wrangling' chapter be a python ipynb.
+## To build PDF
+<!--
+`jupyter-book build book --builder pdfhtml`
+`jupyter-book build book --builder pdflatex` <- fails
+-->
+
+<1--
+First build latex:
+`jupyter-book build book --builder latex`
+
+Next edit `_build/latex/thesis.tex`:
+- Delete the jupyter-book intro
+- Delete the biography (auto-generated, so there will be two)
+- Make sure anything don't want numbered has a * after it e.g. `\chapter*{Glossary}` 
+- Delete everything to do with `\index`
+- Interactive figures: add in the static versions
+- Code blocks: remove/link to website.
+
+Finally, move to the `latex` directory and run `make`.
+-->
+
+` jupyter-book build . --builder pdfhtml`
