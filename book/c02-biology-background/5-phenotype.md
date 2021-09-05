@@ -21,7 +21,7 @@ Not all SNPs are disease-causing at all, i.e. have any disease-causing combinati
 As well as mutations, phenotypes can be caused by chromosomal abnormalities (extra or missing sections of chromosomes). 
 In this case, the mechanism is the increased or decreased gene expression of the affected section of the chromosome which is influencing phenotypic differences. 
 
-Proteins can effect the same phenotype indirectly, through protein-protein interaction networks,  through interaction with the metabolism (the body's creation of small chemicals, like sugars, fatty acids, and vitamins), and through interaction with the environment of the cell. 
+Proteins can affect the same phenotype indirectly, through protein-protein interaction networks, through interaction with the metabolism (the body's creation of small chemicals, like sugars, fatty acids, and vitamins), and through interaction with the environment of the cell. 
 The environment of the cell is of course in turn influenced from the human-scale environment: what we eat, whether we smoke, the air we breathe, and our body's response to outside stimuli.  
 
 [//]: # (TODO: Write a bit more about PPIs/scale-free, etc)
@@ -53,7 +53,7 @@ And in trying to predict intelligence from genetics, for example, we are likely 
 Even if all phenotypes were natural concepts, predicting the genetic basis of some phenotypes could be harmful{cite}`Schuklenk1997-ag`, for example finding a gay gene could be motivated by, or lead to a search for "treatments" to "cure" homosexuality even if it did have a physical basis. 
 
 Physical measurements can also be problematic for similar reasons.
-Take measurements of facial features for example: this brings to mind image of nazis measuring skulls. 
+Take measurements of facial features for example: this brings to mind the image of nazis measuring skulls. 
 Where physical measurements are proxies for measuring the social construct of race, these kinds of phenotypes can be similarly worrying.
 Facial recognition technology{cite}`Wu2016-ic` is often criticised on this basis{cite}`Stark2018-lk`. 
 
@@ -62,7 +62,7 @@ This scenario still comes with serious ethical considerations, however.
 Many disabled people do not want cures for their disabilities{cite}`Pulrang2019-gj`, and people are also worried that the development of genetic screenings for disabilities will effectively result in a genocide of disabled people{cite}`Miller2013-ws`.
 
 (who-gets-the-information)=
-Another concern is that people may accidentally find out about phenotyoes that they are predisposed to that they do not wish to know about.
+Another concern is that people may accidentally find out about phenotypes that they are predisposed to that they do not wish to know about.
 This is particularly worrying if there are not any existing preventative/proactive measures to avoid a future diagnosis, and if they are not be able to access genetic counselling. 
 For example, 23andMe have a system whereby you must opt-in to viewing reports about your health for some illnesses.
 

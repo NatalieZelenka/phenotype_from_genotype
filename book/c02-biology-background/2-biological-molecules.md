@@ -91,7 +91,7 @@ Splicing is part of the final processing step to create the finished product: a 
 (alternative-splicing)=
 During this step a gene could be transcribed into one of multiple transcripts, via a process known as *alternative splicing*.
 This can happen, for example, by skipping some of the exons during splicing. 
-So, actually "DNA makes RNA*s*": there's not a one-to-one relationship between genes and transcripts, and therefore the same is true between genes and proteins.
+So, a more accurate statement is "DNA makes RNA*s*": there's not a one-to-one relationship between genes and transcripts, and therefore the same is true between genes and proteins.
 
 ```{margin} Epigenetic modifications
 :name: epigenetic-modifications

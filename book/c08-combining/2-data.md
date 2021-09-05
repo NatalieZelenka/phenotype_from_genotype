@@ -275,16 +275,8 @@ The four eligible data sets are summarised in {numref}`table-chosen-combine-gxa`
 
 (combiningfantom)=
 ### FANTOM5 
+opI used the FANTOM5 data, as described in {numref}`fantom5-expression-data`.
 
-FANTOM5 represents one of the most comprehensive collections of expression data in terms of tissue and cell type. 
-It consists of expression data, captured using the {ref}`CAGE technique<cage-method>`. 
-FANTOM5 collected a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations.
-At the time of developing it was the latest data output of the {ref}`FANTOM consortium<fantom-consortium>`.
-
-```{margin} The FANTOM Consortium
-:name: fantom-consortium
-The Functional ANnoTation Of the MAmmalian genome (FANTOM) consortium was established as the human genome project was nearing completion when researchers had a parts list of human biology, but few of the functions of these parts (genes) were known. The consortium has run a range of large scale collaborative projects in five rounds to further this goal. The first FANTOM project used only the mouse genome, but later versions also included human. 
-```
 
 (combininghpa)=
 ### Human Protein Atlas

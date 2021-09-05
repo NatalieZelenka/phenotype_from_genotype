@@ -437,8 +437,6 @@ name: genes-per-tissue
 The distribution of the number of tissue-specific genes per tissue from HPA, fitted to lognormal, powerlaw, and exponential distributions, showing the lognormal as the best fit.
 ```
 
--->
-
 (creating-coefficient-matrix)=
 ### Simulating coefficients for log-fold change
 To simulate the matrix of coefficients of log2-fold change for input to `polyester`, I first created lognormally distributed (with parameters {ref}`estimated<lognormal-estimates>` from Human Protein Atlas data) and correlated (according to the {ref}`gene correlations<estimating-coexpression>` calculated earlier) coefficients.
@@ -752,3 +750,4 @@ I combined multiplicative and additive batch effects: not sure if there are more
 Looking at the real data, the number of zero counts is clearly quite different per experiment and this is not well-modelled by the simulated data set.
 A multiplicative batch effect that included multiplying some genes by zero might have been a good idea to simulate this, or potentially, a multiplicative batch effect which had more small values (much below 1), which would potentially reduce small counts to zero counts.
 
+-->

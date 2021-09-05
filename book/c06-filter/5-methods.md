@@ -48,7 +48,7 @@ As previously described, three types of input are needed for Filip:
 2. Normalised gene expression data.
 3. A map from gene expression samples to Uberon tissues. 
 
-I described the gene expression data and metadata for (2) and (3) use for validation in the previous section. 
+I described the gene expression data and metadata for (2) and (3) used for validation in the previous section. 
 
 (create-protein-function-predictions)=
 ### Creating protein function predictions (DcGO)
@@ -413,16 +413,17 @@ The cut-off was chosen by plotting the distribution of TPM expression and choosi
 ## Validation Methodology
 
 This confidence score allows for a range of possible sets of predictions, depending on the threshold parameter {math}`\tau`. 
-Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined as:
+Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined in terms of true positives $t_p$, false positives $f_p$, and false negatives $f_n$:
 
 {math}`precision = p = \frac{t_p}{t_p + f_p}`
+
 {math}`recall = r = \frac{t_p}{t_p + f_n}`
 
 Precision-recall curves are generally used to validate a predictors performance, but the {math}`F_1` measure combines these into a single measure of performance:
 
-{math}`F_1 =2/ \frac{precision \cdot recall}{precision + recall}`
+{math}`F_1 = 2 \frac{precision \cdot recall}{precision + recall}`
 
-Since the precision and recall will be different for any {math}`\tau`, the {math}`F_{max}` score is the maximum possible {math{`F_1`} for any value of $\tau$.
+Since the precision and recall will be different for any {math}`\tau`, the {math}`F_{max}` score is the maximum possible {math}`F_1` for any value of $\tau$.
 
 [//]: # (TODO: explain the below a little more: how many measures does that make? 2 x2 = 4?)
 CAFA validation can either be term-centric or protein-centric. For each option, submissions are assessed per species and for wholly unknown and partially known genes separately.
@@ -433,4 +434,4 @@ There is no penalty for making a broad guess, or reward for making a precise one
 This is one of the reasons that the naive method does so well: for example it is not penalised for guessing that the root term of the GO BPO ontology Biological Process is related to every gene. 
 
 [//]: # (TODO: Link to gene section)
-Due to the nature of the validation set, it’s possible that the best-scoring CAFA methods simply predict which associations are likely to be discovered soon (i.e. associations to genes people are currently studying, which is well-predicted by genes that are currently being studied).
+Due to the nature of the validation set, it’s possible that the best-scoring CAFA methods simply predict which associations are likely to be discovered soon (i.e. associations to genes people are currently studying, which is well-predicted by genes that have recently been studied).

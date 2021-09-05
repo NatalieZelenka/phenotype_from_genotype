@@ -41,7 +41,7 @@ As mentioned in {ref}`data-acquisition`, for the HPA, GTeX and HDBR experiments,
 
 This step was only required for the FANTOM dataset.
 
-FANTOM provides mappings to gene IDs based on proximity of genes to peaks according to Ensembl. Gene expression was then calculated by summing over transcripts mapped to genes. The transcripts were already mapped to HGNC gene identifiers in the downloaded FANTOM file and [Ensembl’s Biomart](https://www.ensembl.org/biomart) was used to obtain a {download}`mapping from HGNC gene identifiers to ENSG gene identifiers<./data/experiments/fantom/data/experiments/fantom/biomart_ensg_hgnc.txt>`, in order to match the gene expression atlas format. 
+FANTOM provides mappings to gene IDs based on proximity of genes to peaks according to Ensembl. Gene expression was then calculated by summing over transcripts mapped to genes. The transcripts were already mapped to HGNC gene identifiers in the downloaded FANTOM file and [Ensembl’s Biomart](https://www.ensembl.org/biomart) was used to obtain a {download}`mapping from HGNC gene identifiers to ENSG gene identifiers<./data/experiments/fantom/biomart_ensg_hgnc.txt>`, in order to match the gene expression atlas format. 
 
 Any transcripts which mapped to multiple genes were discarded, as were any HGNC ids which did not map to ENSG ids.
 
