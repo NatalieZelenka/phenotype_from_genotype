@@ -685,86 +685,86 @@ However, it was necessary to do so via the <a class="reference external" href="h
 </ul>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>libraries &lt;- function(){
-    library(httr)
-    library(jsonlite)
-    library(tidyverse)
-    library(plotly)
-    library(IRdisplay)
-    library(ExpressionAtlas) 
-    library(htmlwidgets)
-}
-suppressMessages(libraries())
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">libraries</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(){</span>
+    <span class="nf">library</span><span class="p">(</span><span class="n">httr</span><span class="p">)</span>
+    <span class="nf">library</span><span class="p">(</span><span class="n">jsonlite</span><span class="p">)</span>
+    <span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+    <span class="nf">library</span><span class="p">(</span><span class="n">plotly</span><span class="p">)</span>
+    <span class="nf">library</span><span class="p">(</span><span class="n">IRdisplay</span><span class="p">)</span>
+    <span class="nf">library</span><span class="p">(</span><span class="n">ExpressionAtlas</span><span class="p">)</span> 
+    <span class="nf">library</span><span class="p">(</span><span class="n">htmlwidgets</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">libraries</span><span class="p">())</span>
 
-analysis_date &lt;- &quot;2019-06-01&quot;  #YYYY-mm-dd
-min_assays &lt;- 80
+<span class="n">analysis_date</span> <span class="o">&lt;-</span> <span class="s">&quot;2019-06-01&quot;</span>  <span class="c1">#YYYY-mm-dd</span>
+<span class="n">min_assays</span> <span class="o">&lt;-</span> <span class="m">80</span>
 
-# Get information about experiments
-gxa_json &lt;- &#39;https://www.ebi.ac.uk/gxa/json/experiments&#39;
-req &lt;- httr::GET(gxa_json)
-text &lt;- httr::content(req, &quot;text&quot;, encoding=&quot;UTF-8&quot;)
-gxa_experiment_info &lt;- as_tibble(jsonlite::fromJSON(text)$experiments)
+<span class="c1"># Get information about experiments</span>
+<span class="n">gxa_json</span> <span class="o">&lt;-</span> <span class="s">&#39;https://www.ebi.ac.uk/gxa/json/experiments&#39;</span>
+<span class="n">req</span> <span class="o">&lt;-</span> <span class="n">httr</span><span class="o">::</span><span class="nf">GET</span><span class="p">(</span><span class="n">gxa_json</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">&lt;-</span> <span class="n">httr</span><span class="o">::</span><span class="nf">content</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="s">&quot;text&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">)</span>
+<span class="n">gxa_experiment_info</span> <span class="o">&lt;-</span> <span class="nf">as_tibble</span><span class="p">(</span><span class="n">jsonlite</span><span class="o">::</span><span class="nf">fromJSON</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">$</span><span class="n">experiments</span><span class="p">)</span>
 
-# All data at time of analysis:
-gxa_experiment_info$loadDate &lt;- as.Date(gxa_experiment_info$loadDate, &quot;%d-%m-%Y&quot;)
-gxa_experiment_info &lt;- gxa_experiment_info %&gt;% filter(loadDate&lt;analysis_date)
-funnel_info &lt;- tibble(name=&quot;All experiments&quot;,
-                      num_experiments=nrow(gxa_experiment_info))
+<span class="c1"># All data at time of analysis:</span>
+<span class="n">gxa_experiment_info</span><span class="o">$</span><span class="n">loadDate</span> <span class="o">&lt;-</span> <span class="nf">as.Date</span><span class="p">(</span><span class="n">gxa_experiment_info</span><span class="o">$</span><span class="n">loadDate</span><span class="p">,</span> <span class="s">&quot;%d-%m-%Y&quot;</span><span class="p">)</span>
+<span class="n">gxa_experiment_info</span> <span class="o">&lt;-</span> <span class="n">gxa_experiment_info</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">loadDate</span><span class="o">&lt;</span><span class="n">analysis_date</span><span class="p">)</span>
+<span class="n">funnel_info</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;All experiments&quot;</span><span class="p">,</span>
+                      <span class="n">num_experiments</span><span class="o">=</span><span class="nf">nrow</span><span class="p">(</span><span class="n">gxa_experiment_info</span><span class="p">))</span>
 
-# All next-gen sequencing experiments:
-gxa_experiment_info&lt;- gxa_experiment_info %&gt;% 
-  filter(technologyType==&#39;RNA-Seq mRNA&#39;)
-funnel_info &lt;- funnel_info %&gt;%
-  add_row(name=&quot;RNA-Seq technology&quot;,
-          num_experiments=nrow(gxa_experiment_info))
+<span class="c1"># All next-gen sequencing experiments:</span>
+<span class="n">gxa_experiment_info</span><span class="o">&lt;-</span> <span class="n">gxa_experiment_info</span> <span class="o">%&gt;%</span> 
+  <span class="nf">filter</span><span class="p">(</span><span class="n">technologyType</span><span class="o">==</span><span class="s">&#39;RNA-Seq mRNA&#39;</span><span class="p">)</span>
+<span class="n">funnel_info</span> <span class="o">&lt;-</span> <span class="n">funnel_info</span> <span class="o">%&gt;%</span>
+  <span class="nf">add_row</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;RNA-Seq technology&quot;</span><span class="p">,</span>
+          <span class="n">num_experiments</span><span class="o">=</span><span class="nf">nrow</span><span class="p">(</span><span class="n">gxa_experiment_info</span><span class="p">))</span>
 
-# All baseline expression experiments
-gxa_experiment_info&lt;- gxa_experiment_info %&gt;%
-  filter(experimentType==&#39;Baseline&#39;)
-baseline &lt;- nrow(gxa_experiment_info)
-funnel_info &lt;- funnel_info %&gt;%
-  add_row(name=&quot;Baseline experiments&quot;,
-          num_experiments=nrow(gxa_experiment_info))
+<span class="c1"># All baseline expression experiments</span>
+<span class="n">gxa_experiment_info</span><span class="o">&lt;-</span> <span class="n">gxa_experiment_info</span> <span class="o">%&gt;%</span>
+  <span class="nf">filter</span><span class="p">(</span><span class="n">experimentType</span><span class="o">==</span><span class="s">&#39;Baseline&#39;</span><span class="p">)</span>
+<span class="n">baseline</span> <span class="o">&lt;-</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">gxa_experiment_info</span><span class="p">)</span>
+<span class="n">funnel_info</span> <span class="o">&lt;-</span> <span class="n">funnel_info</span> <span class="o">%&gt;%</span>
+  <span class="nf">add_row</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Baseline experiments&quot;</span><span class="p">,</span>
+          <span class="n">num_experiments</span><span class="o">=</span><span class="nf">nrow</span><span class="p">(</span><span class="n">gxa_experiment_info</span><span class="p">))</span>
 
-# All human experiments
-gxa_experiment_info&lt;- gxa_experiment_info %&gt;% 
-  filter(species==&#39;Homo sapiens&#39;)
-funnel_info &lt;- funnel_info %&gt;%
-  add_row(name=&quot;Human&quot;,
-          num_experiments=nrow(gxa_experiment_info))
+<span class="c1"># All human experiments</span>
+<span class="n">gxa_experiment_info</span><span class="o">&lt;-</span> <span class="n">gxa_experiment_info</span> <span class="o">%&gt;%</span> 
+  <span class="nf">filter</span><span class="p">(</span><span class="n">species</span><span class="o">==</span><span class="s">&#39;Homo sapiens&#39;</span><span class="p">)</span>
+<span class="n">funnel_info</span> <span class="o">&lt;-</span> <span class="n">funnel_info</span> <span class="o">%&gt;%</span>
+  <span class="nf">add_row</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Human&quot;</span><span class="p">,</span>
+          <span class="n">num_experiments</span><span class="o">=</span><span class="nf">nrow</span><span class="p">(</span><span class="n">gxa_experiment_info</span><span class="p">))</span>
 
-# All &quot;organism part&quot; experiments with &gt; 80 assays:
-gxa_experiment_info$experimentalFactors &lt;- as.character(gxa_experiment_info$experimentalFactors)
-gxa_experiment_info &lt;- gxa_experiment_info %&gt;% 
-  filter(numberOfAssays&gt;min_assays, 
-         str_detect(experimentalFactors, &#39;organism part&#39;))
-funnel_info &lt;- funnel_info %&gt;%
-  add_row(name=&quot;Contains tissues and &gt;80 samples&quot;,
-          num_experiments=nrow(gxa_experiment_info))
+<span class="c1"># All &quot;organism part&quot; experiments with &gt; 80 assays:</span>
+<span class="n">gxa_experiment_info</span><span class="o">$</span><span class="n">experimentalFactors</span> <span class="o">&lt;-</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">gxa_experiment_info</span><span class="o">$</span><span class="n">experimentalFactors</span><span class="p">)</span>
+<span class="n">gxa_experiment_info</span> <span class="o">&lt;-</span> <span class="n">gxa_experiment_info</span> <span class="o">%&gt;%</span> 
+  <span class="nf">filter</span><span class="p">(</span><span class="n">numberOfAssays</span><span class="o">&gt;</span><span class="n">min_assays</span><span class="p">,</span> 
+         <span class="nf">str_detect</span><span class="p">(</span><span class="n">experimentalFactors</span><span class="p">,</span> <span class="s">&#39;organism part&#39;</span><span class="p">))</span>
+<span class="n">funnel_info</span> <span class="o">&lt;-</span> <span class="n">funnel_info</span> <span class="o">%&gt;%</span>
+  <span class="nf">add_row</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Contains tissues and &gt;80 samples&quot;</span><span class="p">,</span>
+          <span class="n">num_experiments</span><span class="o">=</span><span class="nf">nrow</span><span class="p">(</span><span class="n">gxa_experiment_info</span><span class="p">))</span>
 
-# Excluding cancer experiments:
-gxa_experiment_info$experimentDescription &lt;- as.character(gxa_experiment_info$experimentDescription)
-gxa_experiment_info &lt;- gxa_experiment_info %&gt;% 
-  filter(str_detect(experimentDescription,&#39;[cC]ancer&#39;, negate=TRUE))
-funnel_info &lt;- funnel_info %&gt;%
-  add_row(name=&quot;Not cancer experiments&quot;,
-          num_experiments=nrow(gxa_experiment_info))
+<span class="c1"># Excluding cancer experiments:</span>
+<span class="n">gxa_experiment_info</span><span class="o">$</span><span class="n">experimentDescription</span> <span class="o">&lt;-</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">gxa_experiment_info</span><span class="o">$</span><span class="n">experimentDescription</span><span class="p">)</span>
+<span class="n">gxa_experiment_info</span> <span class="o">&lt;-</span> <span class="n">gxa_experiment_info</span> <span class="o">%&gt;%</span> 
+  <span class="nf">filter</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">experimentDescription</span><span class="p">,</span><span class="s">&#39;[cC]ancer&#39;</span><span class="p">,</span> <span class="n">negate</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">))</span>
+<span class="n">funnel_info</span> <span class="o">&lt;-</span> <span class="n">funnel_info</span> <span class="o">%&gt;%</span>
+  <span class="nf">add_row</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Not cancer experiments&quot;</span><span class="p">,</span>
+          <span class="n">num_experiments</span><span class="o">=</span><span class="nf">nrow</span><span class="p">(</span><span class="n">gxa_experiment_info</span><span class="p">))</span>
 
 
-create_fig &lt;- function(){
-    fig &lt;- plot_ly()
-    fig &lt;- fig %&gt;% add_trace(
-        type = &quot;funnel&quot;,
-        y = as.character(funnel_info$name),
-        x = as.integer(funnel_info$num_experiments))
-    fig &lt;- fig %&gt;% layout(yaxis = list(categoryarray = as.character(funnel_info$name)))
-#     orca(fig, &#39;../images/combining_funnel_static.png&#39;, width=800)
-     saveWidget(fig, &quot;../images/combining_funnel_interactive.html&quot;, selfcontained = TRUE)
-#     IRdisplay::display_html(file=&#39;../images/combining_funnel_interactive.html&#39;)
+<span class="n">create_fig</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(){</span>
+    <span class="n">fig</span> <span class="o">&lt;-</span> <span class="nf">plot_ly</span><span class="p">()</span>
+    <span class="n">fig</span> <span class="o">&lt;-</span> <span class="n">fig</span> <span class="o">%&gt;%</span> <span class="nf">add_trace</span><span class="p">(</span>
+        <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;funnel&quot;</span><span class="p">,</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">funnel_info</span><span class="o">$</span><span class="n">name</span><span class="p">),</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">funnel_info</span><span class="o">$</span><span class="n">num_experiments</span><span class="p">))</span>
+    <span class="n">fig</span> <span class="o">&lt;-</span> <span class="n">fig</span> <span class="o">%&gt;%</span> <span class="nf">layout</span><span class="p">(</span><span class="n">yaxis</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">categoryarray</span> <span class="o">=</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">funnel_info</span><span class="o">$</span><span class="n">name</span><span class="p">)))</span>
+<span class="c1">#     orca(fig, &#39;../images/combining_funnel_static.png&#39;, width=800)</span>
+     <span class="nf">saveWidget</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s">&quot;../images/combining_funnel_interactive.html&quot;</span><span class="p">,</span> <span class="n">selfcontained</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="c1">#     IRdisplay::display_html(file=&#39;../images/combining_funnel_interactive.html&#39;)</span>
 
-}
+<span class="p">}</span>
 
-suppressWarnings(create_fig())
+<span class="nf">suppressWarnings</span><span class="p">(</span><span class="nf">create_fig</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
