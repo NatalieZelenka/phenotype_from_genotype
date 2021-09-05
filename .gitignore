@@ -4,7 +4,6 @@ venv/*
 .sass-cache/
 .idea/
 book/_build/
-!book/_build/.jupyter_cache/
 .Rproj.user
 .Rdata
 .Rhistory
@@ -15,3 +14,5 @@ experiments/
 data/
 __pycache__/
 book/images/combining_funnel_interactive_files/
+!book/_build/.jupyter_cache/
+!book/_build/.jupyter_cache/executed/*/*.ipynb
