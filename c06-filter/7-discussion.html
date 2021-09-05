@@ -443,11 +443,6 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../cz-end-matter/glossary.html">
-   Glossary
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../cz-end-matter/0-appendix.html">
    Appendix
   </a>
@@ -524,8 +519,8 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wrong-ly-filtered-out-tissues">
-   6.6.2. Wrong-ly filtered out tissues
+  <a class="reference internal nav-link" href="#wrongly-filtered-out-tissues">
+   6.6.2. Wrongly filtered out tissues
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -568,7 +563,7 @@ The overall improvement is very slight, but this could be be improved by a more 
 This reveals that the limited success of Filip on the CAFA data is due to it’s poor mapping coverage.</p>
 <p>Although the FANTOM5 data set has a excellent coverage of tissue types and number of samples, the filter is nonetheless limited to the tissues it contains.
 This low coverage of tissues limits the number of predictions that Filip can filter out, and as we saw in the results, this is the major bottleneck for it’s performance.
-However, by <a class="reference internal" href="../c08-combining/0-index.html#c05-combining"><span class="std std-ref">combining baseline gene expression sets from multiple sources</span></a>, the coverage of tissues therefore phenotype terms might be improved.</p>
+However, by <a class="reference internal" href="../c08-combining/0-index.html#c05-combining"><span class="std std-ref">combining baseline gene expression sets from multiple sources</span></a>, the coverage of tissues and therefore phenotype terms might be improved.</p>
 <p>In addition, although proteins, tissues and protein functions may be present in multiple species, Filip only currently measures if a gene is expressed in the human tissue of interest.
 This further reduces the coverage of CAFA predictions that Filip could be tested on.</p>
 <p>In addition to the influence of the input gene expression data set, the poor coverage is also limited by the quality of the mapping, which is reliant on the input metadata and ontologies.
@@ -578,15 +573,15 @@ Including Cell Ontology terms can increase the coverage (see <a class="reference
 <span id="practicalities-improving-coverage"></span><h3><span class="section-number">6.6.1.1. </span>Practical difficulties in finding and creating alternative input data<a class="headerlink" href="#practical-difficulties-in-finding-and-creating-alternative-input-data" title="Permalink to this headline">¶</a></h3>
 <p>In theory, Filip could be used with any other RNA-Seq data set with a wide range of tissues.
 In practice, however, finding a data set with the appropriate spread of tissues and cell samples (and furthermore, detailed metadata about these samples) is difficult.</p>
-<p>The Ontolopy package (<a class="reference internal" href="../c07-ontolopy/0-index.html#c06-ontolopy"><span class="std std-ref">next chapter</span></a>) does provide make mapping samples to Uberon tissues possible, even when only names or descriptions of the tissues are present.</p>
+<p>The Ontolopy package (<a class="reference internal" href="../c07-ontolopy/0-index.html#c06-ontolopy"><span class="std std-ref">next chapter</span></a>) does make mapping samples to Uberon tissues possible, even when only names or descriptions of the tissues are present.</p>
 </div>
 </div>
-<div class="section" id="wrong-ly-filtered-out-tissues">
-<span id="filtered-out"></span><h2><span class="section-number">6.6.2. </span>Wrong-ly filtered out tissues<a class="headerlink" href="#wrong-ly-filtered-out-tissues" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="wrongly-filtered-out-tissues">
+<span id="filtered-out"></span><h2><span class="section-number">6.6.2. </span>Wrongly filtered out tissues<a class="headerlink" href="#wrongly-filtered-out-tissues" title="Permalink to this headline">¶</a></h2>
 <p>100% of wrongly filtered out tissues were “development” terms.
 This could mean that time is another way in which cell context should be considered, for example we shouldn’t filter out predictions for development phenotypes if we only have adult/not-fetal tissues, and perhaps vice versa.
 Should we include developing tissue samples as evidence that a gene is expressed in a tissue type if the phenotype manifests after development?
-This is another question which it would be necessary to increase the coverage of the GE data set(s) used by Filip to answer.</p>
+This is another question for which it would be necessary to increase the coverage of the GE data set(s) used by Filip to answer.</p>
 </div>
 <div class="section" id="future-work">
 <span id="filip-future-work"></span><h2><span class="section-number">6.6.3. </span>Future work<a class="headerlink" href="#future-work" title="Permalink to this headline">¶</a></h2>

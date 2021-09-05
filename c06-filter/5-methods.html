@@ -445,11 +445,6 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../cz-end-matter/glossary.html">
-   Glossary
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../cz-end-matter/0-appendix.html">
    Appendix
   </a>
@@ -590,7 +585,7 @@ This is again a FASTA file, with the same format as for CAFA2, this time contain
 <li><p>Normalised gene expression data.</p></li>
 <li><p>A map from gene expression samples to Uberon tissues.</p></li>
 </ol>
-<p>I described the gene expression data and metadata for (2) and (3) use for validation in the previous section.</p>
+<p>I described the gene expression data and metadata for (2) and (3) used for validation in the previous section.</p>
 <div class="section" id="creating-protein-function-predictions-dcgo">
 <span id="create-protein-function-predictions"></span><h3><span class="section-number">6.4.2.1. </span>Creating protein function predictions (DcGO)<a class="headerlink" href="#creating-protein-function-predictions-dcgo" title="Permalink to this headline">¶</a></h3>
 <p>I used DcGO as a test since I knew that it’s structure-centric prediction method didn’t include any gene expression information.</p>
@@ -908,18 +903,18 @@ I describe this process in detail in <a class="reference internal" href="../c07-
 <div class="section" id="validation-methodology">
 <span id="cafa-validation-method"></span><h2><span class="section-number">6.4.4. </span>Validation Methodology<a class="headerlink" href="#validation-methodology" title="Permalink to this headline">¶</a></h2>
 <p>This confidence score allows for a range of possible sets of predictions, depending on the threshold parameter <span class="math notranslate nohighlight">\(\tau\)</span>.
-Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined as:</p>
-<p><span class="math notranslate nohighlight">\(precision = p = \frac{t_p}{t_p + f_p}\)</span>
-<span class="math notranslate nohighlight">\(recall = r = \frac{t_p}{t_p + f_n}\)</span></p>
+Precision (the proportion of selected items that are relevant), and recall (the proportion of relevant items that are selected) are defined in terms of true positives <span class="math notranslate nohighlight">\(t_p\)</span>, false positives <span class="math notranslate nohighlight">\(f_p\)</span>, and false negatives <span class="math notranslate nohighlight">\(f_n\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(precision = p = \frac{t_p}{t_p + f_p}\)</span></p>
+<p><span class="math notranslate nohighlight">\(recall = r = \frac{t_p}{t_p + f_n}\)</span></p>
 <p>Precision-recall curves are generally used to validate a predictors performance, but the <span class="math notranslate nohighlight">\(F_1\)</span> measure combines these into a single measure of performance:</p>
-<p><span class="math notranslate nohighlight">\(F_1 =2/ \frac{precision \cdot recall}{precision + recall}\)</span></p>
-<p>Since the precision and recall will be different for any <span class="math notranslate nohighlight">\(\tau\)</span>, the <span class="math notranslate nohighlight">\(F_{max}\)</span> score is the maximum possible {math{<code class="docutils literal notranslate"><span class="pre">F_1</span></code>} for any value of <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(F_1 = 2 \frac{precision \cdot recall}{precision + recall}\)</span></p>
+<p>Since the precision and recall will be different for any <span class="math notranslate nohighlight">\(\tau\)</span>, the <span class="math notranslate nohighlight">\(F_{max}\)</span> score is the maximum possible <span class="math notranslate nohighlight">\(F_1\)</span> for any value of <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
 <p>CAFA validation can either be term-centric or protein-centric. For each option, submissions are assessed per species and for wholly unknown and partially known genes separately.</p>
 <div class="section" id="limitations-of-validation-method">
 <span id="validation-cafa-limitations"></span><h3><span class="section-number">6.4.4.1. </span>Limitations of validation method<a class="headerlink" href="#limitations-of-validation-method" title="Permalink to this headline">¶</a></h3>
 <p>There is no penalty for making a broad guess, or reward for making a precise one.
 This is one of the reasons that the naive method does so well: for example it is not penalised for guessing that the root term of the GO BPO ontology Biological Process is related to every gene.</p>
-<p>Due to the nature of the validation set, it’s possible that the best-scoring CAFA methods simply predict which associations are likely to be discovered soon (i.e. associations to genes people are currently studying, which is well-predicted by genes that are currently being studied).</p>
+<p>Due to the nature of the validation set, it’s possible that the best-scoring CAFA methods simply predict which associations are likely to be discovered soon (i.e. associations to genes people are currently studying, which is well-predicted by genes that have recently been studied).</p>
 </div>
 </div>
 </div>

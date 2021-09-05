@@ -10,6 +10,6 @@ This approach was prompted by the discovery that this is one of the sources of n
 ```{admonition} Contributions in this chapter
 :class: hint
 - The Filip method for filtering protein function prediction based on tissue-specific gene expression.
-- Entering predictors using Filip in the CAFA3 competition, which contributes towards the CAFA3 paper{cite}`Zhou2019-jk`,
+- Entering predictors using Filip in the CAFA3 competition, which contributes to the CAFA3 paper{cite}`Zhou2019-jk`,
 ```
 

@@ -30,9 +30,19 @@ In addition to this, Filip requires the input of a protein function or phenotype
 The Filip method requires expression data to inform whether or not predictions should be filtered out.
 The FANTOM5 data set was chosen for this purpose.
 
+```{margin} The FANTOM Consortium
+:name: fantom-consortium
+The Functional ANnoTation Of the MAmmalian genome (FANTOM) consortium was established as the human genome project was nearing completion when researchers had a parts list of human biology, but few of the functions of these parts (genes) were known. The consortium has run a range of large scale collaborative projects in five rounds to further this goal. The first FANTOM project used only the mouse genome, but later versions also included human. 
+```
+
+FANTOM5 represents one of the most comprehensive collections of expression data in terms of tissue and cell type. 
+It consists of expression data, captured using the {ref}`CAGE technique<cage-method>`. 
+FANTOM5 collected a combination of human, mouse, health, and disease data, as well as time courses and cell perturbations.
+At the time of developing it was the latest data output of the {ref}`FANTOM consortium<fantom-consortium>`.
+
 My reasoning for choosing FANTOM5 data as the input gene expression data to test Filip was:
 - The data set has a good coverage of different tissue types, which I hoped would be helpful in Filip having a good coverage of predictions.
-- The data set has an ontology of samples, which is already linked to Uberon tissue terms terms, making the mapping process much easier.
+- The data set has an ontology of samples, which is already linked to Uberon tissue terms, making the mapping process much easier.
 - For the purpose of Filip (getting measure of whether a cell is meaningfully expressed in a tissue of interest), choosing bulk RNA-Seq over scRNA-Seq makes sense, as it is a measure of many more cells.
 
 I chose the version of the FANTOM5 data that:
@@ -88,9 +98,7 @@ samples_info = fsc.clean_samples_info(samples_info, rep_info)
 ```
 
 (fantom-sample-categories)=
-**Sample categories**
-
-[//]: # (TODO: Add HeLa image)
+#### Sample categories
 
 ```{margin} HeLa cell line
 The FANTOM5 experiment contains HeLa cell lines samples (e.g. sample `FF:10815-111B5`).
@@ -99,7 +107,7 @@ HeLa is short for Henrietta Lacks, the woman whose cells were the source of this
 Henrietta was a black woman who lived in Baltimore, Maryland.
 Her cells were taken without consent during a hospital biopsy for an aggressive cervical cancer, which she died from at age 31 in 1951. 
 
-Companies continue to profit from the sale of these lines of cells, since such cell lines have several practical advantages over primary cells, notably their immortality, low variability (compared to primary cells, which vary depending on cell donor characteristics such as age and sex), and easiness to keep alive (without the need for e.g. additional nutrients). 
+Companies continue to profit from the sale of these lines of cells, since such cell lines have several practical advantages over primary cells, notably their immortality, low variability (compared to primary cells, which vary depending on cell donor characteristics such as age and sex), and ease of keeping alive (without the need for e.g. specific nutrients). 
 
 Some companies have recently begun to pay reparations for this injustice{cite}`Witze2020-vr`.
 ```
@@ -110,7 +118,7 @@ __Restriction to  primary cell and tissue samples__:
 The human FANTOM5 sample information file contains four categories of samples (in the `Characteristics [Category]` field): 
 - __time courses__: RNA extracted from samples being measured over time as cells change types during cell development and differentiation ({glue:}`time-courses-num-samps` samples), e.g. {glue:}`time-courses-ex-id` - *{glue:text}`time-courses-ex-desc`*.
 - __primary cells__: RNA extracted from cultures of cells recently isolated from tissues, before undergoing proliferation with nutrients specific to the cell type ({glue:}`primary-cells-num-samps` samples), e.g. {glue:}`primary-cells-ex-id` - *{glue:text}`primary-cells-ex-desc`*.
-- __cell lines__: RNA extracted from immortal cell lines (which unlike primary cells) can keep undergoing division indefinitely ({glue:text}`cell-lines-num-samps` samples)<!-- TODO: add examples e.g. {glue:}`cell-line-ex-id` - *{glue:text}`cell-line-ex-desc`*-->.
+- __cell lines__: RNA extracted from immortal cell lines (which unlike primary cells can keep undergoing division indefinitely) ({glue:text}`cell-lines-num-samps` samples)<!-- TODO: add examples e.g. {glue:}`cell-line-ex-id` - *{glue:text}`cell-line-ex-desc`*-->.
 - __tissues__: RNA extracted from post-mortem tissues, which may be pooled or individual donors ({glue:}`tissues-num-samps` samples), e.g. {glue:}`tissues-ex-id` - *{glue:text}`tissues-ex-desc`*.
 - __fractionations__: RNA extracted from parts of cells (fractionations) ({glue:}`fractionations-and-perturbations-num-samps` samples), e.g. {glue:}`fractionations-and-perturbations-ex-id` - {glue:}`fractionations-and-perturbations-ex-desc`.
 
@@ -147,18 +155,17 @@ After restricting the data set to *primary cell* and *tissue* type samples, ther
 
 **Age and age range:** 
 
-
 The age of the sample source donor(s) is available through two fields in the human sample information file: `Characteristics [Developmental stage]`, and `Characteristics [Age]`.
 These fields contain description-like text, which are somewhat inconsistent, for example, “3 year old child”, “3 years old child”, “25 year old”, “76” and “76 years old adult” all feature in the same column, amongst other errors. 
 These were standardised into a new field (`Age (years)`).
 This field does not seek to include multiple ages (i.e. when the sample comes from a pool of donors).
 There is a complementary (i.e. no overlap) field (`Age range (years)`), which contains age ranges for the {glue:}`age_ranged` samples that contain multiple ages.
-In both columns, some samples contain fetal samples, in which caset age (range) is given as a negative decimal (converted to years before birth).
+In both columns, some samples contain fetal samples, in which case, I convert age (range) to a negative decimal (converted to years before birth).
 
-There file also contained some discrepancies between ages and developmental stages in the FANTOM human samples file.
+There were also some discrepancies between ages and developmental stages in the FANTOM human samples file.
 For example, sample `FF:10027-101D9` is labelled as *thymus, adult, pool1* in the *Description* field, but as *0.5,0.5,0.83 years old infant* in the *Developmental Stage* field. 
 Sample `FF:10209-103G2` had an age of ‘M’ and a sex of ‘28’. 
-I reported both these discrepencies: and the latter has since been fixed in the FANTOM file, and for the former, I hardcode the age to `NaN`.
+I reported both these discrepancies: and the latter has since been fixed in the FANTOM file, and for the former, I hardcode the age to `NaN`.
 
 **Sex:**
 
@@ -167,7 +174,6 @@ Similarly to age, due to the consortium nature of FANTOM5, the entries of this f
 They undergo data cleaning into 4 categories: male, female, mixed (pool with both male and female samples), and unlabelled.
 
 **Disease and tissue mapping:**
-
 
 The disease status of samples (e.g. healthy/non-healthy) is not straight-forwardly labelled in the human sample file, so requires some basic text-mining (and cross-referencing with ontology terms).
 Similarly, there is a `Characteristics[Tissue]` field in the human samples file containing some manually mapped tissue types, but as I point out with an example in {ref}`the exploratory data analysis<eda-sample-tissues>`, these do not contain ideal mappings for Filip. 
@@ -219,7 +225,7 @@ The FANTOM file provides mappings to Uniprot IDs (`uniprot_id`), and these are u
 **CAGE peaks mapped to one gene only:**
 
 [//]: # (TODO: Do I want to do this? What about overlapping genes?)
-[//]: # (TODO: cross-ref discrepencies between gene ID databases)
+[//]: # (TODO: cross-ref discrepancies between gene ID databases)
 [//]: # (TODO: Plotly Gannt for CAGE peaks overlapping with multiple transcripts/genes)
 CAGE peaks are mapped to genes based on overlap with the gene, so it is not always clear which gene a CAGE peak maps to.
 For simplicity, and to remove the potential of wrongly mapped genes being used in Filip, protein-coding CAGE peaks (those which are mapped to at least one `uniprot_id` by FANTOM) but that map to multiple genes are removed.
@@ -268,7 +274,7 @@ name: fantom-eda
 <!-- ../images/blank.png This is a workaround to put a 1x1px blank image after an interactive image so that it appears to have a figure label -->
 
 __Sample metadata:__ 
-Looking at the FANTOM5 data (see {numref}`fantom-eda`), overall we see that there the samples are very varied, across ages, sex, sample providers, and collaborators, although (d) shows that the majority of samples are *primary cell* samples, and very few are *tissue - pool* samples.
+Looking at the FANTOM5 data (see {numref}`fantom-eda`), overall we see that the samples are very varied, across ages, sex, sample providers, and collaborators, although (d) shows that the majority of samples are *primary cell* samples, and very few are *tissue - pool* samples.
 Secondly, we can see that after careful cleaning, some metadata is missing, i.e. 38.4% of samples have unknown sex (a), most collaborators did not label the sample provider (b), and most samples do not have a labelled age (c).
 
 (eda-sample-tissues)=

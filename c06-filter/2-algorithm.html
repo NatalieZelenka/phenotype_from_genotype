@@ -443,11 +443,6 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../cz-end-matter/glossary.html">
-   Glossary
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../cz-end-matter/0-appendix.html">
    Appendix
   </a>
@@ -599,14 +594,14 @@ This is the standard for CAFA competitions.</p>
 <div class="section" id="gene-expression-file">
 <span id="input-ge"></span><h3><span class="section-number">6.2.2.2. </span>Gene expression file<a class="headerlink" href="#gene-expression-file" title="Permalink to this headline">¶</a></h3>
 <p>If Filip was a filter coffee machine, the gene expression (GE) file would be the (reusable) filter: it is the part that determines what can and cannot pass through the  filter and it can be used with any kind of input predictions (coffee).
-Once we have the GE file can be reused for any different protein function predictor, as long as they are predicting phenotype terms that are in our GE file.</p>
+Once we have the GE file, it can be reused for any different protein function predictor, as long as it predicts phenotype terms related to the samples in our GE file.</p>
 <p>The user must also determine a cut-off: the minimum gene expression level to count as “expressed”.
-The higher the cut-off the fewer genes will count as unexpressed, and therefore the fewer predictions will be filtered from the original list.</p>
+The higher the cut-off the more genes will count as unexpressed, and therefore more predictions will be filtered from the original list.</p>
 </div>
 <div class="section" id="sample-tissue-map">
 <span id="input-sample-tissue"></span><h3><span class="section-number">6.2.2.3. </span>Sample-tissue map<a class="headerlink" href="#sample-tissue-map" title="Permalink to this headline">¶</a></h3>
 <p>Some GE datasets will include a sample-to-Uberon map as part of their metadata (e.g. FANTOM5).
-For those that don’t the <a class="reference internal" href="../c07-ontolopy/0-index.html#c06-ontolopy"><span class="std std-ref">ontolopy</span></a> Python package can be used to map between samples tissue names and their Uberon tissue.</p>
+For those that don’t, the <a class="reference internal" href="../c07-ontolopy/0-index.html#c06-ontolopy"><span class="std std-ref">ontolopy</span></a> Python package can be used to map between samples tissue names and their Uberon tissue.</p>
 </div>
 </div>
 <div class="section" id="step-1-preprocessing">
