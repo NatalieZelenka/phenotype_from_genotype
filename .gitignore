@@ -4,6 +4,7 @@ venv/*
 .sass-cache/
 .idea/
 book/_build/
+!book/_build/.jupyter_cache/
 .Rproj.user
 .Rdata
 .Rhistory
