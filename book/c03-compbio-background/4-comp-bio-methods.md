@@ -89,8 +89,6 @@ The target sequences consist of a mixture of "no-knowledge" and "limited-knowled
 No-knowledge sequences are sequences which upon release have zero experimentally-validated GO annotations to any of GO's three constituent ontologies (biological process, cellular component, and molecular function).
 Limited-knowledge sequences are sequences with one or more annotations in one or two GO ontologies, but not all three.
 
-[//]: # (TODO: delete below)
-
 <!--
 ### Past CAFAs
 In 2014, the CAFA2 experiment began: 100,8216 target sequences from 27 different species were released to participants. 

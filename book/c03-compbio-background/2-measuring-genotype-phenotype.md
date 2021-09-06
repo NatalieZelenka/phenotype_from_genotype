@@ -96,29 +96,21 @@ For this reason, it can sometimes be difficult to map between identifiers from d
 Due to the history of the gene, and the amount of information that researchers have collected through {ref}`gene knockouts<gene-knockouts>` and gene expression experiments, it is at the level of the gene that a lot of mappings about function take place.
 This includes, for example, information about a gene's involvement in a gene regulatory network or in a {ref}`biological pathway<biological-pathways>`, and information about gene function according to {ref}`observational studies<observational-studies>`.
 
-[//]: # (TODO: Write here about how there are still many genes for which we do not have functional information and how that's not likely to change any time soon.)
 Even in the most-studied genomes, there are many genes for which we have sequence, but no functional information.
 This is due to the low cost in sequencing experiments in comparison to the expense of knock-out or other function-determining experiments, and the inequality of studied proteins/genes. 
 This missing functional information is not likely to appear soon, without some sort of revolution in funding priorities or technology.
 
-
 (variants-measurements)=
 ### Variants
-[//]: # (TODO: mention more data sources e.g. 1000 genomes + ALSPAC + OpenSNP)
-
 Information about which variants individuals have comes from either {ref}`genotype<genotyping>` or {ref}`whole genome sequencing<individual-wgs>` data.
 Some of this data is owned by private companies, such as 23andMe.
 
-[//]: # (TODO: Cite databases)
 Databases like dbSNP{cite}`Sherry2001-nm`, clinVar, and SNPedia contain information about the location of these variants, their possible alleles, their frequency in populations, their functions, and associated phenotypes. 
-
-[//]: # (TODO: Insert example of some data if haven't already above.)
 
 The largest SNP database - NCBI’s dbSNP{cite}`Sherry2001-nm` - contains information from ten organisms (including human) and has information on indels and short tandem repeats in addition to SNPs. 
 Anyone can submit their findings about variants to dbSNP, and they must indicate what sort of evidence they have for the association.
 dbSNP gives SNPs unique identifiers (Reference SNP cluster IDs, a.k.a. RSIDs) of the form `rs###`, which are used by many other resources.
 
-[//]: # (TODO: mention the ss numbers, and that the dbSNP builds don't "line up" with the human reference builds, how they are merged and the fact that they might map to different alternate contigs)
 
 (rna-measurements)=
 ## RNA
@@ -126,10 +118,8 @@ For RNA there are three main types of data: sequence (and mappings), structure, 
 
 (rna-sequence-structure)=
 ### RNA Sequence and Structure
-[//]: # (TODO: Say what miRNA is before this point)
-
 The sequences of RNA (including miRNAs, tRNAs, rRNAs, etc), and their locations relative to reference geneomes are stored in databases such as Ensembl.
-For mRNAs, this also enables mappings between transcript IDs, gene IDs, and protein IDs, and again these are integrated with previously mentioned gene databases. 
+For mRNAs that encode for proteins, this also enables mappings between transcript IDs, gene IDs, and protein IDs, and again these are integrated with previously mentioned gene databases. 
 
 Functional RNA has structure with recurring motifs similar to those of proteins. 
 There are also databases of functional RNA structure{cite}`Andrews2017-tr,Richardson2020-wa` (similar to {ref}`those for proteins<protein-stucture-measurements>`), but those for RNA are at an earlier stage.
@@ -159,8 +149,6 @@ In contrast, a *baseline* experiment would measure the amount of expression in a
 
 (rna-seq-pipeline)=
 ### RNA-Seq bioinformatics pipeline
-[//]: # (TODO: Cite what transcription depends on - mentioned in combining)
-[//]: # (TODO: add TPM/FKPM formula?)
 
 RNA-Seq data *counts* the number of times a sequence matching that gene or transcript has been sequenced.
 The amount of RNA from a particular transcript that is found in a sample in a given experiment is dependent on the sequencing depth and the transcript length.
@@ -180,7 +168,8 @@ Longer genes will have more reads mapped to them for an equal level of expressio
 Similarly, without normalising, samples with greater sequencing depth will have higher counts for an equal level of expression. 
 
 RPKM/FPKM (Reads/Fragments Per Kilobase Million) and TPM (Tags Per Million) are the three major normalisation techniques used for this purpose. 
-In RPKM and FPKM, counts are first normalised for sequencing depth, and then for gene length. This means that they are suitable for comparing within a sample (e.g. between replicates). 
+In RPKM and FPKM, counts are first normalised for sequencing depth, and then for gene length. 
+This means that they are suitable for comparing within a sample (e.g. between replicates). 
 TPM, however performs the same steps in the opposite order, which has the desirable effect of ensuring that columns corresponding to TPM normalised samples sum to the same number. 
 This means that TPM gives us a measure of relative abundance; the proportion of counts are from each gene can be compared across samples. 
 For this reason, TPM is now generally preferred over RPKM/FPKM{cite}`Wagner2012-ac,Pimentel2014-xm`.
@@ -213,10 +202,13 @@ Protein sequencing is also used to characterise protein's {ref}`post-translation
 
 (protein-abundance)=
 ### Protein Abundance 
-[//]: # (TODO: Mass spectrometry aside)
+```{margin} Mass spectrometry
+:name: mass-spec
+Mass spectrometry is the process of ionising a sample and accelerating it through an electric or magnetic field to deduce it's mass-to-charge ratio.
+```
 
 The abundance of proteins in a sample can be measured through various quantitative proteomics techniques. 
-These are carried out using electrophoresis, or mass spectrometry, for example.
+These are carried out using electrophoresis, or {ref}`mass spectrometry<mass-spec>`, for example.
 Similar to gene expression, this technique is often used to compare between two different samples (e.g. disease and control groups).
 Data from such experiments are also available in databases{cite}`Wang2012-pv,Samaras2020-mg`.
 
@@ -229,8 +221,6 @@ In human, Spearman correlations between protein abundance and gene expression le
 
 (protein-stucture-measurements)=
 ### Protein Structure
-[//]: # (TODO: Picture of a protein structure)
-
 The Protein DataBank (PDB){cite}`noauthor_undated-ow` was established not long after Dayhoff's database, it contains three dimensional protein structures, typically obtained using X-ray Crystallography or NMR spectroscopy. 
 The PDB continues to be well-used and updated, at the time of writing holding structures of 148,827 biological molecules.
 These structures are used for {ref}`protein classification<protein-classification>`, and for Molecular Dynamics simulations (simulating the physical interactions of molecules).
@@ -254,8 +244,7 @@ These ontologies also form a defined vocabulary for terms, with identifiers, def
 
 (connection-genotype-phenotype)=
 ## Measuring the connection between genotype and phenotype
-[//]: # (TODO: Example biological pathway illustration here)
-[//]: # (TODO: Examples of computational methods or a signpost to the snowflake chapter)
+
 [//]: # (TODO: Mention molecular dynamics)
 
 There are many different methods of investigating the connection between genotype and phenotype.
@@ -273,8 +262,6 @@ Computational biology links these resources well, so that knowledge at these dif
 
 (observational-studies)=
 ### Genome Wide Association Studies
-[//]: # (TODO: Have I mentioned p-value? Margin? Margin Graph? Move from bias)
-[//]: # (TODO: Explain how causal variants are found in GWAS)
 Genome Wide Association Studies (GWAS) are large observational studies where the genotypes of a cohort with a specific phenotype (e.g. diabetes) are compared to the genotypes of a cohort lacking in that phenotype (i.e. a control group) in order to find genomic loci that are statistically associated with the phenotype. 
 This has been a popular type of scientific enquiry since the first GWAS study in 2005. 
 GWAS generally results in lists of SNPs, often in the hundreds, ordered by p-value. 
@@ -286,7 +273,6 @@ Phenome-Wide Association{cite}`Denny2010-pn` Studies (PheWAS) are an extension o
 
 (gene-knockouts)=
 ### Gene Knockouts
-[//]: # (TODO: CRISPR margin?)
 Insight into gene function can be gained by “knocking out” a gene, preventing it from being translated into a working protein, for example using CRISPR. 
 Combinations of up to four genes can be knocked out in a single experiment. 
 Knocking out a gene can lead to a difference in phenotype, and differences in gene expression, which can be used to help determine gene regulatory networks. 

@@ -14,7 +14,7 @@ There is general agreement that integrating omics datasets is one of the primary
 Falling costs and rapid advances in sequencing technologies have resulted in what many have described as a deluge of omics data{cite}`Bell2009-uq`. 
 And this includes huge amount of {ref}`gene expression data<rna-measurements>`, as demonstrated by the 3,564 studies and 112,225 assays currently available through the European Molecular Biology Laboratory's (EMBL) Gene Expression Atlas (GxA) website {cite}`Petryszak2016-je`.
 
-Yet each individual measure of expression is only a snapshot of what a gene can do. 
+Each individual measure of expression is only a snapshot of what a gene can do. 
 It only tells us about the transcription of proteins at that one time, in that one sample.
 Gene expression can also vary by tissue and cell type, individual organism{cite}`Cortijo2019-wi`, age{cite}`vinuela2018age,Yang2015-mo`, sex{cite}`Reinius2009-ir,Stone2019-fk`, time of day{cite}`Cortijo2019-wi,Schibler2007-jx`, and spatial location within a tissue or culture{cite}`Svensson2018-oa`. 
 There are also interactions between these different sources of variation, for example certain genes may only exhibit differential expression based on time of day in certain cell types.
@@ -34,7 +34,7 @@ So, when it comes to gene expression, we have “big data” in the sense that t
 
 [//]: # (TODO: Using only dcGO + ontolopy + FANTOM data, how many terms + proteins can we say something about? Why is that not enough? How many CAGI training set would that tell us about? Preliminary work: show basic coverage of one data set - for gene expression only: over UBERON. Note: coverage can be improved by mapping phenotypes: tissues as well as increasing gene expression data)
 
-Combining expression data from multiple different experiments is perhaps the obvious tonic to this problem, since has the potential to create a data set containing a more representative view of gene expression.
+Combining expression data from multiple different experiments is perhaps the obvious tonic to this problem, since it has the potential to create a data set containing a more representative view of gene expression.
 However, it is not as straightforward as loading in multiple data sets.
 There are specific challenges relating to data management, statistics, and harmonisation of meta-data for interoperability.
 However it is possible, and has already been done for two experiments{cite}`Wang2018-rz`. 
@@ -54,7 +54,7 @@ For example, data about samples can be recorded at different levels of specifici
 This was a particular challenge for tissue type labels where some samples are simply labelled *brain*, while others are labelled *medulla oblongata*, and yet others are identified by cell type.
 
 [//]: # (TODO: Move following paragraph to data wrangling?)
-Harmonising this cell and tissue meta-data was one of the challenges of combining this data set, which was done using the Uberon cross-species anatomy ontology{cite}`Mungall2012-nc`, and the Cell Ontology{cite}`Malladi2015-iq` (CL), which is integrated with Uberon. 
+Harmonising this cell and tissue meta-data was the challenges of combining the data sets, which was done using the Uberon cross-species anatomy ontology{cite}`Mungall2012-nc`, and the Cell Ontology{cite}`Malladi2015-iq` (CL), which is integrated with Uberon. 
 Samples were primarily assigned Uberon term identifiers by searching for matching text between sample information files and CL or Uberon term names or descriptions.
 Where existing terms did not turn up a match, samples were assigned an Uberon term by hand.
 Then using the Uberon ontology, tissues could be understood in relation to each other, being mapped to tissues and more general tissue groups.
@@ -63,7 +63,8 @@ Then using the Uberon ontology, tissues could be understood in relation to each 
 ### Batch effects
 [//]: # (TODO: Check if batch effects are mentioned previously)
 Combining gene expression data itself, is also not trivial: a major problem is their well known susceptibility to batch effects (differences in measurements due to technical artefacts of sequencing batch){cite}`Leek2010-yw`. 
-When combining and comparing gene expression data from two (or more) experiments, it's not obvious how much of our signal comes from real biological differences in transcription, and how much comes from unwanted variation associated with the batch it was sequenced in, resulting from unknown variation during the process of sequencing for example the date, time, or location of sequencing{cite}`Irizarry2005-ie`, or the technician doing the work
+When combining and comparing gene expression data from two (or more) experiments, it's not obvious how much of our signal comes from real biological differences in transcription, and how much comes from unwanted variation associated with the batch it was sequenced in.
+These "batch effects" result from unknown variation during the process of sequencing for example the date, time, or location of sequencing{cite}`Irizarry2005-ie`, or the technician doing the work.
 
 To complicate matters, some batch effects may be due to factors that might be expected to genuinely influence expression of genes, such as temperature, time of year, humidity, diet, individual, age, etc.
 Covariates such as these are often unrecorded and/or not reported, so it is not easy to distinguish these from those due to protocol differences, such as reagents, personnel doing the sequencing, hardware, processing pipeline, etc. 
@@ -99,10 +100,7 @@ It is designed to “borrow/share information” between genes in order to get a
 
 **PCA to visualise batch effect removal:**
 
-
 Principal Components Analysis (PCA) is often used to visually inspect experimental results for batch effects; when biologically alike samples cluster together rather than those from like-batches, batch effects are often ignored. 
-In order to do this, we must also have enough meaningful information recorded per sample, access to data in raw count format, and mapping between the data that is given and similar samples in other datasets, as well as computational problems (data storage, optimisation of running operations on many or large files, etc). 
-
 Cell type is one of the better understood influences on gene expression. 
 We know that the same DNA is in every cell, and yet the morphology and function of each cell is determined by its cell type, due to its gene expression. 
 We can expect largely similar patterns of gene expression in similar cell types, which means that when we know cell type of samples, this information can be used to aid in visually checking the results of batch correction using PCA.

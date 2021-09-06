@@ -156,6 +156,9 @@ Amino acid strings then fold reliably into 3-dimensional protein structures, som
 After translation, and either before or after folding{cite}`Uversky2013-bt`, proteins can also be subject to post translational modifications.
 These changes consist of chemicals bonding to the protein, which can for example change its function or structure, assist in folding, or target them for degradation.
 
+(microRNAs)=
+The process of translating mRNAs can be repressed by very short RNAs called microRNAs (miRNAs) that can bind to more than half of mammalian mRNAs{cite}`Friedman2009-eh`.
+
 (proteins-do-everything)=
 ### "... and proteins do everything."
 The unwritten addendum implied by “DNA makes RNA makes proteins” is “...and proteins do ({ref}`almost<almost-everything>`) everything”. 

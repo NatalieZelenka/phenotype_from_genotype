@@ -58,7 +58,7 @@ I judged these to be within the normal range of environments that we would expec
 The FANTOM sample ontology was used to remove samples which are models for diseases. Samples which are disease models are identified using the `is_model_for` relationship and these relationships are propagated to the children terms based on the `is_a` relationship. For example, `FF:11558-120D1` (Fibroblast - skin spinal muscular atrophy, donor2) would be removed from the set of samples, since:
 `FF:11558-120D1` (Fibroblast - skin spinal muscular atrophy, donor2) `is_a FF:0000251` (human fibroblast - skin spinal muscular atrophy sample) `is_model_for DOID:12377` (spinal muscular atrophy).
 
-**1D\. Filtering out non-human samples**
+### Filtering out non-human samples
 The GTEx, HDBR, and HPA experiments contained only human samples. 
 
 **FANTOM**
