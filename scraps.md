@@ -1,3 +1,6 @@
+[//]: # (TODO: mention -somwhere- that DNA has a 3' and a 5' end and that nucleic acids can only be created from 5' to 3')
+[//]: # (TODO: mention coding=sense=positive sense =nontemplate, noncoding=antisense=negative=template)
+
 <!--
 Two other useful quantities of NHST are effect size and statistical power. 
 Effect size is the magnitude of the effect found by the statistical test. 

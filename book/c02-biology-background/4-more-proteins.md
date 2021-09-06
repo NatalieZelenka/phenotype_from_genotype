@@ -8,7 +8,7 @@ Moreover, proteins have recognisable features of their structure which appear ag
 
 (protein-structure)=
 ## Protein structure: Primary, Secondary, Tertiary, and Quaternary
-[//]: # (TODO: Illustrate if time)
+<!--[//]: # (TODO: Illustrate if time)-->
 
 Proteins are described and classified in terms of the their primary, secondary, tertiary, and quaternary structure. 
 
@@ -19,7 +19,6 @@ At this level, similar structures do not imply an evolutionary or functional sim
 
 (protein-domains)=
 ### Quaternary structures: protein domains
-[//]: # (TODO: Add citations.)
 
 ```{figure} ../images/lego.png
 ---
@@ -36,9 +35,13 @@ These polypeptide chains (known as linkers) are often inflexible, in order to al
 Small and simple proteins often consist of just one domain, while bigger proteins can contain many domains. 
 An individual domain can be found in many different proteins, and multiple times in the same protein. 
 
-[//]: # (TODO: aside, conservation)
+```{margin} Conserved sequences
+:name: conservation
+Sequences are highly *conserved* if identical or homologous sequences are frequently found in other species.
+The underlying assumption is that the sequence must be important for organisms survival if they are present in all species. 
+```
 
-Protein domains are interesting because they are highly conserved in evolution, and are thought of as units of function, evolution, and/or structure. 
+Protein domains are interesting because they are highly {ref}`conserved<conservation>` in evolution, and are thought of as units of function, evolution, and/or structure. 
 The functions of proteins, at both low-level (e.g. “calcium signalling protein”) and high-level (e.g. involved in “liver disease”), are costly and difficult to discern, so there are many proteins about which little is known. 
 For this reason, often proteins are classified according to their similarity to proteins about which functions are known, for example those containing the same protein domains.
 

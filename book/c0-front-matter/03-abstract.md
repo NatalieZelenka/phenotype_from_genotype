@@ -28,6 +28,6 @@ The algorithm itself, and the results of experiments in validating Snowflake are
 
 In investigating Snowflake's predictions, it became clear that it was possible for it to include protein-coding SNPs in predictions about phenotypes that exist in tissues in which the protein is never expressed, which brings us to the third and final part of this thesis. 
 The Filip protein function prediction filter is discussed in {numref}`chapter %s<c06-filter>`, which uses gene expression data to filter out predictions of proteins which are not expressed in the tissue relating to a given phenotype. 
-I discuss attempts to validate `filip`'s predictions, including it's performance in the CAFA3 protein function prediction competition{cite}`Zhou2019-jk`.
-In addition, this part presents tools and datasets that were developed through creating Filip: Ontolopy a Python package for querying OBO files in {numref}`chapter %s<c06-ontolopy>`, and a combined data set of gene expression data in {numref}`chapter %s<c05-combining>`. 
+I discuss attempts to validate Filip's predictions, including it's performance in the CAFA3 protein function prediction competition{cite}`Zhou2019-jk`.
+In addition, this part presents tools and datasets that were developed through creating and developing Filip: Ontolopy a Python package for querying OBO files in {numref}`chapter %s<c06-ontolopy>`, and a combined data set of gene expression data in {numref}`chapter %s<c05-combining>`. 
 
