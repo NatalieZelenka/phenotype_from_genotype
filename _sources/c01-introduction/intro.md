@@ -9,8 +9,6 @@ This short chapter, on the other hand, explains the choices of style and researc
 
 There are a few unusual things about the format of this thesis: some easter eggs that made it easier for me to push through and finish it, and which also represent some of the things I like most about research: making it transparent, inclusive, and accessible.
 
-[//]: # (TODO: Cite + link Jupyter Book)
-
 ````{margin} Bristol Crest
 :name: bristol-crest
 
@@ -29,7 +27,7 @@ The official University of Bristol crest (above) has symbols for the Wills, Fry,
 I drew an alternative crest which has symbols for three of my favourite Bristol festivals instead: Upfest, the Balloon Fiesta, and St Paul's Carnival.
 ````
 
-First, in the spirit of trying to make my work as reproducible and Open as possible, this thesis is available online as a Jupyter Book [here](https://nataliethurlby.github.io/phenotype_from_genotype/).
+First, in the spirit of trying to make my work as reproducible and Open as possible, this thesis is available online as a Jupyter Book{cite}`Executable_Books_Community2020-ls` [here](https://nataliethurlby.github.io/phenotype_from_genotype/).
 I would recommend reading it online unless you really like your PDF viewer, since it includes some interactive features which don't translate to PDF.
 This book was written entirely in markdown documents and Jupyter Notebooks - which means that most of the graphs within are created directly from these notebooks.
 

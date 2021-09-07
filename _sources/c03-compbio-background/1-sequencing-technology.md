@@ -19,8 +19,6 @@ Whole genome sequencing (WGS) is the process of sequencing an individual's entir
 
 In most sequencing technologies (e.g. Sanger, Illumina), in order for the different nucleotides to be detected (by human sight or using a sensor), DNA is first prepared such that different nucleotides bond to different visible markers, e.g. different coloured dyes or fluorescent markers.
 
-[//]: # (TODO: Make image for electrophoresis)
-
 ```{margin} Elecrophoresis
 :name: electrophoresis
 Electrophoresis is a laboratory technique in which molecules are separated based on their size by applying an electric current to molecules.
@@ -50,8 +48,15 @@ There are now also third generation sequencing technologies that allow much long
 
 (cage-method)=
 ### Capped Analysis of Gene Expression
-[//]: # (TODO: finish writing... add picture?...CAGE only works for mRNA... are so many mRNA not transcribed)
-Capped Analysis of Gene Expression (CAGE) is a NGS transcript expression technique which measures very small (27 nucleotide) segments (called *tags*) from the start (5' end) of mRNA. 
+```{margin} Nucleic acid directionality
+:name: directionality
+
+DNA and RNA both have a sugar backbone with five carbon atoms, which are numbered from one to five according to chemistry naming convention such that one end of the backbone always terminates with the 5th carbon of the ring (the 5' pronounced "five prime") end, and the other terminates with the third carbon of the ring (the 3', pronounced "three prime") end.
+This leads DNA and RNA to have different chemical properties at each end, and means that in the body DNA and RNA can only be produced in one direction: 5' to 3'.
+This is also the convention for how we write DNA and RNA sequences.
+```
+
+Capped Analysis of Gene Expression (CAGE) is a NGS transcript expression technique which measures very small (27 nucleotide) segments (called *tags*) from the start ({ref}`5' end<directionality>`) of mRNA. 
 These tags are mapped to genes based on their distance to the gene in bp.
 The upside of this approach is that these short tags can be used to identify the transcription start sites (TSS) of RNA transcripts.
 The downside is that it can only be used to measure mRNA (mature messenger RNA).

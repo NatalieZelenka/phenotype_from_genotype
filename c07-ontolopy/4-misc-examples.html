@@ -556,7 +556,7 @@ These show how Ontolopy can be used to:</p>
 <p>Then in <a class="reference internal" href="5-mapping-example.html#ontolopy-mapping-example"><span class="std std-ref">the next section</span></a> I give the more detailed and complex example of creating a mapping between samples and tissues (which is what Ontolopy was created for specifically), and how this was used to <a class="reference internal" href="5-mapping-example.html#fantom5-inconsistencies-example"><span class="std std-ref">find inconsistencies in the FANTOM5 data</span></a>.</p>
 <div class="section" id="inputs">
 <span id="ontolopy-example-inputs"></span><h2><span class="section-number">7.4.1. </span>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
-<p>The examples of using Ontolopy in this Chapter use input files from FANTOM5<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id225"><span>226</span></a>]</span> (for samples) and Uberon<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id50"><span>96</span></a>]</span> (the cross-species anatomy ontology).</p>
+<p>The examples of using Ontolopy in this Chapter use input files from FANTOM5<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id225"><span>229</span></a>]</span> (for samples) and Uberon<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id50"><span>99</span></a>]</span> (the cross-species anatomy ontology).</p>
 <div class="margin sidebar">
 <p class="sidebar-title">Choosing ont_ids</p>
 <p>When we read in ontologies using Ontolopy, if you do not provide <code class="docutils literal notranslate"><span class="pre">ont_ids</span></code>, Ontolopy will keep all ontology term identifiers of the form <code class="docutils literal notranslate"><span class="pre">LETTERS:NUMBERS</span></code>, but often there are many external reference terms (<code class="docutils literal notranslate"><span class="pre">xref</span></code>s) that make the ontology object larger for no gain, so it’s recommended to provide them.</p>
@@ -604,7 +604,7 @@ These show how Ontolopy can be used to:</p>
 <div class="section" id="fantom5">
 <span id="opy-fantom5"></span><h3><span class="section-number">7.4.1.1. </span>FANTOM5<a class="headerlink" href="#fantom5" title="Permalink to this headline">¶</a></h3>
 <p>Large experiments sometimes include an ontology of samples instead of or (more frequently) in addition to a samples information file.
-The data from the FANTOM5 experiment<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id225"><span>226</span></a>]</span> is one such example of this.
+The data from the FANTOM5 experiment<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id225"><span>229</span></a>]</span> is one such example of this.
 I <a class="reference internal" href="../c06-filter/3-data.html#fantom5-expression-data"><span class="std std-ref">have already explained the FANTOM5 data in more detail</span></a> but for now the only things we need to keep in mind are that:</p>
 <ol class="simple">
 <li><p>The FANTOM5 experiment measures transcript expression in a wide variety of samples, across many tissue and cell types.</p></li>
@@ -759,7 +759,7 @@ creation_date: 2011-03-01T04:51:50Z
 <span id="opyuberondata"></span><h3><span class="section-number">7.4.1.2. </span>Uberon<a class="headerlink" href="#uberon" title="Permalink to this headline">¶</a></h3>
 <p>As I mentioned in <a class="reference internal" href="../c03-compbio-background/3-ontologies.html#uberon-is"><span class="std std-numref">Section 3.3.3.2</span></a>, Uberon is a cross-species anatomy ontology with excellent linkage to other ontologies.
 As we can see above, the FANTOM5 ontology links FANTOM samples to Uberon.
-This means that the Uberon<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id50"><span>96</span></a>]</span> <a class="reference external" href="http://purl.obolibrary.org/obo/uberon/ext.obo">extended ontology OBO file</a> can then be used to further link the samples to human disease or gene ontology terms.</p>
+This means that the Uberon<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id50"><span>99</span></a>]</span> <a class="reference external" href="http://purl.obolibrary.org/obo/uberon/ext.obo">extended ontology OBO file</a> can then be used to further link the samples to human disease or gene ontology terms.</p>
 <p>For example, here is an excerpt of the Uberon extended OBO file (non-consecutive lines for brevity), showing how the Uberon extended ontology could be used to link a FANTOM sample to a GO term:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Term]
 id: UBERON:0001281

@@ -2,8 +2,6 @@
 # Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
 Here I introduce the classes of biological molecules that are vital in our understanding of genetics: the nucleic acids (DNA and RNA), and their product: proteins.
 
-[//]: # (TODO: mention -somwhere- that DNA has a 3' and a 5' end and that nucleic acids can only be created from 5' to 3')
-[//]: # (TODO: mention coding=sense=positive sense =nontemplate, noncoding=antisense=negative=template)
 
 (what-is-dna)=
 ## DNA
@@ -50,9 +48,17 @@ This is obvious when we think about the fact that the same DNA is present in the
 (dna-makes-rna)=
 ### "DNA makes RNA", a.k.a, transcription
 
+```{margin} Superkingdoms: eukaryotes, archea, and bacteria
+:name: superkingdoms
+Living things are classified into taxonomies such that similar organisms are in the same group. 
+At the highest level of these classifications there are three groups: eukaryotes (containing humans and all other multicellular organisms), bacteria, and archaea.
+
+All three superkingdoms contain DNA, RNA and proteins, and are therefore a source of data and information about genetics.
+```
+
 (what-is-rna)=
-RNA (or ribonucleic acid) was originally discovered alongside DNA as a nucleic acid, an acidic substance found in the nucleus of cells. 
-It was later discovered that they are also found in bacterial and archeal cells (which don't have nuclei). 
+RNA (or ribonucleic acid) was originally discovered alongside DNA as a nucleic acid, an acidic substance found in the nucleus of cells, hence it's similar name. 
+It was later discovered that they are also found in {ref}`bacterial and archeal<superkingdoms>` cells (which don't have nuclei). 
 In contrast to DNA, RNA is a single-stranded molecule, with the bases A, C, G and U (i.e. uracil instead of thymine), and with a different backbone (containing ribose, rather than dioxyribose).
 There are different forms of RNA which perform different functions. 
 It is messenger RNA (mRNA) that is the intermediate product between DNA and Proteins. 
@@ -99,11 +105,9 @@ So, a more accurate statement is "DNA makes RNA*s*": there's not a one-to-one re
 Epigenetic modifications are persistent and heritable changes to DNA that do not affect the nucleotide, but can cause a difference in gene expression, such as histone modifications, chromatin remodelling, and DNA methylation. Epigenetic modifications can be responsible for phenotypes through altering gene expression.
 ```
 
-[//]: # (TODO: Aside explain promoter region)
-
 What is transcribed and how quickly is affected by many different kinds of proteins, as well as other molecules, through {ref}`epigenetic modifications<epigenetic-modifications>`. 
 Transcription factors are of particular note.
-These are proteins that bind to DNA close to or in the promoter region, and either *activate* the gene (increasing it’s rate of transcription), by for example recruiting RNA polymerase, or *repress* it (decrease it’s rate of transcription).
+These are proteins that bind to DNA close to or in a nearby *promoter* region, and either *activate* the gene (increasing it’s rate of transcription), by for example recruiting RNA polymerase, or *repress* it (decrease it’s rate of transcription).
 These transcription factors are in turn regulated by other transcription factors, which creates a network of gene regulation; a gene regulatory network (GRN).
 
 (rna-makes-proteins)=
@@ -118,8 +122,6 @@ This intriguing result bolstered research in this area, eventually resulting in 
 (what-is-translation)=
 Translation describes the process in which a string of amino acids is created based on the RNA sequence.
 Proteins are made of these amino acid strings (called *polypeptides*), and after translation, they will fold (potentially with the assistence of *chaperone* proteins) into the proteins usual globular three dimensional conformation. 
-
-[//]: # (TODO: Math not working in PDF)
 
 ```{figure} ../images/amino_acid_ribosome.png
 ---
@@ -153,6 +155,9 @@ Amino acid strings then fold reliably into 3-dimensional protein structures, som
 (post-translational-modifications)=
 After translation, and either before or after folding{cite}`Uversky2013-bt`, proteins can also be subject to post translational modifications.
 These changes consist of chemicals bonding to the protein, which can for example change its function or structure, assist in folding, or target them for degradation.
+
+(microRNAs)=
+The process of translating mRNAs can be repressed by very short RNAs called microRNAs (miRNAs) that can bind to more than half of mammalian mRNAs{cite}`Friedman2009-eh`.
 
 (proteins-do-everything)=
 ### "... and proteins do everything."

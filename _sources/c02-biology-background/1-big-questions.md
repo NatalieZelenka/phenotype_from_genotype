@@ -1,8 +1,6 @@
 (big.questions)=
 # Big questions: What is genetically determined, and how?
 
-[//]: # (TODO: Explain superkingdoms eukaryotes, bacteria, archaea)
-
 As humans, we are curious and want to understand ourselves. 
 We want to know the answers to questions like: "Why are people the way we are?", "Which aspects of ourselves have we inherited?", and "What is fixed and what can be changed by the way we live our lives?"
 Looking at what we are made from - more specifically the DNA that can be found in each of our cells - has promised answers to some of these questions.
@@ -92,14 +90,12 @@ The eventual destination of this field is a full understanding of how our indivi
 With this understanding, we would anticipate a much wider application of both personalised medicine and gene therapies.
 These therapies are not yet a common occurrence: the eleven approved cell and gene therapies come from a pool of such 500 clinical trials{cite}`Cynober2020-rx`.
 
-[//]: # (TODO: Cite function)
-
-Perhaps it makes sense that we are not finding drug targets quickly, as we still don't know the functionality of approximately 20% of human genes.
+Perhaps it makes sense that we are not finding drug targets quickly, as we still don't know the functionality of approximately 20% of human genes{cite}`Le_Page2019-hc`.
 And genes are only a small part (1-2%) of our DNA{cite}`Pennisi2007-yv`, and the part we understand best.
 Beyond our DNA, there are many other aspects of our cellular and social environments that will have an effect on which parts of our genes are being actively used, and how much.
 This section provides an overview of our current scientific model for how DNA affects phenotype, so that we can identify the sources of information that we do have and can make use of.
 
-[//]: # (TODO: Make a stronger statement about the "deluge of data")
-Despite what we don't know, this is also the moment when we have the fullest understanding of our genetics so far.
-We have huge, expertly curated, databases containing the great collective knowledge of many experiments about our DNA, how it is being used, and what traits it affects.
+Despite what we don't know, this is also the moment when we have a unique hope to unravel some of these mysteries.
+We have openly available, expertly curated, databases containing the great collective knowledge of many experiments about our DNA, how it is being used, and what traits it affects.
+These databases are being filled at an alarming speed by researchers around the world with the advent of new technologies.
 Perhaps it is now possible to begin to synthesise some of this collective knowledge into a fuller understanding of complex traits.

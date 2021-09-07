@@ -28,7 +28,8 @@ I have made the harmonised metadata for these experiments available for download
 -->
 
 The combined data set represents 122 healthy tissues (all of which map to Uberon terms), over almost 20,000 samples, all which have consistent labelled sample information (age, development stage, sex). 
-This wider variety of information can be used to increase coverage when gene expression data is needed for input to algorithms, which I do in {ref}`the next chapter<c06-filter>`. 
+This wider variety of information can be used to increase coverage when gene expression data is needed for input to algorithms, which
+ is done in {ref}`the Filip chapter<c06-filter>`. 
 
 <!--
 ```{list-table} Table showing the size of experiments ($^1$ = after filtering for healthy tissues).
@@ -126,7 +127,7 @@ The five most common subtissues making up the brain tissue group.
 The breakdown of samples per source experiment in the brain tissue group.
 ```
 
-To illustrate the fact that the different sources do not agree on whether or not genes are expressed, I first chose a random subset of 1000 genes from the combined dataset, then normalised the counts into {abbr}`TPM (Tags Per Million` (using average transcript length from BioMart{cite}`Smedley2009-zl`).
+To illustrate the fact that the different sources do not agree on whether or not genes are expressed, I first chose a random subset of 1000 genes from the combined dataset, then normalised the counts into {abbr}`TPM (Tags Per Million)` (using average transcript length from BioMart{cite}`Smedley2009-zl`).
 I then identified a TPM cutoff per experiment to reduce noise by graphing pairs of *cerebral cortex* samples in each experiment, looking for a threshold where like samples are not as similar as we would imagine.
 
 ```{code-cell} ipython3
@@ -264,8 +265,9 @@ Scatter plot (above) and cumulative histograms (bottom) showing two similar *cer
 In {numref}`choosing-tpm-cutoff`, I am looking for thresholds above which the samples correlate more strongly, as well as nonlinear behaviour in the low TPMs in the bottom plots, as described here{cite}`Koch2018-kw`.
 I chose thresholds as shown in {numref}`chosen-tpm-cutoffs`.
 
+[//]: # (TODO: Explain inter-rater reliability)
 
-I then define "unexpressed" genes as genes which on average across samples in an experiment have a lower mean than this noise threshold, and calculated the genes that were unexpressed in the brain according to each experiment.
+I then define "unexpressed" genes as genes which on average across samples in an experiment have a lower mean than this noise threshold, and calculated the genes that were unexpressed in brain samples from each experiment.
 Calculating the inter-rater reliability using Cohen's Kappa (which adjusts for the probability of randomly rating samples the same way) between experiments reveals that there is moderate agreement between samples when using the per-experiment cut-offs chosen (see {numref}`cohens-kappa-cutoffs`).
 
 ```{code-cell} ipython3
@@ -358,8 +360,8 @@ ComBat requires a balanced experimental design which, {ref}`as we have seen<expe
 This means that the data set can not be used as-is for the purpose of measuring baseline expression (e.g. identifying housekeeping genes or measuring baseline tissue-specific gene expression).
 I explain some ideas for making the combined data set suitable for these types of analyses in {ref}`future work<batch-effect-removal-future-work>`.
 
-However, by overcoming the data cleaning and standardisation necessary to have all datasets in the same format with the same sample metadata, the data can be used for analyses where batch and other sample metadata is used as covariates (e.g. differential expression of tissues).  
-In its current iteration, it is also suitable for use in {ref}`the next chapter<c06-filter>`, where the data set only needs to distinguish between presence and absence (as in the {ref}`example above<tissue-specific-expression>`, this problem can be side-stepped by choosing a cut-off per experiment). 
+However, by overcoming the data cleaning and standardisation necessary to have all datasets in the same format with the same sample metadata, the data can be used for analyses where batch and other sample metadata is used as covariates (e.g. differential expression of tissues). 
+In its current iteration, it is also suitable for use in improving {ref}`Filip<c06-filter>`, where the data set only needs to distinguish between presence and absence (as in the {ref}`example above<tissue-specific-expression>`, this problem can be side-stepped by choosing a cut-off per experiment). 
 
 (improvingresources)=
 ## Combining omics data sets is an opportunity to improve existing resources
@@ -383,7 +385,7 @@ For example, leukocytes are known to be part of the immune system, but are found
 In the FANTOM mapping, they would be mapped by name to blood, but by ontology to immune system. 
 In this case, we could imagine mapping to two Uberon terms rather than defaulting to where the cells were collected, since researchers interested in blood or the immune system would both like to access the information. 
 
-In addition, it would be preferable to map simultaneously to tissue and cell type, since this enables researchers to, for example, make queries about expression about the same cell types in different tissue locations, query the data set against scRNA-seq data, or simply find cell as well as tissue specific information.  
+In addition, it would be preferable to map simultaneously to tissue and cell type, since this enables researchers to, for example, make queries about expression about the same cell types in different tissue locations, query the data set against scRNA-seq data, or simply find cell as well as tissue specific information. 
 This could be achieved partly with relative ease by using the ontological mapping between CL and Uberon. 
 Improvement of the CL-Uberon mapping would then allow for a complete understanding of which cell types are in a tissue, but not their relative abundances. 
 
@@ -402,11 +404,6 @@ No batch-effect removal method is designed specifically for this kind of scenari
 
 (tissuecellspecific)=
 ### Tissue-specific vs cell specific
-As the number of scRNA-seq experiments increase, including them in a combined dataset of tissue-specific expression will become more statistically viable. 
+As the number of scRNA-seq experiments increases, including them in a combined dataset of tissue-specific expression will become more statistically viable. 
 A prerequisite of including scRNA-seq data would be the use of an alternative batch effect removal algorithm that is suitable for single cell data (e.g. MNN).
 It would be interesting to compare how the expression of cells which can exist in multiple tissue types differs across those different tissue types, and to investigate whether some gene expression is truly tissue-specific rather than cell-type specific.
-
-
-```{code-cell} ipython3
-
-```

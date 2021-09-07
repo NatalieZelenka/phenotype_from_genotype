@@ -593,10 +593,10 @@
 <p>This section describes the constituent data sets that were chosen for combination, and how they were chosen and acquired.</p>
 <div class="section" id="criteria-for-choosing-datasets">
 <span id="gxacriteria"></span><h2><span class="section-number">8.2.1. </span>Criteria for choosing datasets<a class="headerlink" href="#criteria-for-choosing-datasets" title="Permalink to this headline">¶</a></h2>
-<p>Datasets were chosen from the EBI’s Gene Expression Atlas (GxA)<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id35"><span>58</span></a>]</span>: the European Bioinformatics Institutes’ Open Source gene and protein expression database, and the largest of its type.
+<p>Datasets were chosen from the EBI’s Gene Expression Atlas (GxA)<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id35"><span>61</span></a>]</span>: the European Bioinformatics Institutes’ Open Source gene and protein expression database, and the largest of its type.
 At the time of writing, it contains over 3,000 gene expression and protein abundance experiments across many organisms, organism parts (tissues), diseases, and sequencing technologies.
 There is a separate database for scRNA-seq experiments.</p>
-<p>A major benefit of the GxA is that raw data using the same sequencing technology are re-analysed by GxA using the same data analysis pipeline (iRAP<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id89"><span>244</span></a>]</span> for RNA-Seq).
+<p>A major benefit of the GxA is that raw data using the same sequencing technology is re-analysed by GxA using the same data analysis pipeline (iRAP<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id89"><span>247</span></a>]</span> for RNA-Seq).
 In addition to ensuring the quality of each data set included, and running it through the same pipeline, the GxA adds additional metadata for the experiments by using the literature to biologically and technically annotate each sample.</p>
 <p>Data sets were chosen based on the following requirements.</p>
 <ol class="simple">
@@ -606,8 +606,8 @@ In addition to ensuring the quality of each data set included, and running it th
 <li><p><strong>Data sets must contain a breadth of tissues and genes</strong>,  i.e. experiments must include “organism part” as an experimental factor (otherwise tissue would not be recorded) and must have at least 80 assays (samples).</p></li>
 <li><p><strong>Samples must not be disease-focused</strong>. In practice, excluding cancer datasets was enough to exclude disease-focused datasets.</p></li>
 </ol>
-<p>Choices (1)-(3) were made to ensure the most similar possible analysis pipeline.
-Number (4) was necessary to to aid batch correction by facilitating the most balanced data set design in terms of batch (experiment) to group (tissue), and in order to have good coverage of genes and tissues, which is necessary for downstream use.
+<p>Choices (1)-(3) were made to ensure the data underwent the most similar possible analysis pipeline.
+Number (4) was necessary to aid batch correction by facilitating the most balanced data set design in terms of batch (experiment) to group (tissue), and in order to have good coverage of genes and tissues, which is necessary for downstream use.
 Choice number (5) was also made primarily to aid batch correction: since many phenotypes occur only in particular tissues, there is not a breadth of tissue measurements for most diseases.</p>
 <p>As described in the introduction chapter, there are many ways to measure which proteins are being created.
 Here, I justify my choices of measures to include in the combined data set.</p>
@@ -615,13 +615,13 @@ Here, I justify my choices of measures to include in the combined data set.</p>
 <span id="geprotein"></span><h3><span class="section-number">8.2.1.1. </span>Gene expression vs protein abundance<a class="headerlink" href="#gene-expression-vs-protein-abundance" title="Permalink to this headline">¶</a></h3>
 <p>As I <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html#gene-expression-protein-abundance"><span class="std std-ref">mentioned earlier</span></a>, gene expression is only weakly correlated to protein abundance.
 So, what are the potential reasons for this, and which makes a better measure of the process of translation?</p>
-<p>One reason is that there is something preventing the mRNA from being translated, such as slow codons, the temperature, ribosome occupancy, or regulatory RNAs and proteins<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id94"><span>245</span></a>]</span>.
+<p>One reason is that there is something preventing the mRNA from being translated, such as slow codons, the temperature, ribosome occupancy, or regulatory RNAs and proteins<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id94"><span>248</span></a>]</span>.
 In these cases, the DNA is transcribed into mRNA, but the protein is never produced, meaning that using gene expression data as a measure of how much protein is produced would be overestimating the protein abundance.
 If these factors were a large contribution to the weak correlation, it could provide better results to use protein abundance data instead of mRNA abundance data to make predictions about how proteins are affecting human phenotypes.
 On the other hand, it could equally be possible that proteins are being produced, but not measured by protein abundance techniques.
-Protein half-lives range over orders of magnitude from seconds to days<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id94"><span>245</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id95"><span>246</span></a>]</span>.
+Protein half-lives range over orders of magnitude from seconds to days<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id94"><span>248</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id95"><span>249</span></a>]</span>.
 In this case, gene expression data may be a more reliable measure of protein production than protein abundance, since proteins may degrade before being measured.
-In yeast, protein degradation was shown to be the largest contribution to the protein-mRNA correlation compared to codon and amino acid usage (the two other factors estimated in the study), and more influential than those other two factors combined<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id96"><span>247</span></a>]</span>.</p>
+In yeast, protein degradation was shown to be the largest contribution to the protein-mRNA correlation compared to codon and amino acid usage (the two other factors estimated in the study), and more influential than those other two factors combined<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id96"><span>250</span></a>]</span>.</p>
 <p>In summary, there’s no perfect measure of translation, but since gene expression data is more readily available, and protein degradation appears to account for most of the differences between correlations, gene expression data presents the best proxy for translation for the downstream uses discussed here.</p>
 </div>
 <div class="section" id="gene-expression-vs-transcript-expression">
@@ -629,14 +629,14 @@ In yeast, protein degradation was shown to be the largest contribution to the pr
 <p>It’s likely that transcript expression data would provide more insight than gene expression data if it were available, since it is likely that there are tissue-specific transcripts which do not correspond to tissue-specific genes, e.g. where different transcripts from the same gene are expressed in different tissues.
 Transcript expression data, however, is harder to come by and this approach relies on a wealth of available data.
 Furthermore, transcript expression data can be straightforwardly converted to gene expression data (by summing over the transcripts), while the conversion of gene to transcript expression data is decidedly less accurate.
-When transcript-expression (CAGE) measurements are aggregated at the gene/protein level, measures of tissue-specificity have been found to largely (75-93%) match up with measures of tissue-specificity resulting from gene-expression measurements, as found in a comparison between the HPA and FANTOM5 experiments<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id97"><span>248</span></a>]</span>.</p>
+When transcript-expression (CAGE) measurements are aggregated at the gene/protein level, measures of tissue-specificity have been found to largely (75-93%) match up with measures of tissue-specificity resulting from gene-expression measurements, as found in a comparison between the HPA and FANTOM5 experiments<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id97"><span>251</span></a>]</span>.</p>
 <p>For these reasons, I have taken a gene-centric approach here.
 It may be important, however, to consider whether a gene has multiple transcripts in downstream analysis, for example, if including tissue-specific gene expression information when predicting the function of a protein-coding SNP (since it may not be in the relevant transcript).</p>
 <div class="section" id="tissue-specificity-versus-cell-specificity">
 <h4><span class="section-number">8.2.1.2.1. </span>Tissue-specificity versus cell-specificity<a class="headerlink" href="#tissue-specificity-versus-cell-specificity" title="Permalink to this headline">¶</a></h4>
 <div class="figure align-default" id="homogenous-tissues">
 <a class="reference internal image-reference" href="../_images/tissues_HPA.png"><img alt="../_images/tissues_HPA.png" src="../_images/tissues_HPA.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8.1 </span><span class="caption-text">Images of smooth muscle tissue from the stomach wall (left) and lung tissue (right), examples of homogeneous and heterogeneous tissue types respectively, taken from the Human Tissue Atlas website<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id156"><span>249</span></a>]</span>.</span><a class="headerlink" href="#homogenous-tissues" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8.1 </span><span class="caption-text">Images of smooth muscle tissue from the stomach wall (left) and lung tissue (right), examples of homogeneous and heterogeneous tissue types respectively, taken from the Human Tissue Atlas website<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id156"><span>252</span></a>]</span>.</span><a class="headerlink" href="#homogenous-tissues" title="Permalink to this image">¶</a></p>
 </div>
 <p>Tissues can be made up of various cell types.
 Some tissue types (e.g. smooth muscle) are quite homogeneous, comprising of predominantly one cell type and/or lacking structural features.
@@ -654,7 +654,7 @@ The average supply of a protein to a tissue (averaged over multiple cell types) 
 <p>CAGE is transcript expression, rather than gene expression, and there are likely to be different transcripts measured by CAGE than by RNA-Seq.
 As mentioned above, however, it is possible to calculate gene expression from transcript expression.
 It’s also possible to map between CAGE transcription start sites and existing transcript IDs that may be featured in RNA-Seq arrays.
-When this is done, it has been observed that the results of CAGE are comparable to those of RNA-seq<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id98"><span>250</span></a>]</span>, so the inclusion of CAGE data in a combined data set is reasonable.</p>
+When this is done, it has been observed that the results of CAGE are comparable to those of RNA-seq<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id98"><span>253</span></a>]</span>, so the inclusion of CAGE data in a combined data set is reasonable.</p>
 </div>
 <div class="section" id="excluding-disease-focused-experiments">
 <span id="excludediseasewhy"></span><h3><span class="section-number">8.2.1.4. </span>Excluding disease-focused experiments<a class="headerlink" href="#excluding-disease-focused-experiments" title="Permalink to this headline">¶</a></h3>
@@ -662,7 +662,7 @@ When this is done, it has been observed that the results of CAGE are comparable 
 The data set can now be interpreted as representing gene expression of healthy tissues.
 This was also a practical choice since most disease data sets (with the exception of cancer datasets) tended to have a narrow breadth of tissues, which would interfere with the batch correction methodology.
 For example, experiments interested in heart disease would naturally contain measurements of healthy and non-healthy heart tissues, and not other tissues, so would be difficult to combine with existing data sets due to the “missing” data.
-This would not have been a problem for cancer experiments, however cancer is known to be tissue-non-specific<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id40"><span>65</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id90"><span>194</span></a>]</span>.</p>
+This would not have been a problem for cancer experiments, however cancer samples gene expression is known to be tissue-non-specific<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id40"><span>68</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id90"><span>197</span></a>]</span>.</p>
 </div>
 </div>
 <div class="section" id="method-of-searching">
@@ -826,21 +826,21 @@ Of these there are 4 which offer a good coverage of non-disease organism parts.<
 </div>
 <div class="section" id="human-protein-atlas">
 <span id="combininghpa"></span><h3><span class="section-number">8.2.3.2. </span>Human Protein Atlas<a class="headerlink" href="#human-protein-atlas" title="Permalink to this headline">¶</a></h3>
-<p>The Human Protein Atlas (HPA) project<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id99"><span>251</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id100"><span>252</span></a>]</span> aims to map all human proteins in cells (including subcellular locations), tissues and organs. The HPA project’s data is not limited to the gene expression data that can be found in GxA, but that is the only part of the data that is used here. The gene expression data that was used (E-MTAB-2836 in GxA) excludes cell lines and includes tissue samples of 122 individuals and 32 different non-diseased tissue types.</p>
+<p>The Human Protein Atlas (HPA) project<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id99"><span>254</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id100"><span>255</span></a>]</span> aims to map all human proteins in cells (including subcellular locations), tissues and organs. The HPA project’s data is not limited to the gene expression data that can be found in GxA, but that is the only part of the data that is used here. The gene expression data that was used (E-MTAB-2836 in GxA) excludes cell lines and includes tissue samples of 122 individuals and 32 different non-diseased tissue types.</p>
 </div>
 <div class="section" id="genotype-tissue-expression">
 <span id="combininggtex"></span><h3><span class="section-number">8.2.3.3. </span>Genotype Tissue Expression<a class="headerlink" href="#genotype-tissue-expression" title="Permalink to this headline">¶</a></h3>
-<p>The Genotype Tissue Expression (GTEx) project<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id101"><span>253</span></a>]</span> was developed specifically for the purpose of studying tissue-specific gene expression in humans and gene expression data from over 18,000 samples, including 53 non-diseased tissue types and 550 individuals (ranging in age from 20s to 70s).</p>
+<p>The Genotype Tissue Expression (GTEx) project<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id101"><span>256</span></a>]</span> was developed specifically for the purpose of studying tissue-specific gene expression in humans and gene expression data from over 18,000 samples, including 53 non-diseased tissue types and 550 individuals (ranging in age from 20s to 70s).</p>
 </div>
 <div class="section" id="human-developmental-biology-resource">
 <span id="combininghdbr"></span><h3><span class="section-number">8.2.3.4. </span>Human Developmental Biology Resource<a class="headerlink" href="#human-developmental-biology-resource" title="Permalink to this headline">¶</a></h3>
-<p>The Human Developmental Biology Resource (HDBR) Expression data<span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id102"><span>254</span></a>]</span> is slightly different from the other data sets in that contains a much narrower range of sample types. All HDBR samples are human brain samples at different stages of development, ranging from 3 to 20 weeks after conception.</p>
+<p>The Human Developmental Biology Resource (HDBR) Expression data<span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id102"><span>257</span></a>]</span> is slightly different from the other data sets in that contains a much narrower range of sample types. All HDBR samples are human brain samples at different stages of development, ranging from 3 to 20 weeks after conception.</p>
 </div>
 </div>
 <div class="section" id="combining-data-acquisition">
 <span id="id14"></span><h2><span class="section-number">8.2.4. </span>Data acquisition<a class="headerlink" href="#combining-data-acquisition" title="Permalink to this headline">¶</a></h2>
-<p>Data was obtained, where possible via the <em>ExpressionAtlas</em> R package<span id="id15">[<a class="reference internal" href="../cz-end-matter/reference.html#id157"><span>255</span></a>]</span>, which gives gene expression counts identified by ENSG IDs, metadata (containing pipeline, filtering, mapping and quantification information), and details of experimental design (containing for example organism part name, individual demographics, and replicate information, depending on the experiment).</p>
-<p>For the FANTOM experiment counts for transcript expression were downloaded directly <a class="reference external" href="http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz">from the FANTOM website</a>.<br />
+<p>Data was obtained, where possible via the <em>ExpressionAtlas</em> R package<span id="id15">[<a class="reference internal" href="../cz-end-matter/reference.html#id157"><span>258</span></a>]</span>, which gives gene expression counts identified by ENSG IDs, metadata (containing pipeline, filtering, mapping and quantification information), and details of experimental design (containing for example organism part name, individual demographics, and replicate information, depending on the experiment).</p>
+<p>For the FANTOM experiment, counts for transcript expression were downloaded directly <a class="reference external" href="http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz">from the FANTOM website</a>.<br />
 The downloaded FANTOM5 file has already undergone some quality control by FANTOM, it is limited to peaks which meet a “robust” threshold (&gt;10 read counts and 1TPM for at least one sample).
 The data acquisition code is not executed in this notebook as it is slow to download all the files, but the <code class="docutils literal notranslate"><span class="pre">R</span></code> script to do so can be downloaded <a class="reference download internal" download="" href="../_downloads/413ee71f781407eaac54a462330a3b01/download-combined.R"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
 </div>

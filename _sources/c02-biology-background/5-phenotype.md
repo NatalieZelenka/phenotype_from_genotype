@@ -24,8 +24,6 @@ In this case, the mechanism is the increased or decreased gene expression of the
 Proteins can affect the same phenotype indirectly, through protein-protein interaction networks, through interaction with the metabolism (the body's creation of small chemicals, like sugars, fatty acids, and vitamins), and through interaction with the environment of the cell. 
 The environment of the cell is of course in turn influenced from the human-scale environment: what we eat, whether we smoke, the air we breathe, and our body's response to outside stimuli.  
 
-[//]: # (TODO: Write a bit more about PPIs/scale-free, etc)
-
 (limits-of-proteins)=
 ### Limits
 For many disease phenotypes (e.g. Breast Cancer, Asbestosis), a genetic mutation might predict an increased probability of having the phenotype, given similar environmental conditions. 
@@ -65,5 +63,3 @@ Many disabled people do not want cures for their disabilities{cite}`Pulrang2019-
 Another concern is that people may accidentally find out about phenotypes that they are predisposed to that they do not wish to know about.
 This is particularly worrying if there are not any existing preventative/proactive measures to avoid a future diagnosis, and if they are not be able to access genetic counselling. 
 For example, 23andMe have a system whereby you must opt-in to viewing reports about your health for some illnesses.
-
-[//]: # (TODO: Add hazard label or link to Snowflake/other sections + spell out that you need to include the people who are affected in the research process.)

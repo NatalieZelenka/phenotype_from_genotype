@@ -521,6 +521,11 @@
      8.3.1.2. Filtering out disease samples
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering-out-non-human-samples">
+     8.3.1.3. Filtering out non-human samples
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -577,7 +582,7 @@ Ontolopy was developed and used to do much of this mapping, and parts of the wra
 </ul>
 <div class="section" id="obtaining-raw-expression-per-gene-for-healthy-human-tissues">
 <span id="rawgeneexpression"></span><h2><span class="section-number">8.3.1. </span>Obtaining raw expression per gene for healthy human tissues<a class="headerlink" href="#obtaining-raw-expression-per-gene-for-healthy-human-tissues" title="Permalink to this headline">¶</a></h2>
-<p>As mentioned in <a class="reference internal" href="2-data.html#data-acquisition"><span class="std std-ref">Data Acquisition</span></a>, for the HPA, GTeX and HDBR experiments, count data were available through the <em>ExpressionAtlas</em> R package<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id157"><span>255</span></a>]</span>, and the FANTOM dataset was downloaded directly.</p>
+<p>As mentioned in <a class="reference internal" href="2-data.html#data-acquisition"><span class="std std-ref">Data Acquisition</span></a>, for the HPA, GTeX and HDBR experiments, count data were available through the <em>ExpressionAtlas</em> R package<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id157"><span>258</span></a>]</span>, and the FANTOM dataset was downloaded directly.</p>
 <div class="section" id="mapping-from-transcript-to-gene">
 <span id="transcriptgenemapping"></span><h3><span class="section-number">8.3.1.1. </span>Mapping from transcript to gene<a class="headerlink" href="#mapping-from-transcript-to-gene" title="Permalink to this headline">¶</a></h3>
 <p>This step was only required for the FANTOM dataset.</p>
@@ -593,8 +598,10 @@ I judged these to be within the normal range of environments that we would expec
 <p><strong>FANTOM</strong>
 The FANTOM sample ontology was used to remove samples which are models for diseases. Samples which are disease models are identified using the <code class="docutils literal notranslate"><span class="pre">is_model_for</span></code> relationship and these relationships are propagated to the children terms based on the <code class="docutils literal notranslate"><span class="pre">is_a</span></code> relationship. For example, <code class="docutils literal notranslate"><span class="pre">FF:11558-120D1</span></code> (Fibroblast - skin spinal muscular atrophy, donor2) would be removed from the set of samples, since:
 <code class="docutils literal notranslate"><span class="pre">FF:11558-120D1</span></code> (Fibroblast - skin spinal muscular atrophy, donor2) <code class="docutils literal notranslate"><span class="pre">is_a</span> <span class="pre">FF:0000251</span></code> (human fibroblast - skin spinal muscular atrophy sample) <code class="docutils literal notranslate"><span class="pre">is_model_for</span> <span class="pre">DOID:12377</span></code> (spinal muscular atrophy).</p>
-<p><strong>1D. Filtering out non-human samples</strong>
-The GTEx, HDBR, and HPA experiments contained only human samples.</p>
+</div>
+<div class="section" id="filtering-out-non-human-samples">
+<h3><span class="section-number">8.3.1.3. </span>Filtering out non-human samples<a class="headerlink" href="#filtering-out-non-human-samples" title="Permalink to this headline">¶</a></h3>
+<p>The GTEx, HDBR, and HPA experiments contained only human samples.</p>
 <p><strong>FANTOM</strong>
 The FANTOM5 data set also contains non-human (mouse) samples.
 The FANTOM sample ontology (which was downloaded <a class="reference external" href="http://fantom.gsc.riken.jp/5/datafiles/latest/extra/Ontology/ff-phase2-170801.obo.txt">from here</a>) was used to look-up which FANTOM samples are human samples, i.e. have an <code class="docutils literal notranslate"><span class="pre">is_a</span></code> relationship to the term <code class="docutils literal notranslate"><span class="pre">FF:0000210</span></code> (human sample) directly or indirectly.</p>
@@ -618,7 +625,7 @@ Since an experimental design file could not be obtained for FANTOM via GxA, addi
 Since these samples do not have a well-defined locality in the body given by cell or tissue type, they were not used in the combined dataset.
 Such samples were filtered out using the human sample information file.</p>
 <p>Since the FANTOM data had both an ontology file and the human sample information file, both were used to map to Uberon.
-The disagreements between the two mappings revealed some inconsistencies with the data set: these are described in <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#fantom5-inconsistencies-example"><span class="std std-ref">the next section</span></a>, as they demonstrate a potential use case for Ontolopy.</p>
+The disagreements between the two mappings revealed some inconsistencies with the data set: these are described in <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html#fantom5-inconsistencies-example"><span class="std std-ref">the previous section</span></a>, as they demonstrate a potential use case for Ontolopy.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotly</span> <span class="kn">import</span> <span class="n">graph_objects</span> <span class="k">as</span> <span class="n">go</span>
@@ -783,7 +790,7 @@ if (outputEl) {{
 <p>To create consistent metadata for the samples (e.g. age, developmental stage, replicate status, etc), information was extracted from multiple sources (including GxA and additional data from each experiment), and sometimes manually curated or corrected.</p>
 <p><strong>HPA, HBDR, and GTEx:</strong>
 Metadata about the experiments was collected from multiple sources, primarily the column data files accessed via ExpressionAtlas.
-This metadata was used to describe the the experimental design for ComBat.
+This metadata was used to describe the experimental design for ComBat.
 The metadata collected includes (where available), sample identifier, individual identifier, age (exact), age (range), developmental stage, tissue type (as Uberon term), sex, experiment, biological replicate identifier and technical replicate identifier.</p>
 <p>Both age variables are given in years and may include negative values (e.g. for a developing fetus).
 The age (range) variable contains uneven ranges, since this allows there to be an age-related factor that is compatible across the experiments.
@@ -839,7 +846,7 @@ For example, there are many FANTOM5 tissues labelled “brain”, but many HDBR 
 </div>
 </div>
 </div>
-<div class="figure align-default" id="design-balance-tbl">
+<div class="figure align-default" id="design-balance-tbl" style="width: 600px">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -962,7 +969,7 @@ For example, there are many FANTOM5 tissues labelled “brain”, but many HDBR 
 </div></div></div>
 <p class="caption"><span class="caption-number">Fig. 8.4 </span><span class="caption-text">A table showing the number of samples in each category, by tissue group and experiment. Note that the design is not balanced: there are some categories that do not overlap at all.</span><a class="headerlink" href="#design-balance-tbl" title="Permalink to this image">¶</a></p>
 </div>
-<p><a class="reference internal" href="#design-balance-tbl"><span class="std std-ref">A table showing the number of samples in each category, by tissue group and experiment. Note that the design is not balanced: there are some categories that do not overlap at all.</span></a> shows the experimental design of the combined data set.
+<p><a class="reference internal" href="#design-balance-tbl"><span class="std std-numref">Fig. 8.4</span></a> shows the experimental design of the combined data set.
 Since it is not balanced, it is not likely to be suitable for batch-correction algorithms such as ComBat or ComBat-Seq.</p>
 </div>
 </div>
