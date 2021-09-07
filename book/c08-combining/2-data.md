@@ -26,7 +26,7 @@ Datasets were chosen from the EBI’s Gene Expression Atlas (GxA){cite}`Petrysza
 At the time of writing, it contains over 3,000 gene expression and protein abundance experiments across many organisms, organism parts (tissues), diseases, and sequencing technologies. 
 There is a separate database for scRNA-seq experiments. 
 
-A major benefit of the GxA is that raw data using the same sequencing technology are re-analysed by GxA using the same data analysis pipeline (iRAP{cite}`Fonseca2014-hp` for RNA-Seq). 
+A major benefit of the GxA is that raw data using the same sequencing technology is re-analysed by GxA using the same data analysis pipeline (iRAP{cite}`Fonseca2014-hp` for RNA-Seq). 
 In addition to ensuring the quality of each data set included, and running it through the same pipeline, the GxA adds additional metadata for the experiments by using the literature to biologically and technically annotate each sample. 
 
 Data sets were chosen based on the following requirements.
@@ -36,8 +36,8 @@ Data sets were chosen based on the following requirements.
 4. **Data sets must contain a breadth of tissues and genes**,  i.e. experiments must include "organism part" as an experimental factor (otherwise tissue would not be recorded) and must have at least 80 assays (samples).
 5. **Samples must not be disease-focused**. In practice, excluding cancer datasets was enough to exclude disease-focused datasets.
 
-Choices (1)-(3) were made to ensure the most similar possible analysis pipeline.
-Number (4) was necessary to to aid batch correction by facilitating the most balanced data set design in terms of batch (experiment) to group (tissue), and in order to have good coverage of genes and tissues, which is necessary for downstream use.
+Choices (1)-(3) were made to ensure the data underwent the most similar possible analysis pipeline.
+Number (4) was necessary to aid batch correction by facilitating the most balanced data set design in terms of batch (experiment) to group (tissue), and in order to have good coverage of genes and tissues, which is necessary for downstream use.
 Choice number (5) was also made primarily to aid batch correction: since many phenotypes occur only in particular tissues, there is not a breadth of tissue measurements for most diseases.
 
 As described in the introduction chapter, there are many ways to measure which proteins are being created. 
@@ -103,7 +103,7 @@ The decision to exclude disease-focused experiments was made primarily to reduce
 The data set can now be interpreted as representing gene expression of healthy tissues. 
 This was also a practical choice since most disease data sets (with the exception of cancer datasets) tended to have a narrow breadth of tissues, which would interfere with the batch correction methodology. 
 For example, experiments interested in heart disease would naturally contain measurements of healthy and non-healthy heart tissues, and not other tissues, so would be difficult to combine with existing data sets due to the "missing" data. 
-This would not have been a problem for cancer experiments, however cancer is known to be tissue-non-specific{cite}`Love2014-vx,Winter2004-rr`. 
+This would not have been a problem for cancer experiments, however cancer samples gene expression is known to be tissue-non-specific{cite}`Love2014-vx,Winter2004-rr`. 
 
 (searchhowgxa)=
 ## Method of searching
@@ -210,6 +210,8 @@ create_fig <- function(){
 suppressWarnings(create_fig())
 ```
 
+[//]: # (TODO: Fix image: shows up on website but not in PDF)
+
 ```{raw} html
 <iframe src="../_static/combining_funnel_interactive.html" height="345px" width="100%", frameBorder="0"></iframe>
 ```
@@ -296,6 +298,6 @@ The Human Developmental Biology Resource (HDBR) Expression data{cite}`Lindsay201
 ## Data acquisition
 Data was obtained, where possible via the *ExpressionAtlas* R package{cite}`Keays2018-pg`, which gives gene expression counts identified by ENSG IDs, metadata (containing pipeline, filtering, mapping and quantification information), and details of experimental design (containing for example organism part name, individual demographics, and replicate information, depending on the experiment). 
 
-For the FANTOM experiment counts for transcript expression were downloaded directly [from the FANTOM website](http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz).  
+For the FANTOM experiment, counts for transcript expression were downloaded directly [from the FANTOM website](http://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks_expression/hg38_fair+new_CAGE_peaks_phase1and2_counts_ann.osc.txt.gz).  
 The downloaded FANTOM5 file has already undergone some quality control by FANTOM, it is limited to peaks which meet a “robust” threshold (>10 read counts and 1TPM for at least one sample).
 The data acquisition code is not executed in this notebook as it is slow to download all the files, but the `R` script to do so can be downloaded {download}`here<./helper_c05/download-combined.R>`.

@@ -58,7 +58,7 @@ I judged these to be within the normal range of environments that we would expec
 The FANTOM sample ontology was used to remove samples which are models for diseases. Samples which are disease models are identified using the `is_model_for` relationship and these relationships are propagated to the children terms based on the `is_a` relationship. For example, `FF:11558-120D1` (Fibroblast - skin spinal muscular atrophy, donor2) would be removed from the set of samples, since:
 `FF:11558-120D1` (Fibroblast - skin spinal muscular atrophy, donor2) `is_a FF:0000251` (human fibroblast - skin spinal muscular atrophy sample) `is_model_for DOID:12377` (spinal muscular atrophy).
 
-**1D\. Filtering out non-human samples**
+### Filtering out non-human samples
 The GTEx, HDBR, and HPA experiments contained only human samples. 
 
 **FANTOM**
@@ -91,7 +91,7 @@ Since these samples do not have a well-defined locality in the body given by cel
 Such samples were filtered out using the human sample information file.
 
 Since the FANTOM data had both an ontology file and the human sample information file, both were used to map to Uberon.
-The disagreements between the two mappings revealed some inconsistencies with the data set: these are described in {ref}`the next section<FANTOM5-inconsistencies-example>`, as they demonstrate a potential use case for Ontolopy.
+The disagreements between the two mappings revealed some inconsistencies with the data set: these are described in {ref}`the previous section<FANTOM5-inconsistencies-example>`, as they demonstrate a potential use case for Ontolopy.
 
 ```{code-cell} ipython3
 :tags: [hide-input]
@@ -160,7 +160,7 @@ To create consistent metadata for the samples (e.g. age, developmental stage, re
 
 **HPA, HBDR, and GTEx:**
 Metadata about the experiments was collected from multiple sources, primarily the column data files accessed via ExpressionAtlas. 
-This metadata was used to describe the the experimental design for ComBat. 
+This metadata was used to describe the experimental design for ComBat. 
 The metadata collected includes (where available), sample identifier, individual identifier, age (exact), age (range), developmental stage, tissue type (as Uberon term), sex, experiment, biological replicate identifier and technical replicate identifier. 
 
 Both age variables are given in years and may include negative values (e.g. for a developing fetus). 
@@ -223,10 +223,11 @@ mod.to_csv('data/simulated/group_mod.csv')
 ```
 
 ```{glue:figure} design-balance
+:figwidth: 600px
 :name: design-balance-tbl
 
 A table showing the number of samples in each category, by tissue group and experiment. Note that the design is not balanced: there are some categories that do not overlap at all. 
 ```
 
-{ref}`design-balance-tbl` shows the experimental design of the combined data set. 
+{numref}`design-balance-tbl` shows the experimental design of the combined data set. 
 Since it is not balanced, it is not likely to be suitable for batch-correction algorithms such as ComBat or ComBat-Seq.

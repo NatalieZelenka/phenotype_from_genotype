@@ -65,9 +65,17 @@ Protein function prediction is the task of predicting protein function (usually 
 
 (dcgo)=
 ### DcGO
+```{margin} Error types and False Discovery Rate (FDR)
+:name: fdr
+In making predictions, there are two types of errors that we can make, false positives $F_p$ (Type I errors) in which we wrongly think something is true, and false negatives $F_n$ (Type II errors) in which we wrongly thing something is false. Similarly we can get predictions right in two ways, correctly thinking something is the case (true positives $T_p$) or isn't (true negatives $T_n$).
+
+The FDR is a measure of the false positives, which takes into account the number of predictions:
+$FDR = \frac{F_p}{F_p + T_p}$
+
+```
 The aim of the domain-centric Gene Ontology (dcGO){cite}`Fang2013-ms,Fang2013-ix` tool is to give insight into uncharacterised or poorly characterised proteins by leveraging information about the content of their constituent protein domains. 
 It annotates domains and combinations of domains (a.k.a. supradomains) to phenotype terms from a variety of ontologies, including the Gene Ontology (GO), Mammalian Phenotype ontology (MP), Disease Ontology (DOID), Zebrafish ontology (ZFA). 
-Domain information comes from SUPERFAMILY, and annotations between (supra)domains and phenotype terms are made below a cut-off of false-discovery-rate-adjusted statistical associations between the entities. 
+Domain information comes from SUPERFAMILY, and annotations between (supra)domains and phenotype terms are made below a cut-off of {ref}`FDR<fdr>`-adjusted statistical associations between the entities. 
 Using phenotypes from a range of species serves to make use of greater numbers of experiments, and therefore increases the number of little-known proteins across species that DcGO can make predictions about.
 
 (CAFA)=
@@ -88,8 +96,6 @@ Each team may submit up to three models, the best of which is ranked.
 The target sequences consist of a mixture of "no-knowledge" and "limited-knowledge" sequences. 
 No-knowledge sequences are sequences which upon release have zero experimentally-validated GO annotations to any of GO's three constituent ontologies (biological process, cellular component, and molecular function).
 Limited-knowledge sequences are sequences with one or more annotations in one or two GO ontologies, but not all three.
-
-[//]: # (TODO: delete below)
 
 <!--
 ### Past CAFAs

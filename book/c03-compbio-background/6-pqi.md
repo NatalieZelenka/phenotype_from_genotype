@@ -31,8 +31,6 @@ Trees and branch lengths to carry out these calculations were taken from sToL{ci
 For clade-based metrics, proteomes score well if they have similar scores to the rest of the clade.
 Descriptions of the 12 different metrics currently in PQI can be seen in {numref}`pqi-table`.
 
-[//]: # (TODO: Add DOGMA description to table)
-
 ```{list-table} Description of the quality metrics currently in PQI, 1-11 are original metrics, while DOGMA, the 12th, was added later and donated by the [Bornberglab](http://bornberglab.org/people/bornberg).
 :header-rows: 1
 :name: pqi-table

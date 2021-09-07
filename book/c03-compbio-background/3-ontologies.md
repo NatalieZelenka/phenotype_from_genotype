@@ -1,7 +1,6 @@
 (what-are-ontologies)=
 # Ontologies
 
-[//]: # (TODO: Reorganise/sihnpost)
 ```{figure} ../images/linneaus_ehret.png
 ---
 height: 220px
@@ -25,7 +24,6 @@ One major way in which this data is synthesised is through the use of ontologies
 
 (what-are-ontologies-section)=
 ## What are ontologies?
-[//]: # (TODO: Draw a tree and refer to image in text)
 Ontologies are a way of organising all of the information we have collected in classifying and annotating biological concepts and entities, into a unified framework: one which we can represent, build, and query computationally.
 Biological ontologies represent knowledge that we have about the relationships between biological entities.
 Ontologies have classes (called *terms*), which are organised in hierarchies, i.e. such that a term can be a subclass of another.
@@ -71,7 +69,6 @@ Since this is a laborious process, there are also many computational methods to 
 
 (gene-ontology)=
 ### Gene Ontology
-[//]: # (TODO: Citations in GO section)
 
 ```{figure} ../images/go_rilla.png
 ---
@@ -80,8 +77,6 @@ name: go_rilla
 ---
 A subsection of the Gene Ontology with arrows showing the existence of relationships (image generated using GOrilla{cite}`Eden2009-ic`)
 ``` 
-
-[//]: # (TODO: Remove backticks)
 
 The Gene Ontology (GO){cite}`Ashburner2000-cr` is one of the first biomedical ontologies, and continues to be one of the most popular. 
 It is a collection of resources for cataloging the functions of gene products and designed for supporting the computational representation of biological systems{cite}`Thomas2017-vm`. 
@@ -102,16 +97,12 @@ Cellular component terms describe what part of the cellular anatomy a gene produ
 
 The terms in these three sub-ontologies are related to one another by relations, the most common are `is_a` (i.e. is a subtype of); `part_of`; `has_part`; `regulates`, `negatively_regulates` and `positively_regulates`. 
 
-[//]: # (TODO: biocurator margin)
-[//]: # (TODO: Do I mention protein complexes before?)
 (gene-ontology-annotation)=
 **Gene Ontology Annotations:**
 Annotations in the GOA database are annotations between GO terms and gene products (proteins, protein complexes or RNA).
 The annotations include integration to the Uniprot protein function annotations across many species, which have been connected to the controlled vocabulary of GO by skilled biocurators, as well as electronically generated annotations.
 Evidence codes are provided for annotations which label whether annotations were verified by experts, as well as what type of experimental or computational evidence there is for an annotation.
 GOA also link to the supporting publications for the experimental annotations.
-
-[//]: # (TODO: but the GO do not provide the statistical evidence that they used alongside this - e.g. p-value, effect size-, etc)
 
 (uberon-is)=
 ### Uberon Ontology
@@ -131,8 +122,6 @@ Other ontologies which are used in this thesis include:
 (ont-relationships)=
 ## Why are ontologies useful?
 [//]: # (TODO: Example of query of insight you woudln't have usually,  signpost to DCGO, mention usefulness of controlled vocabulary and agreed upon definitions)
-[//]: # (TODO: Add picture describing logic http://geneontology.org/docs/ontology-relations/)
-[//]: # (TODO: Maths not displaying in PDF)
 
 Ontologies can be used by researchers to investigate specific genes, tissues, functions of interest, or more generally to get a big-picture viewpoint on large groups of such entities.
 With logical reasoning, we can generate inferred relationships between distantly related terms in  ontologies, for example $is\_a \cdot part\_of \implies part\_of$. 

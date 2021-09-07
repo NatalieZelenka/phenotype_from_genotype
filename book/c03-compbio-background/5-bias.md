@@ -102,10 +102,8 @@ Statistical significance is the least interesting thing about the results. You s
 -- Gene V. Glass
 ```
 
-```{margin} Types of errors
+```{margin} False positives in NHST
 :name: false-pos
-
-There are two types of errors that we can make, false positives (Type I errors) in which we wrongly think something is true, and false negatives (Type II errors) in which we wrongly thing something is false.
 
 In the context of NHST in research, a false positive would be finding a p-value below our threshold (0.05) for our sample of measurements when there is not an effect in the underlying population from which we are drawing, while a false negative would be finding a p-value above our threshold for our sample when there is an effect present in the underlying population.
 ```

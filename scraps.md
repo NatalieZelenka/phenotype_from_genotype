@@ -1,3 +1,10 @@
+[//]: # (TODO: mention -somwhere- that DNA has a 3' and a 5' end and that nucleic acids can only be created from 5' to 3')
+[//]: # (TODO: mention coding=sense=positive sense =nontemplate, noncoding=antisense=negative=template)
+[//]: # (TODO: Make an aside for in vivo, ex vivo, in vitro, in silico)
+[//]: # (TODO: mention the ss numbers, and that the dbSNP builds don't "line up" with the human reference builds, how they are merged and the fact that they might map to different alternate contigs)
+[//]: # (TODO: Add picture describing logic http://geneontology.org/docs/ontology-relations/ to why are ontologies useful)
+
+
 <!--
 Two other useful quantities of NHST are effect size and statistical power. 
 Effect size is the magnitude of the effect found by the statistical test. 

@@ -40,11 +40,11 @@ And for this reason, diseases and phenotypes are often attributed at the level o
 As {ref}`previously mentioned<genes-first-mentioned>`, in this thesis, I use genes to mean a stretches of DNA which can be transcribed into RNA (i.e. I include "RNA genes" in my definition).
 However, the seemingly simple definition hides a lot of complexities: due to their long history, the word "gene" has had different uses and meanings.
 
-
+<!--
 [//]: # (TODO: Cite how much human DNA is genes in bp?)
 [//]: # (TODO: Cite the selfish gene)
 [//]: # (TODO: Cite overlapping genes)
-
+-->
 
 (gene-for-x)=
 ### "A gene for X"
@@ -60,7 +60,8 @@ Although DNA makes RNA makes proteins and proteins do pretty much everything in 
 The function of a gene might not be evident in some environments because the protein is never transcribed, or it may behave differently. 
 Many traits may be mostly environmental.
 
-[//]: # (TODO: Cite not always genes whole inherited)
+<!--[//]: # (TODO: Cite not always genes whole inherited)-->
+
 (units-heritability)=
 ### Units of heritability
 Genes are also often touted as a “unit of heritability/heredity”, but this is similarly not always the case. 
@@ -96,8 +97,10 @@ However, the most well-studied and common type of genetic variation between huma
 
 (single-nucleotides)=
 ## Single Nucleotide Polymorphisms
+<!--
 [//]: # (TODO: Put in how much of genome is covered by SNPs?)
 [//]: # (TODO: Draw image for SNPs)
+-->
 
 A SNP is a location on an organism’s genome where there are differences of a single nucleotide (A, C, T, G) between individuals. 
 In some fields, these variations are only considered to be Single Nucleotide *Polymorphisms* if they are relatively commonly occurring in the population (at least 1%), while Single Nucleotide Variants (SNVs) can include both rare and common variants. 
@@ -148,5 +151,6 @@ Synonymous SNVs occur where substituting the usual nucleotide with another resul
 The resulting protein will have the exact same functionality. 
 However, synonymous SNVs could still have an effect on high-level traits, since different nucleotides are translated at different speeds. 
 
+<!--
 [//]: # (TODO: Add a section about linkage disequalibrium/a mention of it ONLY if I have included it in Snowflake/Filter: From original:  Two alleles at given locations on the genome are in linkage disequilibrium when the association between them is more than would be expected at random. Linkage disequilibrium may occur between alleles even when there is no genetic linkage present, for example as a result of the presence of both alleles being selected for in a population.)
-
+-->

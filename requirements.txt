@@ -1,7 +1,6 @@
 jupyter-book == 0.10.2
 jupytext
 sphinx-multitoc-numbering
-uberon_py
 numba
 numpy == 1.20
 pandas >= 1.2.1
