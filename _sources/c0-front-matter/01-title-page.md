@@ -70,7 +70,7 @@ A dissertation submitted to the University of Bristol in accordance with the req
 ---
 
 <div class = "bottom_first_page">
-March 02, 2020 - Version 0.0.3
-<span style="float: right;">Word count: 33550</span>
+September 10, 2021 - Version 1.0.0
+<span style="float: right;">Word count: 57,873</span>
 </div>
 
