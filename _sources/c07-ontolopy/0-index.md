@@ -11,7 +11,7 @@ This chapter also includes some uses of ontolopy, for example {ref}`mapping betw
 For example, it is particularly useful for finding inconsistencies/disagreements between data sources, which enabled me to contribute back to improve some of the resources that Ontolopy relies on.
 
 [//]: # (TODO: check links)
-At time of writing, `Ontolopy v1.1.1-beta` ([PyPi](https://pypi.org/project/ontolopy/), [GitHub](https://github.com/NatalieThurlby/ontolopy), [Docs](https://nataliethurlby.github.io/ontolopy/)) is the current release.
+At time of writing, `Ontolopy v1.0.1-beta` ([PyPi](https://pypi.org/project/ontolopy/), [GitHub](https://github.com/NatalieThurlby/ontolopy), [Docs](https://nataliethurlby.github.io/ontolopy/)) is the current release.
 
 
 ```{admonition} Contributions in this chapter

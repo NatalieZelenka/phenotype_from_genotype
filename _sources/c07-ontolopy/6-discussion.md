@@ -1,6 +1,6 @@
 (opydiscussion)=
 # Discussion
-This chapter is simply supposed to present Ontolopy as a {ref}`usable<usable-ontolopy>` tool for finding relationships in OBO ontologies, from which {ref}`useful<useful-ontolopy>` outputs can be obtained.
+This Chapter is simply supposed to present Ontolopy as a {ref}`usable<usable-ontolopy>` tool for finding relationships in OBO ontologies, from which {ref}`useful<useful-ontolopy>` outputs can be obtained.
 
 (useful-ontolopy)=
 ## Usefulness

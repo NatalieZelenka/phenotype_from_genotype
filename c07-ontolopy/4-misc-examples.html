@@ -551,7 +551,7 @@ In this section, I show two simple examples to demonstrate this usefulness.
 These show how Ontolopy can be used to:</p>
 <ol class="simple">
 <li><p><a class="reference internal" href="#opydiseaseexample"><span class="std std-ref">Find disease-related samples</span></a></p></li>
-<li><p><a class="reference internal" href="#opycelldifferentiation"><span class="std std-ref">Find samples of pluripotent stem cells</span></a> (cells that can turn into different tissue types)</p></li>
+<li><p>Find samples of pluripotent stem cells (cells that can turn into different tissue types)</p></li>
 </ol>
 <p>Then in <a class="reference internal" href="5-mapping-example.html#ontolopy-mapping-example"><span class="std std-ref">the next section</span></a> I give the more detailed and complex example of creating a mapping between samples and tissues (which is what Ontolopy was created for specifically), and how this was used to <a class="reference internal" href="5-mapping-example.html#fantom5-inconsistencies-example"><span class="std std-ref">find inconsistencies in the FANTOM5 data</span></a>.</p>
 <div class="section" id="inputs">
@@ -562,6 +562,7 @@ These show how Ontolopy can be used to:</p>
 <p>When we read in ontologies using Ontolopy, if you do not provide <code class="docutils literal notranslate"><span class="pre">ont_ids</span></code>, Ontolopy will keep all ontology term identifiers of the form <code class="docutils literal notranslate"><span class="pre">LETTERS:NUMBERS</span></code>, but often there are many external reference terms (<code class="docutils literal notranslate"><span class="pre">xref</span></code>s) that make the ontology object larger for no gain, so it’s recommended to provide them.</p>
 <p>When providing <code class="docutils literal notranslate"><span class="pre">ont_ids</span></code>, it’s important that you keep all terms that you’re interested in, as everything else is discarded.</p>
 </div>
+<p>To see the code for reading in these files, toggle the “Click to show” button.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ontolopy</span> <span class="k">as</span> <span class="nn">opy</span>
@@ -736,7 +737,7 @@ I <a class="reference internal" href="../c06-filter/3-data.html#fantom5-expressi
 </div>
 <p><a class="reference internal" href="#fantom-samples-info-excerpt"><span class="std std-numref">Fig. 7.2</span></a> shows an excerpt of the FANTOM Samples Information file.
 This kind of file is typical of transcription experiments: a csv file containing hand-entered text-based information, using non-specific lay terms for samples e.g. “heart”.</p>
-<p>The FANTOM ontology file links specific FANTOM samples to more general types of FANTOM samples and to Uberon tissues and CL cell types.</p>
+<p>The fantom ontology file links specific FANTOM samples to more general types of FANTOM samples and to Uberon tissues and CL cell types.</p>
 <p id="fantom-obo-excerpt">For example an excerpt of the FANTOM ontology OBO file is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Term]
 id: FF:0000076

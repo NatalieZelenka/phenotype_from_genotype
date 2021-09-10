@@ -157,9 +157,6 @@ This functionality is inside the `opy.relations` module and handled by the {ref}
 
 (relations-class)=
 ### The `Relations` class
-
-[//]: # (TODO: Docstrings could be tidied, tuple airs, in *a* specific source)
-
 The `Relations` class finds relationships of certain types between sources and targets.
 It subclasses a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) since that is a convenient and familiar format for the relationship information to be returned.
 
@@ -199,7 +196,7 @@ Relationships continue to be searched for until either the ontology provided can
 In "any" mode, finding what we're looking for means finding any target term as the last term in the relation string, while in "all" mode, we must find all target terms for the source term.
 
 
-**The `mode` parameter** can be either `any` or `all`, and this represents whether we are looking for relations from our source terms to any one target term, or to all target terms for which we can find a relationship.
+**The `mode` parameter** can be either "any" or "all", and this represents whether we are looking for relations from our source terms to *any* one target term, or to a *all* target terms for which we can find a relationship.
 It is much quicker to run in "any" mode, so this mode is the default, and it is preferable when we simply need the most direct mapping between our source and target terms, for example we want to know which (one) tissue does the sample map to best? 
 
 The "all" mode tends to be more useful when we are equally interested in the targets as the source terms for example: when looking at mappings between tissues and phenotypes, there is likely to be many different phenotypes that a tissue can exhibit and we are equally interested in all of them.
@@ -282,10 +279,8 @@ Stop words are words that are filtered out before processing text using Natural 
 These are usually very common words (e.g. “and”, ”the”), or word which are meaningless in the context of the analysis. 
 ```
 
-If an exact match does not exist, individual words from the phenotype term name or synonyms are then searched for exactly. 
-First {ref}`stop words<stop-words>` are removed, using the base list in the Natural Language Toolkit (`nltk`) Python Package{cite}`Bird2006-xu` (e.g. and, or), and a small number of manually curated phenotypic stopwords (e.g. “phenotype”, “abnormality”).
-This would mean that the {abbr}`HP (Human Phenotype)` term “abnormality of the head and neck” would search for the words "head" and "neck" in the UBERON terms, and would be mapped the terms of the same name (but never to “neck of radius” - which is related to bone). 
-In cases where multiple terms are found, a common parent would be searched for, in this case the result is “craniocervical region” . 
+If an exact match does not exist, individual words from the phenotype term name or synonyms are then searched for exactly. First {ref}`stop words<stop-words>` are removed, using the base list in the Natural Language Toolkit (`nltk`) Python Package{cite}`Bird2006-xu`, and a small number of manually curated phenotypic stopwords (e.g. “phenotype”, “abnormality”), such that the HP term “abnormality of the head and neck” would be mapped to UBERON’s “head” and “neck” terms (but never “neck of radius”). 
+In cases where multiple terms are found, a common parent would be searched for, in the case of this example, “craniocervical region”. 
 
 [//]: # (TODO: No return statement)
 

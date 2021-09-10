@@ -13,8 +13,6 @@ The overall improvement is very slight, but this could be be improved by a more 
 We have seen that Filip was successful for 99.973% of it's "choices", but that the number of decisions it could make were not enough to usefully boost the performance of the predictor it was tested on.
 This reveals that the limited success of Filip on the CAFA data is due to it's poor mapping coverage. 
 
-[//]: # (TODO: Explain why the coverage constrains it?)
-
 Although the FANTOM5 data set has a excellent coverage of tissue types and number of samples, the filter is nonetheless limited to the tissues it contains. 
 This low coverage of tissues limits the number of predictions that Filip can filter out, and as we saw in the results, this is the major bottleneck for it's performance.
 However, by {ref}`combining baseline gene expression sets from multiple sources<c05-combining>`, the coverage of tissues and therefore phenotype terms might be improved. 
@@ -37,7 +35,7 @@ The Ontolopy package ({ref}`next chapter<c06-ontolopy>`) does make mapping sampl
 ## Wrongly filtered out tissues
 100% of wrongly filtered out tissues were "development" terms. 
 This could mean that time is another way in which cell context should be considered, for example we shouldn't filter out predictions for development phenotypes if we only have adult/not-fetal tissues, and perhaps vice versa.
-Should we include developing tissue samples (e.g. from a fetus) as evidence that a gene is expressed in a tissue type related to an adult phenotype that manifests after development?
+Should we include developing tissue samples as evidence that a gene is expressed in a tissue type if the phenotype manifests after development?
 This is another question for which it would be necessary to increase the coverage of the GE data set(s) used by Filip to answer.
 
 (filip-future-work)=

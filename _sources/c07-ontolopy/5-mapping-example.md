@@ -43,6 +43,7 @@ The `Uberon` class has three useful functions for creating this mapping:
 (map-load-prefilter)=
 ### Load data and pre-filter
 In order to do this, I load the input FANTOM5 ontology and sample information files.
+These are the same files that I explained {ref}`in the previous section<ontolopy-example-inputs>`.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -102,8 +103,8 @@ samples_info = pd.read_csv(fantom_samples_info_file, index_col=1)
 The `sample_map_by_ont` function is a wrapper function which calls `relations.Relations`, and excludes too-general Uberon tissues such as anatomical structure, tissue, anatomical system, embryo, and multi fate stem cell.
 We use a merged sample (FANTOM) and tissue (Uberon) ontology as input.
 
-The inclusion of the Cell Ontology (CL) terms (which are included in the Uberon OBO file) is important to retrieve a mapping for as many samples as possible. 
-{numref}`cl-increases-coverage` shows how the inclusion of CL terms in the input ontology significantly changes the mapping coverage, and that mapping via ontology alone (with CL terms used) is fairly good.
+The inclusion of the Cell Ontology (which is included in the Uberon OBO file) is important to retrieve a mapping for as many samples as possible. 
+{numref}`cl-increases-coverage` shows how the inclusion of CL terms in the input ontology significantly changes the mapping coverage.
 
 [//]: # (TODO: Mention in filip chapter that originally I didn't include via CL in filip, maybe tell the story a bit better here... Like present just with Uberon, then with CL)
 
@@ -139,7 +140,7 @@ glue("unmapped-uberon-cl",f"{len(unmapped_cl.index.unique())} ({100*len(unmapped
 glue("time-uberon-cl", f"{time.time()-start:.2f} seconds", False)
 ```
 
-```{list-table} Table comparing the difference in coverage (mappable samples) for different mapping techniques. 
+```{list-table} Table comparing the difference in coverage (mappable samples) for different mapping techniques.
 :header-rows: 1
 :name: cl-increases-coverage
 
@@ -164,6 +165,8 @@ glue("time-uberon-cl", f"{time.time()-start:.2f} seconds", False)
   - {glue:text}`unmapped-overall`
   - **N/A**
 ```
+
+{numref}`cl-increases-coverage` also shows that mapping via ontology alone (with CL terms used), has a fairly good coverage.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
@@ -232,19 +235,6 @@ glue("unmapped-name", f"{len(unmapped_name.index.unique())} ({100*len(unmapped_n
 The `Uberon.sample_map_by_name` function simply looks up the strings provided (in this case those from the `Characteristics[Tissue]` column of the sample information file) and checks if any Uberon terms in the provided ontology has a matching name or synonym. 
 The term name is preferred over synonyms, and where there are no exactly matching term names, but there are multiple possible synonyms (e.g. *bladder* is a synonym for *urinary bladder* and *bladder organ*), we decide by whether either of the terms are linked to the Foundational Model of Anatomy (FMA) ontology, as this is a human-specific ontology by using the `xref='FMA'` option.
 Since we are only looking for Uberon terms, it doesn't make any difference whether we use the "tissue only" or "including CL" versions of the Uberon ontology that we read in earlier, aside from a negligible difference in run time).
-
-```{code-cell} ipython3
-:tags: [hide-input, hide-output]
-
-unmapped_name['name_matched_on'].unique()
-```
-
-Ontolopy restricts the tissues mapped by name to `NARROW`, `EXACT`, and `BROAD` synonyms (other synonyms include "RELATED"). 
-These synonyms usually includes what we want, but will miss some less closely related synonyms. 
-Looking at the tissues that are unmapped by name can help us identify any that we might want to treat differently.
-For example, *cartilage* doesn't map to `UBERON:0002418` *cartilage tissue* as the synonym *cartilage* is `RELATED`.
-It's also useful to see that the formatting of the some names, e.g. "Fingernail (including nail plate, eponychium and hyponychium)" and "eye - vitreous humor" prevent the Ontolopy algorithm from recognising the names.
-We could map these to more standardised names with a dictionary and rerun the algorithm if we had no other option, but in this case we simply use the by-ontology mapping to map terms with unmappable tissue names.
 
 ```{code-cell} ipython3
 :tags: [remove-input, remove-output]
@@ -361,9 +351,9 @@ glue("unmapped-overall", format_mapped(unmapped_overall, total), False)
 ```
 
 (primary-cell-tissues-ontolopy)=
-{ref}`The FANTOM5 data contains different categories of samples<primary-cell-tissue>` including tissues, time courses, immortal cell lines, fractionations and purturbations, and primary cells. 
+{ref}`The FANTOM5 data contains different categories of samples<primary-cell-tissue>` including tissues, time courses, immortal cell lines, fractionations and purturbations and primary cells. 
 Some of these categories might not map in the way that we might want them to because although they might be a cell type that is usually localised to a tissue, they are unusual since they represent unusual in-between developing tissues (e.g. stem cells) or cancerous immortal cell lines.
-This is likely to have led to uncertainties in the sample ontology file, so by restricting to primary cell and tissue samples, we might get a more accurate picture of the percentage of mappable samples that Ontolopy can reach.
+This is likely to have led to uncertainties in the sample ontology file, so by restricting to primary cell and tissue samples, we might get a more accurate picture of the percentage of mappabble samples that Ontolopy can reach.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
@@ -418,20 +408,22 @@ mapped_overall_pt, unmapped_overall_pt = primary_and_tissues(mapped_overall, unm
 sex_col = 'Characteristics [Sex]'
 age_col = 'Characteristics [Age]'
 remaining_unmapped = samples_info.loc[unmapped_overall_pt.index][[desc_col, sex_col, age_col, tissue_col]]
-glue("unmapped-table", remaining_unmapped)
+glue("unmapped-table", remaining_unmapped, False)
 ```
 
 {numref}`coverage-tissue-primary-cell` shows that the missing mapping seen in {numref}`cl-increases-coverage` can be explained by the presence of sample types such as developing tissues and immortal cell lines (models for diseases), i.e. not healthy adult tissues. 
 Again there was a benefit in combining mappings. 
-The only remaining unmapped tissues were:
-1. *unclassifiable* reference RNA samples (from different providers) - shown in {numref}`unmapped-samples`, from mixed donors and cell types: this is reassuring as we would hope that these would not be mapped to a tissue.
-2. Two *Buffy coat* sample of *reticulocytes*. We could map these by hand to the UBERON "blood" term.
+The only remaining unmapped tissues were all *unclassifiable* reference RNA samples (from different providers) - shown in {numref}`unmapped-samples`, from mixed donors and cell types: this is reassuring as we would hope that these would not be mapped to a tissue.
 
 ```{glue:figure} unmapped-table
 :figwidth: 800px
 :name: unmapped-samples
 
-Table showing the remaining samples which could not be automatically mapped to an Uberon tissue using Ontolopy. All three are  reference RNA samples.
+Table showing the three remaining samples which could not be mapped to an Uberon tissue using Ontolopy. All three are  reference RNA samples.
+```
+
+```{code-cell} ipython3
+
 ```
 
 ```{code-cell} ipython3
@@ -453,7 +445,7 @@ disagreements_table.loc[:,'description'] = pd.Series(samples_info[desc_col].loc[
 glue('number-disagreements', len(disagreements_pt), False)
 glue('number-types-disagreements', len(disagreements_table), False)
 disagreements_table = disagreements_table[['description','by name text', 'by ont text']]
-glue('disagreements-table', disagreements_table)
+glue('disagreements-table', disagreements_table, False)
 ```
 
 (FANTOM5-inconsistencies-example)=
@@ -466,14 +458,15 @@ There were two main ways in which inconsistencies were found:
 2. By looking at the disagreements output which compares the mapping that Ontolopy finds using one file and method (text in sample information file), to that it finds using the other (terms in sample ontology file).
 
 For the FANTOM5 data, disagreements between these mappings revealed problems in the biological ontologies and experiment metadata that were provided to the package in order to create the mappings. 
-These discrepancies may be a lack of specificity, incompleteness in, or disagreement between FANTOM, CL, or Uberon annotations, either in creating ontologies or annotating tissues to samples. 
+
+Disagreements between the tissue-sample mappings created through the (FANTOM and extended Uberon) ontologies and those created using human annotation illuminates what may be a lack of specificity, incompleteness in, or disagreement between FANTOM, CL, or Uberon annotations, either in creating ontologies or annotating tissues to samples. 
 The process of mapping FANTOM to Uberon tissues found twenty-two such disagreements, of which FANTOM, Uberon, and CL where appropriate have been informed via GitHub issues, some of which have already sparked changes in the ontologies. 
 
 Four different types of example are described below, to give an idea of how multiple mappings may be used to improve annotation.
 
 A full list of disagreements can be seen in {numref}`disagreements-examples`. 
 There were {glue:text}`number-types-disagreements` disagreements/inconsistencies found using Ontolopy.
-These disagreements can affect multiple (replicate) samples, for a total of {glue:text}`number-disagreements` samples.
+These disagreements can effect multiple (replicate) samples, for a total of {glue:text}`number-disagreements` samples.
 
 ```{glue:figure} disagreements-table
 :figwidth: 800px
@@ -585,7 +578,7 @@ However, it is also a more complex example of a by-ontology mapping since we are
 For all these questions, we start with the {glue:text}`overall-unique-tissues` tissues that we are interested in finding mappings for as source terms, and we use `opy.Relations`'s `mode='all'` option to find *all* of the Gene Ontology `targets=['GO']` terms that are related to them.
 
 We are interested broadly in tissues where a phenotype can take place, so this could be something on the level of proteins (*calcium signalling*), cells (*cell motility*), or tissue (*protein secretion*). 
-This will affect what settings (particularly `allowed_relations`) we use when we make calls to `Relations`. 
+This will effect what settings (particularly `allowed_relations`) we use when we make calls to `Relations`. 
 
 Only Gene Ontology *Biological Process* terms are related to phenotypes.
 The quickest way to retrieve only these is to ask for all `GO` terms and then filter them afterwards.
@@ -816,6 +809,7 @@ counts_down1_less, unmapped_down1_less = mapping_to_tissue_counts(formatted_phen
 yet_unmapped_down1 = list(set(unmapped_tissue_phenotype_less) & set(unmapped_down1_less))
 glue("unmapped-tissue-down-1", len(yet_unmapped_down1))
 glue("lst-unmapped-updown-less", list_to_text([merged[x]['name'] for x in yet_unmapped_down1]))
+
 ```
 
 In {numref}`tissue-mapping-comparison`, which compares the number of mapped tissues and phenotypes for different tissue-to-phenotype mapping methods, we can see that this method maps more phenotypes, but for less tissues.
@@ -845,7 +839,7 @@ One downside of this approach is that relations found using this kind of self-de
 :name: sex-specific-mappings
 We could also create a relation like `A can_have_part_in_female B` (and an analagous term for male) when `B part_of A` and `B part_of UBERON:0003100` *female organism*.
 We could then cross-reference the sex of our samples from the sample information file to ensure that we don't create mappings between e.g. male-only samples and ovaries.
-This isn't done here, since it will only affect a very small number of mappings (given that many of the samples are mixed/unknown sexes, that there are only a small number of sexual dimorphic tissues, and that these are generally mapped at the level of specific sexes already), and wouldn't illustrate a different aspect of using Ontolopy.
+This isn't done here, since it will only effect a very small number of mappings (given that many of the samples are mixed/unknown sexes, that there are only a small number of sexual dimorphic tissues, and that these are generally mapped at the level of specific sexes already), and wouldn't illustrate a different aspect of using Ontolopy.
 Such mappings, if they exist, are simply not included. 
 If they are excluded, it means that we simply do not map non sex-specific tissues like *gonad* to either testes or ovary-related phenotypes, so we might be missing such mappings.
 ```
@@ -1092,9 +1086,6 @@ There are {glue:text}`unmapped-tissue-down-2` unmapped tissues (which map to zer
 The number of mappings varies smoothly in this range with more general tissues and organs broadly appearing to have higher numbers of mappings than very specific tissues.
 We can also see in {numref}`mapped-phenotypes-per-tissue` that the `can_have_human_part` mapping makes up the majority of the mappings in the final combined mapping.
 
-
-[//]: # (TODO: Clumsy table, would probably be better to have unmapped by this)
-
 ```{list-table} Table comparing the difference in coverage (mappable tissues), phenotypes, time taken, and unmapped tissues for different mapping techniques.
 :header-rows: 1
 :name: tissue-mapping-comparison
@@ -1218,13 +1209,13 @@ for uberon in df[df['phenotype'].isna()]['tissue'].unique():
     if type(uberon) == float:
         if np.isnan(uberon):
             num = len(df[df['phenotype'].isna() & df['tissue'].isna()])
-            row = ['NaN', 'Unmapped to tissue', num]
+            row = ['NaN', 'Unmapped to phenotype', num]
     else:
         num = len(df[df['phenotype'].isna() & (df['tissue'] == uberon)])
         row = [uberon, merged[uberon]['name'], num]
     rows.append(row)
 
-unmapped_why = pd.DataFrame(rows, columns = ['Uberon ID', 'Uberon Name', 'Number samples mapped to tissue']);
+unmapped_why = pd.DataFrame(rows, columns = ['Uberon ID', 'Uberon Name', 'Number samples mapped to phenotype']);
 unmapped_why.set_index('Uberon ID', inplace=True)
 glue("unmapped-why", unmapped_why)
 ```
@@ -1232,7 +1223,7 @@ glue("unmapped-why", unmapped_why)
 There are {glue:text}`sample-phen-rows` rows of the sample-to-tissue mapping DataFrame in total. 
 This includes some `NaN` values, so it contains {glue:text}`total-sample-phen` mappings from sample to phenotype; equivalent to a sample coverage of {glue:text}`sample-phen-coverage-cat` of filtered (*tissue* and *primary cell*) samples or {glue:text}`sample-phen-coverage-all` of all samples.
 It also includes an additional {glue:text}`sample-tissue-nan` mappings from sample to tissue (but not to phenotype), and {glue:text}`total-sample-nan` samples with no mapping to tissue or phenotype.
-{numref}`table-unmapped-why` shows why almost 10% of samples are unmapped in more detail: many samples map to the same unmapped tissues, particularly adipose tissue, epithelium, or connective tissue.
+{numref}`table-unmapped-why` shows why almost 10% of samples are unmapped in more detail: many samples map to the same unmapped tissues, particiularly adipose tissue, epithelium, or connective tissue.
 
 ```{glue:figure} unmapped-why
 :figwidth: 800px

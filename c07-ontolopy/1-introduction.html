@@ -553,7 +553,7 @@
 <div class="section" id="motivation">
 <span id="opy-motivation"></span><h2><span class="section-number">7.1.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
 <p>I created Ontolopy in order to create a high-coverage mapping between tissues and gene expression samples, which I hoped would aid in phenotype and protein function prediction.
-An earlier version of the package was used to create a mapping between gene expression sample names or identifiers to phenotypes that are known to affect that type of tissue for <a class="reference internal" href="../c06-filter/0-index.html#c06-filter"><span class="std std-numref">Section 6</span></a>.
+An earlier version of the package was used to create a mapping between gene expression sample names or identifiers to phenotypes that are known to effect that type of tissue for <a class="reference internal" href="../c06-filter/0-index.html#c06-filter"><span class="std std-numref">Section 6</span></a>.
 Removing wrong-tissue predictions proved successful in improving protein function predictions, but was constrained by a low coverage, despite using one of the most extensive tissue-specific gene expression experiments.
 In order to improve this coverage, I needed to extend it’s functionality to allow mapping more generally between samples and phenotypes according to their tissues.</p>
 <p>There are many gene expression data sets, and the reporting for tissue metadata is not at all standardised between them.
@@ -562,7 +562,7 @@ If tissue type is recorded at all, it is usually manually given a label tissue u
 In other cases, cell type might be recorded instead (e.g. “leukocyte”, “cardiac fibroblast”).
 In other circumstances still, the samples might be annotated to existing ontologies, and some even have their own ontologies of samples (such as FANTOM5).
 Names like <em>blood</em> can be useful, but if you’d like to compare across samples, then it’s helpful to have a controlled vocabulary such as ontology terms: that way even a computer can figure out what <em>mature basophils</em>, <em>plasma</em> and <em>fibrinogen complex</em> have in common.</p>
-<p>In addition to the benefits of ontologies’ controlled vocabulary (the terms themselves), they also contain a wealth of additional information and links to other ontologies.
+<p>In addition to the benefits of ontologies controlled vocabulary (the terms themselves), they also contain a wealth of additional information and links to other ontologies.
 For example, Uberon contains information about synonyms for different anatomical entities: the <em>pituitary stalk</em> is also known as the <em>infundibular stem</em> which is <em>part of the brain</em> that <em>connects to the hypothalamus</em>.
 Ontologies are therefore also sources of text that could be used to map sample names to terms.
 Once samples are mapped to ontologies they can leverage on all of the information inside them, for example, to find all the samples that are capable of <em>hormone secretion</em>.</p>

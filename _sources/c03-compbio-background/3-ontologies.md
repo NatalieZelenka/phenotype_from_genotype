@@ -36,7 +36,7 @@ The hierarchy of ontologies can be thought of as having a tree-like structure wi
 
 Relations between terms are directional, for example *positive regulation of cardiac muscle tissue regeneration* is a *regulation of cardiac muscle tissue regeneration*, but not vice versa. 
 In such relationships, we say the *parent* term is the more general term closer to the root (e.g. “positive regulation of…”) and the *child* term is the more specific term (“regulation of..”). 
-It is not permitted for there to be cycles in ontologies, for example *term A* `is_a` *term B* `is_a` *term A*: ontologies are often DAGs (Directed Acyclic Graphs).
+It is not permitted for there to be cycles in ontologies, for example *term A* `is_a` *term B* `is_a` *term A*: ontologies are DAGs (Directed Acyclic Graphs).
 
 Ontology term identifiers are usually of the form: `XXX:#######`, where `XXX` is an upper-case identifier for the whole ontology, e.g. `GO` for Gene Ontology, `CL` for Cell Ontology, etc. For example, `GO:0008150` is the GO term for *Biological Process*.
 

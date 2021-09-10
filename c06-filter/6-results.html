@@ -519,7 +519,7 @@
      <span class="math notranslate nohighlight">
       \(F_{max}\)
      </span>
-     Improvement
+     Improvement:**
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -555,7 +555,7 @@
 <div class="section" id="cafa-2">
 <span id="filip-results-cafa2"></span><h2><span class="section-number">6.5.1. </span>CAFA 2<a class="headerlink" href="#cafa-2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="f-max-improvement">
-<h3><span class="section-number">6.5.1.1. </span><span class="math notranslate nohighlight">\(F_{max}\)</span> Improvement<a class="headerlink" href="#f-max-improvement" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.5.1.1. </span><span class="math notranslate nohighlight">\(F_{max}\)</span> Improvement:**<a class="headerlink" href="#f-max-improvement" title="Permalink to this headline">¶</a></h3>
 <table class="table" id="cafa2-results">
 <caption><span class="caption-number">Table 6.1 </span><span class="caption-text">CAFA2 data f-max results for DcGO and filip</span><a class="headerlink" href="#cafa2-results" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -564,7 +564,7 @@
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(F_{max}\)</span> DcGO</p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(F_{max}\)</span> DcGO + Filip</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(F_{max}\)</span> DcGO + <code class="docutils literal notranslate"><span class="pre">filip</span></code></p></th>
 </tr>
 </thead>
 <tbody>
@@ -573,9 +573,9 @@
 </tr>
 </tbody>
 </table>
-<p>During development, I validated Filip using the original DcGO CAFA2 submission, using the CAFA2 targets.
+<p>During development, I validated <code class="docutils literal notranslate"><span class="pre">filip</span></code> using the original DcGO CAFA2 submission, using the CAFA2 targets.
 The <span class="math notranslate nohighlight">\(F_{max}\)</span> score was calculated for human BPO, combining both <em>No Knowledge</em> and <em>Limited Knowledge</em> targets.
-<a class="reference internal" href="#cafa2-results"><span class="std std-numref">Table 6.1</span></a> shows that Filip provides a small benefit to the <span class="math notranslate nohighlight">\(F_{max}\)</span> score.</p>
+<a class="reference internal" href="#cafa2-results"><span class="std std-numref">Table 6.1</span></a> shows that <code class="docutils literal notranslate"><span class="pre">filip</span></code> provides a small benefit to the <span class="math notranslate nohighlight">\(F_{max}\)</span> score.</p>
 </div>
 <div class="section" id="bootstrapping">
 <h3><span class="section-number">6.5.1.2. </span>Bootstrapping<a class="headerlink" href="#bootstrapping" title="Permalink to this headline">¶</a></h3>
@@ -583,7 +583,7 @@ The <span class="math notranslate nohighlight">\(F_{max}\)</span> score was calc
 <a class="reference internal image-reference" href="../_images/filip_bootstrap.png"><img alt="../_images/filip_bootstrap.png" src="../_images/filip_bootstrap.png" style="height: 300px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6.5 </span><span class="caption-text">This bootstrapping histogram shows the distribution of the number of correct predictions found when deleting a random selection of DcGO predictions (the same number as are discarded by the filter). The dotted lines shows the number of correct predictions found by the filter. The low p-value (<span class="math notranslate nohighlight">\(9.99 \times 10^{-5}\)</span>) shows the low probability of the filter performing at least as well as it has (in terms of the number of correct predictions) by random chance.</span><a class="headerlink" href="#filip-bootstrap" title="Permalink to this image">¶</a></p>
 </div>
-<p>The small improvement is due to Filip filtering out 85,637 GOBP human protein predictions, only 23 of which were true according to the CAFA2 ground truth, meaning that 99.973% of filip’s predictions (on what to filter in or out) were correct.</p>
+<p>The small improvement is due to <code class="docutils literal notranslate"><span class="pre">filip</span></code> filtering out 85,637 GOBP human protein predictions, only 23 of which were true according to the CAFA2 ground truth, meaning that 99.973% of filip’s predictions (on what to filter in or out) were correct.</p>
 <p>To ensure that this is a better success rate than we would expect by chance, I performed a bootstrapping test by taking out random sets of 85,637 predictions from the DcGO set and measuring the number of true positives remaining in the set.
 This was repeated 100,000 times to create <a class="reference internal" href="#filip-bootstrap"><span class="std std-numref">Fig. 6.5</span></a>, and calculate the p-value <span class="math notranslate nohighlight">\(p &lt; 0.001\)</span>, meaning that the filter performed far better than chance.</p>
 </div>
@@ -591,7 +591,7 @@ This was repeated 100,000 times to create <a class="reference internal" href="#f
 <h3><span class="section-number">6.5.1.3. </span>Relationship between incorrect terms<a class="headerlink" href="#relationship-between-incorrect-terms" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="filip-go-wrong">
 <a class="reference internal image-reference" href="../_images/revigo_filip_wrong_cafa2.png"><img alt="../_images/revigo_filip_wrong_cafa2.png" src="../_images/revigo_filip_wrong_cafa2.png" style="height: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.6 </span><span class="caption-text">A grouping/summary of the incorrectly excluded predictions. Larger circles represent terms which are parents to more of the input terms. Lines represent the relationships between pictured terms.</span><a class="headerlink" href="#filip-go-wrong" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6.6 </span><span class="caption-text">A grouping/summary of the incorrectly excluded predictions. Larger circles represent terms which are parents to more of the input terms.</span><a class="headerlink" href="#filip-go-wrong" title="Permalink to this image">¶</a></p>
 </div>
 <p>I also looked to see whether there was any relationship between the 23 incorrectly removed predictions.
 Interestingly, all of these incorrectly filtered out predictions were for GOBP terms which were related to development (e.g. tissue development, anatomical structure development, epithelium development, organ morphogenesis).
@@ -602,8 +602,8 @@ The fact that the incorrectly filtered out terms are all related to development 
 <div class="section" id="cafa-3">
 <span id="filip-results-cafa3"></span><h2><span class="section-number">6.5.2. </span>CAFA 3<a class="headerlink" href="#cafa-3" title="Permalink to this headline">¶</a></h2>
 <p>The same kind of improvement is seen by the independently calculated CAFA3 results (validated by the CAFA3 team).
-I entered two models into CAFA3: DcGO only and DcGO plus Filip, for Human and for Gene Ontology Biological Process terms only.</p>
-<p>In all categories, Filip improved DcGO by 0.02 <span class="math notranslate nohighlight">\(F_{max}\)</span> (see <a class="reference internal" href="#cafa3-results"><span class="std std-numref">Table 6.2</span></a>).
+I entered two models into CAFA3: DcGO only and DcGO plus <code class="docutils literal notranslate"><span class="pre">filip</span></code>, for Human and for Gene Ontology Biological Process terms only.</p>
+<p>In all categories, <code class="docutils literal notranslate"><span class="pre">filip</span></code> improved DcGO by 0.02 <span class="math notranslate nohighlight">\(F_{max}\)</span> (see <a class="reference internal" href="#cafa3-results"><span class="std std-numref">Table 6.2</span></a>.
 This was not enough to be a competitive model (ranked between 33 and 38 out of 67 for this category).
 Despite this, this result does show that the improvement was reproduced in another data set, carried out by other researchers.</p>
 <table class="table" id="cafa3-results">
@@ -618,7 +618,7 @@ Despite this, this result does show that the improvement was reproduced in anoth
 <tr class="row-odd"><th class="head"><p>Type</p></th>
 <th class="head"><p>Mode</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(F_{max}\)</span> DcGO</p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(F_{max}\)</span> DcGO + Filip</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(F_{max}\)</span> DcGO + <code class="docutils literal notranslate"><span class="pre">filip</span></code></p></th>
 </tr>
 </thead>
 <tbody>
@@ -648,8 +648,8 @@ Despite this, this result does show that the improvement was reproduced in anoth
 
 ## Coverage
 
-We have seen that Filip was successful for 99.973% of it's "choices", but that the number of decisions it could make were not enough to usefully boost the performance of the predictor it was tested on.
-This reveals that the limited success of Filip on the CAFA data is due to it's poor mapping coverage. 
+We have seen that `filip` was successful for 99.973% of it's "choices", but that the number of decisions it could make were not enough to usefully boost the performance of the predictor it was tested on.
+This reveals that the limited success of `filip` on the CAFA data is due to it's poor mapping coverage. 
 
 ### Using `uberon-py`
 

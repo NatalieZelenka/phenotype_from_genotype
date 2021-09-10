@@ -19,7 +19,7 @@ There are a number of potential uses for Ontolopy.
 In this section, I show two simple examples to demonstrate this usefulness. 
 These show how Ontolopy can be used to:
 1. {ref}`Find disease-related samples<opydiseaseexample>`
-2. {ref}`Find samples of pluripotent stem cells<opycelldifferentiation>` (cells that can turn into different tissue types)
+2. Find samples of pluripotent stem cells (cells that can turn into different tissue types)
 
 Then in {ref}`the next section<ontolopy-mapping-example>` I give the more detailed and complex example of creating a mapping between samples and tissues (which is what Ontolopy was created for specifically), and how this was used to {ref}`find inconsistencies in the FANTOM5 data<FANTOM5-inconsistencies-example>`.
 
@@ -32,6 +32,8 @@ When we read in ontologies using Ontolopy, if you do not provide `ont_ids`, Onto
 
 When providing `ont_ids`, it's important that you keep all terms that you're interested in, as everything else is discarded.
 ```
+
+To see the code for reading in these files, toggle the "Click to show" button.
 
 ```{code-cell} ipython3
 :tags: [hide-input, remove-output]
@@ -91,7 +93,7 @@ An excerpt of the FANTOM sample info file, showing sources of text-based informa
 {numref}`fantom-samples-info-excerpt` shows an excerpt of the FANTOM Samples Information file. 
 This kind of file is typical of transcription experiments: a csv file containing hand-entered text-based information, using non-specific lay terms for samples e.g. "heart".
 
-The FANTOM ontology file links specific FANTOM samples to more general types of FANTOM samples and to Uberon tissues and CL cell types. 
+The fantom ontology file links specific FANTOM samples to more general types of FANTOM samples and to Uberon tissues and CL cell types. 
 
 (fantom-obo-excerpt)=
 For example an excerpt of the FANTOM ontology OBO file is:
@@ -118,7 +120,6 @@ As we can see above, the FANTOM5 ontology links FANTOM samples to Uberon.
 This means that the Uberon{cite}`Mungall2012-nc` [extended ontology OBO file](http://purl.obolibrary.org/obo/uberon/ext.obo) can then be used to further link the samples to human disease or gene ontology terms.
 
 For example, here is an excerpt of the Uberon extended OBO file (non-consecutive lines for brevity), showing how the Uberon extended ontology could be used to link a FANTOM sample to a GO term:
-
 ```
 [Term]
 id: UBERON:0001281
@@ -176,8 +177,6 @@ This Ontolopy query can be done with only the FANTOM ontology.
 As {ref}`we just saw<ontolopy-relationship-interpretation>`, to extract relationships from ontologies (whether using Ontolopy or with any other method), you have to think about the types of relations that you are interested in. 
 For example, if we are interested in finding samples which are models for `DOID` disease terms, then we want to ask for `DOID` targets only, and `is_a` and `is_model_for` relationships only.
 
-[//]: # (TODO: change widths of columns to improve formatting of table)
-
 ```{code-cell} ipython3
 :tags: [hide-input]
 
@@ -226,8 +225,6 @@ The top 5 lines of the disease-related FANTOM samples that Ontolopy found.
 
 (opycelldifferentiation)=
 ## Example 2: Find tissues that are capable of cell differentiation
-
-[//]: # (TODO: Explain cell differentiation == stem cell)
 
 ````{margin}
 ```{admonition} The difference between "derives from" and "develops from"

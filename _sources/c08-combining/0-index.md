@@ -16,6 +16,6 @@ This chapter includes the methodology for choosing suitable data sets and combin
 ```{admonition} Contributions to research outputs in this chapter
 :class: hint
 The contributions in this chapter include:
-- Creation of publicly available combined gene expression meta-data.
+- Creation of a publicly available combined gene expression data set.
 ```
 
