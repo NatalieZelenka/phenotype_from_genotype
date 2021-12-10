@@ -3,7 +3,6 @@ Repo for tracking my thesis' conversion to jupyter book.
 
 ## Website:
 To build html:
-`cd ~/phd/jupyter_books_etc/jekyll-version/phenotype_from_genotype/`
 `jupyter-book build book`
 
 For interactive images:
