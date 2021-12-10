@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.1. Introduction &#8212; Phenotype from Genotype</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.2. Data Acquisition" href="2-data.html" />
+    <link rel="prev" title="8. Combining RNA-seq datasets" href="0-index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Thesis style and philosophy
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
+   2. How phenotype arises from genotype
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: function, structure and classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c03-compbio-background/0-index.html">
+   3. How genotype and phenotype are measured and researched
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. Predictive computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/7-summary.html">
+     3.7. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c04-snowflake/0-index.html">
+   4. Phenotype prediction with Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
+     4.3. Creating Snowflake inputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/4-preprocessing.html">
+     4.4. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/7-discussion.html">
+     4.6. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
+     5.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Filip results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. Ontolopy tools and practices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   8.1.1. Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenges-in-combining-gene-expression-data-sets">
+   8.1.2. Challenges in combining gene expression data sets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#harmonising-meta-data">
+     8.1.2.1. Harmonising meta-data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batch-effects">
+     8.1.2.2. Batch effects
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction">
+<span id="combiningintro"></span><h1><span class="section-number">8.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<!--
+The included experiments were chosen to minimise differences between data pipelines (which could be a source of data artefacts), to maximise information about different tissues, and to ensure that we have as balanced an "experimental design" as possible (which is important for batch effect removal).
+
+In order to ensure the interoperability of the final combined data set, the meta-data about the experiments is also combined, and mapped to the Uberon tissue ontology, using the Ontolopy package developed for this task, described in {ref}`the previous chapter<c06-ontolopy>`. 
+-->
+<div class="section" id="motivation">
+<span id="combmotivation"></span><h2><span class="section-number">8.1.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>There is general agreement that integrating omics datasets is one of the primary challenges to overcome if we wish to harness the full information contained within them<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id111"><span>231</span></a>]</span>.
+Falling costs and rapid advances in sequencing technologies have resulted in what many have described as a deluge of omics data<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id110"><span>232</span></a>]</span>.
+And this includes huge amount of <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html#rna-measurements"><span class="std std-ref">gene expression data</span></a>, as demonstrated by the 3,564 studies and 112,225 assays currently available through the European Molecular Biology Laboratory’s (EMBL) Gene Expression Atlas (GxA) website <span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id35"><span>61</span></a>]</span>.</p>
+<p>Each individual measure of expression is only a snapshot of what a gene can do.
+It only tells us about the transcription of proteins at that one time, in that one sample.
+Gene expression can also vary by tissue and cell type, individual organism<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id103"><span>233</span></a>]</span>, age<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id105"><span>234</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id104"><span>235</span></a>]</span>, sex<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id106"><span>236</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id107"><span>237</span></a>]</span>, time of day<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id103"><span>233</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id108"><span>238</span></a>]</span>, and spatial location within a tissue or culture<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id109"><span>239</span></a>]</span>.
+There are also interactions between these different sources of variation, for example certain genes may only exhibit differential expression based on time of day in certain cell types.
+If we want a full understanding of what a gene does, we must understand how it’s expressed in a variety of scenarios, for example, in different tissues, from different people, at different times of day, and across many repeats.</p>
+<p>My primary motivation in the creation of this data set was to aid in protein function prediction, since <a class="reference internal" href="../c04-snowflake/7-discussion.html#dcgo-expression-problem"><span class="std std-ref">as we saw in chapter 4</span></a>, when we use structural information to predict function, we don’t have enough information about ways in which that structure might be prevented from functioning in certain tissues.
+Many phenotypes are naturally linked to certain locations.
+Humans have many diseases and features which are particular to certain locations on the body and certain tissues, be it blood, brain, skin, or lung.
+So to answer the question of whether a protein is produced in a context relevant to a phenotype, we not only need gene expression information, but <em>tissue-specific</em> gene expression information: is this gene ever expressed in the heart?</p>
+<p>For our need in mapping tissue-specific gene expression data to phenotypes, preliminary work showed that one gene expression experiment was not sufficient: it would not give us enough coverage of phenotypes to validate an improvement in protein function prediction in CAFA.</p>
+<p>For a typical (human) next-generation sequencing transcriptomics experiment, data is collected for over 20,000 genes, but generally far fewer samples, and very few replicates of a certain kind of sample (e.g. tissue).
+For context, the largest experiment in the Ensembl Gene Expression Atlas (GxA) by quite a margin is currently the Genotype-Tissue Expression (GTEx) Project with 18736 samples.
+This is simply because it is still too expensive for one experiment to measure enough samples to give us a comprehensive understanding of how genes can behave.
+So, when it comes to gene expression, we have “big data” in the sense that the data is large and we need to take care to access and compute on it efficiently (as we are measuring so many genes), but in any one experiment we don’t have great coverage of sample types.</p>
+<p>Combining expression data from multiple different experiments is perhaps the obvious tonic to this problem, since it has the potential to create a data set containing a more representative view of gene expression.
+However, it is not as straightforward as loading in multiple data sets.
+There are specific challenges relating to data management, statistics, and harmonisation of meta-data for interoperability.
+However it is possible, and has already been done for two experiments<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id112"><span>240</span></a>]</span>.</p>
+<p>Although my aim in creating this data set was specifically to improve phenotype and protein function prediction, a larger gene expression data set has further uses outside of this.
+Additional repeated measurements, and a larger spread of samples would allow researchers to ask more questions and have a larger statistical power.
+For example, one possible use is identification of housekeeping genes, or building models of gene regulatory networks.</p>
+</div>
+<div class="section" id="challenges-in-combining-gene-expression-data-sets">
+<span id="combchallenges"></span><h2><span class="section-number">8.1.2. </span>Challenges in combining gene expression data sets<a class="headerlink" href="#challenges-in-combining-gene-expression-data-sets" title="Permalink to this headline">¶</a></h2>
+<p>Challenges in combining gene expression data arise from the myriad of possible differences in experimental and analysis protocols between gene expression experiments.</p>
+<div class="section" id="harmonising-meta-data">
+<span id="harmonisingchallenge"></span><h3><span class="section-number">8.1.2.1. </span>Harmonising meta-data<a class="headerlink" href="#harmonising-meta-data" title="Permalink to this headline">¶</a></h3>
+<p>An important feature of any gene expression data set is the quality of the meta-data, by which I mean everything except the measures of gene expression, particularly including additional information about samples and protocols.
+For example, data about samples can be recorded at different levels of specificity.
+This was a particular challenge for tissue type labels where some samples are simply labelled <em>brain</em>, while others are labelled <em>medulla oblongata</em>, and yet others are identified by cell type.</p>
+<p>Harmonising this cell and tissue meta-data was the challenges of combining the data sets, which was done using the Uberon cross-species anatomy ontology<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id50"><span>99</span></a>]</span>, and the Cell Ontology<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id49"><span>100</span></a>]</span> (CL), which is integrated with Uberon.
+Samples were primarily assigned Uberon term identifiers by searching for matching text between sample information files and CL or Uberon term names or descriptions.
+Where existing terms did not turn up a match, samples were assigned an Uberon term by hand.
+Then using the Uberon ontology, tissues could be understood in relation to each other, being mapped to tissues and more general tissue groups.</p>
+</div>
+<div class="section" id="batch-effects">
+<span id="batchchallenge"></span><h3><span class="section-number">8.1.2.2. </span>Batch effects<a class="headerlink" href="#batch-effects" title="Permalink to this headline">¶</a></h3>
+<p>Combining gene expression data itself, is also not trivial: a major problem is their well known susceptibility to batch effects (differences in measurements due to technical artefacts of sequencing batch)<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id41"><span>241</span></a>]</span>.
+When combining and comparing gene expression data from two (or more) experiments, it’s not obvious how much of our signal comes from real biological differences in transcription, and how much comes from unwanted variation associated with the batch it was sequenced in.
+These “batch effects” result from unknown variation during the process of sequencing for example the date, time, or location of sequencing<span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id42"><span>242</span></a>]</span>, or the technician doing the work.</p>
+<p>To complicate matters, some batch effects may be due to factors that might be expected to genuinely influence expression of genes, such as temperature, time of year, humidity, diet, individual, age, etc.
+Covariates such as these are often unrecorded and/or not reported, so it is not easy to distinguish these from those due to protocol differences, such as reagents, personnel doing the sequencing, hardware, processing pipeline, etc.
+For this reason, the problem of batch effects is closely related to the problem of recording sample metadata.</p>
+<p>Batch effects can often confound and obscure the biological differences of interest between samples (e.g. tumour versus healthy tissue).
+At best, batch effects add random variation to expression measurements, which obscure signals.
+Often they can also add systematic differences that can lead to incorrect biological conclusions<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id41"><span>241</span></a>]</span>.
+They are a problem for analysing the output of an individual experiment where there are multiple sequencing batches, but pose a particular problem in combining data from different experiments, as there is almost certainly more variations between analysis pipelines.</p>
+<p id="batch-effect-correction"><strong>Batch-effect correction:</strong></p>
+<p>Batch effects may affect only specific subsets of genes, and may affect different genes in different ways<span id="id15">[<a class="reference internal" href="../cz-end-matter/reference.html#id41"><span>241</span></a>]</span>.
+This means that <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html#rna-normalisation"><span class="std std-ref">normalisation</span></a> (e.g. TPM, FKPM) will not account for batch.
+However, when it is known, date of sequence processing is often used as a surrogate for batch, enabling researchers to check for, and then remove, batch effects if necessary.</p>
+<p>There are a number of batch correction analyses which attempt to remove batch effects from RNA-seq data, for example ComBat<span id="id16">[<a class="reference internal" href="../cz-end-matter/reference.html#id69"><span>243</span></a>]</span> and Surrogate Variable Analysis (SVA)<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id85"><span>244</span></a>]</span>
+Batch correction can be very useful for understanding baseline gene expression, but can lead to inflated p-values for downstream analysis (notably for differential gene expression, using ComBat<span id="id18">[<a class="reference internal" href="../cz-end-matter/reference.html#id69"><span>243</span></a>]</span>), where a more sensible approach is to include batch as a confounder for statistical tests.</p>
+<p id="combat-description"><strong>ComBat:</strong></p>
+<p>ComBat<span id="id19">[<a class="reference internal" href="../cz-end-matter/reference.html#id69"><span>243</span></a>]</span> is a popular batch effect removal procedure, which was first developed for use with microarray data, but continues to be a popular choice for RNA-seq data.
+Generally, it is a well-trusted method for both of these types of gene expression data<span id="id20">[<a class="reference internal" href="../cz-end-matter/reference.html#id86"><span>245</span></a>]</span>, although there is some evidence that it may “over-correct” batches for some RNA-seq data<span id="id21">[<a class="reference internal" href="../cz-end-matter/reference.html#id87"><span>246</span></a>]</span>.</p>
+<p>ComBat is an Empirical Bayes method, meaning that the prior distribution is estimated from the data.
+It is designed to “borrow/share information” between genes in order to get a better estimate of batch effects, and assumes that batch effects affect many genes in similar ways.</p>
+<p><strong>PCA to visualise batch effect removal:</strong></p>
+<p>Principal Components Analysis (PCA) is often used to visually inspect experimental results for batch effects; when biologically alike samples cluster together rather than those from like-batches, batch effects are often ignored.
+Cell type is one of the better understood influences on gene expression.
+We know that the same DNA is in every cell, and yet the morphology and function of each cell is determined by its cell type, due to its gene expression.
+We can expect largely similar patterns of gene expression in similar cell types, which means that when we know cell type of samples, this information can be used to aid in visually checking the results of batch correction using PCA.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c08-combining"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="0-index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>Combining RNA-seq datasets</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2-data.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">8.2. </span>Data Acquisition</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,912 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.2. Snowflake Algorithm &#8212; Phenotype from Genotype</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.3. Creating Snowflake inputs" href="3-creating-inputs.html" />
+    <link rel="prev" title="4.1. Introduction" href="1-introduction.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Thesis style and philosophy
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
+   2. How phenotype arises from genotype
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: function, structure and classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c03-compbio-background/0-index.html">
+   3. How genotype and phenotype are measured and researched
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. Predictive computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/7-summary.html">
+     3.7. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0-index.html">
+   4. Phenotype prediction with Snowflake
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-creating-inputs.html">
+     4.3. Creating Snowflake inputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-preprocessing.html">
+     4.4. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-discussion.html">
+     4.6. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
+     5.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Filip results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. Ontolopy tools and practices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c08-combining/0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approach">
+   4.2.1. Approach
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-it-work">
+   4.2.2. How does it work?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#snps-are-mapped-to-phenotype-terms-using-dcgo-and-dbsnp">
+     4.2.2.1. SNPs are mapped to phenotype terms using DcGO and dbSNP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#snps-are-given-deleteriousness-scores-using-fathmm">
+     4.2.2.2. SNPs are given deleteriousness scores using FATHMM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparison-to-a-background-via-clustering">
+     4.2.2.3. Comparison to a background via clustering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phenotype-score">
+     4.2.2.4. Phenotype score
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functionality">
+   4.2.3. Functionality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#features-added-to-the-predictor">
+   4.2.4. Features added to the predictor
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#different-running-modes">
+     4.2.4.1. Different running modes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-snp-phenotype-associations-from-dbsnp">
+     4.2.4.2. Adding SNP-phenotype associations from dbSNP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dealing-with-missing-calls">
+     4.2.4.3. Dealing with missing calls
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reducing-dimensionality">
+     4.2.4.4. Reducing dimensionality
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#confidence-score-per-phenotype">
+     4.2.4.5. Confidence score per phenotype
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="snowflake-algorithm">
+<span id="snowflake-algo"></span><h1><span class="section-number">4.2. </span><code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> Algorithm<a class="headerlink" href="#snowflake-algorithm" title="Permalink to this headline">¶</a></h1>
+<p>This section introduces the Snowflake algorithm, and gives an overview of how it works, as well as a description of it’s functionality and which parts of this I contributed to.</p>
+<div class="section" id="approach">
+<span id="snowflake-approach"></span><h2><span class="section-number">4.2.1. </span>Approach<a class="headerlink" href="#approach" title="Permalink to this headline">¶</a></h2>
+<p>Snowflake belongs to a small number of phenotype prediction methods that aim to predict across many phenotypes and many genotypes.
+Although it’s designed primarily as a phenotype prediction algorithm, it also implicitly makes protein function predictions.</p>
+<p>Snowflake aims to not only create phenotype predictions, but to create explanatory predictions, where the relevant parts of the molecular biology (missense variants falling in protein domains) can be traced back and used to explore the prediction further.
+In this sense it contrasts to the black-box approaches that are currently most successful.</p>
+<!--
+<!--
+Snowflake uses outlier detection to find individuals with unusual combinations of variants, but this is primarily a means of discovering the function of combinations of variants.
+In finding these variants, Snowflake provides explanations for it's phenotype predictions, which are useful in it's own right as a possible mechanism for the phenotype.
+The locations of the variants and the proteins that they are within may then be investigated though other methods (e.g. knock-outs) to investigate whether they could be targets for treatments.
+-->
+<p>The Snowflake phenotype prediction method works by identifying individuals who have unusual combinations of deleterious missense SNPs associated with a phenotype.
+The phenotype predictor uses only data about missense SNPs in coding regions of globular proteins, so it can only be expected to work well where phenotypes are determined primarily by these kinds of mutations.</p>
+<p>This method combines conservation and variant effect scores using FATHMM<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id53"><span>113</span></a>]</span>, inference about function of protein domains using dcGO<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id51"><span>109</span></a>]</span>, and human genetic variation data from the 2500 genomes project<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id118"><span>170</span></a>]</span> to predict phenotypes of individuals based on their combinations of missense SNPs.</p>
+<!--
+While GWAS looks at each variant individually, `snowflake` groups variants by relation to phenotype: it is capable of finding combinations of SNPs that might be responsible, taking into account the fact that single SNPs do not act alone and biology is full of redundancy. 
+However, it does not take into account the structure of the redundancy.
+-->
+<!--
+Move any relevant part of this to the algorithm section:
+
+## Solution
+[//]: # (TODO: Write)
+
+The `Snowflake` phenotype prediction method works by identifying individuals who have unusual combinations of deleterious SNPs associated with a phenotype. 
+The phenotype predictor uses only data about missense SNPs in coding regions of globular proteins, so it can only be expected to work well where phenotypes are determined primarily by these kinds of mutations. However, the advantage over other methods (e.g. GWAS) is that the role of the involved SNPs is explained.
+
+This method combines conservation and variant effect scores using FATHMM{cite}`Shihab2013-pk`, inference about function of protein domains using dcGO{cite}`Fang2013-ms`, and human genetic variation data from the 2500 genomes project{cite}`Consortium2015-ci` to predict phenotypes of individuals based on their combinations of missense SNPs. 
+
+[//]: # (TODO: Write)
+
+While GWAS looks at each variant individually, `snowflake` groups variants by relation to phenotype: it is capable of finding combinations of SNPs that might be responsible, taking into account the fact that single SNPs do not act alone and biology is full of redundancy. 
+However, it does not take into account the structure of the redundancy.
+
+[//]: # (TODO: Take a look at different combinations of SNPs associated with a phenotype and see if they show up in the same genes or genes, different genes in the same pathway, etc)
+-->
+</div>
+<div class="section" id="how-does-it-work">
+<span id="id4"></span><h2><span class="section-number">4.2.2. </span>How does it work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="snowflake-overview">
+<a class="reference internal image-reference" href="../_images/snowflake-overview-new.png"><img alt="../_images/snowflake-overview-new.png" src="../_images/snowflake-overview-new.png" style="width: 250px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Flowchart showing an overview of the phenotype predictor. Scores are generated per allele using SUPERFAMILY, VEP, FATHMM and dcGO for both the input genotype(s), and the background genotypes. These data points are then combined into a matrix, which is then clustered.</span><a class="headerlink" href="#snowflake-overview" title="Permalink to this image">¶</a></p>
+</div>
+<!--
+The `Snowflake` algorithm predicts phenotype by finding individuals who have unusual combinations of deleterious genetic variants associated with a phenotype. 
+-->
+<p><a class="reference internal" href="#snowflake-overview"><span class="std std-numref">Fig. 4.2</span></a> shows how an overview of how Snowflake operates.
+One or more genotypes (in VCF or 23andMe format) are needed: this is the <em>input cohort</em>. The algorithm can then be divided into three main steps:</p>
+<ol class="simple">
+<li><p>Score variants for deleteriousness, using FATHMM and VEP</p></li>
+<li><p>Map variants to phenotype, using dcGO and SUPERFAMILY</p></li>
+<li><p>Cluster individuals per phenotype and extract score, using <abbr title="Intrinsic Dimensionality Outlier Score">IDOS</abbr>. Each genotype will be compared against all others, including (optionally) a diverse background set from the 2500 Genomes Project<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id118"><span>170</span></a>]</span>.</p></li>
+</ol>
+<p>Further detail on these steps is provided below.</p>
+<!--
+Each of these steps is modular, meaning that it's possible to use another method (other than `fathmm`) to predict the deleteriousness of variants, to map variants to phenotype, or to cluster individuals and extract the score.
+-->
+<!--
+1. For each phenotype $i$, a list of SNPs is generated such that the SNPs are associated with the phenotype (according to dcGO), and the SNPs are present in the input individuals.
+2. The input SNPs are given deleterious scores (using FATHMM), and this us used to construct an $N_{i}\times M$ matrix of scores is created based on the individual’s alleles for each of these SNPs, (where $N$=number of SNPs and $M$=number of individuals).
+3. Individuals of interest are clustered by SNP, alongside a diverse background of other people
+4. A score is calculated per person per phenotype, designed to calculate how much of an outlier the person is according to their SNPs for a given phenotype.
+
+
+-->
+<div class="section" id="snps-are-mapped-to-phenotype-terms-using-dcgo-and-dbsnp">
+<span id="dcgo-in-snowflake"></span><h3><span class="section-number">4.2.2.1. </span>SNPs are mapped to phenotype terms using DcGO and dbSNP<a class="headerlink" href="#snps-are-mapped-to-phenotype-terms-using-dcgo-and-dbsnp" title="Permalink to this headline">¶</a></h3>
+<p>DcGO<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id51"><span>109</span></a>]</span> is used to map combinations of protein domains to their associated phenotype terms, using a false discovery rate cut-off of <span class="math notranslate nohighlight">\(10^{-3}\)</span> or less.
+SNPs are therefore mapped to phenotype terms by whether they fall in a gene whose protein contains domains or combinations of domains that are statistically associated with a phenotype.
+In order to do this, DcGO makes use of SUPERFAMILY<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id48"><span>108</span></a>]</span> domain assignments, and a variety of ontology annotations (GO<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id70"><span>96</span></a>]</span>, MPO<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id119"><span>171</span></a>]</span>, HP<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id120"><span>172</span></a>]</span>, DOID<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id121"><span>173</span></a>]</span> and others).</p>
+<p>Using DcGO means that phenotypes are only mapped to protein if the link is statistically significant due to the protein’s contingent domains.
+This leaves out some known protein-phenotype links, where the function may be due to disorder for example rather than protein domain structure.</p>
+<p>Known phenotype-associated variants are therefore added back in using dbSNP<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id34"><span>58</span></a>]</span>.</p>
+</div>
+<div class="section" id="snps-are-given-deleteriousness-scores-using-fathmm">
+<span id="fathmm-in-snowflake"></span><h3><span class="section-number">4.2.2.2. </span>SNPs are given deleteriousness scores using FATHMM<a class="headerlink" href="#snps-are-given-deleteriousness-scores-using-fathmm" title="Permalink to this headline">¶</a></h3>
+<p>The phenotype predictor uses the unweighted FATHMM scores<span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id53"><span>113</span></a>]</span> to get scores per SNP for the likelihood of it causing a deleterious mutation. This is based on conservation of protein domains across all life, according to data from SUPERFAMILY<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id48"><span>108</span></a>]</span> and Pfam<span id="id15">[<a class="reference internal" href="../cz-end-matter/reference.html#id122"><span>174</span></a>]</span>.</p>
+<p>This method gives SNPs the same base FATHMM score for being deleterious, no matter which phenotype we are predicting them for.
+It is therefore the combination of SNPs per phenotype, and their rarity in the population that determines the phenotype prediction score.</p>
+</div>
+<div class="section" id="comparison-to-a-background-via-clustering">
+<span id="clustering-step"></span><h3><span class="section-number">4.2.2.3. </span>Comparison to a background via clustering<a class="headerlink" href="#comparison-to-a-background-via-clustering" title="Permalink to this headline">¶</a></h3>
+<p>Individuals are compared to all others through clustering. This usually includes comparing each individual to the genetically diverse background of the 2500 genomes project<span id="id16">[<a class="reference internal" href="../cz-end-matter/reference.html#id118"><span>170</span></a>]</span>.</p>
+<p>Clustering is the task of grouping objects into a number of groups (clusters) so that items in the same cluster are similar to each other by some measure. There are many clustering algorithms, but most are unsupervised learning algorithms which iterate while looking to minimise dissimilarity in the same cluster. A number of options were implemented for the predictor, but for the time being at least, OPTICS is used as a default.</p>
+</div>
+<div class="section" id="phenotype-score">
+<span id="individual-score"></span><h3><span class="section-number">4.2.2.4. </span>Phenotype score<a class="headerlink" href="#phenotype-score" title="Permalink to this headline">¶</a></h3>
+<p>The OPTICS clustering assigns each individual to a cluster (or labels them as an outlier). Depending on the phenotype term, the cluster is expected to either correspond to a haplogroup or a phenotype.
+In cases where the cluster refers to a haplogroup, we are interested in the outliers of all clusters, i.e. the local outlier-ness.
+In cases where the cluster is the phenotype, we are interested in the outlying cluster, i.e. the global outlier-ness.</p>
+<p>A local score, <span class="math notranslate nohighlight">\(L_{ij}\)</span> can be defined as the average Euclidean distance from an individual to the centre of it’s cluster, or for individuals that are identified as outliers by OPTICS, 2 multiplied by the distance to the centre of the nearest cluster.</p>
+<p>A global score <span class="math notranslate nohighlight">\(G_{ij}\)</span> can be defined as the distance of the cluster to the rest of the cohort.</p>
+<div class="margin sidebar" id="tf-idf">
+<p class="sidebar-title">TF-IDF</p>
+<p>Term Frequency, Inverse Document Frequency is a common and basic measure in NLP which attempts to measure how representative a term (word) is of a document.
+It is defined by <span class="math notranslate nohighlight">\(tfidf=tf(t,d) \cdot idf(t,D) = (f_{t,d}) \cdot (\frac{N}{abs{d \in D : t \in d}}) \)</span> where <span class="math notranslate nohighlight">\(f_{t,d}\)</span> is the frequency of a term <span class="math notranslate nohighlight">\(t\)</span> in a document <span class="math notranslate nohighlight">\(d\)</span>, <span class="math notranslate nohighlight">\(N\)</span> is the number of documents, and <span class="math notranslate nohighlight">\({abs{d \in D : t \in d}\)</span> is the number of documents containing the term.</p>
+</div>
+<p>The global-local score is designed to balance these sources of interest.
+It sums the two scores, adjusting the weighting by a cluster size correction factor, <span class="math notranslate nohighlight">\(\mu_{\gamma}\)</span>:
+<span class="math notranslate nohighlight">\(score_{ij}=L_{ij}+\mu_{\gamma} \cdot G_{ij}\)</span></p>
+<p>Such that: <span class="math notranslate nohighlight">\(\mu_{\gamma}=\frac{exp(\gamma \frac{n-n_j}{n})-1}{exp(\gamma)-1}\)</span> where <span class="math notranslate nohighlight">\(\gamma\)</span> is a parameter representing how strongly we wish to penalise large clusters, <span class="math notranslate nohighlight">\(n\)</span> is the over all number of individuals and <span class="math notranslate nohighlight">\(n_j\)</span> is the number of individuals in a cluster.</p>
+<p>The global-local score was inspired by the <a class="reference internal" href="#tf-idf"><span class="std std-ref">tf-idf</span></a> score popular in Natural Language Processing bag-of-word models.</p>
+</div>
+</div>
+<div class="section" id="functionality">
+<span id="snowflake-functionality"></span><h2><span class="section-number">4.2.3. </span>Functionality<a class="headerlink" href="#functionality" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> is implemented as a <abbr title="Command Line Interface">CLI</abbr> tool, written in Python with the following commands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">create-background</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">create-consequence</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">preprocessing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">predict</span></code></p></li>
+</ul>
+<!--
+Inputs:
+- Input genotype(s) in {abbr}`VCF (Variant Call Format)` or 23andMe format
+- (Optional) background cohort in {abbr}`VCF (Variant Call Format)` 
+-->
+<p>The functionality described above all happens within <code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">predict</span></code>, but in order to use <code class="docutils literal notranslate"><span class="pre">snowflake</span> <span class="pre">predict</span></code>, there are also three commands which create files needed to run the predictor.</p>
+</div>
+<div class="section" id="features-added-to-the-predictor">
+<span id="snowflake-added-features"></span><h2><span class="section-number">4.2.4. </span>Features added to the predictor<a class="headerlink" href="#features-added-to-the-predictor" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned, the phenotype predictor was already prototyped when I began working on it.
+However, considerable time was spent developing, bug-fixing, and extending this prototype.
+Here, I describe my contributions to this in detail.</p>
+<div class="section" id="different-running-modes">
+<span id="snowflake-running-modes"></span><h3><span class="section-number">4.2.4.1. </span>Different running modes<a class="headerlink" href="#different-running-modes" title="Permalink to this headline">¶</a></h3>
+<p>The original version of the phenotype predictor could only be ran one individual compared to a background set at a time.
+In order to allow for a wider range of inputs (which will be necessary to validate the predictor), support for a wider range of genotype formats and running modes was developed, including:</p>
+<ul class="simple">
+<li><p>Can be run with one person against a background</p></li>
+<li><p>Can be run with multiple people (VCF) against the background</p></li>
+<li><p>Can be run with or without the background set if there are enough people in the input set.</p></li>
+<li><p>Support for different 23andMe genotype file formats (from different chips).</p></li>
+</ul>
+<p>As the predictor was developed to perform in different running modes, it became clear that it would be necessary to streamline the algorithm.
+This included parallelisation (possible due to the independence of different phenotype terms), and various data storage and algorithm adjustments.</p>
+<p>Implementing these running modes and increases in efficiency was a collaborative effort between myself, Jan, and Ben.</p>
+</div>
+<div class="section" id="adding-snp-phenotype-associations-from-dbsnp">
+<span id="snowflake-dbsnp"></span><h3><span class="section-number">4.2.4.2. </span>Adding SNP-phenotype associations from dbSNP<a class="headerlink" href="#adding-snp-phenotype-associations-from-dbsnp" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned in the overview, using DcGO as the only SNP-phenotype mapping leaves out some known associations that are not due to protein domain structure.
+Adding dbSNP<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id34"><span>58</span></a>]</span> associations to the predictor was one of my contributions to this software.</p>
+</div>
+<div class="section" id="dealing-with-missing-calls">
+<span id="snowflake-missing-calls"></span><h3><span class="section-number">4.2.4.3. </span>Dealing with missing calls<a class="headerlink" href="#dealing-with-missing-calls" title="Permalink to this headline">¶</a></h3>
+<p>Genotyping SNP arrays often contain missing calls, where the call can not be accurately determined.
+This is an obstacle to the phenotype predictor if left unchecked as it can appear that an individual has a very unusual call when it is really just unknown.
+Since most people have a call, the missing call is unusual, and this is flagged.</p>
+<p>The most sensible solution to this problem is to assign the most common call for the individual’s cluster (i.e. combination of SNPs).
+This prevents a new cluster being formed or an individual appearing to be more unusual than they are.
+However, there is a downside to this approach when there are many missing calls.
+Adding all missing calls to a cluster that was only slightly more common than the alternatives can lead to the new cluster containing the missing data dwarfing the others.
+To fix this, SNPs with many missing calls were discarded.</p>
+<p>Alternatives such as assigning the most common call for that SNP only, or assigning an average score for that SNP dimension by carrying out a “normalised cut”<span id="id18">[<a class="reference internal" href="../cz-end-matter/reference.html#id123"><span>175</span></a>]</span> are untenable since they can create the same problem we are trying to overcome: the appearance of an individual having an unusual combination of calls.</p>
+</div>
+<div class="section" id="reducing-dimensionality">
+<span id="snowflake-dimensionality-reduction"></span><h3><span class="section-number">4.2.4.4. </span>Reducing dimensionality<a class="headerlink" href="#reducing-dimensionality" title="Permalink to this headline">¶</a></h3>
+<p>Some phenotypes have large numbers of SNPs associated with them - too many to assign individuals to clusters.
+I added a dimensionality reduction step in the clustering, and tested different clustering methods designed for use on high-dimensional data.
+These changes are explained <a class="reference internal" href="1-introduction.html#curse-of-dimensionality-section"><span class="std std-ref">later in this Chapter</span></a>.</p>
+</div>
+<div class="section" id="confidence-score-per-phenotype">
+<span id="id19"></span><h3><span class="section-number">4.2.4.5. </span>Confidence score per phenotype<a class="headerlink" href="#confidence-score-per-phenotype" title="Permalink to this headline">¶</a></h3>
+<p>The phenotype predictor outputs a score for each person for each phenotype.
+Our confidence in these scores depends on the distribution of scores, as well as the scale of them.
+A distribution of scores with distinct groups of individuals is generally preferable, since most phenotypes that we are interested in are categorical or it is at least more useful to highlight phenotypes that can be predicted this way (i.e. if there are 100 groups with varying risk of a disease, that would be less useful than knowing there are 2 groups with high/low risk).</p>
+<div class="figure align-default" id="shaded-score">
+<a class="reference internal image-reference" href="../_images/shaded_score.png"><img alt="../_images/shaded_score.png" src="../_images/shaded_score.png" style="width: 250px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4.3 </span><span class="caption-text">An illustration of how the confidence score per phenotype is calculated.</span><a class="headerlink" href="#shaded-score" title="Permalink to this image">¶</a></p>
+</div>
+<p>I developed a simple method of prioritising predictions according to these requirements.
+A confidence score is achieved by plotting the ranked raw score and measuring the area between a straight line resting on this the most extreme points and the line itself, as illustrated in <a class="reference internal" href="#shaded-score"><span class="std std-numref">Fig. 4.3</span></a>.
+Since this measure takes into account the size of the raw scores, these confidence scores can be compared across phenotypes.</p>
+<div class="figure align-default" id="interesting-scores">
+<a class="reference internal image-reference" href="../_images/interesting-scores.png"><img alt="../_images/interesting-scores.png" src="../_images/interesting-scores.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4.4 </span><span class="caption-text">Ranked scores for <code class="docutils literal notranslate"><span class="pre">DOID:1324</span></code> - the disease ontology term Lung Cancer (left) and HP:0008518 - the human phenotype ontology term for Absent/underdeveloped sacral bone (right). These represent an interesting and uninteresting distribution of scores, respectively.</span><a class="headerlink" href="#interesting-scores" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#interesting-scores"><span class="std std-numref">Fig. 4.4</span></a> shows an example of an interesting and uninteresting distribution.
+These distributions mostly depend on the number, population frequency, and FATHMM score of the SNPs associated with the phenotype term.</p>
+<!--
+#### Outputs 
+[//]: # (TODO: Write about outputs of the predictor)
+
++++
+
+### `snowflake create_background`
+For any given run of `Snowflake`, we are only interested in variants where:
+- there is overlap between the background cohort and the predictive cohort
+- AND we have conservation information so that we can score the deleteriousnss of the variant.
+
+[//]: # (TODO: Come up with a name for the none-background genetic data set and use it consistently)
+We first create base versions of the `Snowflake` background cohort input files, and then create slimmed versions of the background set (with only the overlapping variants for each input/predictive dataset) for each input run.
+
+For the base versions of the background cohort, we create:
+- A `.Consequence` file containing conservation scores per SNP
+- A VCF file containing the genetic data for the background set that overlaps with the information in the `.Consequence` file.
+
+[//]: # (TODO: Optional for thesis: Upload scripts which do this to `snowflake` repo: `deletesparecomments.py`)
+
+**Step 1: Acquire variant information as a large temporary VCF file**
+We first create a large VCF file containing all possible variants.
+
+In order to make the `.Consequence` file it is necessary to have a list of all variants of interest; their locations on the genome, and the possible variants at that location. 
+
+In the case of the 1000 Genomes project, we create a large temporary VCF file by downloading and concatenating the per chromosome VCF files (minus the meta data at the top for all bar the first, which is the same for all files). 
+
+**Step 2: Create `.Consequence` file**
+After obtaining the large VCF file, we then:
+- trim the VCF file to contain only the necessary columns (first 10) to reduce the amount of memory required in the next step.
+- run these variants through the [Variant Effect Predictor](https://www.ensembl.org/info/docs/tools/vep/index.html), using the correct build.
+- grep for "missense"
+- run `snowflake create-consequence` to get a FATHMM score for each missense variant and create the `.Consequence` file.
+
+**Step 3: Create the base background VCF**
+Since the VCF file created in Step 1 is larger than needed by `Snowflake`, we then reduce the temporary VCF file (created in Step 1) to only the proteins in the `.Consequence` file created in Step 2. Other variants will not be used by the predictor, and this substantially reduces the memory needed to run `Snowflake`.
+
+[//]: # (TODO: Write about the diversity/limitations of the 2500 genomes project)
+[//]: # (TODO: Write about the impact of the fact that the 2500 genomes project is whole genome sequencing, while the rest is mostly genotype data)
+[//]: # (TODO: Put somewhere -after creating the VCF and `.Consequence` files for the input individuals, we create a slimmed version of the background cohort files)
+
+
+##### 1000 Genome Project background files
+[//]: # (TODO: Write)
+[//]: # (TODO: Exploratory Data Analysis/Data set stats here)
+
+
+(snowflake-create-input)=
+### `snowflake create_input`
+
+
+### `snowflake preprocessing`
+[//]: # (TODO: Describe the purpose of this here)
+
+#### Inputs
+
+#### Outputs
+
+#### Method
+
+
+
+
+
+--></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c04-snowflake"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="1-introduction.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">4.1. </span>Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="3-creating-inputs.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.3. </span>Creating Snowflake inputs</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

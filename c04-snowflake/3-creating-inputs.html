@@ -1,0 +1,1260 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.3. Creating Snowflake inputs &#8212; Phenotype from Genotype</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.4. Preprocessing" href="4-preprocessing.html" />
+    <link rel="prev" title="4.2. Snowflake Algorithm" href="2-snowflake-algorithm.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Thesis style and philosophy
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
+   2. How phenotype arises from genotype
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: function, structure and classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c03-compbio-background/0-index.html">
+   3. How genotype and phenotype are measured and researched
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/3-ontologies.html">
+     3.3. Ontologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/4-comp-bio-methods.html">
+     3.4. Predictive computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/5-bias.html">
+     3.5. Sources of bias in computational biology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/6-pqi.html">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c03-compbio-background/7-summary.html">
+     3.7. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0-index.html">
+   4. Phenotype prediction with Snowflake
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     4.3. Creating Snowflake inputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-preprocessing.html">
+     4.4. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-discussion.html">
+     4.6. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
+     5.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Filip results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. Ontolopy tools and practices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c08-combining/0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dcgo-phenotype-mapping-file-human">
+   4.3.1. DcGO phenotype mapping file (human)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background-cohort">
+   4.3.2. Background cohort
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-acquisition-the-1000-genomes-project">
+     4.3.2.1. Data acquisition: the 1000 Genomes project
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-final-input-vcf">
+     4.3.2.2. Create final input VCF
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#consequence-file">
+   4.3.3. Consequence file
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-the-variant-effect-predictor-tool">
+     4.3.3.1. Run the Variant Effect Predictor tool
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#query-fathmm-and-superfamily-for-the-snps-of-interest">
+     4.3.3.2. Query FATHMM and SUPERFAMILY for the SNPs of interest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary">
+     4.3.3.3. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#input-cohort">
+   4.3.4. Input cohort
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#andme-file-formats">
+     4.3.4.1. 23andMe file formats
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#genome-builds">
+     4.3.4.2. Genome builds
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="creating-snowflake-inputs">
+<span id="id1"></span><h1><span class="section-number">4.3. </span>Creating Snowflake inputs<a class="headerlink" href="#creating-snowflake-inputs" title="Permalink to this headline">¶</a></h1>
+<p>This section describes the sources and pipelines for creating inputs to Snowflake, including necessary files that are packaged alongside it.</p>
+<p>There are four main inputs required by Snowflake which must be created:</p>
+<ol class="simple">
+<li><p>dcGO phenotype mapping file: high-quality mappings between protein (supra)domains and phenotype terms from 16 biomedical ontologies - provided as part of Snowflake</p></li>
+<li><p>Background cohort: genetic data of diverse individuals (<code class="docutils literal notranslate"><span class="pre">.vcf</span></code>, VCF format) - default human option provided as part of Snowflake</p></li>
+<li><p>Consequence file: deleteriousness scores per SNP (<code class="docutils literal notranslate"><span class="pre">.Consequence</span></code>, format specific to <code class="docutils literal notranslate"><span class="pre">snowflake</span></code>) - default human option provided as part of Snowflake</p></li>
+<li><p>Input cohort: genetic data of person or people of interest (<code class="docutils literal notranslate"><span class="pre">.vcf</span></code>, VCF format) - provided by user</p></li>
+</ol>
+<p>The dcGO mapping file works for all organisms and only needs remaking if dcGO or SUPERFAMILY have significant updates.
+Alternatively, a slimmed version can be created that contains only the ontologies of interest to a specific organism which reduces Snowflake’s running time, and here I explain how I made a slimmed version of this file for ontologies of interest to humans.
+The background cohort and consequence file must be created once for each organism/genome build.
+Here, since I have only used Snowflake in predicting human phenotypes, I walk through the creation of the human background cohort and consequence file.
+Lastly, the input cohort file must be created per input cohort.
+Here I run through the creation of a VCF file from 23andMe genotype files.</p>
+<div class="info admonition" id="consequences-input-cohort">
+<p class="admonition-title">Consequences of input cohort SNPs</p>
+<p>It is possible to create a consequence file for any cohort VCF file, i.e. it would be possible to make an input cohort consequence file.
+However, since Snowflake can only cluster our input cohort against the background for SNPs which overlap between the two cohorts, we only need to create one such file for either the input or the background.
+Here I’ve chosen to do it for the background cohort since then this file can be reused for many different input cohorts.</p>
+</div>
+<div class="section" id="dcgo-phenotype-mapping-file-human">
+<span id="dcgo-input"></span><h2><span class="section-number">4.3.1. </span>DcGO phenotype mapping file (human)<a class="headerlink" href="#dcgo-phenotype-mapping-file-human" title="Permalink to this headline">¶</a></h2>
+<p>It is simple to create the dcGO mapping file since dcGO provides the required files for download on the <a class="reference external" href="https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/cgi-bin/dcdownload.cgi">SUPERFAMILY website</a>.
+The website provides 2 files of <a class="reference internal" href="#high-coverage-dcgo"><span class="std std-ref">high-coverage</span></a> mappings for each ontology supported by dcGO: one that maps between SCOP domains and ontology terms, and another that maps between SCOP <abbr title="combinations of domains">supradomains</abbr> and ontology terms.
+Currently, Snowflake does not support the inclusion of dcGO supra-domain assignments.</p>
+<div class="info admonition" id="high-coverage-dcgo">
+<p class="admonition-title">High-coverage versus high-quality</p>
+<p>DcGO provides two versions of it’s GO mappings: high-coverage and high-quality. The high-quality mapping contains only those associations between domains and phenotypes that are supported by single-domain proteins, while the high-coverage version contains some associations that have been inferred from known associations to multi-domain proteins. The high-coverage mapping contains roughly 10 times as many GO terms and 10 times as many protein domains compared to the high-quality version.</p>
+<p>For all other (non-GO) ontologies, dcGO provides only the high-coverage version.</p>
+<p>The high-coverage mappings were used in Snowflake to increase the coverage of the phenotype predictions, i.e. so that more SNPs could be included and more phenotypes.</p>
+</div>
+<div class="margin sidebar" id="choosing-dcgo-ontologies">
+<p class="sidebar-title">Incusion of the Mammalian Phenotype ontology</p>
+<p>The Mamalian Phenotype (MP) ontology<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id226"><span>176</span></a>]</span> is based on phenotypes seen in mice. While mice do have many anatomical and phenotypic similarities to humans, and are thus often used as models for human diseases, there are of course differences and some terms don’t directly translate or are likely to be defined differently for humans (e.g. <code class="docutils literal notranslate"><span class="pre">MP:0001933</span></code> <em>abnormal litter size</em> or <code class="docutils literal notranslate"><span class="pre">MP:0002068</span></code> <em>abnormal parental behaviour</em>) and have different mechanisms behind them.
+There are also many terms which do make sense for humans (e.g. <code class="docutils literal notranslate"><span class="pre">MP:0002166</span></code> <em>altered tumour susceptibility</em> or <code class="docutils literal notranslate"><span class="pre">MP:0011117</span></code> <em>abnormal susceptibility to weight gain</em>) and may represent interesting results. The suitability of MP terms must be considered term-by-term, but the terms were included in the human phenotype mapping file to increase coverage of both proteins and phenotypes.</p>
+</div>
+<p>The ontologies that contain interpretable phenotype terms for humans are:</p>
+<ul class="simple">
+<li><p>Disease Ontology<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id121"><span>173</span></a>]</span> (DO)</p></li>
+<li><p>Human Phenotype Ontology<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id187"><span>102</span></a>]</span> (HP)</p></li>
+<li><p>Gene Ontology<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id70"><span>96</span></a>]</span> (GO), specifically terms from the <code class="docutils literal notranslate"><span class="pre">biological_process</span></code> subontology.</p></li>
+<li><p>MEdical Subject Headings<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id231"><span>177</span></a>]</span>, (MESH) - on the dcGO website this is found under CTD diseases</p></li>
+<li><p>Mammalian Phenotype Ontology<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id226"><span>176</span></a>]</span> (MP)</p></li>
+</ul>
+<p>Some of these ontologies aren’t designed only (or even primarily) for humans, but since they <a class="reference internal" href="#choosing-dcgo-ontologies"><span class="std std-ref">contain terms which are relevant to humans</span></a> and the associations are made based on protein domains found in human proteins, these ontologies were chosen.
+While dcGO supports many other ontologies (e.g. Zebrafish and Xenopus ontologies) based on protein domains that can be found in humans, I made the decision that the trade-off between the additional time needed to run the phenotype predictor and sift through the results of these ontology terms was not worth the increase in coverage gained from whichever of these terms were meaningful.</p>
+<p>To create the Snowflake input for humans, files for the five relevant ontologies were downladed (for <a class="reference external" href="https://supfam.org/SUPERFAMILY/Domain2GO/Domain2DO.txt">DO</a>, <a class="reference external" href="https://supfam.org/SUPERFAMILY/Domain2GO/Domain2HP.txt">HP</a>, <a class="reference external" href="https://supfam.org/SUPERFAMILY/Domain2GO/Domain2GO_supported_only_by_all.txt">GO</a>, <a class="reference external" href="https://supfam.org/SUPERFAMILY/Domain2GO/Domain2CD.txt">MESH</a>, and <a class="reference external" href="https://supfam.mrc-lmb.cam.ac.uk/SUPERFAMILY/Domain2GO/Domain2MP.txt">MP</a>), then concatenated, and the GO cellular component and GO molecular function terms were removed (these term identifiers were extracted from the <code class="docutils literal notranslate"><span class="pre">GO_subontologies</span></code> field of the <code class="docutils literal notranslate"><span class="pre">Domain2GO_supported_only_by_all.txt</span></code> file).</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">notebook_name</span> <span class="o">=</span> <span class="s1">&#39;3-creating-inputs.ipynb&#39;</span> <span class="c1"># __file__ doesn&#39;t work in a jupyter notebook</span>
+
+<span class="n">input_dir</span> <span class="o">=</span> <span class="s1">&#39;data/dcGO_input/downloaded&#39;</span>
+<span class="n">HP_loc</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="s1">&#39;Domain2HP.txt&#39;</span><span class="p">)</span>
+<span class="n">MESH_loc</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="s1">&#39;Domain2CD.txt&#39;</span><span class="p">)</span>
+<span class="n">DO_loc</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="s1">&#39;Domain2DO.txt&#39;</span><span class="p">)</span>
+<span class="n">GO_loc</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="s1">&#39;Domain2GO_supported_only_by_all.txt&#39;</span><span class="p">)</span> <span class="c1"># high coverage</span>
+<span class="n">MP_loc</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="s1">&#39;Domain2MP.txt&#39;</span><span class="p">)</span>
+
+<span class="n">new_col_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;domain_type&#39;</span><span class="p">,</span> 
+                 <span class="s1">&#39;domain_sunid&#39;</span><span class="p">,</span> 
+                 <span class="s1">&#39;ont_term_id&#39;</span><span class="p">,</span> 
+                 <span class="s1">&#39;ont_term_name&#39;</span><span class="p">,</span> 
+                 <span class="s1">&#39;ont_subontologies&#39;</span><span class="p">,</span> 
+                 <span class="s1">&#39;information_content&#39;</span><span class="p">,</span> 
+                 <span class="s1">&#39;annotation_origin_1direct_0inherited&#39;</span><span class="p">]</span>
+
+<span class="n">hp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">HP_loc</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span>
+<span class="n">hp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">new_col_names</span>
+<span class="n">hp</span><span class="p">[</span><span class="s1">&#39;ont_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;HP&#39;</span>
+
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MESH_loc</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">new_col_names</span>
+<span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;ont_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MESH&#39;</span>
+
+<span class="n">do</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DO_loc</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span>
+<span class="n">do</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">new_col_names</span>
+<span class="n">do</span><span class="p">[</span><span class="s1">&#39;ont_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;DO&#39;</span>
+
+<span class="n">go</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">GO_loc</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span>
+<span class="n">go</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">new_col_names</span>
+<span class="n">go</span> <span class="o">=</span> <span class="n">go</span><span class="p">[</span><span class="n">go</span><span class="p">[</span><span class="s1">&#39;ont_subontologies&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;biological_process&#39;</span><span class="p">]</span>
+<span class="n">go</span><span class="p">[</span><span class="s1">&#39;ont_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;GO_BP&#39;</span>
+
+<span class="n">mp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MP_loc</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span>
+<span class="n">mp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">new_col_names</span>
+<span class="n">mp</span><span class="p">[</span><span class="s1">&#39;ont_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MP&#39;</span>
+
+<span class="n">all_onts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">hp</span><span class="p">,</span> <span class="n">mesh</span><span class="p">,</span> <span class="n">do</span><span class="p">,</span> <span class="n">go</span><span class="p">,</span> <span class="n">mp</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">outfile</span> <span class="o">=</span> <span class="s1">&#39;data/dcGO_input/created/human_po.txt&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;# file created at </span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="si">}</span><span class="s1"> by </span><span class="si">{</span><span class="n">notebook_name</span><span class="si">}</span><span class="s1">.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;# file contains high coverage mappings for HP, MESH (CD), DO, and GOBP.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">all_onts</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+<span class="n">display</span><span class="p">(</span><span class="n">all_onts</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">glue_counts_dcGO</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Expects a DataFrame df that contains only ontology terms of interest.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">glue</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">identifier</span><span class="si">}</span><span class="s2">_assignments&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+    <span class="n">glue</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">identifier</span><span class="si">}</span><span class="s2">_terms&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ont_term_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+    <span class="n">glue</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">identifier</span><span class="si">}</span><span class="s2">_domains&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;domain_sunid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+    
+    <span class="k">return</span> <span class="kc">None</span>
+    
+<span class="n">glue_counts_dcGO</span><span class="p">(</span><span class="n">all_onts</span><span class="p">[</span><span class="n">all_onts</span><span class="p">[</span><span class="s1">&#39;ont_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;HP&#39;</span><span class="p">],</span> <span class="s1">&#39;HP&#39;</span><span class="p">)</span>
+<span class="n">glue_counts_dcGO</span><span class="p">(</span><span class="n">all_onts</span><span class="p">[</span><span class="n">all_onts</span><span class="p">[</span><span class="s1">&#39;ont_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;MESH&#39;</span><span class="p">],</span> <span class="s1">&#39;MESH&#39;</span><span class="p">)</span>
+<span class="n">glue_counts_dcGO</span><span class="p">(</span><span class="n">all_onts</span><span class="p">[</span><span class="n">all_onts</span><span class="p">[</span><span class="s1">&#39;ont_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;DO&#39;</span><span class="p">],</span> <span class="s1">&#39;DO&#39;</span><span class="p">)</span>
+<span class="n">glue_counts_dcGO</span><span class="p">(</span><span class="n">all_onts</span><span class="p">[</span><span class="n">all_onts</span><span class="p">[</span><span class="s1">&#39;ont_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;GO_BP&#39;</span><span class="p">],</span> <span class="s1">&#39;GOBP&#39;</span><span class="p">)</span>
+<span class="n">glue_counts_dcGO</span><span class="p">(</span><span class="n">all_onts</span><span class="p">[</span><span class="n">all_onts</span><span class="p">[</span><span class="s1">&#39;ont_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;MP&#39;</span><span class="p">],</span> <span class="s1">&#39;MP&#39;</span><span class="p">)</span>
+<span class="n">glue_counts_dcGO</span><span class="p">(</span><span class="n">all_onts</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span> 
+
+<span class="n">lines_to_view</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8000</span><span class="p">,</span><span class="mi">20000</span><span class="p">,</span><span class="mi">50000</span><span class="p">]</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">HTML</span><span class="p">(</span><span class="n">all_onts</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">lines_to_view</span><span class="p">]</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span> 
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;excerpt-pofile&quot;</span><span class="p">,</span> <span class="n">view</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="tbl-excerpt-pofile" style="width: 800px">
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>domain_type</th>
+      <th>domain_sunid</th>
+      <th>ont_term_id</th>
+      <th>ont_term_name</th>
+      <th>ont_subontologies</th>
+      <th>information_content</th>
+      <th>annotation_origin_1direct_0inherited</th>
+      <th>ont_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fa</td>
+      <td>55528</td>
+      <td>HP:0000925</td>
+      <td>Abnormality of the vertebral column</td>
+      <td>Phenotypic_abnormality</td>
+      <td>1.123852</td>
+      <td>0</td>
+      <td>HP</td>
+    </tr>
+    <tr>
+      <td>sf</td>
+      <td>53822</td>
+      <td>MESH:D013568</td>
+      <td>Pathological Conditions, Signs and Symptoms</td>
+      <td>CTD_diseases</td>
+      <td>0.581857</td>
+      <td>0</td>
+      <td>MESH</td>
+    </tr>
+    <tr>
+      <td>sf</td>
+      <td>48619</td>
+      <td>GO:0006658</td>
+      <td>phosphatidylserine metabolic process</td>
+      <td>biological_process</td>
+      <td>2.596963</td>
+      <td>1</td>
+      <td>GO_BP</td>
+    </tr>
+  </tbody>
+</table></div></div>
+<p class="caption"><span class="caption-number">Fig. 4.5 </span><span class="caption-text">An excerpt of the dcGO mapping file <code class="docutils literal notranslate"><span class="pre">human_po.txt</span></code>, showing mappings between phenotype terms from a range of ontologies, and SCOP sun IDs.</span><a class="headerlink" href="#tbl-excerpt-pofile" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#tbl-excerpt-pofile"><span class="std std-numref">Fig. 4.5</span></a> shows the type of content inside the phenotype ontology file.
+the <code class="docutils literal notranslate"><span class="pre">information_content</span></code> field is a measure of how specific the phenotype term is, for example <em>Pathological Conditions, Signs and Symptoms</em> is a very general term, while <em>Abnormality of the vertebral column</em> is more specific and <em>phosphatidylserine metabolic process</em> is the most specific shown.</p>
+<table class="table" id="dcgo-po-stats">
+<caption><span class="caption-number">Table 4.1 </span><span class="caption-text">Summary statistics of the coverage of human-related phenotype terms.</span><a class="headerlink" href="#dcgo-po-stats" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Ontology</p></th>
+<th class="head"><p>Number of dcGO assignments</p></th>
+<th class="head"><p>Number of unique terms assigned</p></th>
+<th class="head"><p>Number of unique domain <code class="docutils literal notranslate"><span class="pre">sunid</span></code>s assigned</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HP: Human phenotype ontology</p></td>
+<td><p><span class="pasted-text">15984</span></p></td>
+<td><p><span class="pasted-text">1978</span></p></td>
+<td><p><span class="pasted-text">562</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>MeSH: Medical Subject headings</p></td>
+<td><p><span class="pasted-text">5761</span></p></td>
+<td><p><span class="pasted-text">620</span></p></td>
+<td><p><span class="pasted-text">473</span></p></td>
+</tr>
+<tr class="row-even"><td><p>DO: Disease ontology</p></td>
+<td><p><span class="pasted-text">7538</span></p></td>
+<td><p><span class="pasted-text">614</span></p></td>
+<td><p><span class="pasted-text">566</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>GOBP: Gene ontology, biological process</p></td>
+<td><p><span class="pasted-text">304064</span></p></td>
+<td><p><span class="pasted-text">9546</span></p></td>
+<td><p><span class="pasted-text">3135</span></p></td>
+</tr>
+<tr class="row-even"><td><p>MP: Mammalian phenotype ontology</p></td>
+<td><p><span class="pasted-text">24208</span></p></td>
+<td><p><span class="pasted-text">2528</span></p></td>
+<td><p><span class="pasted-text">719</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Total (all included ontologies)</p></td>
+<td><p><span class="pasted-text">357555</span></p></td>
+<td><p><span class="pasted-text">15286</span></p></td>
+<td><p><span class="pasted-text">3146</span></p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="#dcgo-po-stats"><span class="std std-numref">Table 4.1</span></a> shows the number of assignments, unique phenotype terms, and unique domains covered in the dcGO phenotype mapping per ontology and in total.
+The file contains <span class="pasted-text">357555</span> assignments, <span class="pasted-text">15286</span> unique ontology terms, and <span class="pasted-text">3146</span> unique domains.
+This constrains the proteins and phenotypes which Snowflake can make predictions about.</p>
+</div>
+<div class="section" id="background-cohort">
+<span id="bg-cohort-input"></span><h2><span class="section-number">4.3.2. </span>Background cohort<a class="headerlink" href="#background-cohort" title="Permalink to this headline">¶</a></h2>
+<p>As described in the overview, Snowflake requires genetic “background” data to compare the individuals we are interested in against, i.e. so that meaningful clustering can take place.
+Although Snowflake has the functionality to be run with any background data set, the choice of data set is constrained since it must contain representative genetic data from from the entire population.</p>
+<div class="section" id="data-acquisition-the-1000-genomes-project">
+<span id="acquire-1000g"></span><h3><span class="section-number">4.3.2.1. </span>Data acquisition: the 1000 Genomes project<a class="headerlink" href="#data-acquisition-the-1000-genomes-project" title="Permalink to this headline">¶</a></h3>
+<p>The 1000 Genomes project<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id118"><span>170</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id137"><span>178</span></a>]</span> ran from 2008 to 2015, with the aim of comprehensively mapping common human genetic variation across diverse populations.
+The project sequenced individuals whole genomes, and released data in two main phases:</p>
+<ul class="simple">
+<li><p>Phase 1: 37.9 million variants, in 1092 individuals, across 14 populations</p></li>
+<li><p>Phase 3: 84.4 million variants, in 2504 individuals, across 26 populations</p></li>
+</ul>
+<div class="margin sidebar" id="vcf-format">
+<p class="sidebar-title">VCF</p>
+<p>When individual humans have their whole genomes sequenced, this is compared to the human reference genome.
+The alleles at each location are commonly stored in Variant Call Format (VCF) files; a much more compact format compared to storing the entire genome.
+VCF files describe the locations on the genome of variations between individuals, given by chromosome, position, variant identifiers (e.g. rsID), and then the calls at those locations for each individual.</p>
+</div>
+<p>Data from the 1000 Genomes project are always used for the background cohort to Snowflake, with data from the 1000 Genomes project Phase 3<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id118"><span>170</span></a>]</span> used as a default, and earlier experiments using data from Phase 1<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id137"><span>178</span></a>]</span>.
+Here I describe the process of creating the phase 1 <a class="reference internal" href="#vcf-format"><span class="std std-ref">VCF</span></a> file (<code class="docutils literal notranslate"><span class="pre">1000G.vcf</span></code>), but the same process is followed to create the larger phase 3 VCF file (<code class="docutils literal notranslate"><span class="pre">2500G.vcf</span></code>).</p>
+<p>For both phases of the 1000 Genomes project, data are provided as VCF files for each chromosome.
+Both data sets are available through the <a class="reference external" href="https://www.internationalgenome.org/data">International Genome Sequencing Resource</a><span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id138"><span>179</span></a>]</span> (IGSR); phase 1 VCFs (GRCh37) can be downloaded via FTP at <code class="docutils literal notranslate"><span class="pre">ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/</span></code>, and phase 3 VCFs (GRCh37) can be downloaded at <code class="docutils literal notranslate"><span class="pre">ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/</span></code>.</p>
+<p>After downloading these files, the per-chromosome VCF files were combined into one large VCF file (for all chromosomes).
+The <a class="reference internal" href="#creating-consequence-file"><span class="std std-ref">consequence</span></a> file must be created at this stage, before the final input VCF can be created.</p>
+</div>
+<div class="section" id="create-final-input-vcf">
+<span id="final-bg-vcf"></span><h3><span class="section-number">4.3.2.2. </span>Create final input VCF<a class="headerlink" href="#create-final-input-vcf" title="Permalink to this headline">¶</a></h3>
+<p>In order to create the final input VCF, we must remove SNPs from the VCF file that are not in the consequence file.
+This reduces the file size dramatically, since many recorded SNPs are either synonymous, nonsense, non-coding or multi-allelic.
+The VCF file is then <a class="reference external" href="http://www.htslib.org/doc/tabix.html">Tabix</a>-indexed<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id265"><span>180</span></a>]</span>, which increases the speed of Snowflake.</p>
+</div>
+</div>
+<div class="section" id="consequence-file">
+<span id="creating-consequence-file"></span><h2><span class="section-number">4.3.3. </span>Consequence file<a class="headerlink" href="#consequence-file" title="Permalink to this headline">¶</a></h2>
+<p>The consequence file contains the “consequences” of one amino acid being changed to another, which is used to weight which SNPs are the more important dimensions for clustering a phenotype.
+It also contains the mapping between SNPs and proteins, and SNPs and domain architecture.</p>
+<p>This file is generated using:</p>
+<ul class="simple">
+<li><p>Ensembl’s <abbr title="Variant Effect Predictor">VEP</abbr> tool to map from chromosomes and locations to SNP type (e.g. missense/nonsense/nonsynonymous), and to protein ID</p></li>
+<li><p>FATHMM for scoring the deleteriousness of <a class="reference internal" href="../c02-biology-background/3-more-dna.html#missense"><span class="std std-ref">missense</span></a> mutatations</p></li>
+<li><p>SUPERFAMILY for mapping from protein IDs given by VEP to their domain architectures (SCOP family/superfamily)</p></li>
+</ul>
+<div class="section" id="run-the-variant-effect-predictor-tool">
+<span id="run-vep"></span><h3><span class="section-number">4.3.3.1. </span>Run the Variant Effect Predictor tool<a class="headerlink" href="#run-the-variant-effect-predictor-tool" title="Permalink to this headline">¶</a></h3>
+<p>In order to get a list of SNPs to input to FATHMM, we must first determine which SNPs in the background data are missense SNPs.
+This can be done using Ensembl’s <abbr title="Variant Effect Predictor">VEP</abbr> <a class="reference external" href="https://www.ensembl.org/info/docs/tools/vep/index.html">web tool</a><span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id56"><span>115</span></a>]</span>, which takes a VCF as input.
+This first 10 columns of the combined VCF file is used as input to VEP since only these columns are needed, and making the file smaller reduces processing time.</p>
+</div>
+<div class="section" id="query-fathmm-and-superfamily-for-the-snps-of-interest">
+<span id="query-fathmm"></span><h3><span class="section-number">4.3.3.2. </span>Query FATHMM and SUPERFAMILY for the SNPs of interest<a class="headerlink" href="#query-fathmm-and-superfamily-for-the-snps-of-interest" title="Permalink to this headline">¶</a></h3>
+<p>To get the consequence file, VEP output was first filtered to contain only biallelic missense SNPs, and was then used as input to query the FATHMM and SUPERFAMILY databases for the unweighted conservation scores and the domain assignments.</p>
+</div>
+<div class="section" id="summary">
+<span id="consequence-summary"></span><h3><span class="section-number">4.3.3.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_remove-output tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glue</span><span class="p">(</span><span class="s1">&#39;consequence-rows&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">c_df</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;consequence-unique-snps&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">c_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;consequence-unique-proteins&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">c_df</span><span class="p">[</span><span class="s1">&#39;ENSP_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span> 
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;consequence-unique-families&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">c_df</span><span class="p">[</span><span class="s1">&#39;FAMILY&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span> 
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;consequence-unique-supfam&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">c_df</span><span class="p">[</span><span class="s1">&#39;SUPERFAMILY&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+
+<span class="n">regs_snp</span> <span class="o">=</span> <span class="n">c_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+<span class="n">multi_family_snp</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">multi_supfam_snp</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">for</span> <span class="n">chrom</span><span class="p">,</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">c_df</span><span class="p">[</span><span class="n">c_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    <span class="n">families_per_snp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">c_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">chrom</span><span class="p">,</span> <span class="n">pos</span><span class="p">)][</span><span class="s1">&#39;FAMILY&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+    <span class="n">superfamilies_per_snp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">c_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">chrom</span><span class="p">,</span> <span class="n">pos</span><span class="p">)][</span><span class="s1">&#39;SUPERFAMILY&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">families_per_snp</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">superfamilies_per_snp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">multi_family_snp</span> <span class="o">=</span> <span class="p">(</span><span class="n">chrom</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">superfamilies_per_snp</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">multi_supfam_snp</span> <span class="o">=</span> <span class="p">(</span><span class="n">chrom</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+        
+    <span class="k">if</span> <span class="n">multi_family_snp</span> <span class="ow">and</span> <span class="n">multi_supfam_snp</span><span class="p">:</span>
+        <span class="k">break</span>
+
+<span class="n">index_to_view</span> <span class="o">=</span> <span class="p">[</span><span class="n">regs_snp</span><span class="p">,</span> <span class="n">multi_family_snp</span><span class="p">,</span> <span class="n">multi_supfam_snp</span><span class="p">]</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;excerpt-consequence&quot;</span><span class="p">,</span> <span class="n">c_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index_to_view</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="tbl-excerpt-consequence" style="width: 800px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>calls</th>
+      <th>snp_id</th>
+      <th>ENSP_id</th>
+      <th>prot_sub</th>
+      <th>HMM</th>
+      <th>position</th>
+      <th>ref_prob</th>
+      <th>mut_prob</th>
+      <th>SUPERFAMILY</th>
+      <th>Sup_e_val</th>
+      <th>FAMILY</th>
+      <th>Fam_e_val</th>
+    </tr>
+    <tr>
+      <th>#CHROM</th>
+      <th>POS</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="8" valign="top">1</th>
+      <th>69224</th>
+      <td>A/T</td>
+      <td>NaN</td>
+      <td>ENSP00000334393</td>
+      <td>D45V</td>
+      <td>SF0037432</td>
+      <td>44</td>
+      <td>0.524940000001</td>
+      <td>4.26011</td>
+      <td>81321</td>
+      <td>2.93e-78</td>
+      <td>81320</td>
+      <td>0.0021</td>
+    </tr>
+    <tr>
+      <th>1290695</th>
+      <td>G/C</td>
+      <td>NaN</td>
+      <td>ENSP00000307887</td>
+      <td>T136S</td>
+      <td>SF0042359</td>
+      <td>95</td>
+      <td>1.83872</td>
+      <td>2.56474</td>
+      <td>48726</td>
+      <td>3.14e-10</td>
+      <td>48727</td>
+      <td>0.0099</td>
+    </tr>
+    <tr>
+      <th>1290695</th>
+      <td>G/C</td>
+      <td>NaN</td>
+      <td>ENSP00000344998</td>
+      <td>T35S</td>
+      <td>SF0047556</td>
+      <td>61</td>
+      <td>1.72866</td>
+      <td>2.45993</td>
+      <td>48726</td>
+      <td>0.000485</td>
+      <td>49159</td>
+      <td>0.077</td>
+    </tr>
+    <tr>
+      <th>1290695</th>
+      <td>G/C</td>
+      <td>NaN</td>
+      <td>ENSP00000399229</td>
+      <td>T136S</td>
+      <td>SF0042359</td>
+      <td>95</td>
+      <td>1.83872</td>
+      <td>2.56474</td>
+      <td>48726</td>
+      <td>3.29e-10</td>
+      <td>48727</td>
+      <td>0.0099</td>
+    </tr>
+    <tr>
+      <th>3392588</th>
+      <td>T/C</td>
+      <td>NaN</td>
+      <td>ENSP00000367629</td>
+      <td>Y479H</td>
+      <td>SF0040099</td>
+      <td>5</td>
+      <td>2.69907</td>
+      <td>4.0507</td>
+      <td>50729</td>
+      <td>3.73e-18</td>
+      <td>50730</td>
+      <td>0.017</td>
+    </tr>
+    <tr>
+      <th>3392588</th>
+      <td>T/C</td>
+      <td>NaN</td>
+      <td>ENSP00000367629</td>
+      <td>Y479H</td>
+      <td>SF0050917</td>
+      <td>5</td>
+      <td>2.69907</td>
+      <td>4.0507</td>
+      <td>48065</td>
+      <td>3.53e-57</td>
+      <td>48066</td>
+      <td>8.09e-05</td>
+    </tr>
+    <tr>
+      <th>3392588</th>
+      <td>T/C</td>
+      <td>NaN</td>
+      <td>ENSP00000408887</td>
+      <td>Y183H</td>
+      <td>SF0040099</td>
+      <td>5</td>
+      <td>2.69907</td>
+      <td>4.0507</td>
+      <td>50729</td>
+      <td>1.32e-18</td>
+      <td>50730</td>
+      <td>0.017</td>
+    </tr>
+    <tr>
+      <th>3392588</th>
+      <td>T/C</td>
+      <td>NaN</td>
+      <td>ENSP00000408887</td>
+      <td>Y183H</td>
+      <td>SF0050917</td>
+      <td>5</td>
+      <td>2.69907</td>
+      <td>4.0507</td>
+      <td>48065</td>
+      <td>3.27e-38</td>
+      <td>48066</td>
+      <td>0.00025</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+<p class="caption"><span class="caption-number">Fig. 4.6 </span><span class="caption-text">An excerpt of the consequence file <code class="docutils literal notranslate"><span class="pre">2500G.consequence</span></code>, showing mappings between SNPs, protein IDs, mutant and reference probabilities from FATHMM, and SCOP sun IDs (via SUPERFAMILY).</span><a class="headerlink" href="#tbl-excerpt-consequence" title="Permalink to this image">¶</a></p>
+</div>
+<p>As we can see in <a class="reference internal" href="#tbl-excerpt-consequence"><span class="std std-ref">An excerpt of the consequence file 2500G.consequence, showing mappings between SNPs, protein IDs, mutant and reference probabilities from FATHMM, and SCOP sun IDs (via SUPERFAMILY).</span></a>, the consequence file can contain multiple rows for the same SNPs since the SNP may appear in multiple proteins, since proteins can have overlapping reading frames.
+Less frequently, SNPs that fall in multiple proteins may also fall in more than one domain families or even superfamilies.</p>
+<p>The output <code class="docutils literal notranslate"><span class="pre">.consequence</span></code> file defines the upper limit of the number of SNPs Snowflake can make phenotype predictions based on.
+In practice, this will often be a much smaller number as for SNPs to be used they must be:</p>
+<ul class="simple">
+<li><p>measured in the input cohort (which is often genotyped, and therefore contains far fewer variants)</p></li>
+<li><p>within protein domains that exist in the dcGO mapping file in addition to the consequence file.</p></li>
+<li><p>a SNP where there is some variation between the background and input</p></li>
+</ul>
+<p>Like the VCF file, the Consequence file is the indexed with Tabix<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id265"><span>180</span></a>]</span> to increase Snowflake’s speed.</p>
+</div>
+</div>
+<div class="section" id="input-cohort">
+<span id="id15"></span><h2><span class="section-number">4.3.4. </span>Input cohort<a class="headerlink" href="#input-cohort" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="andme-file-formats">
+<span id="andme-input"></span><h3><span class="section-number">4.3.4.1. </span>23andMe file formats<a class="headerlink" href="#andme-file-formats" title="Permalink to this headline">¶</a></h3>
+<p>The SNPs which are measured in a genotyping experiment depends on the chip used.
+Since launch, 23andMe have used a number of different Illumina chips for their genotyping service.
+These chips capture information for different SNPs, and vastly different numbers of SNPs.
+This means that in order to combine data from different chips, many loci can not be used.</p>
+<p>23andMe have their own file formats, which must be convered to VCF in order to use Snowflake.
+One of these formats is tab separated and very similar to VCF, but for their API, 23andMe also stored genotype data in long strings (~1 million characters, twice the number of loci on the chip) of the form <code class="docutils literal notranslate"><span class="pre">AAAACCTTTT__CC__</span></code>, where every 2 nucleotides corresponds to a given SNP on the 23andMe chip with a rsID, chromosome and position.
+To convert this compressed format to VCF, 23andMe provided a genotype snp map file (<code class="docutils literal notranslate"><span class="pre">snps.data</span></code>), which is different for each 23andMe chip, that gives rsIDs, chromosome and position for each index, which looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># index is a key for the /genomes/ endpoint (2 base pairs per index).</span>
+<span class="c1"># strand is always +1.</span>
+<span class="n">index</span>   <span class="n">snp</span>     <span class="n">chromosome</span>      <span class="n">chromosome_position</span>
+<span class="mi">0</span>       <span class="n">rs41362547</span>      <span class="n">MT</span>      <span class="mi">10044</span>
+<span class="mi">1</span>       <span class="n">rs28358280</span>      <span class="n">MT</span>      <span class="mi">10550</span>
+<span class="mi">2</span>       <span class="n">rs3915952</span>       <span class="n">MT</span>      <span class="mi">11251</span>
+</pre></div>
+</div>
+<p>So, according to this file, the first two characters of the genotype string correspond to <code class="docutils literal notranslate"><span class="pre">rs41362547</span></code>, then the next two correspond to <code class="docutils literal notranslate"><span class="pre">rs28358280</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">create_data</span></code> function of snowflake contains the functionality to create a VCF file from 23andMe API string formats, for three different chips.</p>
+</div>
+<div class="section" id="genome-builds">
+<span id="id16"></span><h3><span class="section-number">4.3.4.2. </span>Genome builds<a class="headerlink" href="#genome-builds" title="Permalink to this headline">¶</a></h3>
+<div class="margin sidebar" id="position-bed-format">
+<p class="sidebar-title">Position and BED formats</p>
+<p>The positions of the variants (SNPs) that are recorded can vary in format: essentially this comes down to a change in formatting, the fact that sometimes counting starts at 0, and sometimes it starts at 1, and sometimes ranges are closed on one side e.g. <code class="docutils literal notranslate"><span class="pre">chr1</span> <span class="pre">127140000</span> <span class="pre">127140001</span></code> in BED format is equivalent to <code class="docutils literal notranslate"><span class="pre">chr1:127140001-127140001</span></code> in “Position” format<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id84"><span>181</span></a>]</span>.</p>
+</div>
+<p>The files currently generated for snowflake use the GRC37 (hg19) human genome build.
+This is the version that is currently supported by FATHMM, 23andMe, and phase 1 of 1000G.</p>
+<!--
+### Filtering
+If the VCF is purely for the purpose of running Snowflake, then it makes sense to filter it to contain only the SNPs in the Consequence file.
+
+
+#### Example: ALSPAC
+[//]: # (TODO: show how many SNPs are removed for commonality with 1000G)
+
+
+### CAGI
+[//]: # (TODO: Write)
+
++++
+
+### Data Pipelines
+
++++
+
+#### Pipeline for creating VCF files from 23andMe data
+The CAGI, Athletes, and ALSPAC datasets were all genotyped using 23andMe, so the following applies to all of these datasets.
+
++++
+
+
++++
+
+#### CAGI
+[//]: # (TODO: Possibly delete this section)
+
+##### Creating VCF files
+[//]: # (TODO: Cross-ref to Pipeline for creating VCF files above)
+[//]: # (TODO: What settings was CAGI data set created with using VCF files)
+
+**Missing values**
+[//]: # (TODO: write - or possibly move to results section)
+
+**Distribution of SNPs per phenotype**
+
+[//]: # (TODO: Distribution of number of SNPs per phenotype for ALSPAC, showing overall and highlighting phenotypes with ground truth information)
+
+**Distribution of SNP scores within phenotypes**
+
+[//]: # (TODO: Distribution of number SNP scores within phenotypes - violin plot with some examples - for CAGI. Known phenotypes included, dotted lines showing max scores for any SNP.)
+
+##### Mapping phenotypes to CAGI measurements
+[//]: # (TODO: Write)
+
++++
+
+#### Athletes
+[//]: # (TODO: Possibly delete this section)
+
+##### Creating VCF files
+[//]: # (TODO: Cross-ref to Pipeline for creating VCF files above)
+[//]: # (TODO: What settings was CAGI data set created with using VCF files)
+
+**Missing values**
+[//]: # (TODO: write - or possibly move to results section)
+
+**Distribution of SNPs per phenotype**
+[//]: # (TODO: Distribution of number of SNPs per phenotype for ALSPAC, showing overall and highlighting phenotypes with ground truth information)
+
+**Distribution of SNP scores within phenotypes**
+[//]: # (TODO: Distribution of number SNP scores within phenotypes - violin plot with some examples - for CAGI. Known phenotypes included, dotted lines showing max scores for any SNP.)
+
+##### Mapping phenotypes to CAGI measurements
+[//]: # (TODO: Write)
+--></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c04-snowflake"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="2-snowflake-algorithm.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">4.2. </span><code class="docutils literal notranslate"><span class="pre">Snowflake</span></code> Algorithm</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="4-preprocessing.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.4. </span>Preprocessing</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

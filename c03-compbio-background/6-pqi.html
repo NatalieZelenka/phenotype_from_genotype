@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.6. Proteome Quality Index &#8212; Phenotype from Genotype</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.7. Summary" href="7-summary.html" />
+    <link rel="prev" title="3.5. Sources of bias in computational biology" href="5-bias.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/thesis_logo_with_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Phenotype from Genotype</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Front Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/01-title-page.html">
+   <code class="docutils literal notranslate">
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/02-declaration.html">
+   Declaration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/03-abstract.html">
+   Abstract
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/04-acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c0-front-matter/05-full-table-of-contents.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c01-introduction/intro.html">
+   1. Thesis style and philosophy
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c02-biology-background/0-index.html">
+   2. How phenotype arises from genotype
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/1-big-questions.html">
+     2.1. Big questions: What is genetically determined, and how?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/2-biological-molecules.html">
+     2.2. Biological molecules: DNA, RNA, Proteins and the central dogma of molecular biology.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/3-more-dna.html">
+     2.3. A closer look at DNA: Genomes, Genes, and Genetic Variation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/4-more-proteins.html">
+     2.4. Looking more closely at proteins: function, structure and classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/5-phenotype.html">
+     2.5. Phenotype
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c02-biology-background/6-summary.html">
+     2.6. Summary: how genotype and phenotype are linked
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0-index.html">
+   3. How genotype and phenotype are measured and researched
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-sequencing-technology.html">
+     3.1. Sequencing and microarrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-measuring-genotype-phenotype.html">
+     3.2. From genotype to phenotype: what is measured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-ontologies.html">
+     3.3. Ontologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-comp-bio-methods.html">
+     3.4. Predictive computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-bias.html">
+     3.5. Sources of bias in computational biology
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.6. Proteome Quality Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-summary.html">
+     3.7. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Phenotype prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c04-snowflake/0-index.html">
+   4. Phenotype prediction with Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/1-introduction.html">
+     4.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/2-snowflake-algorithm.html">
+     4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Snowflake
+      </span>
+     </code>
+     Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/3-creating-inputs.html">
+     4.3. Creating Snowflake inputs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/4-preprocessing.html">
+     4.4. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/5-clustering-snps.html">
+     4.5. Considerations for Clustering SNPs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c04-snowflake/7-discussion.html">
+     4.6. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c05-alspac/0-index.html">
+   5. Predicting phenotypes of the ALSPAC cohort using Snowflake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/1-introduction.html">
+     5.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c05-alspac/5-discussion.html">
+     5.2. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tissue-specific gene expression
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c06-filter/0-index.html">
+   6. Filtering computational predictions with tissue-specific expression information
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/1-introduction.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/2-algorithm.html">
+     6.2. Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/3-data.html">
+     6.3. Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/5-methods.html">
+     6.4. Validation method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/6-results.html">
+     6.5. Filip results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c06-filter/7-discussion.html">
+     6.6. Discussion and Future work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c07-ontolopy/0-index.html">
+   7. Ontolopy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/1-introduction.html">
+     7.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/2-functionality.html">
+     7.2. Functionality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/3-how-it-works.html">
+     7.3. Ontolopy tools and practices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/4-misc-examples.html">
+     7.4. Example uses: mapping samples to diseases or phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/5-mapping-example.html">
+     7.5. Example use: mapping samples to tissue-related phenotypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/6-discussion.html">
+     7.6. Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c07-ontolopy/7-future-work.html">
+     7.7. Future Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../c08-combining/0-index.html">
+   8. Combining RNA-seq datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/1-background.html">
+     8.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/2-data.html">
+     8.2. Data Acquisition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/3-data-wrangling.html">
+     8.3. Data Wrangling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../c08-combining/7-discussion.html">
+     8.4. Results and discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Concluding remarks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c09-conclusion/0-conclusion.html">
+   9. Concluding remarks
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/0-appendix.html">
+   Appendix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cz-end-matter/reference.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   3.6.1. Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pqi-metrics">
+   3.6.2. PQI metrics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dogma">
+     3.6.2.1. DOGMA
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pqi-features">
+   3.6.3. PQI features
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-usage">
+     3.6.3.1. Example usage
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#related-work">
+   3.6.4. Related work
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#busco">
+     3.6.4.1. BUSCO
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ncbi-assembly-database">
+     3.6.4.2. NCBI Assembly database
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations">
+   3.6.5. Limitations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#potential-improvements">
+   3.6.6. Potential improvements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-weighting-of-star-rating">
+     3.6.6.1. Change weighting of star-rating
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes-to-metrics">
+     3.6.6.2. Changes to metrics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="proteome-quality-index">
+<span id="pqi"></span><h1><span class="section-number">3.6. </span>Proteome Quality Index<a class="headerlink" href="#proteome-quality-index" title="Permalink to this headline">¶</a></h1>
+<p>Reducing bias and improving data and research quality in computational biology is a broad and active area of research.
+This section explains one such effort which I contributed to: <a class="reference external" href="http://pqi-list.org/">the Proteome Quality Index</a> (PQI)<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id4"><span>2</span></a>]</span>, which provides a variety of individual quality metrics as well as a “star rating” for complete genome sequences.</p>
+<div class="hint admonition">
+<p class="admonition-title">Contributions in this section</p>
+<p>The Proteome Quality Index paper was created as a joint project between the Computational Biology group (then) at Bristol.
+I contributed to ideas for metrics, code to calculate some of these metrics, and paper editing.</p>
+</div>
+<div class="section" id="introduction">
+<h2><span class="section-number">3.6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Although sequencing, assembly, and protein annotation of new genomes is a challenging and complex task, there are now thousands of organisms with sequenced genomes and identified protein sequences (proteomes).
+These proteomes can vary hugely in quality; in creating a daily-updated phylogenetic tree, sTOL (sequenced Tree Of Life), it was found that many sequenced genomes were missing vital proteins due to poor sequencing<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id27"><span>139</span></a>]</span>.
+This could have a far-reaching impact on research results since such genomes are reused by many researchers, particularly in comparative genomics analyses, where omissions of whole proteins and poor accuracy of others are likely to affect results.
+While quality control and data submission guidelines were more developed in other areas of computational biology, similar guidelines for genome quality were lacking.</p>
+<p>In response, eleven different proteome quality metrics were developed, applied to 3,213 proteomes at the time of writing, and a <a class="reference external" href="http://pqi-list.org/">website</a> built to display the results, as well as being presented in a paper<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id4"><span>2</span></a>]</span>.
+This website was intended to be both a way for users of genome data to look up the quality of a genome in advance of some research and, more importantly as a talking point for quality guidelines for genomes with known proteins.
+Since the development of PQI, a twelfth metric, <a class="reference internal" href="#dogma"><span class="std std-ref">DOGMA</span></a><span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id29"><span>140</span></a>]</span>, was added to the website, donated by the <a class="reference external" href="http://bornberglab.org/people/bornberg">Bornberglab</a>.</p>
+</div>
+<div class="section" id="pqi-metrics">
+<span id="id5"></span><h2><span class="section-number">3.6.2. </span>PQI metrics<a class="headerlink" href="#pqi-metrics" title="Permalink to this headline">¶</a></h2>
+<p>PQI’s original eleven metrics were either local i.e. “clade-based” (in which proteomes are compared to similar organisms) or global (in which case it is compared to all other proteomes).
+A clade is a group of organisms that consists of a common ancestor and all its descendants, i.e. is a branch on the tree of life<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id28"><span>141</span></a>]</span>, so an appropriate ancestor must be chosen to define the clade.
+For PQI, since the purpose of these clades was to compare its’ constituent proteomes, we wanted clades that had similar variability.
+This was achieved by choosing parent nodes that are at least 0.01 in branch length away from the proteome (leaf node), and such that the clade contains at least 10 species.
+Trees and branch lengths to carry out these calculations were taken from sToL<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id27"><span>139</span></a>]</span>.
+For clade-based metrics, proteomes score well if they have similar scores to the rest of the clade.
+Descriptions of the 12 different metrics currently in PQI can be seen in <a class="reference internal" href="#pqi-table"><span class="std std-numref">Table 3.3</span></a>.</p>
+<table class="table" id="pqi-table">
+<caption><span class="caption-number">Table 3.3 </span><span class="caption-text">Description of the quality metrics currently in PQI, 1-11 are original metrics, while DOGMA, the 12th, was added later and donated by the <a class="reference external" href="http://bornberglab.org/people/bornberg">Bornberglab</a>.</span><a class="headerlink" href="#pqi-table" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1. Percentage X-content</p></td>
+<td><p>Global</p></td>
+<td><p>Percentage of proteome with amino acids denoted by ‘X’, excluding the first residue of each protein.</p></td>
+<td><p>Amino acids that cannot be identified, or can have more than one value are represented by an ‘X’ in the amino acid sequence<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id245"><span>142</span></a>]</span>. This occurs when coverage of the sequencing is low. Uncertainty in translation start sites mean the first residue of a protein is often uncertain (‘X’) even in the highest quality proteomes, so these are excluded from this measurement.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2. PubMed Publication Count</p></td>
+<td><p>Global</p></td>
+<td><p>The total number of publications related to the genome as listed for that entry in the PubMed database<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id246"><span>143</span></a>]</span>.</p></td>
+<td><p>This is a measure of how well-studied a proteome is, assuming that proteomes that have been studied more will be of higher quality.</p></td>
+</tr>
+<tr class="row-even"><td><p>3. CEG domain architecture inclusion</p></td>
+<td><p>Global</p></td>
+<td><p>Proportion of CEG set which contains homologous domains in the proteome, according to SUPERFAMILY</p></td>
+<td><p>This method assumes that all eukaryotic genomes should contain a core set of well-conserved eukaryotic genes. This score is not calculated for non-eukaryotes. This was done using the Core Eukaryotic Gene (CEG) library used by the now <a class="reference internal" href="#cegma-dead"><span class="std std-ref">defunct</span></a> CEGMA tool<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id243"><span>144</span></a>]</span>, which comes from the Eukaryotic Orthologous Group (KOG) sequence orthology database<span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id244"><span>145</span></a>]</span>. Domain-architecture similarity is calculated using the SUPERFAMILY HMM library.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4. Percentage of sequences in Uniprot</p></td>
+<td><p>Global</p></td>
+<td><p>Percentage of proteome sequences that appear in Uniprot with 100% sequence identity</p></td>
+<td><p>This metric assumes that the majority of discrepancies between Uniprot protein sequences and the proteome protein sequences are due to proteome inaccuracies.</p></td>
+</tr>
+<tr class="row-even"><td><p>5. Percentage of sequence covered</p></td>
+<td><p>Clade-based</p></td>
+<td><p>Percentage of amino acid residues in proteome sequence that are covered by SCOP domain superfamily assignments, compared to the average for the clade.</p></td>
+<td><p>This metric measures the portion of structured protein sequences found in the proteome as opposed to disordered regions and gaps. This measure assumes related species have a similar breakdown of these types of proteins. A mismatch could indicate that the parts of the genome that are supposed to be protein-coding are an incorrect length, that it is missing proteins, or contains proteins that it shouldn’t.</p></td>
+</tr>
+<tr class="row-odd"><td><p>6. Percentage of sequences with assignment</p></td>
+<td><p>Clade-based</p></td>
+<td><p>Percentage of amino acid residues in proteome that have SCOP superfamily assignment according to SUPERFAMILY, compared to the average for the clade.</p></td>
+<td><p>Related species are assumed to have a similar percentage of domains with SUPERFAMILY assignments to SCOP superfamilies</p></td>
+</tr>
+<tr class="row-even"><td><p>7. Number of domain superfamilies</p></td>
+<td><p>Clade-based</p></td>
+<td><p>Number of proteins assigned to domain superfamilies by SUPERFAMILY compared to average for clade.</p></td>
+<td><p>Assignment to domain superfamilies was obtained using the SUPERFAMILY HMM Library. The number of superfamilies gives an indication of the diversity of the proteome, so a low number compared to the clade may indicate an incomplete proteome, while a high number could indicate that the proteome contains domain superfamiles that it shouldn’t.</p></td>
+</tr>
+<tr class="row-odd"><td><p>8. Number of domain families</p></td>
+<td><p>Clade-based</p></td>
+<td><p>Number of distinct SCOP protein domain families that are annotated to the proteome, compared to the average for the clade.</p></td>
+<td><p>The SCOP protein domain families are annotated to the proteome using a hybrid HMM/pairwise similarity method from the SUPERFAMILY resource. Similarly to the number of domain superfamilies, the number of families gives an indication of the diversity of the proteome at the SCOP family level. Domain families were included in addition to domain superfamilies, since they are more specific and may reveal differences that are not apparent at the superfamily level.</p></td>
+</tr>
+<tr class="row-even"><td><p>9. Mean sequence length</p></td>
+<td><p>Clade-based</p></td>
+<td><p>The average length of proteins in the proteome (in amino acids), compared to the average for the clade.</p></td>
+<td><p>This measure assumes that mean sequence length of proteins should be comparable with those of related species.</p></td>
+</tr>
+<tr class="row-odd"><td><p>10. Mean hit length</p></td>
+<td><p>Clade-based</p></td>
+<td><p>Average number of amino acids in superfamily assignments, compared to the average for the clade.</p></td>
+<td><p>Longer hits represent better matches to SCOP domains. These are assumed to be similar for similar species.</p></td>
+</tr>
+<tr class="row-even"><td><p>11. Number of domain architectures</p></td>
+<td><p>Clade-based</p></td>
+<td><p>Number of unique domain architectures (combinations of SCOP domain superfamilies and gaps) in the proteome, according to SUPERFAMILY, compared to the average for the clade.</p></td>
+<td><p>Similarly to the number of domain families superfamilies, the number of domain architectures gives an indication of the diversity of the proteome at the SCOP family level.</p></td>
+</tr>
+<tr class="row-odd"><td><p>12. DOGMA<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id29"><span>140</span></a>]</span></p></td>
+<td><p>Clade-based*</p></td>
+<td><p>Percentage of conserved domain arrangments found</p></td>
+<td><p>DOGMA compares sequences to conserved domains arrangements across six eukaryotic model species (Arabidopsis thaliana, Caenorhabditis elegans, Drosophila melanogaster, Homo sapiens, Mus musculus and Saccharomyces cerevisiae), or alternative sets for mammals, insects, bacteria and archaea. It is therefore not “clade-based” in the same way as other PQI metrics.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="dogma">
+<span id="id13"></span><h3><span class="section-number">3.6.2.1. </span>DOGMA<a class="headerlink" href="#dogma" title="Permalink to this headline">¶</a></h3>
+<p>Since the publication of the PQI paper, the DOGMA metric<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id29"><span>140</span></a>]</span>, which scores proteomes based on conserved arrangements of protein domains, has been added to the PQI website.
+The DOGMA score is similar to the PQI “Number of Domain Architectures” score, but since it is based on using model organisms as a ground truth, it scores these genomes highly, whereas this tends <a class="reference internal" href="#pqi-limitations"><span class="std std-ref">not to be the case</span></a> for PQI’s clade-based metrics.</p>
+</div>
+</div>
+<div class="section" id="pqi-features">
+<span id="id15"></span><h2><span class="section-number">3.6.3. </span>PQI features<a class="headerlink" href="#pqi-features" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar" id="myobac">
+<p class="sidebar-title">Myobacteria Tuberculosis</p>
+<p>Myobacteria Tuberculosis is the species of bacteria which causes tuberculosis. There are many different strains of it.</p>
+</div>
+<div class="figure align-default" id="myobacrkb">
+<a class="reference internal image-reference" href="../_images/myobacterium_tuberculosis_rKb.png"><img alt="../_images/myobacterium_tuberculosis_rKb.png" src="../_images/myobacterium_tuberculosis_rKb.png" style="height: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.6 </span><span class="caption-text">A view of the PQI website for the Haarlem strain of Myobacterium Tuberculosis. For this genome, we see the 12 different metrics with star ratings with a good overall score (4.2), compared to a clade of 47 species. It’s high overall scores in clade-based metrics show that the genome is similar to most other species in the clade.</span><a class="headerlink" href="#myobacrkb" title="Permalink to this image">¶</a></p>
+</div>
+<p>In addition to the 11 provided metrics (each of which have individual star-ratings), the PQI website provides an overall star-rating scoring system for proteomes, bringing together numerous different metrics which are normalised before being averaged into an intuitive star-rating (1-5 stars) with equal weight given to each metric.
+Proteomes for particular species can be searched for, filtered by the various ratings, downloaded, user-rated and commented on.
+Additional proteomes and metrics can be added/suggested by users via the website and documentation describing this is provided.
+<a class="reference internal" href="#myobacrkb"><span class="std std-numref">Fig. 3.6</span></a> shows the <a class="reference external" href="http://pqi-list.org/genome/rKb">PQI website for a <a class="reference internal" href="#myobac"><span class="std std-ref">Myobacteria Tuberculosis</span></a> proteome with a good overall score</a>.</p>
+<div class="section" id="example-usage">
+<span id="pqi-example"></span><h3><span class="section-number">3.6.3.1. </span>Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="myobacyyz">
+<a class="reference internal image-reference" href="../_images/mycobacterium_tuberculosis_Yyz.png"><img alt="../_images/mycobacterium_tuberculosis_Yyz.png" src="../_images/mycobacterium_tuberculosis_Yyz.png" style="height: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.7 </span><span class="caption-text">A view of the PQI website for the RGTB423 strain of Myobacterium Tuberculosis. This time the genome has a poor overall score (3.0) according to PQI.</span><a class="headerlink" href="#myobacyyz" title="Permalink to this image">¶</a></p>
+</div>
+<p>A typical use case for PQI would be to check the metrics of a genome before including it in analysis.
+Comparing <a class="reference internal" href="#myobacyyz"><span class="std std-numref">Fig. 3.7</span></a> (showing the <span class="xref myst">PQI website for the lower-scoring proteome</span>) to the earlier example in <a class="reference internal" href="#myobacrkb"><span class="std std-numref">Fig. 3.6</span></a>, we can see that the RGTB423 strain scores considerably worse in all of the metrics associated with proteins or protein domains.
+For example, the average sequence length is considerably shorter in RGTB423 than in Haarlem, which makes it very unusual for the clade, meaning that the genome gets only 1.9 stars for this metric.
+This is indicative of the fact that the proteins in the sequenced RGTB423 strain are incomplete.</p>
+</div>
+</div>
+<div class="section" id="related-work">
+<h2><span class="section-number">3.6.4. </span>Related work<a class="headerlink" href="#related-work" title="Permalink to this headline">¶</a></h2>
+<p>Since the development of PQI there have been further developments relevant to proteome quality.</p>
+<div class="section" id="busco">
+<span id="id16"></span><h3><span class="section-number">3.6.4.1. </span>BUSCO<a class="headerlink" href="#busco" title="Permalink to this headline">¶</a></h3>
+<div class="margin sidebar" id="cegma-dead">
+<p class="sidebar-title"></p>
+<div class="admonition-cegma-is-no-longer-supported admonition">
+<p class="admonition-title">CEGMA is no longer supported</p>
+<p>The CEGMA tool<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id243"><span>144</span></a>]</span> used as the basis for metric (3) is <a class="reference external" href="http://www.acgt.me/blog/2015/5/18/goodbye-cegma-hello-busco">no longer supported</a>. BUSCO<span id="id18">[<a class="reference internal" href="../cz-end-matter/reference.html#id30"><span>146</span></a>]</span> is considered the tool’s successor.</p>
+</div>
+</div>
+<p>The original BUSCO paper was published slightly before PQI in the same month, and it performs a similar function: assessing the quality of genomes.</p>
+<p>BUSCO has a slightly different use-case than PQI in that it is a Python package designed to let people who are assembling and annotating new genomes check the quality of their work.
+BUSCO is in some ways the “new CEGMA”, since CEGMA is now <a class="reference internal" href="#cegma-dead"><span class="std std-ref">defunct</span></a>.
+The difference is mostly that where CEGMA relied on the old KOGs database<span id="id19">[<a class="reference internal" href="../cz-end-matter/reference.html#id242"><span>147</span></a>]</span> to define conserved genes (only in eukaryotes), while BUSCO uses the newer OrthoDB database<span id="id20">[<a class="reference internal" href="../cz-end-matter/reference.html#id247"><span>148</span></a>]</span> of conserved genes across many organisms.</p>
+</div>
+<div class="section" id="ncbi-assembly-database">
+<h3><span class="section-number">3.6.4.2. </span>NCBI Assembly database<a class="headerlink" href="#ncbi-assembly-database" title="Permalink to this headline">¶</a></h3>
+<p>NCBI’s Assembly database<span id="id21">[<a class="reference internal" href="../cz-end-matter/reference.html#id31"><span>149</span></a>]</span> has been released since PQI was published.
+The database tracks how many assemblies there are for each species as well as how many versions of each assembly there has been.
+This information could be used to weight the importance of proteomes in clade-based metrics.
+The number of assemblies and versions could also form a separate score.</p>
+<p>Sequencing depth (coverage) and read length are also known markers of genome quality<span id="id22">[<a class="reference internal" href="../cz-end-matter/reference.html#id32"><span>150</span></a>]</span>.
+Average coverage for an assembly (except reference genomes) is also available in the NCBI Assembly database<span id="id23">[<a class="reference internal" href="../cz-end-matter/reference.html#id31"><span>149</span></a>]</span>.</p>
+</div>
+</div>
+<div class="section" id="limitations">
+<span id="pqi-limitations"></span><h2><span class="section-number">3.6.5. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p>There are some limitations of PQI and its metrics:</p>
+<ol class="simple">
+<li><p>The clade-based metrics downscore unusual genomes. This backfires for unusually good genomes. Model organisms such as Homo Sapiens can get a low score in clade-based metrics for the wrong reasons; they are of unusually high quality compared to those in it’s clade. Clade-based scoring also creates irregularities in scoring for clades containing outlying species: the more diverse a clade, the worse every genome’s score within it. PQI website’s comment and user-rating features can be used to alert its users to these cases, but this remains a major limitation.</p></li>
+<li><p>PQI’s intended audience were users of protemes/genomes, rather than creators thereof. It does therefore not release the code for others to calculate these metrics on their work-in-progress genomes/proteomes, unlike <a class="reference internal" href="#busco"><span class="std std-ref">BUSCO</span></a>. This may have limited PQI’s ability to positively influence proteome quality.</p></li>
+</ol>
+</div>
+<div class="section" id="potential-improvements">
+<span id="pqi-improvements"></span><h2><span class="section-number">3.6.6. </span>Potential improvements<a class="headerlink" href="#potential-improvements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="change-weighting-of-star-rating">
+<h3><span class="section-number">3.6.6.1. </span>Change weighting of star-rating<a class="headerlink" href="#change-weighting-of-star-rating" title="Permalink to this headline">¶</a></h3>
+<p>In order to address limitation (1), one option would be to downgrade the importance of clade-based metrics in star ratings.
+This could be done for all genomes, for model organisms specifically, or preferentially the more they have been sequenced and assembled.
+In the latter case, the Assembly database<span id="id24">[<a class="reference internal" href="../cz-end-matter/reference.html#id31"><span>149</span></a>]</span> could be used as a source of this information.</p>
+</div>
+<div class="section" id="changes-to-metrics">
+<h3><span class="section-number">3.6.6.2. </span>Changes to metrics<a class="headerlink" href="#changes-to-metrics" title="Permalink to this headline">¶</a></h3>
+<p>PQI was created with the potential to add further quality metrics by other researchers, and remains open to adding these.
+Here, I give three examples of metrics which would improve PQI.
+This list is by no means exhaustive.
+There could be far more additional measures to audit different types of problems in genome sequencing, for example GC content, amino acid bias, or contamination from other genomes.</p>
+<p><strong>Inclusion of BUSCO</strong>
+Although the DOGMA metric was added and it is based on BUSCO<span id="id25">[<a class="reference internal" href="../cz-end-matter/reference.html#id30"><span>146</span></a>]</span>, it might be sensible to add BUSCO, since it has become very popular (thousands of citations), and any proteome/genome quality index would arguably be seen as incomplete without it.
+The continued inclusion of the CEG Domain Combination Homology metric may also be questioned since CEGMA is no longer being updated (nor is the KEG database upon which it is based).
+However, BUSCO and CEGMA may be complementary since BUSCO has a weaker requirement for inclusion in the set of proteins, which means that it has more proteins.</p>
+<p><strong>Number of assemblies</strong>
+In addition to using the assembly information to choose the importance of clade-based metrics, the number of assemblies for a species and number of versions of an assembly might form a metric of how well-studied an organism is, which may be useful to users.</p>
+<p><strong>Technology-based</strong>
+Some “third-generation” sequencing technologies can create much longer read lengths, but potentially lower accuracies.
+A third category of metrics “technology-based” metrics could exist for proteomes where the metric is only really comparable within similar types of technologies.
+If technology-based metrics were implemented, it may also be sensible to have some metrics which only exist for specific technologies.
+For example, for nanopore sequencing, we could implement an indel-based quality metric<span id="id26">[<a class="reference internal" href="../cz-end-matter/reference.html#id33"><span>151</span></a>]</span>.
+Including sequencing-technology-specific metrics may encourage contributions from other researchers who specialise in particular technologies.
+Sequencing technology is also available in the NCBI Assembly database<span id="id27">[<a class="reference internal" href="../cz-end-matter/reference.html#id31"><span>149</span></a>]</span>.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./c03-compbio-background"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="5-bias.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3.5. </span>Sources of bias in computational biology</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="7-summary.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.7. </span>Summary</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Natalie Thurlby<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
