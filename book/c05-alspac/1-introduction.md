@@ -31,4 +31,5 @@ Instead, we were granted access to the genotype data only first, then allowed to
 ### Choosing phenotypes of interest
 I created a shortlist of phenotypes of interest by first restricting the set of scores to phenotypes for which Snowflake makes a prediction within the ALSPAC cohort, then ordering this list by the {ref}`phenotype confidence score<phenotype-score>`, to ensure that Snowflake could give confident predictions for phenotypes that were requested.
 I then mapped these to ALSPAC phenotypes by searching the ALSPAC variable catalogue.
+This resulted in the four : `MP:0001501` *Abnormal Sleep Pattern* (measured using `FJCI250` *Sleep symptom score*), `MP:0001933` *Abnormal litter size* (measured by `mz010a` *Pregnancy size*), `MESH:D001259` *Ataxia* (measured by `kw2030` *Child ever thought to have a problem with clumsiness/coordination*), and `HP:0001249` *Intelligence/intellectual disability* (measured by `f8ws150` *Child had special needs*). 
 
