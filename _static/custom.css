@@ -1,9 +1,0 @@
-@media print {
-    h2 {
-        page-break-before:always;
-    }
-
-    .bd-toc {
-        visibility: hidden;
-    }
-}
