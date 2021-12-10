@@ -27,15 +27,20 @@ kernelspec:
 
 ### Validation
 
+**$F_{max}$**
+
+[//]: # (TODO: Table with Fmax per term)
+
 [//]: # (TODO: write)
 
 **Boostrapping graph**
 
-**ROC curve**
+[//]: # (TODO: write - should be per term)
 
+<!--
 **Validation of single-SNP known phenotypes**
 [//]: # (TODO: Show that single-SNP phenotypes get the "correct" result for people/snps)
-
+-->
 
 ### Examples of predictions
 [//]: # (TODO: write)
