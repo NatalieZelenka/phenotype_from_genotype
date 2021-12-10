@@ -23,7 +23,7 @@ To view/check:
 `jupyter-book build book --builder pdflatex` <- fails
 -->
 
-<1--
+<!--
 First build latex:
 `jupyter-book build book --builder latex`
 
