@@ -17,10 +17,10 @@ When viewed online, the code to create these graphs can be viewed alongside them
 
 ```{admonition} The best way to look at this thesis
 
-You will always be able to find the most up-to-date version of this book [at this link](https://nataliethurlby.github.io/phenotype_from_genotype/). 
+You will always be able to find the most up-to-date version of this book [at this link](https://NatalieZelenka.github.io/phenotype_from_genotype/). 
 This thesis is best viewed as a web page since it contains interactive features such as interactive figures and scrollable tables, as well as drop-down boxes containing the code used to create some figures and tables.
 
-Alternatively, you can download the most up to date PDF of this thesis [here](https://nataliethurlby.github.io/phenotype_from_genotype/_static/thesis.pdf). 
+Alternatively, you can download the most up to date PDF of this thesis [here](https://NatalieZelenka.github.io/phenotype_from_genotype/_static/thesis.pdf). 
 ```
 
 ```{admonition} How to navigate online
