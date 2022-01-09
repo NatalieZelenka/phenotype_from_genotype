@@ -42,7 +42,7 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -507,22 +507,36 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Before you start</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="before-you-start">
 <h1>Before you start<a class="headerlink" href="#before-you-start" title="Permalink to this headline">¶</a></h1>
 <p><span class="math notranslate nohighlight">\( \)</span></p>
-<p>You’re looking at <a class="reference external" href="https://orcid.org/0000-0002-1007-0286">Natalie Thurlby</a>’s thesis <em>Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions</em>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Previous name</p>
+<p>Before I got married, my name was Natalie <strong>Thurlby</strong></p>
+</div>
+<p>You’re looking at <a class="reference external" href="https://orcid.org/0000-0002-1007-0286">Natalie Zelenka</a>’s thesis <em>Phenotype and Function from Genotype: Combining Data Sources to Create Explanatory Predictions</em>.</p>
 <p>This thesis is a <a class="reference external" href="https://jupyterbook.org/intro.html">jupyter book</a><span id="id1">[<a class="reference internal" href="cz-end-matter/reference.html#id277"><span>1</span></a>]</span>, meaning that is made up of markdown files and jupyter notebooks: the idea behind this was to make this thesis as reproducible as possible.
-These files are available <a class="reference external" href="https://github.com/NatalieThurlby/phenotype_from_genotype">on GitHub</a>.
+These files are available <a class="reference external" href="https://github.com/NatalieZelenka/phenotype_from_genotype">on GitHub</a>.
 For some figures and tables (mostly in the Tissue-specific Expression part), this also means that the the graphs and figures are the output from that code, generated when the book is built.
 When viewed online, the code to create these graphs can be viewed alongside them if desired with a drop down <code class="docutils literal notranslate"><span class="pre">+</span></code> button.</p>
 <div class="admonition-the-best-way-to-look-at-this-thesis admonition">
@@ -571,8 +585,8 @@ This thesis is best viewed as a web page since it contains interactive features 
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
     <a class='right-next' id="next-link" href="c0-front-matter/01-title-page.html" title="next page">
     <div class="prev-next-info">
@@ -582,19 +596,17 @@ This thesis is best viewed as a web page since it contains interactive features 
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Natalie Thurlby<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Natalie Zelenka<br/>
+    
+        &copy; Copyright 2020.<br/>
+  </p>
+</footer>
 </main>
 
 

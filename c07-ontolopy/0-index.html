@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -506,22 +506,32 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Ontolopy</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="ontolopy">
 <span id="c06-ontolopy"></span><h1><span class="section-number">7. </span>Ontolopy<a class="headerlink" href="#ontolopy" title="Permalink to this headline">¶</a></h1>
-<p>This chapter describes <a class="reference external" href="https://nataliethurlby.github.io/ontolopy/">Ontolopy</a>: a small Python package that I created for manipulating OBO ontology files.
+<p>This chapter describes <a class="reference external" href="https://NatalieZelenka.github.io/ontolopy/">Ontolopy</a>: a small Python package that I created for manipulating OBO ontology files.
 This chapter also includes some uses of ontolopy, for example <a class="reference internal" href="5-mapping-example.html#ontolopy-mapping-example"><span class="std std-ref">mapping between samples and phenotypes</span></a>, and <a class="reference internal" href="4-misc-examples.html#ontolopy-examples-2"><span class="std std-ref">other uses</span></a>.
 For example, it is particularly useful for finding inconsistencies/disagreements between data sources, which enabled me to contribute back to improve some of the resources that Ontolopy relies on.</p>
-<p>At time of writing, <code class="docutils literal notranslate"><span class="pre">Ontolopy</span> <span class="pre">v1.1.1-beta</span></code> (<a class="reference external" href="https://pypi.org/project/ontolopy/">PyPi</a>, <a class="reference external" href="https://github.com/NatalieThurlby/ontolopy">GitHub</a>, <a class="reference external" href="https://nataliethurlby.github.io/ontolopy/">Docs</a>) is the current release.</p>
+<p>At time of writing, <code class="docutils literal notranslate"><span class="pre">Ontolopy</span> <span class="pre">v1.1.1-beta</span></code> (<a class="reference external" href="https://pypi.org/project/ontolopy/">PyPi</a>, <a class="reference external" href="https://github.com/NatalieZelenka/ontolopy">GitHub</a>, <a class="reference external" href="https://NatalieZelenka.github.io/ontolopy/">Docs</a>) is the current release.</p>
 <div class="hint admonition">
 <p class="admonition-title">Contributions in this chapter</p>
 <p>The contributions in this chapter include:</p>
@@ -564,8 +574,8 @@ Make available for download and put in contributions:
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="../c06-filter/7-discussion.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -582,19 +592,17 @@ Make available for download and put in contributions:
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Natalie Thurlby<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Natalie Zelenka<br/>
+    
+        &copy; Copyright 2020.<br/>
+  </p>
+</footer>
 </main>
 
 

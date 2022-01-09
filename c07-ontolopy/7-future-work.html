@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -506,7 +506,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -568,16 +568,81 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Future Work</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v2-0-0">
+   7.7.1. v2.0.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-potential-improvements-to-ontolopy">
+   7.7.2. Other potential improvements to Ontolopy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-search-and-fuzzy-matching">
+     7.7.2.1. Text-search and fuzzy-matching
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functionality-for-more-complex-queries">
+     7.7.2.2. Functionality for more complex queries
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opy-go">
+     7.7.2.3.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opy.Go
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integration-with-pronto">
+     7.7.2.4. Integration with Pronto
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ontology-validity">
+     7.7.2.5. Ontology validity
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#miscellaneous">
+   7.7.3. Miscellaneous
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="future-work">
 <span id="ont-fw"></span><h1><span class="section-number">7.7. </span>Future Work<a class="headerlink" href="#future-work" title="Permalink to this headline">¶</a></h1>
-<p>I keep an updated <a class="reference external" href="https://nataliethurlby.github.io/ontolopy/contents/roadmap.html">roadmap for Ontolopy</a> on the documentation website and a detailed list of <a class="reference external" href="https://github.com/NatalieThurlby/ontolopy/issues">issues on GitHub</a>.</p>
+<p>I keep an updated <a class="reference external" href="https://NatalieZelenka.github.io/ontolopy/contents/roadmap.html">roadmap for Ontolopy</a> on the documentation website and a detailed list of <a class="reference external" href="https://github.com/NatalieZelenka/ontolopy/issues">issues on GitHub</a>.</p>
 <div class="section" id="v2-0-0">
 <span id="opyv2"></span><h2><span class="section-number">7.7.1. </span>v2.0.0<a class="headerlink" href="#v2-0-0" title="Permalink to this headline">¶</a></h2>
 <p>The main priority for Ontolopy is reaching a stable version for release, user-testing, and publishing the work.</p>
-<p>You can see the full list of features for the <a class="reference external" href="https://github.com/NatalieThurlby/ontolopy/milestone/1">v2.0.0 Milestone</a> on GitHub, but to summarise:</p>
+<p>You can see the full list of features for the <a class="reference external" href="https://github.com/NatalieZelenka/ontolopy/milestone/1">v2.0.0 Milestone</a> on GitHub, but to summarise:</p>
 <ul class="simple">
 <li><p>Finish tutorials for all functions/methods</p></li>
 <li><p>Reach 80% test coverage</p></li>
@@ -648,8 +713,8 @@ This could use some of the same approaches as ROBOT.</p>
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="6-discussion.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -666,19 +731,17 @@ This could use some of the same approaches as ROBOT.</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Natalie Thurlby<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Natalie Zelenka<br/>
+    
+        &copy; Copyright 2020.<br/>
+  </p>
+</footer>
 </main>
 
 
