@@ -1,12 +1,12 @@
 title: Phenotype from Genotype
-author: Natalie Thurlby
+author: Natalie Zelenka
 email: natalie.thurlby@bristol.ac.uk
 logo: images/thesis_logo_with_text.png
 description: >-
   Phenotype from Genotype: combining datasets to make explanatory predictions.
 
 baseurl: ""
-url: "http://nataliethurlby.github.io/thesis"
+url: "http://nataliezelenka.github.io/thesis"
 only_build_toc_files: true
 
 bibtex_bibfiles:

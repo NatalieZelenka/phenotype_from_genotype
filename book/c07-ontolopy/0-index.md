@@ -6,12 +6,12 @@
 [//]: # (TODO: Rewrite to make it more like an abstract)
 
 
-This chapter describes [Ontolopy](https://nataliethurlby.github.io/ontolopy/): a small Python package that I created for manipulating OBO ontology files.
+This chapter describes [Ontolopy](https://NatalieZelenka.github.io/ontolopy/): a small Python package that I created for manipulating OBO ontology files.
 This chapter also includes some uses of ontolopy, for example {ref}`mapping between samples and phenotypes<ontolopy-mapping-example>`, and {ref}`other uses<ontolopy-examples-2>`.
 For example, it is particularly useful for finding inconsistencies/disagreements between data sources, which enabled me to contribute back to improve some of the resources that Ontolopy relies on.
 
 [//]: # (TODO: check links)
-At time of writing, `Ontolopy v1.1.1-beta` ([PyPi](https://pypi.org/project/ontolopy/), [GitHub](https://github.com/NatalieThurlby/ontolopy), [Docs](https://nataliethurlby.github.io/ontolopy/)) is the current release.
+At time of writing, `Ontolopy v1.1.1-beta` ([PyPi](https://pypi.org/project/ontolopy/), [GitHub](https://github.com/NatalieZelenka/ontolopy), [Docs](https://NatalieZelenka.github.io/ontolopy/)) is the current release.
 
 
 ```{admonition} Contributions in this chapter

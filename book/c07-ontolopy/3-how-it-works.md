@@ -23,7 +23,7 @@ Ontolopy aspires to [Research Software Engineering](https://society-rse.org/) be
 
 __Open Source:__
 
-Ontolopy is Open Source (with an MIT license), and available on [GitHub](https://github.com/NatalieThurlby/ontolopy).
+Ontolopy is Open Source (with an MIT license), and available on [GitHub](https://github.com/NatalieZelenka/ontolopy).
 This means that:
 - anyone can contribute to it. I provided [developer guidance](https://nataliethurlby.github.io/ontolopy/contents/develop.html#developer-guidance) and ["good first issues"](https://github.com/NatalieThurlby/ontolopy/labels/good%20first%20issue) to reduce the barrier to this.
 - anyone can download, use, reuse, or adapt the source code for their own work. This is made easier by the fact that Ontolopy is distributed via the [Python Package Index](https://pypi.org/project/ontolopy/).

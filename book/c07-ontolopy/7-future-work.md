@@ -1,12 +1,12 @@
 (ont-fw)=
 # Future Work
-I keep an updated [roadmap for Ontolopy](https://nataliethurlby.github.io/ontolopy/contents/roadmap.html) on the documentation website and a detailed list of [issues on GitHub](https://github.com/NatalieThurlby/ontolopy/issues).
+I keep an updated [roadmap for Ontolopy](https://NatalieZelenka.github.io/ontolopy/contents/roadmap.html) on the documentation website and a detailed list of [issues on GitHub](https://github.com/NatalieZelenka/ontolopy/issues).
 
 (opyv2)=
 ## v2.0.0
 The main priority for Ontolopy is reaching a stable version for release, user-testing, and publishing the work.
 
-You can see the full list of features for the [v2.0.0 Milestone](https://github.com/NatalieThurlby/ontolopy/milestone/1) on GitHub, but to summarise:
+You can see the full list of features for the [v2.0.0 Milestone](https://github.com/NatalieZelenka/ontolopy/milestone/1) on GitHub, but to summarise:
 - Finish tutorials for all functions/methods
 - Reach 80% test coverage
 - User-testing

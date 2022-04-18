@@ -15,7 +15,7 @@
 <br>
 <br>
 <div  style="text-align: center">
-<b>Natalie Thurlby</b><br>
+<b>Natalie Zelenka</b><br>
 Department of Computer Science<br>
 University of Bristol<br>
 </div>
