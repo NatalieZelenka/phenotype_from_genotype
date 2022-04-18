@@ -95,7 +95,6 @@ And genes are only a small part (1-2%) of our DNA{cite}`Pennisi2007-yv`, and the
 Beyond our DNA, there are many other aspects of our cellular and social environments that will have an effect on which parts of our genes are being actively used, and how much.
 This section provides an overview of our current scientific model for how DNA affects phenotype, so that we can identify the sources of information that we do have and can make use of.
 
-the following phenotypes in the ALSPAC cohort: `MP:0001501` *Abnormal Sleep Pattern* (measured using `FJCI250` *Sleep symptom score*), `MP:0001933` *Abnormal litter size* (measured by `mz010a` *Pregnancy size*), `MESH:D001259` *Ataxia* (measured by `kw2030` *Child ever thought to have a problem with clumsiness/coordination*), and `HP:0001249` *Intelligence/intellectual disability* (measured by `f8ws150` *Child had special needs*). 
 Despite what we don't know, this is also the moment when we have a unique hope to unravel some of these mysteries.
 We have openly available, expertly curated, databases containing the great collective knowledge of many experiments about our DNA, how it is being used, and what traits it affects.
 These databases are being filled at an alarming speed by researchers around the world with the advent of new technologies.
