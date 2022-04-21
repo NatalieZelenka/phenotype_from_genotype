@@ -6,7 +6,7 @@
 
 The low cost of sequencing means that databases of sequences have been expanding very rapidly in comparison to other information, which is much harder to determine.
 Computational predictive methods aim to predict structure or function from sequence in order to bridge this gap.
-Here I describe some of the challenges and methods in this space.
+Here I describe some of the challenges and methods in this space, many of which leverage the ontologies and databases described in the previous sections.
 
 (protein-classification-prediction)=
 ## Prediction tasks: Protein classification prediction
