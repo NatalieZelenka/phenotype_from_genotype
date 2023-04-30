@@ -1,4 +1,5 @@
 jupyter-book == 0.10.2
+sphinx >= 4
 jupytext
 sphinx-multitoc-numbering
 numba
