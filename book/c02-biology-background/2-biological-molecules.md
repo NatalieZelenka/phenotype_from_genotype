@@ -98,6 +98,7 @@ Splicing is part of the final processing step to create the finished product: a 
 During this step a gene could be transcribed into one of multiple transcripts, via a process known as *alternative splicing*.
 This can happen, for example, by skipping some of the exons during splicing. 
 So, a more accurate statement is "DNA makes RNA*s*": there's not a one-to-one relationship between genes and transcripts, and therefore the same is true between genes and proteins.
+These different but related versions of proteins which come from the same gene are known as *protein isoforms*.
 
 ```{margin} Epigenetic modifications
 :name: epigenetic-modifications
@@ -118,6 +119,9 @@ The second part of the central dogma is "RNA makes proteins" a.k.a. translation.
 Proteins were discovered independently from DNA and RNA. 
 They were named by Dutch chemist Gerardus Mulder in his 1839 paper{cite}`Mulder1839-rf`, where he found that all proteins from animals and plants have more or less the same elemental makeup -  approximately C<sub>400</sub>H<sub>620</sub>N<sub>100</sub>O<sub>120</sub>. 
 This intriguing result bolstered research in this area, eventually resulting in our current understanding of proteins as biological macromolecules composed of amino acids. 
+
+The fact that the sequence of amino acids was a code which precisely determined the three-dimensional structure of proteins was discovered by Christian Anfinsen and awarded the [1972 Nobel Prize](https://www.nobelprize.org/prizes/chemistry/1972/summary/). 
+This was achieved through a series of experiments, which for example, showed that a protein could be reduced to a string of amino acids, and then in the right conditions could refold to the exact original protein structure{cite}`anfinsen1961kinetics`.
 
 (what-is-translation)=
 Translation describes the process in which a string of amino acids is created based on the RNA sequence.
@@ -145,8 +149,9 @@ Different codons are not necessarily entirely equivalent, however, they can caus
 
 (protein-folding-problem)=
 ```{margin} The protein folding problem
-Amino acid strings reliably fold into globular protein structures, but we don't know exactly how or why and can't accurately predict what form a string of amino acids will take as a protein.
-Answering these related problems is known as the protein folding problem and has been one of the grandest challenges in biology for over half a century.
+Amino acid strings reliably fold into globular protein structures, but accurately predicting what form a sequence of amino acids will take as a protein is known as the protein folding problem and has been one of the grandest challenges in biology for over half a century.
+Recently, this challenge has been conquered by machine-learning techniques by DeepMind's AlphaFold algorithm{cite}`tunyasuvunakool2021highly`.
+
 ```
 
 Amino acid strings then fold reliably into 3-dimensional protein structures, sometimes with the help of other "chaperone" proteins.
@@ -166,5 +171,5 @@ If DNA is the blueprint for life, then proteins are what make up life.
 They are the material building blocks of our bodies, and they also have a vast number of other functions: they can be enzymes catalysing reactions, hormones controlling metabolism, transporters for other proteins, signalling proteins, they might be transcription factors (controlling the expression of genes), or have many other functions.
 
 In turn, these processes influence our phenotypes. 
-A phenotype can be something like the level of a certain hormone in the bloodstream, so in a very simple case, a different amino acid in a hormone protein could cause the protein to be expressed differently.
+A phenotype can be something like the level of a certain hormone in the bloodstream, so in a very simple case, a different amino acid in a hormone protein could cause the protein to be expressed or function differently.
 A phenotype could alternatively be something like height, which could have a number of genetic (and non-genetic) influences.

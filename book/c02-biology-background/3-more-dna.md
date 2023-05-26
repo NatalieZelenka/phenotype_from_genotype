@@ -21,7 +21,7 @@ Humans share 50% of their *protein-coding* dna with bananas, but only 1% of thei
 Still thinking big, we have the *exome* and the *proteome*. 
 Both of these refer to locations across the whole genome, but missing stretches in between.
 The exome describes the set of all exons (protein-coding nucleotides) across the genome. 
-The proteome is generally used to mean the set of all proteins in in an organism (which can be much larger than the set of genes due to {ref}`alternate splicing<alternative-splicing>`), but it can also be used to describe the part of the genome relating to the set of protein sequences.
+The proteome is generally used to mean the set of all proteins in an organism (which can be much larger than the set of genes due to {ref}`alternate splicing<alternative-splicing>`), but it can also be used to describe the part of the genome relating to the set of protein sequences.
 
 (omics)=
 ```{margin} Omics
@@ -50,8 +50,8 @@ However, the seemingly simple definition hides a lot of complexities: due to the
 ### "A gene for X"
 The word gene is often used as shorthand for "DNA that causes phenotypic differences" (for example in Richard Dawkin's best-seller "The Selfish Gene", and in news articles with titles of the form "Scientists have discovered a gene for...").
 However, there are multiple reasons why this is an incomplete and in some ways outdated understanding. 
-Single gene diseases do exist, however most of the time {ref}`the same gene can make multiple different proteins<alternative-splicing>`) which may not all cause phenotypic differences, the same protein can be involved in multiple different pathways and have multiple functions, and multiple proteins can contribute to one function. 
-Genes are also not guaranteed to cause phenotypic differences, and are not the only sections of DNA which can influence phenotype. 
+Single gene diseases do exist, however most of the time {ref}`the same gene can make multiple different final proteins (isoforms)<alternative-splicing>`) which may not all cause phenotypic differences, the same protein can be involved in multiple different pathways and have multiple functions, and multiple proteins can contribute to one function. 
+Genes are also not guaranteed to cause phenotypic differences, and are not the only sections/types of DNA which can influence phenotype. 
 Another complication is that genes can overlap, meaning that a single nucleotide mutation could impact on multiple genes.
 And finally, sometimes entirely different genes can create identical proteins after translation.
 
@@ -149,7 +149,8 @@ Some amino acids can be substituted without causing any difference to the functi
 ### Synonymous SNVs
 Synonymous SNVs occur where substituting the usual nucleotide with another results in the same amino acid. 
 The resulting protein will have the exact same functionality. 
-However, synonymous SNVs could still have an effect on high-level traits, since different nucleotides are translated at different speeds. 
+However, synonymous SNVs could still have an effect on high-level traits, since different nucleotides are translated at different speeds.
+This difference in translation speed has been shown to impact on both folding and abundance of proteins{cite}`kimchi2007silent`. 
 
 <!--
 [//]: # (TODO: Add a section about linkage disequalibrium/a mention of it ONLY if I have included it in Snowflake/Filter: From original:  Two alleles at given locations on the genome are in linkage disequilibrium when the association between them is more than would be expected at random. Linkage disequilibrium may occur between alleles even when there is no genetic linkage present, for example as a result of the presence of both alleles being selected for in a population.)

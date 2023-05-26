@@ -14,7 +14,12 @@ book/_build/.doctrees/
 *.Rproj
 .ipynb_checkpoints
 
+*.docx
+
 experiments/
 data/
 __pycache__/
 book/images/combining_funnel_interactive_files/
+
+# used to identify differences between GH Actions and local only:
+requirements-pigar.txt 
