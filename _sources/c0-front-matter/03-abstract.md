@@ -1,12 +1,13 @@
 # Abstract
 
-[//]: # (TODO: MAke sure all chapters are noted here, and none are there that don't feature)
 [//]: # (TODO: Add a zenodo reference to ontolopy, and cite it)
 
 The title of this thesis describes the ambitious scientific aim running through it: explaining the link between genotype and phenotype through molecular biology data.
-In our cells, proteins are constantly being created and are degrading, and are accumulating or interacting to produce the phenotypes that we see at a larger scale: height, levels of enzymes in blood, diseases.
+In our cells, proteins are constantly being created and are degrading.
+They are accumulating or interacting to produce the phenotypes that we see at a larger scale: height, levels of enzymes in blood, diseases.
 There are hidden molecular explanations for our phenotypes, and our proteins functions.
-The versions of the proteins that it is possible for an organism to produce are determined primarily by its protein-coding DNA, while the selection of possible proteins that are actively produced in each cell are determined by the environment of the particular cell at each time.
+The types of proteins that it is *possible* for an organism to produce are determined primarily by its protein-coding DNA.
+Meanwhile which of these possible proteins are *actively created* in each cell are determined by the environment of each cell at each time.
 The data about these molecules and their activity is our trail of breadcrumbs in the search for a molecular explanation for phenotype, and these data exist in computational biology's collection of large databases of community-sourced experimental and computational results.
 
 This thesis explores two main approaches for making and improving explanatory predictions of phenotype and protein function from genotype.

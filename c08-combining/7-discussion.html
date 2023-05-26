@@ -846,7 +846,7 @@ These samples represent <span class="pasted-text">38</span> different brain tiss
 </div></div></div>
 <p class="caption"><span class="caption-number">Fig. 8.6 </span><span class="caption-text">The breakdown of samples per source experiment in the brain tissue group.</span><a class="headerlink" href="#brain-design" title="Permalink to this image">¶</a></p>
 </div>
-<p>To illustrate the fact that the different sources do not agree on whether or not genes are expressed, I first chose a random subset of 1000 genes from the combined dataset, then normalised the counts into <abbr title="Tags Per Million">TPM</abbr> (using average transcript length from BioMart<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id275"><span>259</span></a>]</span>).
+<p>To illustrate the fact that the different sources do not agree on whether or not genes are expressed, I first chose a random subset of 1000 genes from the combined dataset, then normalised the counts into <abbr title="Tags Per Million">TPM</abbr> (using average transcript length from BioMart<span id="id1">[<a class="reference internal" href="../cz-end-matter/reference.html#id280"><span>264</span></a>]</span>).
 I then identified a TPM cutoff per experiment to reduce noise by graphing pairs of <em>cerebral cortex</em> samples in each experiment, looking for a threshold where like samples are not as similar as we would imagine.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -1087,7 +1087,7 @@ if (outputEl) {{
 </tr>
 </tbody>
 </table>
-<p>In <a class="reference internal" href="#choosing-tpm-cutoff"><span class="std std-numref">Fig. 8.7</span></a>, I am looking for thresholds above which the samples correlate more strongly, as well as nonlinear behaviour in the low TPMs in the bottom plots, as described here<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id276"><span>260</span></a>]</span>.
+<p>In <a class="reference internal" href="#choosing-tpm-cutoff"><span class="std std-numref">Fig. 8.7</span></a>, I am looking for thresholds above which the samples correlate more strongly, as well as nonlinear behaviour in the low TPMs in the bottom plots, as described here<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id281"><span>265</span></a>]</span>.
 I chose thresholds as shown in <a class="reference internal" href="#chosen-tpm-cutoffs"><span class="std std-numref">Table 8.2</span></a>.</p>
 <p>I then define “unexpressed” genes as genes which on average across samples in an experiment have a lower mean than this noise threshold, and calculated the genes that were unexpressed in brain samples from each experiment.
 Calculating the inter-rater reliability using Cohen’s Kappa (which adjusts for the probability of randomly rating samples the same way) between experiments reveals that there is moderate agreement between samples when using the per-experiment cut-offs chosen (see <a class="reference internal" href="#cohens-kappa-cutoffs"><span class="std std-numref">Fig. 8.8</span></a>).</p>
@@ -1253,16 +1253,16 @@ In this case, we could imagine mapping to two Uberon terms rather than defaultin
 This could be achieved partly with relative ease by using the ontological mapping between CL and Uberon.
 Improvement of the CL-Uberon mapping would then allow for a complete understanding of which cell types are in a tissue, but not their relative abundances.</p>
 <p><strong>Cell type deconvolution:</strong>
-In order to understand the relative abundances of cell types in each sample, a cell type deconvolution programme (e.g. CIBERSORT<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id76"><span>261</span></a>]</span>, BSEQ-sc<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id77"><span>262</span></a>]</span>, or MuSiC<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id78"><span>263</span></a>]</span>) could be used.
+In order to understand the relative abundances of cell types in each sample, a cell type deconvolution programme (e.g. CIBERSORT<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id81"><span>266</span></a>]</span>, BSEQ-sc<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id82"><span>267</span></a>]</span>, or MuSiC<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id83"><span>268</span></a>]</span>) could be used.
 These algorithms estimate percentages of cell types making up a tissue.
 This would require the input of a large scRNA-seq data set as input, and there doesn’t yet exist enough diversity to deconvolve all tissue types.
 As well as improving the mapping, this is likely to improve the quality and variety of batch effect correction methods available.</p>
 </div>
 <div class="section" id="batch-effect-removal">
 <span id="batch-effect-removal-future-work"></span><h3><span class="section-number">8.4.4.2. </span>Batch effect removal<a class="headerlink" href="#batch-effect-removal" title="Permalink to this headline">¶</a></h3>
-<p>Many popular batch-effect removal techniques (e.g. ComBat and ComBat-Seq<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id274"><span>264</span></a>]</span>) require a balanced experimental design, which this combined dataset does not have.
+<p>Many popular batch-effect removal techniques (e.g. ComBat and ComBat-Seq<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id279"><span>269</span></a>]</span>) require a balanced experimental design, which this combined dataset does not have.
 It is not clear, however, to what extent this may affect their performance.
-Some alternative methods are not as sensitive to this requirement, e.g. Mutual Nearest Neighbour (MNN)<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id79"><span>265</span></a>]</span>, which was developed for scRNA-seq data.
+Some alternative methods are not as sensitive to this requirement, e.g. Mutual Nearest Neighbour (MNN)<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id84"><span>270</span></a>]</span>, which was developed for scRNA-seq data.
 No batch-effect removal method is designed specifically for this kind of scenario, so it would be sensible to do a simulation study to test their suitability; some preliminary work towards this goal can be found in the <a class="reference internal" href="../cz-end-matter/0-appendix.html#simulation-appendix"><span class="std std-ref">appendix</span></a>.</p>
 </div>
 <div class="section" id="tissue-specific-vs-cell-specific">

@@ -743,16 +743,16 @@ Currently, Snowflake does not support the inclusion of dcGO supra-domain assignm
 </div>
 <div class="margin sidebar" id="choosing-dcgo-ontologies">
 <p class="sidebar-title">Incusion of the Mammalian Phenotype ontology</p>
-<p>The Mamalian Phenotype (MP) ontology<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id226"><span>176</span></a>]</span> is based on phenotypes seen in mice. While mice do have many anatomical and phenotypic similarities to humans, and are thus often used as models for human diseases, there are of course differences and some terms don’t directly translate or are likely to be defined differently for humans (e.g. <code class="docutils literal notranslate"><span class="pre">MP:0001933</span></code> <em>abnormal litter size</em> or <code class="docutils literal notranslate"><span class="pre">MP:0002068</span></code> <em>abnormal parental behaviour</em>) and have different mechanisms behind them.
+<p>The Mamalian Phenotype (MP) ontology<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id231"><span>181</span></a>]</span> is based on phenotypes seen in mice. While mice do have many anatomical and phenotypic similarities to humans, and are thus often used as models for human diseases, there are of course differences and some terms don’t directly translate or are likely to be defined differently for humans (e.g. <code class="docutils literal notranslate"><span class="pre">MP:0001933</span></code> <em>abnormal litter size</em> or <code class="docutils literal notranslate"><span class="pre">MP:0002068</span></code> <em>abnormal parental behaviour</em>) and have different mechanisms behind them.
 There are also many terms which do make sense for humans (e.g. <code class="docutils literal notranslate"><span class="pre">MP:0002166</span></code> <em>altered tumour susceptibility</em> or <code class="docutils literal notranslate"><span class="pre">MP:0011117</span></code> <em>abnormal susceptibility to weight gain</em>) and may represent interesting results. The suitability of MP terms must be considered term-by-term, but the terms were included in the human phenotype mapping file to increase coverage of both proteins and phenotypes.</p>
 </div>
 <p>The ontologies that contain interpretable phenotype terms for humans are:</p>
 <ul class="simple">
-<li><p>Disease Ontology<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id121"><span>173</span></a>]</span> (DO)</p></li>
-<li><p>Human Phenotype Ontology<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id187"><span>102</span></a>]</span> (HP)</p></li>
-<li><p>Gene Ontology<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id70"><span>96</span></a>]</span> (GO), specifically terms from the <code class="docutils literal notranslate"><span class="pre">biological_process</span></code> subontology.</p></li>
-<li><p>MEdical Subject Headings<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id231"><span>177</span></a>]</span>, (MESH) - on the dcGO website this is found under CTD diseases</p></li>
-<li><p>Mammalian Phenotype Ontology<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id226"><span>176</span></a>]</span> (MP)</p></li>
+<li><p>Disease Ontology<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id126"><span>178</span></a>]</span> (DO)</p></li>
+<li><p>Human Phenotype Ontology<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id192"><span>107</span></a>]</span> (HP)</p></li>
+<li><p>Gene Ontology<span id="id5">[<a class="reference internal" href="../cz-end-matter/reference.html#id75"><span>101</span></a>]</span> (GO), specifically terms from the <code class="docutils literal notranslate"><span class="pre">biological_process</span></code> subontology.</p></li>
+<li><p>MEdical Subject Headings<span id="id6">[<a class="reference internal" href="../cz-end-matter/reference.html#id236"><span>182</span></a>]</span>, (MESH) - on the dcGO website this is found under CTD diseases</p></li>
+<li><p>Mammalian Phenotype Ontology<span id="id7">[<a class="reference internal" href="../cz-end-matter/reference.html#id231"><span>181</span></a>]</span> (MP)</p></li>
 </ul>
 <p>Some of these ontologies aren’t designed only (or even primarily) for humans, but since they <a class="reference internal" href="#choosing-dcgo-ontologies"><span class="std std-ref">contain terms which are relevant to humans</span></a> and the associations are made based on protein domains found in human proteins, these ontologies were chosen.
 While dcGO supports many other ontologies (e.g. Zebrafish and Xenopus ontologies) based on protein domains that can be found in humans, I made the decision that the trade-off between the additional time needed to run the phenotype predictor and sift through the results of these ontology terms was not worth the increase in coverage gained from whichever of these terms were meaningful.</p>
@@ -951,7 +951,7 @@ This constrains the proteins and phenotypes which Snowflake can make predictions
 Although Snowflake has the functionality to be run with any background data set, the choice of data set is constrained since it must contain representative genetic data from from the entire population.</p>
 <div class="section" id="data-acquisition-the-1000-genomes-project">
 <span id="acquire-1000g"></span><h3><span class="section-number">4.3.2.1. </span>Data acquisition: the 1000 Genomes project<a class="headerlink" href="#data-acquisition-the-1000-genomes-project" title="Permalink to this headline">¶</a></h3>
-<p>The 1000 Genomes project<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id118"><span>170</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id137"><span>178</span></a>]</span> ran from 2008 to 2015, with the aim of comprehensively mapping common human genetic variation across diverse populations.
+<p>The 1000 Genomes project<span id="id8">[<a class="reference internal" href="../cz-end-matter/reference.html#id123"><span>175</span></a>,<a class="reference internal" href="../cz-end-matter/reference.html#id142"><span>183</span></a>]</span> ran from 2008 to 2015, with the aim of comprehensively mapping common human genetic variation across diverse populations.
 The project sequenced individuals whole genomes, and released data in two main phases:</p>
 <ul class="simple">
 <li><p>Phase 1: 37.9 million variants, in 1092 individuals, across 14 populations</p></li>
@@ -963,10 +963,10 @@ The project sequenced individuals whole genomes, and released data in two main p
 The alleles at each location are commonly stored in Variant Call Format (VCF) files; a much more compact format compared to storing the entire genome.
 VCF files describe the locations on the genome of variations between individuals, given by chromosome, position, variant identifiers (e.g. rsID), and then the calls at those locations for each individual.</p>
 </div>
-<p>Data from the 1000 Genomes project are always used for the background cohort to Snowflake, with data from the 1000 Genomes project Phase 3<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id118"><span>170</span></a>]</span> used as a default, and earlier experiments using data from Phase 1<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id137"><span>178</span></a>]</span>.
+<p>Data from the 1000 Genomes project are always used for the background cohort to Snowflake, with data from the 1000 Genomes project Phase 3<span id="id9">[<a class="reference internal" href="../cz-end-matter/reference.html#id123"><span>175</span></a>]</span> used as a default, and earlier experiments using data from Phase 1<span id="id10">[<a class="reference internal" href="../cz-end-matter/reference.html#id142"><span>183</span></a>]</span>.
 Here I describe the process of creating the phase 1 <a class="reference internal" href="#vcf-format"><span class="std std-ref">VCF</span></a> file (<code class="docutils literal notranslate"><span class="pre">1000G.vcf</span></code>), but the same process is followed to create the larger phase 3 VCF file (<code class="docutils literal notranslate"><span class="pre">2500G.vcf</span></code>).</p>
 <p>For both phases of the 1000 Genomes project, data are provided as VCF files for each chromosome.
-Both data sets are available through the <a class="reference external" href="https://www.internationalgenome.org/data">International Genome Sequencing Resource</a><span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id138"><span>179</span></a>]</span> (IGSR); phase 1 VCFs (GRCh37) can be downloaded via FTP at <code class="docutils literal notranslate"><span class="pre">ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/</span></code>, and phase 3 VCFs (GRCh37) can be downloaded at <code class="docutils literal notranslate"><span class="pre">ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/</span></code>.</p>
+Both data sets are available through the <a class="reference external" href="https://www.internationalgenome.org/data">International Genome Sequencing Resource</a><span id="id11">[<a class="reference internal" href="../cz-end-matter/reference.html#id143"><span>184</span></a>]</span> (IGSR); phase 1 VCFs (GRCh37) can be downloaded via FTP at <code class="docutils literal notranslate"><span class="pre">ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/</span></code>, and phase 3 VCFs (GRCh37) can be downloaded at <code class="docutils literal notranslate"><span class="pre">ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/</span></code>.</p>
 <p>After downloading these files, the per-chromosome VCF files were combined into one large VCF file (for all chromosomes).
 The <a class="reference internal" href="#creating-consequence-file"><span class="std std-ref">consequence</span></a> file must be created at this stage, before the final input VCF can be created.</p>
 </div>
@@ -974,7 +974,7 @@ The <a class="reference internal" href="#creating-consequence-file"><span class=
 <span id="final-bg-vcf"></span><h3><span class="section-number">4.3.2.2. </span>Create final input VCF<a class="headerlink" href="#create-final-input-vcf" title="Permalink to this headline">¶</a></h3>
 <p>In order to create the final input VCF, we must remove SNPs from the VCF file that are not in the consequence file.
 This reduces the file size dramatically, since many recorded SNPs are either synonymous, nonsense, non-coding or multi-allelic.
-The VCF file is then <a class="reference external" href="http://www.htslib.org/doc/tabix.html">Tabix</a>-indexed<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id265"><span>180</span></a>]</span>, which increases the speed of Snowflake.</p>
+The VCF file is then <a class="reference external" href="http://www.htslib.org/doc/tabix.html">Tabix</a>-indexed<span id="id12">[<a class="reference internal" href="../cz-end-matter/reference.html#id270"><span>185</span></a>]</span>, which increases the speed of Snowflake.</p>
 </div>
 </div>
 <div class="section" id="consequence-file">
@@ -990,7 +990,7 @@ It also contains the mapping between SNPs and proteins, and SNPs and domain arch
 <div class="section" id="run-the-variant-effect-predictor-tool">
 <span id="run-vep"></span><h3><span class="section-number">4.3.3.1. </span>Run the Variant Effect Predictor tool<a class="headerlink" href="#run-the-variant-effect-predictor-tool" title="Permalink to this headline">¶</a></h3>
 <p>In order to get a list of SNPs to input to FATHMM, we must first determine which SNPs in the background data are missense SNPs.
-This can be done using Ensembl’s <abbr title="Variant Effect Predictor">VEP</abbr> <a class="reference external" href="https://www.ensembl.org/info/docs/tools/vep/index.html">web tool</a><span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id56"><span>115</span></a>]</span>, which takes a VCF as input.
+This can be done using Ensembl’s <abbr title="Variant Effect Predictor">VEP</abbr> <a class="reference external" href="https://www.ensembl.org/info/docs/tools/vep/index.html">web tool</a><span id="id13">[<a class="reference internal" href="../cz-end-matter/reference.html#id61"><span>120</span></a>]</span>, which takes a VCF as input.
 This first 10 columns of the combined VCF file is used as input to VEP since only these columns are needed, and making the file smaller reduces processing time.</p>
 </div>
 <div class="section" id="query-fathmm-and-superfamily-for-the-snps-of-interest">
@@ -1214,7 +1214,7 @@ In practice, this will often be a much smaller number as for SNPs to be used the
 <li><p>within protein domains that exist in the dcGO mapping file in addition to the consequence file.</p></li>
 <li><p>a SNP where there is some variation between the background and input</p></li>
 </ul>
-<p>Like the VCF file, the Consequence file is the indexed with Tabix<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id265"><span>180</span></a>]</span> to increase Snowflake’s speed.</p>
+<p>Like the VCF file, the Consequence file is the indexed with Tabix<span id="id14">[<a class="reference internal" href="../cz-end-matter/reference.html#id270"><span>185</span></a>]</span> to increase Snowflake’s speed.</p>
 </div>
 </div>
 <div class="section" id="input-cohort">
@@ -1243,7 +1243,7 @@ To convert this compressed format to VCF, 23andMe provided a genotype snp map fi
 <span id="id16"></span><h3><span class="section-number">4.3.4.2. </span>Genome builds<a class="headerlink" href="#genome-builds" title="Permalink to this headline">¶</a></h3>
 <div class="margin sidebar" id="position-bed-format">
 <p class="sidebar-title">Position and BED formats</p>
-<p>The positions of the variants (SNPs) that are recorded can vary in format: essentially this comes down to a change in formatting, the fact that sometimes counting starts at 0, and sometimes it starts at 1, and sometimes ranges are closed on one side e.g. <code class="docutils literal notranslate"><span class="pre">chr1</span> <span class="pre">127140000</span> <span class="pre">127140001</span></code> in BED format is equivalent to <code class="docutils literal notranslate"><span class="pre">chr1:127140001-127140001</span></code> in “Position” format<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id84"><span>181</span></a>]</span>.</p>
+<p>The positions of the variants (SNPs) that are recorded can vary in format: essentially this comes down to a change in formatting, the fact that sometimes counting starts at 0, and sometimes it starts at 1, and sometimes ranges are closed on one side e.g. <code class="docutils literal notranslate"><span class="pre">chr1</span> <span class="pre">127140000</span> <span class="pre">127140001</span></code> in BED format is equivalent to <code class="docutils literal notranslate"><span class="pre">chr1:127140001-127140001</span></code> in “Position” format<span id="id17">[<a class="reference internal" href="../cz-end-matter/reference.html#id89"><span>186</span></a>]</span>.</p>
 </div>
 <p>The files currently generated for snowflake use the GRC37 (hg19) human genome build.
 This is the version that is currently supported by FATHMM, 23andMe, and phase 1 of 1000G.</p>

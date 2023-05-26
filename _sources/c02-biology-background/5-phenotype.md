@@ -63,3 +63,20 @@ Many disabled people do not want cures for their disabilities{cite}`Pulrang2019-
 Another concern is that people may accidentally find out about phenotypes that they are predisposed to that they do not wish to know about.
 This is particularly worrying if there are not any existing preventative/proactive measures to avoid a future diagnosis, and if they are not be able to access genetic counselling. 
 For example, 23andMe have a system whereby you must opt-in to viewing reports about your health for some illnesses.
+
+(the-future-comp-bio)=
+## The future computational biologists want
+
+The eventual destination of this field is a full understanding of how our individual genomes and their interaction with the environment affects us. 
+With this understanding, we would anticipate a much wider application of both personalised medicine and gene therapies.
+These therapies are not yet a common occurrence: the eleven approved cell and gene therapies come from a pool of such 500 clinical trials{cite}`Cynober2020-rx`.
+
+Perhaps it makes sense that we are not finding drug targets quickly, as we still don't know the functionality of approximately 20% of human genes{cite}`Le_Page2019-hc`.
+And genes are only a small part (1-2%) of our DNA{cite}`Pennisi2007-yv`, and the part we understand best.
+Beyond our DNA, there are many other aspects of our cellular and social environments that will have an effect on which parts of our genes are being actively used, and how much.
+This section provides an overview of our current scientific model for how DNA affects phenotype, so that we can identify the sources of information that we do have and can make use of.
+
+Despite what we don't know, this is also the moment when we have a unique hope to unravel some of these mysteries.
+We have openly available, expertly curated, databases containing the great collective knowledge of many experiments about our DNA, how it is being used, and what traits it affects.
+These databases are being filled at an alarming speed by researchers around the world with the advent of new technologies.
+Perhaps it is now possible to begin to synthesise some of this collective knowledge into a fuller understanding of complex traits.

@@ -714,7 +714,7 @@ We also discuss individuals’ genomes in relation to the difference between the
 <p>Still thinking big, we have the <em>exome</em> and the <em>proteome</em>.
 Both of these refer to locations across the whole genome, but missing stretches in between.
 The exome describes the set of all exons (protein-coding nucleotides) across the genome.
-The proteome is generally used to mean the set of all proteins in in an organism (which can be much larger than the set of genes due to <a class="reference internal" href="2-biological-molecules.html#alternative-splicing"><span class="std std-ref">alternate splicing</span></a>), but it can also be used to describe the part of the genome relating to the set of protein sequences.</p>
+The proteome is generally used to mean the set of all proteins in an organism (which can be much larger than the set of genes due to <a class="reference internal" href="2-biological-molecules.html#alternative-splicing"><span class="std std-ref">alternate splicing</span></a>), but it can also be used to describe the part of the genome relating to the set of protein sequences.</p>
 <div class="margin sidebar" id="omics">
 <p class="sidebar-title">Omics</p>
 <p>As well as genomics (the science of genomes) and proteomics (proteins), there is also transcriptomics (transcripts),  metabolomics (metabolites, e.g. sugars, lipids, etc).
@@ -738,8 +738,8 @@ However, the seemingly simple definition hides a lot of complexities: due to the
 <span id="gene-for-x"></span><h3><span class="section-number">2.3.3.1. </span>“A gene for X”<a class="headerlink" href="#a-gene-for-x" title="Permalink to this headline">¶</a></h3>
 <p>The word gene is often used as shorthand for “DNA that causes phenotypic differences” (for example in Richard Dawkin’s best-seller “The Selfish Gene”, and in news articles with titles of the form “Scientists have discovered a gene for…”).
 However, there are multiple reasons why this is an incomplete and in some ways outdated understanding.
-Single gene diseases do exist, however most of the time <a class="reference internal" href="2-biological-molecules.html#alternative-splicing"><span class="std std-ref">the same gene can make multiple different proteins</span></a>) which may not all cause phenotypic differences, the same protein can be involved in multiple different pathways and have multiple functions, and multiple proteins can contribute to one function.
-Genes are also not guaranteed to cause phenotypic differences, and are not the only sections of DNA which can influence phenotype.
+Single gene diseases do exist, however most of the time <a class="reference internal" href="2-biological-molecules.html#alternative-splicing"><span class="std std-ref">the same gene can make multiple different final proteins (isoforms)</span></a>) which may not all cause phenotypic differences, the same protein can be involved in multiple different pathways and have multiple functions, and multiple proteins can contribute to one function.
+Genes are also not guaranteed to cause phenotypic differences, and are not the only sections/types of DNA which can influence phenotype.
 Another complication is that genes can overlap, meaning that a single nucleotide mutation could impact on multiple genes.
 And finally, sometimes entirely different genes can create identical proteins after translation.</p>
 <p>The interaction between DNA, RNA and proteins, and the environment is also important to consider.
@@ -761,12 +761,12 @@ Despite this, it is also possible that genes are not inherited “in one piece�
 For example <a class="reference internal" href="#transposable-elements"><span class="std std-ref">“jumping genes”</span></a> and <a class="reference internal" href="#psuedogenes"><span class="std std-ref">pseudogenes</span></a> are both important parts of the human genome, which may effect phenotype, but not via proteins.</p>
 <div class="margin sidebar" id="transposable-elements">
 <p class="sidebar-title">Transposable Elements</p>
-<p>Transposable elements a.k.a. transposons or “jumping genes” are sections of DNA that move from one section of the genome to another. Their similarity with genes only extends as far as the fact that they are stretches of DNA. Despite making up 50% of the human genome, they only rarely overlap with protein-coding genes<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id232"><span>30</span></a>]</span>. The vast majority of human transposons are <em>silent</em>, i.e. are incapable or prevented from moving.</p>
+<p>Transposable elements a.k.a. transposons or “jumping genes” are sections of DNA that move from one section of the genome to another. Their similarity with genes only extends as far as the fact that they are stretches of DNA. Despite making up 50% of the human genome, they only rarely overlap with protein-coding genes<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id237"><span>30</span></a>]</span>. The vast majority of human transposons are <em>silent</em>, i.e. are incapable or prevented from moving.</p>
 </div>
 <div class="margin sidebar" id="psuedogenes">
 <p class="sidebar-title">Pseudogenes</p>
 <p>Pseduogenes are segments of DNA that look like genes (have high homology to known genes), but are missing some functionality such that they do not encode proteins. Some pseudogenes cannot be transcribed (e.g. due to missing regulatory regions), and some are transcribed, but not translated (e.g. due to a premature stop codon).
-Although they were originally characterised as non-functional, they have been found to have biological roles, for example through being transcribed into functional RNAs<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id203"><span>31</span></a>]</span>.</p>
+Although they were originally characterised as non-functional, they have been found to have biological roles, for example through being transcribed into functional RNAs<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id208"><span>31</span></a>]</span>.</p>
 </div>
 <p id="genes-enhancers-promoters">In addition, there are also stretches of DNA that are of interest in relation to genes: enhancers, silencers, insulators, and promoters.
 These are stretches of DNA that control the regulation of specific gene’s transcription.
@@ -821,7 +821,8 @@ Some amino acids can be substituted without causing any difference to the functi
 <span id="synonymous"></span><h3><span class="section-number">2.3.6.2. </span>Synonymous SNVs<a class="headerlink" href="#synonymous-snvs" title="Permalink to this headline">¶</a></h3>
 <p>Synonymous SNVs occur where substituting the usual nucleotide with another results in the same amino acid.
 The resulting protein will have the exact same functionality.
-However, synonymous SNVs could still have an effect on high-level traits, since different nucleotides are translated at different speeds.</p>
+However, synonymous SNVs could still have an effect on high-level traits, since different nucleotides are translated at different speeds.
+This difference in translation speed has been shown to impact on both folding and abundance of proteins<span id="id4">[<a class="reference internal" href="../cz-end-matter/reference.html#id5"><span>32</span></a>]</span>.</p>
 <!--
 [//]: # (TODO: Add a section about linkage disequalibrium/a mention of it ONLY if I have included it in Snowflake/Filter: From original:  Two alleles at given locations on the genome are in linkage disequilibrium when the association between them is more than would be expected at random. Linkage disequilibrium may occur between alleles even when there is no genetic linkage present, for example as a result of the presence of both alleles being selected for in a population.)
 -->

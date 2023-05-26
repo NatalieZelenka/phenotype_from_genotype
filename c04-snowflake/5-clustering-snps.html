@@ -840,9 +840,9 @@ simulate_genotypes(1000, num_individuals)
 </div>
 <div class="figure align-default" id="clustering-comparison">
 <a class="reference internal image-reference" href="../_images/clustering_comparison.png"><img alt="../_images/clustering_comparison.png" src="../_images/clustering_comparison.png" style="height: 220px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Comparison illustrating differences between the implemented clustering methods. Image adapted from sklearn documentation<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id127"><span>184</span></a>]</span>.</span><a class="headerlink" href="#clustering-comparison" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Comparison illustrating differences between the implemented clustering methods. Image adapted from sklearn documentation<span id="id2">[<a class="reference internal" href="../cz-end-matter/reference.html#id132"><span>189</span></a>]</span>.</span><a class="headerlink" href="#clustering-comparison" title="Permalink to this image">¶</a></p>
 </div>
-<p>The original implementation of the phenotype predictor used k-means clustering<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id126"><span>185</span></a>]</span>.
+<p>The original implementation of the phenotype predictor used k-means clustering<span id="id3">[<a class="reference internal" href="../cz-end-matter/reference.html#id131"><span>190</span></a>]</span>.
 This wasn’t suitable for the predictor, since we expect combinations of SNPs to form non-spherical shapes (see <a class="reference internal" href="#non-spherical"><span class="std std-numref">Fig. 4.7</span></a>), and k-means cannot achieve this (see <a class="reference internal" href="#clustering-comparison"><span class="std std-numref">Fig. 4.8</span></a>).</p>
 <p>Spectral clustering, DBSCAN (Density-Based Spatial Clustering of Applications with Noise), IDOS, OPTICS and LOF (Local Outlier Factor) were also implemented.
 This involved automation of parameter selection, to enable clustering to be performed automatically on thousands of phenotype terms.
