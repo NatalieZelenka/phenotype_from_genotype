@@ -100,6 +100,10 @@ In {numref}`tbl:over-many-terms`, we can see that these terms are either Compari
 ## Requested phenotypes for validation
 [//]: # (TODO: Mapping phenotypes to ALSPAC measurements. Write - was done by hand using the ALSPAC catalogue)
 
+the following phenotypes in the ALSPAC cohort: `MP:0001501` *Abnormal Sleep Pattern* (measured using `FJCI250` *Sleep symptom score*), `MP:0001933` *Abnormal litter size* (measured by `mz010a` *Pregnancy size*), `MESH:D001259` *Ataxia* (measured by `kw2030` *Child ever thought to have a problem with clumsiness/coordination*), and `HP:0001249` *Intelligence/intellectual disability* (measured by `f8ws150` *Child had special needs*). 
+
+
+
 ### Distribution of phenotype scores
 
 ### Chosen phenotypes

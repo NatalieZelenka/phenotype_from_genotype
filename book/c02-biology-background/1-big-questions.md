@@ -82,20 +82,3 @@ Watson's has publicly asserted that he believes differences in average measured 
 We now have thousands of human genomes to investigate, and the promises of gene therapies and personalised medicine are now beginning to become reality. 
 At the time of writing, there are eleven cell and gene therapies approved by the European Medicines Agency{cite}`Cynober2020-rx`, which treat a variety of cancers, as well as Crohn's disease, and eye and cartilage problems. 
 In addition, the first personalised genomic medicine chemotherapy treatment is now available on the NHS, for cancer patients with the allele of the [DYPD](https://www.genecards.org/cgi-bin/carddisp.pl?gene=DPYD) gene that cause slower breakdown of chemotherapy toxins{cite}`Guardian_staff_reporter2020-lb`.
-
-(the-future-comp-bio)=
-## The future computational biologists want
-
-The eventual destination of this field is a full understanding of how our individual genomes and their interaction with the environment affects us. 
-With this understanding, we would anticipate a much wider application of both personalised medicine and gene therapies.
-These therapies are not yet a common occurrence: the eleven approved cell and gene therapies come from a pool of such 500 clinical trials{cite}`Cynober2020-rx`.
-
-Perhaps it makes sense that we are not finding drug targets quickly, as we still don't know the functionality of approximately 20% of human genes{cite}`Le_Page2019-hc`.
-And genes are only a small part (1-2%) of our DNA{cite}`Pennisi2007-yv`, and the part we understand best.
-Beyond our DNA, there are many other aspects of our cellular and social environments that will have an effect on which parts of our genes are being actively used, and how much.
-This section provides an overview of our current scientific model for how DNA affects phenotype, so that we can identify the sources of information that we do have and can make use of.
-
-Despite what we don't know, this is also the moment when we have a unique hope to unravel some of these mysteries.
-We have openly available, expertly curated, databases containing the great collective knowledge of many experiments about our DNA, how it is being used, and what traits it affects.
-These databases are being filled at an alarming speed by researchers around the world with the advent of new technologies.
-Perhaps it is now possible to begin to synthesise some of this collective knowledge into a fuller understanding of complex traits.
